@@ -1,0 +1,17 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: Hi there, cowboy
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: text
+  output_object: null
+  output_tools: []
+  prompted_output_template: null

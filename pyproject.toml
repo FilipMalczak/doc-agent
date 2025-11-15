@@ -1,0 +1,34 @@
+[project]
+name = "docassist"
+version = "0.1.0"
+description = "Documentation assistant using as small a LLM as you can."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+dependencies = [
+    "pydantic-ai>=1.18.0",
+    "python-dotenv",
+]
+
+
+[project.scripts]
+docassist = "app:main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*", "test*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-html>=4.1.1",
+]
+
+[tool.pytest.ini_options]
+# Produce both human-readable and machine-readable reports
+addopts = "--html=report.html --self-contained-html --junitxml=report.xml"
+
