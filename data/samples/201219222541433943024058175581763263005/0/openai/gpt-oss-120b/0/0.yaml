@@ -1,0 +1,47 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to respond with Markdown, not a yaml code block. The content should
+    be plain Markdown, perhaps showing the file content in a code block. The initial
+    user gave a test file; we should perhaps present the file content as a markdown
+    code block with language python.
+
+
+    So respond with markdown code block, containing the file content. Ensure double
+    quotes already. No extra yaml.
+
+
+    Let''s output:
+
+
+    ```python
+
+    ...content...
+
+    ```'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "```python\nimport pytest\nfrom pip_outdated.check_outdated import get_pypi_versions\n\
+    from pip_outdated.session import get_session\n\n@pytest.mark.asyncio\nasync def\
+    \ test_pytz():\n    async with get_session() as session:\n        await get_pypi_versions(\"\
+    pytz\", session)\n```"
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576176-tgY9DuGdlZdxfcpjSCNa
+run_id: null
+timestamp: '2025-11-19T18:16:16Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 304
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 720
+  output_audio_tokens: 0
+  output_tokens: 160

@@ -1,0 +1,64 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to take the user content, which is a test file. As a note taker,
+    we need to output notes? The task is "None". The system says to output with formatting
+    rules, but no specific schema. Probably we should output the given content as
+    a note: maybe parse the test content and note key points. Provide summary? The
+    persona is note taker. So we should create notes about this test: what it does,
+    expectations, files, etc. Use markdown bullet points. Also ensure strings use
+    double quotes, etc. Provide YAML? Not sure. Probably produce a in markdown summarizing
+    the test contents.
+
+
+    We''ll output something like:
+
+
+    - Path: tests/test_parse_cfg.py
+
+    - Language: Python
+
+    - Purpose: test parse_cfg function.
+
+    - Steps...
+
+    - Expected result...
+
+
+    Will follow formatting rules: double quotes for strings. Use markdown bullet points
+    hyphen style.
+
+
+    Let''s do that.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "- **File**: `\"tests/test_parse_cfg.py\"`\n- **Language**: `\"python\"\
+    `\n- **Test purpose**: Verify that `parse_cfg` correctly extracts package names\
+    \ from a `setup.cfg` file.\n- **Test steps**:\n  1. Create a temporary `setup.cfg`\
+    \ file containing:\n     - `[options]` section with `setup_requires` and `install_requires`\
+    \ entries.\n     - `[options.extras_require]` section with a `docs` extra.\n \
+    \ 2. Call `parse_cfg` with the temporary file\u2019s path.\n  3. Collect the `name`\
+    \ attribute of each requirement returned.\n  4. Assert that the collected names\
+    \ match the expected list.\n- **Expected package names (in order)**:\n  - `\"\
+    setuptools_scm\"`\n  - `\"setuptools_scm_git_archive\"`\n  - `\"ansible\"`\n \
+    \ - `\"ansible-lint\"`\n  - `\"alabaster\"`\n  - `\"Sphinx\"`"
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576124-Wlz6jGy3vvuDlcwjVf0x
+run_id: null
+timestamp: '2025-11-19T18:15:24Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 304
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 508
+  output_audio_tokens: 0
+  output_tokens: 394

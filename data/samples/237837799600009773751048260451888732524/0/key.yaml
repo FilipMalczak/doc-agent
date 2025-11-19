@@ -1,0 +1,92 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden</hallucinations>\n  <invent_data>forbidden</invent_data>\n\
+      \  <modify_content>only structure and wording, never meaning</modify_content>\n\
+      \  <modify_formatting>allowed, as long as other constraints and rules satisfied</modify_formatting>\n\
+      \  <match_output_schema>required if schema available</match_output_schema>\n\
+      \  <match_output_format>required if `format.output` available</match_output_format>\n\
+      </constraints>\n<persona>note taker</persona>\n<task>None</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<path>tests/test_pytz.py</path>\n<language>python</language>\n<type>test</type>\n\
+      <content>\nimport pytest\nfrom pip_outdated.check_outdated import get_pypi_versions\n\
+      from pip_outdated.session import get_session\n\n@pytest.mark.asyncio\nasync\
+      \ def test_pytz():\n    async with get_session() as session:\n        await\
+      \ get_pypi_versions(\"pytz\", session)\n    \n\n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'The user gave a test file content. They probably want us to format or
+      maybe fix editing? The instruction: we are note taker. No explicit request.
+      Likely we need to output the same content formatted according to formatting
+      rules, maybe as yaml? The meta says match output schema if provided, but none
+      given. Probably just return the content? The system: we are note taker, but
+      no task. Could be to rewrite file? The developer message is blank.
+
+
+      Probably must output the content as a note? Since you are a note taker, you
+      might output a summary? Might ask to rename? The instruction "task: None" means
+      no specific operation. Usually we just echo something? I think we should just
+      output the file content unchanged, but ensure formatting rules: double quotes
+      for strings, but the code uses double quotes already. No modifications needed.
+
+
+      We''ll output maybe as a code block with same content.'
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "```yaml\npath: \"tests/test_pytz.py\"\nlanguage: \"python\"\ntype: \"\
+      test\"\ncontent: |\n  import pytest\n  from pip_outdated.check_outdated import\
+      \ get_pypi_versions\n  from pip_outdated.session import get_session\n\n  @pytest.mark.asyncio\n\
+      \  async def test_pytz():\n      async with get_session() as session:\n    \
+      \      await get_pypi_versions(\"pytz\", session)\n```"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1763576126-AAFAxnNAj8PFL8YFgpyy
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-11-19T18:15:26Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 304
+    cache_write_tokens: 0
+    details: {}
+    input_audio_tokens: 0
+    input_tokens: 401
+    output_audio_tokens: 0
+    output_tokens: 292
+- instructions: null
+  kind: request
+  parts:
+  - content: You should respond with Markdown! You replied with Markdown code block
+      of yaml instead!
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_7fd629f89aa6405c9442e136389260bf
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: text
+  output_object: null
+  output_tools: []
+  prompted_output_template: null

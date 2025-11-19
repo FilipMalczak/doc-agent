@@ -1,0 +1,58 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The response must be markdown, not code block? The instruction says respond
+    with markdown. Actually we need to output markdown, not just code block? It says
+    "You should respond with Markdown! You replied with Markdown code block of python
+    instead!" So need to output markdown, but code block is fine markdown? Perhaps
+    they want plain markdown text, fenced code. Provide markdown text describing file.
+    So output something like:
+
+
+    **File: tests/__init__.py**
+
+
+    ```
+
+    ...
+
+    ```
+
+
+    But they said no code block? They said we replied with markdown code block of
+    python, which is markdown. But maybe they want plain text. Let''s output markdown
+    with description and then code block? Hmm.
+
+
+    Probably they want the answer to be markdown, not JSON. Already responded with
+    markdown. But error says code block of python. That is still markdown. Maybe they
+    want not to specify language? Use generic code block without language.
+
+
+    I''ll output markdown with a generic code block.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "**File:** `tests/__init__.py`\n\n``` \n\"\"\"\nPackage initialization\
+    \ for the ``tests`` module.\n\nThis file intentionally remains minimal; it exists\
+    \ to designate the\n``tests`` directory as a Python package, enabling relative\
+    \ imports\nwithin the test suite.\n\"\"\"\n```"
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576121-u1y7loI1DlGaos6l2C9d
+run_id: null
+timestamp: '2025-11-19T18:15:21Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 64
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 604
+  output_audio_tokens: 0
+  output_tokens: 256

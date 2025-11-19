@@ -173,14 +173,14 @@ class Hasher(Protocol):
     def hash[T](self, subject: T) -> int: ...
 
 class SHA1OfJsonTrimmed(Hasher):
-    def __init__(self, l: int = 8):
+    def __init__(self, l: int = 32):
         self._l = l
 
     def hash[T: BaseModel](self, subject: T) -> int:
         txt = json.dumps(subject.model_dump(mode="json"), sort_keys=True)
         b = txt.encode("utf-8")
         sha1_hash = hashlib.sha1(b)
-        return int(sha1_hash.hexdigest()[-self._l], 16)
+        return int(sha1_hash.hexdigest()[-self._l:], 16)
 
 class FSGroupFactory(SampleGroupFactory):
     def __init__(self,  base_dir: Path, fsio: FSIO | None = None, hasher: Hasher | None = None):

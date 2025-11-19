@@ -1,0 +1,48 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The system says: "You should respond with Markdown! You replied with Markdown
+    code block of python instead!" So they expect something else? Possibly they want
+    a full markdown document, not just a code block. Maybe the output should be a
+    markdown formatted note, including description, not just a code block.
+
+
+    The instruction: persona is note taker. Probably they want a markdown note summarizing
+    the file. The feedback indicates that just a code block is not enough; need plain
+    markdown content (with maybe some text and then code block). So we need to wrap
+    the code block inside a markdown document, with maybe a header.
+
+
+    Thus respond with markdown: a heading like "Test file: tests/test_pytz.py" then
+    the code block.
+
+
+    Let''s do that.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "# Test File: `tests/test_pytz.py`\n\nThis test uses **pytest** and the\
+    \ asynchronous capabilities of the `pip_outdated` package to verify that the `get_pypi_versions`\
+    \ function works for the `pytz` package.\n\n```python\nimport pytest\nfrom pip_outdated.check_outdated\
+    \ import get_pypi_versions\nfrom pip_outdated.session import get_session\n\n@pytest.mark.asyncio\n\
+    async def test_pytz():\n    async with get_session() as session:\n        await\
+    \ get_pypi_versions(\"pytz\", session)\n```"
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576177-g1TGx1PgNhZoDW8M0QgU
+run_id: null
+timestamp: '2025-11-19T18:16:17Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 304
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 911
+  output_audio_tokens: 0
+  output_tokens: 279

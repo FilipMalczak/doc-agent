@@ -1,0 +1,91 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden</hallucinations>\n  <invent_data>forbidden</invent_data>\n\
+      \  <modify_content>only structure and wording, never meaning</modify_content>\n\
+      \  <modify_formatting>allowed, as long as other constraints and rules satisfied</modify_formatting>\n\
+      \  <match_output_schema>required if schema available</match_output_schema>\n\
+      \  <match_output_format>required if `format.output` available</match_output_format>\n\
+      </constraints>\n<persona>note taker</persona>\n<task>None</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<path>pip_outdated/__main__.py</path>\n<language>python</language>\n\
+      <type>code</type>\n<content>\nif __name__ == \"__main__\":\n    from . import\
+      \ main\n    main()\n\n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "The user gives a file path and content. As note taker, likely they want\
+      \ a note or summary? The system says persona: note taker, task: None. Probably\
+      \ they want to capture this snippet as notes, maybe in a YAML format? The output\
+      \ format unspecified. There's no schema given. So perhaps just produce a note\
+      \ summarizing the code.\n\nWe need to follow formatting_rules: double quotes\
+      \ for strings, bullet lists hyphen style, empty values omitted. Provide notes.\n\
+      \nI'll output something like:\n\n```yaml\nfile: pip_outdated/__main__.py\nlanguage:\
+      \ python\ndescription: |\n  This is the entry point for the pip_outdated package.\
+      \ When executed as a script,\n  it imports the `main` function from the package's\
+      \ top-level module and runs it.\nnotes:\n  - Uses the `if __name__ == \"__main__\"\
+      :` guard.\n  - Performs a relative import of `main` from the same package.\n\
+      \  - Executes `main()` as the script's entry point.\n```\n\nMake sure strings\
+      \ double quotes. Keys double quoted? YAML keys can be unquoted but we can keep.\n\
+      \nWill follow rules."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "```yaml\nfile: \"pip_outdated/__main__.py\"\nlanguage: \"python\"\n\
+      description: |\n  This module serves as the executable entry point for the **pip_outdated**\
+      \ package.\n  When the module is run directly (e.g., `python -m pip_outdated`),\
+      \ it imports the\n  `main` function from the package's top\u2011level namespace\
+      \ and invokes it.\nnotes:\n  - Uses the `if __name__ == \"__main__\":` guard\
+      \ to ensure the code runs only when\n    executed as a script.\n  - Performs\
+      \ a relative import (`from . import main`) to keep the package\n    self\u2011\
+      contained.\n  - Calls `main()` as the sole action of the script.\n```"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1763576061-KkQ5cSLa3nFvL5DDGxa9
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-11-19T18:14:21Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 304
+    cache_write_tokens: 0
+    details: {}
+    input_audio_tokens: 0
+    input_tokens: 357
+    output_audio_tokens: 0
+    output_tokens: 394
+- instructions: null
+  kind: request
+  parts:
+  - content: You should respond with Markdown! You replied with Markdown code block
+      of yaml instead!
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_73865c788a054395ad13d1dde83729cb
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: text
+  output_object: null
+  output_tools: []
+  prompted_output_template: null

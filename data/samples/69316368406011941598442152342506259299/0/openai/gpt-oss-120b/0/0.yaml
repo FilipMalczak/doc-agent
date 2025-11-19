@@ -1,0 +1,73 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to take this content and likely produce notes? The persona is
+    note taker. No specific output format given. Probably we need to summarize key
+    points. The system gave formatting rules but no schema. So we can produce a summary
+    in maybe bullet points. Use double quotes for strings if any, but not necessary.
+
+
+    We''ll produce a structured notes: Title, Badges, Description, Installation, Usage,
+    Options, Examples, Todos, Changelog (list). Use markdown bullet points as per
+    formatting rules.
+
+
+    Let''s produce.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "**pip\u2011outdated \u2013 Quick Reference Notes**\n\n---  \n\n### Overview\n\
+    - **Purpose**: Detect outdated, missing, or incompatible packages in `requirements.txt`\
+    \ or `setup.cfg`.\n- **How it works**: Compares installed package versions against\
+    \ the version specifiers defined in the dependency files.  \n- **Alternative**:\
+    \ For a simple list of updatable packages, use `pip list --outdated`.\n\n--- \
+    \ \n\n### Badges  \n\n- **Build status**: ![Travis CI](https://travis-ci.com/eight04/pip-outdated.svg?branch=master)\
+    \  \n- **Test coverage**: ![Codecov](https://codecov.io/gh/eight04/pip-outdated/branch/master/graph/badge.svg)\
+    \  \n\n---  \n\n### Installation  \n\n```bash\npip install pip-outdated\n```\n\
+    \n---  \n\n### Command\u2011line Usage  \n\n```text\nusage: pip-outdated [-h]\
+    \ [-v] [-q] [<file> [<file> ...]]\n\nFind outdated dependencies in your requirements.txt\
+    \ or setup.cfg.\n\npositional arguments:\n  <file>         Read dependencies from\
+    \ requirements files. Accepts glob\n                 patterns. (default: ['requirements.txt',\
+    \ 'setup.cfg'])\n\noptional arguments:\n  -h, --help     Show this help message\
+    \ and exit.\n  -v, --verbose  Print verbose information. (default: False)\n  -q,\
+    \ --quiet    Don't exit with code 1 when not everything is up\u2011to\u2011date.\n\
+    \                 (default: False)\n```\n\n#### Examples  \n\n- **Multiple requirement\
+    \ files**  \n\n  ```bash\n  pip-outdated *-requirements.txt\n  ```\n\n- **All\
+    \ files under a directory**  \n\n  ```bash\n  pip-outdated requirements/*.txt\n\
+    \  ```\n\n---  \n\n### TODOs (Future Enhancements)  \n\n- Add an option to automatically\
+    \ update packages.  \n- Add an option to rewrite `requirements.txt` / `setup.cfg`\
+    \ with the latest versions.  \n- Add a global list option (e.g., `-g, --global`)\
+    \ to list *all* installed packages.\n\n---  \n\n### Changelog Highlights  \n\n\
+    - **0.8.0 (Aug\u202F9\u202F2025)**\n  - Dropped `setuptools` dependency; switched\
+    \ to `configparse` for `setup.cfg` parsing.\n\n- **0.7.0 (Aug\u202F13\u202F2024)**\n\
+    \  - Ignored `InvalidVersion` errors.\n\n- **0.6.0 (Jan\u202F1\u202F2023)**\n\
+    \  - Updated dependencies.\n  - Removed `cchardet`.\n  - Fetched package versions\
+    \ via the `pip` CLI for accurate venv detection.\n\n- **0.5.0 (Jan\u202F12\u202F\
+    2022)**\n  - Bumped dependencies.\n  - Added type hints.\n\n- **0.4.0 (Jan\u202F\
+    30\u202F2020)**\n  - **Breaking change**: Minimum Python version now 3.7.\n  -\
+    \ Added parallel requests.\n  - Introduced `--quiet` flag.\n\n- **0.3.0 (Oct\u202F\
+    13\u202F2019)**\n  - **Breaking change**: Exit code\u202F1 when any dependency\
+    \ is not up\u2011to\u2011date.\n  - Fixed: Do not check pre\u2011releases.\n \
+    \ - Added support for `setup_requires` and `extras_require` in `setup.cfg`.\n\n\
+    - **0.2.0 (Feb\u202F10\u202F2019)**\n  - Updated core dependencies:\n    - `colorama@0.4.x`\n\
+    \    - `packaging@19.x`\n    - `requests@2.x`\n    - `termcolor@1.x`\n    - `terminaltables@3.x`\n\
+    \n- **0.1.0 (May\u202F12\u202F2018)**\n  - Initial release.  "
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576056-y47j2jo8a4YBZiDalFx1
+run_id: null
+timestamp: '2025-11-19T18:14:16Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 64
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 1095
+  output_audio_tokens: 0
+  output_tokens: 903

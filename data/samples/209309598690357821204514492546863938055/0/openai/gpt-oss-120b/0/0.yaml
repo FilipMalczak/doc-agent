@@ -1,0 +1,51 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to respond with markdown, include code block for python. Already
+    did. But maybe they want full markdown answer, not just code block? The instruction:
+    respond with Markdown. Our answer is markdown containing a code block. That''s
+    fine. But perhaps need to include description? Already includes docstring.
+
+
+    But maybe need to output just file content, no extra text. It''s okay.
+
+
+    Let''s provide markdown with the code block.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: '```python
+
+    """
+
+    Package initialization for the ``tests`` module.
+
+
+    This file intentionally remains minimal; it exists to designate the
+
+    ``tests`` directory as a Python package, enabling relative imports
+
+    within the test suite.
+
+    """
+
+    ```'
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763576103-fMaClSC4e1S7vXw4DQRW
+run_id: null
+timestamp: '2025-11-19T18:15:03Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 304
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 604
+  output_audio_tokens: 0
+  output_tokens: 139
