@@ -59,7 +59,8 @@ note_taker = Agent(
             context="you're reading the whole project for the first time; you need to extract the useful information for later usage"
 
         ),
-        "note taker"
+        "note taker",
+        output_format="Markdown"
     )
 )
 

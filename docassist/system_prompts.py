@@ -71,8 +71,11 @@ def system_prompt_dict(
     })
     return out
 
-def simple_xml_system_prompt(task: PromptingTask, persona: str | None = None) -> str:
-    return to_simple_xml(system_prompt_dict(task, persona))
+def simple_xml_system_prompt(task: PromptingTask,
+        persona: str | None = None,
+        input_format: str | None = None,
+        output_format: str | None = None) -> str:
+    return to_simple_xml(system_prompt_dict(task, persona, input_format, output_format))
 
 #
 # def yaml_system_prompt(task: PromptingTask, persona: str | None = None) -> str:

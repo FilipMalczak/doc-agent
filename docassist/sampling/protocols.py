@@ -3,6 +3,8 @@ from typing import Protocol, ContextManager, Iterable, Optional, Any
 from pydantic import BaseModel
 from pydantic_ai.models import Model
 
+from docassist.index.protocols import Embedder
+
 
 class SamplingSlot[V: BaseModel](Protocol):
     def sample_id(self) -> int: ...
@@ -48,7 +50,8 @@ class SamplingController(Protocol):
 
     def strategy(self, s: SamplingStrategy) -> ContextManager: ...
 
-class Sampler[K: BaseModel, V: BaseModel](Protocol):
+class Sampler(Protocol):
     def over_model(self, model: Model) -> Model: ...
+    def over_embedder(self, embedder: Embedder) -> Embedder: ...
 
     def controller(self) -> SamplingController: ...

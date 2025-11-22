@@ -1,50 +1,20 @@
 import hashlib
 import json
-from io import StringIO
 from pathlib import Path
-from typing import Protocol, TextIO
+from typing import Protocol
 
-import yaml
 from pydantic import BaseModel, TypeAdapter
-from yaml import Loader
 
 from docassist.sampling.protocols import SamplingSlot, SampleGroup, SampleGroupFactory
-
-
-class FSIO(Protocol):
-    def dump[T](self, x: T, f: TextIO): ...
-
-    def dumps[T](self, x: T) -> str:
-        out = StringIO()
-        self.dump(x, out)
-        return out.getvalue()
-
-
-    def load[T](self, f: TextIO, t: type[T]) -> T: ...
-
-    def extension(self) -> str: ...
-    def read_mode(self) -> str: ...
-    def write_mode(self) -> str: ...
-
-
-class YAMLFSIO(FSIO):
-    def dump[T: BaseModel](self, x: T, f: TextIO):
-        yaml.dump(TypeAdapter(type(x)).dump_python(x, mode="json"), f, sort_keys=True)
-
-    def load[T: BaseModel](self, f: TextIO, t: type[T]) -> T:
-        return TypeAdapter(t).validate_python(yaml.load(f, Loader=Loader))
-
-    def extension(self) -> str: return "yaml"
-    def read_mode(self) -> str: return "r"
-    def write_mode(self) -> str: return "w"
+from docassist.sampling.slots._fsio import FSIO
 
 
 class FSSamplingSlot[V: BaseModel](SamplingSlot[V]):
     def __init__(self, parent: Path, sample_id: int, fsio: FSIO, sampled_type: type[V]):
         self._sample_id = sample_id
         self._fsio = fsio
-        self._storage = parent / f"{sample_id}.{fsio.extension()}"
-        self._type = sampled_type
+        self._storage = parent / f"{sample_id}.{fsio.extension(sampled_type)}"
+        self._sampled_type = sampled_type
 
     def sample_id(self) -> int:
         return self._sample_id
@@ -52,15 +22,15 @@ class FSSamplingSlot[V: BaseModel](SamplingSlot[V]):
     def get(self) -> V | None:
         if not self._storage.exists():
             return None
-        with self._storage.open(self._fsio.read_mode()) as f:
-            return self._fsio.load(f, self._type)
+        with self._storage.open(self._fsio.read_mode(self._sampled_type)) as f:
+            return self._fsio.load(f, self._sampled_type)
 
     def set(self, val: V | None):
         if val is None:
             self.clear()
             return
         self._storage.parent.mkdir(parents=True, exist_ok=True)
-        with self._storage.open(self._fsio.write_mode()) as f:
+        with self._storage.open(self._fsio.write_mode(self._sampled_type)) as f:
             self._fsio.dump(val, f)
 
     def clear(self):
@@ -93,11 +63,11 @@ class FSSampleGroup[K: BaseModel, V: BaseModel](SampleGroup[K, V]):
         self._qualifier = qualifier
         self._fsio = fsio
         self._group_dir = self._resolve_group_dir()
-        self._key_file = self._group_dir / f"key.{self._fsio.extension()}"
+        self._key_file = self._group_dir / f"key.{self._fsio.extension(type(key))}"
 
         # Write key.txt (overwrite only if this is a new group)
         if not self._key_file.exists():
-            with self._key_file.open(self._fsio.write_mode()) as f:
+            with self._key_file.open(self._fsio.write_mode(type(key))) as f:
                 self._fsio.dump(key, f)
         self._model_dir = self._group_dir / qualifier
         self._model_dir.mkdir(parents=True, exist_ok=True)
@@ -111,9 +81,9 @@ class FSSampleGroup[K: BaseModel, V: BaseModel](SampleGroup[K, V]):
         existing = sorted(p for p in hash_dir.iterdir() if p.is_dir())
         empties = []
         for clash_dir in existing:
-            prompt_txt = clash_dir / f"key.{self._fsio.extension()}"
-            if prompt_txt.exists():
-                with prompt_txt.open(self._fsio.read_mode()) as f:
+            key_file = clash_dir / f"key.{self._fsio.extension(type(self._key))}"
+            if key_file.exists():
+                with key_file.open(self._fsio.read_mode(type(self._key))) as f:
                     # if self._fsio.load(f, type(self._key)) == self._key:
                     if self._fsio.dumps(self._key).strip() == f.read().strip():
                         return clash_dir
@@ -176,8 +146,11 @@ class SHA1OfJsonTrimmed(Hasher):
     def __init__(self, l: int = 32):
         self._l = l
 
-    def hash[T: BaseModel](self, subject: T) -> int:
-        txt = json.dumps(subject.model_dump(mode="json"), sort_keys=True)
+    def hash[T](self, subject: T) -> int:
+        dumpable = TypeAdapter(type(subject)).dump_python(subject, mode="json")
+        #don't assume T is BaseModel; use typeadapter to cover str, int, etc
+        #don't use dump_json - it has no sort_keys param, which we use to try to ensure determinism
+        txt = json.dumps(dumpable, sort_keys=True)
         b = txt.encode("utf-8")
         sha1_hash = hashlib.sha1(b)
         return int(sha1_hash.hexdigest()[-self._l:], 16)
@@ -185,7 +158,7 @@ class SHA1OfJsonTrimmed(Hasher):
 class FSGroupFactory(SampleGroupFactory):
     def __init__(self,  base_dir: Path, fsio: FSIO | None = None, hasher: Hasher | None = None):
         self._base_dir = base_dir
-        self._fsio = fsio or YAMLFSIO()
+        self._fsio = fsio
         self._hasher = hasher or SHA1OfJsonTrimmed()
 
     def create[K: BaseModel, V: BaseModel](self, key: K, value_type: type[V], qualifier: str) -> SampleGroup[K, V]:

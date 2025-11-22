@@ -18,7 +18,7 @@ class FAISSIndex(DocumentIndex):
         self._id_to_index: dict[DocumentId, int] = {}
         self._index_to_id: dict[int, DocumentId] = {}
 
-        self._faiss_index = faiss.IndexFlatL2(embedder.dimension())
+        self._faiss_index = faiss.IndexFlatL2(embedder.dimension)
 
         self._next_index = 0
 

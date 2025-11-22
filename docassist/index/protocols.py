@@ -22,13 +22,18 @@ class Document(BaseModel):
     metadata: Any #todo this should be JSON
 
 
+
 Embeddings = np.ndarray
 
 
 class Embedder(Protocol):
-    async def get_embeddings(self, content: str) -> Embeddings: ...
+    @property
+    def model_name(self) -> str: ...
 
+    @property
     def dimension(self) -> int: ...
+
+    async def get_embeddings(self, content: str) -> Embeddings: ...
 
 
 class SearchResult(BaseModel):
@@ -40,6 +45,8 @@ class IndexSnapshot(BaseModel):
     path: PathLike
     index: "DocumentIndex"
 
+    class Config:
+        arbitrary_types_allowed = True
 
 class DocumentIndex(Protocol):
     @property
