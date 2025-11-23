@@ -12,18 +12,15 @@ from pydantic_graph.beta.join import reduce_list_append, reduce_list_extend
 from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, question, \
     dir_note_taker, doc_to_notes
 from docassist.agents.generators.notes_from_file import file_note_taker
+from docassist.chunkdown import break_to_entries, MarkdownChapter
 from docassist.config import CONFIG
 from docassist.index.protocols import Document, IndexSnapshot
+from docassist.index.utils import embed_metadata
 from docassist.simple_xml import to_simple_xml
 from docassist.subjects import AnalysedRepo, RepoItemType, CodeFilePath
 
 class OK: ...
 
-def embed_metadata(document: Document, prefix: str | None, fields: list[str] = []) -> dict[str, Any]:
-    return {
-        prefix+"_"+k if prefix is not None else k: document.metadata[k]
-        for k in (fields or document.metadata.keys())
-    }
 
 g = GraphBuilder(name="process-repository", output_type=OK)
 
@@ -60,7 +57,7 @@ async def take_file_notes(ctx: StepContext[None, None, Document]) -> Document:
     return Document(id=str(uuid4()), content=content, metadata={
         "document_type": "note",
         "subject_id": doc.id,
-        **embed_metadata(doc, "subject")
+        **embed_metadata(doc.metadata, "subject")
     })
 
 @g.step
@@ -71,7 +68,15 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document]]) -> 
     dir_desc = structurize(paths)
     out = []
     for path, files, dirs in dir_desc.depth_first():
-        q = question([notes[join(path, x)] for x in files + dirs])
+        q = question(
+            sorted(
+                [
+                    notes[join(path, x)]
+                    for x in files + dirs
+                ],
+                key=lambda n: n.subject_path
+            )
+        )
         dir_notes = (await dir_note_taker.run(q)).output
         doc = Document(id=str(uuid4()), content=dir_notes, metadata={
             "document_type": "note",
@@ -89,7 +94,8 @@ def d(x: str | None = None):
 
 @g.step
 async def chunk_notes(ctx: StepContext[None, None, Document]) -> list[Document]:
-    return [d("chunk_notes")]
+    doc = ctx.inputs
+    return list(break_to_entries(doc))
 
 @g.step
 async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
@@ -108,7 +114,9 @@ async def build_index(ctx: StepContext[None, None, list[Document]]) -> IndexSnap
 
 @g.step
 async def ack(ctx: StepContext[None, None, IndexSnapshot]) -> OK:
-    print(await ctx.inputs.index.query("project name"))
+    results = await ctx.inputs.index.query(["project name", "project_name", "name of the project"], total_results=5)
+    for r in results:
+        print(r)
     return OK()
 
 all_file_notes = g.join(reduce_list_append, initial=[])
