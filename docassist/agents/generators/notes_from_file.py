@@ -45,13 +45,14 @@ class SourceFile(NamedTuple):
             "content": self.content
         }
 
-note_taker = Agent(
-    name="single-file-note-taker",
+file_note_taker = Agent(
+    name="note taker that handles single file",
     model=CONFIG.model,
     output_type=MarkdownOutput,
     output_retries=3,
     system_prompt=simple_xml_system_prompt(
-        PromptingTask(
+        persona="note taker",
+        task=PromptingTask(
             high_level="take notes from the input file",
             low_level="take notes from the perspective of the user of this project",
             detailed="take notes that can be later used to prepare user-facing documentation of the project "
@@ -59,21 +60,6 @@ note_taker = Agent(
             context="you're reading the whole project for the first time; you need to extract the useful information for later usage"
 
         ),
-        "note taker",
         output_format="Markdown"
-    ),
-    #instrument=True
+    )
 )
-
-
-
-async def take_notes(source_file: SourceFile) -> Markdown:
-    #fixme start tracking usage
-    #todo sanitize_markdown that will remove ```yaml(...) ```; https://ai.pydantic.dev/api/output/#pydantic_ai.output.TextOutput
-    return (await note_taker.run(to_simple_xml(source_file.to_prompt_dict()))).output
-
-# https://chatgpt.com/share/691ca6cf-8d44-8005-a659-7c456ac8581b
-# use miniperscache over nodes
-# when returning an index from a node, return Snapshot instead
-# Snapshot should have snapshot_id and instance fields and get() method
-# modify its __(g|s)setstate__ to omit instance in serialization and flush it to file on write (getstate)/load on get

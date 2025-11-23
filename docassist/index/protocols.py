@@ -40,7 +40,7 @@ class SearchResult(BaseModel):
     document: Document
     distance: Distance
 
-
+#fixme this was supposed to be a smart trick for node caching; not sure if its worth it, but at least it fixes the "move live objects across pydantic graphs" issue
 class IndexSnapshot(BaseModel):
     path: PathLike
     index: Annotated["DocumentIndex", SkipValidation()]
