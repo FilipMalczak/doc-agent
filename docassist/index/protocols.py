@@ -1,7 +1,7 @@
 from os import PathLike
-from typing import Protocol, Self, Any
+from typing import Protocol, Self, Any, Annotated
 
-from pydantic import BaseModel
+from pydantic import BaseModel, SkipValidation
 import numpy as np
 
 JSONPrimitive = int | float | bool | str | bytes
@@ -43,7 +43,7 @@ class SearchResult(BaseModel):
 
 class IndexSnapshot(BaseModel):
     path: PathLike
-    index: "DocumentIndex"
+    index: Annotated["DocumentIndex", SkipValidation()]
 
     class Config:
         arbitrary_types_allowed = True
@@ -54,7 +54,7 @@ class DocumentIndex(Protocol):
 
     async def add(self, documents: list[Document]): ...
 
-    async def query(self, queries: str, per_query: int) -> list[Document]: ...
+    async def query(self, queries: str | list[str], total_results: int | None = None) -> list[SearchResult]: ...
 
     async def get(self, ids: list[DocumentId]) -> list[Document]: ...
 

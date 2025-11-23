@@ -76,6 +76,7 @@ async def build_index(ctx: StepContext[State, None, list[Document]]) -> IndexSna
 
 @step
 async def ack(ctx: StepContext[State, None, IndexSnapshot]) -> OK:
+    print(await ctx.inputs.index.query("project name"))
     return OK()
 
 collect_docs = g.join(reduce_list_append, initial=[]) #fixme

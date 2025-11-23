@@ -7,7 +7,8 @@ from typing import Self
 import faiss
 import numpy as np
 
-from docassist.index.protocols import DocumentIndex, Embedder, DocumentId, Document, IndexSnapshot
+from docassist.index.protocols import DocumentIndex, Embedder, DocumentId, Document, IndexSnapshot, SearchResult
+
 
 #todo consider switching to faiss-gpu
 
@@ -49,24 +50,81 @@ class FAISSIndex(DocumentIndex):
         # Add embeddings to FAISS index (in-place)
         self._faiss_index.add(embeddings_array)
 
-    async def query(self, query: str, per_query: int) -> list[Document]:
-        """Query the index for similar documents."""
+    async def query(self, queries: str |list[str], total_results: int | None = None) -> list[SearchResult]:
+        """
+        Query the FAISS index using multiple textual queries.
+
+        Args:
+            queries:
+                A list of textual queries. All queries are embedded and passed
+                as a batch to FAISS. Passing single string is equivalent to passing single-element list.
+            total_results:
+                The desired number of output results *after* deduplication.
+                If None, defaults to `len(queries)`.
+
+        Behavior:
+            - All query embeddings are searched against the FAISS index.
+            - We oversample neighbors per query (k) to mitigate duplicates.
+            - All neighbor hits are flattened and deduplicated at the FAISS-index
+              level before converting to documents.
+            - Returned results may all come from a single query; there is no
+              attempt to distribute results evenly across queries.
+
+        Returns:
+            A list of `SearchResult` instances (document + distance).
+        """
+
         if self._faiss_index is None or self._faiss_index.ntotal == 0:
             return []
+        if isinstance(queries, str):
+            queries = [queries]
+        else:
+            assert isinstance(queries, list)
+            for q in queries:
+                assert isinstance(q, str)
+        n_queries = len(queries)
+        if total_results is None:
+            total_results = n_queries
 
-        query_embedding = await self._embedder.get_embeddings(query)
-        query_array = query_embedding.reshape(1, -1).astype(np.float32)
+        # ---- Embed all queries ----
+        embeddings = []
+        for q in queries:
+            emb = await self._embedder.get_embeddings(q)
+            embeddings.append(emb)
 
-        # Search FAISS index
-        distances, indices = self._faiss_index.search(query_array, min(per_query, self._faiss_index.ntotal))
+        query_batch = np.vstack(embeddings).astype(np.float32)
 
-        # Convert results to documents
-        results = []
-        for distance, idx in zip(distances[0], indices[0]):
-            if idx != -1:  # Valid result
-                doc_id = self._index_to_id[idx]
-                document = self._documents[doc_id]
-                results.append(document)
+        # ---- Oversampling to reduce the chance dedup < desired size ----
+        overshoot_factor = 3
+        k = min(max(total_results * overshoot_factor, 1), self._faiss_index.ntotal)
+
+        distances, indices = self._faiss_index.search(query_batch, k)
+
+        # ---- Deduplicate FAISS results (preserve order) ----
+        seen = set()
+        collected: list[tuple[int, float]] = []  # (faiss_idx, distance)
+
+        # Flatten in FAISS search-order
+        for row_distances, row_indices in zip(distances, indices):
+            for dist, idx in zip(row_distances, row_indices):
+                if idx == -1:
+                    continue
+                if idx not in seen:
+                    seen.add(idx)
+                    collected.append((idx, dist))
+                if len(collected) >= total_results:
+                    break
+            if len(collected) >= total_results:
+                break
+
+        collected = collected[:total_results]
+
+        # ---- Map FAISS idx to SearchResult ----
+        results: list[SearchResult] = []
+        for faiss_idx, dist in collected:
+            doc_id = self._index_to_id[faiss_idx]
+            doc = self._documents[doc_id]
+            results.append(SearchResult(document=doc, distance=float(dist)))
 
         return results
 

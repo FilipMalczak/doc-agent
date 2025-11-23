@@ -50,3 +50,4 @@ if __name__ == "__main__":
 
     with logfire.span("docassist"):
         asyncio.run(main())
+
