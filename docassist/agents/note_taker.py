@@ -61,7 +61,8 @@ note_taker = Agent(
         ),
         "note taker",
         output_format="Markdown"
-    )
+    ),
+    #instrument=True
 )
 
 

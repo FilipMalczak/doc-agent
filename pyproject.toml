@@ -8,7 +8,11 @@ license = { text = "MIT" }
 
 dependencies = [
     "faiss-cpu>=1.13.0",
+#    "langwatch>=0.7.0",
+    "logfire[system-metrics]>=4.14.2",
+    "namesgenerator>=0.3",
     "numpy>=2.3.5",
+    "opentelemetry-instrumentation-asyncio>=0.59b0",
     "pydantic-ai>=1.18.0",
     "python-dotenv",
 ]

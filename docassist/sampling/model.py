@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from dataclasses import replace
 from typing import Iterable, Optional, Any, Awaitable, Literal, AsyncIterator, Callable, Self
 
+from opentelemetry.trace import get_current_span
 from pydantic import BaseModel, TypeAdapter
 from pydantic_ai import ModelMessage, ModelSettings, ModelResponse, RequestUsage, RunContext, ModelRequest, \
     ModelRequestPart, ModelResponsePart
@@ -57,6 +58,8 @@ class ModelInput(BaseModel):
 
 class SamplingModel(Model):
     def __init__(self, delegate: Model, slot_provider: SlotProvider):
+        Model.__init__(self, settings=delegate.settings, profile=delegate.profile)
+        # self.model_name = delegate.model_name
         self._delegate = delegate
         self._provider = slot_provider
 
@@ -67,16 +70,22 @@ class SamplingModel(Model):
         model_request_parameters: ModelRequestParameters,
     ) -> ModelResponse:
         """Make a request to the model."""
+        s = get_current_span()
+        s.set_attribute("sampling.enabled", True)
         inp = ModelInput(
             messages=messages,
             # model_settings=model_settings,
             model_request_parameters=model_request_parameters
         ).remove_transient_data()
         slot: SamplingSlot[ModelInput, ModelResponse] = self._provider.get_slot(inp, ModelResponse, self._delegate.model_name)
+        s.set_attribute("sampling.slot.sample_id", slot.sample_id())
+        s.set_attribute("sampling.slot.empty", slot.is_empty())
         if slot.is_empty():
+            s.set_attribute("sampling.action", "delegate")
             out = await self._delegate.request(messages, model_settings, model_request_parameters)
             slot.set(out)
             return out
+        s.set_attribute("sampling.action", "reuse")
         return slot.get()
 
 
@@ -87,6 +96,7 @@ class SamplingModel(Model):
         model_request_parameters: ModelRequestParameters,
     ) -> Awaitable[RequestUsage]:
         """Make a request to the model for counting tokens."""
+        #todo is this spanned? if so, add span attributes, as in request(...)
         inp = ModelInput(
             messages=messages,
             # model_settings=model_settings,
@@ -115,7 +125,7 @@ class SamplingModel(Model):
     @property
     def model_name(self) -> str:
         """The model name."""
-        self._delegate.model_name
+        return self._delegate.model_name
 
 
     @property
@@ -127,5 +137,5 @@ class SamplingModel(Model):
         https://opentelemetry.io/docs/specs/semconv/attributes-registry/gen-ai/#gen-ai-system
         when applicable.
         """
-        #todo add sampling details like sampled-in-fs-..., sampled-in-redis-..., etc; that would need the slot impl to expose name (fs, redis, etc)
-        return "sampled-"+self._delegate.system
+        # do not add sampling info here; add it as an attribute to the request span
+        return self._delegate.system

@@ -24,6 +24,7 @@ class PromptingTask(NamedTuple):
             out["low_level"] = self.low_level
         if self.detailed:
             out["detailed"] = self.detailed
+        return out
 
 def system_prompt_dict(
         task: PromptingTask,

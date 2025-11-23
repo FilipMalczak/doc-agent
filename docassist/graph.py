@@ -4,6 +4,7 @@ from sys import prefix
 from typing import Any
 
 from uuid import uuid4
+
 from pydantic_graph.beta import GraphBuilder, StepContext
 from pydantic_graph.beta.join import reduce_list_append
 
@@ -12,7 +13,6 @@ from docassist.config import CONFIG
 from docassist.index.protocols import Document, IndexSnapshot
 from docassist.simple_xml import to_simple_xml
 from docassist.subjects import AnalysedRepo, RepoItemType, CodeFilePath
-
 
 @dataclass
 class State:
@@ -28,9 +28,13 @@ def embed_metadata(document: Document, prefix: str | None, fields: list[str]) ->
         for k, v in document.metadata.items()
     }
 
-g = GraphBuilder(state_type=State, output_type=OK)
+g = GraphBuilder(name="docassist-graph", state_type=State, output_type=OK)
 
-@g.step
+def step(f):
+    return g.step(f)
+    # return g.step(span()(f))
+
+@step
 async def load_sources(ctx: StepContext[State, None, AnalysedRepo]) -> list[Document]:
     out = []
     repo = ctx.inputs
@@ -51,7 +55,7 @@ async def load_sources(ctx: StepContext[State, None, AnalysedRepo]) -> list[Docu
         )
     return out
 
-@g.step
+@step
 async def take_notes(ctx: StepContext[State, None, Document]) -> Document:
     doc = ctx.inputs
     input_data = dict(doc.metadata)
@@ -63,14 +67,14 @@ async def take_notes(ctx: StepContext[State, None, Document]) -> Document:
         **embed_metadata(doc, "subject", ["id", "path", "document_type"])
     })
 
-@g.step
+@step
 async def build_index(ctx: StepContext[State, None, list[Document]]) -> IndexSnapshot:
     # take empty index (from config), populate it; not the best way to do this
     idx = CONFIG.index
     await idx.add(ctx.inputs)
     return IndexSnapshot(path=f"./indices/index_{datetime.now(UTC).isoformat()}", index=idx)
 
-@g.step
+@step
 async def ack(ctx: StepContext[State, None, IndexSnapshot]) -> OK:
     return OK()
 
@@ -87,3 +91,5 @@ g.add(
 )
 
 GRAPH = g.build()
+
+# GRAPH.run = trace()(GRAPH.run)
