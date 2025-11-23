@@ -1,0 +1,66 @@
+"## Overview of `pip_outdated/find_require.py`\n\n- **Purpose**:  \n  Provides utilities\
+  \ to locate and parse Python package requirements from various file types (e.g.,\
+  \ `requirements.txt`, `setup.cfg`).  \n  This is the core logic used by the *pip\u2011\
+  outdated* tool to understand which packages a project depends on.\n\n- **Key Concepts**:\
+  \  \n  - **Requirement parsing** follows the [PEP\u202F508](https://www.python.org/dev/peps/pep-0508/)\
+  \ format handled by `packaging.requirements.Requirement`.  \n  - Supports both plain\
+  \ requirements files and `setup.cfg` configuration sections (`setup_requires`, `install_requires`,\
+  \ `extras_require`).  \n  - Handles comments (`# \u2026`) and line continuation\
+  \ (`\\`) as defined by the pip requirements file specification.\n\n## Public Functions\
+  \ (User\u2011Facing)\n\n| Function | Signature | Description |\n|----------|-----------|--------------|\n\
+  | `iter_files` | `iter_files(patterns: Iterable[str]) \u2192 Iterable[pathlib.Path]`\
+  \ | Accepts one or more glob patterns (e.g., `[\"requirements.txt\", \"src/*.cfg\"\
+  ]`). Yields a `Path` object for each matching file. If a pattern points directly\
+  \ to a file, that file is yielded without globbing. |\n| `find_require` | `find_require(files:\
+  \ Iterable[str]) \u2192 Iterable[Requirement]` | Takes the same patterns accepted\
+  \ by `iter_files`, parses each file, and yields `Requirement` objects for every\
+  \ valid requirement line. Handles `.cfg` files specially (via `parse_cfg`). |\n\
+  | `parse_requirements` | `parse_requirements(file: pathlib.Path) \u2192 Iterable[Requirement]`\
+  \ | Reads a single non\u2011`.cfg` file (e.g., `requirements.txt`) and yields parsed\
+  \ `Requirement` objects. |\n| `parse_cfg` | `parse_cfg(file: pathlib.Path) \u2192\
+  \ Iterable[Requirement]` | Reads a `setup.cfg` file, extracts relevant sections\
+  \ (`setup_requires`, `install_requires`, `extras_require`), and yields `Requirement`\
+  \ objects. |\n| `parse_requirements_text` | `parse_requirements_text(text: str)\
+  \ \u2192 Iterable[Requirement]` | Parses a raw string that contains requirement\
+  \ lines (useful for testing or processing inline text). |\n| `parse_require` | `parse_require(text:\
+  \ str) \u2192 Optional[Requirement]` | Low\u2011level helper that strips trailing\
+  \ pip options (e.g., `--no-binary`) and attempts to build a `Requirement`. Returns\
+  \ `None` for malformed lines. |\n\n## Supporting Helpers (Internal)\n\n- `file_to_lines(file)`:\
+  \ Opens a file, prints a debug message when `verbose()` is enabled, and yields each\
+  \ logical line after comment removal and continuation handling.\n- `parse_lines(lines)`:\
+  \ Core line\u2011pre\u2011processing generator.  \n  - Removes comments (`# \u2026\
+  `).  \n  - Joins lines that end with a backslash (`\\`).  \n  - Strips trailing\
+  \ newline characters.\n- `verbose()`: Imported from `.verbose`; when it returns\
+  \ `True`, parsing progress is printed to stdout.\n\n## Usage Example\n\n```python\n\
+  from pip_outdated.find_require import find_require\n\n# Find requirements in typical\
+  \ locations\npatterns = [\"requirements.txt\", \"setup.cfg\", \"src/**/*.cfg\"]\n\
+  for req in find_require(patterns):\n    print(f\"Package: {req.name}, Specifier:\
+  \ {req.specifier}\")\n```\n\n### Expected Output\n- For each discovered requirement,\
+  \ the script prints the package name and any version specifier (e.g., `>=1.2,<2.0`).\
+  \  \n- Invalid lines (syntax errors, unparsable requirements) are silently ignored.\n\
+  \n## Important Behaviors & Edge Cases\n\n- **Comment Handling**:  \n  - Anything\
+  \ following an unescaped `#` on a line is treated as a comment and stripped.  \n\
+  \  - Inline comments are supported (`package==1.0 # optional`).\n\n- **Line Continuations**:\
+  \  \n  - A line ending with a backslash (`\\`) is concatenated with the next line\
+  \ before parsing.  \n  - The backslash itself is removed; the continuation works\
+  \ across multiple lines.\n\n- **Option Stripping**:  \n  - If a requirement line\
+  \ contains pip options (e.g., `package>=1.0 --no-binary :all:`), everything after\
+  \ the first option token (`--` or `-`) is discarded before attempting to build a\
+  \ `Requirement`.\n\n- **File Type Dispatch**:  \n  - Files with a `.cfg` suffix\
+  \ are parsed with `parse_cfg`, which looks for specific sections in the INI\u2011\
+  style file.  \n  - All other files are treated as plain requirement files.\n\n-\
+  \ **Error Resilience**:  \n  - Parsing failures (`InvalidRequirement`) do not raise\
+  \ exceptions; the line is simply skipped (`None` is returned).  \n  - Missing configuration\
+  \ sections in a `setup.cfg` are ignored gracefully.\n\n## Integration Points\n\n\
+  - **`pip_outdated` CLI**: This module is called by the command\u2011line interface\
+  \ to collect the full set of dependencies before checking for newer versions.  \n\
+  - **Testing**: `parse_requirements_text` makes the parser easily testable with inline\
+  \ strings, allowing unit tests to verify handling of comments, continuations, and\
+  \ option stripping.\n\n## Recommendations for Documentation Authors\n\n- Emphasize\
+  \ that **only well\u2011formed PEP\u202F508 requirements** will appear in the output;\
+  \ malformed entries are skipped without error.  \n- Highlight the ability to feed\
+  \ **glob patterns** directly to `find_require` for flexible project layouts.  \n\
+  - Explain the **verbosity toggle** (`verbose()`) that can be used to debug parsing\
+  \ when troubleshooting complex requirement files.  \n- Provide **example snippets**\
+  \ for both a traditional `requirements.txt` and a `setup.cfg` to illustrate how\
+  \ each is interpreted."

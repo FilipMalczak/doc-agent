@@ -1,0 +1,34 @@
+"\"\"\"\nFind requirements.\nhttps://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format\n\
+  \"\"\"\n\nfrom collections.abc import Iterable\nfrom configparser import ConfigParser\n\
+  import pathlib\nimport re\n\nfrom packaging.requirements import Requirement, InvalidRequirement\n\
+  from .verbose import verbose\n\ndef iter_files(patterns):\n    \"\"\"Yield path.Path(file)\
+  \ from multiple glob patterns.\"\"\"\n    for pattern in patterns:\n        if pathlib.Path(pattern).is_file():\n\
+  \            yield pathlib.Path(pattern)\n        else:\n            yield from\
+  \ pathlib.Path(\".\").glob(pattern)\n                \ndef file_to_lines(file):\n\
+  \    \"\"\"Yield line from a file. Handle '#' comment and '\\' continuation escape.\n\
+  \    \"\"\"\n    if verbose():\n        print(f\"Parse: {file}\")\n    with file.open(\"\
+  r\", encoding=\"utf-8\") as f:\n        yield from parse_lines(f)\n\ndef parse_lines(lines:\
+  \ Iterable[str]):\n    pre_line = \"\"\n    for line in lines:\n        match =\
+  \ re.match(r\"(.*?)(^|\\s)#\", line)\n        if match:\n            yield pre_line\
+  \ + match.group(1)\n            pre_line = \"\"\n            continue\n        if\
+  \ line.endswith(\"\\\\\\n\"):\n            pre_line += line[0:-2]\n            continue\n\
+  \        if line.endswith(\"\\n\"):\n            yield pre_line + line[0:-1]\n \
+  \           pre_line = \"\"\n            continue\n        yield pre_line + line\n\
+  \        pre_line = \"\"\n\ndef parse_requirements(file):\n    for line in file_to_lines(file):\n\
+  \        require = parse_require(line)\n        if require:\n            yield require\n\
+  \ndef parse_requirements_text(text: str):\n    for line in parse_lines(text.splitlines(True)):\n\
+  \        require = parse_require(line)\n        if require:\n            yield require\n\
+  \ndef parse_cfg(file):\n    conf = ConfigParser()\n    conf.read(file, encoding=\"\
+  utf-8\")\n\n    def get_texts():\n        try:\n            yield conf[\"options\"\
+  ][\"setup_requires\"]\n        except KeyError:\n            pass\n        try:\n\
+  \            yield conf[\"options\"][\"install_requires\"]\n        except KeyError:\n\
+  \            pass\n        try:\n            for key in conf[\"options.extras_require\"\
+  ]:\n                yield conf[\"options.extras_require\"][key]\n        except\
+  \ KeyError:\n            pass\n\n    for text in get_texts():\n        if not text:\n\
+  \            continue\n        yield from parse_requirements_text(text)\n    \n\
+  def find_require(files):\n    for file in iter_files(files):\n        requires =\
+  \ parse_cfg(file) if file.suffix == \".cfg\" else parse_requirements(file)\n   \
+  \     yield from requires\n    \ndef parse_require(text):\n    # strip options\n\
+  \    match = re.match(r\"(.*?)\\s--?[a-z]\", text)\n    if match:\n        text\
+  \ = match.group(1)\n    try:\n        return Requirement(text)\n    except InvalidRequirement:\n\
+  \        return None\n    \n"

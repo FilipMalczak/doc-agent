@@ -1,0 +1,19 @@
+"## Overview\n- This file (`pip_outdated/__main__.py`) serves as the **command\u2011\
+  line entry point** for the *pip_outdated* package.  \n- When the package is executed\
+  \ with `python -m pip_outdated`, the code in this file is run.\n\n## Execution Flow\n\
+  1. The `if __name__ == \"__main__\":` guard ensures the block only runs when the\
+  \ module is executed as a script, not when imported.  \n2. Inside the guard:\n \
+  \  - The statement `from . import main` imports the `main` function (or module)\
+  \ defined elsewhere in the package (typically `pip_outdated/main.py`).  \n   - `main()`\
+  \ is then called, handing control over to the package\u2019s primary logic.\n\n\
+  ## How to Use\n- **Run as a module**  \n  ```bash\n  python -m pip_outdated\n  ```\n\
+  \  This triggers the `main()` function via `__main__.py`.\n\n- **Direct script execution**\
+  \ (if the package is installed as a script entry point)  \n  ```bash\n  pip_outdated\n\
+  \  ```\n  The installed console script points to the same `main()` entry point.\n\
+  \n## Design Rationale (for documentation)\n- Keeping the entry point minimal avoids\
+  \ side effects when the package is imported elsewhere.  \n- Delegating all functional\
+  \ work to `main` centralises the core logic, making it easier to test and maintain.\
+  \  \n\n## Related Files\n- `pip_outdated/main.py` \u2013 contains the actual implementation\
+  \ that `__main__.py` invokes.  \n\n---  \n\n*Note: The double\u2011quoted strings\
+  \ in the source (`\"__main__\"` and `\"__main__\"` in the import) follow the project's\
+  \ quoting convention.*"

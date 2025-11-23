@@ -1,0 +1,3 @@
+"\"\"\"Simple namespace to share verbose state.\"\"\"\n\nVERBOSE: bool = None\n\n\
+  def set_verbose(value: bool) -> None:\n    global VERBOSE\n    VERBOSE = value\n\
+  \    \ndef verbose() -> bool:\n    return VERBOSE\n"

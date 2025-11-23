@@ -97,6 +97,7 @@ class SamplingModel(Model):
     ) -> Awaitable[RequestUsage]:
         """Make a request to the model for counting tokens."""
         #todo is this spanned? if so, add span attributes, as in request(...)
+        #fixme does this sampling make any sense?
         inp = ModelInput(
             messages=messages,
             # model_settings=model_settings,

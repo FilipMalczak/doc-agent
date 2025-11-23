@@ -1,3 +1,5 @@
+import logfire
+
 from docassist.index.protocols import Embedder, Embeddings
 from docassist.sampling.protocols import SamplingSlot
 from docassist.sampling.std.provider import SlotProvider
@@ -17,9 +19,17 @@ class SamplingEmbedder(Embedder):
         return self._delegate.dimension
 
     async def get_embeddings(self, content: str) -> Embeddings:
-        slot: SamplingSlot[str, Embeddings] = self._provider.get_slot(content, Embeddings, self._delegate.model_name)
-        if slot.is_empty():
-            out = await self._delegate.get_embeddings(content)
-            slot.set(out)
-            return out
-        return slot.get()
+        #fixme this is pretty half-assed
+        with logfire.span(f"embeddings {self.model_name}") as s:
+            s.set_attribute("sampling.enabled", True)
+            slot: SamplingSlot[str, Embeddings] = self._provider.get_slot(content, Embeddings, self._delegate.model_name)
+            s.set_attribute("sampling.slot.sample_id", slot.sample_id())
+            s.set_attribute("sampling.slot.empty", slot.is_empty())
+
+            if slot.is_empty():
+                s.set_attribute("sampling.action", "delegate")
+                out = await self._delegate.get_embeddings(content)
+                slot.set(out)
+                return out
+            s.set_attribute("sampling.action", "reuse")
+            return slot.get()

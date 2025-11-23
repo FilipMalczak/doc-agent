@@ -1,0 +1,33 @@
+"pip-outdated\n============\n\n.. image:: https://travis-ci.com/eight04/pip-outdated.svg?branch=master\n\
+  \    :target: https://travis-ci.com/eight04/pip-outdated\n    \n.. image:: https://codecov.io/gh/eight04/pip-outdated/branch/master/graph/badge.svg\n\
+  \  :target: https://codecov.io/gh/eight04/pip-outdated\n\nFind outdated dependencies\
+  \ in your requirements.txt or setup.cfg file. Report missing/outdated/incompatible\
+  \ packages with table and colors.\n\nThis tool compares the version number with\
+  \ the version specifier in ``requirements.txt`` or ``setup.cfg``. If you just want\
+  \ to list all updatable package, simply use ``pip list --outdated`` command.\n\n\
+  Installation\n------------\n\nFrom `pypi <https://pypi.org/project/pip-outdated/>`__\n\
+  \n::\n\n\tpip install pip-outdated\n\nUsage\n-----\n\n::\n\n  usage: pip-outdated\
+  \ [-h] [-v] [-q] [<file> [<file> ...]]\n\n  Find outdated dependencies in your requirements.txt\
+  \ or setup.cfg file.\n\n  positional arguments:\n    <file>         Read dependencies\
+  \ from requirements files. This option\n                   accepts glob pattern.\
+  \ (default: ['requirements.txt',\n                   'setup.cfg'])\n\n  optional\
+  \ arguments:\n    -h, --help     show this help message and exit\n    -v, --verbose\
+  \  Print verbose information. (default: False)\n    -q, --quiet    Don't return\
+  \ exit code 1 if not everything is up to date.\n                   (default: False)\n\
+  \    \nCheck multiple files e.g. ``test-requirements.txt`` and ``dev-requirements.txt``::\n\
+  \n  pip-outdated *-requirements.txt\n  \nCheck files under ``requirements`` folder::\n\
+  \n  pip-outdated requirements/*.txt\n  \nTodos\n-----\n\n* Add options to update\
+  \ the package?\n* Add options to update the requirements.txt/setup.cfg file?\n*\
+  \ Add options to list all packages? (e.g. ``-g, --global``)\n\nChangelog\n---------\n\
+  \n* 0.8.0 (Aug 9, 2025)\n\n  - Change: drop setuptools dependency, switch to configparse\
+  \ for reading setup.cfg.\n\n* 0.7.0 (Aug 13, 2024)\n\n  - Change: ignore ``InvalidVersion``\
+  \ error.\n\n* 0.6.0 (Jan 1, 2023)\n\n  - Bump dependencies.\n  - Drop cchardet.\n\
+  \  - Change: fetch package version from ``pip`` CLI, so we can get package version\
+  \ in venv.\n\n* 0.5.0 (Jan 12, 2022)\n\n  - Bump dependencies.\n  - Add: typehint.\n\
+  \n* 0.4.0 (Jan 30, 2020)\n\n  - **Breaking: bump Python to 3.7**\n  - Add: request\
+  \ in parallel.\n  - Add: ``--quiet`` option.\n\n* 0.3.0 (Oct 13, 2019)\n\n  - **Breaking:\
+  \ set exit code to 1 if not all good.**\n  - Fix: don't check prereleases.\n  -\
+  \ Add: check ``setup_requires`` and ``extras_require`` in cfg files.\n\n* 0.2.0\
+  \ (Feb 10, 2019)\n\n  - Bump dependencies:\n  \n    - colorama@0.4.x\n    - packaging@19.x\n\
+  \    - requests@2.x\n    - termcolor@1.x\n    - terminaltables@3.x\n\n* 0.1.0 (May\
+  \ 12, 2018)\n\n  - First release.\n\n"

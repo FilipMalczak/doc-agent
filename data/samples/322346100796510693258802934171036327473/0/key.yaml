@@ -1,0 +1,78 @@
+"**Project Component:** `pip_outdated/check_outdated.py`  \n**Language:** Python \
+  \ \n\n---  \n\n### Overview  \n- Implements the core logic for detecting outdated\
+  \ Python packages by comparing the locally\u2011installed version with the versions\
+  \ available on PyPI.  \n- Designed to be used by the **pip\u2011outdated** CLI tool\
+  \ (or any caller that needs programmatic access to package\u2011status information).\
+  \  \n\n---  \n\n### Key Data Structure  \n\n#### `OutdateResult` (dataclass)  \n\
+  | Field | Type | Description |\n|---|---|---|\n| `requirement` | `Requirement` |\
+  \ The original requirement parsed from a *requirements* line (e.g., `\"requests>=2.0\"\
+  `). |\n| `version` | `Optional[Version]` | The version currently installed locally\
+  \ (``None`` if not installed). |\n| `all_versions` | `List[Version]` | All non\u2011\
+  prerelease versions returned from PyPI, sorted ascending. |\n| `wanted` *(computed)*\
+  \ | `Optional[Version]` | The newest version that satisfies the requirement\u2019\
+  s specifier. Determined in ``__post_init__``; ``None`` if no matching version exists.\
+  \ |\n| `latest` *(computed)* | `Optional[Version]` | The newest version available\
+  \ on PyPI (the last element of ``all_versions``). |\n\n**Utility properties & methods**\
+  \  \n\n- `name` \u2013 returns ``self.requirement.name`` (canonical package name).\
+  \  \n- `install_not_found()` \u2013 ``True`` when the package is not installed locally.\
+  \  \n- `install_not_wanted()` \u2013 ``True`` when the installed version exists\
+  \ but does **not** satisfy the specifier. Returns ``False`` if not installed.  \n\
+  - `pypi_not_found()` \u2013 ``True`` when no release information could be retrieved\
+  \ from PyPI.  \n- `outdated()` \u2013 ``True`` when the installed version differs\
+  \ from either the *wanted* version **or** the *latest* version (i.e., any kind of\
+  \ mismatch).  \n\n---  \n\n### Core Async Functions  \n\n| Function | Signature\
+  \ | Purpose |\n|---|---|---|\n| `get_local_version(name: str) -> Optional[Version]`\
+  \ | ``async`` | Executes ``pip show <name>`` and parses the ``Version:`` line. Returns\
+  \ a ``Version`` object or ``None`` when the package is not installed or the command\
+  \ fails. |\n| `get_pypi_versions(name: str, session) -> List[Version]` | ``async``\
+  \ | Queries the PyPI JSON API (``https://pypi.org/pypi/<name>/json``) using the\
+  \ supplied ``aiohttp`` session. Collects all valid, **non\u2011prerelease** versions,\
+  \ sorts them, and returns the list. |\n| `check_outdated(require, session) -> OutdateResult`\
+  \ | ``async`` | Orchestrates the check: canonicalizes the package name, fetches\
+  \ the local version, fetches the PyPI version list, constructs and returns an ``OutdateResult``\
+  \ instance. Prints a diagnostic line when ``verbose()`` is enabled. |\n\n---  \n\
+  \n### How It Works (Step\u2011by\u2011Step)  \n\n1. **Input:** a ``Requirement``\
+  \ object (from the *packaging* library) and an ``aiohttp`` session.  \n2. **Verbose\
+  \ output:** if ``verbose()`` returns ``True``, prints the package name and its specifier.\
+  \  \n3. **Canonicalization:** uses ``packaging.utils.canonicalize_name`` to normalize\
+  \ the package name for both the local ``pip`` call and the PyPI URL.  \n4. **Local\
+  \ version detection:** runs ``pip show`` asynchronously; parses the output for ``Version:``.\
+  \  \n5. **PyPI version retrieval:** performs an HTTP GET to the PyPI JSON endpoint,\
+  \ extracts the ``releases`` keys, filters out invalid versions and prereleases,\
+  \ sorts the remaining versions.  \n6. **Result construction:** ``OutdateResult``\
+  \ receives the requirement, the discovered local version, and the sorted list of\
+  \ PyPI versions. In its ``__post_init__`` it:  \n   - Finds the newest version that\
+  \ satisfies the requirement specifier (``wanted``).  \n   - Assigns the newest overall\
+  \ PyPI version to ``latest``.  \n7. **Return:** the fully populated ``OutdateResult``\
+  \ object, ready for downstream rendering (e.g., CLI tables, JSON output).  \n\n\
+  ---  \n\n### Notable Behaviour & Edge Cases  \n\n- **Package not installed** \u2013\
+  \ ``version`` is ``None``; ``install_not_found()`` returns ``True``; ``outdated()``\
+  \ will be ``True`` if any version exists on PyPI.  \n- **No matching version on\
+  \ PyPI** \u2013 ``wanted`` remains ``None``; ``install_not_wanted()`` may still\
+  \ be ``True`` if the installed version does not satisfy the specifier.  \n- **All\
+  \ releases are prereleases** \u2013 they are filtered out; ``all_versions`` may\
+  \ be empty, leading to ``latest`` being ``None`` and ``pypi_not_found()`` returning\
+  \ ``True``.  \n- **Invalid version strings** \u2013 ``InvalidVersion`` exceptions\
+  \ are caught and the entry is skipped.  \n- **Network errors** \u2013 ``session.get(...).raise_for_status()``\
+  \ will raise an ``aiohttp`` exception; callers must handle it.  \n\n---  \n\n###\
+  \ Intended Use (for Documentation Authors)  \n\n- **CLI integration:** The command\
+  \ line tool can call ``await check_outdated(req, session)`` for each parsed requirement\
+  \ and then format the ``OutdateResult`` fields for human\u2011readable output. \
+  \ \n- **Programmatic API:** Libraries that need to programmatically assess dependency\
+  \ health can import ``check_outdated`` and work directly with the ``OutdateResult``\
+  \ dataclass.  \n- **Testing:** Mock ``aiohttp`` responses and the subprocess call\
+  \ to verify handling of missing packages, prereleases, and malformed version strings.\
+  \  \n\n---  \n\n### Dependencies  \n\n- **Python standard library:** `asyncio`,\
+  \ `dataclasses`, `typing`.  \n- **Third\u2011party packages:**  \n  - ``packaging``\
+  \ (for ``Requirement``, ``Version``, name canonicalization).  \n  - ``aiohttp``\
+  \ (expected to be passed as the ``session`` argument).  \n  - Local module ``.verbose``\
+  \ providing ``verbose()``.  \n\n---  \n\n### Quick Reference Example  \n\n```python\n\
+  import aiohttp\nfrom packaging.requirements import Requirement\nfrom pip_outdated.check_outdated\
+  \ import check_outdated\n\nasync def main():\n    req = Requirement(\"requests>=2.0\"\
+  )\n    async with aiohttp.ClientSession() as session:\n        result = await check_outdated(req,\
+  \ session)\n\n    print(f\"Package: {result.name}\")\n    print(f\"Installed: {result.version\
+  \ or 'none'}\")\n    print(f\"Wanted:   {result.wanted or 'none'}\")\n    print(f\"\
+  Latest:   {result.latest or 'none'}\")\n    print(f\"Outdated? {result.outdated()}\"\
+  )\n\n# asyncio.run(main())\n``` \n\n---  \n\n*These notes capture the functional\
+  \ essence of the module and provide a solid foundation for user\u2011facing documentation,\
+  \ tutorials, and API references.*"

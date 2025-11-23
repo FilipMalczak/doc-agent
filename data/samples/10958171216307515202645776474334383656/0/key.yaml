@@ -1,0 +1,4 @@
+"import pytest\nfrom pip_outdated.check_outdated import get_pypi_versions\nfrom pip_outdated.session\
+  \ import get_session\n\n@pytest.mark.asyncio\nasync def test_pytz():\n    async\
+  \ with get_session() as session:\n        await get_pypi_versions(\"pytz\", session)\n\
+  \    \n"

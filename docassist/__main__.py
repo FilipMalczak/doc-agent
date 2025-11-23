@@ -25,6 +25,9 @@ if __name__ == "__main__":
     )
     # logfire.instrument_pydantic() # this doesn't help; it actually makes the spans less readable
     logfire.instrument_pydantic_ai()
+    #fixme this adds spans over actual openai calls, but embedder is not pydantic-ai abstraction, so its half-assed
+    #fixme chat completion cost is not easily visible neither
+    logfire.instrument_openai()
     logfire.instrument_httpx(
         capture_headers=False, # since we don't scrub, we shouldn't expose headers that might contain API keys
     )

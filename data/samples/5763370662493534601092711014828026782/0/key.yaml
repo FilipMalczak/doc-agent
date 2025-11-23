@@ -1,0 +1,41 @@
+"## Project Overview  \n- **Name:** `pip-outdated`  \n- **Purpose:** Detect outdated,\
+  \ missing, or incompatible packages in `requirements.txt` or `setup.cfg` files and\
+  \ present results in a colored table.  \n- **Key Benefit:** Provides a focused view\
+  \ of problems with dependency specifications, complementing `pip list --outdated`\
+  \ which only lists updatable packages.  \n\n## Installation  \n```bash\npip install\
+  \ pip-outdated\n```  \n\n*Package is published on PyPI.*  \n\n## Basic Usage  \n\
+  \n```bash\npip-outdated [-h] [-v] [-q] [<file> [<file> ...]]\n```  \n\n### Positional\
+  \ argument `<file>`  \n- Accepts one or more requirement files.  \n- Supports glob\
+  \ patterns.  \n- Default files: `requirements.txt`, `setup.cfg`.  \n\n### Common\
+  \ examples  \n- **Multiple requirement files** (e.g., `test-requirements.txt`, `dev-requirements.txt`):\
+  \  \n\n  ```bash\n  pip-outdated *-requirements.txt\n  ```  \n\n- **All files in\
+  \ a folder** (`requirements/*.txt`):  \n\n  ```bash\n  pip-outdated requirements/*.txt\n\
+  \  ```  \n\n## Options  \n\n| Option | Description | Default |\n|--------|-------------|---------|\n\
+  | `-h`, `--help` | Show help message and exit. | \u2013 |\n| `-v`, `--verbose` |\
+  \ Print verbose information. | `False` |\n| `-q`, `--quiet` | Do **not** return\
+  \ exit code\u202F1 when some dependencies are outdated. | `False` |\n\n## Feature\
+  \ Highlights  \n\n- Parses version specifiers from both `requirements.txt` **and**\
+  \ `setup.cfg`.  \n- Detects missing, outdated, and incompatible packages.  \n- Displays\
+  \ results in a color\u2011coded table for quick visual scanning.  \n- Handles glob\
+  \ patterns for flexible file selection.  \n- Uses the `pip` CLI to obtain installed\
+  \ package versions, ensuring accurate results inside virtual environments.  \n\n\
+  ## Todos (Planned Enhancements)  \n\n- Add command\u2011line options to **update\
+  \ packages** automatically.  \n- Add options to **modify** `requirements.txt` /\
+  \ `setup.cfg` with corrected versions.  \n- Add a global listing mode (e.g., `-g`,\
+  \ `--global`) to list **all** updatable packages regardless of specifiers.  \n\n\
+  ## Changelog Summary  \n\n| Version | Date | Notable Changes |\n|---------|------|-----------------|\n\
+  | **0.8.0** | Aug\u202F9\u202F2025 | Dropped `setuptools` dependency; switched to\
+  \ `configparse` for `setup.cfg` parsing. |\n| **0.7.0** | Aug\u202F13\u202F2024\
+  \ | Ignored `InvalidVersion` errors. |\n| **0.6.0** | Jan\u202F1\u202F2023 | Updated\
+  \ dependencies; removed `cchardet`; now fetches package versions via `pip` CLI for\
+  \ venv support. |\n| **0.5.0** | Jan\u202F12\u202F2022 | Updated dependencies; added\
+  \ type hints. |\n| **0.4.0** | Jan\u202F30\u202F2020 | **Breaking:** Bumped minimum\
+  \ Python to 3.7; added parallel requests and `--quiet` option. |\n| **0.3.0** |\
+  \ Oct\u202F13\u202F2019 | **Breaking:** Exit code\u202F1 on any problem; stopped\
+  \ checking prereleases; added support for `setup_requires` and `extras_require`.\
+  \ |\n| **0.2.0** | Feb\u202F10\u202F2019 | Updated core dependencies (`colorama`,\
+  \ `packaging`, `requests`, `termcolor`, `terminaltables`). |\n| **0.1.0** | May\u202F\
+  12\u202F2018 | Initial release. |\n\n## Additional Resources  \n\n- **CI badge:**\
+  \ Shows build status via Travis CI.  \n- **Coverage badge:** Shows test coverage\
+  \ via Codecov.  \n\nThese badges are displayed at the top of the project's README\
+  \ on the repository page.  "
