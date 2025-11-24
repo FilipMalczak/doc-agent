@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The badge URLs and the README context reference \"eight04/pip-outdated\".\n  fact:\
+  \ The project repository is hosted on GitHub under the organization/user \"eight04\"\
+  \n    with the repository name \"pip-outdated\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

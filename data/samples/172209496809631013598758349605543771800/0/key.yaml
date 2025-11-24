@@ -1,0 +1,18 @@
+"# Directory\u2011Level Documentation \u2013 `pip_outdated/`\n# This installs the\
+  \ console script `pip-outdated`\n# Scan default files (requirements.txt & setup.cfg)\n\
+  # Scan a custom file or glob pattern\n# Enable verbose debugging output\n# Do not\
+  \ fail with a non\u2011zero exit code when updates exist\n### 4.3 Command\u2011\
+  Line Reference\n### 4.4 Output Explanation\n### 4.5 Technical Details (for advanced\
+  \ users)\n### 4.6 Extending / Customizing\n## 5. Important Implementation Notes\
+  \ (for documentation writers)\n\n- **Lazy Imports** \u2013 Heavy modules (`aiohttp`,\
+  \ `check_outdated`, etc.) are imported inside the async main function to keep CLI\
+  \ start\u2011up fast.  \n- **Global Verbose Flag** \u2013 Simple boolean stored\
+  \ in `pip_outdated.verbose`; not thread\u2011safe and should be set once at start\u2011\
+  up.  \n- **Error Handling** \u2013 Functions return `None` or empty collections\
+  \ on failures (e.g., missing local package, unavailable PyPI data) rather than raising,\
+  \ ensuring the tool continues processing other packages.  \n- **Known Limitation**\
+  \ \u2013 The tool does not resolve transitive dependencies; it only checks packages\
+  \ explicitly listed in the scanned files.\n\n---\n\n*These directory\u2011level\
+  \ notes synthesize the file\u2011level information into a cohesive description suitable\
+  \ for user\u2011facing documentation, onboarding guides, and technical references\
+  \ for contributors.*"

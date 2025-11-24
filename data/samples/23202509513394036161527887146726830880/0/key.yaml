@@ -1,0 +1,375 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <output>Markdown</output>\n</format>\n<formatting_rules>\n\
+      \  <quotes>always use double quotes for strings, no matter the format</quotes>\n\
+      \  <indentation>optional, recommended</indentation>\n  <empty_values>omit, unless\
+      \ semantically important or required by schema</empty_values>\n  <lists>\n \
+      \   <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n    <yaml>hyphen-style</yaml>\n\
+      \  </lists>\n  <multiline_text>\n    <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n\
+      </formatting_rules>\n<constraints>\n  <hallucinations>forbidden</hallucinations>\n\
+      \  <invent_data>forbidden</invent_data>\n  <modify_content>only structure and\
+      \ wording, never meaning</modify_content>\n  <modify_formatting>allowed, as\
+      \ long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>note\
+      \ taker</persona>\n<task>\n  <context>you've read the whole project once, you're\
+      \ compiling your file-level notes into directory-level notes</context>\n  <high_level>take\
+      \ notes from the files in a directory</high_level>\n  <low_level>use previously\
+      \ prepared file-level notes and notes on subdirectories generated the same way\
+      \ as what you're doing now and prepare directory-level extract</low_level>\n\
+      \  <detailed>take notes that can be later used to prepare user-facing documentation\
+      \ of the project that the input file is part of</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<list>\n    <item index=\"0\">\n    <subject_path>pip_outdated/__main__.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n## Project Overview \u2013 `pip_outdated/__main__.py`\n\n- **Purpose**:\
+      \ Defines the package\u2019s command\u2011line entry point.  \n- **Behavior**:\
+      \  \n  - When the module is executed as a script (`python -m pip_outdated`),\
+      \ it imports the `main` function from the same package (`pip_outdated.main`)\
+      \ and runs it.  \n  - No additional logic is performed in this file; all functionality\
+      \ resides in `pip_outdated/main.py`.  \n\n### How Users Interact with This File\n\
+      - **Running the tool**:  \n  ```bash\n  python -m pip_outdated\n  ```  \n  This\
+      \ command triggers the `main()` function, which implements the actual CLI behavior\
+      \ of the project.  \n\n- **Installation\u2011time entry point**:  \n  The package\u2019\
+      s `setup.cfg`/`pyproject.toml` likely declares `pip_outdated.__main__:main`\
+      \ (or similar) as a console script, allowing users to invoke the tool via a\
+      \ short command such as `pip-outdated`.  \n\n### Documentation Takeaways\n-\
+      \ Mention that `__main__.py` provides the standard Python \u201Cmodule as script\u201D\
+      \ entry point.  \n- Explain that users do **not** need to interact with this\
+      \ file directly; they should use the provided CLI command or `python -m pip_outdated`.\
+      \  \n- Highlight that any updates to argument handling, sub\u2011commands, or\
+      \ output formatting must be made in `pip_outdated/main.py`, not here.  \n  \
+      \  </content>\n    </item>\n    <item index=\"1\">\n    <subject_path>pip_outdated/__init__.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n# Project Notes \u2013 `pip_outdated/__init__.py`\n\n## Overview\n\
+      - **Package name:** `pip-outdated`\n- **Current version:** `\"0.8.0\"`\n- **Purpose:**\
+      \ Command\u2011line utility that scans a `requirements.txt` or `setup.cfg` file\
+      \ (or any file matching a glob pattern) and reports packages that have newer\
+      \ releases available on PyPI.\n\n## Entry Point\n- **Function:** `main()`\n\
+      - **How it runs:**  \n  - Uses `asyncio.get_event_loop().run_until_complete(_main())`\
+      \ instead of `asyncio.run()` because of a known issue with aiohttp that closes\
+      \ the event loop (`https://github.com/aio-libs/aiohttp/issues/1925`).\n\n##\
+      \ Core Workflow (`_main`)\n1. **Parse CLI arguments** \u2013 via `parse_args()`.\n\
+      2. **Configure verbosity** \u2013 calls `set_verbose(args.verbose)` from `.verbose`.\n\
+      3. **Load required modules** (imported lazily to keep start\u2011up fast):\n\
+      \   - `.find_require` \u2013 discovers dependency specifications.\n   - `.check_outdated`\
+      \ \u2013 contacts PyPI to determine newer versions.\n   - `.print_outdated`\
+      \ \u2013 formats and displays the results.\n   - `.session` \u2013 provides\
+      \ an aiohttp session for network calls.\n4. **Identify requirements** \u2013\
+      \ `requires = find_require(args.file)`.\n5. **Create an async session** \u2013\
+      \ `async with get_session() as session:`.\n6. **Schedule version checks** \u2013\
+      \ one `asyncio.create_task` per requirement.\n7. **Print results** \u2013 `await\
+      \ print_outdated(outdated_results, args.quiet)`.\n\n## Command\u2011Line Interface\
+      \ (`parse_args`)\n| Option | Shortcut | Type | Description |\n|--------|----------|------|-------------|\n\
+      | `--verbose` | `-v` | flag | Enables printing of verbose information (e.g.,\
+      \ debug logs). |\n| `--quiet` | `-q` | flag | Suppresses the non\u2011zero exit\
+      \ code when not all dependencies are up\u2011to\u2011date. |\n| `file` | none\
+      \ | positional (zero or more) | Paths or glob patterns to read dependencies\
+      \ from. Defaults to `[\"requirements.txt\", \"setup.cfg\"]`. |\n\n- **Program\
+      \ name:** `\"pip-outdated\"`\n- **Help description:** `\"Find outdated dependencies\
+      \ in your requirements.txt or setup.cfg file.\"`\n- **Argument parser class:**\
+      \ `argparse.ArgumentDefaultsHelpFormatter` (automatically shows default values\
+      \ in help output).\n\n## Important Implementation Details\n- **Async handling:**\
+      \  \n  - The script relies on asyncio to perform network calls concurrently,\
+      \ improving speed when many packages need checking.\n  - The explicit event\u2011\
+      loop management (`run_until_complete`) works around a bug in aiohttp that otherwise\
+      \ closes the loop after `asyncio.run`.\n- **Lazy imports:** Modules that require\
+      \ heavy dependencies (e.g., `aiohttp`) are imported inside `_main` after argument\
+      \ parsing, keeping the CLI start\u2011up time low.\n- **Session management:**\
+      \ The `get_session()` context manager ensures a single reusable HTTP session\
+      \ is used for all package version checks, then cleanly closed.\n\n## User\u2011\
+      Facing Documentation Points\n- **Installation:** The package ships a console\
+      \ script entry point named `\"pip-outdated\"` (mapped to `pip_outdated.__init__:main`).\n\
+      - **Typical usage examples:**  \n  ```bash\n  # Scan default files (requirements.txt\
+      \ and setup.cfg)\n  pip-outdated\n\n  # Scan a custom file or glob pattern\n\
+      \  pip-outdated my_deps/*.txt\n\n  # Enable verbose output for debugging\n \
+      \ pip-outdated -v\n\n  # Do not exit with code 1 when outdated packages are\
+      \ found\n  pip-outdated -q\n  ```\n- **Exit codes:**  \n  - `0` \u2013 All dependencies\
+      \ are up\u2011to\u2011date *or* the user supplied `--quiet`.  \n  - `1` \u2013\
+      \ At least one dependency is outdated *and* `--quiet` was not set.\n- **Limitations\
+      \ / Known Issues:**  \n  - The script cannot use `asyncio.run` due to an aiohttp\
+      \ bug; this is documented in the source (`FIXME` comment).  \n  - Only Python\
+      \ packages listed in the supplied files are checked; transitive dependencies\
+      \ are not resolved automatically.\n\n## Potential Documentation Sections\n-\
+      \ **Installation & Setup**\n- **Command\u2011Line Reference**\n- **How It Works\
+      \ (Technical Overview)**\n- **Examples & Common Workflows**\n- **Troubleshooting\
+      \ & FAQ**\n  - Explanation of the `asyncio.run` limitation.\n  - How to increase\
+      \ verbosity for debugging network issues.\n    </content>\n    </item>\n   \
+      \ <item index=\"2\">\n    <subject_path>pip_outdated/print_outdated.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n## Project Component: `pip_outdated/print_outdated.py`\n\n###\
+      \ Overview\n- **Purpose**: Formats and displays the results of a dependency\u2011\
+      out\u2011of\u2011date check as a colored table in the terminal.  \n- **Target\
+      \ audience**: End\u2011users of the *pip\u2011outdated* utility who want a clear,\
+      \ visual summary of which packages need updating.\n\n### Key Functions\n\n####\
+      \ `make_row(outdate: OutdateResult) -> Optional[List[str]]`\n- **Input**: An\
+      \ `OutdateResult` instance (produced by `check_outdated.py`).  \n- **Output**:\
+      \  \n  - `None` if the package is **not outdated**.  \n  - A list of four string\
+      \ cells (`[name, installed, wanted, latest]`) otherwise.  \n- **Color logic**\
+      \ (uses `termcolor.colored`):  \n  - **Installed version** (`colored_current`)\
+      \  \n    - Red\u202F+\u202Fbold \u2192 installation info missing or deliberately\
+      \ ignored.  \n    - Normal \u2192 version is available.  \n  - **Wanted version**\
+      \ (`colored_wanted`)  \n    - Red\u202F+\u202Fbold \u2192 no version data on\
+      \ PyPI or `wanted` unset.  \n    - Green\u202F+\u202Fbold \u2192 a newer version\
+      \ is available **and** the package is installed.  \n    - Normal \u2192 the\
+      \ wanted version is already installed.  \n  - **Latest version** (`colored_latest`)\
+      \  \n    - Red\u202F+\u202Fbold \u2192 PyPI data unavailable.  \n    - Green\u202F\
+      +\u202Fbold \u2192 a newer version exists **and** the package is installed.\
+      \  \n    - Normal \u2192 the latest version matches the installed one.\n\n####\
+      \ `print_outdated(outdates: List[Awaitable[OutdateResult]], quiet: bool)`\n\
+      - **Async** \u2013 expects a list of awaitable `OutdateResult` objects (e.g.,\
+      \ coroutines that query package metadata).  \n- **Workflow**:  \n  1. Initializes\
+      \ `colorama` for cross\u2011platform ANSI color support.  \n  2. Builds a data\
+      \ matrix starting with headers: `[\"Name\", \"Installed\", \"Wanted\", \"Latest\"\
+      ]`.  \n  3. Iterates through each awaited result, appends a row via `make_row`.\
+      \  \n  4. Handles three terminal states:  \n     - **No requirements** (`count\
+      \ == 0`) \u2192 prints a red warning: `\"No requirements found.\"` and exits\
+      \ early.  \n     - **All up\u2011to\u2011date** (`len(data) == 1`) \u2192 prints\
+      \ a cyan, bold message: `\"Everything is up-to\u2011date!\"`.  \n     - **Out\u2011\
+      of\u2011date packages present** \u2192 prints a legend explaining color semantics,\
+      \ then renders an ASCII table using `terminaltables.AsciiTable`.  \n  5. If\
+      \ `quiet` is **False**, the function ends with `sys.exit(1)` to signal that\
+      \ updates are needed (useful for CI pipelines).  \n\n### User\u2011Facing Behaviour\n\
+      \n- **Color legend** (displayed before the table):  \n  - **Red** = unavailable,\
+      \ outdated, or outside of version specifier.  \n  - **Green** = updatable (a\
+      \ newer version exists).  \n- **Exit codes**:  \n  - `0` \u2013 when everything\
+      \ is up\u2011to\u2011date or when `quiet` is `True`.  \n  - `1` \u2013 when\
+      \ at least one package can be upgraded and `quiet` is `False`.  \n- **Quiet\
+      \ mode** (`quiet=True`):  \n  - Suppresses the non\u2011zero exit; useful when\
+      \ the user only wants the visual report without affecting script flow.  \n\n\
+      ### Dependencies\n\n- `colorama` \u2013 Enables ANSI colors on Windows terminals.\
+      \  \n- `termcolor` \u2013 Provides the `colored` helper for applying foreground\
+      \ colors and text attributes.  \n- `terminaltables` \u2013 Generates the ASCII\
+      \ table (`AsciiTable` alias `Table`).  \n\n### Integration Points\n\n- **Input\
+      \ source**: The function expects `OutdateResult` objects from the sibling module\
+      \ `check_outdated.py`.  \n- **Typical usage**:  \n  ```python\n  # Example (pseudo\u2011\
+      code)\n  from pip_outdated.print_outdated import print_outdated\n  from pip_outdated.check_outdated\
+      \ import gather_outdated  # returns awaitables\n\n  outdates = await gather_outdated(requirements_file=\"\
+      requirements.txt\")\n  await print_outdated(outdates, quiet=False)\n  ```\n\
+      - **Error handling**: The script itself does not raise exceptions; it simply\
+      \ skips packages lacking data and reports them in red.\n\n### Documentation\
+      \ Checklist for End\u2011Users\n\n- [ ] Explain what the table columns represent.\
+      \  \n- [ ] Clarify the meaning of the color coding (red vs. green).  \n- [ ]\
+      \ Describe the effect of the `quiet` flag on exit status.  \n- [ ] List required\
+      \ third\u2011party packages to run the command.  \n- [ ] Provide a short code\
+      \ snippet showing how to invoke `print_outdated`.  \n- [ ] Note that the function\
+      \ is asynchronous and must be awaited.  \n\nThese notes capture the functional\
+      \ intent, user\u2011visible output, and integration details needed to produce\
+      \ clear, user\u2011focused documentation for the `print_outdated.py` module.\n\
+      \    </content>\n    </item>\n    <item index=\"3\">\n    <subject_path>pip_outdated/find_require.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n## Project Overview  \n\n- **Goal** \u2013 Locate and parse\
+      \ Python package requirements from various file types (e.g., `requirements.txt`,\
+      \ `setup.cfg`).  \n- **Reference** \u2013 Implements the [pip requirements file\
+      \ format](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).\
+      \  \n\n## Core Modules & Functions  \n\n| Function | Description | Return |\n\
+      |----------|-------------|--------|\n| `iter_files(patterns)` | Accepts a list\
+      \ of glob patterns or file paths and yields a `pathlib.Path` object for each\
+      \ matching file. Handles both explicit files and pattern\u2011based searches.\
+      \ | Generator of `Path` objects |\n| `file_to_lines(file)` | Opens a file (UTF\u2011\
+      8) and streams its lines through `parse_lines`. Shows a debug message when `verbose()`\
+      \ is `True`. | Generator of processed lines |\n| `parse_lines(lines)` | Normalises\
+      \ raw lines: removes comments (`# \u2026`), concatenates line continuations\
+      \ (`\\\\`), and strips trailing new\u2011lines. | Generator of cleaned strings\
+      \ |\n| `parse_requirements(file)` | Reads a file, cleans each line with `parse_lines`,\
+      \ converts it to a `Requirement` object via `parse_require`, and yields only\
+      \ successful parses. | Generator of `Requirement` objects |\n| `parse_requirements_text(text)`\
+      \ | Same as `parse_requirements` but works on an in\u2011memory string (useful\
+      \ for cfg values). | Generator of `Requirement` objects |\n| `parse_cfg(file)`\
+      \ | Parses a `setup.cfg` (or any INI\u2011style) file: extracts `setup_requires`,\
+      \ `install_requires`, and all `extras_require` entries, then feeds each block\
+      \ through `parse_requirements_text`. | Generator of `Requirement` objects |\n\
+      | `find_require(files)` | High\u2011level entry point: iterates over supplied\
+      \ file patterns, selects the appropriate parser (`parse_cfg` for `.cfg` files,\
+      \ otherwise `parse_requirements`), and yields every discovered requirement.\
+      \ | Generator of `Requirement` objects |\n| `parse_require(text)` | Strips any\
+      \ trailing pip options (e.g., `--no-binary`) from a requirement line, attempts\
+      \ to build a `packaging.requirements.Requirement` instance, and returns `None`\
+      \ on failure. | `Requirement` or `None` |\n\n## How the Parser Works  \n\n1.\
+      \ **File Discovery** \u2013 `iter_files` expands each input pattern.  \n2. **Line\
+      \ Normalisation** \u2013 `parse_lines` removes comments, joins continuation\
+      \ lines, and strips line\u2011endings.  \n3. **Option Stripping** \u2013 `parse_require`\
+      \ discards any command\u2011line style options (`--something` or `-s`) that\
+      \ may follow a requirement specifier.  \n4. **Requirement Construction** \u2013\
+      \ Uses `packaging.requirements.Requirement` which validates PEP\u202F508 syntax.\
+      \ Invalid lines are silently ignored (returned as `None`).  \n\n## Typical Usage\
+      \  \n\n```python\nfrom pip_outdated.find_require import find_require\n\n# Example:\
+      \ find all requirements in the current directory\nfor req in find_require([\"\
+      requirements.txt\", \"setup.cfg\", \"src/*.txt\"]):\n    print(req)        \
+      \  # -> Requirement object, e.g. \"requests>=2.25\"\n```\n\n- Pass a list of\
+      \ file paths or glob patterns to `find_require`.  \n- The function yields `Requirement`\
+      \ objects that can be inspected (`.name`, `.specifier`, `.extras`, etc.).  \n\
+      \n## Supported File Types  \n\n- **Plain requirement files** (`.txt`, `.pip`,\
+      \ any file without `.cfg` suffix).  \n- **`setup.cfg`** (INI format) \u2013\
+      \ extracts sections:  \n\n  - `options.setup_requires`  \n  - `options.install_requires`\
+      \  \n  - All entries under `options.extras_require`  \n\n## Edge Cases & Limitations\
+      \  \n\n- **Comments** \u2013 Only `#` that start a comment after optional whitespace\
+      \ are stripped. Inline `#` inside a URL (e.g., `git+https://example.com#egg=pkg`)\
+      \ may be incorrectly truncated.  \n- **Continuation Lines** \u2013 Only a backslash\
+      \ (`\\`) followed by a newline is treated as a line continuation. Other whitespace\u2011\
+      based continuations are not supported.  \n- **Option Parsing** \u2013 The regex\
+      \ `r\"(.*?)\\s--?[a-z]\"` removes anything from the first whitespace before\
+      \ an option flag. Complex option syntax (e.g., `--hash=sha256:...`) may cause\
+      \ premature truncation.  \n- **Invalid Requirements** \u2013 Lines that cannot\
+      \ be parsed into a `Requirement` are silently dropped; no error is raised. \
+      \ \n\n## Configuration & Debugging  \n\n- **Verbose Mode** \u2013 The helper\
+      \ `verbose()` (imported from `.verbose`) controls whether each file being parsed\
+      \ is printed to stdout. Enable it in your environment to trace parsing activity.\
+      \  \n\n## Dependencies  \n\n- `packaging` \u2013 Provides the `Requirement`\
+      \ and validation logic.  \n- Standard library modules: `collections.abc`, `configparser`,\
+      \ `pathlib`, `re`.  \n\n## Extensibility  \n\n- To support additional file formats\
+      \ (e.g., `pyproject.toml`), add a new branch in `find_require` that selects\
+      \ an appropriate parser and yields `Requirement` objects in the same way.  \n\
+      - Custom comment or continuation handling can be introduced by modifying `parse_lines`.\
+      \  \n\n---  \n\n*These notes capture the essential functionality and usage patterns\
+      \ of `pip_outdated/find_require.py` and are intended to aid the authoring of\
+      \ user\u2011focused documentation.*\n    </content>\n    </item>\n    <item\
+      \ index=\"4\">\n    <subject_path>pip_outdated/check_outdated.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n**Project Component:** `pip_outdated/check_outdated.py`  \n\
+      **Language:** Python  \n\n---\n\n### Overview\n- This module provides **asynchronous\
+      \ utilities** to determine whether a given Python package is outdated compared\
+      \ to the versions available on PyPI.\n- It is designed for use in a CLI tool\
+      \ that checks installed packages against the latest releases, offering **verbose\
+      \ output** when enabled.\n\n---\n\n### Key Data Structure\n- **`OutdateResult`\
+      \ (dataclass)**\n  - **Fields**\n    - `requirement: Requirement` \u2013 the\
+      \ original package requirement (name + version specifier).\n    - `version:\
+      \ Optional[Version]` \u2013 the version currently installed locally (or `None`\
+      \ if not installed).\n    - `all_versions: List[Version]` \u2013 *all* non\u2011\
+      prerelease versions retrieved from PyPI, sorted ascending.\n    - `wanted: Optional[Version]`\
+      \ \u2013 the newest version that **satisfies** the requirement\u2019s specifier\
+      \ (computed in `__post_init__`).\n    - `latest: Optional[Version]` \u2013 the\
+      \ absolute newest version on PyPI (last element of `all_versions`).\n  - **Properties\
+      \ / Helpers**\n    - `name` \u2013 shortcut for `requirement.name`.\n    - `install_not_found()`\
+      \ \u2013 `True` when the package is not installed locally.\n    - `install_not_wanted()`\
+      \ \u2013 `True` when the installed version does **not** satisfy the requirement\
+      \ specifier.\n    - `pypi_not_found()` \u2013 `True` when no versions could\
+      \ be fetched from PyPI.\n    - `outdated()` \u2013 `True` when the installed\
+      \ version differs from either the wanted or the latest version.\n\n---\n\n###\
+      \ Core Functions (asynchronous)\n\n| Function | Purpose | Important Details\
+      \ |\n|----------|---------|-------------------|\n| `get_local_version(name:\
+      \ str) -> Optional[Version]` | Retrieves the locally installed version of a\
+      \ package via `pip show`. | - Executes `pip show {name}` in a subprocess. <br>\
+      \ - Parses the `Version:` line. <br> - Returns `None` if the package is not\
+      \ installed or the command fails. |\n| `get_pypi_versions(name: str, session)\
+      \ -> List[Version]` | Fetches all *stable* (non\u2011prerelease) releases for\
+      \ a package from PyPI. | - Uses an async HTTP session (`session.get`). <br>\
+      \ - Ignores any version string that `packaging.version` marks as `InvalidVersion`.\
+      \ <br> - Skips prereleases (`version.is_prerelease`). <br> - Returns a **sorted**\
+      \ list of `Version` objects. |\n| `check_outdated(require, session) -> OutdateResult`\
+      \ | Orchestrates the check for a single requirement. | - Optionally prints a\
+      \ verbose message (`Checking: {require.name} {require.specifier}`). <br> - Normalizes\
+      \ the package name with `canonicalize_name`. <br> - Calls `get_local_version`\
+      \ and `get_pypi_versions`. <br> - Returns an `OutdateResult` populated with\
+      \ the gathered data. |\n\n---\n\n### Usage Pattern (for developers)\n\n```python\n\
+      import asyncio\nimport aiohttp  # assumed async HTTP client used elsewhere in\
+      \ the project\nfrom packaging.requirements import Requirement\nfrom pip_outdated.check_outdated\
+      \ import check_outdated\n\nasync def main():\n    requirement = Requirement(\"\
+      requests>=2.0,<3.0\")\n    async with aiohttp.ClientSession() as session:\n\
+      \        result = await check_outdated(requirement, session)\n\n    if result.install_not_found():\n\
+      \        print(f\"{result.name} is not installed.\")\n    elif result.outdated():\n\
+      \        print(f\"{result.name} is outdated: installed {result.version}, wanted\
+      \ {result.wanted}, latest {result.latest}\")\n    else:\n        print(f\"{result.name}\
+      \ is up\u2011to\u2011date.\")\n\nasyncio.run(main())\n```\n\n- **Prerequisite:**\
+      \ An asynchronous HTTP client session (e.g., `aiohttp.ClientSession`) must be\
+      \ provided.\n- **Verbosity:** Controlled by the `verbose()` helper from `.verbose`.\
+      \ When enabled, each check prints a status line.\n\n---\n\n### Important Implementation\
+      \ Notes for Documentation Authors\n- **Error Handling** \u2013 The functions\
+      \ gracefully return empty/`None` results instead of raising; this simplifies\
+      \ downstream reporting.\n- **Version Filtering** \u2013 Only stable releases\
+      \ are considered; prereleases are deliberately excluded, matching typical user\
+      \ expectations for \u201Clatest stable\u201D.\n- **Naming Normalization** \u2013\
+      \ Uses `canonicalize_name` to ensure the package name matches PyPI\u2019s canonical\
+      \ format (e.g., case\u2011insensitive, hyphens vs. underscores).\n- **Extensibility**\
+      \ \u2013 The module is deliberately small and pure\u2011async; it can be reused\
+      \ in other tools that need to compare local installations against PyPI without\
+      \ blocking.\n\n---\n\n### Potential Documentation Sections Derived from This\
+      \ File\n1. **What the \u201Ccheck outdated\u201D command does** \u2013 high\u2011\
+      level description of the async version comparison.\n2. **How version information\
+      \ is gathered** \u2013 explanation of `pip show` and PyPI JSON API usage.\n\
+      3. **Understanding the result object** \u2013 detailed breakdown of `OutdateResult`\
+      \ fields and helper methods.\n4. **Customizing output** \u2013 mention of the\
+      \ `verbose` flag for more detailed logs.\n5. **Limitations** \u2013 only stable\
+      \ releases are considered; prereleases are ignored. Missing packages appear\
+      \ as \u201Cnot installed\u201D.  \n\nThese notes should give documentation writers\
+      \ a clear, user\u2011focused picture of the module\u2019s purpose, behavior,\
+      \ and integration points.\n    </content>\n    </item>\n    <item index=\"5\"\
+      >\n    <subject_path>pip_outdated/verbose.py</subject_path>\n    <subject_type>file</subject_type>\n\
+      \    <notes_format>markdown</notes_format>\n    <content>\n## Module: `pip_outdated.verbose`\n\
+      \n**Purpose**  \n- Provides a tiny, shared namespace to store and query a global\
+      \ *verbose* flag used throughout the **pip_outdated** project.  \n- Enables\
+      \ consistent \u201Cverbose\u201D behavior across modules without passing the\
+      \ flag explicitly.\n\n**Key Elements**\n\n| Symbol | Type | Description |\n\
+      |--------|------|-------------|\n| `VERBOSE` | `bool` (initially `None`) | Global\
+      \ variable that holds the current verbose state. |\n| `set_verbose(value: bool)\
+      \ -> None` | Function | Sets `VERBOSE` to the supplied boolean `value`. |\n\
+      | `verbose() -> bool` | Function | Returns the current value of `VERBOSE`. |\n\
+      \n**Usage Example**\n\n```python\nimport pip_outdated.verbose as v\n\n# Enable\
+      \ verbose output\nv.set_verbose(True)\n\n# Later, any module can check the flag\n\
+      if v.verbose():\n    print(\"Running in verbose mode\")\n```\n\n**Behavior Details**\n\
+      \n- The module does **not** enforce any default; `VERBOSE` starts as `None`\
+      \ until `set_verbose` is called.\n- `set_verbose` modifies the global variable\
+      \ via `global VERBOSE`, ensuring the change is visible to all importers.\n-\
+      \ `verbose` simply returns the stored value; callers should treat `None` as\
+      \ \u201Cundefined\u201D or provide a fallback.\n\n**Integration Points**\n\n\
+      - Other parts of the project can import `pip_outdated.verbose` and call `verbose()`\
+      \ to decide whether to emit detailed logs, extra command\u2011line output, or\
+      \ debugging information.\n- Typically, the flag is set once (e.g., based on\
+      \ a command\u2011line option) at program startup.  \n\n**Considerations for\
+      \ Documentation**\n\n- Clarify that the module is deliberately minimal\u2014\
+      no logging configuration, no thread\u2011safety guarantees.  \n- Mention that\
+      \ altering `VERBOSE` after the program has begun may affect components that\
+      \ have already read the flag.  \n- Suggest using the flag primarily for user\u2011\
+      visible verbosity rather than internal debugging.  \n    </content>\n    </item>\n\
+      \    <item index=\"6\">\n    <subject_path>pip_outdated/session.py</subject_path>\n\
+      \    <subject_type>file</subject_type>\n    <notes_format>markdown</notes_format>\n\
+      \    <content>\n## \U0001F4C4 File Overview  \n**Path:** `pip_outdated/session.py`\
+      \  \n**Language:** Python  \n**Purpose:** Provides a convenience function to\
+      \ create a pre\u2011configured `aiohttp.ClientSession` for use throughout the\
+      \ **pip\u2011outdated** project.\n\n---\n\n## \U0001F527 Key Elements  \n\n\
+      - **Import**  \n  ```python\n  import aiohttp\n  ```\n\n- **Function: `get_session()`**\
+      \  \n  - **Signature:** `def get_session() -> aiohttp.ClientSession:`  \n  -\
+      \ **What it does:**  \n    - Constructs a `aiohttp.ClientSession` with two preset\
+      \ configurations:  \n      1. **Headers** \u2013 sets `\"User-Agent\"` to `\"\
+      pip-outdated\"`.  \n      2. **Connector** \u2013 uses `aiohttp.TCPConnector(limit=5)`,\
+      \ capping concurrent connections to **5**.  \n    - Returns the newly created\
+      \ `ClientSession` instance.  \n\n  - **Code snippet:**  \n    ```python\n  \
+      \  def get_session() -> aiohttp.ClientSession:\n        headers = {\"User-Agent\"\
+      : \"pip-outdated\"}\n        connector = aiohttp.TCPConnector(limit=5)\n   \
+      \     return aiohttp.ClientSession(headers=headers, connector=connector)\n \
+      \   ```\n\n---\n\n## \U0001F4CC User\u2011Facing Documentation Points  \n\n\
+      - **Why use `get_session()`?**  \n  - Guarantees a consistent **User\u2011Agent**\
+      \ header for all HTTP requests made by the tool, helping package repositories\
+      \ identify traffic originating from *pip\u2011outdated*.  \n  - Limits the number\
+      \ of simultaneous connections to **5**, preventing excessive parallel requests\
+      \ that could overload remote servers or trigger rate limits.  \n\n- **Typical\
+      \ usage pattern**  \n  ```python\n  async with get_session() as session:\n \
+      \     async with session.get(\"https://pypi.org/simple/\") as resp:\n      \
+      \    data = await resp.text()\n  ```\n  - The function is intended to be used\
+      \ with an `async with` block to ensure proper cleanup of the session.\n\n- **Customization**\
+      \  \n  - If a project needs different connection limits or headers, developers\
+      \ can copy/modify this function or instantiate `aiohttp.ClientSession` directly.\
+      \  \n\n- **Dependencies**  \n  - Requires the `aiohttp` library (as listed in\
+      \ the project's dependencies).  \n\n---\n\n## \u2705 Takeaways for Documentation\
+      \ Writers  \n\n- Highlight that `session.py` centralizes HTTP session creation,\
+      \ promoting DRY (Don\u2019t Repeat Yourself) principles.  \n- Emphasize the\
+      \ built\u2011in safety measures (User\u2011Agent, connection limit) that align\
+      \ with good network etiquette for CLI tools.  \n- Mention that proper *asynchronous*\
+      \ usage (via `async with`) is required to avoid resource leaks.  \n    </content>\n\
+      \    </item>\n</list>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: text
+  output_object: null
+  output_tools: []
+  prompted_output_template: null

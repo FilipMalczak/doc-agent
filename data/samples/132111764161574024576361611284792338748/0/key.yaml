@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function's return statement creates and returns an instance of\n    aiohttp.ClientSession.\n\
+  \  fact: The get_session function returns an aiohttp.ClientSession instance.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

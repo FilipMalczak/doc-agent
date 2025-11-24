@@ -1,0 +1,23 @@
+"## Project Overview  \n## Core Modules & Functions  \n\n| Function | Description\
+  \ | Return |\n|----------|-------------|--------|\n| `iter_files(patterns)` | Accepts\
+  \ a list of glob patterns or file paths and yields a `pathlib.Path` object for each\
+  \ matching file. Handles both explicit files and pattern\u2011based searches. |\
+  \ Generator of `Path` objects |\n| `file_to_lines(file)` | Opens a file (UTF\u2011\
+  8) and streams its lines through `parse_lines`. Shows a debug message when `verbose()`\
+  \ is `True`. | Generator of processed lines |\n| `parse_lines(lines)` | Normalises\
+  \ raw lines: removes comments (`# \u2026`), concatenates line continuations (`\\\
+  \\`), and strips trailing new\u2011lines. | Generator of cleaned strings |\n| `parse_requirements(file)`\
+  \ | Reads a file, cleans each line with `parse_lines`, converts it to a `Requirement`\
+  \ object via `parse_require`, and yields only successful parses. | Generator of\
+  \ `Requirement` objects |\n| `parse_requirements_text(text)` | Same as `parse_requirements`\
+  \ but works on an in\u2011memory string (useful for cfg values). | Generator of\
+  \ `Requirement` objects |\n| `parse_cfg(file)` | Parses a `setup.cfg` (or any INI\u2011\
+  style) file: extracts `setup_requires`, `install_requires`, and all `extras_require`\
+  \ entries, then feeds each block through `parse_requirements_text`. | Generator\
+  \ of `Requirement` objects |\n| `find_require(files)` | High\u2011level entry point:\
+  \ iterates over supplied file patterns, selects the appropriate parser (`parse_cfg`\
+  \ for `.cfg` files, otherwise `parse_requirements`), and yields every discovered\
+  \ requirement. | Generator of `Requirement` objects |\n| `parse_require(text)` |\
+  \ Strips any trailing pip options (e.g., `--no-binary`) from a requirement line,\
+  \ attempts to build a `packaging.requirements.Requirement` instance, and returns\
+  \ `None` on failure. | `Requirement` or `None` |\n"

@@ -1,0 +1,3 @@
+OutdateResult.outdated() returns True when the installed version differs from either
+  the wanted version or the latest version.
+...

@@ -1,0 +1,3 @@
+Version 0.4.0 (released Jan 30, 2020) broke compatibility by requiring Python 3.7
+  or newer, added parallel HTTP requests, and introduced the "--quiet" option.
+...

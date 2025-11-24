@@ -1,0 +1,14 @@
+"# Directory\u2011Level Documentation \u2013 `pip_outdated/`\n# This installs the\
+  \ console script `pip-outdated`\n# Scan default files (requirements.txt & setup.cfg)\n\
+  # Scan a custom file or glob pattern\n# Enable verbose debugging output\n# Do not\
+  \ fail with a non\u2011zero exit code when updates exist\n### 4.3 Command\u2011\
+  Line Reference\n### 4.4 Output Explanation\n### 4.5 Technical Details (for advanced\
+  \ users)\n- **Async Implementation** \u2013 Uses `asyncio` with a manually managed\
+  \ event loop (`run_until_complete`) to work around an `aiohttp` bug that closes\
+  \ the loop when `asyncio.run` is used.  \n- **Session Limits** \u2013 HTTP requests\
+  \ are limited to 5 concurrent connections to avoid overloading PyPI servers.  \n\
+  - **Version Filtering** \u2013 Only stable (non\u2011prerelease) releases are considered;\
+  \ prereleases are ignored.  \n- **Requirement Parsing Edge Cases**\n  - Inline `#`\
+  \ inside URLs may be stripped incorrectly.\n  - Only backslash (`\\`) line continuations\
+  \ are supported.\n  - Options after a requirement (e.g., `--no-binary`) are removed\
+  \ by a simple regex, which may truncate complex options.\n"

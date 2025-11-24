@@ -1,0 +1,3 @@
+The tool compares each package's installed version against the version specifier defined
+  in requirements.txt or setup.cfg.
+...

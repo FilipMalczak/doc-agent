@@ -1,0 +1,15 @@
+"# Project Notes \u2013 `pip_outdated/__init__.py`\n## Overview\n## Entry Point\n\
+  ## Core Workflow (`_main`)\n## Command\u2011Line Interface (`parse_args`)\n## Important\
+  \ Implementation Details\n## User\u2011Facing Documentation Points\n- **Installation:**\
+  \ The package ships a console script entry point named `\"pip-outdated\"` (mapped\
+  \ to `pip_outdated.__init__:main`).\n- **Typical usage examples:**  \n  ```bash\n\
+  \  # Scan default files (requirements.txt and setup.cfg)\n  pip-outdated\n\n  #\
+  \ Scan a custom file or glob pattern\n  pip-outdated my_deps/*.txt\n\n  # Enable\
+  \ verbose output for debugging\n  pip-outdated -v\n\n  # Do not exit with code 1\
+  \ when outdated packages are found\n  pip-outdated -q\n  ```\n- **Exit codes:**\
+  \  \n  - `0` \u2013 All dependencies are up\u2011to\u2011date *or* the user supplied\
+  \ `--quiet`.  \n  - `1` \u2013 At least one dependency is outdated *and* `--quiet`\
+  \ was not set.\n- **Limitations / Known Issues:**  \n  - The script cannot use `asyncio.run`\
+  \ due to an aiohttp bug; this is documented in the source (`FIXME` comment).  \n\
+  \  - Only Python packages listed in the supplied files are checked; transitive dependencies\
+  \ are not resolved automatically.\n"

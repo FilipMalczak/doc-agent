@@ -16,6 +16,9 @@ class DeferredSlot[V: BaseModel](SamplingSlot[V]):
     def sample_id(self) -> int:
         return self._delegate.sample_id()
 
+    def sample_coordinates(self) -> str:
+        return self._delegate.sample_coordinates()
+
     def get(self):
         if self._pending_clear:
             return None

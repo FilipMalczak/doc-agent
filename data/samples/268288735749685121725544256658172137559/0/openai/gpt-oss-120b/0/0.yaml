@@ -1,0 +1,29 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: "The schema expects each fact object to have field \"fact\", maybe with\
+    \ statement and explanation combined. Probably the schema defines each fact as\
+    \ a single string. Let's output list of strings containing both statement and\
+    \ explanation? Could be \"fact\": \"...\". Let's combine into one string: combine\
+    \ statement and explanation maybe separated by \" \u2013 \". We'll output array\
+    \ of objects with \"fact\". Let's do that.\n\n"
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763983274-kEnbywNGP7nQXN019UgW
+run_id: null
+timestamp: '2025-11-24T11:21:14Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 4190
+  output_audio_tokens: 0
+  output_tokens: 905

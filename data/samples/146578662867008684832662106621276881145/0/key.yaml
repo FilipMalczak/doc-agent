@@ -1,0 +1,3 @@
+If data contains only the header row (i.e., no outdated packages), print_outdated
+  prints "Everything is up-to-date!" in cyan bold and returns early.
+...

@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The README states that <file> \"accepts glob pattern\".\n  fact: The positional\
+  \ argument <file> accepts glob patterns to specify one or more\n    requirement\
+  \ files.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

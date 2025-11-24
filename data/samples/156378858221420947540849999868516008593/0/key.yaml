@@ -1,0 +1,513 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden</hallucinations>\n  <invent_data>forbidden</invent_data>\n\
+      \  <modify_content>only structure and wording, never meaning</modify_content>\n\
+      \  <modify_formatting>allowed, as long as other constraints and rules satisfied</modify_formatting>\n\
+      \  <match_output_schema>required if schema available</match_output_schema>\n\
+      \  <match_output_format>required if `format.output` available</match_output_format>\n\
+      </constraints>\n<persona>fact extractor</persona>\n<task>\n  <context>you're\
+      \ reading the whole project for the first time; you need to extract the useful\
+      \ information for later usage</context>\n  <high_level>extract atomic facts\
+      \ from the input file</high_level>\n  <low_level>given a source file extract\
+      \ a list of facts that can be inferred from it; they should be short and self-enclosed</low_level>\n\
+      \  <detailed>extract atomic pieces of knowledge that can be later used to prepare\
+      \ user-facing documentation of the project that the input file is part of; explain\
+      \ why you think that each statement is a fact; facts should include all the\
+      \ necessary details to be understandable without additional context; make sure\
+      \ not to make statements like 'there is one <something>', contextualize instead,\
+      \ resulting in 'there is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<type>file</type>\n<document_type>source_file</document_type>\n<repo_item_type>config</repo_item_type>\n\
+      <path>setup.cfg</path>\n<language>config</language>\n<content>\n[metadata]\n\
+      name = pip-outdated\nversion = 0.8.0\ndescription = Find outdated dependencies\
+      \ in your requirements.txt or setup.cfg\nauthor = eight\nauthor_email = eight04@gmail.com\n\
+      \n# See https://pypi.python.org/pypi?%3Aaction=list_classifiers\nclassifiers\
+      \ =\n  Development Status :: 4 - Beta\n  Environment :: Console\n  Intended\
+      \ Audience :: Developers\n  Programming Language :: Python :: 3.7\n  Topic ::\
+      \ Software Development :: Build Tools\n\t\nkeywords = pip, check, outdate, npm\n\
+      license = MIT\nlong_description = file: README.rst\nurl = https://github.com/eight04/pip-outdated\n\
+      \n[options]\nzip_safe = True\npackages = find:\n\ninstall_requires =\n    aiohttp~=3.12\n\
+      \    colorama~=0.4.6\n    packaging~=25.0\n    termcolor~=3.1\n    terminaltables~=3.1\n\
+      \  \n[options.packages.find]\nexclude = tests\n\n[options.entry_points]\nconsole_scripts\
+      \ =\n  pip-outdated = pip_outdated:main\n\n[vpip]\ncommand_fallback = python\
+      \ cute.py\n\n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to extract atomic facts from the file. Provide each fact with\
+      \ explanation why it's a fact. Use double quotes for strings. Provide list maybe\
+      \ YAML? The instruction says to output list of facts, each should be short and\
+      \ self-enclosed. Probably output in YAML list format with hyphens. Also include\
+      \ explanation for each fact? The detailed says \"explain why you think that\
+      \ each statement is a fact\". So each fact entry should include both fact and\
+      \ explanation? Could be a dict with \"fact\" and \"reason\". Provide list.\n\
+      \nWe must follow formatting rules: double quotes, hyphen style for yaml list.\n\
+      \nWe'll produce YAML:\n\n- fact: \"The project name is \\\"pip-outdated\\\"\
+      \ as specified in the metadata section of setup.cfg.\"\n  reason: \"Metadata\
+      \ name field defines the distribution name.\"\n\nBut need double quotes for\
+      \ strings: we must enclose all string literals with double quotes. The YAML\
+      \ values can be strings with double quotes.\n\nWe'll output list of fact objects.\n\
+      \nProceed."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "```yaml\n- fact: \"The project name is \\\"pip-outdated\\\" as defined\
+      \ in the [metadata] section.\"\n  reason: \"The \\\"name\\\" field in the metadata\
+      \ declares the distribution identifier.\"\n\n- fact: \"The project version is\
+      \ \\\"0.8.0\\\" as defined in the [metadata] section.\"\n  reason: \"The \\\"\
+      version\\\" field specifies the current release version.\"\n\n- fact: \"The\
+      \ project description is \\\"Find outdated dependencies in your requirements.txt\
+      \ or setup.cfg\\\".\"\n  reason: \"The \\\"description\\\" field provides a\
+      \ short summary of the package purpose.\"\n\n- fact: \"The author is listed\
+      \ as \\\"eight\\\" with email \\\"eight04@gmail.com\\\".\"\n  reason: \"The\
+      \ \\\"author\\\" and \\\"author_email\\\" fields record the maintainer's identity\
+      \ and contact.\"\n\n- fact: \"The project classifiers include development status,\
+      \ environment, audience, programming language, and topic.\"\n  reason: \"The\
+      \ \\\"classifiers\\\" list enumerates standardized PyPI metadata categories\
+      \ for the package.\"\n\n- fact: \"The project keywords are \\\"pip\\\", \\\"\
+      check\\\", \\\"outdate\\\", and \\\"npm\\\".\"\n  reason: \"The \\\"keywords\\\
+      \" field lists searchable terms associated with the distribution.\"\n\n- fact:\
+      \ \"The project license is \\\"MIT\\\".\"\n  reason: \"The \\\"license\\\" field\
+      \ indicates the open\u2011source license under which the code is released.\"\
+      \n\n- fact: \"The long description is read from the file \\\"README.rst\\\"\
+      .\"\n  reason: \"The \\\"long_description\\\" field uses the \\\"file:\\\" prefix\
+      \ to include external documentation.\"\n\n- fact: \"The project homepage URL\
+      \ is \\\"https://github.com/eight04/pip-outdated\\\".\"\n  reason: \"The \\\"\
+      url\\\" field points to the source repository for the package.\"\n\n- fact:\
+      \ \"The package is marked as zip\u2011safe (\\\"zip_safe = True\\\").\"\n  reason:\
+      \ \"The \\\"zip_safe\\\" option informs setuptools that the project can be installed\
+      \ as a .egg zip archive.\"\n\n- fact: \"Package discovery is delegated to \\\
+      \"setuptools.find_packages\\\" via \\\"packages = find:\\\".\"\n  reason: \"\
+      The \\\"packages\\\" option with value \\\"find:\\\" triggers automatic discovery\
+      \ of Python packages.\"\n\n- fact: \"The installation requirements include aiohttp\
+      \ (\u22483.12), colorama (\u22480.4.6), packaging (\u224825.0), termcolor (\u2248\
+      3.1), and terminaltables (\u22483.1).\"\n  reason: \"The \\\"install_requires\\\
+      \" list enumerates runtime dependencies with version constraints.\"\n\n- fact:\
+      \ \"Test modules are excluded from automatic package discovery (\\\"exclude\
+      \ = tests\\\").\"\n  reason: \"The [options.packages.find] \\\"exclude\\\" directive\
+      \ prevents the \\\"tests\\\" directory from being packaged.\"\n\n- fact: \"\
+      A console script entry point is defined: the command \\\"pip-outdated\\\" maps\
+      \ to the function \\\"main\\\" in the module \\\"pip_outdated\\\".\"\n  reason:\
+      \ \"The [options.entry_points] section registers a command\u2011line interface\
+      \ for the package.\"\n\n- fact: \"A custom configuration section [vpip] defines\
+      \ \\\"command_fallback = python cute.py\\\".\"\n  reason: \"The presence of\
+      \ the \\\"[vpip]\\\" section adds a non\u2011standard configuration option used\
+      \ by the project.\"\n```"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1763983255-tdKYdJk5Ic6D7XKEyJRv
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-11-24T11:20:55Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      accepted_prediction_tokens: 0
+      audio_tokens: 0
+      reasoning_tokens: 201
+      rejected_prediction_tokens: 0
+    input_audio_tokens: 0
+    input_tokens: 765
+    output_audio_tokens: 0
+    output_tokens: 881
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: expected value at line 1 column 1
+      input: "```yaml\n- fact: \"The project name is \\\"pip-outdated\\\" as defined\
+        \ in the [metadata] section.\"\n  reason: \"The \\\"name\\\" field in the\
+        \ metadata declares the distribution identifier.\"\n\n- fact: \"The project\
+        \ version is \\\"0.8.0\\\" as defined in the [metadata] section.\"\n  reason:\
+        \ \"The \\\"version\\\" field specifies the current release version.\"\n\n\
+        - fact: \"The project description is \\\"Find outdated dependencies in your\
+        \ requirements.txt or setup.cfg\\\".\"\n  reason: \"The \\\"description\\\"\
+        \ field provides a short summary of the package purpose.\"\n\n- fact: \"The\
+        \ author is listed as \\\"eight\\\" with email \\\"eight04@gmail.com\\\".\"\
+        \n  reason: \"The \\\"author\\\" and \\\"author_email\\\" fields record the\
+        \ maintainer's identity and contact.\"\n\n- fact: \"The project classifiers\
+        \ include development status, environment, audience, programming language,\
+        \ and topic.\"\n  reason: \"The \\\"classifiers\\\" list enumerates standardized\
+        \ PyPI metadata categories for the package.\"\n\n- fact: \"The project keywords\
+        \ are \\\"pip\\\", \\\"check\\\", \\\"outdate\\\", and \\\"npm\\\".\"\n  reason:\
+        \ \"The \\\"keywords\\\" field lists searchable terms associated with the\
+        \ distribution.\"\n\n- fact: \"The project license is \\\"MIT\\\".\"\n  reason:\
+        \ \"The \\\"license\\\" field indicates the open\u2011source license under\
+        \ which the code is released.\"\n\n- fact: \"The long description is read\
+        \ from the file \\\"README.rst\\\".\"\n  reason: \"The \\\"long_description\\\
+        \" field uses the \\\"file:\\\" prefix to include external documentation.\"\
+        \n\n- fact: \"The project homepage URL is \\\"https://github.com/eight04/pip-outdated\\\
+        \".\"\n  reason: \"The \\\"url\\\" field points to the source repository for\
+        \ the package.\"\n\n- fact: \"The package is marked as zip\u2011safe (\\\"\
+        zip_safe = True\\\").\"\n  reason: \"The \\\"zip_safe\\\" option informs setuptools\
+        \ that the project can be installed as a .egg zip archive.\"\n\n- fact: \"\
+        Package discovery is delegated to \\\"setuptools.find_packages\\\" via \\\"\
+        packages = find:\\\".\"\n  reason: \"The \\\"packages\\\" option with value\
+        \ \\\"find:\\\" triggers automatic discovery of Python packages.\"\n\n- fact:\
+        \ \"The installation requirements include aiohttp (\u22483.12), colorama (\u2248\
+        0.4.6), packaging (\u224825.0), termcolor (\u22483.1), and terminaltables\
+        \ (\u22483.1).\"\n  reason: \"The \\\"install_requires\\\" list enumerates\
+        \ runtime dependencies with version constraints.\"\n\n- fact: \"Test modules\
+        \ are excluded from automatic package discovery (\\\"exclude = tests\\\").\"\
+        \n  reason: \"The [options.packages.find] \\\"exclude\\\" directive prevents\
+        \ the \\\"tests\\\" directory from being packaged.\"\n\n- fact: \"A console\
+        \ script entry point is defined: the command \\\"pip-outdated\\\" maps to\
+        \ the function \\\"main\\\" in the module \\\"pip_outdated\\\".\"\n  reason:\
+        \ \"The [options.entry_points] section registers a command\u2011line interface\
+        \ for the package.\"\n\n- fact: \"A custom configuration section [vpip] defines\
+        \ \\\"command_fallback = python cute.py\\\".\"\n  reason: \"The presence of\
+        \ the \\\"[vpip]\\\" section adds a non\u2011standard configuration option\
+        \ used by the project.\"\n```"
+      loc: []
+      msg: 'Invalid JSON: expected value at line 1 column 1'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_6ab4edf34b0c4b66b67b47613d1d41c5
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: tool_call
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'The issue: The expected output format likely expects JSON, not YAML.
+      The "final" response must be a call to functions.final_result with facts array.
+      The schema expects "facts" as any[].
+
+
+      Thus we should output via function call final_result with facts list of strings?
+      The task says extract atomic facts, but also include explanation why each statement
+      is a fact. Could embed both in object with "statement" and "reason". But schema
+      only says any[], no constraints. So we can return objects.
+
+
+      We must call the function.
+
+
+      We''ll produce list of objects each with "fact" and "reason". Use double quotes
+      inside JSON. Ensure proper escaping.
+
+
+      Let''s construct array.
+
+
+      We''ll call function.
+
+
+      '
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - args: "{\n  \"facts\": [\n    {\n      \"fact\": \"The project name is \\\"pip-outdated\\\
+      \" as defined in the [metadata] section of setup.cfg.\",\n      \"reason\":\
+      \ \"The \\\"name\\\" field in the metadata declares the distribution identifier.\"\
+      \n    },\n    {\n      \"fact\": \"The project version is \\\"0.8.0\\\" as defined\
+      \ in the [metadata] section.\",\n      \"reason\": \"The \\\"version\\\" field\
+      \ specifies the current release version.\"\n    },\n    {\n      \"fact\": \"\
+      The project description is \\\"Find outdated dependencies in your requirements.txt\
+      \ or setup.cfg\\\".\",\n      \"reason\": \"The \\\"description\\\" field provides\
+      \ a short summary of the package purpose.\"\n    },\n    {\n      \"fact\":\
+      \ \"The author is listed as \\\"eight\\\" with email \\\"eight04@gmail.com\\\
+      \".\",\n      \"reason\": \"The \\\"author\\\" and \\\"author_email\\\" fields\
+      \ record the maintainer's identity and contact.\"\n    },\n    {\n      \"fact\"\
+      : \"The project classifiers include development status, environment, audience,\
+      \ programming language, and topic.\",\n      \"reason\": \"The \\\"classifiers\\\
+      \" list enumerates standardized PyPI metadata categories for the package.\"\n\
+      \    },\n    {\n      \"fact\": \"The project keywords are \\\"pip\\\", \\\"\
+      check\\\", \\\"outdate\\\", and \\\"npm\\\".\",\n      \"reason\": \"The \\\"\
+      keywords\\\" field lists searchable terms associated with the distribution.\"\
+      \n    },\n    {\n      \"fact\": \"The project license is \\\"MIT\\\".\",\n\
+      \      \"reason\": \"The \\\"license\\\" field indicates the open\u2011source\
+      \ license under which the code is released.\"\n    },\n    {\n      \"fact\"\
+      : \"The long description is read from the file \\\"README.rst\\\".\",\n    \
+      \  \"reason\": \"The \\\"long_description\\\" field uses the \\\"file:\\\" prefix\
+      \ to include external documentation.\"\n    },\n    {\n      \"fact\": \"The\
+      \ project homepage URL is \\\"https://github.com/eight04/pip-outdated\\\".\"\
+      ,\n      \"reason\": \"The \\\"url\\\" field points to the source repository\
+      \ for the package.\"\n    },\n    {\n      \"fact\": \"The package is marked\
+      \ as zip\u2011safe (\\\"zip_safe = True\\\").\",\n      \"reason\": \"The \\\
+      \"zip_safe\\\" option informs setuptools that the project can be installed as\
+      \ a .egg zip archive.\"\n    },\n    {\n      \"fact\": \"Package discovery\
+      \ is delegated to \\\"setuptools.find_packages\\\" via \\\"packages = find:\\\
+      \".\",\n      \"reason\": \"The \\\"packages\\\" option with value \\\"find:\\\
+      \" triggers automatic discovery of Python packages.\"\n    },\n    {\n     \
+      \ \"fact\": \"The installation requirements include aiohttp (~=3.12), colorama\
+      \ (~=0.4.6), packaging (~=25.0), termcolor (~=3.1), and terminaltables (~=3.1).\"\
+      ,\n      \"reason\": \"The \\\"install_requires\\\" list enumerates runtime\
+      \ dependencies with version constraints.\"\n    },\n    {\n      \"fact\": \"\
+      Test modules are excluded from automatic package discovery (\\\"exclude = tests\\\
+      \").\",\n      \"reason\": \"The [options.packages.find] \\\"exclude\\\" directive\
+      \ prevents the \\\"tests\\\" directory from being packaged.\"\n    },\n    {\n\
+      \      \"fact\": \"A console script entry point is defined: the command \\\"\
+      pip-outdated\\\" maps to the function \\\"main\\\" in the module \\\"pip_outdated\\\
+      \".\",\n      \"reason\": \"The [options.entry_points] section registers a command\u2011\
+      line interface for the package.\"\n    },\n    {\n      \"fact\": \"A custom\
+      \ configuration section [vpip] defines \\\"command_fallback = python cute.py\\\
+      \".\",\n      \"reason\": \"The presence of the \\\"[vpip]\\\" section adds\
+      \ a non\u2011standard configuration option used by the project.\"\n    }\n \
+      \ ]\n}"
+    id: null
+    part_kind: tool-call
+    tool_call_id: chatcmpl-tool-b3a05d36277d4fc3b156f684468fec8d
+    tool_name: final_result
+  provider_details:
+    finish_reason: tool_calls
+  provider_name: openrouter
+  provider_response_id: gen-1763990020-yPsHyl4IiXKvwXMAQimY
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-11-24T13:13:40Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 2560
+    cache_write_tokens: 0
+    details: {}
+    input_audio_tokens: 0
+    input_tokens: 2576
+    output_audio_tokens: 0
+    output_tokens: 927
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - input:
+        fact: The project name is "pip-outdated" as defined in the [metadata] section
+          of setup.cfg.
+        reason: The "name" field in the metadata declares the distribution identifier.
+      loc:
+      - facts
+      - 0
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project version is "0.8.0" as defined in the [metadata] section.
+        reason: The "version" field specifies the current release version.
+      loc:
+      - facts
+      - 1
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project description is "Find outdated dependencies in your requirements.txt
+          or setup.cfg".
+        reason: The "description" field provides a short summary of the package purpose.
+      loc:
+      - facts
+      - 2
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The author is listed as "eight" with email "eight04@gmail.com".
+        reason: The "author" and "author_email" fields record the maintainer's identity
+          and contact.
+      loc:
+      - facts
+      - 3
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project classifiers include development status, environment, audience,
+          programming language, and topic.
+        reason: The "classifiers" list enumerates standardized PyPI metadata categories
+          for the package.
+      loc:
+      - facts
+      - 4
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project keywords are "pip", "check", "outdate", and "npm".
+        reason: The "keywords" field lists searchable terms associated with the distribution.
+      loc:
+      - facts
+      - 5
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project license is "MIT".
+        reason: "The \"license\" field indicates the open\u2011source license under\
+          \ which the code is released."
+      loc:
+      - facts
+      - 6
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The long description is read from the file "README.rst".
+        reason: The "long_description" field uses the "file:" prefix to include external
+          documentation.
+      loc:
+      - facts
+      - 7
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The project homepage URL is "https://github.com/eight04/pip-outdated".
+        reason: The "url" field points to the source repository for the package.
+      loc:
+      - facts
+      - 8
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: "The package is marked as zip\u2011safe (\"zip_safe = True\")."
+        reason: The "zip_safe" option informs setuptools that the project can be installed
+          as a .egg zip archive.
+      loc:
+      - facts
+      - 9
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: Package discovery is delegated to "setuptools.find_packages" via "packages
+          = find:".
+        reason: The "packages" option with value "find:" triggers automatic discovery
+          of Python packages.
+      loc:
+      - facts
+      - 10
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: The installation requirements include aiohttp (~=3.12), colorama (~=0.4.6),
+          packaging (~=25.0), termcolor (~=3.1), and terminaltables (~=3.1).
+        reason: The "install_requires" list enumerates runtime dependencies with version
+          constraints.
+      loc:
+      - facts
+      - 11
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: Test modules are excluded from automatic package discovery ("exclude
+          = tests").
+        reason: The [options.packages.find] "exclude" directive prevents the "tests"
+          directory from being packaged.
+      loc:
+      - facts
+      - 12
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: 'A console script entry point is defined: the command "pip-outdated"
+          maps to the function "main" in the module "pip_outdated".'
+        reason: "The [options.entry_points] section registers a command\u2011line\
+          \ interface for the package."
+      loc:
+      - facts
+      - 13
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        fact: A custom configuration section [vpip] defines "command_fallback = python
+          cute.py".
+        reason: "The presence of the \"[vpip]\" section adds a non\u2011standard configuration\
+          \ option used by the project."
+      loc:
+      - facts
+      - 14
+      - explanation
+      msg: Field required
+      type: missing
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: chatcmpl-tool-b3a05d36277d4fc3b156f684468fec8d
+    tool_name: final_result
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

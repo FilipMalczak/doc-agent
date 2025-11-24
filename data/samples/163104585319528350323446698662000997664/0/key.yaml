@@ -1,0 +1,3 @@
+The module provides utilities to locate and parse Python package requirement specifications
+  from requirement files and setup.cfg files.
+...

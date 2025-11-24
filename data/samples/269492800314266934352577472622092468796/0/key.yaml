@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The first line inside print_outdated is \"colorama.init()\", which initializes\n\
+  \    colorama.\n  fact: print_outdated calls colorama.init() at the start to enable\
+  \ colored terminal\n    output on Windows.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

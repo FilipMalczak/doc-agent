@@ -1,0 +1,32 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The user attempted to validate output as JSON but we gave YAML code block.
+    They expect JSON output because schema unknown but probably expecting JSON list
+    of facts with reason. The instruction didn''t specify format, but validation expects
+    JSON. So we need to output JSON array of objects with "fact" and "why". Use double
+    quotes. No code fences? Probably raw JSON. Let''s produce JSON. Ensure proper
+    escaping. Provide array.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763990250-cwje5bF5K8NraV2MduK7
+run_id: null
+timestamp: '2025-11-24T13:17:30Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details: {}
+  input_audio_tokens: 0
+  input_tokens: 0
+  output_audio_tokens: 0
+  output_tokens: 80

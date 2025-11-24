@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file content is empty, indicating that the module does not define\n    any\
+  \ variables, functions, or classes.\n  fact: The file tests/__init__.py contains\
+  \ no code or statements; it is empty.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

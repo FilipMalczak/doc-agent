@@ -1,0 +1,4 @@
+The asynchronous _main() function parses command-line arguments, sets the verbose
+  flag, discovers requirements, creates a session, checks each requirement for outdated
+  versions, and prints the results.
+...

@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The decorator \"@pytest.mark.asyncio\" precedes the definition of \"async\n  \
+  \  def test_pytz()\".\n  fact: The test function \"test_pytz\" is marked to run\
+  \ as an asynchronous test using\n    \"@pytest.mark.asyncio\".\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

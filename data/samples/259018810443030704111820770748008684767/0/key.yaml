@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line \"setup()\" invokes the imported function without providing\n    any\
+  \ positional or keyword arguments.\n  fact: The file calls the imported \"setup\"\
+  \ function with no arguments.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

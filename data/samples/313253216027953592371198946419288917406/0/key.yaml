@@ -1,0 +1,8 @@
+"## Project Overview  \n## Core Modules & Functions  \n## How the Parser Works  \n\
+  \n1. **File Discovery** \u2013 `iter_files` expands each input pattern.  \n2. **Line\
+  \ Normalisation** \u2013 `parse_lines` removes comments, joins continuation lines,\
+  \ and strips line\u2011endings.  \n3. **Option Stripping** \u2013 `parse_require`\
+  \ discards any command\u2011line style options (`--something` or `-s`) that may\
+  \ follow a requirement specifier.  \n4. **Requirement Construction** \u2013 Uses\
+  \ `packaging.requirements.Requirement` which validates PEP\u202F508 syntax. Invalid\
+  \ lines are silently ignored (returned as `None`).  \n"

@@ -1,0 +1,12 @@
+"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
+  pip-outdated -q\n```\n\n### 7. Test Suite (`tests/`)\n\n- The directory is a **Python\
+  \ package** (`__init__.py` present) enabling `pytest` discovery.  \n- **Key test\
+  \ files**  \n\n| File | Focus | Verified Behaviour |\n|------|-------|--------------------|\n\
+  | `tests/test_parse_cfg.py` | `find_require.parse_cfg` | Extracts requirement **names**\
+  \ from all sections (`setup_requires`, `install_requires`, `extras_require`) and\
+  \ preserves their order. |\n| `tests/test_pytz.py` | Async version fetching | Confirms\
+  \ that `get_pypi_versions(\"pytz\", session)` runs without raising an exception,\
+  \ demonstrating the async API pattern. |\n\n#### Adding New Tests\n- Place a file\
+  \ named `test_*.py` under `tests/`.  \n- Async tests should use `@pytest.mark.asyncio`\
+  \ and manage the `aiohttp` session with `async with get_session() as session:`.\n\
+  \n---\n"

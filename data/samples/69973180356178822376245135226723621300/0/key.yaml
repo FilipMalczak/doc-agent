@@ -1,0 +1,13 @@
+"### 6. Configuration Details (`setup.cfg`)\n\n```ini\n[metadata]\nname = pip-outdated\n\
+  version = 0.8.0\ndescription = Find outdated dependencies in your requirements.txt\
+  \ or setup.cfg\nauthor = eight\nauthor_email = eight04@gmail.com\nurl = https://github.com/eight04/pip-outdated\n\
+  license = MIT\nclassifiers =\n    Development Status :: 4 - Beta\n    Environment\
+  \ :: Console\n    Intended Audience :: Developers\n    Programming Language :: Python\
+  \ :: 3.7\n    Topic :: Software Development :: Build Tools\n\n[options]\ninstall_requires\
+  \ =\n    aiohttp ~= 3.12\n    colorama ~= 0.4.6\n    packaging ~= 25.0\n    termcolor\
+  \ ~= 3.1\n    terminaltables ~= 3.1\nzip_safe = True\npackages = find:\nexclude\
+  \ =\n    tests\n\n[options.entry_points]\nconsole_scripts =\n    pip-outdated =\
+  \ pip_outdated:main\n\n[vpip]\ncommand_fallback = \"python cute.py\"\n```\n\n- **Entry\
+  \ point** maps `pip-outdated` to `pip_outdated:main`.  \n- **Classifiers** indicate\
+  \ a **Beta** status and a minimum Python version of **3.7**.  \n- **`[vpip]` section**\
+  \ provides a fallback command for tools that read this custom config.\n\n---\n"

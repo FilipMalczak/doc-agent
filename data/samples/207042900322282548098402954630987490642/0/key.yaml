@@ -1,0 +1,6 @@
+"## Project Overview  \n## Core Modules & Functions  \n## How the Parser Works  \n\
+  ## Typical Usage  \n# Example: find all requirements in the current directory\n\
+  ## Supported File Types  \n## Edge Cases & Limitations  \n## Configuration & Debugging\
+  \  \n## Dependencies  \n\n- `packaging` \u2013 Provides the `Requirement` and validation\
+  \ logic.  \n- Standard library modules: `collections.abc`, `configparser`, `pathlib`,\
+  \ `re`.  \n"

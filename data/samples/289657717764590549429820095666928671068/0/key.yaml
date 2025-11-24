@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ \"The method r.raise_for_status() triggers an HTTPError on non\\u2011\\\n    2xx\
+  \ responses.\"\n  fact: get_pypi_versions raises an exception if the HTTP response\
+  \ status is not successful,\n    because it calls r.raise_for_status().\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

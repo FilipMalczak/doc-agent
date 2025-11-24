@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The changelog entry for 0.6.0 describes these three modifications.\n  fact: \"\
+  Version 0.6.0 (released Jan 1, 2023) bumped dependencies, dropped the cchardet\\\
+  \n    \\ package, and started fetching package versions from the pip CLI to support\
+  \ virtual\\u2011\\\n    environment detection.\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

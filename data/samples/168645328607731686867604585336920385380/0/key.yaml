@@ -1,0 +1,4 @@
+"## Test Behaviour\n- The test **passes** if `get_pypi_versions` completes without\
+  \ throwing an exception.\n- A failure would indicate:\n  - Network/connection issues\
+  \ while contacting PyPI.\n  - Problems in `get_pypi_versions` handling the `pytz`\
+  \ package metadata.\n  - Incorrect session handling in `get_session`.\n"

@@ -1,0 +1,32 @@
+"**Project Overview**  \n- **Name**: `\"pip-outdated\"`  \n- **Current version**:\
+  \ `\"0.8.0\"`  \n- **Short description**: `\"Find outdated dependencies in your\
+  \ requirements.txt or setup.cfg\"`  \n- **Intended audience**: Developers who need\
+  \ to quickly identify outdated Python packages.  \n\n**Author & Contact**  \n- **Author**:\
+  \ `\"eight\"`  \n- **Email**: `\"eight04@gmail.com\"`  \n\n**Project Home & License**\
+  \  \n- **Repository URL**: `\"https://github.com/eight04/pip-outdated\"`  \n- **License**:\
+  \ `\"MIT\"`  \n\n**Classifiers (PyPI metadata)**  \n- Development Status :: 4 -\
+  \ Beta  \n- Environment :: Console  \n- Intended Audience :: Developers  \n- Programming\
+  \ Language :: Python :: 3.7  \n- Topic :: Software Development :: Build Tools  \n\
+  \n**Keywords**  \n- `\"pip\"`, `\"check\"`, `\"outdate\"`, `\"npm\"`  \n\n**Installation\
+  \ Requirements**  \n- `aiohttp~=3.12`  \n- `colorama~=0.4.6`  \n- `packaging~=25.0`\
+  \  \n- `termcolor~=3.1`  \n- `terminaltables~=3.1`  \n\n**Packaging Options**  \n\
+  - The package is **zip\u2011safe** (`zip_safe = True`).  \n- Packages are discovered\
+  \ automatically (`packages = find:`) with the `tests` directory excluded.  \n\n\
+  **Command\u2011Line Interface**  \n- A console script is defined:  \n\n  ```bash\n\
+  \  pip-outdated = pip_outdated:main\n  ```  \n\n  Running `pip-outdated` invokes\
+  \ the `main` function in the `pip_outdated` module.  \n\n**Additional Configuration\
+  \ (`[vpip]` section)**  \n- `command_fallback = \"python cute.py\"` \u2013 defines\
+  \ a fallback command that can be used by tools that read the `vpip` configuration.\
+  \  \n\n**Typical User Workflow** (for documentation purposes)  \n1. **Install**\
+  \ the tool via `pip install pip-outdated`.  \n2. **Run** the command in a project\
+  \ directory containing `requirements.txt` or `setup.cfg`:  \n\n   ```bash\n   pip-outdated\n\
+  \   ```  \n\n3. The tool will scan the listed dependencies and report any that are\
+  \ newer than the versions currently specified.  \n\n**Notes for Documentation Writers**\
+  \  \n- Emphasize that the tool works with both `requirements.txt` **and** `setup.cfg`.\
+  \  \n- Highlight that the project is still in **Beta**, so users might encounter\
+  \ edge cases.  \n- Mention the required Python version (3.7) based on the classifier.\
+  \  \n- Provide examples of the output format (e.g., a table of outdated packages)\
+  \ using the `terminaltables` dependency.  \n\n**Future Documentation Topics**  \n\
+  - How to customize the fallback command (`[vpip]`).  \n- Extending the tool to support\
+  \ additional package managers.  \n- Contributing guidelines (not present in `setup.cfg`\
+  \ but useful for a contributor guide).  "

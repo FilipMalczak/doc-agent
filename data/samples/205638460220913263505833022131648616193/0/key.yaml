@@ -1,0 +1,18 @@
+"# Directory\u2011Level Documentation \u2013 `pip_outdated/`\n## 1. Package Overview\n\
+  ## 2. High\u2011Level Workflow\n1. **Argument Parsing** \u2013 `parse_args()` (in\
+  \ `__init__.py`) defines `--verbose/-v`, `--quiet/-q`, and positional file/glob\
+  \ arguments.  \n2. **Verbosity Control** \u2013 Global flag handled by `pip_outdated.verbose`\
+  \ (`set_verbose` / `verbose`).  \n3. **Requirement Discovery** \u2013 `find_require.find_require(files)`\
+  \ walks the supplied paths/patterns, parses plain requirement files and `setup.cfg`\
+  \ files, and yields `packaging.requirements.Requirement` objects.  \n4. **HTTP Session**\
+  \ \u2013 `session.get_session()` creates a single `aiohttp.ClientSession` with a\
+  \ custom *User\u2011Agent* header and a connection limit of **5**.  \n5. **Out\u2011\
+  of\u2011date Checks** \u2013 For each requirement, `check_outdated.check_outdated(require,\
+  \ session)`:\n   - Retrieves the locally installed version (`pip show`).\n   - Pulls\
+  \ all stable releases from PyPI.\n   - Populates an `OutdateResult` dataclass containing\
+  \ `installed`, `wanted`, and `latest` versions plus helper predicates (`outdated()`,\
+  \ `install_not_found()`, etc.).  \n6. **Result Presentation** \u2013 `print_outdated.print_outdated(outdates,\
+  \ quiet)` builds a colored ASCII table:\n   - Columns: **Name**, **Installed**,\
+  \ **Wanted**, **Latest**.  \n   - Red\u202F=\u202Fmissing/unavailable, Green\u202F\
+  =\u202Fnewer version exists.  \n   - Exits with code `1` when any package is outdated\
+  \ unless `--quiet` is set.  \n"

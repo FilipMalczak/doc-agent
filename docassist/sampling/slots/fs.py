@@ -19,6 +19,11 @@ class FSSamplingSlot[V: BaseModel](SamplingSlot[V]):
     def sample_id(self) -> int:
         return self._sample_id
 
+    def sample_coordinates(self) -> str:
+        #fixme ugly hack, but it works for now
+        from docassist.config import CONFIG
+        return str(self._storage.relative_to(CONFIG.samples_dir))
+
     def get(self) -> V | None:
         if not self._storage.exists():
             return None

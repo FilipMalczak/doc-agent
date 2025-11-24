@@ -1,0 +1,30 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to output JSON that matches schema: final_result expects {"facts":
+    any[]}. So we need to return a JSON object with key "facts" and value list of
+    fact objects. Not yaml. The previous output gave yaml inside code block, causing
+    validation error. Need to call final_result function with appropriate JSON. Provide
+    list of fact objects each with "fact" and "why". Use double quotes. Ensure no
+    markdown. Use function call.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763989926-XcgQ6PwHyQtYDgFHP5u5
+run_id: null
+timestamp: '2025-11-24T13:12:06Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 3529
+  output_audio_tokens: 0
+  output_tokens: 1181

@@ -1,0 +1,3 @@
+get_pypi_versions raises an exception if the HTTP response status is not successful,
+  because it calls r.raise_for_status().
+...

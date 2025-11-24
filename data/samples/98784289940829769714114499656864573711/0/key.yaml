@@ -1,0 +1,5 @@
+'# Verbose mode
+
+  pip-outdated -v
+
+  '

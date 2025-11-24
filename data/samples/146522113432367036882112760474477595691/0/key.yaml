@@ -1,0 +1,5 @@
+"# Example: find all requirements in the current directory\n## Supported File Types\
+  \  \n\n- **Plain requirement files** (`.txt`, `.pip`, any file without `.cfg` suffix).\
+  \  \n- **`setup.cfg`** (INI format) \u2013 extracts sections:  \n\n  - `options.setup_requires`\
+  \  \n  - `options.install_requires`  \n  - All entries under `options.extras_require`\
+  \  \n"

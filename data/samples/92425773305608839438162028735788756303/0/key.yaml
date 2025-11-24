@@ -1,0 +1,2 @@
+'Example usage: "pip-outdated *-requirements.txt" checks multiple files matching the
+  glob pattern "*-requirements.txt".'

@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The optional arguments table defines \"-q, --quiet\" with that exact\n    description.\n\
+  \  fact: The optional flag \"-q\" or \"--quiet\" prevents the program from exiting\
+  \ with\n    code 1 when not all dependencies are up to date.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

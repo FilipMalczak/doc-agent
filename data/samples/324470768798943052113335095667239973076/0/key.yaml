@@ -1,0 +1,9 @@
+"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
+  pip-outdated -q\n```\n\n#### Command\u2011Line Synopsis\n```\npip-outdated [-h]\
+  \ [-v] [-q] [<file> [<file> ...]]\n```\n\n| Option | Shortcut | Description |\n\
+  |--------|----------|-------------|\n| `--help` | `-h` | Show help message and exit\
+  \ |\n| `--verbose` | `-v` | Print detailed status lines (e.g., each package being\
+  \ checked) |\n| `--quiet` | `-q` | Suppress the non\u2011zero exit code when outdated\
+  \ packages are found |\n| `<file>` | \u2013 | Positional arguments; zero or more\
+  \ file paths or glob patterns. Defaults to `[\"requirements.txt\", \"setup.cfg\"\
+  ]` |\n\n---\n"

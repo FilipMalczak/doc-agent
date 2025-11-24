@@ -1,14 +1,18 @@
 from datetime import datetime, UTC
 from dataclasses import dataclass
+from io import StringIO
 from os.path import join
 from sys import prefix
-from typing import Any
+from typing import Any, TextIO
 
 from uuid import uuid4
 
+import yaml
 from pydantic_graph.beta import GraphBuilder, StepContext
 from pydantic_graph.beta.join import reduce_list_append, reduce_list_extend
+from yaml import Loader
 
+from docassist.agents.generators.facts_from_file import fact_extractor
 from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, question, \
     dir_note_taker, doc_to_notes
 from docassist.agents.generators.notes_from_file import file_note_taker
@@ -99,11 +103,63 @@ async def chunk_notes(ctx: StepContext[None, None, Document]) -> list[Document]:
 
 @g.step
 async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
-    return d("extract_facts")
+    doc = ctx.inputs
+    user_msg = dict(doc.metadata)
+    user_msg["content"] = doc.content
+    facts_obj = (await fact_extractor.run(to_simple_xml(user_msg))).output
+    with StringIO() as t:
+        yaml.dump(facts_obj, t)
+        content = t.getvalue()
+    return Document(
+        id=str(uuid4()),
+        content=content,
+        metadata={
+            "document_type": "facts",
+            "subject_id": doc.id,
+            **embed_metadata(doc.metadata, "subject")
+        }
+    )
 
 @g.step
 async def chunk_facts(ctx: StepContext[None, None, Document]) -> list[Document]:
-    return [d("chunk_facts")]
+    doc = ctx.inputs
+    facts = yaml.load(doc.content, Loader=Loader)
+    # {
+    #     "document_type": "chunk",
+    #     "chunk_source_id": doc.id,
+    #     "chunk_variant": "simple",
+    #     "chunk_coordinates": subchapter.coordinates,
+    #     **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
+    # }
+    def i():
+        for i, f in enumerate(facts.facts):
+            yield Document(
+                id=str(uuid4()),
+                content=f.fact,
+                metadata={
+                    "document_type": "chunk",
+                    "chunk_source_id": doc.id,
+                    "chunk_variant": "simple",
+                    "chunk_coordinates": i,
+                    **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
+                }
+            )
+            with StringIO() as t:
+                yaml.dump(f, t)
+                single_explained = t.getvalue()
+            yield Document(
+                id=str(uuid4()),
+                content=single_explained,
+                metadata={
+                    "document_type": "chunk",
+                    "chunk_source_id": doc.id,
+                    "chunk_variant": "explained",
+                    "chunk_coordinates": i,
+                    **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
+                }
+            )
+    return list(i())
+
 
 @g.step
 async def build_index(ctx: StepContext[None, None, list[Document]]) -> IndexSnapshot:

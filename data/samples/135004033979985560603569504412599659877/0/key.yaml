@@ -1,0 +1,38 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The metadata tags specify <type>file</type>, <document_type>source_file</document_type>,\n\
+  \        <path>setup.py</path>, and the <language>python</language> field.\n   \
+  \   fact: The file is a Python source file named \"setup.py\" located at the path\n\
+  \        \"setup.py\" in the repository.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The content starts with \"#! python3\", which is the conventional\n\
+  \        way to indicate that the script should be executed with Python 3.\n   \
+  \   fact: The first line of the file is a shebang \"#! python3\".\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: \"The line \\\"from setuptools import setup\\\
+  \" explicitly imports the\\\n        \\ \\\"setup\\\" callable from the third\\\
+  u2011party package \\\"setuptools\\\".\"\n      fact: The file imports the function\
+  \ \"setup\" from the \"setuptools\" package.\n    __pydantic_extra__: null\n   \
+  \ __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n  \
+  \  __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The line \"setup()\" invokes the imported function\
+  \ without providing\n        any positional or keyword arguments.\n      fact: The\
+  \ file calls the imported \"setup\" function with no arguments.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Scanning the entire content shows only the shebang,\
+  \ the import\n        statement, and the call to setup(); there are no other definitions.\n\
+  \      fact: The file does not define any additional variables, functions, or classes.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: In Python packaging, a call to \"setup()\" without\
+  \ arguments relies\n        on configuration files to provide metadata; the absence\
+  \ of arguments in this\n        file implies such external configuration.\n    \
+  \  fact: Because \"setup()\" is called without arguments, the project's packaging\n\
+  \        metadata must be supplied elsewhere (e.g., in a \"setup.cfg\" or \"pyproject.toml\"\
+  \n        file) or the call will use default values.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

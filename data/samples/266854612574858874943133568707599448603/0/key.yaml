@@ -1,0 +1,4 @@
+check_outdated returns a new OutdateResult instance constructed with the original
+  Requirement object, the locally installed version (or None), and the list of PyPI
+  versions.
+...

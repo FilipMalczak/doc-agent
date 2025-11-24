@@ -1,0 +1,5 @@
+The file imports asyncio, dataclass from dataclasses, List and Optional from typing,
+  Requirement from packaging.requirements, canonicalize_name from packaging.utils,
+  Version, InvalidVersion, and parse (as parse_version) from packaging.version, and
+  verbose from a relative module .verbose.
+...

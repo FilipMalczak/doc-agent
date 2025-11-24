@@ -1,0 +1,46 @@
+"# Project Notes \u2013 `pip_outdated/__init__.py`\n\n## Overview\n- **Package name:**\
+  \ `pip-outdated`\n- **Current version:** `\"0.8.0\"`\n- **Purpose:** Command\u2011\
+  line utility that scans a `requirements.txt` or `setup.cfg` file (or any file matching\
+  \ a glob pattern) and reports packages that have newer releases available on PyPI.\n\
+  \n## Entry Point\n- **Function:** `main()`\n- **How it runs:**  \n  - Uses `asyncio.get_event_loop().run_until_complete(_main())`\
+  \ instead of `asyncio.run()` because of a known issue with aiohttp that closes the\
+  \ event loop (`https://github.com/aio-libs/aiohttp/issues/1925`).\n\n## Core Workflow\
+  \ (`_main`)\n1. **Parse CLI arguments** \u2013 via `parse_args()`.\n2. **Configure\
+  \ verbosity** \u2013 calls `set_verbose(args.verbose)` from `.verbose`.\n3. **Load\
+  \ required modules** (imported lazily to keep start\u2011up fast):\n   - `.find_require`\
+  \ \u2013 discovers dependency specifications.\n   - `.check_outdated` \u2013 contacts\
+  \ PyPI to determine newer versions.\n   - `.print_outdated` \u2013 formats and displays\
+  \ the results.\n   - `.session` \u2013 provides an aiohttp session for network calls.\n\
+  4. **Identify requirements** \u2013 `requires = find_require(args.file)`.\n5. **Create\
+  \ an async session** \u2013 `async with get_session() as session:`.\n6. **Schedule\
+  \ version checks** \u2013 one `asyncio.create_task` per requirement.\n7. **Print\
+  \ results** \u2013 `await print_outdated(outdated_results, args.quiet)`.\n\n## Command\u2011\
+  Line Interface (`parse_args`)\n| Option | Shortcut | Type | Description |\n|--------|----------|------|-------------|\n\
+  | `--verbose` | `-v` | flag | Enables printing of verbose information (e.g., debug\
+  \ logs). |\n| `--quiet` | `-q` | flag | Suppresses the non\u2011zero exit code when\
+  \ not all dependencies are up\u2011to\u2011date. |\n| `file` | none | positional\
+  \ (zero or more) | Paths or glob patterns to read dependencies from. Defaults to\
+  \ `[\"requirements.txt\", \"setup.cfg\"]`. |\n\n- **Program name:** `\"pip-outdated\"\
+  `\n- **Help description:** `\"Find outdated dependencies in your requirements.txt\
+  \ or setup.cfg file.\"`\n- **Argument parser class:** `argparse.ArgumentDefaultsHelpFormatter`\
+  \ (automatically shows default values in help output).\n\n## Important Implementation\
+  \ Details\n- **Async handling:**  \n  - The script relies on asyncio to perform\
+  \ network calls concurrently, improving speed when many packages need checking.\n\
+  \  - The explicit event\u2011loop management (`run_until_complete`) works around\
+  \ a bug in aiohttp that otherwise closes the loop after `asyncio.run`.\n- **Lazy\
+  \ imports:** Modules that require heavy dependencies (e.g., `aiohttp`) are imported\
+  \ inside `_main` after argument parsing, keeping the CLI start\u2011up time low.\n\
+  - **Session management:** The `get_session()` context manager ensures a single reusable\
+  \ HTTP session is used for all package version checks, then cleanly closed.\n\n\
+  ## User\u2011Facing Documentation Points\n- **Installation:** The package ships\
+  \ a console script entry point named `\"pip-outdated\"` (mapped to `pip_outdated.__init__:main`).\n\
+  - **Typical usage examples:**  \n  ```bash\n  # Scan default files (requirements.txt\
+  \ and setup.cfg)\n  pip-outdated\n\n  # Scan a custom file or glob pattern\n  pip-outdated\
+  \ my_deps/*.txt\n\n  # Enable verbose output for debugging\n  pip-outdated -v\n\n\
+  \  # Do not exit with code 1 when outdated packages are found\n  pip-outdated -q\n\
+  \  ```\n- **Exit codes:**  \n  - `0` \u2013 All dependencies are up\u2011to\u2011\
+  date *or* the user supplied `--quiet`.  \n  - `1` \u2013 At least one dependency\
+  \ is outdated *and* `--quiet` was not set.\n- **Limitations / Known Issues:**  \n\
+  \  - The script cannot use `asyncio.run` due to an aiohttp bug; this is documented\
+  \ in the source (`FIXME` comment).  \n  - Only Python packages listed in the supplied\
+  \ files are checked; transitive dependencies are not resolved automatically.\n"

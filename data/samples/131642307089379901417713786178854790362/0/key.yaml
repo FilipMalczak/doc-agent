@@ -1,0 +1,3 @@
+"### Optional arguments  \n- `-h, --help`: Show help message and exit.  \n- `-v, --verbose`:\
+  \ Enable verbose output (default: `False`).  \n- `-q, --quiet`: Do **not** exit\
+  \ with code\u202F1 when any dependency is outdated (default: `False`).  \n"

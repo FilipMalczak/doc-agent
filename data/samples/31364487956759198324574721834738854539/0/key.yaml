@@ -1,0 +1,10 @@
+"### Points to Cover in User\u2011Facing Documentation  \n- **Purpose of `setup.py`**\
+  \ \u2013 explain that it is the classic entry point for packaging with `setuptools`.\
+  \  \n- **Current state** \u2013 note that the script is a placeholder and does not\
+  \ contain required fields.  \n- **Next steps for developers**  \n  - Add required\
+  \ arguments to `setup()`, such as `\"name\"`, `\"version\"`, `\"description\"`,\
+  \ `\"author\"`, `\"packages\"`, etc.  \n  - Optionally migrate metadata to a static\
+  \ `setup.cfg` or a `pyproject.toml` (PEP\u202F517/518) for a modern, declarative\
+  \ build configuration.  \n- **Execution** \u2013 with a proper configuration, users\
+  \ can install the project via `pip install .` or `python -m pip install .` from\
+  \ the repository root.  \n\n---\n"

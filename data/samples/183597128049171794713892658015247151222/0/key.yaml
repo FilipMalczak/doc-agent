@@ -1,0 +1,3 @@
+check_outdated obtains the list of available PyPI versions by awaiting get_pypi_versions(name,
+  session).
+...

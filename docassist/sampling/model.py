@@ -79,6 +79,7 @@ class SamplingModel(Model):
         ).remove_transient_data()
         slot: SamplingSlot[ModelInput, ModelResponse] = self._provider.get_slot(inp, ModelResponse, self._delegate.model_name)
         s.set_attribute("sampling.slot.sample_id", slot.sample_id())
+        s.set_attribute("sampling.slot.sample_coordinates", slot.sample_coordinates())
         s.set_attribute("sampling.slot.empty", slot.is_empty())
         if slot.is_empty():
             s.set_attribute("sampling.action", "delegate")

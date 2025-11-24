@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The Installation section provides the exact command for installing\n    the package\
+  \ from PyPI.\n  fact: \"pip\\u2011outdated can be installed from PyPI with the command\
+  \ \\\"pip install\\\n    \\ pip-outdated\\\".\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

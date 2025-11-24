@@ -1,0 +1,13 @@
+"### 10. Changelog Highlights (selected)\n\n| Version | Date | Notable Changes |\n\
+  |---------|------|-----------------|\n| **0.8.0** | Aug\u202F9\u202F2025 | Dropped\
+  \ `setuptools` dependency; switched to `configparse` for reading `setup.cfg`. |\n\
+  | **0.7.0** | Aug\u202F13\u202F2024 | Silently ignore `InvalidVersion` errors. |\n\
+  | **0.6.0** | Jan\u202F1\u202F2023 | Bumped dependencies; removed `cchardet`; fetches\
+  \ package version via `pip` CLI. |\n| **0.5.0** | Jan\u202F12\u202F2022 | Added\
+  \ type hints; bumped dependencies. |\n| **0.4.0** | Jan\u202F30\u202F2020 | Minimum\
+  \ Python\u202F3.7; added parallel request handling and `--quiet` flag. |\n| **0.3.0**\
+  \ | Oct\u202F13\u202F2019 | Exit code\u202F1 when any dependency is outdated; added\
+  \ support for `setup_requires` and `extras_require`. |\n| **0.2.0** | Feb\u202F\
+  10\u202F2019 | Updated core dependencies (colorama, packaging, requests, termcolor,\
+  \ terminaltables). |\n| **0.1.0** | May\u202F12\u202F2018 | Initial release. |\n\
+  \n---\n"

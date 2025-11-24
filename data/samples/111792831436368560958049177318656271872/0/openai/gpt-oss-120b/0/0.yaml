@@ -1,0 +1,81 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to produce notes for user documentation, based on README.rst.
+    Must output in markdown per format. Use double quotes for strings but not relevant.
+    Provide structured notes: project description, features, installation, usage,
+    options, examples, todos, changelog highlights, etc. Should be concise but cover
+    details for documentation. Ensure markdown bullet points hyphen style. Use yaml?
+    No, just markdown.
+
+
+    Let''s craft sections: Overview, Badges, Purpose, Installation, Quick start /
+    Usage, Command line arguments, Examples, TODOs, Changelog. Provide notes for later
+    user-facing docs. Provide version history with bullet points.
+
+
+    Ok.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "## Project Overview  \n- **Name:** `pip-outdated`  \n- **Purpose:** Detect\
+    \ outdated, missing, or incompatible dependencies defined in `requirements.txt`\
+    \ or `setup.cfg`.  \n- **Key Feature:** Presents results in a colored table; compares\
+    \ installed versions against version specifiers.  \n- **Alternative:** For a simple\
+    \ list of updatable packages, use `pip list --outdated`.\n\n## Badges  \n- **Build:**\
+    \ ![Travis CI](https://travis-ci.com/eight04/pip-outdated.svg?branch=master) \u2192\
+    \ <https://travis-ci.com/eight04/pip-outdated>  \n- **Coverage:** ![Codecov](https://codecov.io/gh/eight04/pip-outdated/branch/master/graph/badge.svg)\
+    \ \u2192 <https://codecov.io/gh/eight04/pip-outdated>\n\n## Installation  \n```bash\n\
+    pip install pip-outdated\n```\n*Published on PyPI*: <https://pypi.org/project/pip-outdated/>\n\
+    \n## Usage Synopsis  \n```bash\npip-outdated [-h] [-v] [-q] [<file> [<file> ...]]\n\
+    ```\n\n### Positional arguments  \n- `<file>`: One or more requirement files (supports\
+    \ glob patterns).  \n  - Default: `requirements.txt`, `setup.cfg`  \n\n### Optional\
+    \ arguments  \n- `-h, --help`: Show help message and exit.  \n- `-v, --verbose`:\
+    \ Enable verbose output (default: `False`).  \n- `-q, --quiet`: Do **not** exit\
+    \ with code\u202F1 when any dependency is outdated (default: `False`).  \n\n###\
+    \ Practical examples  \n- **Check multiple requirement files**  \n  ```bash\n\
+    \  pip-outdated *-requirements.txt\n  ```\n- **Check all files in a folder** \
+    \ \n  ```bash\n  pip-outdated requirements/*.txt\n  ```\n\n## TODO (Future Enhancements)\
+    \  \n- Add commands to automatically update packages.  \n- Add commands to rewrite\
+    \ `requirements.txt` / `setup.cfg` with updated versions.  \n- Add a global\u2011\
+    list mode (e.g., `-g, --global`) to list *all* installed packages.\n\n## Changelog\
+    \ Highlights  \n\n| Version | Date | Notable Changes |\n|---------|------|-----------------|\n\
+    | **0.8.0** | Aug\u202F9\u202F2025 | Dropped `setuptools` dependency; switched\
+    \ to `configparse` for reading `setup.cfg`. |\n| **0.7.0** | Aug\u202F13\u202F\
+    2024 | Silently ignore `InvalidVersion` errors. |\n| **0.6.0** | Jan\u202F1\u202F\
+    2023 | \u2022 Bumped dependencies.<br>\u2022 Removed `cchardet`.<br>\u2022 Fetch\
+    \ package version via `pip` CLI (works inside virtualenvs). |\n| **0.5.0** | Jan\u202F\
+    12\u202F2022 | Added type hints; bumped dependencies. |\n| **0.4.0** | Jan\u202F\
+    30\u202F2020 | **Breaking:** Minimum Python 3.7.<br>Added parallel request handling\
+    \ and `--quiet` flag. |\n| **0.3.0** | Oct\u202F13\u202F2019 | **Breaking:** Exit\
+    \ code\u202F1 when any dependency is outdated.<br>Fixed prerelease handling.<br>Added\
+    \ support for `setup_requires` and `extras_require`. |\n| **0.2.0** | Feb\u202F\
+    10\u202F2019 | Updated core dependencies (colorama, packaging, requests, termcolor,\
+    \ terminaltables). |\n| **0.1.0** | May\u202F12\u202F2018 | Initial release. |\n\
+    \n## Key Takeaways for Documentation Authors  \n- Emphasize that `pip-outdated`\
+    \ is a **reporting** tool, not a package updater.  \n- Highlight the flexibility\
+    \ of file globbing for multi\u2011file projects.  \n- Note the `--quiet` flag\
+    \ for CI pipelines where a non\u2011zero exit code may be undesirable.  \n- Mention\
+    \ the upcoming features in the TODO section to set user expectations.  \n- Include\
+    \ the changelog table for quick reference on breaking changes and major improvements.\
+    \  "
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1763932658-NjAf5E2jJuMiXunyukzn
+run_id: null
+timestamp: '2025-11-23T21:17:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1223
+  output_audio_tokens: 0
+  output_tokens: 1002

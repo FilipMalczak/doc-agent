@@ -1,0 +1,15 @@
+"## Project Component: `pip_outdated/print_outdated.py`\n### Overview\n### Key Functions\n\
+  #### `make_row(outdate: OutdateResult) -> Optional[List[str]]`\n#### `print_outdated(outdates:\
+  \ List[Awaitable[OutdateResult]], quiet: bool)`\n- **Async** \u2013 expects a list\
+  \ of awaitable `OutdateResult` objects (e.g., coroutines that query package metadata).\
+  \  \n- **Workflow**:  \n  1. Initializes `colorama` for cross\u2011platform ANSI\
+  \ color support.  \n  2. Builds a data matrix starting with headers: `[\"Name\"\
+  , \"Installed\", \"Wanted\", \"Latest\"]`.  \n  3. Iterates through each awaited\
+  \ result, appends a row via `make_row`.  \n  4. Handles three terminal states: \
+  \ \n     - **No requirements** (`count == 0`) \u2192 prints a red warning: `\"No\
+  \ requirements found.\"` and exits early.  \n     - **All up\u2011to\u2011date**\
+  \ (`len(data) == 1`) \u2192 prints a cyan, bold message: `\"Everything is up-to\u2011\
+  date!\"`.  \n     - **Out\u2011of\u2011date packages present** \u2192 prints a legend\
+  \ explaining color semantics, then renders an ASCII table using `terminaltables.AsciiTable`.\
+  \  \n  5. If `quiet` is **False**, the function ends with `sys.exit(1)` to signal\
+  \ that updates are needed (useful for CI pipelines).  \n"

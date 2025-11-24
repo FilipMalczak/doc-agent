@@ -1,0 +1,3 @@
+The async function get_pypi_versions(name, session) performs an HTTP GET request to
+  "https://pypi.org/pypi/{name}/json" using the provided session.
+...

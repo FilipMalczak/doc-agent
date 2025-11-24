@@ -1,0 +1,2 @@
+"In OutdateResult.__post_init__, latest is always set to the last element of all_versions\
+  \ when all_versions is non\u2011empty."

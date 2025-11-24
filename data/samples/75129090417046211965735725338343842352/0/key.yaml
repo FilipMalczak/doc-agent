@@ -1,0 +1,2 @@
+"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
+  ### 7. Test Suite (`tests/`)\n#### Running the Tests\n```bash\npytest\n```\n"

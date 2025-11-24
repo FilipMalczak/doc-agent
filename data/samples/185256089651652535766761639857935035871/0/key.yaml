@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line \"data = [[\"Name\", \"Installed\", \"Wanted\", \"Latest\"]]\" creates\n\
+  \    the header for the output table.\n  fact: print_outdated initializes a data\
+  \ list with a header row ['Name', 'Installed',\n    'Wanted', 'Latest'].\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

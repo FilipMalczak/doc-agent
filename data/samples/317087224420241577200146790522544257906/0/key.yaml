@@ -1,0 +1,4 @@
+"### Dependencies\n\n- `colorama` \u2013 Enables ANSI colors on Windows terminals.\
+  \  \n- `termcolor` \u2013 Provides the `colored` helper for applying foreground\
+  \ colors and text attributes.  \n- `terminaltables` \u2013 Generates the ASCII table\
+  \ (`AsciiTable` alias `Table`).  \n"

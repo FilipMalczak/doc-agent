@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ \"The conditional \\\"if not quiet: sys.exit(1)\\\" shows that non\\u2011\\\n\
+  \    quiet mode results in a non\\u2011zero exit status.\"\n  fact: If the quiet\
+  \ flag is False, print_outdated terminates the process with exit\n    code 1 after\
+  \ printing the table.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,9 @@
+"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n# Scan the default\
+  \ files (requirements.txt & setup.cfg)\n# Scan a custom file or glob pattern\n#\
+  \ Enable verbose debugging output\n# Do not exit with code\u202F1 when outdated\
+  \ packages are found (useful for CI)\n#### Command\u2011Line Synopsis\n### 4. Output\
+  \ Overview\n### 5. Architecture & Core Modules\n### 6. Configuration Details (`setup.cfg`)\n\
+  ### 7. Test Suite (`tests/`)\n#### Running the Tests\n#### Adding New Tests\n- Place\
+  \ a file named `test_*.py` under `tests/`.  \n- Async tests should use `@pytest.mark.asyncio`\
+  \ and manage the `aiohttp` session with `async with get_session() as session:`.\n\
+  \n---\n"

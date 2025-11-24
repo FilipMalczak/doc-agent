@@ -1,0 +1,3 @@
+"## Project Overview  \n## Badges  \n## Installation  \n## Usage Synopsis  \n### Positional\
+  \ arguments  \n- `<file>`: One or more requirement files (supports glob patterns).\
+  \  \n  - Default: `requirements.txt`, `setup.cfg`  \n"

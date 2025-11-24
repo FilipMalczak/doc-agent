@@ -1,0 +1,3 @@
+parse_requirements_text(text) performs the same parsing as parse_requirements but
+  operates on a raw string.
+...

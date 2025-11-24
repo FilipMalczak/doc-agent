@@ -1,0 +1,7 @@
+"### Overall Role of the `tests/` Package\n- The presence of an **empty `__init__.py`**\
+  \ marks `tests` as a **Python package**, enabling imports such as `import tests.test_parse_cfg`.\n\
+  - It acts as a **placeholder for the project\u2019s test suite**; no runtime code\
+  \ resides here, but the package structure is required for test discovery by tools\
+  \ like **pytest**.\n- Future documentation should refer users to this directory\
+  \ for:\n  - Running the test suite (`pytest` or an async\u2011compatible runner).\n\
+  \  - Adding new test modules that will automatically become part of the package.\n"

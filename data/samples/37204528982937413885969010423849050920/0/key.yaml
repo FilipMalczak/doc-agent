@@ -1,0 +1,3 @@
+The test calls parse_cfg with the string path of the written setup.cfg file and stores
+  the result.
+...

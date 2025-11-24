@@ -1,0 +1,3 @@
+The parser accepts zero or more positional arguments named file, defaulting to ["requirements.txt",
+  "setup.cfg"], and the help text mentions it accepts a glob pattern.
+...

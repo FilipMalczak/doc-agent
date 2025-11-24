@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function creates a subprocess, reads stdout, and searches for the\n    version\
+  \ line.\n  fact: 'The async function get_local_version(name) runs the shell command\
+  \ \"pip show\n    {name}\" in a subprocess and parses the output for a line beginning\
+  \ with \"Version:\n    \".'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+The module uses the Requirement class from the packaging.requirements package to represent
+  parsed requirements.
+...

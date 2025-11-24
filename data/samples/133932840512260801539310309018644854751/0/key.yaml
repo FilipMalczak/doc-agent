@@ -1,0 +1,40 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The source code contains the line ''VERBOSE: bool = None'',\
+  \ which\n        declares VERBOSE with a type hint of bool and assigns it the value\
+  \ None.'\n      fact: The file defines a module-level variable VERBOSE annotated\
+  \ as bool and\n        initially set to None.\n    __pydantic_extra__: null\n  \
+  \  __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n \
+  \   __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The variable name VERBOSE and the accompanying\
+  \ module docstring\n        \"Simple namespace to share verbose state\" imply it\
+  \ stores a boolean flag for\n        verbose mode.\n      fact: VERBOSE is intended\
+  \ to hold a boolean indicating verbose mode state.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: 'The definition ''def set_verbose(value: bool)\
+  \ -> None:'' followed\n        by ''global VERBOSE'' and ''VERBOSE = value'' shows\
+  \ it updates VERBOSE with\n        the provided boolean.'\n      fact: The function\
+  \ set_verbose takes a boolean argument and sets the global\n        VERBOSE variable\
+  \ to that value.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function is defined as 'def verbose() -> bool:' and its\
+  \ body\n        consists solely of 'return VERBOSE', indicating it returns VERBOSE.\n\
+  \      fact: The function verbose returns the current value of the global VERBOSE\
+  \ variable.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first line of the file is a triple-quoted string \"Simple\
+  \ namespace\n        to share verbose state.\", which serves as the module docstring.\n\
+  \      fact: The module docstring states that it is a simple namespace to share\
+  \ verbose\n        state.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The metadata provided with the input specifies the path and\
+  \ language:\n        path ''pip_outdated/verbose.py'' and language ''python''.'\n\
+  \      fact: The file is located at the path 'pip_outdated/verbose.py' within the\
+  \ repository\n        and is written in Python.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

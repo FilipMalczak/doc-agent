@@ -1,0 +1,23 @@
+"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
+  ### 5. Architecture & Core Modules\n\n| Module | Responsibility | Public API |\n\
+  |-------|----------------|-----------|\n| `pip_outdated/__init__.py` | CLI orchestration\
+  \ (argument parsing, async loop handling) | `main()`, `_main()`, `parse_args()`\
+  \ |\n| `pip_outdated/__main__.py` | \u201Cmodule\u2011as\u2011script\u201D entry\
+  \ point (`python -m pip_outdated`) | \u2013 |\n| `pip_outdated/find_require.py`\
+  \ | Locate and parse requirement specifications from files/globs | `find_require(files)`,\
+  \ `parse_require(text)` |\n| `pip_outdated/check_outdated.py` | Async version comparison\
+  \ against PyPI | `OutdateResult` (dataclass), `check_outdated(require, session)`\
+  \ |\n| `pip_outdated/session.py` | Provide a pre\u2011configured `aiohttp.ClientSession`\
+  \ | `get_session()` |\n| `pip_outdated/print_outdated.py` | Render results as a\
+  \ colored table and manage exit status | `print_outdated(outdates, quiet)` |\n|\
+  \ `pip_outdated/verbose.py` | Global verbose flag storage | `set_verbose(bool)`,\
+  \ `verbose()` |\n\n#### High\u2011Level Workflow\n1. **Parse arguments** \u2013\
+  \ defines `--verbose`, `--quiet`, and file/glob inputs.  \n2. **Discover requirements**\
+  \ \u2013 `find_require` walks supplied paths, parses plain `requirements.txt` and\
+  \ `setup.cfg` files into `packaging.requirements.Requirement` objects.  \n3. **Create\
+  \ HTTP session** \u2013 `session.get_session()` returns a single `aiohttp.ClientSession`\
+  \ with a custom *User\u2011Agent* header and a connection limit of **5**.  \n4.\
+  \ **Check each requirement** \u2013 `check_outdated` obtains the locally installed\
+  \ version (via `pip show`), fetches all stable releases from PyPI, and builds an\
+  \ `OutdateResult`.  \n5. **Present results** \u2013 `print_outdated` builds the\
+  \ colored table and exits with the appropriate code.\n\n---\n"

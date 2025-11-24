@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'from .session import get_session and async with get_session() as session:\n \
+  \   appear in _main().'\n  fact: get_session is imported from .session and used\
+  \ as an asynchronous context\n    manager to obtain a session object.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

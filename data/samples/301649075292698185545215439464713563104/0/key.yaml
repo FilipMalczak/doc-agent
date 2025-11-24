@@ -1,0 +1,40 @@
+"## Project Overview  \n- **Name:** `pip-outdated`  \n- **Purpose:** Detect outdated,\
+  \ missing, or incompatible dependencies defined in `requirements.txt` or `setup.cfg`.\
+  \  \n- **Key Feature:** Presents results in a colored table; compares installed\
+  \ versions against version specifiers.  \n- **Alternative:** For a simple list of\
+  \ updatable packages, use `pip list --outdated`.\n\n## Badges  \n- **Build:** ![Travis\
+  \ CI](https://travis-ci.com/eight04/pip-outdated.svg?branch=master) \u2192 <https://travis-ci.com/eight04/pip-outdated>\
+  \  \n- **Coverage:** ![Codecov](https://codecov.io/gh/eight04/pip-outdated/branch/master/graph/badge.svg)\
+  \ \u2192 <https://codecov.io/gh/eight04/pip-outdated>\n\n## Installation  \n```bash\n\
+  pip install pip-outdated\n```\n*Published on PyPI*: <https://pypi.org/project/pip-outdated/>\n\
+  \n## Usage Synopsis  \n```bash\npip-outdated [-h] [-v] [-q] [<file> [<file> ...]]\n\
+  ```\n\n### Positional arguments  \n- `<file>`: One or more requirement files (supports\
+  \ glob patterns).  \n  - Default: `requirements.txt`, `setup.cfg`  \n\n### Optional\
+  \ arguments  \n- `-h, --help`: Show help message and exit.  \n- `-v, --verbose`:\
+  \ Enable verbose output (default: `False`).  \n- `-q, --quiet`: Do **not** exit\
+  \ with code\u202F1 when any dependency is outdated (default: `False`).  \n\n###\
+  \ Practical examples  \n- **Check multiple requirement files**  \n  ```bash\n  pip-outdated\
+  \ *-requirements.txt\n  ```\n- **Check all files in a folder**  \n  ```bash\n  pip-outdated\
+  \ requirements/*.txt\n  ```\n\n## TODO (Future Enhancements)  \n- Add commands to\
+  \ automatically update packages.  \n- Add commands to rewrite `requirements.txt`\
+  \ / `setup.cfg` with updated versions.  \n- Add a global\u2011list mode (e.g., `-g,\
+  \ --global`) to list *all* installed packages.\n\n## Changelog Highlights  \n\n\
+  | Version | Date | Notable Changes |\n|---------|------|-----------------|\n| **0.8.0**\
+  \ | Aug\u202F9\u202F2025 | Dropped `setuptools` dependency; switched to `configparse`\
+  \ for reading `setup.cfg`. |\n| **0.7.0** | Aug\u202F13\u202F2024 | Silently ignore\
+  \ `InvalidVersion` errors. |\n| **0.6.0** | Jan\u202F1\u202F2023 | \u2022 Bumped\
+  \ dependencies.<br>\u2022 Removed `cchardet`.<br>\u2022 Fetch package version via\
+  \ `pip` CLI (works inside virtualenvs). |\n| **0.5.0** | Jan\u202F12\u202F2022 |\
+  \ Added type hints; bumped dependencies. |\n| **0.4.0** | Jan\u202F30\u202F2020\
+  \ | **Breaking:** Minimum Python 3.7.<br>Added parallel request handling and `--quiet`\
+  \ flag. |\n| **0.3.0** | Oct\u202F13\u202F2019 | **Breaking:** Exit code\u202F1\
+  \ when any dependency is outdated.<br>Fixed prerelease handling.<br>Added support\
+  \ for `setup_requires` and `extras_require`. |\n| **0.2.0** | Feb\u202F10\u202F\
+  2019 | Updated core dependencies (colorama, packaging, requests, termcolor, terminaltables).\
+  \ |\n| **0.1.0** | May\u202F12\u202F2018 | Initial release. |\n\n## Key Takeaways\
+  \ for Documentation Authors  \n- Emphasize that `pip-outdated` is a **reporting**\
+  \ tool, not a package updater.  \n- Highlight the flexibility of file globbing for\
+  \ multi\u2011file projects.  \n- Note the `--quiet` flag for CI pipelines where\
+  \ a non\u2011zero exit code may be undesirable.  \n- Mention the upcoming features\
+  \ in the TODO section to set user expectations.  \n- Include the changelog table\
+  \ for quick reference on breaking changes and major improvements.  "

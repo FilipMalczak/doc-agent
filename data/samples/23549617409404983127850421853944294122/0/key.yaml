@@ -1,0 +1,8 @@
+"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n# Scan the default\
+  \ files (requirements.txt & setup.cfg)\n# Scan a custom file or glob pattern\n#\
+  \ Enable verbose debugging output\n# Do not exit with code\u202F1 when outdated\
+  \ packages are found (useful for CI)\n#### Command\u2011Line Synopsis\n### 4. Output\
+  \ Overview\n### 5. Architecture & Core Modules\n### 6. Configuration Details (`setup.cfg`)\n\
+  ### 7. Test Suite (`tests/`)\n### 8. Development & Extensibility Notes\n### 9. Future\
+  \ Enhancements (TODO)\n### 10. Changelog Highlights (selected)\n### 11. Quick Reference\
+  \ Cheat\u2011Sheet\n\n```bash"

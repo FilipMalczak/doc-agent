@@ -1,0 +1,3 @@
+All imports of package-internal modules (verbose, find_require, check_outdated, print_outdated,
+  session) are performed inside the _main() coroutine, not at top-level.
+...

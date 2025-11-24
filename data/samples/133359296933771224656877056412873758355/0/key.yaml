@@ -1,0 +1,9 @@
+"## Project Component: `pip_outdated/print_outdated.py`\n\n### Integration Points\n\
+  \n- **Input source**: The function expects `OutdateResult` objects from the sibling\
+  \ module `check_outdated.py`.  \n- **Typical usage**:  \n  ```python\n  # Example\
+  \ (pseudo\u2011code)\n  from pip_outdated.print_outdated import print_outdated\n\
+  \  from pip_outdated.check_outdated import gather_outdated  # returns awaitables\n\
+  \n  outdates = await gather_outdated(requirements_file=\"requirements.txt\")\n \
+  \ await print_outdated(outdates, quiet=False)\n  ```\n- **Error handling**: The\
+  \ script itself does not raise exceptions; it simply skips packages lacking data\
+  \ and reports them in red.\n"

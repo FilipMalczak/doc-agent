@@ -1,0 +1,4 @@
+Version 0.3.0 (released Oct 13, 2019) changed the exit code behavior to 1 when any
+  dependency is not up to date, stopped checking prerelease versions, and added support
+  for "setup_requires" and "extras_require" entries in cfg files.
+...

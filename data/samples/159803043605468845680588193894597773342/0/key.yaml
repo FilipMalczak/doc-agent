@@ -1,0 +1,4 @@
+"parse_require(text) strips any trailing pip option (e.g., \"--hash=\u2026\" or \"\
+  -r other.txt\") by cutting at the first space followed by a dash, then attempts\
+  \ to construct a packaging.requirements.Requirement; it returns None if the text\
+  \ is not a valid requirement."

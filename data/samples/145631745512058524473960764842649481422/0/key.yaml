@@ -1,0 +1,3 @@
+All file and text parsing functions are generators, allowing lazy iteration over potentially
+  large requirement sets.
+...

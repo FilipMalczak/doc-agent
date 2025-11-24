@@ -1,0 +1,3 @@
+"# \U0001F4C4 Notes on `tests/test_pytz.py`\n## Purpose\n- Verifies that the **asynchronous**\
+  \ function `get_pypi_versions` can successfully retrieve version information for\
+  \ the **`pytz`** package from PyPI without raising exceptions.\n"

@@ -1,0 +1,5 @@
+Inside make_row, colored_wanted returns "None" in red and bold if the package is not
+  found on PyPI or has no wanted version, otherwise it returns the wanted version
+  string, coloring it green and bold if the installed version is less than the wanted
+  version and the install is found.
+...

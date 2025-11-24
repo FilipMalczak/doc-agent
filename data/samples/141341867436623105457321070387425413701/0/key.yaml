@@ -1,0 +1,3 @@
+The test verifies that parse_cfg correctly parses both regular dependencies and extras
+  from a setup.cfg file.
+...

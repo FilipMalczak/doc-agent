@@ -1,0 +1,4 @@
+iter_files(patterns) yields pathlib.Path objects for each pattern; if a pattern points
+  to a file it yields that file, otherwise it yields all matching paths from a glob
+  in the current directory.
+...

@@ -31,19 +31,6 @@ def sanitize_markdown(txt: str) -> str:
 Markdown = Annotated[str, "Text in Markdown format"]
 MarkdownOutput = TextOutput(sanitize_markdown)
 
-class SourceFile(NamedTuple):
-    path: str
-    source_language: str
-    source_type: str
-    content: str
-
-    def to_prompt_dict(self) -> dict[str, Any]:
-        return {
-            "path": self.path,
-            "language": self.source_language,
-            "type": self.source_type,
-            "content": self.content
-        }
 
 file_note_taker = Agent(
     name="note taker that handles single file",

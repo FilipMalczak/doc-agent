@@ -1,0 +1,14 @@
+"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n# Scan the default\
+  \ files (requirements.txt & setup.cfg)\n# Scan a custom file or glob pattern\n#\
+  \ Enable verbose debugging output\n# Do not exit with code\u202F1 when outdated\
+  \ packages are found (useful for CI)\n#### Command\u2011Line Synopsis\n### 4. Output\
+  \ Overview\n### 5. Architecture & Core Modules\n#### High\u2011Level Workflow\n\
+  1. **Parse arguments** \u2013 defines `--verbose`, `--quiet`, and file/glob inputs.\
+  \  \n2. **Discover requirements** \u2013 `find_require` walks supplied paths, parses\
+  \ plain `requirements.txt` and `setup.cfg` files into `packaging.requirements.Requirement`\
+  \ objects.  \n3. **Create HTTP session** \u2013 `session.get_session()` returns\
+  \ a single `aiohttp.ClientSession` with a custom *User\u2011Agent* header and a\
+  \ connection limit of **5**.  \n4. **Check each requirement** \u2013 `check_outdated`\
+  \ obtains the locally installed version (via `pip show`), fetches all stable releases\
+  \ from PyPI, and builds an `OutdateResult`.  \n5. **Present results** \u2013 `print_outdated`\
+  \ builds the colored table and exits with the appropriate code.\n\n---\n"

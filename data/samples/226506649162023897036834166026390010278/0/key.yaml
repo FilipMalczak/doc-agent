@@ -1,0 +1,3 @@
+"Version 0.6.0 (released Jan 1, 2023) bumped dependencies, dropped the cchardet package,\
+  \ and started fetching package versions from the pip CLI to support virtual\u2011\
+  environment detection."

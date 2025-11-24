@@ -1,0 +1,7 @@
+"### 1. What the Tool Does\n- Scans one or more requirement files (`requirements.txt`,\
+  \ `setup.cfg`, or any glob\u2011matched files).  \n- Detects packages that are **out\u2011\
+  of\u2011date**, **missing**, or **incompatible** with the version specifiers in\
+  \ those files.  \n- Reports the findings in a **colored ASCII table** showing *Installed*,\
+  \ *Wanted* (latest that satisfies the specifier), and *Latest* (absolute newest\
+  \ stable release on PyPI).  \n- **Only a reporting tool** \u2013 it does **not**\
+  \ perform upgrades.\n\n---\n"

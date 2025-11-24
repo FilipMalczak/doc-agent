@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line \"names = [r.name for r in parse_cfg(str(file))]\" builds that\n    list.\n\
+  \  fact: From the result of parse_cfg, the test extracts the \"name\" attribute\
+  \ of each\n    returned requirement object into a list called names.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

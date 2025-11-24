@@ -1,0 +1,13 @@
+"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n\n> **Version:** `0.8.0`\
+  \ (latest release)  \n> **License:** MIT  \n> **Repository:** <https://github.com/eight04/pip-outdated>\
+  \  \n\n---\n\n### 1. What the Tool Does\n- Scans one or more requirement files (`requirements.txt`,\
+  \ `setup.cfg`, or any glob\u2011matched files).  \n- Detects packages that are **out\u2011\
+  of\u2011date**, **missing**, or **incompatible** with the version specifiers in\
+  \ those files.  \n- Reports the findings in a **colored ASCII table** showing *Installed*,\
+  \ *Wanted* (latest that satisfies the specifier), and *Latest* (absolute newest\
+  \ stable release on PyPI).  \n- **Only a reporting tool** \u2013 it does **not**\
+  \ perform upgrades.\n\n---\n\n### 2. Installation\n\n```bash\npip install pip-outdated\n\
+  ```\n\n- Publishes the console script `pip-outdated` (see `setup.cfg` entry).  \n\
+  - Runtime dependencies (as defined in `setup.cfg`):\n  - `aiohttp~=3.12`  \n  -\
+  \ `colorama~=0.4.6`  \n  - `packaging~=25.0`  \n  - `termcolor~=3.1`  \n  - `terminaltables~=3.1`\n\
+  \n---\n\n### 3. Quick\u2011Start Usage\n\n```bash"

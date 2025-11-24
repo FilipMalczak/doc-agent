@@ -1,0 +1,4 @@
+"## \U0001F4C4 File Overview  \n**Path:** `pip_outdated/session.py`  \n**Language:**\
+  \ Python  \n**Purpose:** Provides a convenience function to create a pre\u2011configured\
+  \ `aiohttp.ClientSession` for use throughout the **pip\u2011outdated** project.\n\
+  \n---\n"

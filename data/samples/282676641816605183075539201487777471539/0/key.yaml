@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function calls verbose() and, if truthy, prints the formatted string.\n  fact:\
+  \ The async function check_outdated(require, session) prints a message containing\n\
+  \    the requirement name and specifier when verbose() returns True.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

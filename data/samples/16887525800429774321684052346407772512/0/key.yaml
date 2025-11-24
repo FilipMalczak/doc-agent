@@ -1,0 +1,10 @@
+"## Core Workflow (`_main`)\n1. **Parse CLI arguments** \u2013 via `parse_args()`.\n\
+  2. **Configure verbosity** \u2013 calls `set_verbose(args.verbose)` from `.verbose`.\n\
+  3. **Load required modules** (imported lazily to keep start\u2011up fast):\n   -\
+  \ `.find_require` \u2013 discovers dependency specifications.\n   - `.check_outdated`\
+  \ \u2013 contacts PyPI to determine newer versions.\n   - `.print_outdated` \u2013\
+  \ formats and displays the results.\n   - `.session` \u2013 provides an aiohttp\
+  \ session for network calls.\n4. **Identify requirements** \u2013 `requires = find_require(args.file)`.\n\
+  5. **Create an async session** \u2013 `async with get_session() as session:`.\n\
+  6. **Schedule version checks** \u2013 one `asyncio.create_task` per requirement.\n\
+  7. **Print results** \u2013 `await print_outdated(outdated_results, args.quiet)`.\n"

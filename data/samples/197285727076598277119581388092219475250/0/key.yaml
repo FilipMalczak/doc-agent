@@ -1,0 +1,7 @@
+"# Do not fail with a non\u2011zero exit code when updates exist\n### 4.3 Command\u2011\
+  Line Reference\n| Option | Shortcut | Effect |\n|--------|----------|--------|\n\
+  | `--verbose` | `-v` | Prints detailed status lines (e.g., each package being checked).\
+  \ |\n| `--quiet`   | `-q` | Suppresses the non\u2011zero exit code when outdated\
+  \ packages are found. |\n| `file`      | \u2013   | Zero or more positional arguments\
+  \ representing file paths or glob patterns. Defaults to `[\"requirements.txt\",\
+  \ \"setup.cfg\"]`. |\n"

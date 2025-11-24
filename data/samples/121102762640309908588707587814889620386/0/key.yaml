@@ -1,0 +1,83 @@
+"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n\n> **Version:** `0.8.0`\
+  \ (latest release)  \n> **License:** MIT  \n> **Repository:** <https://github.com/eight04/pip-outdated>\
+  \  \n\n---\n\n# Scan the default files (requirements.txt & setup.cfg)\npip-outdated\n\
+  \n# Scan a custom file or glob pattern\npip-outdated my_deps/*.txt\n\n# Enable verbose\
+  \ debugging output\npip-outdated -v\n\n# Do not exit with code\u202F1 when outdated\
+  \ packages are found (useful for CI)\npip-outdated -q\n```\n\n#### Command\u2011\
+  Line Synopsis\n```\npip-outdated [-h] [-v] [-q] [<file> [<file> ...]]\n```\n\n|\
+  \ Option | Shortcut | Description |\n|--------|----------|-------------|\n| `--help`\
+  \ | `-h` | Show help message and exit |\n| `--verbose` | `-v` | Print detailed status\
+  \ lines (e.g., each package being checked) |\n| `--quiet` | `-q` | Suppress the\
+  \ non\u2011zero exit code when outdated packages are found |\n| `<file>` | \u2013\
+  \ | Positional arguments; zero or more file paths or glob patterns. Defaults to\
+  \ `[\"requirements.txt\", \"setup.cfg\"]` |\n\n---\n\n### 4. Output Overview\n\n\
+  - **Table Columns**  \n  - **Name** \u2013 Package name.  \n  - **Installed** \u2013\
+  \ Version currently installed locally (red if not installed).  \n  - **Wanted**\
+  \ \u2013 Newest version that satisfies the requirement specifier (green if newer\
+  \ than installed).  \n  - **Latest** \u2013 Absolute newest stable version on PyPI\
+  \ (green if newer than installed).\n\n- **Color Legend**  \n  - **Red** \u2013 Information\
+  \ unavailable or version does not satisfy the specifier.  \n  - **Green** \u2013\
+  \ A newer version exists and can be upgraded.\n\n- **Exit Codes**  \n  - `0` \u2013\
+  \ All dependencies are up\u2011to\u2011date **or** `--quiet` was used.  \n  - `1`\
+  \ \u2013 At least one dependency is outdated **and** `--quiet` was **not** used\
+  \ (ideal for CI pipelines).\n\n---\n\n### 5. Architecture & Core Modules\n\n| Module\
+  \ | Responsibility | Public API |\n|-------|----------------|-----------|\n| `pip_outdated/__init__.py`\
+  \ | CLI orchestration (argument parsing, async loop handling) | `main()`, `_main()`,\
+  \ `parse_args()` |\n| `pip_outdated/__main__.py` | \u201Cmodule\u2011as\u2011script\u201D\
+  \ entry point (`python -m pip_outdated`) | \u2013 |\n| `pip_outdated/find_require.py`\
+  \ | Locate and parse requirement specifications from files/globs | `find_require(files)`,\
+  \ `parse_require(text)` |\n| `pip_outdated/check_outdated.py` | Async version comparison\
+  \ against PyPI | `OutdateResult` (dataclass), `check_outdated(require, session)`\
+  \ |\n| `pip_outdated/session.py` | Provide a pre\u2011configured `aiohttp.ClientSession`\
+  \ | `get_session()` |\n| `pip_outdated/print_outdated.py` | Render results as a\
+  \ colored table and manage exit status | `print_outdated(outdates, quiet)` |\n|\
+  \ `pip_outdated/verbose.py` | Global verbose flag storage | `set_verbose(bool)`,\
+  \ `verbose()` |\n\n### 6. Configuration Details (`setup.cfg`)\n\n```ini\n[metadata]\n\
+  name = pip-outdated\nversion = 0.8.0\ndescription = Find outdated dependencies in\
+  \ your requirements.txt or setup.cfg\nauthor = eight\nauthor_email = eight04@gmail.com\n\
+  url = https://github.com/eight04/pip-outdated\nlicense = MIT\nclassifiers =\n  \
+  \  Development Status :: 4 - Beta\n    Environment :: Console\n    Intended Audience\
+  \ :: Developers\n    Programming Language :: Python :: 3.7\n    Topic :: Software\
+  \ Development :: Build Tools\n\n[options]\ninstall_requires =\n    aiohttp ~= 3.12\n\
+  \    colorama ~= 0.4.6\n    packaging ~= 25.0\n    termcolor ~= 3.1\n    terminaltables\
+  \ ~= 3.1\nzip_safe = True\npackages = find:\nexclude =\n    tests\n\n[options.entry_points]\n\
+  console_scripts =\n    pip-outdated = pip_outdated:main\n\n[vpip]\ncommand_fallback\
+  \ = \"python cute.py\"\n```\n\n- **Entry point** maps `pip-outdated` to `pip_outdated:main`.\
+  \  \n- **Classifiers** indicate a **Beta** status and a minimum Python version of\
+  \ **3.7**.  \n- **`[vpip]` section** provides a fallback command for tools that\
+  \ read this custom config.\n\n---\n\n### 7. Test Suite (`tests/`)\n\n- The directory\
+  \ is a **Python package** (`__init__.py` present) enabling `pytest` discovery. \
+  \ \n- **Key test files**  \n\n| File | Focus | Verified Behaviour |\n|------|-------|--------------------|\n\
+  | `tests/test_parse_cfg.py` | `find_require.parse_cfg` | Extracts requirement **names**\
+  \ from all sections (`setup_requires`, `install_requires`, `extras_require`) and\
+  \ preserves their order. |\n| `tests/test_pytz.py` | Async version fetching | Confirms\
+  \ that `get_pypi_versions(\"pytz\", session)` runs without raising an exception,\
+  \ demonstrating the async API pattern. |\n\n### 8. Development & Extensibility Notes\n\
+  \n- **Lazy Imports** \u2013 Heavy modules (`aiohttp`, `check_outdated`, etc.) are\
+  \ imported inside the async main function to keep CLI start\u2011up fast.  \n- **Global\
+  \ Verbose Flag** \u2013 Implemented as a simple boolean in `pip_outdated.verbose`;\
+  \ not thread\u2011safe but sufficient for this CLI tool.  \n- **Error Handling**\
+  \ \u2013 Functions return `None` or empty collections on failures (e.g., missing\
+  \ local package) instead of raising, allowing processing to continue.  \n- **Known\
+  \ Limitation** \u2013 The tool only checks **explicitly listed** packages; it does\
+  \ **not** resolve transitive dependencies.  \n- **Extending File Types** \u2013\
+  \ To support additional configuration formats, extend `find_require.find_require`\
+  \ with a parser that yields `Requirement` objects similar to the existing `parse_cfg`\
+  \ and `parse_requirements`.  \n- **Customizing HTTP Behaviour** \u2013 Modify `session.get_session`\
+  \ to change headers, time\u2011outs, or concurrency limits.\n\n---\n\n### 9. Future\
+  \ Enhancements (TODO)\n\n- Add commands to **automatically update** packages.  \n\
+  - Add commands to **rewrite** `requirements.txt` / `setup.cfg` with updated versions.\
+  \  \n- Introduce a **global\u2011list mode** (`-g/--global`) to list *all* installed\
+  \ packages.  \n\n---\n\n### 10. Changelog Highlights (selected)\n\n| Version | Date\
+  \ | Notable Changes |\n|---------|------|-----------------|\n| **0.8.0** | Aug\u202F\
+  9\u202F2025 | Dropped `setuptools` dependency; switched to `configparse` for reading\
+  \ `setup.cfg`. |\n| **0.7.0** | Aug\u202F13\u202F2024 | Silently ignore `InvalidVersion`\
+  \ errors. |\n| **0.6.0** | Jan\u202F1\u202F2023 | Bumped dependencies; removed `cchardet`;\
+  \ fetches package version via `pip` CLI. |\n| **0.5.0** | Jan\u202F12\u202F2022\
+  \ | Added type hints; bumped dependencies. |\n| **0.4.0** | Jan\u202F30\u202F2020\
+  \ | Minimum Python\u202F3.7; added parallel request handling and `--quiet` flag.\
+  \ |\n| **0.3.0** | Oct\u202F13\u202F2019 | Exit code\u202F1 when any dependency\
+  \ is outdated; added support for `setup_requires` and `extras_require`. |\n| **0.2.0**\
+  \ | Feb\u202F10\u202F2019 | Updated core dependencies (colorama, packaging, requests,\
+  \ termcolor, terminaltables). |\n| **0.1.0** | May\u202F12\u202F2018 | Initial release.\
+  \ |\n\n---\n"

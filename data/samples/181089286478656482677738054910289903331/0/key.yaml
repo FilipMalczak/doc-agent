@@ -1,0 +1,3 @@
+"## Dependencies  \n\n- `packaging` \u2013 Provides the `Requirement` and validation\
+  \ logic.  \n- Standard library modules: `collections.abc`, `configparser`, `pathlib`,\
+  \ `re`.  \n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The @dataclass decorator and the class definition enumerate these attributes\n\
+  \    with their type annotations.\n  fact: The module defines a dataclass named\
+  \ OutdateResult with fields requirement\n    (Requirement), version (Optional[Version]),\
+  \ all_versions (List[Version]), wanted\n    (Optional[Version], default None), and\
+  \ latest (Optional[Version], default None).\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

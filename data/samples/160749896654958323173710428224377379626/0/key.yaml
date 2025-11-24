@@ -1,0 +1,13 @@
+"## \U0001F4C4 File Overview  \n**Path:** `pip_outdated/session.py`  \n**Language:**\
+  \ Python  \n**Purpose:** Provides a convenience function to create a pre\u2011configured\
+  \ `aiohttp.ClientSession` for use throughout the **pip\u2011outdated** project.\n\
+  \n---\n\n## \U0001F527 Key Elements  \n\n- **Import**  \n  ```python\n  import aiohttp\n\
+  \  ```\n\n- **Function: `get_session()`**  \n  - **Signature:** `def get_session()\
+  \ -> aiohttp.ClientSession:`  \n  - **What it does:**  \n    - Constructs a `aiohttp.ClientSession`\
+  \ with two preset configurations:  \n      1. **Headers** \u2013 sets `\"User-Agent\"\
+  ` to `\"pip-outdated\"`.  \n      2. **Connector** \u2013 uses `aiohttp.TCPConnector(limit=5)`,\
+  \ capping concurrent connections to **5**.  \n    - Returns the newly created `ClientSession`\
+  \ instance.  \n\n  - **Code snippet:**  \n    ```python\n    def get_session() ->\
+  \ aiohttp.ClientSession:\n        headers = {\"User-Agent\": \"pip-outdated\"}\n\
+  \        connector = aiohttp.TCPConnector(limit=5)\n        return aiohttp.ClientSession(headers=headers,\
+  \ connector=connector)\n    ```\n\n---\n"

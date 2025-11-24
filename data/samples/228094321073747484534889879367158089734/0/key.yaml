@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The \"license\" field indicates the open-source license under which the\n    code\
+  \ is released.\n  fact: The project license is \"MIT\".\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

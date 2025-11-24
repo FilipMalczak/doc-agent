@@ -1,0 +1,4 @@
+Because "setup()" is called without arguments, the project's packaging metadata must
+  be supplied elsewhere (e.g., in a "setup.cfg" or "pyproject.toml" file) or the call
+  will use default values.
+...

@@ -1,0 +1,10 @@
+"# Project Notes \u2013 `pip_outdated/__init__.py`\n\n## Command\u2011Line Interface\
+  \ (`parse_args`)\n| Option | Shortcut | Type | Description |\n|--------|----------|------|-------------|\n\
+  | `--verbose` | `-v` | flag | Enables printing of verbose information (e.g., debug\
+  \ logs). |\n| `--quiet` | `-q` | flag | Suppresses the non\u2011zero exit code when\
+  \ not all dependencies are up\u2011to\u2011date. |\n| `file` | none | positional\
+  \ (zero or more) | Paths or glob patterns to read dependencies from. Defaults to\
+  \ `[\"requirements.txt\", \"setup.cfg\"]`. |\n\n- **Program name:** `\"pip-outdated\"\
+  `\n- **Help description:** `\"Find outdated dependencies in your requirements.txt\
+  \ or setup.cfg file.\"`\n- **Argument parser class:** `argparse.ArgumentDefaultsHelpFormatter`\
+  \ (automatically shows default values in help output).\n"

@@ -1,0 +1,2 @@
+"### Positional arguments  \n- `<file>`: One or more requirement files (supports glob\
+  \ patterns).  \n  - Default: `requirements.txt`, `setup.cfg`  \n"

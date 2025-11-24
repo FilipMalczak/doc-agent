@@ -1,0 +1,29 @@
+"# Example: find all requirements in the current directory\nfor req in find_require([\"\
+  requirements.txt\", \"setup.cfg\", \"src/*.txt\"]):\n    print(req)          # ->\
+  \ Requirement object, e.g. \"requests>=2.25\"\n```\n\n- Pass a list of file paths\
+  \ or glob patterns to `find_require`.  \n- The function yields `Requirement` objects\
+  \ that can be inspected (`.name`, `.specifier`, `.extras`, etc.).  \n\n## Supported\
+  \ File Types  \n\n- **Plain requirement files** (`.txt`, `.pip`, any file without\
+  \ `.cfg` suffix).  \n- **`setup.cfg`** (INI format) \u2013 extracts sections:  \n\
+  \n  - `options.setup_requires`  \n  - `options.install_requires`  \n  - All entries\
+  \ under `options.extras_require`  \n\n## Edge Cases & Limitations  \n\n- **Comments**\
+  \ \u2013 Only `#` that start a comment after optional whitespace are stripped. Inline\
+  \ `#` inside a URL (e.g., `git+https://example.com#egg=pkg`) may be incorrectly\
+  \ truncated.  \n- **Continuation Lines** \u2013 Only a backslash (`\\`) followed\
+  \ by a newline is treated as a line continuation. Other whitespace\u2011based continuations\
+  \ are not supported.  \n- **Option Parsing** \u2013 The regex `r\"(.*?)\\s--?[a-z]\"\
+  ` removes anything from the first whitespace before an option flag. Complex option\
+  \ syntax (e.g., `--hash=sha256:...`) may cause premature truncation.  \n- **Invalid\
+  \ Requirements** \u2013 Lines that cannot be parsed into a `Requirement` are silently\
+  \ dropped; no error is raised.  \n\n## Configuration & Debugging  \n\n- **Verbose\
+  \ Mode** \u2013 The helper `verbose()` (imported from `.verbose`) controls whether\
+  \ each file being parsed is printed to stdout. Enable it in your environment to\
+  \ trace parsing activity.  \n\n## Dependencies  \n\n- `packaging` \u2013 Provides\
+  \ the `Requirement` and validation logic.  \n- Standard library modules: `collections.abc`,\
+  \ `configparser`, `pathlib`, `re`.  \n\n## Extensibility  \n\n- To support additional\
+  \ file formats (e.g., `pyproject.toml`), add a new branch in `find_require` that\
+  \ selects an appropriate parser and yields `Requirement` objects in the same way.\
+  \  \n- Custom comment or continuation handling can be introduced by modifying `parse_lines`.\
+  \  \n\n---  \n\n*These notes capture the essential functionality and usage patterns\
+  \ of `pip_outdated/find_require.py` and are intended to aid the authoring of user\u2011\
+  focused documentation.*"

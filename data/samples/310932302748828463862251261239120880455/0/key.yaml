@@ -1,0 +1,16 @@
+"## Directory\u2011Level Notes \u2013 `tests/`\n### Overall Role of the `tests/` Package\n\
+  ### Summary of Individual Test Files\n### Implications for User\u2011Facing Documentation\n\
+  ### Suggested Documentation Snippet for the `tests/` Directory\n\n> The project\
+  \ ships with a **`tests/` package**. Its empty `__init__.py` file marks the folder\
+  \ as a Python package, allowing pytest to discover and import all test modules.\
+  \  \n> - **Running tests:** Execute `pytest` at the repository root.  \n> - **Extending\
+  \ tests:** Add new `test_*.py` files under `tests/`; they will be automatically\
+  \ included.  \n> - **Async API example:**  \n>   ```python\n>   import pytest\n\
+  >   from pip_outdated.check_outdated import get_pypi_versions\n>   from pip_outdated.session\
+  \ import get_session\n>   \n>   @pytest.mark.asyncio\n>   async def test_some_package():\n\
+  >       async with get_session() as session:\n>           await get_pypi_versions(\"\
+  some_package\", session)\n>   ```  \n> - **Configuration parsing:** The `test_parse_cfg.py`\
+  \ test confirms that `parse_cfg` extracts **all** package names from a `setup.cfg`,\
+  \ ignoring version specifiers and preserving order.  \n\nThese notes can serve as\
+  \ the basis for a **\u201CTesting\u201D** or **\u201CDevelopment\u201D** section\
+  \ in the project's user documentation."

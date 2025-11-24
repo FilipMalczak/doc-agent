@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The function signature \"def make_row(outdate: OutdateResult) -> Optional[List[str]]\"\
+  \n    declares the parameter type and return type.'\n  fact: The function make_row\
+  \ takes a single argument outdate of type OutdateResult\n    and returns an Optional\
+  \ list of strings.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
+  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

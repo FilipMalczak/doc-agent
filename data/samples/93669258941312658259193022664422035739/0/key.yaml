@@ -1,0 +1,14 @@
+"### Core Functions (asynchronous)\n\n| Function | Purpose | Important Details |\n\
+  |----------|---------|-------------------|\n| `get_local_version(name: str) -> Optional[Version]`\
+  \ | Retrieves the locally installed version of a package via `pip show`. | - Executes\
+  \ `pip show {name}` in a subprocess. <br> - Parses the `Version:` line. <br> - Returns\
+  \ `None` if the package is not installed or the command fails. |\n| `get_pypi_versions(name:\
+  \ str, session) -> List[Version]` | Fetches all *stable* (non\u2011prerelease) releases\
+  \ for a package from PyPI. | - Uses an async HTTP session (`session.get`). <br>\
+  \ - Ignores any version string that `packaging.version` marks as `InvalidVersion`.\
+  \ <br> - Skips prereleases (`version.is_prerelease`). <br> - Returns a **sorted**\
+  \ list of `Version` objects. |\n| `check_outdated(require, session) -> OutdateResult`\
+  \ | Orchestrates the check for a single requirement. | - Optionally prints a verbose\
+  \ message (`Checking: {require.name} {require.specifier}`). <br> - Normalizes the\
+  \ package name with `canonicalize_name`. <br> - Calls `get_local_version` and `get_pypi_versions`.\
+  \ <br> - Returns an `OutdateResult` populated with the gathered data. |\n\n---\n"

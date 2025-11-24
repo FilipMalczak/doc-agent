@@ -1,0 +1,12 @@
+'### Overview
+
+  - This module provides **asynchronous utilities** to determine whether a given Python
+  package is outdated compared to the versions available on PyPI.
+
+  - It is designed for use in a CLI tool that checks installed packages against the
+  latest releases, offering **verbose output** when enabled.
+
+
+  ---
+
+  '
