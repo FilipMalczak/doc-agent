@@ -27,7 +27,7 @@ class OK: ...
 
 
 g = GraphBuilder(name="process-repository", output_type=OK)
-
+sampling = CONFIG.sampler.controller()
 
 @g.step
 async def load_sources(ctx: StepContext[None, None, AnalysedRepo]) -> list[Document]:
@@ -57,7 +57,8 @@ async def take_file_notes(ctx: StepContext[None, None, Document]) -> Document:
     input_data = dict(doc.metadata)
     input_data["content"] = doc.content
     input_ = to_simple_xml(input_data)
-    content = (await file_note_taker.run(input_)).output
+    async with sampling.defer_until_success():
+        content = (await file_note_taker.run(input_)).output
     return Document(id=str(uuid4()), content=content, metadata={
         "document_type": "note",
         "subject_id": doc.id,
@@ -81,7 +82,8 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document]]) -> 
                 key=lambda n: n.subject_path
             )
         )
-        dir_notes = (await dir_note_taker.run(q)).output
+        async with sampling.defer_until_success():
+            dir_notes = (await dir_note_taker.run(q)).output
         doc = Document(id=str(uuid4()), content=dir_notes, metadata={
             "document_type": "note",
             "subject_path": path,
@@ -106,7 +108,8 @@ async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
     doc = ctx.inputs
     user_msg = dict(doc.metadata)
     user_msg["content"] = doc.content
-    facts_obj = (await fact_extractor.run(to_simple_xml(user_msg))).output
+    async with sampling.defer_until_success():
+        facts_obj = (await fact_extractor.run(to_simple_xml(user_msg))).output
     with StringIO() as t:
         yaml.dump(facts_obj, t)
         content = t.getvalue()
@@ -124,13 +127,6 @@ async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
 async def chunk_facts(ctx: StepContext[None, None, Document]) -> list[Document]:
     doc = ctx.inputs
     facts = yaml.load(doc.content, Loader=Loader)
-    # {
-    #     "document_type": "chunk",
-    #     "chunk_source_id": doc.id,
-    #     "chunk_variant": "simple",
-    #     "chunk_coordinates": subchapter.coordinates,
-    #     **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
-    # }
     def i():
         for i, f in enumerate(facts.facts):
             yield Document(
@@ -206,4 +202,3 @@ g.add(
 
 process_directory = g.build()
 print(process_directory.render())
-# GRAPH.run = trace()(GRAPH.run)

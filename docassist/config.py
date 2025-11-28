@@ -47,7 +47,8 @@ class Config(NamedTuple):
         ]
     )
     hasher = SHA1OfJsonTrimmed() #todo this should also be specialized delegate; we dont wanna hash ndarrays as JSON
-    default_sample_id: int = 0
+    default_sample_id: int = 1
+    # default_sample_id: int = 0
     sampling_strategy: SamplingStrategy = ConstantSamplingStrategy(default_sample_id)
     sampler: Sampler = StandardSampler(
         FSGroupFactory(

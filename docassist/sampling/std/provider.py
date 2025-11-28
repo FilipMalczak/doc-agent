@@ -14,8 +14,8 @@ class SlotProvider:
 
     def get_slot[K: BaseModel, V: BaseModel](self, key: K, value_type: type[V], qualifier: str) -> SamplingSlot[V]:
         group = self._group_factory.create(key, value_type, qualifier)
-        slot: SamplingSlot[V] = self._controller._strategies.head.pick_slot(group)
+        slot: SamplingSlot[V] = self._controller._strategy.get().pick_slot(group)
         postprocessed_slot = slot
-        for advice in self._controller._advices.bottom_to_top():
+        for advice in self._controller._advices.get():
             postprocessed_slot = advice(postprocessed_slot)
         return postprocessed_slot

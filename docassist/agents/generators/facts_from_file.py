@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, AliasChoices
 from pydantic_ai import Agent
 
 from docassist.config import CONFIG
@@ -6,8 +6,8 @@ from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 
 
 class Fact(BaseModel):
-    fact: str
-    explanation: str
+    fact: str  = Field(validation_alias=AliasChoices("fact", "statement"))
+    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason"))
 
 class Facts(BaseModel):
     facts: list[Fact]
