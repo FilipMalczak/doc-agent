@@ -8,8 +8,8 @@ from docassist.simple_xml import to_simple_xml
 
 
 class PromptingTask(NamedTuple):
-    #this will get sorted alpghabetically, so ctx, high, low, specific; keep that in mind if you modify it
-    # we're lucky that the alphabeitcal order makes sense
+    #this will get sorted alphabetically, so ctx, high, low, specific; keep that in mind if you modify it
+    # we're lucky that the alphabetical order makes sense
     high_level: str
     low_level: str | None = None
     detailed: str | None = None
@@ -55,8 +55,8 @@ def system_prompt_dict(
             }
         },
         "constraints": {
-            "hallucinations": "forbidden",
-            "invent_data": "forbidden",
+            "hallucinations": "forbidden without exception",
+            "invent_data": "forbidden, unless explicitly asked to",
             "modify_content": "only structure and wording, never meaning",
             "modify_formatting": "allowed, as long as other constraints and rules satisfied",
             "match_output_schema": "required if schema available",

@@ -100,12 +100,12 @@ def dir_notes_input(dir_children_notes: list[Document]) -> tuple[dict[str, Subje
         l[d.metadata["subject_path"]] = doc_to_notes(d)
         r.append(doc_to_path(d))
     return l, r
-
-def serialize(notes: SubjectNotes) -> dict[str, Any]:
-    return notes.model_dump(mode="json")
-
-def question(notes: list[SubjectNotes]) -> str:
-    return to_simple_xml([
-        serialize(n)
-        for n in notes
-    ])
+#
+# def serialize(notes: SubjectNotes) -> dict[str, Any]:
+#     return notes.model_dump(mode="json")
+#
+# def question(notes: list[SubjectNotes]) -> str:
+#     return to_simple_xml([
+#         serialize(n)
+#         for n in notes
+#     ])

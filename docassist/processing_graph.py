@@ -20,6 +20,7 @@ from docassist.chunkdown import break_to_entries, MarkdownChapter
 from docassist.config import CONFIG
 from docassist.index.protocols import Document, IndexSnapshot
 from docassist.index.utils import embed_metadata
+from docassist.llmio import object_from_user
 from docassist.simple_xml import to_simple_xml
 from docassist.subjects import AnalysedRepo, RepoItemType, CodeFilePath
 
@@ -73,7 +74,8 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document]]) -> 
     dir_desc = structurize(paths)
     out = []
     for path, files, dirs in dir_desc.depth_first():
-        q = question(
+        q = object_from_user(
+        # q = question(
             sorted(
                 [
                     notes[join(path, x)]
