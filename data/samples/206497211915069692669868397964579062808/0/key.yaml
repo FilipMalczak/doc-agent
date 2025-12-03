@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ \"The top\\u2011level docstring says \\\"Find requirements\\\" and the functions\\\
-  \n    \\ iter_files, parse_requirements, parse_cfg, and find_require read files\
-  \ and yield\\\n    \\ Requirement objects.\"\n  fact: The module provides utilities\
-  \ to locate and parse Python package requirement\n    specifications from requirement\
-  \ files and setup.cfg files.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

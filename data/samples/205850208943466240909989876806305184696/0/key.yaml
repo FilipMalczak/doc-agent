@@ -1,6 +1,0 @@
-"**Project Component:** `pip_outdated/check_outdated.py`  \n**Language:** Python \
-  \ \n\n---\n\n### Overview\n- This module provides **asynchronous utilities** to\
-  \ determine whether a given Python package is outdated compared to the versions\
-  \ available on PyPI.\n- It is designed for use in a CLI tool that checks installed\
-  \ packages against the latest releases, offering **verbose output** when enabled.\n\
-  \n---\n"

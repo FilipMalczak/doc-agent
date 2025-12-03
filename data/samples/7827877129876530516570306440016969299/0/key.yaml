@@ -1,4 +1,0 @@
-"## Project Overview  \n\n- **Goal** \u2013 Locate and parse Python package requirements\
-  \ from various file types (e.g., `requirements.txt`, `setup.cfg`).  \n- **Reference**\
-  \ \u2013 Implements the [pip requirements file format](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).\
-  \  \n"

@@ -1,4 +1,0 @@
-get_pypi_versions extracts the keys of the "releases" dictionary from the JSON response,
-  attempts to parse each key as a Version, skips keys that raise InvalidVersion or
-  represent prereleases, and returns a sorted list of the remaining Version objects.
-...

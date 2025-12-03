@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code calls \"file.write_text(\\\"\\\"\\\"...\\\"\\\"\\\")\", which is the\
-  \ standard\n    way to write text to a Path object.\n  fact: The temporary configuration\
-  \ file is written using the pathlib.Path write_text\n    method.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

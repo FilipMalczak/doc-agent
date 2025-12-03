@@ -1,5 +1,0 @@
-'# Enable verbose output
-
-  v.set_verbose(True)
-
-  '

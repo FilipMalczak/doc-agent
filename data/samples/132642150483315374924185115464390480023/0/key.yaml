@@ -1,3 +1,0 @@
-When a version line is found, get_local_version returns a Version object created by
-  parse_version on the extracted string.
-...

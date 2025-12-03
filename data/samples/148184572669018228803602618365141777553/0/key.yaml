@@ -1,5 +1,0 @@
-"### What this file tells us\n- The `tests` directory is defined as a **Python package**.\
-  \  \n- By having an `__init__.py` (even an empty one), Python can import modules\
-  \ from `tests` using statements such as `import tests.test_xyz`.  \n- Currently\
-  \ there are **no test utilities, fixtures, or package\u2011level code** defined\
-  \ here. It simply marks the folder as a package.\n"

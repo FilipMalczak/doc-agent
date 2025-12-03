@@ -1,9 +1,0 @@
-"# Project Notes \u2013 `pip_outdated/__init__.py`\n\n## Important Implementation\
-  \ Details\n- **Async handling:**  \n  - The script relies on asyncio to perform\
-  \ network calls concurrently, improving speed when many packages need checking.\n\
-  \  - The explicit event\u2011loop management (`run_until_complete`) works around\
-  \ a bug in aiohttp that otherwise closes the loop after `asyncio.run`.\n- **Lazy\
-  \ imports:** Modules that require heavy dependencies (e.g., `aiohttp`) are imported\
-  \ inside `_main` after argument parsing, keeping the CLI start\u2011up time low.\n\
-  - **Session management:** The `get_session()` context manager ensures a single reusable\
-  \ HTTP session is used for all package version checks, then cleanly closed.\n"

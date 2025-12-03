@@ -1,3 +1,0 @@
-"import aiohttp\n\n\ndef get_session() -> aiohttp.ClientSession:\n    headers = {\"\
-  User-Agent\": \"pip-outdated\"}\n    connector = aiohttp.TCPConnector(limit=5)\n\
-  \    return aiohttp.ClientSession(headers=headers, connector=connector)    \n"

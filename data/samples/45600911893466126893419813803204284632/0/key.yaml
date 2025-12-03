@@ -1,7 +1,0 @@
-"#!/usr/bin/env python3\n\nfrom setuptools import setup, find_packages\n\nsetup(\n\
-  \    name=\"your-package-name\",\n    version=\"0.1.0\",\n    description=\"A short\
-  \ description of the project.\",\n    author=\"Your Name\",\n    author_email=\"\
-  you@example.com\",\n    url=\"https://github.com/your/repo\",\n    packages=find_packages(),\n\
-  \    install_requires=[\n        # list runtime dependencies here\n    ],\n    python_requires=\"\
-  >=3.8\",\n    # ...additional metadata...\n)\n```\n\n*Replace the placeholder values\
-  \ with the actual project information.*"

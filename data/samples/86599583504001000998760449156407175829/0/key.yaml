@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The \"zip_safe\" option informs setuptools that the project can be installed\n\
-  \    as a .egg zip archive.\n  fact: The package is marked as zip-safe (\"zip_safe\
-  \ = True\").\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

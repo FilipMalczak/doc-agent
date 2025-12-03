@@ -1,3 +1,0 @@
-Inside the test, an asynchronous context manager "get_session()" is used to obtain
-  a session object.
-...

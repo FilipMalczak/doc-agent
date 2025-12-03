@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The loop over releases keys parses with parse_version, filters out\n    InvalidVersion\
-  \ and prereleases, appends to keys, sorts, and returns.\n  fact: get_pypi_versions\
-  \ extracts the keys of the \"releases\" dictionary from the\n    JSON response,\
-  \ attempts to parse each key as a Version, skips keys that raise\n    InvalidVersion\
-  \ or represent prereleases, and returns a sorted list of the remaining\n    Version\
-  \ objects.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

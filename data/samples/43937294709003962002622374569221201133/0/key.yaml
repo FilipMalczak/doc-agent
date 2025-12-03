@@ -1,2 +1,0 @@
-"If the subprocess in get_local_version returns a non\u2011zero exit code, get_local_version\
-  \ returns None."

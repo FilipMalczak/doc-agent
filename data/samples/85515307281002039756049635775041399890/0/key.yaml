@@ -1,4 +1,0 @@
-"### Overview\n- **Purpose**: Formats and displays the results of a dependency\u2011\
-  out\u2011of\u2011date check as a colored table in the terminal.  \n- **Target audience**:\
-  \ End\u2011users of the *pip\u2011outdated* utility who want a clear, visual summary\
-  \ of which packages need updating.\n"

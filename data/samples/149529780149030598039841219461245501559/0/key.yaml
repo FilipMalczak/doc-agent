@@ -1,6 +1,0 @@
-"# \U0001F4C4 Notes on `tests/test_pytz.py`\n\n- **File type**: Python test (`source_file`\u202F\
-  /\u202F`test`)  \n- **Location**: `tests/test_pytz.py`  \n\n## Implications for\
-  \ Users\n- Confirms that the library\u2019s core version\u2011fetching logic works\
-  \ for a well\u2011known package (`pytz`), serving as a sanity check.\n- Demonstrates\
-  \ the **async API** pattern that users should follow when integrating `pip_outdated`\
-  \ into their own asynchronous workflows.  \n"

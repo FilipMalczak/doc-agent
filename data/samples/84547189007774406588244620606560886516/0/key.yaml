@@ -1,3 +1,0 @@
-"parse_lines(lines) removes comments (anything after a \"#\" that follows start\u2011\
-  of\u2011line or whitespace) and joins lines that end with a backslash continuation\
-  \ (\"\\\\\\n\")."

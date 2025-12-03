@@ -1,4 +1,0 @@
-"### Overview\n- Shebang line: `#! python3` \u2013 indicates the script should be\
-  \ executed with the system\u2019s default Python\u202F3 interpreter.  \n- Imports\
-  \ `setup` from the **setuptools** package.  \n- Calls `setup()` **without any arguments**.\n\
-  \n---\n"

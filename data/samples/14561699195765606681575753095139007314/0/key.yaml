@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The call pypi_versions = await get_pypi_versions(name, session) does\n    this.\n\
-  \  fact: check_outdated obtains the list of available PyPI versions by awaiting\
-  \ get_pypi_versions(name,\n    session).\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,4 +1,0 @@
-The regular expression in parse_lines, r"(.*?)(^|\s)#", captures characters up to
-  a comment marker that appears at the start of the line or after whitespace, enabling
-  removal of inline comments.
-...

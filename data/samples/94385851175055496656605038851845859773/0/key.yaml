@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Inside the guard the statement \"from . import main\" uses a leading\n    dot,\
-  \ which denotes a relative import from the current package.\n  fact: When executed\
-  \ as the main program, the file performs a relative import of\n    the module named\
-  \ \"main\" from the same package.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

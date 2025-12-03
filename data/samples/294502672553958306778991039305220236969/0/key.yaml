@@ -1,3 +1,0 @@
-The function `set_verbose` accepts a boolean argument and assigns it to the global
-  VERBOSE variable.
-...

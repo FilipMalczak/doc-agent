@@ -1,3 +1,0 @@
-"## Entry Point\n- **Function:** `main()`\n- **How it runs:**  \n  - Uses `asyncio.get_event_loop().run_until_complete(_main())`\
-  \ instead of `asyncio.run()` because of a known issue with aiohttp that closes the\
-  \ event loop (`https://github.com/aio-libs/aiohttp/issues/1925`).\n"

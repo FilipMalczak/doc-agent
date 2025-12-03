@@ -1,7 +1,0 @@
-"### 4.6 Extending / Customizing\n- **Adding New File Types** \u2013 Extend `find_require.find_require`\
-  \ with a new parser that yields `Requirement` objects similar to the existing `parse_cfg`\
-  \ and `parse_requirements`.  \n- **Changing HTTP Behaviour** \u2013 Modify `session.get_session`\
-  \ to adjust headers or connection limits, or instantiate `aiohttp.ClientSession`\
-  \ directly if deeper customization is needed.  \n- **Verbosity** \u2013 The `verbose`\
-  \ flag is a lightweight global; for more sophisticated logging, replace uses of\
-  \ `verbose()` with the standard `logging` module.\n"

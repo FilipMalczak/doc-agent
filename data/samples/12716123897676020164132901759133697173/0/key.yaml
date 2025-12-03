@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ In Python packaging, a call to \"setup()\" without arguments relies on\n    configuration\
-  \ files to provide metadata; the absence of arguments in this file\n    implies\
-  \ such external configuration.\n  fact: Because \"setup()\" is called without arguments,\
-  \ the project's packaging metadata\n    must be supplied elsewhere (e.g., in a \"\
-  setup.cfg\" or \"pyproject.toml\" file) or\n    the call will use default values.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

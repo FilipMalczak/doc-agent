@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Functions such as iter_files, file_to_lines, parse_requirements, parse_requirements_text,\n\
-  \    parse_cfg, and find_require all contain \"yield\" statements.\n  fact: All\
-  \ file and text parsing functions are generators, allowing lazy iteration\n    over\
-  \ potentially large requirement sets.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

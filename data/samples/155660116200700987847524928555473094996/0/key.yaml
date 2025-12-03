@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function opens the file, conditionally prints based on verbose(),\n    and\
-  \ delegates line processing to parse_lines.\n  fact: \"file_to_lines(file) reads\
-  \ the file with UTF\\u20118 encoding, prints \\\"Parse:\\\n    \\ <file>\\\" when\
-  \ verbose() is true, and yields processed lines from parse_lines.\"\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

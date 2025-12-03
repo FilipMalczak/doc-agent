@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The assignment self.latest = self.all_versions[-1] executes after the\n    wanted\
-  \ calculation.\n  fact: \"In OutdateResult.__post_init__, latest is always set to\
-  \ the last element\\\n    \\ of all_versions when all_versions is non\\u2011empty.\"\
-  \n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

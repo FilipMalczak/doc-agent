@@ -1,3 +1,0 @@
-Within the session context, the function "get_pypi_versions" is called with the arguments
-  "pytz" (the package name) and the session object, and is awaited.
-...

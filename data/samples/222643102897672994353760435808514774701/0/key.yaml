@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ By checking that names from both install_requires and options.extras_require\n\
-  \    appear in the expected list, the test demonstrates parsing of both sections.\n\
-  \  fact: The test verifies that parse_cfg correctly parses both regular dependencies\n\
-  \    and extras from a setup.cfg file.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

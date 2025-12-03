@@ -1,9 +1,0 @@
-"## Project Component: `pip_outdated/print_outdated.py`\n### Overview\n### Key Functions\n\
-  ### User\u2011Facing Behaviour\n\n- **Color legend** (displayed before the table):\
-  \  \n  - **Red** = unavailable, outdated, or outside of version specifier.  \n \
-  \ - **Green** = updatable (a newer version exists).  \n- **Exit codes**:  \n  -\
-  \ `0` \u2013 when everything is up\u2011to\u2011date or when `quiet` is `True`.\
-  \  \n  - `1` \u2013 when at least one package can be upgraded and `quiet` is `False`.\
-  \  \n- **Quiet mode** (`quiet=True`):  \n  - Suppresses the non\u2011zero exit;\
-  \ useful when the user only wants the visual report without affecting script flow.\
-  \  \n"

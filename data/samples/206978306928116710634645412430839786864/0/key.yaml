@@ -1,3 +1,0 @@
-If no outdates were processed (count remains falsey), print_outdated prints "No requirements
-  found." in red and returns early.
-...

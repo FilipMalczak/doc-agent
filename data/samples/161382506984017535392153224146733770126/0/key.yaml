@@ -1,8 +1,0 @@
-"### Implications for user\u2011facing documentation\n- **Test suite placeholder:**\
-  \ This file indicates that a test suite is intended but may not yet be populated.\
-  \ Future documentation should point users to the `tests/` directory for example\
-  \ usage, test guidelines, or contribution instructions.  \n- **Extending the suite:**\
-  \ When adding new test modules (e.g., `tests/test_core.py`), they will automatically\
-  \ be part of the package thanks to this initializer.  \n- **No runtime impact:**\
-  \ Since the file contains no code, it does not affect the execution of the project;\
-  \ it solely enables import mechanics.\n"

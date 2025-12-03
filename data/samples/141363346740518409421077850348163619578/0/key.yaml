@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The README explains that the tool \"compares the version number with\n    the\
-  \ version specifier in ``requirements.txt`` or ``setup.cfg``\".\n  fact: The tool\
-  \ compares each package's installed version against the version specifier\n    defined\
-  \ in requirements.txt or setup.cfg.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

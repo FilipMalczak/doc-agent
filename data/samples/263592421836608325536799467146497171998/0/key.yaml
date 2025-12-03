@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The \"author\" and \"author_email\" fields record the maintainer's identity\n\
-  \    and contact.\n  fact: The author is listed as \"eight\" with email \"eight04@gmail.com\"\
-  .\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

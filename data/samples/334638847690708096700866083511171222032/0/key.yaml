@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The optional arguments table lists \"-v, --verbose\" with the description\n  \
-  \  \"Print verbose information\".\n  fact: The optional flag \"-v\" or \"--verbose\"\
-  \ enables printing of verbose information.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

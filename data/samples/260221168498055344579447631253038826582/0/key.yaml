@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The path indicates it is a test file, and the content defines a test\n    function\
-  \ that operates on the \"pytz\" package.\n  fact: The file \"tests/test_pytz.py\"\
-  \ is a Python source file containing a test for\n    the \"pytz\" package.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

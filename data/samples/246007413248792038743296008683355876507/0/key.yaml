@@ -1,3 +1,0 @@
-The main() function runs the asynchronous _main() coroutine using the event loop's
-  run_until_complete method.
-...

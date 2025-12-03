@@ -1,2 +1,0 @@
-"file_to_lines(file) reads the file with UTF\u20118 encoding, prints \"Parse: <file>\"\
-  \ when verbose() is true, and yields processed lines from parse_lines."

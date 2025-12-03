@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The provided path metadata shows the file's location within the repository.\n\
-  \  fact: The module is located at pip_outdated/check_outdated.py, indicating it\
-  \ is\n    part of a package named pip_outdated.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,3 +1,0 @@
-verbose() is imported from the sibling .verbose module and controls whether parsing
-  actions are printed to stdout.
-...

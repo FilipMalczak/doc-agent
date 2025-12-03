@@ -1,8 +1,0 @@
-"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n\n> **Version:** `0.8.0`\
-  \ (latest release)  \n> **License:** MIT  \n> **Repository:** <https://github.com/eight04/pip-outdated>\
-  \  \n\n---\n\n# Scan the default files (requirements.txt & setup.cfg)\npip-outdated\n\
-  \n# Scan a custom file or glob pattern\npip-outdated my_deps/*.txt\n\n# Enable verbose\
-  \ debugging output\npip-outdated -v\n\n# Do not exit with code\u202F1 when outdated\
-  \ packages are found (useful for CI)\npip-outdated -q\n```\n\n# Install\npip install\
-  \ pip-outdated\n\n# Basic scan (default files)\npip-outdated\n\n# Scan custom glob\
-  \ pattern\npip-outdated *-requirements.txt\n"

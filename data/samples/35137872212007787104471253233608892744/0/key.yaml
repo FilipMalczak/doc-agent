@@ -1,5 +1,0 @@
-"## Project Overview  \n## Badges  \n## Installation  \n## Usage Synopsis  \n## TODO\
-  \ (Future Enhancements)  \n- Add commands to automatically update packages.  \n\
-  - Add commands to rewrite `requirements.txt` / `setup.cfg` with updated versions.\
-  \  \n- Add a global\u2011list mode (e.g., `-g, --global`) to list *all* installed\
-  \ packages.\n"

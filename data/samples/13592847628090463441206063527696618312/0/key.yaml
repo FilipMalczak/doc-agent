@@ -1,3 +1,0 @@
-From the result of parse_cfg, the test extracts the "name" attribute of each returned
-  requirement object into a list called names.
-...

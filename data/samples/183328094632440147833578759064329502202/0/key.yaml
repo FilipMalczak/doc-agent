@@ -1,5 +1,0 @@
-'# Scan a custom file or glob pattern
-
-  pip-outdated my_deps/*.txt
-
-  '

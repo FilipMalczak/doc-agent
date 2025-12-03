@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code iterates over reversed(self.all_versions) and selects the\n    first\
-  \ version matching the specifier; a StopIteration leaves wanted unchanged.\n  fact:\
-  \ \"In OutdateResult.__post_init__, if all_versions is non\\u2011empty, wanted\\\
-  \n    \\ is set to the most recent version in all_versions that satisfies requirement.specifier,\\\
-  \n    \\ otherwise it remains None.\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

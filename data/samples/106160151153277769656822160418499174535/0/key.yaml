@@ -1,3 +1,0 @@
-print_outdated calls colorama.init() at the start to enable colored terminal output
-  on Windows.
-...

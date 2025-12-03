@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ In the \"[options.extras_require]\" block, \"docs =\" is followed by indented\n\
-  \    lines \"alabaster\" and \"Sphinx\".\n  fact: The [options.extras_require] section\
-  \ defines a \"docs\" extra that lists the\n    packages \"alabaster\" and \"Sphinx\"\
-  .\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

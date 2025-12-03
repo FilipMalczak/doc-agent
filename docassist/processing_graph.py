@@ -3,21 +3,24 @@ from dataclasses import dataclass
 from io import StringIO
 from os.path import join
 from sys import prefix
-from typing import Any, TextIO
+from typing import Any, TextIO, TypedDict, Literal
 
 from uuid import uuid4
 
 import yaml
+from pydantic import BaseModel
 from pydantic_graph.beta import GraphBuilder, StepContext
 from pydantic_graph.beta.join import reduce_list_append, reduce_list_extend
 from yaml import Loader
 
 from docassist.agents.generators.facts_from_file import fact_extractor
-from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, question, \
+from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, \
     dir_note_taker, doc_to_notes
 from docassist.agents.generators.notes_from_file import file_note_taker
 from docassist.chunkdown import break_to_entries, MarkdownChapter
 from docassist.config import CONFIG
+from docassist.index.document import SourceMeta, FileNoteMeta, DirNoteMeta, NoteMeta, NoteChunkMeta, FactsMeta, \
+    FactsChunkMeta
 from docassist.index.protocols import Document, IndexSnapshot
 from docassist.index.utils import embed_metadata
 from docassist.llmio import object_from_user
@@ -30,8 +33,9 @@ class OK: ...
 g = GraphBuilder(name="process-repository", output_type=OK)
 sampling = CONFIG.sampler.controller()
 
+
 @g.step
-async def load_sources(ctx: StepContext[None, None, AnalysedRepo]) -> list[Document]:
+async def load_sources(ctx: StepContext[None, None, AnalysedRepo]) -> list[Document[SourceMeta]]:
     out = []
     repo = ctx.inputs
     for item_type, source_file in repo.list_all():
@@ -41,33 +45,40 @@ async def load_sources(ctx: StepContext[None, None, AnalysedRepo]) -> list[Docum
             Document(
                 id=str(uuid4()),
                 content=content,
-                metadata={ # fixme we need proper tools for metadata filtering in rag
-                    "type": "file",
-                    "document_type": "source_file",
-                    "repo_item_type": item_type,
-                    "path": source_file.path,
-                    "language": source_file.language
-                }
+                metadata=SourceMeta(
+                    document_type = "source_file",
+                    type = "file",
+                    repo_item_type = item_type,
+                    path = source_file.path,
+                    language = source_file.language
+                )
             )
         )
     return out
 
+
 @g.step
-async def take_file_notes(ctx: StepContext[None, None, Document]) -> Document:
+async def take_file_notes(ctx: StepContext[None, None, Document[SourceMeta]]) -> Document[FileNoteMeta]:
     doc = ctx.inputs
     input_data = dict(doc.metadata)
     input_data["content"] = doc.content
     input_ = to_simple_xml(input_data)
     async with sampling.defer_until_success():
         content = (await file_note_taker.run(input_)).output
-    return Document(id=str(uuid4()), content=content, metadata={
-        "document_type": "note",
-        "subject_id": doc.id,
-        **embed_metadata(doc.metadata, "subject")
-    })
+    return Document(id=str(uuid4()), content=content, metadata=FileNoteMeta(
+            document_type = "note",
+            subject_path = doc.metadata.path,
+            subject_id = doc.id,
+            subject_type = "file",
+            subject_document_type = "source_file",
+            subject_repo_item_type = doc.metadata.repo_item_type,
+            subject_language = doc.metadata.language
+        )
+    )
+
 
 @g.step
-async def take_directory_notes(ctx: StepContext[None, None, list[Document]]) -> list[Document]:
+async def take_directory_notes(ctx: StepContext[None, None, list[Document[FileNoteMeta]]]) -> list[Document[DirNoteMeta]]:
     inputs = dir_notes_input(ctx.inputs)
     notes: dict[str, SubjectNotes] = inputs[0]
     paths: list[CodeFilePath] = inputs[1]
@@ -86,27 +97,24 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document]]) -> 
         )
         async with sampling.defer_until_success():
             dir_notes = (await dir_note_taker.run(q)).output
-        doc = Document(id=str(uuid4()), content=dir_notes, metadata={
-            "document_type": "note",
-            "subject_path": path,
-            "subject_type": "directory"
-        })
+        doc = Document(id=str(uuid4()), content=dir_notes, metadata=DirNoteMeta(
+                document_type = "note",
+                subject_path = path,
+                subject_type = "directory"
+            )
+        )
         out.append(doc)
         n = doc_to_notes(doc)
         notes[path] = n
     return out
 
-def d(x: str | None = None):
-    x = x or "..."
-    return Document(id=x, content=x, metadata={})
-
 @g.step
-async def chunk_notes(ctx: StepContext[None, None, Document]) -> list[Document]:
+async def chunk_notes(ctx: StepContext[None, None, Document[NoteMeta]]) -> list[Document[NoteChunkMeta]]:
     doc = ctx.inputs
     return list(break_to_entries(doc))
 
 @g.step
-async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
+async def extract_facts(ctx: StepContext[None, None, Document[SourceMeta]]) -> Document[FactsMeta]:
     doc = ctx.inputs
     user_msg = dict(doc.metadata)
     user_msg["content"] = doc.content
@@ -118,15 +126,19 @@ async def extract_facts(ctx: StepContext[None, None, Document]) -> Document:
     return Document(
         id=str(uuid4()),
         content=content,
-        metadata={
-            "document_type": "facts",
-            "subject_id": doc.id,
-            **embed_metadata(doc.metadata, "subject")
-        }
+        metadata=FactsMeta(
+            document_type = "facts",
+            subject_id = doc.id,
+            subject_path = doc.metadata.path,
+            subject_type = "file",
+            subject_document_type = "source_file",
+            subject_repo_item_type = doc.metadata.repo_item_type,
+            subject_language = doc.metadata.language
+    )
     )
 
 @g.step
-async def chunk_facts(ctx: StepContext[None, None, Document]) -> list[Document]:
+async def chunk_facts(ctx: StepContext[None, None, Document[FactsMeta]]) -> list[Document[FactsChunkMeta]]:
     doc = ctx.inputs
     facts = yaml.load(doc.content, Loader=Loader)
     def i():
@@ -134,13 +146,15 @@ async def chunk_facts(ctx: StepContext[None, None, Document]) -> list[Document]:
             yield Document(
                 id=str(uuid4()),
                 content=f.fact,
-                metadata={
-                    "document_type": "chunk",
-                    "chunk_source_id": doc.id,
-                    "chunk_variant": "simple",
-                    "chunk_coordinates": i,
-                    **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
-                }
+                metadata=FactsChunkMeta(
+                    document_type = "chunk",
+                    chunk_source_document_type = "facts",
+                    chunk_variant = "simple",
+                    chunk_coordinates = (i, ),
+                    chunked_facts_id = doc.id,
+                    chunked_facts_subject_path = doc.metadata.subject_path,
+                    chunked_facts_subject_type = doc.metadata.subject_type
+                )
             )
             with StringIO() as t:
                 yaml.dump(f, t)
@@ -148,13 +162,15 @@ async def chunk_facts(ctx: StepContext[None, None, Document]) -> list[Document]:
             yield Document(
                 id=str(uuid4()),
                 content=single_explained,
-                metadata={
-                    "document_type": "chunk",
-                    "chunk_source_id": doc.id,
-                    "chunk_variant": "explained",
-                    "chunk_coordinates": i,
-                    **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
-                }
+                metadata=FactsChunkMeta(
+                    document_type = "chunk",
+                    chunk_source_document_type = "facts",
+                    chunk_variant = "explained",
+                    chunk_coordinates = (i,),
+                    chunked_facts_id = doc.id,
+                    chunked_facts_subject_path = doc.metadata.subject_path,
+                    chunked_facts_subject_type = doc.metadata.subject_type
+                )
             )
     return list(i())
 
@@ -179,7 +195,6 @@ all_facts = g.join(reduce_list_append, initial=[])
 all_chunks = g.join(reduce_list_extend, initial=[])
 all_docs = g.join(reduce_list_extend, initial=[])
 
-#fixme missing facts pipeline
 g.add(
     g.edge_from(g.start_node).to(load_sources),
     g.edge_from(load_sources).to(all_docs),

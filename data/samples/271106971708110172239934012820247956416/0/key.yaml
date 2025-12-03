@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Inside the function a dictionary named headers is defined with the\n    key \"\
-  User-Agent\" and value \"pip-outdated\", which is then passed to the ClientSession.\n\
-  \  fact: The function sets a custom HTTP header \"User-Agent\" with the value \"\
-  pip-outdated\".\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -3,10 +3,11 @@ from functools import cached_property
 from typing import Self, Iterable, Literal, assert_never
 from uuid import uuid4
 
+from docassist.index.document import ChunkVariant, NoteMeta, NoteChunkMeta, NoteSimpleChunkMeta, NoteDerivedChunkMeta, \
+    NoteChunkVariant, DerivedChunkVariant
 from docassist.index.protocols import Document
 from docassist.index.utils import embed_metadata
 
-ChunkVariant = Literal["extracted", "contextualized"]
 
 @dataclass
 class MarkdownChapter:
@@ -99,12 +100,12 @@ class MarkdownChapter:
         return MarkdownChapter(self.title, self.level, None, list(self.content) if include_content else [])
 
     # @lru_cache #todo reenable; requires hashability
-    def as_variant(self, variant: ChunkVariant | None, *, include_content: bool | None = None) -> Self:
+    def as_variant(self, variant: NoteChunkVariant | None, *, include_content: bool | None = None) -> Self:
         if variant is None:
             assert include_content is None
         include = lambda: {"include_content": include_content} if include_content is not None else {}
         match variant:
-            case None: return self
+            case None | "simple": return self
             case "extracted": return self.as_extracted(**include())
             case "contextualized": return self.as_contextualized(**include())
             case _ as never: assert_never(never)
@@ -332,7 +333,7 @@ D
 E"""
 
 
-def break_to_entries(doc: Document) -> Iterable[Document]:
+def break_to_entries(doc: Document[NoteMeta]) -> Iterable[Document[NoteChunkMeta]]:
     chapter = MarkdownChapter.parse(doc.content)
     already_seen = set()
     for subchapter in chapter.tree():
@@ -341,16 +342,18 @@ def break_to_entries(doc: Document) -> Iterable[Document]:
             yield Document(
                 id=str(uuid4()),
                 content=simple,
-                metadata={
-                    "document_type": "chunk",
-                    "chunk_source_id": doc.id,
-                    "chunk_variant": "simple",
-                    "chunk_coordinates": subchapter.coordinates,
-                    **embed_metadata(doc.metadata, "chunk_source", ["subject_type", "subject_id", "subject_path"])
-                }
+                metadata=NoteSimpleChunkMeta(
+                    document_type = "chunk",
+                    chunk_source_document_type = "note",
+                    chunked_note_id = doc.id,
+                    chunk_variant = "simple",
+                    chunk_coordinates = subchapter.coordinates,
+                    chunked_note_subject_path = doc.metadata.subject_path,
+                    chunked_note_subject_type = doc.metadata.subject_type,
+                )
             )
             already_seen.add(simple)
-        for variant in ChunkVariant.__args__:
+        for variant in DerivedChunkVariant.__args__:
             for inc_cont in [True, False]:
                 try:
                     specialized = subchapter.as_variant(variant, include_content=inc_cont)
@@ -359,14 +362,16 @@ def break_to_entries(doc: Document) -> Iterable[Document]:
                         yield Document(
                             id=str(uuid4()),
                             content=rendered,
-                            metadata={
-                                "document_type": "chunk",
-                                "chunk_source_id": doc.id,
-                                "chunk_variant": variant,
-                                "chunk_include_previous_content": inc_cont,
-                                "chunk_coordinates": subchapter.coordinates,
-                                **embed_metadata(doc.metadata, "chunk_source", ["document_type", "subject_type", "subject_id", "subject_path"])
-                            }
+                            metadata=NoteDerivedChunkMeta(
+                                document_type="chunk",
+                                chunk_source_document_type="note",
+                                chunked_note_id=doc.id,
+                                chunk_variant=variant,
+                                chunk_coordinates=subchapter.coordinates,
+                                chunk_include_previous_content=inc_cont,
+                                chunked_note_subject_path=doc.metadata.subject_path,
+                                chunked_note_subject_type=doc.metadata.subject_type
+                            )
                         )
                         already_seen.add(rendered)
                 except:

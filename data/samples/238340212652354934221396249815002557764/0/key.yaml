@@ -1,3 +1,0 @@
-print_outdated initializes a data list with a header row ['Name', 'Installed', 'Wanted',
-  'Latest'].
-...

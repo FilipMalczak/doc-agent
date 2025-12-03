@@ -1,6 +1,0 @@
-"## Project Overview  \n## Core Modules & Functions  \n## How the Parser Works  \n\
-  ## Typical Usage  \n# Example: find all requirements in the current directory\n\
-  ## Supported File Types  \n## Edge Cases & Limitations  \n## Configuration & Debugging\
-  \  \n\n- **Verbose Mode** \u2013 The helper `verbose()` (imported from `.verbose`)\
-  \ controls whether each file being parsed is printed to stdout. Enable it in your\
-  \ environment to trace parsing activity.  \n"

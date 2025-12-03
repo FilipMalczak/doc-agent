@@ -1,7 +1,0 @@
-'## Purpose
-
-  - Verifies that the **asynchronous** function `get_pypi_versions` can successfully
-  retrieve version information for the **`pytz`** package from PyPI without raising
-  exceptions.
-
-  '

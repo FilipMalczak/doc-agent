@@ -1,7 +1,0 @@
-"# Example: find all requirements in the current directory\n## Extensibility  \n\n\
-  - To support additional file formats (e.g., `pyproject.toml`), add a new branch\
-  \ in `find_require` that selects an appropriate parser and yields `Requirement`\
-  \ objects in the same way.  \n- Custom comment or continuation handling can be introduced\
-  \ by modifying `parse_lines`.  \n\n---  \n\n*These notes capture the essential functionality\
-  \ and usage patterns of `pip_outdated/find_require.py` and are intended to aid the\
-  \ authoring of user\u2011focused documentation.*"

@@ -1,3 +1,0 @@
-OutdateResult.install_not_found() returns True when the version attribute is None,
-  indicating the package is not installed locally.
-...

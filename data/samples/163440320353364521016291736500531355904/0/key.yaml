@@ -1,8 +1,0 @@
-"from pip_outdated.find_require import parse_cfg\n\ndef test_parse_cfg(tmp_path):\n\
-  \    file = tmp_path / \"setup.cfg\"\n    file.write_text(\"\"\"\n[options]\nsetup_requires\
-  \ =\n    setuptools_scm >= 1.15.0\n    setuptools_scm_git_archive >= 1.0\n    \n\
-  install_requires =\n    ansible >= 2.5\n    ansible-lint >= 4.0.2, < 5\n    \n[options.extras_require]\n\
-  docs =\n    alabaster\n    Sphinx\"\"\")\n    \n    names = [r.name for r in parse_cfg(str(file))]\n\
-  \    assert names == [\n        \"setuptools_scm\",\n        \"setuptools_scm_git_archive\"\
-  ,\n        \"ansible\",\n        \"ansible-lint\",\n        \"alabaster\",\n   \
-  \     \"Sphinx\"\n    ]\n    "

@@ -1,4 +1,0 @@
-"## Potential Documentation Sections\n- **Installation & Setup**\n- **Command\u2011\
-  Line Reference**\n- **How It Works (Technical Overview)**\n- **Examples & Common\
-  \ Workflows**\n- **Troubleshooting & FAQ**\n  - Explanation of the `asyncio.run`\
-  \ limitation.\n  - How to increase verbosity for debugging network issues."

@@ -1,3 +1,0 @@
-"## Configuration & Debugging  \n\n- **Verbose Mode** \u2013 The helper `verbose()`\
-  \ (imported from `.verbose`) controls whether each file being parsed is printed\
-  \ to stdout. Enable it in your environment to trace parsing activity.  \n"

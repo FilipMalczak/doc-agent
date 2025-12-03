@@ -1,3 +1,0 @@
-The created setup.cfg file is written with a multi-line string that contains an [options]
-  section and an [options.extras_require] section.
-...

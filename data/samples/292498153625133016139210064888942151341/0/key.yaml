@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ match.group(1) is yielded as the line content without the comment.\n  fact: The\
-  \ regular expression in parse_lines, r\"(.*?)(^|\\s)#\", captures characters\n \
-  \   up to a comment marker that appears at the start of the line or after whitespace,\n\
-  \    enabling removal of inline comments.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

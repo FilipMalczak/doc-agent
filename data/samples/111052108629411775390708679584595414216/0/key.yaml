@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Having a __main__.py that imports and runs \"main()\" follows Python's\n    convention\
-  \ for making a package executable as a module.\n  fact: \"This file serves as the\
-  \ package's command\\u2011line entry point, enabling\\\n    \\ execution via \\\"\
-  python -m pip_outdated\\\" or an installed console script.\"\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

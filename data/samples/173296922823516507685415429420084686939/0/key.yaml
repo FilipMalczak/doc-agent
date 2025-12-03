@@ -1,6 +1,0 @@
-"## 1. Package Overview\n- **Name:** `pip\u2011outdated`  \n- **Version:** `0.8.0`\
-  \  \n- **Purpose:** A command\u2011line tool that scans dependency files (`requirements.txt`,\
-  \ `setup.cfg`, or any glob\u2011matched files) and reports packages that have newer\
-  \ releases on PyPI.  \n- **Entry Points**\n  - Console script `pip-outdated` \u2192\
-  \ `pip_outdated.__init__:main`  \n  - Python module execution `python -m pip_outdated`\
-  \ \u2192 `pip_outdated.__main__:main`  \n"

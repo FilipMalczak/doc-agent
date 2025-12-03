@@ -1,3 +1,0 @@
-print_outdated is imported from .print_outdated and is awaited with the list of task
-  objects and the args.quiet flag.
-...

@@ -1,2 +1,0 @@
-"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
-  pip-outdated -q\n```\n\n### 11. Quick Reference Cheat\u2011Sheet\n\n```bash"

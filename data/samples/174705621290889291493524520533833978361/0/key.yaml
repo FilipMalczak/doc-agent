@@ -1,3 +1,0 @@
-"parse_cfg(file) reads an INI\u2011style configuration file using ConfigParser, extracts\
-  \ the values of \"setup_requires\", \"install_requires\", and each entry under \"\
-  extras_require\", and yields Requirement objects parsed from those values."

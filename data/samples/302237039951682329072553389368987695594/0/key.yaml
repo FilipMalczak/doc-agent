@@ -1,3 +1,0 @@
-OutdateResult.pypi_not_found() returns True when latest is None, meaning no versions
-  were retrieved from PyPI.
-...

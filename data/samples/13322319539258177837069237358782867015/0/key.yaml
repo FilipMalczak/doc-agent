@@ -1,3 +1,0 @@
-The async function print_outdated accepts a list of Awaitable OutdateResult objects
-  and a boolean quiet flag, and prints a colored table of outdated packages.
-...

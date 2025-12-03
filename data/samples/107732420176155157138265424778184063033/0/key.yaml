@@ -1,3 +1,0 @@
-check_outdated is imported from .check_outdated and is scheduled as an asyncio task
-  for each requirement.
-...

@@ -1,3 +1,0 @@
-"## Usage Synopsis  \n### Practical examples  \n- **Check multiple requirement files**\
-  \  \n  ```bash\n  pip-outdated *-requirements.txt\n  ```\n- **Check all files in\
-  \ a folder**  \n  ```bash\n  pip-outdated requirements/*.txt\n  ```\n"

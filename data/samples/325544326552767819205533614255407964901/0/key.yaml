@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The regex r\"(.*?)\\s--?[a-z]\" captures text before an option, and the\n    function\
-  \ catches InvalidRequirement.\n  fact: \"parse_require(text) strips any trailing\
-  \ pip option (e.g., \\\"--hash=\\u2026\\\n    \\\" or \\\"-r other.txt\\\") by cutting\
-  \ at the first space followed by a dash, then\\\n    \\ attempts to construct a\
-  \ packaging.requirements.Requirement; it returns None\\\n    \\ if the text is not\
-  \ a valid requirement.\"\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

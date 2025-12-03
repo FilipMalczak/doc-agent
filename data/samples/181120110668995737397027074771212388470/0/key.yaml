@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The [options.entry_points] section registers a command-line interface\n    for\
-  \ the package.\n  fact: 'A console script entry point is defined: the command \"\
-  pip-outdated\" maps\n    to the function \"main\" in the module \"pip_outdated\"\
-  .'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

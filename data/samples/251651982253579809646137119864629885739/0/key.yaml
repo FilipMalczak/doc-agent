@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The presence of the \"[vpip]\" section adds a non-standard configuration\n   \
-  \ option used by the project.\n  fact: A custom configuration section [vpip] defines\
-  \ \"command_fallback = python cute.py\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

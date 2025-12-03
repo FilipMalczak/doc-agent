@@ -1,6 +1,0 @@
-"### How Users Interact with This File\n- **Running the tool**:  \n  ```bash\n  python\
-  \ -m pip_outdated\n  ```  \n  This command triggers the `main()` function, which\
-  \ implements the actual CLI behavior of the project.  \n\n- **Installation\u2011\
-  time entry point**:  \n  The package\u2019s `setup.cfg`/`pyproject.toml` likely\
-  \ declares `pip_outdated.__main__:main` (or similar) as a console script, allowing\
-  \ users to invoke the tool via a short command such as `pip-outdated`.  \n"

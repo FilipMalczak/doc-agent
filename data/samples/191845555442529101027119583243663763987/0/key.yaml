@@ -1,3 +1,0 @@
-The file "pip_outdated/__main__.py" checks whether it is being run as the main program
-  using the condition "if __name__ == '__main__'".
-...

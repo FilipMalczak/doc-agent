@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The README provides this example under \"Check multiple files e.g.\"\n  fact:\
-  \ 'Example usage: \"pip-outdated *-requirements.txt\" checks multiple files matching\n\
-  \    the glob pattern \"*-requirements.txt\".'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

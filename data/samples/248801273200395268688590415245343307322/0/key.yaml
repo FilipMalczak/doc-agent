@@ -1,4 +1,0 @@
-parse_requirements(file) iterates over lines from file_to_lines, parses each line
-  with parse_require, and yields a Requirement object for each successfully parsed
-  line.
-...

@@ -1,7 +1,0 @@
-'## Module: `pip_outdated.verbose`
-
-  # Enable verbose output
-
-  v.set_verbose(True)
-
-  '

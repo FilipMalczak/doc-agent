@@ -1,3 +1,0 @@
-The async function check_outdated(require, session) prints a message containing the
-  requirement name and specifier when verbose() returns True.
-...

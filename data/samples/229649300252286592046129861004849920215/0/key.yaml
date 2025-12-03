@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Under \"install_requires =\", the file contains those two indented package\n \
-  \   lines.\n  fact: 'The [options] section defines two install_requires entries:\
-  \ \"ansible >= 2.5\"\n    and \"ansible-lint >= 4.0.2, < 5\".'\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

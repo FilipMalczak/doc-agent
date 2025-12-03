@@ -1,8 +1,10 @@
 from os import PathLike
-from typing import Protocol, Self, Any, Annotated
+from typing import Protocol, Self, Any, Annotated, TypedDict
 
 from pydantic import BaseModel, SkipValidation
 import numpy as np
+
+from docassist.index.document import Document
 
 JSONPrimitive = int | float | bool | str | bytes
 JSONArray = list["JSON"]
@@ -14,14 +16,6 @@ Text = str
 Content = Text
 Query = Text
 Distance = float
-
-
-class Document(BaseModel):
-    id: DocumentId
-    content: Content
-    metadata: Any #todo this should be JSON
-
-
 
 Embeddings = np.ndarray
 

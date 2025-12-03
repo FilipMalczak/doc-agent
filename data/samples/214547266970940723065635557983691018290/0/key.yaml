@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'The changelog entry for 0.5.0 lists \"Bump dependencies\" and \"Add:\n    typehint\"\
-  .'\n  fact: Version 0.5.0 (released Jan 12, 2022) bumped dependencies and introduced\
-  \ type\n    hints.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
-  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

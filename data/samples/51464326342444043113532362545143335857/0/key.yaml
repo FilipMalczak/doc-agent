@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The nested function colored_current checks outdate.install_not_found()\n    or\
-  \ outdate.install_not_wanted() and uses termcolor.colored with \"red\" and \"bold\"\
-  \n    attributes in that case.\n  fact: Inside make_row, colored_current returns\
-  \ the current version string in red\n    and bold if installation is not found or\
-  \ not wanted, otherwise it returns the\n    version as a plain string.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

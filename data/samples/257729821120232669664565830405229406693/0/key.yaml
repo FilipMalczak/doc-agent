@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The call \"file.write_text(\\\"\\\"\\\"...\\\"\\\"\\\")\" writes a string that\
-  \ includes\n    \"[options]\" and \"[options.extras_require]\" headers.\n  fact:\
-  \ The created setup.cfg file is written with a multi-line string that contains\n\
-  \    an [options] section and an [options.extras_require] section.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

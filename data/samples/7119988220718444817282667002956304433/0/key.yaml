@@ -1,4 +1,0 @@
-find_require(files) accepts an iterable of glob patterns, resolves them with iter_files,
-  parses .cfg files via parse_cfg and all other files via parse_requirements, yielding
-  Requirement objects from all matches.
-...

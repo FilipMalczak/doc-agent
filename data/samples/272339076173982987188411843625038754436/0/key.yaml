@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code assigns name = canonicalize_name(require.name).\n  fact: check_outdated\
-  \ canonicalizes the requirement name using packaging.utils.canonicalize_name\n \
-  \   before using it for version lookup.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

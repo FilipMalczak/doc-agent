@@ -1,5 +1,0 @@
-'# Scan the default files (requirements.txt & setup.cfg)
-
-  pip-outdated
-
-  '

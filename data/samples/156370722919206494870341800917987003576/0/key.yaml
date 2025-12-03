@@ -1,3 +1,0 @@
-check_outdated canonicalizes the requirement name using packaging.utils.canonicalize_name
-  before using it for version lookup.
-...

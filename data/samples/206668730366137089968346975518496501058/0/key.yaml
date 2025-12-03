@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The return statement creates OutdateResult(require, current_version,\n    pypi_versions).\n\
-  \  fact: check_outdated returns a new OutdateResult instance constructed with the\
-  \ original\n    Requirement object, the locally installed version (or None), and\
-  \ the list of PyPI\n    versions.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

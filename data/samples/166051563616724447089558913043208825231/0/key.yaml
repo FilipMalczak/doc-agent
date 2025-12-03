@@ -1,3 +1,0 @@
-The optional flag "-q" or "--quiet" prevents the program from exiting with code 1
-  when not all dependencies are up to date.
-...

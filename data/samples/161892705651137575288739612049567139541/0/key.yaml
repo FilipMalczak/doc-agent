@@ -1,3 +1,0 @@
-The function parse_args() builds an argparse.ArgumentParser with program name "pip-outdated",
-  a description about finding outdated dependencies, and uses ArgumentDefaultsHelpFormatter.
-...

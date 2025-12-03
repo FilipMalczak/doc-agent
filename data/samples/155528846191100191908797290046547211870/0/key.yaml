@@ -1,9 +1,0 @@
-"## Usage Synopsis  \n```bash\npip-outdated [-h] [-v] [-q] [<file> [<file> ...]]\n\
-  ```\n\n### Positional arguments  \n- `<file>`: One or more requirement files (supports\
-  \ glob patterns).  \n  - Default: `requirements.txt`, `setup.cfg`  \n\n### Optional\
-  \ arguments  \n- `-h, --help`: Show help message and exit.  \n- `-v, --verbose`:\
-  \ Enable verbose output (default: `False`).  \n- `-q, --quiet`: Do **not** exit\
-  \ with code\u202F1 when any dependency is outdated (default: `False`).  \n\n###\
-  \ Practical examples  \n- **Check multiple requirement files**  \n  ```bash\n  pip-outdated\
-  \ *-requirements.txt\n  ```\n- **Check all files in a folder**  \n  ```bash\n  pip-outdated\
-  \ requirements/*.txt\n  ```\n"

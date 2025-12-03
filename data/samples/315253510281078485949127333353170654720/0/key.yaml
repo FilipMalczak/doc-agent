@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The \"packages\" option with value \"find:\" triggers automatic discovery\n  \
-  \  of Python packages.\n  fact: Package discovery is delegated to \"setuptools.find_packages\"\
-  \ via \"packages\n    = find:\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

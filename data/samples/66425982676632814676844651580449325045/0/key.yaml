@@ -1,3 +1,0 @@
-Inside the test, a file named "setup.cfg" is created inside the temporary directory
-  provided by tmp_path.
-...

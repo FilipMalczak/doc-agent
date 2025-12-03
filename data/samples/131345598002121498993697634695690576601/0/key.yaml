@@ -1,9 +1,0 @@
-"## Project\u2011Level Documentation \u2013 **`pip-outdated`**\n# Scan the default\
-  \ files (requirements.txt & setup.cfg)\n# Scan a custom file or glob pattern\n#\
-  \ Enable verbose debugging output\n# Do not exit with code\u202F1 when outdated\
-  \ packages are found (useful for CI)\n# Install\n# Basic scan (default files)\n\
-  # Scan custom glob pattern\n# Verbose mode\n# CI\u2011friendly (no failing exit\
-  \ code)\npip-outdated -q\n```\n\n---\n\n*These notes aggregate information from\
-  \ the project\u2019s README, source layout, packaging configuration, test suite,\
-  \ and planned roadmap. They are intended as a foundation for user\u2011facing documentation,\
-  \ onboarding guides, and contributor manuals.*"

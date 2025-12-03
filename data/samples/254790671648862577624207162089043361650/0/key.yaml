@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function checks pathlib.Path(pattern).is_file() and yields the\n    Path directly,\
-  \ else uses pathlib.Path('.').glob(pattern).\n  fact: iter_files(patterns) yields\
-  \ pathlib.Path objects for each pattern; if a pattern\n    points to a file it yields\
-  \ that file, otherwise it yields all matching paths from\n    a glob in the current\
-  \ directory.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

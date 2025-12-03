@@ -1,4 +1,0 @@
-"## Overview\n- **Package name:** `pip-outdated`\n- **Current version:** `\"0.8.0\"\
-  `\n- **Purpose:** Command\u2011line utility that scans a `requirements.txt` or `setup.cfg`\
-  \ file (or any file matching a glob pattern) and reports packages that have newer\
-  \ releases available on PyPI.\n"

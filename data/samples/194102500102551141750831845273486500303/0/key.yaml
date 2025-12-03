@@ -1,4 +1,0 @@
-"# Do not exit with code\u202F1 when outdated packages are found (useful for CI)\n\
-  ### 7. Test Suite (`tests/`)\n#### Adding New Tests\n- Place a file named `test_*.py`\
-  \ under `tests/`.  \n- Async tests should use `@pytest.mark.asyncio` and manage\
-  \ the `aiohttp` session with `async with get_session() as session:`.\n\n---\n"

@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The lines \"table = Table(data); print(table.table)\" generate and output\n  \
-  \  the formatted table.\n  fact: print_outdated creates an AsciiTable from the data\
-  \ list and prints its table\n    representation.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The source contains the standard Python guard that evaluates the __name__\n  \
-  \  variable against the string '__main__'.\n  fact: The file \"pip_outdated/__main__.py\"\
-  \ checks whether it is being run as the\n    main program using the condition \"\
-  if __name__ == '__main__'\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

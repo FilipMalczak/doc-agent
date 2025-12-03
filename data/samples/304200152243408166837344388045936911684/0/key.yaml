@@ -1,3 +1,0 @@
-get_session is imported from .session and used as an asynchronous context manager
-  to obtain a session object.
-...

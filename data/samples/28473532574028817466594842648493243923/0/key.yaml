@@ -1,3 +1,0 @@
-Running the command "pip-outdated" without arguments reads dependencies from the default
-  files "requirements.txt" and "setup.cfg".
-...

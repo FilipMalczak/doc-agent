@@ -8,6 +8,7 @@ from pydantic_ai import Agent
 
 from docassist.agents.generators.notes_from_file import MarkdownOutput
 from docassist.config import CONFIG
+from docassist.index.document import DirNoteMeta
 from docassist.index.protocols import Document
 from docassist.simple_xml import to_simple_xml
 from docassist.subjects import CodeFilePath, EntryType
@@ -87,25 +88,17 @@ dir_note_taker = Agent(
 
 def doc_to_notes(d: Document) -> SubjectNotes:
     return SubjectNotes(
-        subject_path=d.metadata["subject_path"],
-        subject_type=d.metadata["subject_type"],
+        subject_path=d.metadata.subject_path,
+        subject_type=d.metadata.subject_type,
         content=d.content
     )
 
-def dir_notes_input(dir_children_notes: list[Document]) -> tuple[dict[str, SubjectNotes], list[CodeFilePath]]:
+def dir_notes_input(dir_children_notes: list[Document[DirNoteMeta]]) -> tuple[dict[str, SubjectNotes], list[CodeFilePath]]:
     def doc_to_path(d: Document) -> CodeFilePath:
-        return CodeFilePath(d.metadata["subject_path"], language=d.metadata["subject_language"])
+        return CodeFilePath(d.metadata.subject_path, language=d.metadata.subject_language)
     l, r = {}, []
     for d in dir_children_notes:
-        l[d.metadata["subject_path"]] = doc_to_notes(d)
+        l[d.metadata.subject_path] = doc_to_notes(d)
         r.append(doc_to_path(d))
     return l, r
-#
-# def serialize(notes: SubjectNotes) -> dict[str, Any]:
-#     return notes.model_dump(mode="json")
-#
-# def question(notes: list[SubjectNotes]) -> str:
-#     return to_simple_xml([
-#         serialize(n)
-#         for n in notes
-#     ])
+

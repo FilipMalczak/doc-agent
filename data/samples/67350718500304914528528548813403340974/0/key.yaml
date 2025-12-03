@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Having a tests directory with an __init__.py file follows a common\n    convention\
-  \ for structuring test code in Python projects, allowing tests to be\n    imported\
-  \ and run as a package.\n  fact: The existence of tests/__init__.py indicates that\
-  \ the project includes a test\n    suite organized as a Python package.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,3 +1,0 @@
-When executed as the main program, the file performs a relative import of the module
-  named "main" from the same package.
-...

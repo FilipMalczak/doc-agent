@@ -1,3 +1,0 @@
-"In OutdateResult.__post_init__, if all_versions is non\u2011empty, wanted is set\
-  \ to the most recent version in all_versions that satisfies requirement.specifier,\
-  \ otherwise it remains None."
