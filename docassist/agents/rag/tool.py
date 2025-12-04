@@ -3,6 +3,7 @@ from itertools import chain
 from math import log2, exp
 from typing import Callable, Self, assert_never
 
+from opentelemetry.trace import get_current_span
 from pydantic import BaseModel
 
 from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, IndexedScoredDocument, RerankingInput
@@ -78,6 +79,7 @@ class SearchIndexTool:
         :return: The final set of documents, sorted by decreasing score and annotated with their normalized relevance
             values.
         """
+        s = get_current_span()
         q = len(queries)
         assert q
         rewrite_count = rewrite_count or max(2, int(log2(q)))
@@ -86,13 +88,26 @@ class SearchIndexTool:
             assert cutoff <= 100
             cutoff = cutoff / 100.0
         assert cutoff >= 0
-        #todo add purpose to rephraser
+        #todo maybe each step should have its own span?
+        s.set_attribute("queries_len", q)
+        s.set_attribute("effective_rewrite_count", rewrite_count)
+        s.set_attribute("effective_expansion_count", expansion_count)
+        s.set_attribute("effective_cutoff", cutoff)
         rephrasings = await self._rephrase(purpose, rewrite_count, expansion_count, queries, additional_rephrasing_instructions or "")
+
         all_index_queries = list(set(queries + rephrasings))
+        s.set_attribute("all_queries_len", len(all_index_queries))
+
         total_index_results = 2*len(all_index_queries)
+        s.set_attribute("total_index_results", total_index_results)
+
         search_results = await self.index.query(all_index_queries, total_index_results)
+        s.set_attribute("search_results_len", len(search_results))
+
         scored_docs = [ ScoredDocument.from_search_result(x) for x in search_results ]
         grouped = self._group_for_dedup(scored_docs)
+        s.set_attribute("groups_len", len(grouped))
+
         deduplicated = []
         for group in grouped:
             assert group
@@ -101,11 +116,15 @@ class SearchIndexTool:
             else:
                 best_choice = await self._deduplicate(purpose, group, additional_deduplication_instructions or "")
                 deduplicated.append(best_choice)
+        s.set_attribute("deduplicated_len", len(deduplicated))
+
         deduped_sorted = sorted(deduplicated, key=lambda x: x.score, reverse=True)
         reranked = await self._rerank(purpose, deduped_sorted, additional_reranking_instructions or "")
         reranked_sorted = sorted(reranked, key=lambda x: x.score, reverse=True)
         normalized = self._softmax(reranked_sorted)
         results = self._cutoff(normalized, cutoff)
+        s.set_attribute("results_len", len(results))
+
         return results
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
