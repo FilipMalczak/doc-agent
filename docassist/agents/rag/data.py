@@ -7,9 +7,11 @@ from docassist.index.protocols import SearchResult
 
 
 class RephrasingInput(BaseModel):
+    purpose: str
     rewrite_count: int
     expansion_count: int
     initial_queries: list[str]
+    additional_instructions: str
 
 
 class RephrasingOutput(BaseModel):
@@ -46,6 +48,7 @@ class IndexedScoredDocument(BaseModel):
 class DeduplicationInput(BaseModel):
     purpose: str
     documents: list[IndexedScoredDocument]
+    additional_instructions: str
 
 
 class DeduplicationOutput(BaseModel):
@@ -58,6 +61,7 @@ class DeduplicationOutput(BaseModel):
 class RerankingInput(BaseModel):
     purpose: str
     documents: list[IndexedScoredDocument]
+    additional_instructions: str
 
 class RerankingOutput(BaseModel):
     index: int
