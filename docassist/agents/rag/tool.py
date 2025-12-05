@@ -1,8 +1,10 @@
 from collections import defaultdict
+from dataclasses import dataclass, Field
 from itertools import chain
 from math import log2, exp
-from typing import Callable, Self, assert_never
+from typing import Callable, Self, assert_never, NamedTuple
 
+from logfire import instrument
 from opentelemetry.trace import get_current_span
 from pydantic import BaseModel
 
@@ -14,8 +16,30 @@ from docassist.index.protocols import Document, DocumentIndex, SearchResult
 from docassist.simple_xml import to_simple_xml
 
 
-QueryCount, RewriteCount, ExpansionCount, ResultsCount = int, int, int, int
-IndexingVolumeStrategy = Callable[[QueryCount, RewriteCount, ExpansionCount], ResultsCount]
+class SearchParams(NamedTuple):
+    purpose: str
+    queries: list[str]
+    rewrite_count: int
+    expansion_count: int
+    additional_rephrasing_instructions: str
+    additional_deduplication_instructions: str
+    additional_reranking_instructions: str
+    cutoff: float = 0.8
+
+@dataclass
+class SearchState:
+    """
+    When modifying state don't replace the lists; use field.append or field.extend instead.
+    That is basis for the possibility of document sideloading.
+    """
+    params: SearchParams
+    rephrasings: list[str] = Field(default_factory=list)
+    search_results: list[SearchResult] = Field(default_factory=list)
+    deduplicated: list[ScoredDocument] = Field(default_factory=list)
+    reranked: list[ScoredDocument] = Field(default_factory=list)
+    normalized: list[ScoredDocument] = Field(default_factory=list)
+    final: list[ScoredDocument] = Field(default_factory=list)
+
 
 #todo add spans over this
 class SearchIndexTool:
@@ -79,6 +103,31 @@ class SearchIndexTool:
         :return: The final set of documents, sorted by decreasing score and annotated with their normalized relevance
             values.
         """
+        state = self._prepare_params(
+                purpose,
+                queries,
+                rewrite_count,
+                expansion_count,
+                additional_rephrasing_instructions,
+                additional_deduplication_instructions,
+                additional_reranking_instructions,
+                cutoff
+        )
+        await self._rephrase_stage(state)
+        await self._retrieve_stage(state)
+        await self._deduplicate_stage(state)
+        await self._rerank_stage(state)
+        await self._normalize_stage(state)
+        await self._choose_final_results(state)
+        return state.final
+
+    @instrument()
+    def _prepare_params(self, purpose: str, queries: list[str], *,
+                       rewrite_count: int | None = None, expansion_count: int | None = None,
+                       additional_rephrasing_instructions: str | None = None,
+                       additional_deduplication_instructions: str | None = None,
+                       additional_reranking_instructions: str | None = None,
+                       cutoff: float | int = 0.8) -> SearchParams:
         s = get_current_span()
         q = len(queries)
         assert q
@@ -88,44 +137,32 @@ class SearchIndexTool:
             assert cutoff <= 100
             cutoff = cutoff / 100.0
         assert cutoff >= 0
-        #todo maybe each step should have its own span?
+        # todo maybe each step should have its own span?
+        # todo rewrite to set_attributes (plural)
         s.set_attribute("queries_len", q)
         s.set_attribute("effective_rewrite_count", rewrite_count)
         s.set_attribute("effective_expansion_count", expansion_count)
         s.set_attribute("effective_cutoff", cutoff)
-        rephrasings = await self._rephrase(purpose, rewrite_count, expansion_count, queries, additional_rephrasing_instructions or "")
+        return SearchParams(
+            purpose,
+            queries,
+            rewrite_count,
+            expansion_count,
+            additional_rephrasing_instructions or "",
+            additional_deduplication_instructions or "",
+            additional_reranking_instructions or "",
+            cutoff
+        )
 
-        all_index_queries = list(set(queries + rephrasings))
-        s.set_attribute("all_queries_len", len(all_index_queries))
-
-        total_index_results = 2*len(all_index_queries)
-        s.set_attribute("total_index_results", total_index_results)
-
-        search_results = await self.index.query(all_index_queries, total_index_results)
-        s.set_attribute("search_results_len", len(search_results))
-
-        scored_docs = [ ScoredDocument.from_search_result(x) for x in search_results ]
-        grouped = self._group_for_dedup(scored_docs)
-        s.set_attribute("groups_len", len(grouped))
-
-        deduplicated = []
-        for group in grouped:
-            assert group
-            if len(group) == 1:
-                deduplicated.extend(group)
-            else:
-                best_choice = await self._deduplicate(purpose, group, additional_deduplication_instructions or "")
-                deduplicated.append(best_choice)
-        s.set_attribute("deduplicated_len", len(deduplicated))
-
-        deduped_sorted = sorted(deduplicated, key=lambda x: x.score, reverse=True)
-        reranked = await self._rerank(purpose, deduped_sorted, additional_reranking_instructions or "")
-        reranked_sorted = sorted(reranked, key=lambda x: x.score, reverse=True)
-        normalized = self._softmax(reranked_sorted)
-        results = self._cutoff(normalized, cutoff)
-        s.set_attribute("results_len", len(results))
-
-        return results
+    @instrument()
+    async def _rephrase_stage(self, state: SearchState):
+        state.rephrasings = await self._rephrase(
+            state.purpose,
+            state.rewrite_count,
+            state.expansion_count,
+            state.queries,
+            state.additional_rephrasing_instructions
+        )
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
         return (await query_rephraser.run(
@@ -139,6 +176,36 @@ class SearchIndexTool:
                 )
             )
         )).output
+
+    async def retrieve_stage(self, state: SearchState):
+        s = get_current_span()
+        all_index_queries = list(set(state.params.queries + state.rephrasings))
+        s.set_attribute("all_queries_len", len(all_index_queries))
+
+        total_index_results = 2*len(all_index_queries)
+        s.set_attribute("total_index_results", total_index_results)
+
+        search_results = await self.index.query(all_index_queries, total_index_results)
+        s.set_attribute("search_results_len", len(search_results))
+
+        state.scored_docs = [ ScoredDocument.from_search_result(x) for x in search_results ]
+
+    async def _deduplicate_stage(self, state: SearchState):
+        s = get_current_span()
+        grouped = self._group_for_dedup(state.scored_docs)
+        s.set_attribute("groups_len", len(grouped))
+
+        deduplicated = []
+        for group in grouped:
+            assert group
+            if len(group) == 1:
+                deduplicated.extend(group)
+            else:
+                best_choice = await self._deduplicate(state.purpose, group, state.additional_deduplication_instructions)
+                deduplicated.append(best_choice)
+        s.set_attribute("deduplicated_len", len(deduplicated))
+
+        state.deduplicated = sorted(deduplicated, key=lambda x: x.score, reverse=True)
 
     def _group_for_dedup(self, chunks: list[ScoredDocument]) -> list[list[ScoredDocument]]:
         sources = list()
@@ -177,12 +244,19 @@ class SearchIndexTool:
             additional_instructions=instructions
         )))).output
 
+    async def _rerank_stage(self, state: SearchState):
+        reranked = await self._rerank(state.purpose, state.deduplicated, state.additional_reranking_instructions)
+        state.reranked = sorted(reranked, key=lambda x: x.score, reverse=True)
+
     async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
         return (await reranker.run(to_simple_xml(RerankingInput(
             purpose=purpose,
             documents=documents,
             additional_instructions=instructions
         )))).output
+
+    async def _normalize(self, state: SearchState):
+        state.normalized = self._softmax(state.reranked)
 
     def _softmax(self, data: list[ScoredDocument]) -> list[ScoredDocument]:
         exps = [exp(item.score) for item in data]
@@ -191,6 +265,11 @@ class SearchIndexTool:
             ScoredDocument(document=item.document, score=exps[i] / sum_exps)
             for i, item in enumerate(data)
         ]
+
+    def _choose_final_results(self, state: SearchState):
+        s = get_current_span()
+        state.final = self._cutoff(state.normalized, state.params.cutoff)
+        s.set_attribute("results_len", len(state.final))
 
     def _cutoff(self, data: list[ScoredDocument], cutoff: float) -> list[ScoredDocument]:
         out = []
