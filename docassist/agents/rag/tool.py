@@ -26,12 +26,7 @@ class SearchParams(NamedTuple):
     additional_reranking_instructions: str
     cutoff: float = 0.8
 
-@dataclass
-class SearchState:
-    """
-    When modifying state don't replace the lists; use field.append or field.extend instead.
-    That is basis for the possibility of document sideloading.
-    """
+class SearchState(NamedTuple):
     params: SearchParams
     rephrasings: list[str] = Field(default_factory=list)
     search_results: list[SearchResult] = Field(default_factory=list)
@@ -103,7 +98,8 @@ class SearchIndexTool:
         :return: The final set of documents, sorted by decreasing score and annotated with their normalized relevance
             values.
         """
-        state = self._prepare_params(
+        state = SearchState(
+            self._prepare_params(
                 purpose,
                 queries,
                 rewrite_count,
@@ -112,6 +108,7 @@ class SearchIndexTool:
                 additional_deduplication_instructions,
                 additional_reranking_instructions,
                 cutoff
+            )
         )
         await self._rephrase_stage(state)
         await self._retrieve_stage(state)
@@ -156,13 +153,13 @@ class SearchIndexTool:
 
     @instrument()
     async def _rephrase_stage(self, state: SearchState):
-        state.rephrasings = await self._rephrase(
+        state.rephrasings.extend(await self._rephrase(
             state.purpose,
             state.rewrite_count,
             state.expansion_count,
             state.queries,
             state.additional_rephrasing_instructions
-        )
+        ))
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
         return (await query_rephraser.run(
@@ -188,7 +185,7 @@ class SearchIndexTool:
         search_results = await self.index.query(all_index_queries, total_index_results)
         s.set_attribute("search_results_len", len(search_results))
 
-        state.scored_docs = [ ScoredDocument.from_search_result(x) for x in search_results ]
+        state.scored_docs.extend(ScoredDocument.from_search_result(x) for x in search_results)
 
     async def _deduplicate_stage(self, state: SearchState):
         s = get_current_span()
@@ -205,7 +202,7 @@ class SearchIndexTool:
                 deduplicated.append(best_choice)
         s.set_attribute("deduplicated_len", len(deduplicated))
 
-        state.deduplicated = sorted(deduplicated, key=lambda x: x.score, reverse=True)
+        state.deduplicated.extend(sorted(deduplicated, key=lambda x: x.score, reverse=True))
 
     def _group_for_dedup(self, chunks: list[ScoredDocument]) -> list[list[ScoredDocument]]:
         sources = list()
@@ -246,7 +243,7 @@ class SearchIndexTool:
 
     async def _rerank_stage(self, state: SearchState):
         reranked = await self._rerank(state.purpose, state.deduplicated, state.additional_reranking_instructions)
-        state.reranked = sorted(reranked, key=lambda x: x.score, reverse=True)
+        state.reranked.extend(sorted(reranked, key=lambda x: x.score, reverse=True))
 
     async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
         return (await reranker.run(to_simple_xml(RerankingInput(
@@ -255,8 +252,8 @@ class SearchIndexTool:
             additional_instructions=instructions
         )))).output
 
-    async def _normalize(self, state: SearchState):
-        state.normalized = self._softmax(state.reranked)
+    async def _normalize_stage(self, state: SearchState):
+        state.normalized.extend(self._softmax(state.reranked))
 
     def _softmax(self, data: list[ScoredDocument]) -> list[ScoredDocument]:
         exps = [exp(item.score) for item in data]
@@ -268,7 +265,7 @@ class SearchIndexTool:
 
     def _choose_final_results(self, state: SearchState):
         s = get_current_span()
-        state.final = self._cutoff(state.normalized, state.params.cutoff)
+        state.final.extend(self._cutoff(state.normalized, state.params.cutoff))
         s.set_attribute("results_len", len(state.final))
 
     def _cutoff(self, data: list[ScoredDocument], cutoff: float) -> list[ScoredDocument]:
