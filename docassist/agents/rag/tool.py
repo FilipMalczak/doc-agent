@@ -38,8 +38,9 @@ class SearchState(NamedTuple):
 
 #todo add spans over this
 class SearchIndexTool:
-    def __init__(self, index: DocumentIndex):
+    def __init__(self, index: DocumentIndex, sideloaded_documents: list[Document] = []):
         self.index: DocumentIndex = index
+        self.sideload = sideloaded_documents
 
     async def __call__(self, purpose: str, queries: list[str], *,
                        rewrite_count: int | None = None, expansion_count: int | None = None,
@@ -113,6 +114,7 @@ class SearchIndexTool:
         await self._rephrase_stage(state)
         await self._retrieve_stage(state)
         await self._deduplicate_stage(state)
+        state.deduplicated.extend(self.sideload)
         await self._rerank_stage(state)
         await self._normalize_stage(state)
         await self._choose_final_results(state)
