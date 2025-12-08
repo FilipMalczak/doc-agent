@@ -67,7 +67,7 @@ class Config(NamedTuple):
     embedder_config: EmbedderConfig = EmbedderConfig(**embedder_params)
     raw_embedder: Embedder = OpenAIEmbedder(async_openai, **embedder_config)
     embedder: Embedder = sampler.over_embedder(raw_embedder)
-    index: DocumentIndex = FAISSIndex(embedder)
 
+    indices_dir: str = Path(data_dir / "indices")
 
 CONFIG = Config()

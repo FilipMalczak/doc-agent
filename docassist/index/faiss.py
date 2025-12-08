@@ -12,6 +12,8 @@ from docassist.index.protocols import DocumentIndex, Embedder, DocumentId, Docum
 
 #todo consider switching to faiss-gpu
 
+# we normalize_L2 everything, so that ...IP (inner product) effectively becomes cosine similarity
+# reminder; cos=1 -> the same, cos=-1 -> totally different; which is why distance=(1-cosine)/2
 class FAISSIndex(DocumentIndex):
     def __init__(self, embedder: Embedder):
         self._embedder = embedder
@@ -19,7 +21,7 @@ class FAISSIndex(DocumentIndex):
         self._id_to_index: dict[DocumentId, int] = {}
         self._index_to_id: dict[int, DocumentId] = {}
 
-        self._faiss_index = faiss.IndexFlatL2(embedder.dimension)
+        self._faiss_index = faiss.IndexFlatIP(embedder.dimension)
 
         self._next_index = 0
 
@@ -39,6 +41,8 @@ class FAISSIndex(DocumentIndex):
             embeddings_list.append(embedding)
 
         embeddings_array = np.vstack(embeddings_list).astype(np.float32)
+
+        faiss.normalize_L2(embeddings_array)
 
         # Add documents to metadata
         for doc in documents:
@@ -94,11 +98,14 @@ class FAISSIndex(DocumentIndex):
 
         query_batch = np.vstack(embeddings).astype(np.float32)
 
+        faiss.normalize_L2(query_batch)
+
         # ---- Oversampling to reduce the chance dedup < desired size ----
         overshoot_factor = 3
         k = min(max(total_results * overshoot_factor, 1), self._faiss_index.ntotal)
 
-        distances, indices = self._faiss_index.search(query_batch, k)
+        similarities, indices = self._faiss_index.search(query_batch, k)
+        distances = (1.0 - similarities)/2.0
 
         # ---- Deduplicate FAISS results (preserve order) ----
         seen = set()
@@ -155,22 +162,15 @@ class FAISSIndex(DocumentIndex):
         with open(metadata_path, 'w') as f:
             json.dump(metadata, f, indent=2)
 
-        # Save embedder (pickle for simplicity)
-        embedder_path = path / "embedder.pkl"
-        with open(embedder_path, 'wb') as f:
-            pickle.dump(self._embedder, f)
+        #DO NOT SAVE EMBEDDED! instead of loading, take it as load(...) param
 
         return IndexSnapshot(path=path, index=self)
 
+    #fixme passing embedder here is a hack, since Embedder isnt easily picklable; should work for now, embedder is pretty static
     @classmethod
-    async def load(cls, path: PathLike) -> Self:
+    async def load(cls, path: PathLike, embedder: Embedder) -> Self:
         """Load index from filesystem."""
         path = Path(path)
-
-        # Load embedder
-        embedder_path = path / "embedder.pkl"
-        with open(embedder_path, 'rb') as f:
-            embedder = pickle.load(f)
 
         # Load metadata
         metadata_path = path / "metadata.json"

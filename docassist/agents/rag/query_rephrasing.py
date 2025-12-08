@@ -45,12 +45,14 @@ Input:
 {
 object_from_user(
     RephrasingInput(
-        rewrite_count=2,
-        expansion_count=3,
+        purpose="research into forest animals",
         initial_queries=[
             'Fox is faster than a rabbit.',
             'Rabbits are able to outrun foxes.'
-        ]
+        ],
+        rewrite_count=2,
+        expansion_count=3,
+        additional_instructions="ignore the fact that fox and rabbit are common cartoon and child stories characters"
     )
 )
 }

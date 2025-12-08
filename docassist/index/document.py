@@ -1,6 +1,6 @@
-from typing import TypedDict, Literal
+from typing import TypedDict, Literal, Annotated, AnyStr
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from docassist.subjects import RepoItemType
 
@@ -19,7 +19,9 @@ NoteDocumentType = Literal["note"]
 FactsDocumentType = Literal["facts"]
 ChunkDocumentType = Literal["chunk"]
 
-DocumentType = SourceDocumentType | NoteDocumentType | FactsDocumentType | ChunkDocumentType
+TransientDocumentType = Literal["transient"]
+
+DocumentType = SourceDocumentType | NoteDocumentType | FactsDocumentType | ChunkDocumentType | TransientDocumentType
 
 class CommonMetadata(BaseModel):
     document_type: DocumentType
@@ -55,7 +57,7 @@ class DirNoteMeta(CommonNoteMetadata):
     subject_type: DirSubjectType
 
 
-NoteMeta = FileNoteMeta | DirNoteMeta
+NoteMeta = Annotated[FileNoteMeta | DirNoteMeta, Field(discriminator="subject_type")]
 
 
 SimpleChunkVariant = Literal["simple"]
@@ -95,7 +97,7 @@ class NoteDerivedChunkMeta(NoteSimpleChunkMeta):
     chunk_include_previous_content: bool
 
 
-NoteChunkMeta = NoteSimpleChunkMeta | NoteDerivedChunkMeta
+NoteChunkMeta = Annotated[NoteSimpleChunkMeta | NoteDerivedChunkMeta, Field(discriminator="chunk_variant")]
 
 
 class FactsMeta(CommonMetadata):
@@ -118,8 +120,11 @@ class FactsChunkMeta(CommonChunkMeta):
     def chunk_source_document_id(self) -> str:
         return self.chunked_facts_id
 
+ChunkMeta = Annotated[ NoteChunkMeta | FactsChunkMeta, Field(discriminator="chunk_source_document_type")]
 
-class Document[Meta: CommonMetadata](BaseModel):
+AnyMetadata = Annotated[SourceMeta | NoteMeta | FactsMeta | ChunkMeta, Field(discriminator="document_type")]
+
+class Document[Meta: AnyMetadata](BaseModel):
     id: DocumentId
     content: Content
     metadata: Meta

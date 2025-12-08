@@ -15,7 +15,8 @@ def _xml_lines(data, key=None, indent=0):
     # ---- PRIMITIVES ---------------------------------------------------------
     if not isinstance(data, (dict, list)):
         if key is None:
-            raise TypeError("Top-level primitive must be wrapped in a tag name")
+            #raise TypeError("Top-level primitive must be wrapped in a tag name")
+            lines.append(str(data))
         if isinstance(data, str) and "\n" in data:
             # multiline primitive
             lines.append(f"{pad}<{key}>")

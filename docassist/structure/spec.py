@@ -1,8 +1,9 @@
+from logging import getLogger
 from pprint import pformat
 
 from docassist.structure.model import let, chapter, article, depends_on_question, expand_on
 
-logger = get_logger(__name__)
+logger = getLogger(__name__)
 
 #todo this should be enhanced
 _interface_article_description = """

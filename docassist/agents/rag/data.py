@@ -34,6 +34,9 @@ class ScoredDocument(BaseModel):
     def from_search_result(cls, x: SearchResult) -> Self:
         return cls(document=x.document, score=1.0-x.distance)
 
+    def rescore(self, new_score: float) -> Self:
+        return ScoredDocument(score=new_score, document=self.document)
+
 
 class IndexedScoredDocument(BaseModel):
     index: int
@@ -52,7 +55,7 @@ class DeduplicationInput(BaseModel):
 
 
 class DeduplicationOutput(BaseModel):
-    index: int
+    document_id: str
     new_score: float
     explanation: str
 
@@ -60,10 +63,10 @@ class DeduplicationOutput(BaseModel):
 
 class RerankingInput(BaseModel):
     purpose: str
-    documents: list[IndexedScoredDocument]
+    documents: list[ScoredDocument]
     additional_instructions: str
 
 class RerankingOutput(BaseModel):
-    index: int
+    document_id: str
     new_score: int
     explanation: str

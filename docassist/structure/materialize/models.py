@@ -3,8 +3,9 @@ from typing import Self
 
 from pydantic import BaseModel
 
-from docassist.retrieval.protocol import DocumentChunk
-from docassist.scenarios.extract_facts_from_each_file import Fact
+from docassist.agents.generators.facts_from_file import Fact
+from docassist.index.document import Document, TransientDocumentType, CommonMetadata
+from docassist.simple_xml import to_simple_xml
 
 
 class VariableValuation(BaseModel):
@@ -14,6 +15,9 @@ class VariableValuation(BaseModel):
 class Ancestor(BaseModel):
     title: str
     preamble: str | None
+
+class TransientMetadata(CommonMetadata):
+    document_type: TransientDocumentType
 
 @dataclass
 class MaterializationState:
@@ -51,14 +55,22 @@ class MaterializationState:
             facts=[f.model_copy() for f in self.facts]
         )
 
-    #fixme this should be entry_type=memory, wrapping over a fact
-    def add_fact(self, fact: str) -> Self:
+    def add_fact(self, fact: str, explanation: str) -> Self:
         return MaterializationState(
             ancestors=list(self.ancestors),
             variable_values={k: v.model_copy() for k, v in self.variable_values.items()},
-            facts=self.facts + [ Fact(fact=fact) ]
+            facts=self.facts + [ Fact(fact=fact, explanation=explanation) ]
         )
 
+    def fact_docs(self) -> list[Document]:
+        return [
+            Document(
+                id=f"transient_{i}",
+                content=to_simple_xml(f.model_dump(mode="json")),
+                metadata=TransientMetadata()
+            )
+            for i, f in enumerate(self.facts)
+        ]
 
 class VariableSpecification(BaseModel):
     name: str
@@ -74,41 +86,37 @@ class RephraseDescriptionInput(BaseModel):
 class RephraseDescriptionOutput(BaseModel):
     rewrites: list[str]
 
-class ResolveVariableInput(BaseModel):
-    variable_specification: VariableSpecification
-    resources: list[DocumentChunk]
-
 ResolveVariableOutput = VariableValuation
-
-class IndexedAnswer(BaseModel):
-    index: int
-    answer: str
-
-class ExpandAnswersInput(BaseModel):
-    expansions_count: int
-    question: str
-    answers: list[IndexedAnswer]
-
-class ExpandAnswersOutput(BaseModel):
-    expanded: list[str]
-
-class ChooseTheAnswerInput(BaseModel):
-    question: str
-    answers: list[IndexedAnswer]
-    resources: list[DocumentChunk]
-
-class ChooseTheAnswerOutput(BaseModel):
-    chosen_index: int
-    explanation: str
-
-class ExpandOnDomainInput(BaseModel):
-    domain_description: str
-    variables: dict[str, str]
-    resources: list[DocumentChunk]
-
-class IndexedExpansionResult(BaseModel):
-    index: int
-    values: dict[str, VariableValuation]
-
-class ExpandOnDomainOutput(BaseModel):
-    results: list[IndexedExpansionResult]
+#
+# class IndexedAnswer(BaseModel):
+#     index: int
+#     answer: str
+#
+# class ExpandAnswersInput(BaseModel):
+#     expansions_count: int
+#     question: str
+#     answers: list[IndexedAnswer]
+#
+# class ExpandAnswersOutput(BaseModel):
+#     expanded: list[str]
+#
+# class ChooseTheAnswerInput(BaseModel):
+#     question: str
+#     answers: list[IndexedAnswer]
+#     resources: list[DocumentChunk]
+#
+# class ChooseTheAnswerOutput(BaseModel):
+#     chosen_index: int
+#     explanation: str
+#
+# class ExpandOnDomainInput(BaseModel):
+#     domain_description: str
+#     variables: dict[str, str]
+#     resources: list[DocumentChunk]
+#
+# class IndexedExpansionResult(BaseModel):
+#     index: int
+#     values: dict[str, VariableValuation]
+#
+# class ExpandOnDomainOutput(BaseModel):
+#     results: list[IndexedExpansionResult]

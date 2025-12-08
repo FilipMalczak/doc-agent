@@ -1,5 +1,5 @@
 from collections import defaultdict
-from dataclasses import dataclass, Field
+from dataclasses import dataclass, Field, field
 from itertools import chain
 from math import log2, exp
 from typing import Callable, Self, assert_never, NamedTuple
@@ -7,16 +7,19 @@ from typing import Callable, Self, assert_never, NamedTuple
 from logfire import instrument
 from opentelemetry.trace import get_current_span
 from pydantic import BaseModel
+from pydantic_ai import ModelRetry
 
-from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, IndexedScoredDocument, RerankingInput
+from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, IndexedScoredDocument, RerankingInput, \
+    RephrasingOutput, DeduplicationOutput, RerankingOutput
 from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
 from docassist.index.protocols import Document, DocumentIndex, SearchResult
+from docassist.sampling.protocols import SamplingController
 from docassist.simple_xml import to_simple_xml
 
-
-class SearchParams(NamedTuple):
+@dataclass
+class SearchParams:
     purpose: str
     queries: list[str]
     rewrite_count: int
@@ -26,21 +29,31 @@ class SearchParams(NamedTuple):
     additional_reranking_instructions: str
     cutoff: float = 0.8
 
-class SearchState(NamedTuple):
+@dataclass
+class SearchState:
     params: SearchParams
-    rephrasings: list[str] = Field(default_factory=list)
-    search_results: list[SearchResult] = Field(default_factory=list)
-    deduplicated: list[ScoredDocument] = Field(default_factory=list)
-    reranked: list[ScoredDocument] = Field(default_factory=list)
-    normalized: list[ScoredDocument] = Field(default_factory=list)
-    final: list[ScoredDocument] = Field(default_factory=list)
+    rephrasings: list[str] = field(default_factory=list)
+    scored_docs: list[ScoredDocument] = field(default_factory=list)
+    deduplicated: list[ScoredDocument] = field(default_factory=list)
+    reranked: list[ScoredDocument] = field(default_factory=list)
+    normalized: list[ScoredDocument] = field(default_factory=list)
+    final: list[ScoredDocument] = field(default_factory=list)
 
 
 #todo add spans over this
-class SearchIndexTool:
-    def __init__(self, index: DocumentIndex, sideloaded_documents: list[Document] = []):
+class SearchKBTool:
+    def __init__(self, index: DocumentIndex, sampling: SamplingController, sideloaded_documents: list[Document] = []):
         self.index: DocumentIndex = index
         self.sideload = sideloaded_documents
+        self.sampling = sampling
+
+    def tool_name(self) -> str:
+        return "search_knowledge_base"
+
+
+    @property
+    def __name__(self) -> str:
+        return self.tool_name()
 
     async def __call__(self, purpose: str, queries: list[str], *,
                        rewrite_count: int | None = None, expansion_count: int | None = None,
@@ -114,6 +127,7 @@ class SearchIndexTool:
         await self._rephrase_stage(state)
         await self._retrieve_stage(state)
         await self._deduplicate_stage(state)
+        #sideload is added to deduplication results because sideloaded documents are meant to be out of index and unique
         state.deduplicated.extend(self.sideload)
         await self._rerank_stage(state)
         await self._normalize_stage(state)
@@ -121,7 +135,7 @@ class SearchIndexTool:
         return state.final
 
     @instrument()
-    def _prepare_params(self, purpose: str, queries: list[str], *,
+    def _prepare_params(self, purpose: str, queries: list[str],
                        rewrite_count: int | None = None, expansion_count: int | None = None,
                        additional_rephrasing_instructions: str | None = None,
                        additional_deduplication_instructions: str | None = None,
@@ -155,16 +169,18 @@ class SearchIndexTool:
 
     @instrument()
     async def _rephrase_stage(self, state: SearchState):
-        state.rephrasings.extend(await self._rephrase(
-            state.purpose,
-            state.rewrite_count,
-            state.expansion_count,
-            state.queries,
-            state.additional_rephrasing_instructions
-        ))
+        new_rephrasings = await self._rephrase(
+            state.params.purpose,
+            state.params.rewrite_count,
+            state.params.expansion_count,
+            state.params.queries,
+            state.params.additional_rephrasing_instructions
+        )
+        state.rephrasings.extend(new_rephrasings)
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
-        return (await query_rephraser.run(
+        agent_response = await self.sampling.run_transaction(
+            query_rephraser.run,
             to_simple_xml(
                 RephrasingInput(
                     purpose=purpose,
@@ -174,9 +190,15 @@ class SearchIndexTool:
                     additional_instructions=instructions
                 )
             )
-        )).output
+        )
+        rephrasings: RephrasingOutput = agent_response.output
+        def i():
+            for per_query in rephrasings.rewrites:
+                yield from per_query
+            yield from rephrasings.expansions
+        return list(i())
 
-    async def retrieve_stage(self, state: SearchState):
+    async def _retrieve_stage(self, state: SearchState):
         s = get_current_span()
         all_index_queries = list(set(state.params.queries + state.rephrasings))
         s.set_attribute("all_queries_len", len(all_index_queries))
@@ -200,7 +222,7 @@ class SearchIndexTool:
             if len(group) == 1:
                 deduplicated.extend(group)
             else:
-                best_choice = await self._deduplicate(state.purpose, group, state.additional_deduplication_instructions)
+                best_choice = await self._deduplicate(state.params.purpose, group, state.params.additional_deduplication_instructions)
                 deduplicated.append(best_choice)
         s.set_attribute("deduplicated_len", len(deduplicated))
 
@@ -209,7 +231,7 @@ class SearchIndexTool:
     def _group_for_dedup(self, chunks: list[ScoredDocument]) -> list[list[ScoredDocument]]:
         sources = list()
         chunkable_by_id: dict[str, Document] = dict()
-        chunks_by_source_id: dict[str, set[Document]] = defaultdict(set)
+        chunks_by_source_id: dict[str, list[Document]] = defaultdict(list)
 
         for chunk in chunks:
             match chunk.document.metadata.document_type:
@@ -220,8 +242,7 @@ class SearchIndexTool:
                     assert chunk.document.metadata.subject_path not in chunkable_by_id
                     chunkable_by_id[chunk.document.id] = chunk
                 case "chunk":
-                    # ooh, this is crap
-                    chunks_by_source_id[chunk.document.metadata.chunk_source_document_id()].add(chunk)
+                    chunks_by_source_id[chunk.document.metadata.chunk_source_document_id()].append(chunk)
                 case _ as never: assert_never(never)
 
         def i():
@@ -231,28 +252,66 @@ class SearchIndexTool:
             for cid in chain(chunkable_by_id.keys(), chunks_by_source_id.keys()):
                 if cid not in visited_cids:
                     visited_cids.add(cid)
-                    yield [ chunkable_by_id[cid] ] + list(chunks_by_source_id[cid])
+                    full = [ chunkable_by_id[cid] ] if cid in chunkable_by_id else []
+                    yield full + chunks_by_source_id[cid]
 
         return list(i())
 
 
     async def _deduplicate(self, purpose: str, group: list[ScoredDocument], instructions: str) -> ScoredDocument:
-        return (await deduplicator.run(to_simple_xml(DeduplicationInput(
-            purpose=purpose,
-            documents=IndexedScoredDocument.from_scored_documents(group),
-            additional_instructions=instructions
-        )))).output
+        agent_response = await self.sampling.run_transaction(
+            deduplicator.run,
+            to_simple_xml(DeduplicationInput(
+                purpose=purpose,
+                documents=IndexedScoredDocument.from_scored_documents(group),
+                additional_instructions=instructions
+            ))
+        )
+        dedup_output: DeduplicationOutput = agent_response.output
+        chosen = [ x for x in group if x.document.id == dedup_output.document_id ]
+        assert len(chosen) < 2
+        if not chosen:
+            raise ModelRetry(f"Returned document ID {dedup_output.document_id} does not match any input document!")
+        if dedup_output.new_score < 0.0 or dedup_output.new_score > 1.0: #fixme this should be in model validator
+            raise ModelRetry(f"Modified score must be in [0.0, 1.0] range! Returned score was {dedup_output.new_score} "
+                             "instead!")
+        rescored = chosen[0].rescore(dedup_output.new_score)
+        return rescored
 
     async def _rerank_stage(self, state: SearchState):
-        reranked = await self._rerank(state.purpose, state.deduplicated, state.additional_reranking_instructions)
+        reranked = await self._rerank(state.params.purpose, state.deduplicated, state.additional_reranking_instructions)
         state.reranked.extend(sorted(reranked, key=lambda x: x.score, reverse=True))
 
     async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
-        return (await reranker.run(to_simple_xml(RerankingInput(
-            purpose=purpose,
-            documents=documents,
-            additional_instructions=instructions
-        )))).output
+        agent_response = await self.sampling.run_transaction(
+            reranker.run(
+                to_simple_xml(
+                    RerankingInput(
+                        purpose=purpose,
+                        documents=documents,
+                        additional_instructions=instructions
+                    )
+                )
+            )
+        )
+        reranked: list[RerankingOutput] = agent_response.output
+        docs_by_ids = {
+            d.document.id: d for d in documents
+        }
+        reranks_by_id = {
+            r.document_id: r for r in reranked
+        }
+        missing_input = set(docs_by_ids.keys()).difference(set(reranks_by_id.keys()))
+        if missing_input:
+            raise ModelRetry(f"Following document IDs were present in the input, but not the output: {', '.join(missing_input)}")
+        hallucinated_output = set(reranks_by_id.keys()).difference(set(docs_by_ids.keys()))
+        if hallucinated_output:
+            raise ModelRetry(f"Following document IDs were present in the output, but not the input: {', '.join(hallucinated_output)}")
+
+        return [
+            doc.rescore(reranks_by_id[doc.document.id])
+            for doc in documents
+        ]
 
     async def _normalize_stage(self, state: SearchState):
         state.normalized.extend(self._softmax(state.reranked))
@@ -279,3 +338,4 @@ class SearchIndexTool:
             if summed >= cutoff:
                 break
         return out
+

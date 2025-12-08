@@ -7,7 +7,7 @@ from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 
 class Fact(BaseModel):
     fact: str  = Field(validation_alias=AliasChoices("fact", "statement"))
-    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason"))
+    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
 
 class Facts(BaseModel):
     facts: list[Fact]

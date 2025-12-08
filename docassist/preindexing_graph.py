@@ -1,9 +1,10 @@
+from collections.abc import Callable
 from datetime import datetime, UTC
 from dataclasses import dataclass
 from io import StringIO
 from os.path import join
 from sys import prefix
-from typing import Any, TextIO, TypedDict, Literal
+from typing import Any, TextIO, TypedDict, Literal, Awaitable
 
 from uuid import uuid4
 
@@ -27,10 +28,7 @@ from docassist.llmio import object_from_user
 from docassist.simple_xml import to_simple_xml
 from docassist.subjects import AnalysedRepo, RepoItemType, CodeFilePath
 
-class OK: ...
-
-
-g = GraphBuilder(name="process-repository", output_type=OK)
+g = GraphBuilder(name="process-repository", output_type=list[Document])
 sampling = CONFIG.sampler.controller()
 
 
@@ -63,8 +61,7 @@ async def take_file_notes(ctx: StepContext[None, None, Document[SourceMeta]]) ->
     input_data = dict(doc.metadata)
     input_data["content"] = doc.content
     input_ = to_simple_xml(input_data)
-    async with sampling.defer_until_success():
-        content = (await file_note_taker.run(input_)).output
+    content = (await sampling.run_transaction(file_note_taker.run, input_)).output
     return Document(id=str(uuid4()), content=content, metadata=FileNoteMeta(
             document_type = "note",
             subject_path = doc.metadata.path,
@@ -95,8 +92,7 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document[FileNo
                 key=lambda n: n.subject_path
             )
         )
-        async with sampling.defer_until_success():
-            dir_notes = (await dir_note_taker.run(q)).output
+        dir_notes = (await sampling.run_transaction(dir_note_taker.run, q)).output
         doc = Document(id=str(uuid4()), content=dir_notes, metadata=DirNoteMeta(
                 document_type = "note",
                 subject_path = path,
@@ -118,8 +114,7 @@ async def extract_facts(ctx: StepContext[None, None, Document[SourceMeta]]) -> D
     doc = ctx.inputs
     user_msg = dict(doc.metadata)
     user_msg["content"] = doc.content
-    async with sampling.defer_until_success():
-        facts_obj = (await fact_extractor.run(to_simple_xml(user_msg))).output
+    facts_obj = (await sampling.run_transaction(fact_extractor.run, to_simple_xml(user_msg))).output
     with StringIO() as t:
         yaml.dump(facts_obj, t)
         content = t.getvalue()
@@ -175,20 +170,6 @@ async def chunk_facts(ctx: StepContext[None, None, Document[FactsMeta]]) -> list
     return list(i())
 
 
-@g.step
-async def build_index(ctx: StepContext[None, None, list[Document]]) -> IndexSnapshot:
-    # take empty index (from config), populate it; not the best way to do this
-    idx = CONFIG.index
-    await idx.add(ctx.inputs)
-    return IndexSnapshot(path=f"./indices/index_{datetime.now(UTC).isoformat()}", index=idx)
-
-@g.step
-async def ack(ctx: StepContext[None, None, IndexSnapshot]) -> OK:
-    results = await ctx.inputs.index.query(["project name", "project_name", "name of the project"], total_results=5)
-    for r in results:
-        print(r)
-    return OK()
-
 all_file_notes = g.join(reduce_list_append, initial=[])
 all_notes = g.join(reduce_list_extend, initial=[])
 all_facts = g.join(reduce_list_append, initial=[])
@@ -212,10 +193,12 @@ g.add(
     g.edge_from(all_facts).to(all_docs),
     g.edge_from(extract_facts).to(chunk_facts),
     g.edge_from(chunk_facts).to(all_chunks),
-    g.edge_from(all_docs).to(build_index),
-    g.edge_from(build_index).to(ack),
-    g.edge_from(ack).to(g.end_node)
+    g.edge_from(all_docs).to(g.end_node)
 )
 
-process_directory = g.build()
-print(process_directory.render())
+repo_preindexing_graph = g.build()
+
+def repo_preindexing(repo: AnalysedRepo) -> Awaitable[list[Document]]:
+    return repo_preindexing_graph.run(inputs=repo)
+
+# print(repo_preindexing.render())

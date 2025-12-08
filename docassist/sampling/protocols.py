@@ -1,5 +1,6 @@
-from typing import Protocol, AsyncContextManager
+from typing import Protocol, AsyncContextManager, Callable, Awaitable
 
+from key_value.shared.code_gen.run import await_awaitable
 from pydantic import BaseModel
 from pydantic_ai.models import Model
 
@@ -50,6 +51,10 @@ class SamplingController(Protocol):
     async def defer_until_success(self) -> AsyncContextManager: ...
 
     async def strategy(self, s: SamplingStrategy) -> AsyncContextManager: ...
+
+    async def run_transaction[**P, T](self, runnable: Callable[[P], Awaitable[T]], *args: P.args, **kwargs: P.kwargs) -> T:
+        async with self.defer_until_success():
+            return await runnable(*args, **kwargs)
 
 class Sampler(Protocol):
     def over_model(self, model: Model) -> Model: ...
