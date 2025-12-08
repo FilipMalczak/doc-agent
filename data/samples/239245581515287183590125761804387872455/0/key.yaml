@@ -1,0 +1,4 @@
+"## Packaging Details\n- **Packaging type**: Pure\u2011Python (`zip_safe = True`)\
+  \  \n- **Package discovery**: `find:` (automatically includes all packages except\
+  \ those listed under `[options.packages.find]`)  \n- **Excluded packages**: `tests`\
+  \  \n"

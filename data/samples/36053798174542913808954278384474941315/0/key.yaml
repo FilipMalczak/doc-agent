@@ -1,0 +1,8 @@
+'### Overview
+
+  - **Purpose**: Provides a lightweight, shared namespace for managing a global *verbose*
+  flag across the `pip_outdated` project.
+
+  - **File Type**: Python source file (`verbose.py`).
+
+  '

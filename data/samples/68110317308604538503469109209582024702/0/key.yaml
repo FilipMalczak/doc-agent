@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The changelog entry for 0.8.0 includes this date and change description.\n  fact:\
+  \ Version 0.8.0 was released on Aug 9, 2025, dropping the setuptools dependency\n\
+  \    and switching to configparse for reading \"setup.cfg\".\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

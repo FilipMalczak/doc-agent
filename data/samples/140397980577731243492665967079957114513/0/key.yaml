@@ -1,0 +1,2 @@
+'When `verbose()` returns a truthy value, the module prints the full path of each
+  file being parsed, prefixed with the string "Parse: ".'

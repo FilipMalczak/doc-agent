@@ -1,0 +1,6 @@
+"# Notes on `pip_outdated/__main__.py`\n## Overview\n## Execution Flow\n## User\u2011\
+  Facing Implications\n## Documentation Tips\n- Mention that `pip_outdated/__main__.py`\
+  \ is the **bootstrap** script for the CLI.\n- Clarify that all substantive functionality\
+  \ lives in `pip_outdated/main.py`; this file simply forwards control.\n- Highlight\
+  \ that the design follows the conventional Python pattern for making a package executable\
+  \ with `python -m <package>`."

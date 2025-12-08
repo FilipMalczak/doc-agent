@@ -1,0 +1,6 @@
+"# Notes on `pip_outdated/__main__.py`\n## Overview\n## Execution Flow\n## User\u2011\
+  Facing Implications\n- Users can run the tool without needing to know internal module\
+  \ locations:\n  - **Command\u2011line**: `python -m pip_outdated`\n  - **Installed\
+  \ entry point** (if the package defines a console script): typically something like\
+  \ `pip-outdated`.\n- The file abstracts away the implementation details, providing\
+  \ a clean, single command to start the application.\n"

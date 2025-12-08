@@ -1,0 +1,71 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The <path> element specifies the path, and the content uses\
+  \ Python\n        import and function definitions typical of a test file.\n    \
+  \  fact: The file is a Python test module located at tests/test_parse_cfg.py.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The first line of the file is `from pip_outdated.find_require\
+  \ import\n        parse_cfg`.\n      fact: The module imports the function `parse_cfg`\
+  \ from `pip_outdated.find_require`.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The source contains `def test_parse_cfg(tmp_path):`, which follows\n\
+  \        pytest's convention for test functions using the `tmp_path` fixture.\n\
+  \      fact: The module defines a test function named `test_parse_cfg` that accepts\n\
+  \        a `tmp_path` argument.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code creates `file = tmp_path / \"setup.cfg\"` and writes\
+  \ to\n        it.\n      fact: Inside the test, a temporary file `setup.cfg` is\
+  \ created under the directory\n        represented by `tmp_path`.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The multiline string written to the file includes\
+  \ those lines under\n        the `setup_requires` key.\n      fact: 'The temporary\
+  \ `setup.cfg` file contains an `[options]` section with a\n        `setup_requires`\
+  \ entry listing two requirements: `setuptools_scm >= 1.15.0`\n        and `setuptools_scm_git_archive\
+  \ >= 1.0`.'\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The same multiline string includes those lines under the `install_requires`\n\
+  \        key.\n      fact: 'The `[options]` section also contains an `install_requires`\
+  \ entry listing\n        two requirements: `ansible >= 2.5` and `ansible-lint >=\
+  \ 4.0.2, < 5`.'\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The multiline string contains the `docs =` block with those\
+  \ package\n        names.\n      fact: 'The file includes an `[options.extras_require]`\
+  \ section with a `docs`\n        extra that lists two packages: `alabaster` and\
+  \ `Sphinx`.'\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: '`parse_cfg(str(file))` is invoked and its return value is used.'\n\
+  \      fact: The test calls `parse_cfg` with the string path of the temporary `setup.cfg`\n\
+  \        file and stores the result.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: '`names = [r.name for r in parse_cfg(str(file))]` performs this\n\
+  \        extraction.'\n      fact: The test extracts the `name` attribute from each\
+  \ requirement object returned\n        by `parse_cfg` and stores them in the list\
+  \ `names`.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n \
+  \     explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: '`assert names == [...]` contains that exact\
+  \ list of strings.'\n      fact: The test asserts that `names` equals the list [\"\
+  setuptools_scm\", \"setuptools_scm_git_archive\",\n        \"ansible\", \"ansible-lint\"\
+  , \"alabaster\", \"Sphinx\"].\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The asserted list follows the order of definitions in the written\n\
+  \        configuration.\n      fact: 'The expected order of requirement names is\
+  \ the same as they appear in\n        the `setup.cfg` file: first `setup_requires`,\
+  \ then `install_requires`, then\n        `extras_require` entries.'\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: \"The function signature `def test_parse_cfg(tmp_path):`\
+  \ indicates\\\n        \\ reliance on pytest's built\\u2011in `tmp_path` fixture.\"\
+  \n      fact: The test uses the pytest `tmp_path` fixture to provide an isolated\
+  \ temporary\n        directory for file creation.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

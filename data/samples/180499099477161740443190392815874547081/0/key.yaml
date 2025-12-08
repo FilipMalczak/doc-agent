@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The same multiline string includes those lines under the `install_requires`\n\
+  \    key.\n  fact: 'The `[options]` section also contains an `install_requires`\
+  \ entry listing\n    two requirements: `ansible >= 2.5` and `ansible-lint >= 4.0.2,\
+  \ < 5`.'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

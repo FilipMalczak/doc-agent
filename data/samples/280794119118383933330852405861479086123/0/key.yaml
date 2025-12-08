@@ -1,0 +1,27 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The line VERBOSE: bool = None explicitly creates the variable\n\
+  \        with a type hint and a default value.'\n      fact: \"The module defines\
+  \ a top\\u2011level variable VERBOSE annotated as bool\\\n        \\ and initialized\
+  \ to None.\"\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The function definition def set_verbose(value: bool) -> None:\n\
+  \        includes a global VERBOSE declaration and the assignment VERBOSE = value.'\n\
+  \      fact: The module contains a function set_verbose that accepts a single bool\n\
+  \        argument named value and assigns it to the global variable VERBOSE.\n \
+  \   __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: 'The function definition def verbose() -> bool:\
+  \ ends with return\n        VERBOSE, indicating it simply reads and returns the\
+  \ variable.'\n      fact: The module provides a function verbose that returns the\
+  \ current value\n        of the global VERBOSE.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: \"The triple\\u2011quoted string at the top of\
+  \ the file is recognized\\\n        \\ as a docstring describing the purpose of\
+  \ the module.\"\n      fact: \"The file begins with a module\\u2011level docstring\
+  \ \\\"Simple namespace\\\n        \\ to share verbose state.\\\"\"\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

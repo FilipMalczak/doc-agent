@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The Todos section lists these three items.\n  fact: 'The project has three TODO\
+  \ items: adding options to update packages, adding\n    options to update the requirements\
+  \ files, and adding an option to list all packages\n    globally (e.g., \"-g, --global\"\
+  ).'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

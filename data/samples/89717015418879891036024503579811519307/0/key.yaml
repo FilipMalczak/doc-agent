@@ -1,0 +1,27 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n\n### Purpose\n\
+  - **Validate** the `parse_cfg` function (from `pip_outdated.find_require`) that\
+  \ parses\u202F`setup.cfg` files.\n- **Ensure** it extracts **only package names**,\
+  \ stripping any version specifiers or extra whitespace.\n\n### Test Flow\n1. **Create\
+  \ a temporary `setup.cfg`** file with typical\n   - `setup_requires`\n   - `install_requires`\n\
+  \   - `extras_require` (the *docs* extra)\n2. **Call** `parse_cfg(str(file))`.\n\
+  3. **Collect** the `.name` attribute from each returned requirement object.\n4.\
+  \ **Assert** the resulting list matches the expected order:\n\n```text\n[\n    \"\
+  setuptools_scm\",\n    \"setuptools_scm_git_archive\",\n    \"ansible\",\n    \"\
+  ansible-lint\",\n    \"alabaster\",\n    \"Sphinx\"\n]\n```\n\n### Key Characteristics\
+  \ Verified\n- **Multiple sections** are handled (`[options]` & `[options.extras_require]`).\n\
+  - **Multi\u2011line values** are parsed correctly.\n- **Version constraints** (e.g.,\
+  \ `>= 1.15.0`, `< 5`) are **ignored** for name extraction.\n- **Ordering** follows\
+  \ the appearance in the file (setup\u202F\u2192\u202Finstall\u202F\u2192\u202Fextras).\n\
+  \n### What This Implies for Users\n- When users supply a `setup.cfg`, `parse_cfg`\
+  \ will return an iterable of requirement objects whose `.name` field contains the\
+  \ **plain package name**.\n- Users can rely on the function to ignore version specifiers,\
+  \ making it suitable for:\n  - Generating a clean list of dependencies.\n  - Feeding\
+  \ package names into tools that assess outdated versions (e.g., `pip-outdated`).\n\
+  \n### Reference Implementation Highlights\n```python\nfrom pip_outdated.find_require\
+  \ import parse_cfg\n\ndef test_parse_cfg(tmp_path):\n    # 1\uFE0F\u20E3 Write a\
+  \ realistic setup.cfg\n    file = tmp_path / \"setup.cfg\"\n    file.write_text(\"\
+  \"\" ... \"\"\")  # content shown above\n\n    # 2\uFE0F\u20E3 Parse and extract\
+  \ names\n    names = [r.name for r in parse_cfg(str(file))]\n\n    # 3\uFE0F\u20E3\
+  \ Validate expected output\n    assert names == [\n        \"setuptools_scm\",\n\
+  \        \"setuptools_scm_git_archive\",\n        \"ansible\",\n        \"ansible-lint\"\
+  ,\n        \"alabaster\",\n        \"Sphinx\"\n    ]\n```\n"

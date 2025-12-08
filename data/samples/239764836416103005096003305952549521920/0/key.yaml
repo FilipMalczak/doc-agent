@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The description says the tool \"compares the version number with the\n    version\
+  \ specifier\" in those files.\n  fact: '\"pip-outdated\" compares each package''s\
+  \ installed version with the version\n    specifier defined in \"requirements.txt\"\
+  \ or \"setup.cfg\".'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"## 1. Project Overview  \n\n- **Package name:** `pip-outdated`  \n- **Current version:**\
+  \ `\"0.8.0\"`  \n- **Primary purpose:** Scan a Python project\u2019s dependency\
+  \ specifications (e.g., `requirements.txt`, `setup.cfg`, or any glob\u2011matched\
+  \ files) and report which packages have newer releases available on PyPI.  \n- **Execution\
+  \ entry points:**  \n  - `python -m pip_outdated` (via `pip_outdated/__main__.py`)\
+  \  \n  - Installed console script `pip-outdated` (calls `pip_outdated.main.main()`)\
+  \  \n\n---  \n"

@@ -1,0 +1,7 @@
+"# Notes on `pip_outdated/session.py`\n\n## Overview\n- This module provides a helper\
+  \ function to create a pre\u2011configured **aiohttp** client session.\n- The session\
+  \ is used by the *pip-outdated* tool to make HTTP requests with a custom user\u2011\
+  agent and limited concurrency.\n\n## Public API\n- **`get_session() -> aiohttp.ClientSession`**\
+  \  \n  Returns a new `aiohttp.ClientSession` instance with:\n  - Header `User-Agent`\
+  \ set to `\"pip-outdated\"`.\n  - TCP connector limiting concurrent connections\
+  \ to **5**.\n"

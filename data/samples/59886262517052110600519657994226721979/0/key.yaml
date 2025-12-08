@@ -1,0 +1,11 @@
+"## 3. Command\u2011Line Interface  \n\n```\nusage: pip-outdated [-h] [-v] [-q] [<file>\
+  \ [<file> ...]]\n```\n\n| Flag / Argument | Description | Default |\n|-----------------|-------------|---------|\n\
+  | `<file>` (positional) | One or more requirement files (supports glob patterns).\
+  \ Default files: `[\"requirements.txt\", \"setup.cfg\"]`. | \u2014 |\n| `-h, --help`\
+  \ | Show help message and exit. | \u2014 |\n| `-v, --verbose` | Enable diagnostic\
+  \ prints (file parsing, per\u2011package status). | `False` |\n| `-q, --quiet` |\
+  \ Suppress the non\u2011zero exit code when outdated packages are found. | `False`\
+  \ |\n\n### Example Invocations  \n\n- Scan all `*-requirements.txt` files:  \n\n\
+  \  ```bash\n  pip-outdated *-requirements.txt\n  ```  \n\n- Scan every file inside\
+  \ a `requirements` folder:  \n\n  ```bash\n  pip-outdated requirements/*.txt\n \
+  \ ```  \n\n---  \n"

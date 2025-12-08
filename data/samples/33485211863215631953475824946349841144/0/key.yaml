@@ -1,0 +1,5 @@
+The async function check_outdated(require, session) prints a checking message when
+  verbose() is True, canonicalizes the requirement name, obtains the local version
+  via get_local_version, obtains PyPI versions via get_pypi_versions, and returns
+  an OutdateResult instance.
+...

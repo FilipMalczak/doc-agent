@@ -1,0 +1,3 @@
+The module contains a function set_verbose that accepts a single bool argument named
+  value and assigns it to the global variable VERBOSE.
+...

@@ -1,0 +1,15 @@
+"# Project\u2011Level Notes for **`pip\u2011outdated`**\n## 5. Architecture & Workflow\
+  \  \n\n1. **Argument Parsing** \u2013 `parse_args` builds the CLI surface.  \n2.\
+  \ **Requirement Discovery** \u2013 `find_require.find_require()` resolves file/glob\
+  \ patterns, parses `requirements.txt`\u2011style lines and `setup.cfg` sections,\
+  \ yielding `packaging.requirements.Requirement` objects.  \n3. **Session Creation**\
+  \ \u2013 `session.get_session()` returns a pre\u2011configured `aiohttp.ClientSession`\
+  \ (User\u2011Agent `\"pip-outdated\"`, connection limit\u202F5).  \n4. **Concurrent\
+  \ Version Checks** \u2013 For each requirement, `check_outdated.check_outdated()`\
+  \ is scheduled as an `asyncio` task. It:  \n   - Retrieves the locally installed\
+  \ version (via `pip show` subprocess).  \n   - Retrieves all stable PyPI releases\
+  \ (`get_pypi_versions`).  \n   - Builds an `OutdateResult` dataclass containing\
+  \ installed, wanted, and latest versions plus helper predicates.  \n5. **Result\
+  \ Rendering** \u2013 `print_outdated.print_outdated()` assembles the `OutdateResult`s\
+  \ into a coloured table, prints a legend, and (unless `--quiet`) exits with status\u202F\
+  1 if any package is outdated.  \n\n---  \n"

@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Within parse_args, `parser.add_argument(\"-v\", \"--verbose\", action=\"store_true\"\
+  ,\n    help=\"Print verbose information.\")` defines this flag.\n  fact: The parser\
+  \ adds a -v/--verbose flag that stores True when present and has\n    the help text\
+  \ \"Print verbose information.\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

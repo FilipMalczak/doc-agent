@@ -1,0 +1,3 @@
+"`parse_lines(lines)` removes comments (text after a `#` preceded by whitespace or\
+  \ start\u2011of\u2011line) and joins lines that end with a backslash\u2011newline\
+  \ (`\\\\n`)."

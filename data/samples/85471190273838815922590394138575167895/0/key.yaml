@@ -1,0 +1,4 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n\n### Purpose\n\
+  - **Validate** the `parse_cfg` function (from `pip_outdated.find_require`) that\
+  \ parses\u202F`setup.cfg` files.\n- **Ensure** it extracts **only package names**,\
+  \ stripping any version specifiers or extra whitespace.\n"

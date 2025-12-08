@@ -1,0 +1,16 @@
+"## Project Component: `pip_outdated/verbose.py`\n\n### Overview\n- **Purpose**: Provides\
+  \ a lightweight, shared namespace for managing a global *verbose* flag across the\
+  \ `pip_outdated` project.\n- **File Type**: Python source file (`verbose.py`).\n\
+  \n### Core Elements\n- **Global Variable**\n  - `VERBOSE: bool = None`\n    - Holds\
+  \ the current verbose state.\n    - Initialized to `None` (unset) to allow the project\
+  \ to decide the default behavior.\n\n- **Functions**\n  - `set_verbose(value: bool)\
+  \ -> None`\n    - **Description**: Updates the global `VERBOSE` flag.\n    - **Parameters**\n\
+  \      - `value`: Boolean indicating whether verbose mode should be enabled (`True`)\
+  \ or disabled (`False`).\n    - **Side Effects**: Modifies the module\u2011level\
+  \ `VERBOSE` variable via `global`.\n  - `verbose() -> bool`\n    - **Description**:\
+  \ Retrieves the current value of the global `VERBOSE` flag.\n    - **Return**: The\
+  \ boolean value stored in `VERBOSE` (or `None` if not yet set).\n\n### Usage Patterns\n\
+  - **Setting Verbosity**\n  ```python\n  from pip_outdated.verbose import set_verbose\n\
+  \  set_verbose(True)   # Enable verbose output across the project\n  ```\n- **Checking\
+  \ Verbosity**\n  ```python\n  from pip_outdated.verbose import verbose\n  if verbose():\n\
+  \      print(\"Detailed operation info\")\n  ```\n"

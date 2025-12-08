@@ -1,0 +1,92 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first two lines of the file are `import argparse` and `import\n\
+  \        asyncio`.\n      fact: The file imports the standard library modules \"\
+  argparse\" and \"asyncio\".\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Line 4 assigns `__version__ = \"0.8.0\"`.\n      fact: The module\
+  \ defines a constant __version__ with the value \"0.8.0\".\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function constructs `parser = argparse.ArgumentParser(prog=\"\
+  pip-outdated\",\n        description=\"Find outdated dependencies in your requirements.txt\
+  \ or setup.cfg\n        file.\", ...)`.\n      fact: A function parse_args creates\
+  \ an argparse.ArgumentParser with prog set\n        to \"pip-outdated\" and a description\
+  \ explaining that it finds outdated dependencies\n        in requirements.txt or\
+  \ setup.cfg files.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Within parse_args, `parser.add_argument(\"-v\", \"--verbose\"\
+  , action=\"store_true\",\n        help=\"Print verbose information.\")` defines\
+  \ this flag.\n      fact: The parser adds a -v/--verbose flag that stores True when\
+  \ present and\n        has the help text \"Print verbose information.\".\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The line `parser.add_argument(\"-q\", \"--quiet\"\
+  , action=\"store_true\",\n        help=\"Don't return exit code 1 if not everything\
+  \ is up to date.\")` defines\n        this flag.\n      fact: The parser adds a\
+  \ -q/--quiet flag that stores True when present and has\n        the help text \"\
+  Don't return exit code 1 if not everything is up to date.\".\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: '`parser.add_argument(\"file\", nargs=\"*\",\
+  \ default=[\"requirements.txt\",\n        \"setup.cfg\"], metavar=\"<file>\", help=\"\
+  Read dependencies from requirements\n        files. This option accepts glob pattern.\"\
+  )` creates this argument.'\n      fact: The parser defines a positional argument\
+  \ file that accepts zero or more\n        values, defaults to [\"requirements.txt\"\
+  , \"setup.cfg\"], and supports glob patterns.\n    __pydantic_extra__: null\n  \
+  \  __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n \
+  \   __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The final line of parse_args is `return parser.parse_args()`.\n\
+  \      fact: parse_args returns the parsed arguments by calling parser.parse_args().\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The body of main contains the comment about not\
+  \ using asyncio.run\n        and then calls `asyncio.get_event_loop().run_until_complete(_main())`.\n\
+  \      fact: The main function runs the asynchronous _main coroutine using asyncio.get_event_loop().run_until_complete(_main())\n\
+  \        instead of asyncio.run.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The comment `# FIXME: we can''t use asyncio.run since it closes\n\
+  \        the event loop` and the URL to the aiohttp issue are present above the\
+  \ call.'\n      fact: A FIXME comment in main explains that asyncio.run cannot be\
+  \ used because\n        it closes the event loop, referencing an aiohttp issue.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Inside _main, the code calls parse_args(), imports\
+  \ and calls set_verbose,\n        find_require, get_session, creates tasks with\
+  \ check_outdated, and finally\n        awaits print_outdated.\n      fact: \"The\
+  \ _main coroutine parses command\\u2011line arguments, sets the verbose\\\n    \
+  \    \\ mode, discovers required packages, creates an HTTP session, checks each\\\
+  \n        \\ requirement for outdated versions, and prints the results.\"\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: '`from .verbose import set_verbose` followed\
+  \ by `set_verbose(args.verbose)`\n        appear in _main.'\n      fact: Verbose\
+  \ mode is configured by importing set_verbose from the sibling module\n        verbose\
+  \ and calling it with args.verbose.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: '`requires = find_require(args.file)` assigns the result of\
+  \ find_require\n        to requires.'\n      fact: Package requirements are collected\
+  \ by calling find_require(args.file).\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line `async with get_session() as session:` creates a context\n\
+  \        manager for the session.\n      fact: An asynchronous HTTP session is obtained\
+  \ via async with get_session()\n        as session:.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: '`outdated_results = [asyncio.create_task(check_outdated(r,\
+  \ session))\n        for r in requires]` builds this list.'\n      fact: For each\
+  \ requirement, a task is created using asyncio.create_task(check_outdated(r,\n \
+  \       session)) and stored in the list outdated_results.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The final line of _main is `await print_outdated(outdated_results,\n\
+  \        args.quiet)`.\n      fact: The outdated results are printed by awaiting\
+  \ print_outdated(outdated_results,\n        args.quiet).\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+'When outdate.outdated() is True, make_row constructs three inner helper functions:
+  colored_current, colored_wanted, and colored_latest, each returning a string possibly
+  wrapped with colored styling.'

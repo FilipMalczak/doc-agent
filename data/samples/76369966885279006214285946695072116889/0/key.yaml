@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function checks `Path(pattern).is_file()` and yields that path;\n    otherwise\
+  \ it yields from `Path(\".\").glob(pattern)`.\n  fact: '`iter_files(patterns)` yields\
+  \ a `pathlib.Path` object for each file that\n    matches the supplied glob patterns.'\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

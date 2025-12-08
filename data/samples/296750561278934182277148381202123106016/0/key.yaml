@@ -1,0 +1,9 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n### Reference\
+  \ Implementation Highlights\n```python\nfrom pip_outdated.find_require import parse_cfg\n\
+  \ndef test_parse_cfg(tmp_path):\n    # 1\uFE0F\u20E3 Write a realistic setup.cfg\n\
+  \    file = tmp_path / \"setup.cfg\"\n    file.write_text(\"\"\" ... \"\"\")  #\
+  \ content shown above\n\n    # 2\uFE0F\u20E3 Parse and extract names\n    names\
+  \ = [r.name for r in parse_cfg(str(file))]\n\n    # 3\uFE0F\u20E3 Validate expected\
+  \ output\n    assert names == [\n        \"setuptools_scm\",\n        \"setuptools_scm_git_archive\"\
+  ,\n        \"ansible\",\n        \"ansible-lint\",\n        \"alabaster\",\n   \
+  \     \"Sphinx\"\n    ]\n```\n"

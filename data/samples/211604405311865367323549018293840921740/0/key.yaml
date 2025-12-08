@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The source contains `def test_parse_cfg(tmp_path):`, which follows\n    pytest's\
+  \ convention for test functions using the `tmp_path` fixture.\n  fact: The module\
+  \ defines a test function named `test_parse_cfg` that accepts a `tmp_path`\n   \
+  \ argument.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

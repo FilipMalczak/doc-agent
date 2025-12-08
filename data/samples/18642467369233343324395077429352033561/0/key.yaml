@@ -1,0 +1,3 @@
+print_outdated initializes a data table with a header row ['Name', 'Installed', 'Wanted',
+  'Latest'].
+...

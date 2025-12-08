@@ -1,0 +1,3 @@
+For each requirement, a task is created using asyncio.create_task(check_outdated(r,
+  session)) and stored in the list outdated_results.
+...

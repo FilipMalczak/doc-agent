@@ -1,0 +1,14 @@
+"# Project\u2011Level Notes for **`pip\u2011outdated`**\n\nThese notes aggregate the\
+  \ file\u2011level documentation (README, `setup.cfg`, `setup.py`, package source,\
+  \ and test suite) into a cohesive outline that can be used as the backbone for user\u2011\
+  facing documentation, onboarding material, or a developer guide.\n\n---  \n\n##\
+  \ 7. Important Data Structures  \n\n### `OutdateResult` (in `check_outdated.py`)\
+  \  \n\n| Field | Type | Meaning |\n|-------|------|---------|\n| `requirement` |\
+  \ `Requirement` | Parsed requirement line (name, specifier, extras). |\n| `version`\
+  \ | `Optional[Version]` | Currently installed version (or `None`). |\n| `all_versions`\
+  \ | `List[Version]` | All stable PyPI releases, sorted. |\n| `wanted` | `Optional[Version]`\
+  \ | Highest PyPI version satisfying the requirement\u2019s specifier. |\n| `latest`\
+  \ | `Optional[Version]` | Newest stable PyPI release. |\n| **Computed helpers**\
+  \ | \u2013 | `name`, `install_not_found()`, `install_not_wanted()`, `pypi_not_found()`,\
+  \ `outdated()` |\n\nThese helpers drive the colour logic in `print_outdated.py`.\n\
+  \n---  \n"

@@ -1,0 +1,14 @@
+"## Project Component: `pip_outdated/print_outdated.py`\n### Overview\n### Key Functions\n\
+  #### `make_row(outdate: OutdateResult) -> Optional[List[str]]`\n#### `print_outdated(outdates:\
+  \ List[Awaitable[OutdateResult]], quiet: bool)`\n- **Purpose**: Assemble all rows,\
+  \ render a colored ASCII table, and optionally exit with a non\u2011zero status.\n\
+  - **Workflow**:\n  1. Initializes `colorama` for cross\u2011platform ANSI support.\n\
+  \  2. Builds the table header `[\"Name\", \"Installed\", \"Wanted\", \"Latest\"\
+  ]`.\n  3. Awaits each `OutdateResult`, generates a row via `make_row`, and appends\
+  \ it to the table data.\n  4. Handles three special cases:\n     - **No requirements**:\
+  \ prints a red message `\"No requirements found.\"`.\n     - **Everything up\u2011\
+  to\u2011date**: prints a cyan bold message `\"Everything is up-to-date!\"`.\n  5.\
+  \ Prints legend:\n     - Red = unavailable / outdated / out of version specifier.\n\
+  \     - Green = updatable.\n  6. Renders the table using `terminaltables.AsciiTable`.\n\
+  \  7. If `quiet` is **False**, terminates the program with `sys.exit(1)` (indicating\
+  \ that outdated packages exist).\n"

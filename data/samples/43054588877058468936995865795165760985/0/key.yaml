@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ '`parse_cfg(str(file))` is invoked and its return value is used.'\n  fact: The\
+  \ test calls `parse_cfg` with the string path of the temporary `setup.cfg`\n   \
+  \ file and stores the result.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,49 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first line of the file is 'import aiohttp', indicating a\
+  \ dependency\n        on that library.\n      fact: The file pip_outdated/session.py\
+  \ imports the aiohttp library.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The source contains 'def get_session() -> aiohttp.ClientSession:'\n\
+  \        which declares such a function.\n      fact: The file defines a function\
+  \ named get_session with no parameters.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The type hint after the function name specifies '-> aiohttp.ClientSession'.\n\
+  \      fact: The get_session function is annotated to return an aiohttp.ClientSession\n\
+  \        object.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The line ''headers = {\"User-Agent\": \"pip-outdated\"}'' defines\n\
+  \        this dictionary.'\n      fact: Within get_session, a dictionary named headers\
+  \ is created containing the\n        key \"User-Agent\" with the value \"pip-outdated\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The line 'connector = aiohttp.TCPConnector(limit=5)'\
+  \ creates this\n        configured connector.\n      fact: Within get_session, a\
+  \ TCPConnector object from aiohttp is instantiated\n        with a connection limit\
+  \ of 5 and assigned to the variable connector.\n    __pydantic_extra__: null\n \
+  \   __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The return statement is 'return aiohttp.ClientSession(headers=headers,\n\
+  \        connector=connector)'.\n      fact: The get_session function returns a\
+  \ new aiohttp.ClientSession that uses\n        the previously defined headers and\
+  \ connector.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The session is constructed with the headers dict that includes\n\
+  \        that User-Agent value.\n      fact: The created aiohttp.ClientSession will\
+  \ send HTTP requests with a custom\n        User-Agent header set to \"pip-outdated\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The connector is configured with 'limit=5', which\
+  \ aiohttp uses\n        to cap simultaneous connections.\n      fact: The TCPConnector\
+  \ used by the session limits concurrent outgoing connections\n        to a maximum\
+  \ of five.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n \
+  \     explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The provided metadata specifies the path as 'pip_outdated/session.py'.\n\
+  \      fact: The file resides at the repository path pip_outdated/session.py.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

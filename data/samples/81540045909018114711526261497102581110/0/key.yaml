@@ -1,0 +1,2 @@
+'`iter_files(patterns)` yields a `pathlib.Path` object for each file that matches
+  the supplied glob patterns.'

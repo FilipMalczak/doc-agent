@@ -1,0 +1,105 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: These import statements are explicitly listed at the top of\
+  \ the\n        file.\n      fact: The module imports sys, Awaitable, List, Optional\
+  \ from typing, the colorama\n        package, the colored function from termcolor,\
+  \ AsciiTable (aliased as Table)\n        from terminaltables, and OutdateResult\
+  \ from the sibling module .check_outdated.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function signature and return statements show this behavior.\n\
+  \      fact: The function make_row takes a single OutdateResult instance and returns\n\
+  \        either None or a list of four strings representing a table row.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The first conditional in make_row checks outdate.outdated()\
+  \ and\n        returns None if it is falsy.\n      fact: make_row returns None when\
+  \ outdate.outdated() evaluates to False.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code defines these three nested functions after the early\
+  \ return.\n      fact: 'When outdate.outdated() is True, make_row constructs three\
+  \ inner helper\n        functions: colored_current, colored_wanted, and colored_latest,\
+  \ each returning\n        a string possibly wrapped with colored styling.'\n   \
+  \ __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The conditional logic inside colored_current\
+  \ matches this description.\n      fact: colored_current returns the installed version\
+  \ as a red bold string if\n        outdate.install_not_found() or outdate.install_not_wanted()\
+  \ is True; otherwise\n        it returns the installed version as a plain string.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The conditional branches in colored_wanted implement\
+  \ exactly these\n        three cases.\n      fact: colored_wanted returns a red\
+  \ bold \"None\" string if outdate.pypi_not_found()\n        is True or outdate.wanted\
+  \ is falsy; returns a green bold string of the wanted\n        version if the package\
+  \ is installed and the installed version is less than\n        the wanted version;\
+  \ otherwise returns the wanted version as a plain string.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The logic inside colored_latest mirrors that\
+  \ of colored_wanted\n        with respect to the latest version.\n      fact: colored_latest\
+  \ returns a red bold \"None\" string if outdate.pypi_not_found()\n        is True;\
+  \ returns a green bold string of the latest version if the package\n        is installed\
+  \ and the installed version is less than the latest version; otherwise\n       \
+  \ returns the latest version as a plain string.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The final return statement constructs this list.\n\
+  \      fact: When all helper functions have produced their strings, make_row returns\n\
+  \        a list containing outdate.name, the result of colored_current(), colored_wanted(),\n\
+  \        and colored_latest().\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function signature declares these parameters.\n      fact:\
+  \ The async function print_outdated accepts a list of Awaitable[OutdateResult]\n\
+  \        objects and a boolean quiet flag.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first line inside print_outdated invokes colorama.init().\n\
+  \      fact: print_outdated calls colorama.init() at the start to enable colored\
+  \ terminal\n        output on Windows platforms.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The variable data is set to a list containing\
+  \ that header list.\n      fact: print_outdated initializes a data table with a\
+  \ header row ['Name', 'Installed',\n        'Wanted', 'Latest'].\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: \"The for\\u2011loop enumerates outdates, awaits\
+  \ each, calls make_row,\\\n        \\ and conditionally appends the result.\"\n\
+  \      fact: \"print_outdated iterates over the provided outdates, awaiting each\
+  \ one,\\\n        \\ passing the resolved OutdateResult to make_row, and appends\
+  \ any non\\u2011\\\n        None rows to the data table.\"\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The conditional `if not count:` prints that message\
+  \ and exits the\n        function.\n      fact: If no outdates are processed (i.e.,\
+  \ count remains zero), print_outdated\n        prints a red colored message \"No\
+  \ requirements found.\" and returns early.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The subsequent conditional checks `len(data) == 1` and prints\
+  \ the\n        message.\n      fact: If the data table contains only the header\
+  \ row (length of data equals\n        1), print_outdated prints a cyan bold message\
+  \ \"Everything is up-to-date!\"\n        and returns early.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: These two print statements appear before the\
+  \ table rendering.\n      fact: 'When there are outdated packages, print_outdated\
+  \ prints two explanatory\n        lines: a red bold line stating \"Red = unavailable/outdated/out\
+  \ of version\n        specifier\" and a green bold line stating \"Green = updatable\"\
+  .'\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The Table class is instantiated with data and\
+  \ its `table` attribute\n        is printed.\n      fact: print_outdated creates\
+  \ an AsciiTable from terminaltables using the accumulated\n        data and prints\
+  \ the table's string representation.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The final conditional `if not quiet:` calls `sys.exit(1)`.\n\
+  \      fact: If the quiet flag is False, print_outdated terminates the process with\n\
+  \        exit code 1 after displaying the table.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

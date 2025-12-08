@@ -1,0 +1,11 @@
+"# Directory\u2011Level Notes for **`pip_outdated/`**\n\nThese notes synthesize the\
+  \ file\u2011level documentation for the *pip\u2011outdated* package.  \nThey are\
+  \ organized to support the creation of user\u2011facing documentation, onboarding\
+  \ material, or a quick\u2011reference guide.\n\n---  \n\n## 6. Concurrency Model\
+  \  \n\n- The tool uses **`asyncio`** together with **`aiohttp`**:  \n  - Subprocess\
+  \ calls (`pip show`) and HTTP GET requests are wrapped in `async` functions.  \n\
+  \  - Tasks are scheduled concurrently, limited only by the aiohttp connector\u2019\
+  s `limit=5`.  \n- **Why not `asyncio.run`?** \u2013 To avoid closing the event loop\
+  \ prematurely, which can clash with aiohttp\u2019s connection cleanup (see aiohttp\
+  \ issue #1925). The code instead fetches the current loop via `asyncio.get_event_loop()`.\n\
+  \n---  \n"

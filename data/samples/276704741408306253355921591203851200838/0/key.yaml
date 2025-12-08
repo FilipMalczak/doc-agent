@@ -1,0 +1,274 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>code</repo_item_type>\n\
+      <path>pip_outdated/verbose.py</path>\n<language>python</language>\n<content>\n\
+      \"\"\"Simple namespace to share verbose state.\"\"\"\n\nVERBOSE: bool = None\n\
+      \ndef set_verbose(value: bool) -> None:\n    global VERBOSE\n    VERBOSE = value\n\
+      \    \ndef verbose() -> bool:\n    return VERBOSE\n\n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to output a list of atomic facts extracted from the source file.\
+      \ Provide explanation why each is a fact. Must follow formatting rules: quotes\
+      \ double, markdown bullet points with hyphen style. No schema defined, so just\
+      \ list. Use markdown bullet points. Must include reasoning for each fact.\n\n\
+      We'll produce bullet list each fact and maybe sub-bullet for why. But guidelines:\
+      \ \"extract atomic pieces of knowledge... explain why you think that each statement\
+      \ is a fact.\" So each bullet could be a fact, and then maybe a sub-bullet with\
+      \ rationale. Use hyphen style bullet.\n\nWill produce something like:\n\n- The\
+      \ file defines a module-level variable `VERBOSE` annotated as `bool` and initialized\
+      \ to `None`.  \n  - Reason: The line `VERBOSE: bool = None` declares this variable.\n\
+      \n- The module provides a function `set_verbose` that takes a `bool` argument\
+      \ `value` and assigns it to the global `VERBOSE`.  \n  - Reason: Function definition\
+      \ and body.\n\n- The module provides a function `verbose` that returns the current\
+      \ value of the global `VERBOSE`.  \n  - Reason...\n\n- The docstring at top\
+      \ states \"Simple namespace to share verbose state.\"  \n  - Reason... etc.\n\
+      \nMake sure string quotes double; but in bullet we can use backticks.\n\nWill\
+      \ follow markdown hyphen. Provide no empty values.\n\nLet's craft final answer."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "- **The module defines a top\u2011level variable `VERBOSE` annotated\
+      \ as `bool` and initialized to `None`.**  \n  - *Why this is a fact*: The line\
+      \ `VERBOSE: bool = None` explicitly creates the variable with a type hint and\
+      \ a default value.\n\n- **The module contains a function `set_verbose` that\
+      \ accepts a single `bool` argument named `value` and assigns it to the global\
+      \ variable `VERBOSE`.**  \n  - *Why this is a fact*: The function definition\
+      \ `def set_verbose(value: bool) -> None:` followed by `global VERBOSE` and `VERBOSE\
+      \ = value` shows the intended behavior.\n\n- **The module provides a function\
+      \ `verbose` that returns the current value of the global `VERBOSE`.**  \n  -\
+      \ *Why this is a fact*: The function definition `def verbose() -> bool:` ends\
+      \ with `return VERBOSE`, indicating it simply reads and returns the variable.\n\
+      \n- **The file begins with a module\u2011level docstring: `\"Simple namespace\
+      \ to share verbose state.\"`**  \n  - *Why this is a fact*: The triple\u2011\
+      quoted string at the top of the file is recognized as a docstring describing\
+      \ the purpose of the module."
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765227365-s2G5Gjmkw0at2a5woFXQ
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T20:56:05Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 284
+    input_audio_tokens: 0
+    input_tokens: 581
+    output_audio_tokens: 0
+    output_tokens: 547
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: invalid number at line 1 column 2
+      input: "- **The module defines a top\u2011level variable `VERBOSE` annotated\
+        \ as `bool` and initialized to `None`.**  \n  - *Why this is a fact*: The\
+        \ line `VERBOSE: bool = None` explicitly creates the variable with a type\
+        \ hint and a default value.\n\n- **The module contains a function `set_verbose`\
+        \ that accepts a single `bool` argument named `value` and assigns it to the\
+        \ global variable `VERBOSE`.**  \n  - *Why this is a fact*: The function definition\
+        \ `def set_verbose(value: bool) -> None:` followed by `global VERBOSE` and\
+        \ `VERBOSE = value` shows the intended behavior.\n\n- **The module provides\
+        \ a function `verbose` that returns the current value of the global `VERBOSE`.**\
+        \  \n  - *Why this is a fact*: The function definition `def verbose() -> bool:`\
+        \ ends with `return VERBOSE`, indicating it simply reads and returns the variable.\n\
+        \n- **The file begins with a module\u2011level docstring: `\"Simple namespace\
+        \ to share verbose state.\"`**  \n  - *Why this is a fact*: The triple\u2011\
+        quoted string at the top of the file is recognized as a docstring describing\
+        \ the purpose of the module."
+      loc: []
+      msg: 'Invalid JSON: invalid number at line 1 column 2'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_5be2329a35e04d539a12790df5106c22
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "The user got a validation error expecting JSON output, but we gave markdown.\
+      \ The constraints say match output schema if provided; none was given but system\
+      \ expects JSON. Must output JSON list of facts perhaps. Likely need to output\
+      \ JSON array of objects each with \"fact\" and \"explanation\". Let's produce\
+      \ JSON accordingly.\n\nWe'll produce:\n\n[\n  {\n    \"fact\": \"The module\
+      \ defines a top-level variable VERBOSE annotated as bool and initialized to\
+      \ None.\",\n    \"explanation\": \"The line VERBOSE: bool = None explicitly\
+      \ creates the variable with a type hint and a default value.\"\n  },\n  ...\n\
+      ]\n\nMake sure double quotes for strings, no trailing commas. Return just JSON.\n\
+      \nLet's do that."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "[\n  {\n    \"fact\": \"The module defines a top-level variable VERBOSE\
+      \ annotated as bool and initialized to None.\",\n    \"explanation\": \"The\
+      \ line `VERBOSE: bool = None` explicitly creates the variable with a type hint\
+      \ and a default value.\"\n  },\n  {\n    \"fact\": \"The module contains a function\
+      \ set_verbose that accepts a single bool argument named value and assigns it\
+      \ to the global variable VERBOSE.\",\n    \"explanation\": \"The function definition\
+      \ `def set_verbose(value: bool) -> None:` followed by `global VERBOSE` and `VERBOSE\
+      \ = value` shows the intended behavior.\"\n  },\n  {\n    \"fact\": \"The module\
+      \ provides a function verbose that returns the current value of the global VERBOSE.\"\
+      ,\n    \"explanation\": \"The function definition `def verbose() -> bool:` ends\
+      \ with `return VERBOSE`, indicating it simply reads and returns the variable.\"\
+      \n  },\n  {\n    \"fact\": \"The file begins with a module-level docstring:\
+      \ \\\"Simple namespace to share verbose state.\\\"\",\n    \"explanation\":\
+      \ \"The triple-quoted string at the top of the file is recognized as a docstring\
+      \ describing the purpose of the module.\"\n  }\n]"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765227376-l8VbvLe6PYIsM6sOXcgs
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T20:56:16Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 143
+    input_audio_tokens: 0
+    input_tokens: 1459
+    output_audio_tokens: 0
+    output_tokens: 399
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        class_name: Facts
+      input:
+      - explanation: 'The line `VERBOSE: bool = None` explicitly creates the variable
+          with a type hint and a default value.'
+        fact: The module defines a top-level variable VERBOSE annotated as bool and
+          initialized to None.
+      - explanation: 'The function definition `def set_verbose(value: bool) -> None:`
+          followed by `global VERBOSE` and `VERBOSE = value` shows the intended behavior.'
+        fact: The module contains a function set_verbose that accepts a single bool
+          argument named value and assigns it to the global variable VERBOSE.
+      - explanation: The function definition `def verbose() -> bool:` ends with `return
+          VERBOSE`, indicating it simply reads and returns the variable.
+        fact: The module provides a function verbose that returns the current value
+          of the global VERBOSE.
+      - explanation: The triple-quoted string at the top of the file is recognized
+          as a docstring describing the purpose of the module.
+        fact: 'The file begins with a module-level docstring: "Simple namespace to
+          share verbose state."'
+      loc: []
+      msg: Input should be an object
+      type: model_type
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_8531426ab79642e8869dcc3e3d07bd76
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

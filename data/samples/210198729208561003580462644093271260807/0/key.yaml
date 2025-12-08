@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The function definition def set_verbose(value: bool) -> None: includes\n    a\
+  \ global VERBOSE declaration and the assignment VERBOSE = value.'\n  fact: The module\
+  \ contains a function set_verbose that accepts a single bool argument\n    named\
+  \ value and assigns it to the global variable VERBOSE.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,0 +1,136 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The title line of the README file is \"pip-outdated\", indicating\n\
+  \        the name of the tool.\n      fact: The project name is \"pip-outdated\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The introductory paragraph explicitly states\
+  \ that the tool finds\n        outdated dependencies in those files.\n      fact:\
+  \ '\"pip-outdated\" finds outdated dependencies in a project''s \"requirements.txt\"\
+  \n        or \"setup.cfg\" file.'\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The README mentions that the tool reports such packages \"with\
+  \ table\n        and colors\".\n      fact: The tool reports missing, outdated,\
+  \ or incompatible packages using a table\n        with colors.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The description says the tool \"compares the\
+  \ version number with\n        the version specifier\" in those files.\n      fact:\
+  \ '\"pip-outdated\" compares each package''s installed version with the version\n\
+  \        specifier defined in \"requirements.txt\" or \"setup.cfg\".'\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The README notes that the standard pip command\
+  \ can be used for\n        that purpose.\n      fact: If a user only wants to list\
+  \ all updatable packages, they can use the\n        command \"pip list --outdated\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The Installation section provides that exact\
+  \ command and references\n        PyPI.\n      fact: The package can be installed\
+  \ from PyPI with the command \"pip install pip-outdated\".\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The Usage section displays this syntax.\n   \
+  \   fact: \"\\\"pip-outdated\\\" provides a command\\u2011line interface with the\
+  \ usage\\\n        \\ pattern \\\"pip-outdated [-h] [-v] [-q] [<file> ...]\\\".\"\
+  \n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The positional argument description lists those\
+  \ files as the default.\n      fact: If no file arguments are supplied, \"pip-outdated\"\
+  \ reads dependencies from\n        \"requirements.txt\" and \"setup.cfg\" by default.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The optional arguments list defines \"-v, --verbose\"\
+  \ with that description.\n      fact: The \"-v\" or \"--verbose\" flag enables verbose\
+  \ output; its default value\n        is False.\n    __pydantic_extra__: null\n \
+  \   __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The optional arguments list defines \"-q, --quiet\"\
+  \ with that description.\n      fact: The \"-q\" or \"--quiet\" flag prevents the\
+  \ program from exiting with code\n        1 when not all dependencies are up to\
+  \ date; its default value is False.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: An example in the README demonstrates checking multiple files\
+  \ with\n        a glob pattern.\n      fact: Multiple requirement files can be processed\
+  \ using glob patterns, for example\n        \"pip-outdated *-requirements.txt\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The README provides this example command.\n \
+  \     fact: Files inside a \"requirements\" directory can be processed with \"pip-outdated\n\
+  \        requirements/*.txt\".\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The Todos section lists these three items.\n      fact: 'The\
+  \ project has three TODO items: adding options to update packages,\n        adding\
+  \ options to update the requirements files, and adding an option to list\n     \
+  \   all packages globally (e.g., \"-g, --global\").'\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The changelog entry for 0.8.0 includes this date\
+  \ and change description.\n      fact: Version 0.8.0 was released on Aug 9, 2025,\
+  \ dropping the setuptools dependency\n        and switching to configparse for reading\
+  \ \"setup.cfg\".\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The changelog entry for 0.7.0 documents that change.\n     \
+  \ fact: Version 0.7.0 was released on Aug 13, 2024, adding a change to ignore\n\
+  \        \"InvalidVersion\" errors.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The changelog entry for 0.6.0 lists these modifications.\n \
+  \     fact: Version 0.6.0 was released on Jan 1, 2023, bumping dependencies, dropping\n\
+  \        the \"cchardet\" package, and changing the implementation to fetch package\
+  \ versions\n        from the pip CLI to obtain versions inside virtual environments.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The changelog entry for 0.5.0 includes those\
+  \ updates.\n      fact: Version 0.5.0 was released on Jan 12, 2022, bumping dependencies\
+  \ and adding\n        type hints.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The changelog entry for 0.4.0 details those breaking changes\
+  \ and\n        new features.\n      fact: Version 0.4.0 was released on Jan 30,\
+  \ 2020, breaking by bumping the minimum\n        Python version to 3.7, adding parallel\
+  \ requests, and introducing the \"--quiet\"\n        option.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The changelog entry for 0.3.0 describes these\
+  \ changes.\n      fact: Version 0.3.0 was released on Oct 13, 2019, breaking by\
+  \ setting the exit\n        code to 1 when not all dependencies are up to date,\
+  \ fixing the handling of\n        prereleases, and adding checks for \"setup_requires\"\
+  \ and \"extras_require\" in\n        configuration files.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The changelog entry for 0.2.0 lists these dependency\
+  \ versions.\n      fact: 'Version 0.2.0 was released on Feb 10, 2019, bumping several\
+  \ dependencies\n        to specific major versions: colorama 0.4.x, packaging 19.x,\
+  \ requests 2.x,\n        termcolor 1.x, and terminaltables 3.x.'\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The changelog entry for 0.1.0 marks it as the\
+  \ initial release with\n        that date.\n      fact: Version 0.1.0, the first\
+  \ release, was published on May 12, 2018.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first image directive includes that URL as its target.\n\
+  \      fact: The README displays a Travis CI build status badge linking to https://travis-ci.com/eight04/pip-outdated.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The second image directive includes that URL\
+  \ as its target.\n      fact: The README displays a Codecov coverage badge linking\
+  \ to https://codecov.io/gh/eight04/pip-outdated.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Both badge URLs reference the repository path\
+  \ \"eight04/pip-outdated\",\n        indicating the hosting location.\n      fact:\
+  \ The project source code is hosted at the GitHub repository \"https://github.com/eight04/pip-outdated\"\
+  .\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The metadata field \"<language>ReStructuredText</language>\"\
+  \ specifies\n        the document format.\n      fact: The README file is written\
+  \ in ReStructuredText format.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,0 +1,7 @@
+"## Project Overview  \n## Key Features  \n\n- Parses version specifiers from both\
+  \ **requirements files** (`requirements.txt`) and **setup configuration** (`setup.cfg`).\
+  \  \n- Shows a **colored table** indicating the status of each dependency (up\u2011\
+  to\u2011date, outdated, missing, incompatible).  \n- Supports **glob patterns**\
+  \ to check multiple files at once.  \n- Provides **quiet mode** (`-q/--quiet`) to\
+  \ suppress a non\u2011zero exit code when some packages are outdated.  \n- Verbose\
+  \ output (`-v/--verbose`) for detailed processing information.  \n"

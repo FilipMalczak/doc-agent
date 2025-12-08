@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The <path> element specifies the path, and the content uses Python\n    import\
+  \ and function definitions typical of a test file.\n  fact: The file is a Python\
+  \ test module located at tests/test_parse_cfg.py.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

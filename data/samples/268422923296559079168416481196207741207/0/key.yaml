@@ -1,0 +1,6 @@
+"### Package Initialization (`tests/__init__.py`)\n- **Purpose**: Marks `tests` as\
+  \ a package, enabling relative imports and future shared fixtures.\n- **Current\
+  \ state**: Empty (no code, imports, or docstrings).\n- **Implications**:\n  - Allows\
+  \ execution of the test suite with standard discovery mechanisms.\n  - No global\
+  \ test configuration is present yet; developers can add shared fixtures in this\
+  \ file or in a `conftest.py` later.\n"

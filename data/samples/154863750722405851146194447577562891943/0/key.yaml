@@ -1,0 +1,4 @@
+"## Overview\n- This file serves as the **entry point** for the `pip_outdated` package\
+  \ when it is executed as a script (e.g., `python -m pip_outdated`).\n- Its sole\
+  \ purpose is to invoke the package\u2019s main functionality defined elsewhere (in\
+  \ `pip_outdated/main.py`).\n"

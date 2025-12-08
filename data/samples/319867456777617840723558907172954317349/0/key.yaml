@@ -1,0 +1,4 @@
+OutdateResult.__post_init__ sets the wanted attribute to the highest version in all_versions
+  that satisfies the requirement specifier, if any, and sets latest to the last element
+  of all_versions.
+...

@@ -1,0 +1,16 @@
+"## Main Asynchronous Functions  \n\n| Function | Signature | Key responsibilities\
+  \ |\n|----------|-----------|----------------------|\n| `get_local_version` | `async\
+  \ def get_local_version(name: str) -> Optional[Version]` | Executes ``pip show <name>``\
+  \ via a subprocess, parses the ``Version:`` line, and returns a ``Version`` object;\
+  \ returns ``None`` if the package is not installed or the command fails. |\n| `get_pypi_versions`\
+  \ | `async def get_pypi_versions(name: str, session) -> List[Version]` | Performs\
+  \ an HTTP GET request to ``https://pypi.org/pypi/<name>/json`` using the provided\
+  \ ``aiohttp`` session, extracts all release keys, filters out invalid or pre\u2011\
+  release versions, sorts them, and returns the list. |\n| `check_outdated` | `async\
+  \ def check_outdated(require, session) -> OutdateResult` | Orchestrates the check:\
+  \ canonicalizes the package name, fetches the local version, fetches PyPI versions,\
+  \ and constructs an ``OutdateResult``. Prints a verbose message when the global\
+  \ ``verbose()`` flag is set. |\n\n**Notes:**  \n- All network and subprocess interactions\
+  \ are asynchronous, enabling concurrent checks for many packages.  \n- The module\
+  \ expects an external ``session`` object (typically an ``aiohttp.ClientSession``)\
+  \ to be created and closed by the caller.  \n\n---\n"

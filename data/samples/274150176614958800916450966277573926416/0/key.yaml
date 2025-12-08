@@ -1,0 +1,314 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>code</repo_item_type>\n\
+      <path>pip_outdated/session.py</path>\n<language>python</language>\n<content>\n\
+      import aiohttp\n\n\ndef get_session() -> aiohttp.ClientSession:\n    headers\
+      \ = {\"User-Agent\": \"pip-outdated\"}\n    connector = aiohttp.TCPConnector(limit=5)\n\
+      \    return aiohttp.ClientSession(headers=headers, connector=connector)    \n\
+      \n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'We need to extract atomic facts from this source file. Provide list
+      of facts with explanation why each is a fact. Must output via final_result function
+      with facts array.
+
+
+      Each fact should be self-contained, like "The file pip_outdated/session.py defines
+      a function get_session that returns an aiohttp.ClientSession." Provide details.
+
+
+      Let''s list facts:
+
+
+      - The file imports aiohttp module.
+
+      - The file defines a function named get_session with no parameters that returns
+      aiohttp.ClientSession.
+
+      - Inside get_session, a headers dict is created with "User-Agent": "pip-outdated".
+
+      - Inside get_session, a TCPConnector is instantiated with limit=5.
+
+      - The function returns a new aiohttp.ClientSession using the headers dict and
+      the connector.
+
+      - The function type annotation indicates return type aiohttp.ClientSession.
+
+      - The connector variable is of type aiohttp.TCPConnector with a connection limit
+      of 5.
+
+      - The created session uses a custom User-Agent header "pip-outdated".
+
+      - The file resides at path pip_outdated/session.py in the repository.
+
+
+      Add explanation for each fact.
+
+
+      We need to output JSON with array of facts objects? The schema not defined,
+      but likely each fact is a string plus maybe reason. But specification says "extract
+      atomic facts". Could be an array of objects with "fact" and "reason". Let''s
+      include both.
+
+
+      We''ll output via final_result with facts list of objects: each object having
+      "statement" and "justification". Ensure double quotes.
+
+
+      Let''s craft.
+
+
+      '
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "{\n  \"facts\": [\n    {\n      \"statement\": \"The file pip_outdated/session.py\
+      \ imports the aiohttp library.\",\n      \"justification\": \"The first line\
+      \ of the file is 'import aiohttp', indicating a dependency on that library.\"\
+      \n    },\n    {\n      \"statement\": \"The file defines a function named get_session\
+      \ with no parameters.\",\n      \"justification\": \"The source contains 'def\
+      \ get_session() -> aiohttp.ClientSession:' which declares such a function.\"\
+      \n    },\n    {\n      \"statement\": \"The get_session function is annotated\
+      \ to return an aiohttp.ClientSession object.\",\n      \"justification\": \"\
+      The type hint after the function name specifies '-> aiohttp.ClientSession'.\"\
+      \n    },\n    {\n      \"statement\": \"Within get_session, a dictionary named\
+      \ headers is created containing the key \\\"User-Agent\\\" with the value \\\
+      \"pip-outdated\\\".\",\n      \"justification\": \"The line 'headers = {\\\"\
+      User-Agent\\\": \\\"pip-outdated\\\"}' defines this dictionary.\"\n    },\n\
+      \    {\n      \"statement\": \"Within get_session, a TCPConnector object from\
+      \ aiohttp is instantiated with a connection limit of 5 and assigned to the variable\
+      \ connector.\",\n      \"justification\": \"The line 'connector = aiohttp.TCPConnector(limit=5)'\
+      \ creates this configured connector.\"\n    },\n    {\n      \"statement\":\
+      \ \"The get_session function returns a new aiohttp.ClientSession that uses the\
+      \ previously defined headers and connector.\",\n      \"justification\": \"\
+      The return statement is 'return aiohttp.ClientSession(headers=headers, connector=connector)'.\"\
+      \n    },\n    {\n      \"statement\": \"The created aiohttp.ClientSession will\
+      \ send HTTP requests with a custom User-Agent header set to \\\"pip-outdated\\\
+      \".\",\n      \"justification\": \"The session is constructed with the headers\
+      \ dict that includes that User-Agent value.\"\n    },\n    {\n      \"statement\"\
+      : \"The TCPConnector used by the session limits concurrent outgoing connections\
+      \ to a maximum of five.\",\n      \"justification\": \"The connector is configured\
+      \ with 'limit=5', which aiohttp uses to cap simultaneous connections.\"\n  \
+      \  },\n    {\n      \"statement\": \"The file resides at the repository path\
+      \ pip_outdated/session.py.\",\n      \"justification\": \"The provided metadata\
+      \ specifies the path as 'pip_outdated/session.py'.\"\n    }\n  ]\n}"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765227365-ahNjTCpSWyKxLowuotQ7
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T20:56:05Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 386
+    input_audio_tokens: 0
+    input_tokens: 634
+    output_audio_tokens: 0
+    output_tokens: 791
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - input:
+        justification: The first line of the file is 'import aiohttp', indicating
+          a dependency on that library.
+        statement: The file pip_outdated/session.py imports the aiohttp library.
+      loc:
+      - facts
+      - 0
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The source contains 'def get_session() -> aiohttp.ClientSession:'
+          which declares such a function.
+        statement: The file defines a function named get_session with no parameters.
+      loc:
+      - facts
+      - 1
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The type hint after the function name specifies '-> aiohttp.ClientSession'.
+        statement: The get_session function is annotated to return an aiohttp.ClientSession
+          object.
+      loc:
+      - facts
+      - 2
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: 'The line ''headers = {"User-Agent": "pip-outdated"}'' defines
+          this dictionary.'
+        statement: Within get_session, a dictionary named headers is created containing
+          the key "User-Agent" with the value "pip-outdated".
+      loc:
+      - facts
+      - 3
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The line 'connector = aiohttp.TCPConnector(limit=5)' creates
+          this configured connector.
+        statement: Within get_session, a TCPConnector object from aiohttp is instantiated
+          with a connection limit of 5 and assigned to the variable connector.
+      loc:
+      - facts
+      - 4
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The return statement is 'return aiohttp.ClientSession(headers=headers,
+          connector=connector)'.
+        statement: The get_session function returns a new aiohttp.ClientSession that
+          uses the previously defined headers and connector.
+      loc:
+      - facts
+      - 5
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The session is constructed with the headers dict that includes
+          that User-Agent value.
+        statement: The created aiohttp.ClientSession will send HTTP requests with
+          a custom User-Agent header set to "pip-outdated".
+      loc:
+      - facts
+      - 6
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The connector is configured with 'limit=5', which aiohttp uses
+          to cap simultaneous connections.
+        statement: The TCPConnector used by the session limits concurrent outgoing
+          connections to a maximum of five.
+      loc:
+      - facts
+      - 7
+      - explanation
+      msg: Field required
+      type: missing
+    - input:
+        justification: The provided metadata specifies the path as 'pip_outdated/session.py'.
+        statement: The file resides at the repository path pip_outdated/session.py.
+      loc:
+      - facts
+      - 8
+      - explanation
+      msg: Field required
+      type: missing
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_fe1086b9d8f04613b398257ff79a4d79
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

@@ -1,0 +1,3 @@
+Multiple requirement files can be processed using glob patterns, for example "pip-outdated
+  *-requirements.txt".
+...

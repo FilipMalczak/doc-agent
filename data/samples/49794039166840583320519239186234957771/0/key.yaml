@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The [options.entry_points] section maps \"pip-outdated\" to \"pip_outdated:main\"\
+  .\n  fact: A console script named \"pip-outdated\" is installed, which invokes the\
+  \ function\n    \"main\" from the \"pip_outdated\" module.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

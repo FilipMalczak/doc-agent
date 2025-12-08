@@ -1,0 +1,4 @@
+A function parse_args creates an argparse.ArgumentParser with prog set to "pip-outdated"
+  and a description explaining that it finds outdated dependencies in requirements.txt
+  or setup.cfg files.
+...

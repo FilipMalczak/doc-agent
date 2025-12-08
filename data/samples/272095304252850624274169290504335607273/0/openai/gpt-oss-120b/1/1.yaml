@@ -1,0 +1,94 @@
+finish_reason: tool_call
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to output via the function final_result, not raw text. So use
+    the functions.final_result call with JSON. Let''s craft facts list.
+
+
+    Each fact: string. Provide array of strings? The schema expects any[], not defined.
+    We can just include list of objects with "statement" and "reason". Ensure double
+    quotes.
+
+
+    Let''s construct.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- args: '{"facts": [{"statement": "The module imports asyncio, dataclass, List, Optional,
+    Requirement, canonicalize_name, Version, InvalidVersion, parse_version, and verbose
+    from the local package.", "explanation": "The import statements at the top of
+    the file list these modules and symbols, indicating they are used in the code."},
+    {"statement": "The file defines a dataclass named OutdateResult with fields: requirement
+    (Requirement), version (Optional[Version]), all_versions (List[Version]), wanted
+    (Optional[Version]), and latest (Optional[Version]).", "explanation": "The @dataclass
+    decorator and class definition declare these fields with type annotations."},
+    {"statement": "OutdateResult.__post_init__ sets the wanted attribute to the highest
+    version in all_versions that satisfies the requirement specifier, if any, and
+    sets latest to the last element of all_versions.", "explanation": "The __post_init__
+    method iterates over reversed all_versions, selects the first version matching
+    the specifier, and assigns latest = self.all_versions[-1]."}, {"statement": "OutdateResult.name
+    property returns the name of the requirement.", "explanation": "The name property
+    method returns self.requirement.name."}, {"statement": "OutdateResult.install_not_found()
+    returns True when the installed version is None.", "explanation": "The method
+    checks self.version is None and returns the result."}, {"statement": "OutdateResult.install_not_wanted()
+    returns True when an installed version exists but does not satisfy the requirement
+    specifier.", "explanation": "The method returns False if version is None; otherwise
+    it returns the negation of version in self.requirement.specifier."}, {"statement":
+    "OutdateResult.pypi_not_found() returns True when no latest version from PyPI
+    is available.", "explanation": "The method returns True if self.latest is None."},
+    {"statement": "OutdateResult.outdated() returns True if the installed version
+    differs from either the wanted version or the latest version.", "explanation":
+    "The method compares self.version with self.wanted and self.latest, returning
+    True if either comparison is unequal."}, {"statement": "The async function get_local_version(name)
+    runs ''pip show {name}'' in a subprocess and returns the parsed Version from the
+    ''Version:'' line, or None if the command fails.", "explanation": "The function
+    creates a subprocess, reads stdout, looks for a line starting with ''Version:
+    '', parses it with parse_version, and returns None on non\u2011zero exit code."},
+    {"statement": "The async function get_pypi_versions(name, session) fetches JSON
+    from https://pypi.org/pypi/{name}/json, extracts release version strings, parses
+    them into Version objects, filters out InvalidVersion and prereleases, sorts them,
+    and returns the list.", "explanation": "The function uses session.get, processes
+    the ''releases'' keys, handles exceptions, skips prereleases, sorts the resulting
+    Version objects."}, {"statement": "The async function check_outdated(require,
+    session) prints a checking message when verbose() is True, canonicalizes the requirement
+    name, obtains the local version via get_local_version, obtains PyPI versions via
+    get_pypi_versions, and returns an OutdateResult instance.", "explanation": "The
+    function follows this sequence: optional print, name canonicalization, awaiting
+    get_local_version and get_pypi_versions, then constructing OutdateResult."}, {"statement":
+    "The verbose() function is imported from .verbose and is used to conditionally
+    print diagnostic output in check_outdated.", "explanation": "The code calls verbose()
+    before printing, indicating its role as a flag for verbosity."}, {"statement":
+    "The canonicalize_name function from packaging.utils is used to normalize the
+    requirement name before querying local and PyPI information.", "explanation":
+    "check_outdated calls canonicalize_name on require.name and stores it in variable
+    name."}, {"statement": "The file uses Python type hints throughout, including
+    Optional[Version] and List[Version] to indicate possible None values and collections
+    of Version objects.", "explanation": "All function signatures and dataclass fields
+    include these type annotations."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: call_51ab12a766454dda81
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1765228538-utje8dvxz9Sr213LQSxM
+run_id: 55f96cfc-3efc-4a98-aa0e-608c8bf27bad
+timestamp: '2025-12-08T21:15:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 87
+  input_audio_tokens: 0
+  input_tokens: 1643
+  output_audio_tokens: 0
+  output_tokens: 1027

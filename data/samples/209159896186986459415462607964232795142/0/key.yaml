@@ -1,0 +1,4 @@
+"## Console Entry Point\n- A command\u2011line script is installed as `pip-outdated`\
+  \ that maps to the Python function `pip_outdated:main`.  \n  - Users can invoke\
+  \ it directly after installation:  \n\n    ```bash\n    pip-outdated [options] <path-to-requirements-or-setup.cfg>\n\
+  \    ```\n"

@@ -1,0 +1,5 @@
+"## Project Overview  \n\n- **Name:** `pip-outdated`  \n- **Purpose:** Detect outdated,\
+  \ missing, or incompatible dependencies declared in `requirements.txt` or `setup.cfg`\
+  \ files and present the results in a colored table.  \n- **Typical Use\u2011Case:**\
+  \  \n  - Quickly audit a project's dependency list.  \n  - Spot packages that need\
+  \ updating without manually parsing `pip list --outdated`.  \n"

@@ -1,0 +1,3 @@
+If a user only wants to list all updatable packages, they can use the command "pip
+  list --outdated".
+...

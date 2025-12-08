@@ -1,0 +1,407 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>test</repo_item_type>\n\
+      <path>tests/test_parse_cfg.py</path>\n<language>python</language>\n<content>\n\
+      from pip_outdated.find_require import parse_cfg\n\ndef test_parse_cfg(tmp_path):\n\
+      \    file = tmp_path / \"setup.cfg\"\n    file.write_text(\"\"\"\n[options]\n\
+      setup_requires =\n    setuptools_scm >= 1.15.0\n    setuptools_scm_git_archive\
+      \ >= 1.0\n    \ninstall_requires =\n    ansible >= 2.5\n    ansible-lint >=\
+      \ 4.0.2, < 5\n    \n[options.extras_require]\ndocs =\n    alabaster\n    Sphinx\"\
+      \"\")\n    \n    names = [r.name for r in parse_cfg(str(file))]\n    assert\
+      \ names == [\n        \"setuptools_scm\",\n        \"setuptools_scm_git_archive\"\
+      ,\n        \"ansible\",\n        \"ansible-lint\",\n        \"alabaster\",\n\
+      \        \"Sphinx\"\n    ]\n    \n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to extract atomic facts from the source file. Provide each fact\
+      \ short, self-contained, with explanation why it's a fact. Use double quotes\
+      \ for strings. Format likely YAML list of facts? Not given schema. Must output\
+      \ list of facts. Use bullet points hyphen style. Provide reasons maybe as comments?\
+      \ The task: \"extract atomic facts from the input file\". So we list facts like:\
+      \ The file defines a test function test_parse_cfg that creates a temporary setup.cfg\
+      \ with given contents; expects parse_cfg to return requirements with names...\
+      \ Provide each fact.\n\nWe'll output as YAML? Since not schema, but guidelines\
+      \ say lists markdown bullet points hyphen style, also yaml hyphen. Use maybe\
+      \ markdown bullet points.\n\nWe'll include facts like:\n- The file is a Python\
+      \ test module located at tests/test_parse_cfg.py.\n- It imports parse_cfg from\
+      \ pip_outdated.find_require.\n- It defines a test function named test_parse_cfg\
+      \ that takes tmp_path fixture.\n- Within the test, a file named setup.cfg is\
+      \ created under tmp_path with specific content containing options sections.\n\
+      - The [options] section defines setup_requires with two packages: setuptools_scm\
+      \ >= 1.15.0 and setuptools_scm_git_archive >= 1.0.\n- The [options] section\
+      \ defines install_requires with two packages: ansible >= 2.5 and ansible-lint\
+      \ >= 4.0.2, 5.\n- The [options.extras_require] section defines docs extra with\
+      \ two packages: alabaster and Sphinx.\n- The test calls parse_cfg with the path\
+      \ to the temporary setup.cfg and extracts the .name attribute of each returned\
+      \ requirement.\n- The test asserts that the list of names equals [\"setuptools_scm\"\
+      , \"setuptools_scm_git_archive\", \"ansible\", \"ansible-lint\", \"alabaster\"\
+      , \"Sphinx\"].\n- Therefore parse_cfg is expected to parse the cfg and return\
+      \ requirement objects with those names.\n- The test uses pytest's tmp_path fixture\
+      \ for temporary directory.\n\nEach fact should have explanation why it's a fact.\
+      \ Perhaps embed reason in comment? We can separate fact and explanation. The\
+      \ format not strict; we can output a list of objects with fact and justification.\n\
+      \nWe'll produce YAML list of items with \"fact\" and \"justification\". Use\
+      \ double quotes for strings. Eg:\n\n- fact: \"The file is a Python test module\
+      \ located at tests/test_parse_cfg.py.\"\n  justification: \"The headerpath>tests/test_parse_cfg.pypath>\
+      \ indicates its location and the content uses Python syntax.\"\n\nProceed.\n\
+      \n"
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "- fact: \"The file is a Python test module located at tests/test_parse_cfg.py.\"\
+      \n  justification: \"The `<path>` element specifies the path, and the content\
+      \ uses Python import and function definitions typical of a test file.\"\n\n\
+      - fact: \"The module imports the function `parse_cfg` from `pip_outdated.find_require`.\"\
+      \n  justification: \"The first line of the file is `from pip_outdated.find_require\
+      \ import parse_cfg`.\"\n\n- fact: \"The module defines a test function named\
+      \ `test_parse_cfg` that accepts a `tmp_path` argument.\"\n  justification: \"\
+      The source contains `def test_parse_cfg(tmp_path):` which follows pytest's convention\
+      \ for test functions using the `tmp_path` fixture.\"\n\n- fact: \"Inside the\
+      \ test, a temporary file `setup.cfg` is created under the directory represented\
+      \ by `tmp_path`.\"\n  justification: \"The code creates `file = tmp_path / \\\
+      \"setup.cfg\\\"` and writes to it.\"\n\n- fact: \"The temporary `setup.cfg`\
+      \ file contains an `[options]` section with a `setup_requires` entry listing\
+      \ two requirements: `setuptools_scm >= 1.15.0` and `setuptools_scm_git_archive\
+      \ >= 1.0`.\"\n  justification: \"The multiline string written to the file includes\
+      \ those lines under `setup_requires`.\"\n\n- fact: \"The `[options]` section\
+      \ also contains an `install_requires` entry listing two requirements: `ansible\
+      \ >= 2.5` and `ansible-lint >= 4.0.2, < 5`.\"\n  justification: \"The same multiline\
+      \ string includes those lines under `install_requires`.\"\n\n- fact: \"The file\
+      \ includes an `[options.extras_require]` section with a `docs` extra that lists\
+      \ two packages: `alabaster` and `Sphinx`.\"\n  justification: \"The multiline\
+      \ string contains the `docs =` block with those package names.\"\n\n- fact:\
+      \ \"The test calls `parse_cfg` with the string path of the temporary `setup.cfg`\
+      \ file and stores the result.\"\n  justification: \"`parse_cfg(str(file))` is\
+      \ invoked and its return value is used.\"\n\n- fact: \"The test extracts the\
+      \ `name` attribute from each requirement object returned by `parse_cfg` and\
+      \ stores them in the list `names`.\"\n  justification: \"`names = [r.name for\
+      \ r in parse_cfg(str(file))]` performs this extraction.\"\n\n- fact: \"The test\
+      \ asserts that `names` equals the list `[\"setuptools_scm\", \"setuptools_scm_git_archive\"\
+      , \"ansible\", \"ansible-lint\", \"alabaster\", \"Sphinx\"]`.\"\n  justification:\
+      \ \"`assert names == [...]` contains that exact list of strings.\"\n\n- fact:\
+      \ \"The expected order of requirement names is the same as they appear in the\
+      \ `setup.cfg` file: first `setup_requires`, then `install_requires`, then `extras_require`\
+      \ entries.\"\n  justification: \"The asserted list follows the order of definitions\
+      \ in the written configuration.\"\n\n- fact: \"The test uses the pytest `tmp_path`\
+      \ fixture to provide an isolated temporary directory for file creation.\"\n\
+      \  justification: \"The function signature `def test_parse_cfg(tmp_path):` indicates\
+      \ reliance on pytest's built\u2011in `tmp_path` fixture.\""
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765228521-OpPfkQczyBjF2LYtcjtA
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T21:15:21Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 516
+    input_audio_tokens: 0
+    input_tokens: 703
+    output_audio_tokens: 0
+    output_tokens: 1209
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: invalid number at line 1 column 2
+      input: "- fact: \"The file is a Python test module located at tests/test_parse_cfg.py.\"\
+        \n  justification: \"The `<path>` element specifies the path, and the content\
+        \ uses Python import and function definitions typical of a test file.\"\n\n\
+        - fact: \"The module imports the function `parse_cfg` from `pip_outdated.find_require`.\"\
+        \n  justification: \"The first line of the file is `from pip_outdated.find_require\
+        \ import parse_cfg`.\"\n\n- fact: \"The module defines a test function named\
+        \ `test_parse_cfg` that accepts a `tmp_path` argument.\"\n  justification:\
+        \ \"The source contains `def test_parse_cfg(tmp_path):` which follows pytest's\
+        \ convention for test functions using the `tmp_path` fixture.\"\n\n- fact:\
+        \ \"Inside the test, a temporary file `setup.cfg` is created under the directory\
+        \ represented by `tmp_path`.\"\n  justification: \"The code creates `file\
+        \ = tmp_path / \\\"setup.cfg\\\"` and writes to it.\"\n\n- fact: \"The temporary\
+        \ `setup.cfg` file contains an `[options]` section with a `setup_requires`\
+        \ entry listing two requirements: `setuptools_scm >= 1.15.0` and `setuptools_scm_git_archive\
+        \ >= 1.0`.\"\n  justification: \"The multiline string written to the file\
+        \ includes those lines under `setup_requires`.\"\n\n- fact: \"The `[options]`\
+        \ section also contains an `install_requires` entry listing two requirements:\
+        \ `ansible >= 2.5` and `ansible-lint >= 4.0.2, < 5`.\"\n  justification: \"\
+        The same multiline string includes those lines under `install_requires`.\"\
+        \n\n- fact: \"The file includes an `[options.extras_require]` section with\
+        \ a `docs` extra that lists two packages: `alabaster` and `Sphinx`.\"\n  justification:\
+        \ \"The multiline string contains the `docs =` block with those package names.\"\
+        \n\n- fact: \"The test calls `parse_cfg` with the string path of the temporary\
+        \ `setup.cfg` file and stores the result.\"\n  justification: \"`parse_cfg(str(file))`\
+        \ is invoked and its return value is used.\"\n\n- fact: \"The test extracts\
+        \ the `name` attribute from each requirement object returned by `parse_cfg`\
+        \ and stores them in the list `names`.\"\n  justification: \"`names = [r.name\
+        \ for r in parse_cfg(str(file))]` performs this extraction.\"\n\n- fact: \"\
+        The test asserts that `names` equals the list `[\"setuptools_scm\", \"setuptools_scm_git_archive\"\
+        , \"ansible\", \"ansible-lint\", \"alabaster\", \"Sphinx\"]`.\"\n  justification:\
+        \ \"`assert names == [...]` contains that exact list of strings.\"\n\n- fact:\
+        \ \"The expected order of requirement names is the same as they appear in\
+        \ the `setup.cfg` file: first `setup_requires`, then `install_requires`, then\
+        \ `extras_require` entries.\"\n  justification: \"The asserted list follows\
+        \ the order of definitions in the written configuration.\"\n\n- fact: \"The\
+        \ test uses the pytest `tmp_path` fixture to provide an isolated temporary\
+        \ directory for file creation.\"\n  justification: \"The function signature\
+        \ `def test_parse_cfg(tmp_path):` indicates reliance on pytest's built\u2011\
+        in `tmp_path` fixture.\""
+      loc: []
+      msg: 'Invalid JSON: invalid number at line 1 column 2'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_295d7c6dc26b40208f434f218fa05b06
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "The output was interpreted as JSON but we gave YAML-like list. Need\
+      \ to output in JSON format matching expected schema? The system expects JSON\
+      \ array maybe. The validation error says expects JSON, got invalid JSON because\
+      \ of hyphens. We need to output JSON array of objects with fields fact and justification.\
+      \ Use double quotes for strings. No trailing commas. So produce:\n\n[\n  {\n\
+      \    \"fact\": \"The file is a Python test module located at tests/test_parse_cfg.py.\"\
+      ,\n    \"justification\": \"Thepath> element specifies the path, and the content\
+      \ uses Python import and function definitions typical of a test file.\"\n  },\n\
+      \  ...\n]\n\nNeed to escape double quotes inside strings. Use proper escaping.\
+      \ Also need to avoid backticks? Backticks are fine inside JSON strings if escaped?\
+      \ Actually backticks are just characters, no need escape. But we have quotes\
+      \ inside justification that include backticks and double quotes? Example: \"\
+      The test asserts that `names` equals the list [\\\"setuptools_scm\\\", ...]\"\
+      \ must escape inner double quotes. We'll use single backticks and double quotes\
+      \ inside list need escaped. Use \\\\\\\".\n\nLet's construct list.\n\nMake sure\
+      \ each fact is self-contained. Provide justifications as separate.\n\nProceed.\n\
+      \n"
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "[\n  {\n    \"fact\": \"The file is a Python test module located at\
+      \ tests/test_parse_cfg.py.\",\n    \"justification\": \"The <path> element specifies\
+      \ the path, and the content uses Python import and function definitions typical\
+      \ of a test file.\"\n  },\n  {\n    \"fact\": \"The module imports the function\
+      \ `parse_cfg` from `pip_outdated.find_require`.\",\n    \"justification\": \"\
+      The first line of the file is `from pip_outdated.find_require import parse_cfg`.\"\
+      \n  },\n  {\n    \"fact\": \"The module defines a test function named `test_parse_cfg`\
+      \ that accepts a `tmp_path` argument.\",\n    \"justification\": \"The source\
+      \ contains `def test_parse_cfg(tmp_path):`, which follows pytest's convention\
+      \ for test functions using the `tmp_path` fixture.\"\n  },\n  {\n    \"fact\"\
+      : \"Inside the test, a temporary file `setup.cfg` is created under the directory\
+      \ represented by `tmp_path`.\",\n    \"justification\": \"The code creates `file\
+      \ = tmp_path / \\\"setup.cfg\\\"` and writes to it.\"\n  },\n  {\n    \"fact\"\
+      : \"The temporary `setup.cfg` file contains an `[options]` section with a `setup_requires`\
+      \ entry listing two requirements: `setuptools_scm >= 1.15.0` and `setuptools_scm_git_archive\
+      \ >= 1.0`.\",\n    \"justification\": \"The multiline string written to the\
+      \ file includes those lines under the `setup_requires` key.\"\n  },\n  {\n \
+      \   \"fact\": \"The `[options]` section also contains an `install_requires`\
+      \ entry listing two requirements: `ansible >= 2.5` and `ansible-lint >= 4.0.2,\
+      \ < 5`.\",\n    \"justification\": \"The same multiline string includes those\
+      \ lines under the `install_requires` key.\"\n  },\n  {\n    \"fact\": \"The\
+      \ file includes an `[options.extras_require]` section with a `docs` extra that\
+      \ lists two packages: `alabaster` and `Sphinx`.\",\n    \"justification\": \"\
+      The multiline string contains the `docs =` block with those package names.\"\
+      \n  },\n  {\n    \"fact\": \"The test calls `parse_cfg` with the string path\
+      \ of the temporary `setup.cfg` file and stores the result.\",\n    \"justification\"\
+      : \"`parse_cfg(str(file))` is invoked and its return value is used.\"\n  },\n\
+      \  {\n    \"fact\": \"The test extracts the `name` attribute from each requirement\
+      \ object returned by `parse_cfg` and stores them in the list `names`.\",\n \
+      \   \"justification\": \"`names = [r.name for r in parse_cfg(str(file))]` performs\
+      \ this extraction.\"\n  },\n  {\n    \"fact\": \"The test asserts that `names`\
+      \ equals the list [\\\"setuptools_scm\\\", \\\"setuptools_scm_git_archive\\\"\
+      , \\\"ansible\\\", \\\"ansible-lint\\\", \\\"alabaster\\\", \\\"Sphinx\\\"].\"\
+      ,\n    \"justification\": \"`assert names == [...]` contains that exact list\
+      \ of strings.\"\n  },\n  {\n    \"fact\": \"The expected order of requirement\
+      \ names is the same as they appear in the `setup.cfg` file: first `setup_requires`,\
+      \ then `install_requires`, then `extras_require` entries.\",\n    \"justification\"\
+      : \"The asserted list follows the order of definitions in the written configuration.\"\
+      \n  },\n  {\n    \"fact\": \"The test uses the pytest `tmp_path` fixture to\
+      \ provide an isolated temporary directory for file creation.\",\n    \"justification\"\
+      : \"The function signature `def test_parse_cfg(tmp_path):` indicates reliance\
+      \ on pytest's built\u2011in `tmp_path` fixture.\"\n  }\n]"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765228532-JPost93D30r72Rt2jybj
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T21:15:32Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 249
+    input_audio_tokens: 0
+    input_tokens: 2706
+    output_audio_tokens: 0
+    output_tokens: 1030
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        class_name: Facts
+      input:
+      - fact: The file is a Python test module located at tests/test_parse_cfg.py.
+        justification: The <path> element specifies the path, and the content uses
+          Python import and function definitions typical of a test file.
+      - fact: The module imports the function `parse_cfg` from `pip_outdated.find_require`.
+        justification: The first line of the file is `from pip_outdated.find_require
+          import parse_cfg`.
+      - fact: The module defines a test function named `test_parse_cfg` that accepts
+          a `tmp_path` argument.
+        justification: The source contains `def test_parse_cfg(tmp_path):`, which
+          follows pytest's convention for test functions using the `tmp_path` fixture.
+      - fact: Inside the test, a temporary file `setup.cfg` is created under the directory
+          represented by `tmp_path`.
+        justification: The code creates `file = tmp_path / "setup.cfg"` and writes
+          to it.
+      - fact: 'The temporary `setup.cfg` file contains an `[options]` section with
+          a `setup_requires` entry listing two requirements: `setuptools_scm >= 1.15.0`
+          and `setuptools_scm_git_archive >= 1.0`.'
+        justification: The multiline string written to the file includes those lines
+          under the `setup_requires` key.
+      - fact: 'The `[options]` section also contains an `install_requires` entry listing
+          two requirements: `ansible >= 2.5` and `ansible-lint >= 4.0.2, < 5`.'
+        justification: The same multiline string includes those lines under the `install_requires`
+          key.
+      - fact: 'The file includes an `[options.extras_require]` section with a `docs`
+          extra that lists two packages: `alabaster` and `Sphinx`.'
+        justification: The multiline string contains the `docs =` block with those
+          package names.
+      - fact: The test calls `parse_cfg` with the string path of the temporary `setup.cfg`
+          file and stores the result.
+        justification: '`parse_cfg(str(file))` is invoked and its return value is
+          used.'
+      - fact: The test extracts the `name` attribute from each requirement object
+          returned by `parse_cfg` and stores them in the list `names`.
+        justification: '`names = [r.name for r in parse_cfg(str(file))]` performs
+          this extraction.'
+      - fact: The test asserts that `names` equals the list ["setuptools_scm", "setuptools_scm_git_archive",
+          "ansible", "ansible-lint", "alabaster", "Sphinx"].
+        justification: '`assert names == [...]` contains that exact list of strings.'
+      - fact: 'The expected order of requirement names is the same as they appear
+          in the `setup.cfg` file: first `setup_requires`, then `install_requires`,
+          then `extras_require` entries.'
+        justification: The asserted list follows the order of definitions in the written
+          configuration.
+      - fact: The test uses the pytest `tmp_path` fixture to provide an isolated temporary
+          directory for file creation.
+        justification: "The function signature `def test_parse_cfg(tmp_path):` indicates\
+          \ reliance on pytest's built\u2011in `tmp_path` fixture."
+      loc: []
+      msg: Input should be an object
+      type: model_type
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_f3a9f260bba248cbaa596886e86d6a6b
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

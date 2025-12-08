@@ -1,0 +1,9 @@
+"# Directory\u2011Level Notes for **`pip_outdated/`**\n## 9. Quick Example Output\
+  \  \n\n```\n+----------+-----------+--------+--------+\n| Name     | Installed |\
+  \ Wanted | Latest |\n+----------+-----------+--------+--------+\n| requests | 2.25.1\
+  \    | 2.28.2 | 2.28.2 |\n| numpy    | 1.21.0    | 1.24.0 | 1.24.0 |\n+----------+-----------+--------+--------+\n\
+  \nRed = missing / out\u2011of\u2011specifier\nGreen = upgradable\n```\n\nIf everything\
+  \ is up\u2011to\u2011date:\n\n```\nEverything is up-to-date!   (cyan, bold)\n```\n\
+  \n---  \n\n### End of Directory\u2011Level Notes  \n\nThese notes can be directly\
+  \ used as the backbone for user\u2011facing documentation or as a reference for\
+  \ developers extending the *pip\u2011outdated* project."

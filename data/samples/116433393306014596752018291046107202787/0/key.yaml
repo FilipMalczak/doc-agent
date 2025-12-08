@@ -1,0 +1,6 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n\n### What\
+  \ This Implies for Users\n- When users supply a `setup.cfg`, `parse_cfg` will return\
+  \ an iterable of requirement objects whose `.name` field contains the **plain package\
+  \ name**.\n- Users can rely on the function to ignore version specifiers, making\
+  \ it suitable for:\n  - Generating a clean list of dependencies.\n  - Feeding package\
+  \ names into tools that assess outdated versions (e.g., `pip-outdated`).\n"

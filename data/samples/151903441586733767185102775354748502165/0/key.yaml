@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ It uses `re.match(r\"(.*?)(^|\\s)#\", line)` to remove the comment part\n    and\
+  \ handles `line.endswith(\"\\\\n\")` to concatenate continuations.\n  fact: \"`parse_lines(lines)`\
+  \ removes comments (text after a `#` preceded by whitespace\\\n    \\ or start\\\
+  u2011of\\u2011line) and joins lines that end with a backslash\\u2011\\\n    newline\
+  \ (`\\\\\\\\n`).\"\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
+  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,4 @@
+"### Take\u2011away for Documentation\n- **Feature:** `parse_cfg` reads `setup.cfg`\
+  \ and returns clean package names.\n- **Supported sections:** `setup_requires`,\
+  \ `install_requires`, any extras under `[options.extras_require]`.\n- **Behaviour:**\
+  \ Strips whitespace and version specifiers; preserves the original order."

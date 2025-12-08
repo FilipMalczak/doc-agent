@@ -1,0 +1,3 @@
+The canonicalize_name function from packaging.utils is used to normalize the requirement
+  name before querying local and PyPI information.
+...

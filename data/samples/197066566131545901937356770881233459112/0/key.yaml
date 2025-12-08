@@ -1,0 +1,3 @@
+Within get_session, a dictionary named headers is created containing the key "User-Agent"
+  with the value "pip-outdated".
+...

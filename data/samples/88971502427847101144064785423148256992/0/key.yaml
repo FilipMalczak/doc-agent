@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The return statement is 'return aiohttp.ClientSession(headers=headers,\n    connector=connector)'.\n\
+  \  fact: The get_session function returns a new aiohttp.ClientSession that uses\
+  \ the\n    previously defined headers and connector.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

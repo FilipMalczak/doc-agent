@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The source code starts with `if __name__ == \"__main__\":`, which is\n    a standard\
+  \ Python pattern to execute code only when the module is run as a script.\n  fact:\
+  \ The file pip_outdated/__main__.py contains an `if __name__ == \"__main__\":`\n\
+  \    guard.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

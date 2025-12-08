@@ -1,0 +1,3 @@
+Within get_session, a TCPConnector object from aiohttp is instantiated with a connection
+  limit of 5 and assigned to the variable connector.
+...

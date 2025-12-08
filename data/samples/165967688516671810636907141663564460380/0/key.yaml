@@ -1,0 +1,6 @@
+"## Project Overview  \n## Key Features  \n## Installation  \n## Command\u2011Line\
+  \ Interface  \n## Planned Enhancements (TODO)  \n\n- Add commands/options to **auto\u2011\
+  update packages**.  \n- Add commands/options to **modify the source `requirements.txt`\
+  \ / `setup.cfg`** with updated version specifiers.  \n- Add a **global list** mode\
+  \ (e.g., `-g` / `--global`) to list **all installed packages**, not only those declared\
+  \ in the files.\n"

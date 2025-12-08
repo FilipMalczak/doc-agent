@@ -1,0 +1,7 @@
+"# Example: find all requirements from given glob patterns\n## Edge Cases & Limitations\
+  \  \n\n- **Unsupported File Types:** Only `.cfg` files receive special handling;\
+  \ all other file extensions are treated as plain requirement files.  \n- **Invalid\
+  \ Lines:** Lines that cannot be parsed into a `Requirement` (e.g., malformed syntax)\
+  \ are silently ignored (`None` is returned and filtered out).  \n- **Comment Detection:**\
+  \ The simple regex may not correctly handle `#` characters inside quoted strings.\
+  \  \n"

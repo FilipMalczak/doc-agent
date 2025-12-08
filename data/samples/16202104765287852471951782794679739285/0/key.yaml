@@ -1,0 +1,4 @@
+The module imports sys, Awaitable, List, Optional from typing, the colorama package,
+  the colored function from termcolor, AsciiTable (aliased as Table) from terminaltables,
+  and OutdateResult from the sibling module .check_outdated.
+...

@@ -1,0 +1,7 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n\n### Test\
+  \ Flow\n1. **Create a temporary `setup.cfg`** file with typical\n   - `setup_requires`\n\
+  \   - `install_requires`\n   - `extras_require` (the *docs* extra)\n2. **Call**\
+  \ `parse_cfg(str(file))`.\n3. **Collect** the `.name` attribute from each returned\
+  \ requirement object.\n4. **Assert** the resulting list matches the expected order:\n\
+  \n```text\n[\n    \"setuptools_scm\",\n    \"setuptools_scm_git_archive\",\n   \
+  \ \"ansible\",\n    \"ansible-lint\",\n    \"alabaster\",\n    \"Sphinx\"\n]\n```\n"

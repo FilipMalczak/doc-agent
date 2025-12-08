@@ -1,0 +1,11 @@
+"## Project Component: `pip_outdated/print_outdated.py`\n### Overview\n### Key Functions\n\
+  ### User\u2011Facing Output Details\n- **Colors** (via `termcolor`):\n  - **Red**\
+  \ (bold) \u2013 signals missing packages, unavailable PyPI data, or version mismatches.\n\
+  \  - **Green** (bold) \u2013 indicates that a newer version (wanted or latest) can\
+  \ be installed.\n  - **Cyan** (bold) \u2013 used for the \u201CEverything is up\u2011\
+  to\u2011date!\u201D success message.\n- **Table Format**:\n  - ASCII table (compatible\
+  \ with most terminals).\n  - Column order: **Name \u2192 Installed \u2192 Wanted\
+  \ \u2192 Latest**.\n- **Exit Behavior**:\n  - When outdated packages are found **and**\
+  \ `quiet` is `False`, the script exits with status code **1**.\n  - If `quiet` is\
+  \ `True`, the script finishes without exiting, allowing callers to handle the result\
+  \ programmatically.\n"

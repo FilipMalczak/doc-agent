@@ -1,0 +1,4 @@
+"## Project Overview  \n## Key Features  \n## Installation  \n## Command\u2011Line\
+  \ Interface  \n### Positional Arguments  \n\n- `<file>` \u2013 One or more requirement\
+  \ files to read.  \n  - Accepts **glob patterns** (e.g., `*-requirements.txt`).\
+  \  \n  - Default values: `[\"requirements.txt\", \"setup.cfg\"]`.\n"

@@ -1,0 +1,6 @@
+"## Project Overview\n## Metadata (for documentation)\n## Classifiers (useful for\
+  \ PyPI listing)\n## Packaging Details\n## Dependencies (runtime)\n- `aiohttp~=3.12`\
+  \ \u2013 asynchronous HTTP client  \n- `colorama~=0.4.6` \u2013 cross\u2011platform\
+  \ colored terminal text  \n- `packaging~=25.0` \u2013 utilities for version handling\
+  \  \n- `termcolor~=3.1` \u2013 simple ANSI color formatting  \n- `terminaltables~=3.1`\
+  \ \u2013 ASCII table rendering  \n"

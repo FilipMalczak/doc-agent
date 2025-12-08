@@ -1,0 +1,94 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to extract atomic facts from this source file. Provide list of
+    facts with explanation why each is a fact. Output as JSON? The schema: final_result
+    expects {facts: any[]}. Each fact likely an object with "statement" and "reason".
+    Must follow formatting rules: double quotes, YAML style list? The output format
+    unspecified, but must match output schema if available. There''s a final_result
+    function expecting facts array. So produce JSON with facts array.
+
+
+    Each fact should be self-contained: e.g., "The file defines a dataclass OutdateResult
+    with fields requirement, version, all_versions, wanted, latest." Reason: because
+    code shows @dataclass class OutdateResult ... So provide that.
+
+
+    Also functions: get_local_version returns Optional[Version] by running "pip show"
+    and parsing Version line.
+
+
+    Check other facts: The module imports asyncio, dataclass, typing List Optional,
+    packaging modules, and .verbose.verbose.
+
+
+    The OutdateResult __post_init__ sets wanted to the highest version in all_versions
+    that satisfies requirement.specifier, or leaves None if none; latest set to last
+    element of all_versions.
+
+
+    Properties: name returns requirement.name.
+
+
+    Methods: install_not_found returns True if version is None.
+
+
+    install_not_wanted returns False if version None else True if version not in requirement.specifier.
+
+
+    pypi_not_found returns True if latest is None.
+
+
+    outdated returns True if version != wanted or version != latest.
+
+
+    Async function get_local_version runs "pip show {name}" via a subprocess, returns
+    parsed version string after "Version: " line, else None.
+
+
+    Async function get_pypi_versions fetches JSON from PyPI endpoint, extracts release
+    keys, parses as versions, ignores invalid and prerelease, sorts, returns list.
+
+
+    Async function check_outdated prints checking message when verbose() true, canonicalizes
+    name, gets local version, pypi versions, returns OutdateResult.
+
+
+    Also note that import .verbose.verbose as function that returns bool.
+
+
+    We need to present each as atomic fact, short, self-contained, and explain why
+    it''s a fact.
+
+
+    Thus produce list of objects with "fact" and "explanation". Provide as JSON. Ensure
+    double quotes.
+
+
+    Let''s craft maybe 12-15 facts.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765228521-dZE3Cd4Bt1lUG2mPYNzi
+run_id: 55f96cfc-3efc-4a98-aa0e-608c8bf27bad
+timestamp: '2025-12-08T21:15:21Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 573
+  input_audio_tokens: 0
+  input_tokens: 1155
+  output_audio_tokens: 0
+  output_tokens: 1470

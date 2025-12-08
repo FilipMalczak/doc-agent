@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The final line of _main is `await print_outdated(outdated_results,\n    args.quiet)`.\n\
+  \  fact: The outdated results are printed by awaiting print_outdated(outdated_results,\n\
+  \    args.quiet).\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

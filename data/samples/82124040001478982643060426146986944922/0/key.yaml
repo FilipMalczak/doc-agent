@@ -1,0 +1,5 @@
+"## 5. Verbosity & Quiet Modes  \n\n- **Verbose (`-v / --verbose`)** \u2013 Enables\
+  \ extra diagnostic prints (e.g., file parsing traces, per\u2011package status).\
+  \ Implemented via the global flag in `verbose.py`.  \n- **Quiet (`-q / --quiet`)**\
+  \ \u2013 Suppresses the non\u2011zero exit code when outdated packages are detected,\
+  \ allowing callers (scripts, CI) to handle results themselves.\n\n---  \n"

@@ -1,0 +1,7 @@
+"## 1. Overview  \n\n- **Package name:** `\"pip-outdated\"`  \n- **Current version:**\
+  \ `\"0.8.0\"` (as of August\u202F9\u202F2025)  \n- **Primary purpose:** Scan a project\u2019\
+  s dependency specifications (`requirements.txt`, `setup.cfg`, or any glob\u2011\
+  matched files) and report which packages have newer releases available on PyPI.\
+  \  \n- **Target audience:** Developers who want a quick, colour\u2011coded audit\
+  \ of their project\u2019s dependencies without manually parsing `pip list --outdated`.\
+  \  \n\n---  \n"

@@ -1,0 +1,24 @@
+"## Project Overview  \n\n- **Name:** `pip-outdated`  \n- **Purpose:** Detect outdated,\
+  \ missing, or incompatible dependencies declared in `requirements.txt` or `setup.cfg`\
+  \ files and present the results in a colored table.  \n- **Typical Use\u2011Case:**\
+  \  \n  - Quickly audit a project's dependency list.  \n  - Spot packages that need\
+  \ updating without manually parsing `pip list --outdated`.  \n\n## Key Features\
+  \  \n\n- Parses version specifiers from both **requirements files** (`requirements.txt`)\
+  \ and **setup configuration** (`setup.cfg`).  \n- Shows a **colored table** indicating\
+  \ the status of each dependency (up\u2011to\u2011date, outdated, missing, incompatible).\
+  \  \n- Supports **glob patterns** to check multiple files at once.  \n- Provides\
+  \ **quiet mode** (`-q/--quiet`) to suppress a non\u2011zero exit code when some\
+  \ packages are outdated.  \n- Verbose output (`-v/--verbose`) for detailed processing\
+  \ information.  \n\n## Installation  \n\n```bash\npip install pip-outdated\n```\
+  \  \n\n> The package is available on PyPI: <https://pypi.org/project/pip-outdated/>\n\
+  \n## Command\u2011Line Interface  \n\n```\nusage: pip-outdated [-h] [-v] [-q] [<file>\
+  \ [<file> ...]]\n\nFind outdated dependencies in your requirements.txt or setup.cfg\
+  \ file.\n```\n\n### Positional Arguments  \n\n- `<file>` \u2013 One or more requirement\
+  \ files to read.  \n  - Accepts **glob patterns** (e.g., `*-requirements.txt`).\
+  \  \n  - Default values: `[\"requirements.txt\", \"setup.cfg\"]`.\n\n### Optional\
+  \ Flags  \n\n- `-h, --help` \u2013 Show help message and exit.  \n- `-v, --verbose`\
+  \ \u2013 Print verbose information (default: `False`).  \n- `-q, --quiet` \u2013\
+  \ Do **not** return exit code\u202F1 when any dependency is outdated (default: `False`).\n\
+  \n### Example Commands  \n\n- **Check multiple requirement files:**  \n\n  ```bash\n\
+  \  pip-outdated *-requirements.txt\n  ```\n\n- **Check all files inside a `requirements`\
+  \ folder:**  \n\n  ```bash\n  pip-outdated requirements/*.txt\n  ```\n"

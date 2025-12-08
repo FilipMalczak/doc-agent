@@ -1,0 +1,3 @@
+"### Purpose\n- **Validate** the `parse_cfg` function (from `pip_outdated.find_require`)\
+  \ that parses\u202F`setup.cfg` files.\n- **Ensure** it extracts **only package names**,\
+  \ stripping any version specifiers or extra whitespace.\n"

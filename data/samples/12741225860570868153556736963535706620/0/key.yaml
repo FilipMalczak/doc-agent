@@ -1,0 +1,12 @@
+"## Project Overview  \n## Core Functionality  \n## Important Implementation Details\
+  \  \n\n- **Comment Handling:**  \n  ```python\n  match = re.match(r\"(.*?)(^|\\\
+  s)#\", line)\n  ```  \n  The regex captures text before the first `#` that is either\
+  \ at the start of the line or preceded by whitespace, effectively removing comments.\
+  \  \n\n- **Line Continuation:**  \n  Lines ending with `\\\\\\n` are concatenated\
+  \ with the next line (`pre_line += line[0:-2]`).  \n\n- **Option Stripping:**  \n\
+  \  ```python\n  match = re.match(r\"(.*?)\\s--?[a-z]\", text)\n  ```  \n  Removes\
+  \ any command\u2011line style options (e.g., `package>=1.0 --hash=...`).  \n\n-\
+  \ **Verbose Mode:**  \n  When `verbose()` returns `True`, each file being parsed\
+  \ is printed (`Parse: {file}`).  \n\n- **Dependency on External Library:**  \n \
+  \ - `packaging.requirements.Requirement` and `InvalidRequirement` from the **`packaging`**\
+  \ library are used for parsing and validation.  \n"

@@ -1,0 +1,2 @@
+'`parse_requirements_text(text)` applies the same parsing logic as `parse_requirements`
+  but works on a raw string instead of a file object.'

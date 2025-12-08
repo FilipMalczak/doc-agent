@@ -1,0 +1,8 @@
+"## How the CLI Works  \n### Argument parsing (`parse_args`)  \n\n| Option | Flags\
+  \ | Type | Default | Effect |\n|--------|-------|------|---------|--------|\n| **Verbose**\
+  \ | `-v`, `--verbose` | `store_true` | `False` | Enables detailed internal logging\
+  \ (via `verbose.set_verbose`). |\n| **Quiet** | `-q`, `--quiet` | `store_true` |\
+  \ `False` | Suppresses the non\u2011zero exit code when some dependencies are outdated.\
+  \ |\n| **File list** | positional `<file>` | `nargs=\"*\"` | `[\"requirements.txt\"\
+  , \"setup.cfg\"]` | Accepts one or more file paths or glob patterns to locate dependency\
+  \ specifications. If omitted, the tool searches the two default files. |\n"

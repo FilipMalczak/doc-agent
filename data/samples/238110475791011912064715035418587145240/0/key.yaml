@@ -1,0 +1,3 @@
+"### Example Commands  \n\n- **Check multiple requirement files:**  \n\n  ```bash\n\
+  \  pip-outdated *-requirements.txt\n  ```\n\n- **Check all files inside a `requirements`\
+  \ folder:**  \n\n  ```bash\n  pip-outdated requirements/*.txt\n  ```\n"

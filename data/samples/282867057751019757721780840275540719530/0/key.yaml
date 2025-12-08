@@ -1,0 +1,5 @@
+"## \U0001F4C4 Project Test Overview \u2013 `tests/test_parse_cfg.py`\n\n### Take\u2011\
+  away for Documentation\n- **Feature:** `parse_cfg` reads `setup.cfg` and returns\
+  \ clean package names.\n- **Supported sections:** `setup_requires`, `install_requires`,\
+  \ any extras under `[options.extras_require]`.\n- **Behaviour:** Strips whitespace\
+  \ and version specifiers; preserves the original order."

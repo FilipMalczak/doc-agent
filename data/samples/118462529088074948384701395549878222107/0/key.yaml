@@ -1,0 +1,3 @@
+The verbose() function is imported from .verbose and is used to conditionally print
+  diagnostic output in check_outdated.
+...

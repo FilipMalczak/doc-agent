@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The README notes that the standard pip command can be used for that\n    purpose.\n\
+  \  fact: If a user only wants to list all updatable packages, they can use the command\n\
+  \    \"pip list --outdated\".\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

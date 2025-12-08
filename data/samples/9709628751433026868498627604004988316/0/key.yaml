@@ -1,0 +1,9 @@
+'### Overview
+
+  - The **`tests`** directory is a **Python package** (contains an empty `__init__.py`)
+  that groups all test modules for the project.
+
+  - It provides the foundation for running the suite with tools such as **`pytest`**
+  or **`unittest`** via commands like `python -m pytest`.
+
+  '

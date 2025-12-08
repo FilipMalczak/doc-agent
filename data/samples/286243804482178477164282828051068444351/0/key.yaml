@@ -1,0 +1,21 @@
+"# Project\u2011Level Notes for **`pip\u2011outdated`**\n\nThese notes aggregate the\
+  \ file\u2011level documentation (README, `setup.cfg`, `setup.py`, package source,\
+  \ and test suite) into a cohesive outline that can be used as the backbone for user\u2011\
+  facing documentation, onboarding material, or a developer guide.\n\n---  \n\n##\
+  \ 9. Packaging Details (`setup.cfg`)  \n\n- **Metadata:**  \n\n  ```toml\n  [metadata]\n\
+  \  name = \"pip-outdated\"\n  version = \"0.8.0\"\n  description = \"Find outdated\
+  \ dependencies in your requirements.txt or setup.cfg\"\n  author = \"eight\"\n \
+  \ author_email = \"eight04@gmail.com\"\n  license = \"MIT\"\n  url = \"https://github.com/eight04/pip-outdated\"\
+  \n  keywords = \"pip, check, outdate, npm\"\n  classifiers =\n      Development\
+  \ Status :: 4 - Beta\n      Environment :: Console\n      Intended Audience :: Developers\n\
+  \      Programming Language :: Python :: 3.7\n      Topic :: Software Development\
+  \ :: Build Tools\n  ```\n\n- **Packaging type:** Pure\u2011Python (`zip_safe = True`).\
+  \  \n- **Package discovery:** Automatic (`find:`) with exclusion of `tests`.  \n\
+  - **Runtime dependencies:**  \n\n  - `aiohttp~=3.12` \u2013 asynchronous HTTP client.\
+  \  \n  - `colorama~=0.4.6` \u2013 cross\u2011platform colour handling.  \n  - `packaging~=25.0`\
+  \ \u2013 version parsing utilities.  \n  - `termcolor~=3.1` \u2013 simple ANSI colour\
+  \ formatting.  \n  - `terminaltables~=3.1` \u2013 ASCII table rendering.  \n\n-\
+  \ **Console entry point:**  \n\n  ```ini\n  [options.entry_points]\n  console_scripts\
+  \ =\n      pip-outdated = pip_outdated:main\n  ```\n\n- **Additional custom section\
+  \ (`[vpip]`):**  \n\n  - `command_fallback = \"python cute.py\"` \u2013 used only\
+  \ when the project is consumed via the `vpip` tool.  \n\n---  \n"

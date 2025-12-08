@@ -1,0 +1,16 @@
+"## Core Data Structure  \n\n### `OutdateResult` *(dataclass)*  \n| Field | Type |\
+  \ Description |\n|-------|------|-------------|\n| `requirement` | `Requirement`\
+  \ | Parsed requirement (e.g., `\"requests>=2.0\"`). |\n| `version` | `Optional[Version]`\
+  \ | Currently installed version (``None`` if not installed). |\n| `all_versions`\
+  \ | `List[Version]` | All release versions retrieved from PyPI (sorted, non\u2011\
+  prerelease). |\n| `wanted` | `Optional[Version]` | Highest version that satisfies\
+  \ the requirement\u2019s specifier; computed in `__post_init__`. |\n| `latest` |\
+  \ `Optional[Version]` | The newest stable version on PyPI (last element of `all_versions`).\
+  \ |\n\n**Computed properties / helper methods**  \n- `name` \u2013 returns the package\
+  \ name (`requirement.name`).  \n- `install_not_found()` \u2013 ``True`` when the\
+  \ package is not installed locally.  \n- `install_not_wanted()` \u2013 ``True``\
+  \ when an installed version exists but does **not** satisfy the requirement specifier.\
+  \  \n- `pypi_not_found()` \u2013 ``True`` when the package has no releases on PyPI\
+  \ (i.e., `latest` is ``None``).  \n- `outdated()` \u2013 ``True`` when the installed\
+  \ version differs from either the *wanted* version **or** the *latest* version.\n\
+  \n---\n"

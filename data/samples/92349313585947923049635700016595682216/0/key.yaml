@@ -1,0 +1,4 @@
+"## Project Overview  \n* **File:** `pip_outdated/find_require.py`  \n* **Language:**\
+  \ Python  \n* **Purpose:** Extract requirement specifications from various input\
+  \ sources (plain requirement files, `setup.cfg` files, and raw requirement text)\
+  \ while handling comments, line continuations, and option flags.  \n"

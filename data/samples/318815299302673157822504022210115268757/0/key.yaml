@@ -1,0 +1,121 @@
+"# Project\u2011Level Notes for **`pip\u2011outdated`**\n\nThese notes aggregate the\
+  \ file\u2011level documentation (README, `setup.cfg`, `setup.py`, package source,\
+  \ and test suite) into a cohesive outline that can be used as the backbone for user\u2011\
+  facing documentation, onboarding material, or a developer guide.\n\n---  \n\n##\
+  \ 1. Overview  \n\n- **Package name:** `\"pip-outdated\"`  \n- **Current version:**\
+  \ `\"0.8.0\"` (as of August\u202F9\u202F2025)  \n- **Primary purpose:** Scan a project\u2019\
+  s dependency specifications (`requirements.txt`, `setup.cfg`, or any glob\u2011\
+  matched files) and report which packages have newer releases available on PyPI.\
+  \  \n- **Target audience:** Developers who want a quick, colour\u2011coded audit\
+  \ of their project\u2019s dependencies without manually parsing `pip list --outdated`.\
+  \  \n\n---  \n\n## 2. Installation  \n\n```bash\npip install pip-outdated\n``` \
+  \ \n\n- The package is published on PyPI (`https://pypi.org/project/pip-outdated`).\
+  \  \n- Supported Python versions: **3.7**\u202Fand newer (minimum raised in version\u202F\
+  0.4.0).  \n\n---  \n\n## 3. Command\u2011Line Interface  \n\n```\nusage: pip-outdated\
+  \ [-h] [-v] [-q] [<file> [<file> ...]]\n```\n\n| Flag / Argument | Description |\
+  \ Default |\n|-----------------|-------------|---------|\n| `<file>` (positional)\
+  \ | One or more requirement files (supports glob patterns). Default files: `[\"\
+  requirements.txt\", \"setup.cfg\"]`. | \u2014 |\n| `-h, --help` | Show help message\
+  \ and exit. | \u2014 |\n| `-v, --verbose` | Enable diagnostic prints (file parsing,\
+  \ per\u2011package status). | `False` |\n| `-q, --quiet` | Suppress the non\u2011\
+  zero exit code when outdated packages are found. | `False` |\n\n## 4. Core Features\
+  \  \n\n- Parses **requirements files** (`requirements.txt`) and **setup configuration**\
+  \ (`setup.cfg`).  \n- Handles **glob patterns** to process multiple files in a single\
+  \ run.  \n- Performs **asynchronous** PyPI version look\u2011ups using `aiohttp`\
+  \ (concurrency limit\u202F5).  \n- Presents results in a **colored ASCII table**\
+  \ (green\u202F=\u202Fup\u2011to\u2011date, red\u202F=\u202Fout\u2011of\u2011specifier,\
+  \ yellow\u202F=\u202Fmissing).  \n- Provides **quiet mode** (`-q`) to avoid exiting\
+  \ with status\u202F1 on outdated packages.  \n- Verbose mode (`-v`) prints extra\
+  \ diagnostics.  \n\n---  \n\n## 5. Architecture & Workflow  \n\n1. **Argument Parsing**\
+  \ \u2013 `parse_args` builds the CLI surface.  \n2. **Requirement Discovery** \u2013\
+  \ `find_require.find_require()` resolves file/glob patterns, parses `requirements.txt`\u2011\
+  style lines and `setup.cfg` sections, yielding `packaging.requirements.Requirement`\
+  \ objects.  \n3. **Session Creation** \u2013 `session.get_session()` returns a pre\u2011\
+  configured `aiohttp.ClientSession` (User\u2011Agent `\"pip-outdated\"`, connection\
+  \ limit\u202F5).  \n4. **Concurrent Version Checks** \u2013 For each requirement,\
+  \ `check_outdated.check_outdated()` is scheduled as an `asyncio` task. It:  \n \
+  \  - Retrieves the locally installed version (via `pip show` subprocess).  \n  \
+  \ - Retrieves all stable PyPI releases (`get_pypi_versions`).  \n   - Builds an\
+  \ `OutdateResult` dataclass containing installed, wanted, and latest versions plus\
+  \ helper predicates.  \n5. **Result Rendering** \u2013 `print_outdated.print_outdated()`\
+  \ assembles the `OutdateResult`s into a coloured table, prints a legend, and (unless\
+  \ `--quiet`) exits with status\u202F1 if any package is outdated.  \n\n---  \n\n\
+  ## 6. Key Modules  \n\n| Module | Responsibility | Public API |\n|--------|----------------|------------|\n\
+  | `__init__.py` | Package metadata (name, version, etc.) | \u2013 |\n| `__main__.py`\
+  \ | Entry point for `python -m pip_outdated` | Calls `main()` |\n| `main.py` | Orchestrates\
+  \ parsing, discovery, async checks, and output | `main()` |\n| `find_require.py`\
+  \ | Parse requirement sources (plain files, `setup.cfg`, raw text) | `find_require(files:\
+  \ List[str]) \u2192 Iterator[Requirement]` |\n| `check_outdated.py` | Async logic\
+  \ to compare local vs. PyPI versions | `check_outdated(require: Requirement, session)\
+  \ \u2192 OutdateResult` |\n| `print_outdated.py` | Render coloured table, manage\
+  \ exit status | `print_outdated(outdates, quiet: bool)` |\n| `session.py` | Provide\
+  \ reusable aiohttp session with sensible defaults | `get_session() \u2192 aiohttp.ClientSession`\
+  \ |\n| `verbose.py` | Global verbose flag handling | `set_verbose(bool)`, `verbose()\
+  \ \u2192 bool` |\n\n---  \n\n## 7. Important Data Structures  \n\n## 8. Testing\
+  \  \n\n- **Test package:** `tests/` (Python package with empty `__init__.py`). \
+  \ \n- **Key test modules:**  \n\n  - `tests/test_parse_cfg.py` \u2013 Verifies `parse_cfg`\
+  \ correctly extracts plain package names from `setup.cfg`, preserving order and\
+  \ ignoring version constraints.  \n  - `tests/test_pytz.py` \u2013 Smoke\u2011tests\
+  \ the async PyPI query pipeline (`get_pypi_versions`) using the real package `pytz`.\
+  \  \n\n- **Running the suite:**  \n\n  ```bash\n  python -m pytest\n  ```  \n\n\
+  - **Observations:**  \n  - Tests rely on the asynchronous utilities (`session`,\
+  \ `check_outdated`).  \n  - Current assertions focus on successful execution; future\
+  \ work should add deeper validation of returned data.  \n\n---  \n\n## 9. Packaging\
+  \ Details (`setup.cfg`)  \n\n- **Metadata:**  \n\n  ```toml\n  [metadata]\n  name\
+  \ = \"pip-outdated\"\n  version = \"0.8.0\"\n  description = \"Find outdated dependencies\
+  \ in your requirements.txt or setup.cfg\"\n  author = \"eight\"\n  author_email\
+  \ = \"eight04@gmail.com\"\n  license = \"MIT\"\n  url = \"https://github.com/eight04/pip-outdated\"\
+  \n  keywords = \"pip, check, outdate, npm\"\n  classifiers =\n      Development\
+  \ Status :: 4 - Beta\n      Environment :: Console\n      Intended Audience :: Developers\n\
+  \      Programming Language :: Python :: 3.7\n      Topic :: Software Development\
+  \ :: Build Tools\n  ```\n\n- **Packaging type:** Pure\u2011Python (`zip_safe = True`).\
+  \  \n- **Package discovery:** Automatic (`find:`) with exclusion of `tests`.  \n\
+  - **Runtime dependencies:**  \n\n  - `aiohttp~=3.12` \u2013 asynchronous HTTP client.\
+  \  \n  - `colorama~=0.4.6` \u2013 cross\u2011platform colour handling.  \n  - `packaging~=25.0`\
+  \ \u2013 version parsing utilities.  \n  - `termcolor~=3.1` \u2013 simple ANSI colour\
+  \ formatting.  \n  - `terminaltables~=3.1` \u2013 ASCII table rendering.  \n\n-\
+  \ **Console entry point:**  \n\n  ```ini\n  [options.entry_points]\n  console_scripts\
+  \ =\n      pip-outdated = pip_outdated:main\n  ```\n\n- **Additional custom section\
+  \ (`[vpip]`):**  \n\n  - `command_fallback = \"python cute.py\"` \u2013 used only\
+  \ when the project is consumed via the `vpip` tool.  \n\n---  \n\n## 10. `setup.py`\
+  \ Status  \n\n- Currently a minimal stub:\n\n  ```python\n  #! python3\n  from setuptools\
+  \ import setup\n  setup()\n  ```\n\n- **Implication:** Running `python setup.py`\
+  \ does **not** produce a distributable package because no metadata is supplied.\
+  \  \n- **Recommendation:** Populate `setup()` with the fields defined in `setup.cfg`\
+  \ (or replace the stub entirely with a declarative configuration). Modern projects\
+  \ should rely on `setup.cfg` or `pyproject.toml`; `setup.py` can remain as a thin\
+  \ wrapper if dynamic logic is required.  \n\n---  \n\n## 11. Extensibility & Future\
+  \ Enhancements  \n\n| Area | Current Implementation | Potential Improvements |\n\
+  |------|------------------------|------------------------|\n| **Requirement Sources**\
+  \ | `requirements.txt` and `setup.cfg`. | Add support for `pyproject.toml`, `Pipfile`,\
+  \ or custom formats. |\n| **Version Filtering** | Excludes pre\u2011releases. |\
+  \ Flags to include pre\u2011releases, ignore yanked releases. |\n| **Local Version\
+  \ Retrieval** | Uses `pip show` via subprocess. | Switch to `importlib.metadata.version`\
+  \ for a pure\u2011Python approach. |\n| **Output Formats** | ASCII table (`terminaltables`).\
+  \ | Provide JSON, CSV, or Markdown table exporters. |\n| **Session Configuration**\
+  \ | Fixed User\u2011Agent and connection limit. | Expose headers, proxy settings,\
+  \ or a configurable concurrency limit. |\n| **Logging** | Simple `print` statements\
+  \ when verbose. | Integrate Python `logging` with configurable levels. |\n| **Auto\u2011\
+  Update Feature (TODO)** | Planned command/options to auto\u2011update packages.\
+  \ | Implement safe in\u2011place version bumping of source files. |\n| **Global\
+  \ List Mode (TODO)** | Planned `-g/--global` to list all installed packages. | Provide\
+  \ a view of the entire environment, not just declared deps. |\n\n---  \n\n## 12.\
+  \ Suggested Documentation Structure  \n\n1. **Introduction** \u2013 Problem statement\
+  \ and solution overview.  \n2. **Installation** \u2013 `pip install pip-outdated`;\
+  \ supported Python versions.  \n3. **Quick Start** \u2013 Running the tool with\
+  \ default files.  \n4. **Command\u2011Line Reference** \u2013 Detailed flag table\
+  \ with examples (including glob usage).  \n5. **Workflow Diagram** \u2013 Visual\
+  \ flow from argument parsing to result rendering.  \n6. **Result Interpretation**\
+  \ \u2013 Explanation of table columns, colour meanings, \u201CWanted\u201D vs. \u201C\
+  Latest\u201D.  \n7. **Concurrency Model** \u2013 Rationale for `asyncio` + `aiohttp`,\
+  \ connection limits, event\u2011loop handling.  \n8. **Extensibility Guide** \u2013\
+  \ How to add new requirement sources, output formats, or customize the HTTP session.\
+  \  \n9. **Testing** \u2013 Running the test suite, overview of covered features,\
+  \ guidelines for extending tests.  \n10. **Packaging & Distribution** \u2013 Summary\
+  \ of `setup.cfg` metadata, entry point, and notes on the stub `setup.py`.  \n11.\
+  \ **Troubleshooting** \u2013 Common errors (network failures, malformed requirement\
+  \ lines, missing packages).  \n12. **Developer Guide** \u2013 Module overview, data\
+  \ structures, contribution workflow, versioning policy.  \n\n---  \n\n### End of\
+  \ Project\u2011Level Notes  \n\nThese notes provide a comprehensive, structured\
+  \ foundation for creating polished user documentation, onboarding guides, or internal\
+  \ developer references for the **`pip-outdated`** project."

@@ -1,0 +1,32 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The schema expects each fact object to have fields: likely "statement"
+    and "explanation" not "justification". We need to rename "justification" to "explanation".
+    Let''s output same list with key "explanation". Use final_result.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765227373-yE2ZwqA864wJenGgEdFR
+run_id: b34dd1fb-c245-46dd-92af-b72c8da596ca
+timestamp: '2025-12-08T20:56:13Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 59
+  input_audio_tokens: 0
+  input_tokens: 2284
+  output_audio_tokens: 0
+  output_tokens: 548

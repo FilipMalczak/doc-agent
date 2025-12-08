@@ -1,0 +1,6 @@
+"## Project Component: `pip_outdated/verbose.py`\n### Documentation Tips for Users\n\
+  - Explain that the verbose flag is *global*\u2014changing it affects the entire\
+  \ `pip_outdated` execution context.\n- Emphasize that the default state is `None`;\
+  \ if the flag is never set, functions checking `verbose()` may need to handle a\
+  \ `None` result.\n- Provide examples of toggling verbosity before running primary\
+  \ commands (e.g., `pip_outdated check --verbose`)."

@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'connector = aiohttp.TCPConnector(limit=5)' creates this configured\n\
+  \    connector.\n  fact: Within get_session, a TCPConnector object from aiohttp\
+  \ is instantiated with\n    a connection limit of 5 and assigned to the variable\
+  \ connector.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

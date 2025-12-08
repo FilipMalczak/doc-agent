@@ -1,0 +1,3 @@
+The test calls `parse_cfg` with the string path of the temporary `setup.cfg` file
+  and stores the result.
+...

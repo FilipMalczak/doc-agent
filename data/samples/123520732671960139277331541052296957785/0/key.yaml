@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The [vpip] section contains the key \"command_fallback\" with that value.\n  fact:\
+  \ The custom section [vpip] defines a command fallback command \"python cute.py\"\
+  .\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

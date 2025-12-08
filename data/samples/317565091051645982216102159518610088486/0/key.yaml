@@ -1,0 +1,2 @@
+"The option\u2011stripping regular expression used in `parse_require` is `r\"(.*?)\\\
+  s--?[a-z]`."

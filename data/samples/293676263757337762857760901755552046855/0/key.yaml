@@ -1,0 +1,5 @@
+"## \U0001F4C2 Directory\u2011Level Notes \u2013 `tests/`\n\n### Overview\n- The **`tests`**\
+  \ directory is a **Python package** (contains an empty `__init__.py`) that groups\
+  \ all test modules for the project.\n- It provides the foundation for running the\
+  \ suite with tools such as **`pytest`** or **`unittest`** via commands like `python\
+  \ -m pytest`.\n"

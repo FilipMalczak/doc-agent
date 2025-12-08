@@ -1,0 +1,3 @@
+print_outdated creates an AsciiTable from terminaltables using the accumulated data
+  and prints the table's string representation.
+...

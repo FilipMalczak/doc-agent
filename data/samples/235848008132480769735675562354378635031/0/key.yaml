@@ -1,0 +1,9 @@
+"## Design Decisions & Rationale  \n\n- **Asynchronous implementation** \u2013 avoids\
+  \ blocking on network I/O and subprocess calls, essential when checking many dependencies.\
+  \  \n- **Separation of concerns** \u2013 fetching local version, fetching remote\
+  \ versions, and result aggregation are distinct functions, making them individually\
+  \ testable.  \n- **Use of `packaging` library** \u2013 guarantees correct parsing\
+  \ of versions, specifiers, and canonical name handling per PEP\u202F508 and PEP\u202F\
+  440.  \n- **Filtering of pre\u2011release versions** \u2013 ensures that the \u201C\
+  latest\u201D version presented is a stable release, matching typical user expectations.\
+  \  \n\n---\n"

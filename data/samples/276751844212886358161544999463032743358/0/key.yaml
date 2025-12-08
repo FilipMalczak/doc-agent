@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The connector is configured with 'limit=5', which aiohttp uses to cap\n    simultaneous\
+  \ connections.\n  fact: The TCPConnector used by the session limits concurrent outgoing\
+  \ connections\n    to a maximum of five.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

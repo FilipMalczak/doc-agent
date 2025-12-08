@@ -1,0 +1,3 @@
+The parser adds a -q/--quiet flag that stores True when present and has the help text
+  "Don't return exit code 1 if not everything is up to date.".
+...

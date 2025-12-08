@@ -1,0 +1,7 @@
+"## Dependencies  \n\n- **Standard library**: `asyncio`, `dataclasses`, `typing`.\
+  \  \n- **Third\u2011party**: `packaging` (for version handling), an HTTP client\
+  \ library that provides an asynchronous ``session`` (commonly `aiohttp`).  \n- **Internal**:\
+  \ `.verbose.verbose` \u2013 a helper to check if verbose mode is enabled.  \n\n\
+  ---  \n\n*These notes provide the essential information a user would need to understand,\
+  \ invoke, and possibly extend the `check_outdated` module when preparing documentation\
+  \ or building tooling around it.*"

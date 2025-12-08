@@ -1,0 +1,4 @@
+"## Project Overview  \n- **Package name:** `pip-outdated`  \n- **Current version:**\
+  \ `\"0.8.0\"`  \n- **Primary goal:** Scan a Python project's dependency files (`requirements.txt`,\
+  \ `setup.cfg`, or any glob\u2011matched file) and report which packages have newer\
+  \ releases available.  \n"

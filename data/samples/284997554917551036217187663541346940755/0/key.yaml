@@ -1,0 +1,10 @@
+"## Project Overview  \n## How the CLI Works  \n### Argument parsing (`parse_args`)\
+  \  \n### Execution flow (`_main`)  \n\n1. **Parse CLI arguments.**  \n2. **Configure\
+  \ verbosity** (`verbose.set_verbose`).  \n3. **Discover requirements** using `find_require`,\
+  \ which reads the supplied files/globs and returns an iterable of requirement objects.\
+  \  \n4. **Create an HTTP session** (`session.get_session`) to query PyPI (or other\
+  \ indexes).  \n5. **Launch concurrent checks**: for each requirement, `check_outdated`\
+  \ is scheduled as an `asyncio` task, allowing many package checks to run in parallel.\
+  \  \n6. **Print results**: `print_outdated` consumes the list of tasks, awaits their\
+  \ completion, and outputs a formatted report. The `--quiet` flag influences the\
+  \ final exit status.  \n"

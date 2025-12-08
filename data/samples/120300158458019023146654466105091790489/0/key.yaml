@@ -1,0 +1,28 @@
+"## Project Component: `pip_outdated/print_outdated.py`\n\n### Overview\n- This module\
+  \ is responsible for **displaying the results** of a pip\u2011outdated check in\
+  \ a user\u2011friendly, colored table.  \n- It is part of the **`pip_outdated`**\
+  \ package and works with the `OutdateResult` data model defined in `check_outdated.py`.\n\
+  \n### Key Functions\n\n### User\u2011Facing Output Details\n- **Colors** (via `termcolor`):\n\
+  \  - **Red** (bold) \u2013 signals missing packages, unavailable PyPI data, or version\
+  \ mismatches.\n  - **Green** (bold) \u2013 indicates that a newer version (wanted\
+  \ or latest) can be installed.\n  - **Cyan** (bold) \u2013 used for the \u201CEverything\
+  \ is up\u2011to\u2011date!\u201D success message.\n- **Table Format**:\n  - ASCII\
+  \ table (compatible with most terminals).\n  - Column order: **Name \u2192 Installed\
+  \ \u2192 Wanted \u2192 Latest**.\n- **Exit Behavior**:\n  - When outdated packages\
+  \ are found **and** `quiet` is `False`, the script exits with status code **1**.\n\
+  \  - If `quiet` is `True`, the script finishes without exiting, allowing callers\
+  \ to handle the result programmatically.\n\n### Dependencies\n- `colorama` \u2013\
+  \ ensures ANSI colors work on Windows.\n- `termcolor` \u2013 applies color styling\
+  \ to individual cell strings.\n- `terminaltables` \u2013 builds the printable ASCII\
+  \ table.\n- Local import: `OutdateResult` from `.check_outdated`.\n\n### How a User\
+  \ Might Interact with This Module\n- Typically invoked by a higher\u2011level CLI\
+  \ command that gathers `OutdateResult` objects (possibly via asynchronous checks)\
+  \ and passes them to `print_outdated`.\n- Users can control the **quiet mode** via\
+  \ a CLI flag (`--quiet`), which suppresses the non\u2011zero exit code.\n- The colored\
+  \ output helps quickly identify:\n  - Packages that need attention (red).\n  - Packages\
+  \ that can be safely upgraded (green).\n\n### Points to Highlight in Documentation\n\
+  - Explain the meaning of each color and what \u201CWanted\u201D vs. \u201CLatest\u201D\
+  \ represent.\n- Mention that the function automatically handles missing or unreachable\
+  \ packages.\n- Clarify the exit\u2011code semantics (non\u2011zero when outdated\
+  \ packages are present unless `quiet` is set).\n- Provide a simple example of the\
+  \ table output for both up\u2011to\u2011date and outdated scenarios."

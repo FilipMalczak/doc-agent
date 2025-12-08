@@ -1,0 +1,4 @@
+Version 0.3.0 was released on Oct 13, 2019, breaking by setting the exit code to 1
+  when not all dependencies are up to date, fixing the handling of prereleases, and
+  adding checks for "setup_requires" and "extras_require" in configuration files.
+...

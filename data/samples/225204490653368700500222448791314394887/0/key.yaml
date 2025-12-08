@@ -1,0 +1,11 @@
+"# Example: find all requirements from given glob patterns\nfor requirement in find_require([\"\
+  requirements.txt\", \"setup.cfg\", \"src/**/*.txt\"]):\n    print(requirement)\n\
+  ```\n\n- The function returns an iterator of `Requirement` objects that can be inspected\
+  \ for attributes like `name`, `specifier`, `extras`, and `url`.  \n\n## Extensibility\
+  \ Points  \n\n- **Additional Config Formats:** Extend `parse_cfg` to support `pyproject.toml`\
+  \ or other configuration schemas.  \n- **Enhanced Option Parsing:** Refine the regex\
+  \ in `parse_require` to handle more complex option patterns (e.g., multiple `--hash`\
+  \ entries).  \n- **Logging:** Replace the print\u2011based verbose output with a\
+  \ structured logging approach for better integration with larger tools.  \n\n---\
+  \  \n\n*These notes capture the functional behavior and design intent of `find_require.py`\
+  \ for use in user\u2011facing documentation.*"

@@ -1,0 +1,15 @@
+"**Project Notes \u2013 `tests/__init__.py`**\n\n- **File path**: `tests/__init__.py`\n\
+  - **Language**: Python\n- **Current content**: *empty* (no code, no imports, no\
+  \ docstrings)\n- **Purpose in the project**\n  - Marks the `tests` directory as\
+  \ a **Python package**, enabling relative imports of test modules.\n  - Serves as\
+  \ a placeholder for potential package\u2011wide test fixtures or configuration (e.g.,\
+  \ `pytest` plugins, shared fixtures) that could be added later.\n- **Implications\
+  \ for users**\n  - The presence of this file means you can run the test suite with\
+  \ commands such as `python -m pytest` or `python -m unittest discover`.\n  - No\
+  \ global test setup is provided out\u2011of\u2011the\u2011box; any common fixtures\
+  \ or configuration must be added explicitly (e.g., in a `conftest.py` file for `pytest`).\n\
+  - **Recommended documentation points**\n  - Explain that the empty `__init__.py`\
+  \ is intentional to create a test package.\n  - If future shared test utilities\
+  \ are needed, they can be placed here or in `tests/conftest.py`.\n  - Clarify that\
+  \ adding code to this file will affect **all** test modules that import from the\
+  \ `tests` package."

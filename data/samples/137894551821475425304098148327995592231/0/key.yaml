@@ -1,0 +1,2 @@
+'The expected order of requirement names is the same as they appear in the `setup.cfg`
+  file: first `setup_requires`, then `install_requires`, then `extras_require` entries.'

@@ -1,0 +1,50 @@
+"## Project Overview  \n* **File:** `pip_outdated/find_require.py`  \n* **Language:**\
+  \ Python  \n* **Purpose:** Extract requirement specifications from various input\
+  \ sources (plain requirement files, `setup.cfg` files, and raw requirement text)\
+  \ while handling comments, line continuations, and option flags.  \n\n## Core Functionality\
+  \  \n\n| Function | Description | Key Behaviors |\n|----------|-------------|----------------|\n\
+  | `iter_files(patterns)` | Yields `pathlib.Path` objects for each file matching\
+  \ one or more glob patterns. | - If a pattern points to an existing file, yields\
+  \ that file directly.<br>- Otherwise, treats the pattern as a glob relative to the\
+  \ current working directory. |\n| `file_to_lines(file)` | Reads a file and streams\
+  \ its processed lines. | - Prints a parsing trace when `verbose()` is true.<br>-\
+  \ Delegates line processing to `parse_lines`. |\n| `parse_lines(lines)` | Normalises\
+  \ an iterable of raw lines. | - Strips trailing comments that start with `#` (ignores\
+  \ `#` inside quoted strings).<br>- Joins lines ending with a backslash (`\\\\`)\
+  \ to support multi\u2011line requirements.<br>- Removes trailing newline characters.\
+  \ |\n| `parse_requirements(file)` | Generates `Requirement` objects from a requirement\
+  \ file. | - Uses `file_to_lines` \u2192 `parse_require` for each processed line.\
+  \ |\n| `parse_requirements_text(text)` | Same as `parse_requirements` but works\
+  \ on a raw string. | - Splits the string into lines preserving line endings before\
+  \ passing to `parse_lines`. |\n| `parse_cfg(file)` | Extracts requirement specifications\
+  \ from a `setup.cfg` file. | - Reads the file with `ConfigParser`.<br>- Looks for\
+  \ `setup_requires`, `install_requires`, and any extras under `options.extras_require`.<br>-\
+  \ Parses each found text block via `parse_requirements_text`. |\n| `find_require(files)`\
+  \ | Public entry point: yields all `Requirement` objects from a list of file patterns.\
+  \ | - Calls `iter_files` to resolve patterns.<br>- Uses `parse_cfg` for `.cfg` files,\
+  \ otherwise `parse_requirements`. |\n| `parse_require(text)` | Converts a requirement\
+  \ line to a `Requirement` object, discarding trailing option flags. | - Strips any\
+  \ `--option` or `-o` suffix using a regex.<br>- Returns `None` if the line is not\
+  \ a valid requirement (`InvalidRequirement`). |\n\n## Important Implementation Details\
+  \  \n\n- **Comment Handling:**  \n  ```python\n  match = re.match(r\"(.*?)(^|\\\
+  s)#\", line)\n  ```  \n  The regex captures text before the first `#` that is either\
+  \ at the start of the line or preceded by whitespace, effectively removing comments.\
+  \  \n\n- **Line Continuation:**  \n  Lines ending with `\\\\\\n` are concatenated\
+  \ with the next line (`pre_line += line[0:-2]`).  \n\n- **Option Stripping:**  \n\
+  \  ```python\n  match = re.match(r\"(.*?)\\s--?[a-z]\", text)\n  ```  \n  Removes\
+  \ any command\u2011line style options (e.g., `package>=1.0 --hash=...`).  \n\n-\
+  \ **Verbose Mode:**  \n  When `verbose()` returns `True`, each file being parsed\
+  \ is printed (`Parse: {file}`).  \n\n- **Dependency on External Library:**  \n \
+  \ - `packaging.requirements.Requirement` and `InvalidRequirement` from the **`packaging`**\
+  \ library are used for parsing and validation.  \n\n## Typical Usage  \n\n```python\n\
+  from pip_outdated.find_require import find_require\n\n# Example: find all requirements\
+  \ from given glob patterns\nfor requirement in find_require([\"requirements.txt\"\
+  , \"setup.cfg\", \"src/**/*.txt\"]):\n    print(requirement)\n```\n\n- The function\
+  \ returns an iterator of `Requirement` objects that can be inspected for attributes\
+  \ like `name`, `specifier`, `extras`, and `url`.  \n\n## Edge Cases & Limitations\
+  \  \n\n- **Unsupported File Types:** Only `.cfg` files receive special handling;\
+  \ all other file extensions are treated as plain requirement files.  \n- **Invalid\
+  \ Lines:** Lines that cannot be parsed into a `Requirement` (e.g., malformed syntax)\
+  \ are silently ignored (`None` is returned and filtered out).  \n- **Comment Detection:**\
+  \ The simple regex may not correctly handle `#` characters inside quoted strings.\
+  \  \n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ These import statements are explicitly listed at the top of the file.\n  fact:\
+  \ The module imports sys, Awaitable, List, Optional from typing, the colorama\n\
+  \    package, the colored function from termcolor, AsciiTable (aliased as Table)\
+  \ from\n    terminaltables, and OutdateResult from the sibling module .check_outdated.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

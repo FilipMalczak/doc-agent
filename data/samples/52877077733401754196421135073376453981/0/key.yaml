@@ -1,0 +1,11 @@
+"## Project Overview  \n## Core Data Structure  \n## Main Asynchronous Functions \
+  \ \n## Workflow Summary  \n## Usage Guidance for Users  \n## Design Decisions &\
+  \ Rationale  \n## Extensibility Points  \n\n- **Custom version filtering** \u2013\
+  \ modify `get_pypi_versions` to include or exclude pre\u2011releases, or to apply\
+  \ additional criteria (e.g., yanked releases).  \n- **Alternative source of local\
+  \ version info** \u2013 replace the subprocess call with `import importlib.metadata`\
+  \ for a pure\u2011Python solution.  \n- **Additional output formats** \u2013 wrap\
+  \ `OutdateResult` in serializers (JSON, CSV) for downstream reporting tools.  \n\
+  - **Parallel batch processing** \u2013 external code can schedule many `check_outdated`\
+  \ coroutines simultaneously; consider throttling the HTTP requests if needed.  \n\
+  \n---\n"
