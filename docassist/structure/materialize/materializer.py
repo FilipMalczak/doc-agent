@@ -7,6 +7,7 @@ from pydantic_ai import FunctionToolset
 
 from docassist.agents.rag.data import ScoredDocument
 from docassist.agents.rag.tool import SearchKBTool
+from docassist.index.document import Document
 from docassist.index.protocols import DocumentIndex
 from docassist.sampling.protocols import SamplingController
 from docassist.structure.materialize.agent import materialization_aide
@@ -88,20 +89,17 @@ class Materializer:
                 )
             ]
 
-
-    @instrument
-    async def _resolve_variable(self, name, desc, state: MaterializationState) -> VariableValuation: #todo return type
-        task = evaluate_variable(name, desc)
-        tool = SearchKBTool(self.index, self.sampling, state.fact_docs())
+    def _tools(self, sideload: list[Document]) -> FunctionToolset:
+        tool = SearchKBTool(self.index, self.sampling, )
 
         async def search_knowledge_base(*, purpose: str, queries: list[str],
-                       rewrite_count: int | None = None, expansion_count: int | None = None,
-                       additional_rephrasing_instructions: str | None = None,
-                       additional_deduplication_instructions: str | None = None,
-                       additional_reranking_instructions: str | None = None,
-                       cutoff: float | int = 0.8
-                       ) -> list[ScoredDocument]:
-            #fixme copypasted
+                                        rewrite_count: int | None = None, expansion_count: int | None = None,
+                                        additional_rephrasing_instructions: str | None = None,
+                                        additional_deduplication_instructions: str | None = None,
+                                        additional_reranking_instructions: str | None = None,
+                                        cutoff: float | int = 0.8
+                                        ) -> list[ScoredDocument]:
+            # fixme copypasted
             """
             Run a multi-stage retrieval pipeline and return scored documents relevant to a given purpose.
 
@@ -160,13 +158,21 @@ class Materializer:
                 additional_reranking_instructions=additional_reranking_instructions,
                 cutoff=cutoff
             )
+        #todo add rephrase tool
+
+        return FunctionToolset(
+            max_retries=3, require_parameter_descriptions=True,
+            tools=[search_knowledge_base]
+        )
+
+    @instrument
+    async def _resolve_variable(self, name, desc, state: MaterializationState) -> VariableValuation: #todo return type
+        task = evaluate_variable(name, desc)
+
         out = await materialization_aide.run(
             task, EvaluateVariableOutput,
             toolsets=[
-                FunctionToolset(
-                    max_retries=3, require_parameter_descriptions=True,
-                    tools=[search_knowledge_base]
-                )
+                self._tools(state.fact_docs())
             ]
         )
         valuation = VariableValuation(value=out.variable_value, explanation=out.explanation)

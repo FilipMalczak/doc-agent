@@ -6,7 +6,7 @@ from docassist.simple_xml import to_simple_xml
 from docassist.system_prompts import PromptingTask
 
 
-class AgentInput[I](NamedTuple):
+class MaterializationAideInput[I](NamedTuple):
     current_task: PromptingTask
     input: I
 
@@ -29,8 +29,8 @@ class EvaluateVariableOutput(BaseModel):
     variable_value: str = Field(validation_alias=AliasChoices("value", "val", "result"))
     explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
 
-def evaluate_variable(name: str, description: str) -> AgentInput:
-    return AgentInput(
+def evaluate_variable(name: str, description: str) -> MaterializationAideInput:
+    return MaterializationAideInput(
         current_task=PromptingTask(
             context=None,
             high_level="Resolve variable value and explain your valuation",
