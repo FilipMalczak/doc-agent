@@ -1,0 +1,6 @@
+'# Get just the package names
+
+  package_names = [req.name for req in requirements]
+
+
+  print(package_names)'

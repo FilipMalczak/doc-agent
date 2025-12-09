@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The logic inside colored_latest mirrors that of colored_wanted with\n    respect\
-  \ to the latest version.\n  fact: colored_latest returns a red bold \"None\" string\
-  \ if outdate.pypi_not_found()\n    is True; returns a green bold string of the latest\
-  \ version if the package is installed\n    and the installed version is less than\
-  \ the latest version; otherwise returns the\n    latest version as a plain string.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

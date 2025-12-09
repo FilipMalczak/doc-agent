@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ \"The function signature `def test_parse_cfg(tmp_path):` indicates reliance\\\n\
-  \    \\ on pytest's built\\u2011in `tmp_path` fixture.\"\n  fact: The test uses\
-  \ the pytest `tmp_path` fixture to provide an isolated temporary\n    directory\
-  \ for file creation.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

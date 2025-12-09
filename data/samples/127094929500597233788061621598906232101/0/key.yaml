@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The call file.write_text(\"\"\"...\"\"\") contains that exact text.\n  fact: \"\
+  The temporary setup.cfg file is written with a multi\\u2011line string that\\\n\
+  \    \\ includes two sections: [options] and [options.extras_require].\"\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

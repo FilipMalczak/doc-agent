@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ '`outdated_results = [asyncio.create_task(check_outdated(r, session))\n    for\
-  \ r in requires]` builds this list.'\n  fact: For each requirement, a task is created\
-  \ using asyncio.create_task(check_outdated(r,\n    session)) and stored in the list\
-  \ outdated_results.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

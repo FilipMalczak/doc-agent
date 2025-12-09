@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Async function fetches and filters PyPI release versions.\n  fact: The async function\
+  \ get_pypi_versions(name, session) retrieves JSON from https://pypi.org/pypi/{name}/json,\n\
+  \    parses release keys into Version objects, excludes invalid and prerelease versions,\n\
+  \    sorts them, and returns the list.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

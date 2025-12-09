@@ -1,0 +1,16 @@
+"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n\n*Compiled from\
+  \ the individual file\u2011level notes for the package\u2019s source files.*\n\n\
+  ---\n\n### 3. Core Modules & Their Responsibilities\n| Module | Key Responsibilities\
+  \ | Notable Functions / Classes |\n|--------|----------------------|------------------------------|\n\
+  | `__init__.py` | Defines the CLI entry point (`main`, `_main`) and argument parsing.\
+  \ | `parse_args()`, `main()`, `_main()` (async) |\n| `__main__.py` | Allows execution\
+  \ via `python -m pip_outdated`. | Guarded import of `main` and `main()` call |\n\
+  | `find_require.py` | Locates and parses requirement specifications from files and\
+  \ `setup.cfg`. | `find_require()`, `iter_files()`, `parse_requirements*()`, `parse_cfg()`,\
+  \ `parse_require()` |\n| `check_outdated.py` | Performs the asynchronous version\
+  \ checks against PyPI. | `OutdateResult` dataclass, `get_local_version()`, `get_pypi_versions()`,\
+  \ `check_outdated()` |\n| `print_outdated.py` | Formats and prints a colour\u2011\
+  coded ASCII table of outdated packages. | `make_row()`, `print_outdated()` |\n|\
+  \ `session.py` | Provides a pre\u2011configured `aiohttp.ClientSession` for HTTP\
+  \ requests. | `get_session()` |\n| `verbose.py` | Global flag handling for verbose\
+  \ mode. | `set_verbose()`, `verbose()` |\n\n---\n"

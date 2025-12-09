@@ -1,22 +1,22 @@
 from collections import defaultdict
-from dataclasses import dataclass, Field, field
+from dataclasses import dataclass, field
 from itertools import chain
 from math import log2, exp
-from typing import Callable, Self, assert_never, NamedTuple
+from typing import assert_never
 
 from logfire import instrument
 from opentelemetry.trace import get_current_span
-from pydantic import BaseModel
 from pydantic_ai import ModelRetry
 
 from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, IndexedScoredDocument, RerankingInput, \
-    RephrasingOutput, DeduplicationOutput, RerankingOutput
+    RephrasingOutput, RerankingOutput
 from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
-from docassist.index.protocols import Document, DocumentIndex, SearchResult
+from docassist.index.protocols import Document, DocumentIndex
 from docassist.sampling.protocols import SamplingController
-from docassist.simple_xml import to_simple_xml
+from docassist.structured_agent import call_agent
+
 
 @dataclass
 class SearchParams:
@@ -55,7 +55,7 @@ class SearchKBTool:
     def __name__(self) -> str:
         return self.tool_name()
 
-    async def __call__(self, purpose: str, queries: list[str], *,
+    async def invoke(self, purpose: str, queries: list[str], *,
                        rewrite_count: int | None = None, expansion_count: int | None = None,
                        additional_rephrasing_instructions: str | None = None,
                        additional_deduplication_instructions: str | None = None,
@@ -131,7 +131,7 @@ class SearchKBTool:
         state.deduplicated.extend(self.sideload)
         await self._rerank_stage(state)
         await self._normalize_stage(state)
-        await self._choose_final_results(state)
+        self._choose_final_results(state)
         return state.final
 
     @instrument()
@@ -179,25 +179,25 @@ class SearchKBTool:
         state.rephrasings.extend(new_rephrasings)
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
-        agent_response = await self.sampling.run_transaction(
-            query_rephraser.run,
-            to_simple_xml(
-                RephrasingInput(
-                    purpose=purpose,
-                    rewrite_count=rewrite_count,
-                    expansion_count=expansion_count,
-                    initial_queries=queries,
-                    additional_instructions=instructions
-                )
-            )
+        rephrasings = await call_agent(
+            self.sampling,
+            query_rephraser,
+            RephrasingInput(
+                purpose=purpose,
+                rewrite_count=rewrite_count,
+                expansion_count=expansion_count,
+                initial_queries=queries,
+                additional_instructions=instructions
+            ),
+            RephrasingOutput
         )
-        rephrasings: RephrasingOutput = agent_response.output
         def i():
             for per_query in rephrasings.rewrites:
                 yield from per_query
             yield from rephrasings.expansions
         return list(i())
 
+    @instrument()
     async def _retrieve_stage(self, state: SearchState):
         s = get_current_span()
         all_index_queries = list(set(state.params.queries + state.rephrasings))
@@ -211,6 +211,7 @@ class SearchKBTool:
 
         state.scored_docs.extend(ScoredDocument.from_search_result(x) for x in search_results)
 
+    @instrument()
     async def _deduplicate_stage(self, state: SearchState):
         s = get_current_span()
         grouped = self._group_for_dedup(state.scored_docs)
@@ -259,15 +260,21 @@ class SearchKBTool:
 
 
     async def _deduplicate(self, purpose: str, group: list[ScoredDocument], instructions: str) -> ScoredDocument:
-        agent_response = await self.sampling.run_transaction(
-            deduplicator.run,
-            to_simple_xml(DeduplicationInput(
+        # dedup_output = await call_agent(
+        #     self.sampling,
+        #     deduplicator,
+        #     DeduplicationInput(
+        #         purpose=purpose,
+        #         documents=IndexedScoredDocument.from_scored_documents(group),
+        #         additional_instructions=instructions
+        #     ),
+        #     DeduplicationOutput
+        # )
+        dedup_output = await deduplicator.run(DeduplicationInput(
                 purpose=purpose,
                 documents=IndexedScoredDocument.from_scored_documents(group),
                 additional_instructions=instructions
             ))
-        )
-        dedup_output: DeduplicationOutput = agent_response.output
         chosen = [ x for x in group if x.document.id == dedup_output.document_id ]
         assert len(chosen) < 2
         if not chosen:
@@ -278,29 +285,30 @@ class SearchKBTool:
         rescored = chosen[0].rescore(dedup_output.new_score)
         return rescored
 
+    @instrument()
     async def _rerank_stage(self, state: SearchState):
-        reranked = await self._rerank(state.params.purpose, state.deduplicated, state.additional_reranking_instructions)
+        reranked = await self._rerank(
+            state.params.purpose,
+            state.deduplicated,
+            state.params.additional_reranking_instructions
+        )
         state.reranked.extend(sorted(reranked, key=lambda x: x.score, reverse=True))
 
     async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
-        agent_response = await self.sampling.run_transaction(
-            reranker.run(
-                to_simple_xml(
-                    RerankingInput(
-                        purpose=purpose,
-                        documents=documents,
-                        additional_instructions=instructions
-                    )
-                )
+        reranked: list[RerankingOutput] = await reranker.run(
+            RerankingInput(
+                purpose=purpose,
+                documents=documents,
+                additional_instructions=instructions
             )
         )
-        reranked: list[RerankingOutput] = agent_response.output
         docs_by_ids = {
             d.document.id: d for d in documents
         }
         reranks_by_id = {
             r.document_id: r for r in reranked
         }
+        #todo these should be handled by StructuredAgent
         missing_input = set(docs_by_ids.keys()).difference(set(reranks_by_id.keys()))
         if missing_input:
             raise ModelRetry(f"Following document IDs were present in the input, but not the output: {', '.join(missing_input)}")
@@ -309,10 +317,11 @@ class SearchKBTool:
             raise ModelRetry(f"Following document IDs were present in the output, but not the input: {', '.join(hallucinated_output)}")
 
         return [
-            doc.rescore(reranks_by_id[doc.document.id])
+            doc.rescore(reranks_by_id[doc.document.id].new_score)
             for doc in documents
         ]
 
+    @instrument()
     async def _normalize_stage(self, state: SearchState):
         state.normalized.extend(self._softmax(state.reranked))
 
@@ -324,6 +333,7 @@ class SearchKBTool:
             for i, item in enumerate(data)
         ]
 
+    @instrument()
     def _choose_final_results(self, state: SearchState):
         s = get_current_span()
         state.final.extend(self._cutoff(state.normalized, state.params.cutoff))

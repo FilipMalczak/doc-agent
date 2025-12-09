@@ -1,8 +1,8 @@
 from os import PathLike
-from typing import Protocol, Self, Any, Annotated, TypedDict
+from typing import Protocol, Self, Annotated
 
-from pydantic import BaseModel, SkipValidation
 import numpy as np
+from pydantic import BaseModel, SkipValidation
 
 from docassist.index.document import Document
 

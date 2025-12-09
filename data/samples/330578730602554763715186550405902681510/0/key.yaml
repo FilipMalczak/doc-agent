@@ -1,3 +1,0 @@
-"The _main coroutine parses command\u2011line arguments, sets the verbose mode, discovers\
-  \ required packages, creates an HTTP session, checks each requirement for outdated\
-  \ versions, and prints the results."

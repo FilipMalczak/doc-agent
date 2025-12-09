@@ -1,4 +1,0 @@
-"# Notes on `pip_outdated/session.py`\n## Overview\n## Public API\n- **`get_session()\
-  \ -> aiohttp.ClientSession`**  \n  Returns a new `aiohttp.ClientSession` instance\
-  \ with:\n  - Header `User-Agent` set to `\"pip-outdated\"`.\n  - TCP connector limiting\
-  \ concurrent connections to **5**.\n"

@@ -1,0 +1,7 @@
+"## \U0001F4C4 File Overview\n\n- **Path:** `pip_outdated/session.py`\n- **Language:**\
+  \ Python\n- **Primary role:** Centralises creation of a pre\u2011configured `aiohttp.ClientSession`\
+  \ for the *pip\u2011outdated* tool.\n\n## \U0001F527 Key Function\n\n- **Signature:**\
+  \ `get_session() -> aiohttp.ClientSession`\n- **What it does:**\n  - Instantiates\
+  \ a new `aiohttp.ClientSession` on every call.\n  - Sets a default HTTP header `\"\
+  User-Agent\": \"pip-outdated\"`.\n  - Uses an `aiohttp.TCPConnector` with `limit=5`\
+  \ to cap concurrent connections.\n"

@@ -1,0 +1,3 @@
+"## pip-outdated \u2013 Quick Reference\n### TODO (planned features)\n- Add an option\
+  \ to automatically update the package.\n- Add an option to update the `requirements.txt`\
+  \ / `setup.cfg` file.\n- Add a global list option (e.g., `-g, --global`).\n\n---"

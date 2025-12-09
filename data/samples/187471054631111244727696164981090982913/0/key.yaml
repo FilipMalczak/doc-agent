@@ -1,0 +1,10 @@
+"# Directory\u2011Level Documentation: `tests`\n\n## Overview of Test Files\n| File\
+  \ | Primary Focus | Key Take\u2011aways |\n|------|---------------|----------------|\n\
+  | `tests/__init__.py` | Package marker | Empty file; its sole role is to make `tests`\
+  \ importable. |\n| `tests/test_parse_cfg.py` | Unit test for `parse_cfg` (in `pip_outdated.find_require`)\
+  \ | Verifies that `parse_cfg` correctly extracts **package names** from a `setup.cfg`\
+  \ file, handling `setup_requires`, `install_requires`, and any `extras_require`\
+  \ sections. Version specifiers are stripped and the original order is preserved.\
+  \ |\n| `tests/test_pytz.py` | Async integration test for PyPI lookup | Uses `pytest\u2011\
+  asyncio` to ensure `get_pypi_versions` can fetch version data for the `pytz` package\
+  \ via an async HTTP session (`get_session`). Passes if no exception is raised. |\n"

@@ -1,3 +1,0 @@
-'`find_require(files)` iterates over file patterns, resolves actual files via `iter_files`,
-  and for each file yields requirements parsed by `parse_cfg` when the file suffix
-  is ".cfg", otherwise by `parse_requirements`.'

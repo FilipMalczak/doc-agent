@@ -1,2 +1,0 @@
-"The comment\u2011stripping regular expression used in `parse_lines` is `r\"(.*?)(^|\\\
-  s)#`."

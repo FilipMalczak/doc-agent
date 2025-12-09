@@ -1,3 +1,0 @@
-The TCPConnector used by the session limits concurrent outgoing connections to a maximum
-  of five.
-...

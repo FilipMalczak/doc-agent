@@ -1,3 +1,0 @@
-'The file defines a dataclass named OutdateResult with fields: requirement (Requirement),
-  version (Optional[Version]), all_versions (List[Version]), wanted (Optional[Version]),
-  and latest (Optional[Version]).'

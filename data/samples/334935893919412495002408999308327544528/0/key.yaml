@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Inside the guard, the line 'from . import main' imports 'main' using\n    a leading\
+  \ dot, indicating a relative import within the pip_outdated package.\n  fact: When\
+  \ executed as a script, the file performs a relative import of the module\n    named\
+  \ main from the same package.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

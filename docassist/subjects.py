@@ -6,8 +6,6 @@ from pathlib import Path
 from shutil import rmtree
 from typing import NamedTuple, Literal, TextIO, Iterable, Self, assert_never
 
-from cachetools import cached
-
 
 class CodeFilePath(NamedTuple):
     path: str

@@ -1,0 +1,3 @@
+The coroutine _main() disables the pylint warning "import-outside-toplevel" for its
+  body.
+...

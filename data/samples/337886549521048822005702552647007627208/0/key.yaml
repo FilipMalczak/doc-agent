@@ -1,0 +1,3 @@
+"## Project Notes \u2013 `pip_outdated/find_require.py`\n### Overview\n### Key Functions\n\
+  ### Supporting Details\n### Typical Use\u2011Case Example\n```python\nfrom pip_outdated.find_require\
+  \ import find_require\n"

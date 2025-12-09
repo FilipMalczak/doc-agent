@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The content begins with the literal line \"#! python3\", which is a typical\n\
+  \    shebang used to indicate the script should be executed with the Python 3 interpreter.\n\
+  \  fact: The file contains a shebang line \"#! python3\" at the first line.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

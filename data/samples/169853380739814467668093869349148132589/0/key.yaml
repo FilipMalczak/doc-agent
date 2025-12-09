@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ '`parser.add_argument(\"file\", nargs=\"*\", default=[\"requirements.txt\",\n\
-  \    \"setup.cfg\"], metavar=\"<file>\", help=\"Read dependencies from requirements\
-  \ files.\n    This option accepts glob pattern.\")` creates this argument.'\n  fact:\
-  \ The parser defines a positional argument file that accepts zero or more values,\n\
-  \    defaults to [\"requirements.txt\", \"setup.cfg\"], and supports glob patterns.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

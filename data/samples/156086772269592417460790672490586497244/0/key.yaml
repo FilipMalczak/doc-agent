@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The import line \"from pip_outdated.find_require import parse_cfg\" appears\n\
+  \    at the top of the source file.\n  fact: The file tests/test_parse_cfg.py is\
+  \ a Python test module that imports the\n    function parse_cfg from the module\
+  \ pip_outdated.find_require.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

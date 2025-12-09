@@ -1,0 +1,4 @@
+The function parse_lines(lines) removes comments (text following a '#' that is at
+  the start of a line or preceded by whitespace), concatenates lines ending with a
+  backslash-newline continuation, and yields the resulting lines.
+...

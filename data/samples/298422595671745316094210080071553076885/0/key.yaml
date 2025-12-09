@@ -1,0 +1,10 @@
+"### 2. Command\u2011Line Interface (CLI)\n- **Usage**: ```bash\\n  pip-outdated [options]\
+  \ [<file> ...]\\n``` \n- **Options** (parsed in `parse_args()`):\n  - `-v, --verbose`\
+  \ \u2013 enable verbose output.\n  - `-q, --quiet`   \u2013 suppress the non\u2011\
+  zero exit status when outdated packages are found.\n- **File arguments**:\n  - Zero\
+  \ or more positional arguments.\n  - Default list [\"requirements.txt\", \"setup.cfg\"\
+  ] is used when none are supplied.\n  - Globbing is supported (e.g., \"requirements/*.txt\"\
+  ).\n- **Behaviour**:\n  - Finds all requirements via `find_require`.\n  - Checks\
+  \ each requirement asynchronously with `check_outdated`.\n  - Displays results with\
+  \ `print_outdated`.\n  - Returns exit code **0** if everything is up\u2011to\u2011\
+  date or `--quiet` is set; otherwise **1**.\n\n---\n"

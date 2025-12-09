@@ -1,0 +1,4 @@
+"The overall purpose of the module is to display a colored table of Python package\
+  \ version information, highlighting outdated or unavailable packages in red and\
+  \ updatable packages in green, and to exit with a non\u2011zero status when there\
+  \ are outdated packages unless the quiet flag is set."

@@ -1,0 +1,3 @@
+The name parse_version is imported as an alias for packaging.version.parse and is
+  used to parse version strings from pip output and PyPI data.
+...

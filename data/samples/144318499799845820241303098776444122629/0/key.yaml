@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The first conditional in make_row checks outdate.outdated() and returns\n    None\
-  \ if it is falsy.\n  fact: make_row returns None when outdate.outdated() evaluates\
-  \ to False.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

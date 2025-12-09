@@ -1,6 +1,9 @@
-import asyncio
+from pydantic_ai import Agent
 
-from pydantic import BaseModel
+from docassist.agents.rag.data import RephrasingOutput, RephrasingInput
+from docassist.config import CONFIG
+from docassist.llmio import object_from_user, object_from_llm
+from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 from pydantic_ai import Agent
 
 from docassist.agents.rag.data import RephrasingOutput, RephrasingInput
@@ -8,8 +11,7 @@ from docassist.config import CONFIG
 from docassist.llmio import object_from_user, object_from_llm
 from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 
-
-#todo type all the agents
+#fixme should be a StructuredAgent
 query_rephraser: Agent[None, RephrasingOutput]= Agent(
     name="query rephraser",
     model=CONFIG.model,

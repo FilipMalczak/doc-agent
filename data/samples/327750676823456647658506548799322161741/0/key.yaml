@@ -1,0 +1,3 @@
+The print_outdated function is declared as async and expects a list of Awaitable[OutdateResult]
+  objects and a boolean flag quiet.
+...

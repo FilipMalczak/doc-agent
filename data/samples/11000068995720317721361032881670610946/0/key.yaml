@@ -1,0 +1,9 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n## 1. Quick Project\
+  \ Summary\n- **Package name**: `pip-outdated` (current version **0.8.0**).  \n-\
+  \ **Purpose**: A command\u2011line utility that scans a project's dependency files\
+  \ (`requirements.txt`, `setup.cfg`, or any glob\u2011matched file) and reports which\
+  \ packages are outdated compared with the latest versions on PyPI.\n- **Primary\
+  \ entry point**: console script `pip-outdated` (defined in `pip_outdated/__init__.py`).\
+  \  \n- **Supported Python**: 3.7\u202F+ (minimum declared in the classifiers).\n\
+  - **License**: MIT.\n- **Repository / Homepage**: <https://github.com/eight04/pip-outdated>.\n\
+  \n---\n"

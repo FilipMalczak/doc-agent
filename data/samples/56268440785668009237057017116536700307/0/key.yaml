@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The line # pylint: disable=import-outside-toplevel appears at the\n    start\
+  \ of the function.'\n  fact: The coroutine _main() disables the pylint warning \"\
+  import-outside-toplevel\"\n    for its body.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

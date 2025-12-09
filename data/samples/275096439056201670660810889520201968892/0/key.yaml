@@ -1,0 +1,7 @@
+"### Points for Documentation Authors\n- Emphasize that the module works with both\
+  \ plain requirements files and `setup.cfg` configurations.\n- Note the handling\
+  \ of inline options (e.g., `package==1.0 --no-binary :all:`) \u2013 these are stripped\
+  \ before parsing.\n- Explain that the module relies on the `packaging` library,\
+  \ which aligns with PEP\u202F508 requirement syntax.\n- Mention the optional verbosity\
+  \ flag that can be toggled via the project's `verbose` setting for troubleshooting\
+  \ parsing issues.\n"

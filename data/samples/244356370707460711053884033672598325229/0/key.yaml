@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The first two lines of the file are import argparse and import asyncio.\n  fact:\
+  \ \"The module imports the argparse and asyncio standard\\u2011library modules.\"\
+  \n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

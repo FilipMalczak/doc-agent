@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The positional-argument description states: \"This option accepts glob\n    pattern.\"\
+  '\n  fact: pip-outdated accepts glob patterns for file arguments, allowing multiple\
+  \ requirement\n    files to be checked in one run.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

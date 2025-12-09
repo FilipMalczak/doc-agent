@@ -1,5 +1,3 @@
-
-from pydantic import BaseModel
 from pydantic_ai.models import Model
 
 from docassist.index.protocols import Embedder

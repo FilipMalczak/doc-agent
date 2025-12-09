@@ -1,0 +1,20 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n\n## Overview\n- Provides **asynchronous\
+  \ utilities** to check if a Python package installed via `pip` is outdated compared\
+  \ to versions available on PyPI.  \n- Part of the **`pip_outdated`** project, aimed\
+  \ at helping users identify and upgrade stale dependencies.\n\n## Key Components\n\
+  \n## How to Use\n```python\nimport asyncio\nimport aiohttp\nfrom packaging.requirements\
+  \ import Requirement\nfrom pip_outdated.check_outdated import check_outdated\n\n\
+  async def main():\n    req = Requirement(\"requests>=2.20,<3\")\n    async with\
+  \ aiohttp.ClientSession() as session:\n        result = await check_outdated(req,\
+  \ session)\n        if result.outdated():\n            print(\n                f\"\
+  {result.name} is outdated: installed {result.version}, \"\n                f\"wanted\
+  \ {result.wanted}, latest {result.latest}\"\n            )\n        else:\n    \
+  \        print(f\"{result.name} is up-to-date.\")\n\nasyncio.run(main())\n```\n\
+  - **Parameters**\n  - `require`: a `Requirement` object describing the package and\
+  \ version constraints.  \n  - `session`: an `aiohttp.ClientSession` (or compatible\
+  \ async HTTP client) used for the PyPI request.\n- **Return**: an `OutdateResult`\
+  \ instance that can be inspected via its methods.\n\n## Dependencies\n- **Standard\
+  \ library:** `asyncio`, `dataclasses`, `typing`.\n- **Third\u2011party:**  \n  -\
+  \ `packaging` (`Requirement`, `Version`, `canonicalize_name`).  \n  - An asynchronous\
+  \ HTTP client (e.g., `aiohttp`) for the `session` argument.\n- **Internal:** `pip_outdated.verbose.verbose`\
+  \ \u2013 a helper that toggles verbose output.\n"

@@ -1,0 +1,3 @@
+OutdateResult.install_not_found() returns True when version is None, indicating the
+  package is not installed locally.
+...

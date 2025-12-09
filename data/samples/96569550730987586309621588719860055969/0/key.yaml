@@ -1,3 +1,0 @@
-"print_outdated iterates over the provided outdates, awaiting each one, passing the\
-  \ resolved OutdateResult to make_row, and appends any non\u2011None rows to the\
-  \ data table."

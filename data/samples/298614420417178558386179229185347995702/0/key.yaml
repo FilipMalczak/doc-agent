@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The multi-line string at the top of the file contains that URL.\n  fact: \"The\
+  \ module\\u2019s docstring includes a URL to pip\\u2019s requirements file\\\n \
+  \   \\ format documentation (https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).\"\
+  \n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

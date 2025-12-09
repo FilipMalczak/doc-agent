@@ -1,0 +1,4 @@
+"### Overview\n- This module formats and displays the results of a **pip\u2011outdated**\
+  \ scan.  \n- It builds a colour\u2011coded ASCII table that shows, for each package,\
+  \ the **installed**, **wanted**, and **latest** versions.  \n- The output is designed\
+  \ for end\u2011users who run the tool from a terminal.\n"

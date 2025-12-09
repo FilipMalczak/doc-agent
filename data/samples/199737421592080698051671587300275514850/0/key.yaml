@@ -1,0 +1,4 @@
+"## Summary of `tests/test_parse_cfg.py`\n# Get just the package names\n# => [\"setuptools_scm\"\
+  , \"setuptools_scm_git_archive\", \"ansible\", \"ansible-lint\", \"alabaster\",\
+  \ \"Sphinx\"]\n```\n\nThis snippet mirrors the behavior verified by the test and\
+  \ can be directly incorporated into user\u2011facing documentation."

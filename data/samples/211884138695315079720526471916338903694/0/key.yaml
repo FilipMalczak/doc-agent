@@ -1,5 +1,0 @@
-"### Key Characteristics Verified\n- **Multiple sections** are handled (`[options]`\
-  \ & `[options.extras_require]`).\n- **Multi\u2011line values** are parsed correctly.\n\
-  - **Version constraints** (e.g., `>= 1.15.0`, `< 5`) are **ignored** for name extraction.\n\
-  - **Ordering** follows the appearance in the file (setup\u202F\u2192\u202Finstall\u202F\
-  \u2192\u202Fextras).\n"

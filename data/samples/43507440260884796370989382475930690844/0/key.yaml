@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The document metadata specifies the path as tests/test_pytz.py and\n    the language\
-  \ as python.\n  fact: The file located at tests/test_pytz.py is a Python source\
-  \ file.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n### 1. Project\
+  \ Overview\n### 2. Command\u2011Line Interface (CLI)\n### 3. Core Modules & Their\
+  \ Responsibilities\n### 4. Detailed Module Highlights\n#### `find_require.py`\n\
+  #### `check_outdated.py`\n#### `print_outdated.py`\n#### `session.py`\n#### `verbose.py`\n\
+  - Simple module\u2011level storage of a global `VERBOSE` flag.\n- Functions `set_verbose(bool)`\
+  \ and `verbose()` access or modify the flag.\n- Not thread\u2011safe \u2013 intended\
+  \ for single\u2011threaded CLI usage.\n\n---\n"

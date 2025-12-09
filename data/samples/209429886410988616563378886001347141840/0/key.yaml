@@ -1,0 +1,7 @@
+"## \U0001F4C4 Project Notes \u2013 `pip_outdated/print_outdated.py`\n### Overview\n\
+  ### Key Functions\n### Colour Legend (displayed to the user)\n### Exit Codes\n###\
+  \ User\u2011Facing Behaviour\n### Dependencies (installed automatically when the\
+  \ package is installed)\n- `colorama` \u2013 ensures colour codes work on Windows\
+  \ terminals.  \n- `termcolor` \u2013 provides the `colored` helper used throughout\
+  \ the module.  \n- `terminaltables` \u2013 renders the ASCII table (`AsciiTable`).\
+  \  \n"

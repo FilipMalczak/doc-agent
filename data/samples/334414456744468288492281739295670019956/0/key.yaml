@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code defines these three nested functions after the early return.\n  fact:\
-  \ 'When outdate.outdated() is True, make_row constructs three inner helper functions:\n\
-  \    colored_current, colored_wanted, and colored_latest, each returning a string\
-  \ possibly\n    wrapped with colored styling.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+If data contains only the header row (i.e., its length is 1), the function prints
+  the cyan bold message "Everything is up-to-date!" and returns.
+...

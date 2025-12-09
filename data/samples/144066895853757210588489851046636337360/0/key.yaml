@@ -1,0 +1,3 @@
+The test asserts that the names list is equal to ["setuptools_scm", "setuptools_scm_git_archive",
+  "ansible", "ansible-lint", "alabaster", "Sphinx"].
+...

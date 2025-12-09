@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'description = Find outdated dependencies in your requirements.txt\n\
+  \    or setup.cfg' provides a short textual description of the package.\n  fact:\
+  \ The project description is \"Find outdated dependencies in your requirements.txt\n\
+  \    or setup.cfg\" as defined in the \"description\" field.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

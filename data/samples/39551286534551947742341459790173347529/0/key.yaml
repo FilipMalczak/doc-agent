@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The presence of 'command_fallback = python cute.py' in the [vpip] section\n  \
+  \  records an alternative command to run.\n  fact: The custom configuration section\
+  \ [vpip] defines a fallback command \"python\n    cute.py\" via the key \"command_fallback\"\
+  .\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

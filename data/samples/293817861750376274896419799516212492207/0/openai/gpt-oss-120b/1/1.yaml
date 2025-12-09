@@ -1,0 +1,72 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The validation expects an object (JSON object) not an array. Likely output
+    schema expects something like {"facts": [ ... ]}. So wrap array inside an object
+    key, maybe "facts". Provide object with key "facts" mapping to list of fact objects.
+    Let''s output that.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "{\n  \"facts\": [\n    {\n      \"fact\": \"The file tests/test_parse_cfg.py\
+    \ is a Python test module that imports the function parse_cfg from the module\
+    \ pip_outdated.find_require.\",\n      \"reason\": \"The import line \\\"from\
+    \ pip_outdated.find_require import parse_cfg\\\" appears at the top of the source\
+    \ file.\"\n    },\n    {\n      \"fact\": \"The test defines a function named\
+    \ test_parse_cfg that receives a tmp_path fixture (provided by pytest) as its\
+    \ only argument.\",\n      \"reason\": \"The function signature \\\"def test_parse_cfg(tmp_path):\\\
+    \" is present in the source code.\"\n    },\n    {\n      \"fact\": \"Inside the\
+    \ test, a temporary file called setup.cfg is created in the directory represented\
+    \ by tmp_path.\",\n      \"reason\": \"The code \\\"file = tmp_path / \\\\\\\"\
+    setup.cfg\\\\\\\"\\\" creates a path object pointing to that file.\"\n    },\n\
+    \    {\n      \"fact\": \"The temporary setup.cfg file is written with a multi\u2011\
+    line string that includes two sections: [options] and [options.extras_require].\"\
+    ,\n      \"reason\": \"The call file.write_text(\\\"\\\"\\\"...\\\"\\\"\\\") contains\
+    \ that exact text.\"\n    },\n    {\n      \"fact\": \"In the [options] section,\
+    \ the key setup_requires lists two requirements: setuptools_scm >= 1.15.0 and\
+    \ setuptools_scm_git_archive >= 1.0.\",\n      \"reason\": \"These two lines appear\
+    \ under \\\"setup_requires =\\\" inside the written config.\"\n    },\n    {\n\
+    \      \"fact\": \"In the [options] section, the key install_requires lists two\
+    \ requirements: ansible >= 2.5 and ansible-lint >= 4.0.2, < 5.\",\n      \"reason\"\
+    : \"These two lines appear under \\\"install_requires =\\\" inside the written\
+    \ config.\"\n    },\n    {\n      \"fact\": \"In the [options.extras_require]\
+    \ section, the key docs lists two optional dependencies: alabaster and Sphinx.\"\
+    ,\n      \"reason\": \"These two lines appear under \\\"docs =\\\" inside the\
+    \ written config.\"\n    },\n    {\n      \"fact\": \"The test calls parse_cfg(str(file))\
+    \ with the string path of the temporary setup.cfg file and iterates over the returned\
+    \ objects, extracting each object's name attribute into a list called names.\"\
+    ,\n      \"reason\": \"The code \\\"names = [r.name for r in parse_cfg(str(file))]\\\
+    \" performs exactly this operation.\"\n    },\n    {\n      \"fact\": \"The test\
+    \ asserts that the names list is equal to [\\\"setuptools_scm\\\", \\\"setuptools_scm_git_archive\\\
+    \", \\\"ansible\\\", \\\"ansible-lint\\\", \\\"alabaster\\\", \\\"Sphinx\\\"].\"\
+    ,\n      \"reason\": \"The assertion \\\"assert names == [...]\\\" contains that\
+    \ exact list of strings.\"\n    },\n    {\n      \"fact\": \"The expected order\
+    \ of requirement names returned by parse_cfg is: first the two setup_requires\
+    \ entries, then the two install_requires entries, followed by the two docs extra\
+    \ entries.\",\n      \"reason\": \"The ordering in the asserted list matches that\
+    \ order in the configuration file.\"\n    }\n  ]\n}"
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765233597-Gb1kIhtKvHnqwphsAz5T
+run_id: a8c142b6-f777-41cc-be2e-6347da9caa30
+timestamp: '2025-12-08T22:39:57Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 57
+  input_audio_tokens: 0
+  input_tokens: 3971
+  output_audio_tokens: 0
+  output_tokens: 713

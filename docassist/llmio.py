@@ -5,6 +5,7 @@ from pydantic import TypeAdapter
 
 from docassist.simple_xml import to_simple_xml
 
+
 def data_from_user(d: dict[str, Any]) -> str:
     return to_simple_xml(d)
 

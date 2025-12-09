@@ -1,0 +1,3 @@
+A console script entry point is defined, mapping the command "pip-outdated" to the
+  Python function "main" in the module "pip_outdated".
+...

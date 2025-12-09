@@ -1,0 +1,4 @@
+The test calls parse_cfg(str(file)) with the string path of the temporary setup.cfg
+  file and iterates over the returned objects, extracting each object's name attribute
+  into a list called names.
+...

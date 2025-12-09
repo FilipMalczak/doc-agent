@@ -1,5 +1,0 @@
-"# Notes on `pip_outdated/__main__.py`\n## Overview\n## Execution Flow\n```python\n\
-  if __name__ == \"__main__\":\n    from . import main\n    main()\n```\n- When the\
-  \ module is run directly (`__name__ == \"__main__\"`), it:\n  1. Imports the `main`\
-  \ module from the same package (`from . import main`).\n  2. Executes the `main()`\
-  \ function, which contains the core logic of the project.\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The lines `print(colored(\"Red = unavailable/outdated/out of version\n    specifier\"\
+  , \"red\", attrs=[\"bold\"]))` and similar for green implement the legends.\n  fact:\
+  \ 'When there are outdated packages, print_outdated prints two colored legend\n\
+  \    lines: red for \"unavailable/outdated/out of version specifier\" and green\
+  \ for \"updatable\".'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

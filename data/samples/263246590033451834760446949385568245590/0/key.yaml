@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The multiline string contains the `docs =` block with those package\n    names.\n\
-  \  fact: 'The file includes an `[options.extras_require]` section with a `docs`\
-  \ extra\n    that lists two packages: `alabaster` and `Sphinx`.'\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

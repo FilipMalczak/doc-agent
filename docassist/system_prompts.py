@@ -1,8 +1,4 @@
-from io import StringIO
 from typing import NamedTuple, Any
-
-import yaml
-from pydantic import BaseModel
 
 from docassist.simple_xml import to_simple_xml
 

@@ -1,3 +1,0 @@
-If no file arguments are supplied, "pip-outdated" reads dependencies from "requirements.txt"
-  and "setup.cfg" by default.
-...

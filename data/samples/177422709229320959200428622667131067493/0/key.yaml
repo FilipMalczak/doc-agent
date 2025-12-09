@@ -1,3 +1,0 @@
-The test extracts the `name` attribute from each requirement object returned by `parse_cfg`
-  and stores them in the list `names`.
-...

@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ When a package includes a `__main__.py` with the `if __name__ == \"__main__\"\
-  :`\n    block that imports and runs a `main` function, Python will execute that\
-  \ block\n    when the package is run as a module, e.g., `python -m pip_outdated`.\n\
-  \  fact: The presence of this code makes the pip_outdated package executable via\
-  \ `python\n    -m pip_outdated`.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

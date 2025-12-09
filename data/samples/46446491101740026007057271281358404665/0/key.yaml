@@ -1,0 +1,12 @@
+"## Summary of `tests/test_parse_cfg.py`\n\n- **File purpose** \u2013 Unit test that\
+  \ verifies the **`parse_cfg`** function (imported from `pip_outdated.find_require`)\
+  \ correctly extracts package names from a `setup.cfg` file.  \n- **Testing framework**\
+  \ \u2013 Uses **pytest** with the built\u2011in `tmp_path` fixture to create a temporary\
+  \ configuration file.\n\n### Practical Take\u2011aways for Users\n\n- **Input format**\
+  \ \u2013 Pass the path to a standard `setup.cfg` file; the parser will automatically\
+  \ read the relevant sections.\n- **Output** \u2013 Receive a collection of requirement\
+  \ descriptors; you can safely extract the `.name` field for a plain list of package\
+  \ names.\n- **Use case** \u2013 Ideal for tools that need to **enumerate all direct\
+  \ dependencies** of a Python project without caring about version constraints (e.g.,\
+  \ dependency\u2011out\u2011of\u2011date checks, licensing audits, or generating\
+  \ minimal requirement files).\n"

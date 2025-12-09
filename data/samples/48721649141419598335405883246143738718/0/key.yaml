@@ -1,2 +1,0 @@
-"`file_to_lines(file)` opens the given file with UTF\u20118 encoding, prints \"Parse:\
-  \ {file}\" when `verbose()` is true, and yields each processed line using `parse_lines`."

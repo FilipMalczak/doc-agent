@@ -1,7 +1,0 @@
-"## 10. `setup.py` Status  \n\n- Currently a minimal stub:\n\n  ```python\n  #! python3\n\
-  \  from setuptools import setup\n  setup()\n  ```\n\n- **Implication:** Running\
-  \ `python setup.py` does **not** produce a distributable package because no metadata\
-  \ is supplied.  \n- **Recommendation:** Populate `setup()` with the fields defined\
-  \ in `setup.cfg` (or replace the stub entirely with a declarative configuration).\
-  \ Modern projects should rely on `setup.cfg` or `pyproject.toml`; `setup.py` can\
-  \ remain as a thin wrapper if dynamic logic is required.  \n\n---  \n"

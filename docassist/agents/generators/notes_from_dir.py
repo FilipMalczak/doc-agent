@@ -1,7 +1,7 @@
 from dataclasses import field
 from os.path import basename, join, dirname
 from pathlib import Path
-from typing import NamedTuple, Self, Iterable, assert_never, Any
+from typing import NamedTuple, Self, Iterable
 
 from pydantic import BaseModel
 from pydantic_ai import Agent
@@ -10,7 +10,6 @@ from docassist.agents.generators.notes_from_file import MarkdownOutput
 from docassist.config import CONFIG
 from docassist.index.document import DirNoteMeta
 from docassist.index.protocols import Document
-from docassist.simple_xml import to_simple_xml
 from docassist.subjects import CodeFilePath, EntryType
 from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 

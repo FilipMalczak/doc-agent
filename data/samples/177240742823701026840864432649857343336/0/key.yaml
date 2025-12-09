@@ -1,0 +1,3 @@
+_main() awaits the coroutine print_outdated(outdated_results, args.quiet) to display
+  the check results, respecting the --quiet flag.
+...

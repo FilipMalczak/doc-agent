@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ \"Each line under 'install_requires' lists a required third\\u2011party\\\n  \
+  \  \\ package and a compatible version range.\"\n  fact: 'The project has the following\
+  \ runtime dependencies with version constraints:\n    aiohttp~=3.12, colorama~=0.4.6,\
+  \ packaging~=25.0, termcolor~=3.1, terminaltables~=3.1.'\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

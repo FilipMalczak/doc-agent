@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The __post_init__ method iterates over reversed all_versions, selects\n    the\
-  \ first version matching the specifier, and assigns latest = self.all_versions[-1].\n\
-  \  fact: OutdateResult.__post_init__ sets the wanted attribute to the highest version\n\
-  \    in all_versions that satisfies the requirement specifier, if any, and sets\
-  \ latest\n    to the last element of all_versions.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

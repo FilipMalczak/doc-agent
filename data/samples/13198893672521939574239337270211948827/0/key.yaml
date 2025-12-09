@@ -1,0 +1,5 @@
+'# Specify custom files or glob patterns
+
+  pip-outdated requirements/dev/*.txt
+
+  '

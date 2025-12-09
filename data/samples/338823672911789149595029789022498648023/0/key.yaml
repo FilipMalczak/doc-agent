@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ \"The full content of the file is limited to the three lines shown,\\\n    \\\
-  \ meaning there are no additional functions, classes, or side\\u2011effects defined\\\
-  \n    \\ here.\"\n  fact: \"The file does not contain any other statements, definitions,\
-  \ or top\\u2011\\\n    level code besides the guard, import, and function call.\"\
-  \n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

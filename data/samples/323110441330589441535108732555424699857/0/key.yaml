@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The next line after the import is `main()`, which invokes the `main`\n    function\
-  \ (or callable) defined in the imported `main` module, indicating that\n    script\
-  \ execution delegates to that entry point.\n  fact: After importing, the file calls\
-  \ `main()`.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

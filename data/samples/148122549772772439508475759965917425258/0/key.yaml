@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ All function signatures and dataclass fields include these type annotations.\n\
-  \  fact: The file uses Python type hints throughout, including Optional[Version]\
-  \ and\n    List[Version] to indicate possible None values and collections of Version\
-  \ objects.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

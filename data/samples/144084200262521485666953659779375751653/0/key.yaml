@@ -1,7 +1,0 @@
-"### Common Themes Across Tests\n- **Reliance on Async Utilities**: `test_pytz.py`\
-  \ demonstrates the asynchronous architecture used for PyPI queries.\n- **Emphasis\
-  \ on Clean Dependency Extraction**: `test_parse_cfg.py` ensures that dependency\
-  \ parsing isolates package names, a core requirement for the project's outdated\u2011\
-  package analysis.\n- **Minimal Assertions in Smoke Tests**: Some tests (e.g., `test_pytz.py`)\
-  \ verify successful execution rather than detailed output, encouraging developers\
-  \ to add richer checks over time.\n"

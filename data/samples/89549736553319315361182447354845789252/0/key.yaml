@@ -1,0 +1,3 @@
+The custom configuration section [vpip] defines a fallback command "python cute.py"
+  via the key "command_fallback".
+...

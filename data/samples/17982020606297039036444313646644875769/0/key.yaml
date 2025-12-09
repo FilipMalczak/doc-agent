@@ -1,0 +1,25 @@
+'# Project Notes: `pip_outdated/check_outdated.py`
+
+  ## Key Components
+
+  ### Asynchronous Helper Functions
+
+  | Function | Description | Return type |
+
+  |----------|-------------|-------------|
+
+  | `async def get_local_version(name: str) -> Optional[Version]` | Executes ``pip
+  show <name>`` in a subprocess, parses the `Version:` line, and returns a `Version`
+  object or `None` if the package is not installed. | `Optional[Version]` |
+
+  | `async def get_pypi_versions(name: str, session) -> List[Version]` | Performs
+  an HTTP GET to ``https://pypi.org/pypi/<name>/json`` using the provided `session`
+  (expected to be an `aiohttp` client). Collects all release keys, filters out invalid
+  or prerelease versions, sorts them, and returns the list. | `List[Version]` |
+
+  | `async def check_outdated(require, session) -> OutdateResult` | Orchestrates the
+  check: canonicalizes the requirement name, obtains the local version, fetches PyPI
+  versions, prints a verbose message if enabled, and returns an `OutdateResult`. |
+  `OutdateResult` |
+
+  '

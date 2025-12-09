@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The next line after the import is 'main()', which invokes the imported\n    object,\
+  \ assuming it is callable.\n  fact: After importing, the file calls the imported\
+  \ main object as a function.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

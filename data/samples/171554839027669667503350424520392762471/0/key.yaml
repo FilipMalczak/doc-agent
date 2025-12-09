@@ -1,0 +1,3 @@
+"## Project Configuration \u2013 `setup.py`\n### What the file currently does\n- Imports\
+  \ the `setup` function from **setuptools**.\n- Calls `setup()` with **no arguments**,\
+  \ meaning the package metadata and configuration are currently empty.\n"

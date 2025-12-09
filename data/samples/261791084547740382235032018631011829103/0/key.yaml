@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The line \"from setuptools import setup\" explicitly imports that function,\n\
-  \    indicating a dependency on the setuptools library.\n  fact: The script imports\
-  \ the \"setup\" function from the \"setuptools\" package.\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,0 +1,3 @@
+parse_args() adds a -v / --verbose flag that stores True when supplied and displays
+  the help text "Print verbose information.".
+...

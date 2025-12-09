@@ -1,0 +1,3 @@
+Package discovery is delegated to setuptools' "find:" directive, as indicated by the
+  line 'packages = find:' in the [options] section.
+...

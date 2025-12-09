@@ -1,0 +1,5 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n\n## Dependencies\n- **Standard\
+  \ library:** `asyncio`, `dataclasses`, `typing`.\n- **Third\u2011party:**  \n  -\
+  \ `packaging` (`Requirement`, `Version`, `canonicalize_name`).  \n  - An asynchronous\
+  \ HTTP client (e.g., `aiohttp`) for the `session` argument.\n- **Internal:** `pip_outdated.verbose.verbose`\
+  \ \u2013 a helper that toggles verbose output.\n"

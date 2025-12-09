@@ -1,0 +1,4 @@
+Within the session context, _main() builds a list comprehension that creates an asyncio
+  task for each requirement r by calling check_outdated(r, session); the tasks are
+  stored in outdated_results.
+...

@@ -1,0 +1,3 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n# Install the tool\n\
+  # Run with default files (requirements.txt, setup.cfg)\n# Run against custom patterns\n\
+  pip-outdated requirements/dev/*.txt\n"

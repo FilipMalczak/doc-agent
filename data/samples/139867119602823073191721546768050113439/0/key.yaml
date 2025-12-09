@@ -1,0 +1,2 @@
+'When verbose() returns a truthy value, the parser prints "Parse: {file}" to standard
+  output before reading the file.'

@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The method compares self.version with self.wanted and self.latest,\n    returning\
-  \ True if either comparison is unequal.\n  fact: OutdateResult.outdated() returns\
-  \ True if the installed version differs from\n    either the wanted version or the\
-  \ latest version.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

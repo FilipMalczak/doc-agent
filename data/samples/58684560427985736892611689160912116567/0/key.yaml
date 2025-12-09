@@ -1,0 +1,4 @@
+"#### Example commands\n- Check multiple files (e.g., `test-requirements.txt` and\
+  \ `dev-requirements.txt`):\n  ```bash\n  pip-outdated *-requirements.txt\n  ```\n\
+  - Check all files in a folder:\n  ```bash\n  pip-outdated requirements/*.txt\n \
+  \ ```\n\n---"

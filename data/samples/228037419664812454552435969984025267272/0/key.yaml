@@ -1,0 +1,8 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function mirrors the logic of colored_wanted, checking `outdate.pypi_not_found()`\n\
+  \    and `outdate.version < outdate.latest` before applying colors.\n  fact: Inside\
+  \ make_row, the nested function colored_latest returns \"None\" colored\n    red\
+  \ and bold when the package is not found on PyPI; otherwise it returns the latest\n\
+  \    version colored green and bold if the installed version is older than the latest\n\
+  \    version, or as an uncolored string otherwise.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

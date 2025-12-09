@@ -1,3 +1,0 @@
-The module provides a function verbose that returns the current value of the global
-  VERBOSE.
-...

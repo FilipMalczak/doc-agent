@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The multiline string written to the file includes those lines under\n    the `setup_requires`\
-  \ key.\n  fact: 'The temporary `setup.cfg` file contains an `[options]` section\
-  \ with a `setup_requires`\n    entry listing two requirements: `setuptools_scm >=\
-  \ 1.15.0` and `setuptools_scm_git_archive\n    >= 1.0`.'\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

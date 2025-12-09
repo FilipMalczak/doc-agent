@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ It matches `r\"(.*?)\\s--?[a-z]\"` to strip the option, then wraps `Requirement(text)`\n\
-  \    in a `try/except` that catches `InvalidRequirement`.\n  fact: '`parse_require(text)`\
-  \ removes any option flag that follows a space and begins\n    with a hyphen, then\
-  \ attempts to create a `Requirement` object, returning `None`\n    if `InvalidRequirement`\
-  \ is raised.'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

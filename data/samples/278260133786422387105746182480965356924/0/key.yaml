@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ \"The top\\u2011level docstring states \\u201CFind requirements.\\u201D\\\n  \
-  \  \\ and includes a URL to pip\\u2019s requirements\\u2011file format.\"\n  fact:\
-  \ \"The module\\u2019s purpose is to locate Python package requirements defined\\\
-  \n    \\ in requirement files or `setup.cfg` files.\"\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

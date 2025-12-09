@@ -1,0 +1,123 @@
+finish_reason: tool_call
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to output JSON with rewrites (list of list) where each inner list
+    corresponds to each input query? In example, rewrites is list of lists, each sublist
+    contains rewrite_count strings for that query. Yes. They gave rewrite_count=2,
+    and there were 2 initial queries; rewrites had two sublists each with 2 strings.
+    For 4 initial queries, we need 4 sublists each with 2 rewrites.
+
+
+    Also need expansions: array of expansion_count strings (3), standalone statements,
+    similar in meaning to all input queries (i.e., about identifying project name).
+
+
+    We must not include the initial queries.
+
+
+    We must follow formatting rules: double quotes, JSON object with fields "rewrites"
+    and "expansions". Use hyphen style for lists? That''s for markdown YAML; but we
+    output JSON via function final_result. Should use double quotes, no trailing commas.
+
+
+    We must ensure rewrites differ substantially in structure.
+
+
+    Let''s craft rewrites for each query:
+
+
+    Query 0: "project name"
+
+
+    Rewrites:
+
+    - "What is the designated name of the project?"
+
+    - "Identify the title assigned to this project."
+
+
+    Query 1: "current project name"
+
+
+    Rewrites:
+
+    - "State the present name of the project."
+
+    - "What does the project currently go by?"
+
+
+    Query 2: "project_name variable"
+
+
+    Rewrites:
+
+    - "Locate the variable that stores the project''s name."
+
+    - "Which variable holds the identifier for the project?"
+
+
+    Query 3: "what is the name of this project"
+
+
+    Rewrites:
+
+    - "Can you tell me the project''s name?"
+
+    - "Provide the official name of this project."
+
+
+    Now expansions: 3 standalone statements, not tied to one query but overall.
+
+
+    Possible expansions:
+
+
+    - "Determine the official project designation as documented."
+
+    - "Retrieve the project identifier from the project''s documentation."
+
+    - "Find the name assigned to the current project within its documentation."
+
+
+    Make sure they are standalone statements, not questions? They can be statements.
+
+
+    We''ll output JSON via final_result function.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- args: '{"expansions":["Determine the official project designation as documented.","Retrieve
+    the project identifier from the project''s documentation.","Find the name assigned
+    to the current project within its documentation."],"rewrites":[["What is the designated
+    name of the project?","Identify the title assigned to this project."],["State
+    the present name of the project.","What does the project currently go by?"],["Locate
+    the variable that stores the project''s name.","Which variable holds the identifier
+    for the project?"],["Can you tell me the project''s name?","Provide the official
+    name of this project."]]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: fc_2caa615c-9dab-4030-9bf1-698e6dcf1f90
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1765300081-NnfLfpbeEmFCjDSdMg8L
+run_id: 097b5b45-850c-4dbd-a4f7-fdfc72814bc4
+timestamp: '2025-12-09T17:08:01Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 414
+  input_audio_tokens: 0
+  input_tokens: 998
+  output_audio_tokens: 0
+  output_tokens: 585

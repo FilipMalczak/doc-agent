@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ In Python, any directory containing an __init__.py file is recognized\n    as\
-  \ a package, allowing import of modules from that directory.\n  fact: The presence\
-  \ of __init__.py makes the tests directory a Python package.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

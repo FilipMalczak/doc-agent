@@ -1,0 +1,15 @@
+"## Additional Configuration (`[vpip]` section)\n- **`command_fallback`**: `python\
+  \ cute.py`\n  - Provides a fallback command that can be invoked by the `vpip` tool\
+  \ (if such a tool is used in the ecosystem).\n\n---\n### Points for User\u2011Facing\
+  \ Documentation\n1. **Installation**\n   - Use `pip install pip-outdated` (the package\
+  \ pulls in the listed dependencies automatically).\n2. **Running the Tool**\n  \
+  \ - After installation, execute `pip-outdated` in a terminal to scan the current\
+  \ directory's `requirements.txt` or `setup.cfg` for outdated packages.\n3. **Configuration**\n\
+  \   - Users can customize behavior via the optional `[vpip]` section in their own\
+  \ `setup.cfg` files, e.g., setting a different `command_fallback`.\n4. **Supported\
+  \ Python Versions**\n   - Declared compatibility with Python 3.7 (the classifier\
+  \ suggests this is the minimum supported version).\n5. **Contribution & Issues**\n\
+  \   - Contributions, bug reports, and feature requests should be directed to the\
+  \ GitHub repository linked above.\n\nThese notes capture all metadata and configuration\
+  \ details needed to draft comprehensive user documentation for the **pip\u2011outdated**\
+  \ project."

@@ -1,0 +1,4 @@
+"# Project Documentation Notes: `pip_outdated/verbose.py`\n\n## Overview\n`verbose.py`\
+  \ provides a simple, module\u2011level namespace for managing a **global verbose\
+  \ flag** used throughout the *pip_outdated* project. It allows other parts of the\
+  \ codebase to query or modify the verbose state in a consistent way.\n"

@@ -1,4 +1,0 @@
-The module imports `Iterable` from `collections.abc`, `ConfigParser` from `configparser`,
-  `pathlib`, `re`, `Requirement` and `InvalidRequirement` from `packaging.requirements`,
-  and `verbose` from the local `.verbose` module.
-...

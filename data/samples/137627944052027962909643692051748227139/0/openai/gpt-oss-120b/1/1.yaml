@@ -1,0 +1,35 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We have documents indicating project name is "pip-outdated". Need to provide
+    answer per final_result schema: explanation, name, value. Explanation should cite
+    these docs. Provide concise value: pip-outdated.
+
+
+    Now produce final_result.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765301437-L975McZ7NnmttQ820hw4
+run_id: 8039c051-1796-4f34-b5df-5163c91f407e
+timestamp: '2025-12-09T17:30:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 62
+  input_audio_tokens: 0
+  input_tokens: 2495
+  output_audio_tokens: 0
+  output_tokens: 142

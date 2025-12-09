@@ -1,2 +1,0 @@
-'The file includes an `[options.extras_require]` section with a `docs` extra that
-  lists two packages: `alabaster` and `Sphinx`.'

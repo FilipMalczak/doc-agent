@@ -1,0 +1,3 @@
+pip-outdated compares the installed version number with the version specifier declared
+  in the requirements file.
+...

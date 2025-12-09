@@ -1,0 +1,49 @@
+finish_reason: tool_call
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The user asks to resolve variable value `project_name` defined as ''current
+    project name''. Need to get the current project name from knowledge base. We need
+    to search knowledge base. Use function search_knowledge_base with purpose: "Find
+    the current project name". Queries likely include "project name", "current project
+    name". We''ll provide purpose and queries.
+
+
+    We need to retrieve docs that contain the project name. Then decide value. Probably
+    the project is something like "OpenAI API" etc. But we need actual knowledge.
+    Use search.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- args: "{\n  \"purpose\": \"Identify the name of the current project as defined in\
+    \ the project's documentation.\",\n  \"queries\": [\n    \"project name\",\n \
+    \   \"current project name\",\n    \"project_name variable\",\n    \"what is the\
+    \ name of this project\"\n  ],\n  \"cutoff\": 0.9,\n  \"additional_rephrasing_instructions\"\
+    : null,\n  \"additional_deduplication_instructions\": null,\n  \"additional_reranking_instructions\"\
+    : null\n}"
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-13f64639ba60449191cf0f1089db485f
+  tool_name: search_knowledge_base
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1765300078-y73t76qRTH3JQ3KNhX2G
+run_id: 104731f0-dc8e-4bac-9918-54145c974b49
+timestamp: '2025-12-09T17:07:58Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 64
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 138
+  input_audio_tokens: 0
+  input_tokens: 1587
+  output_audio_tokens: 0
+  output_tokens: 227

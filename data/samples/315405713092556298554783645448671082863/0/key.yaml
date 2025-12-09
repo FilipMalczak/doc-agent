@@ -1,0 +1,310 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <output>Markdown</output>\n</format>\n<formatting_rules>\n\
+      \  <quotes>always use double quotes for strings, no matter the format</quotes>\n\
+      \  <indentation>optional, recommended</indentation>\n  <empty_values>omit, unless\
+      \ semantically important or required by schema</empty_values>\n  <lists>\n \
+      \   <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n    <yaml>hyphen-style</yaml>\n\
+      \  </lists>\n  <multiline_text>\n    <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n\
+      </formatting_rules>\n<constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>note\
+      \ taker</persona>\n<task>\n  <context>you're reading the whole project for the\
+      \ first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>take notes from the input file</high_level>\n  <low_level>take\
+      \ notes from the perspective of the user of this project</low_level>\n  <detailed>take\
+      \ notes that can be later used to prepare user-facing documentation of the project\
+      \ that the input file is part of</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>code</repo_item_type>\n\
+      <path>pip_outdated/session.py</path>\n<language>python</language>\n<content>\n\
+      import aiohttp\n\n\ndef get_session() -> aiohttp.ClientSession:\n    headers\
+      \ = {\"User-Agent\": \"pip-outdated\"}\n    connector = aiohttp.TCPConnector(limit=5)\n\
+      \    return aiohttp.ClientSession(headers=headers, connector=connector)    \n\
+      \n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to take notes from the source file for later documentation.\
+      \ Output in markdown. Must follow formatting rules: double quotes for strings,\
+      \ hyphen bullet points. Provide notes from user perspective: what this module\
+      \ provides, usage, behavior. No hallucinations. Provide concise notes.\n\nLet's\
+      \ extract info:\n\nFile path: pip_outdated/session.py. It defines get_session()\
+      \ returning aiohttp.ClientSession with custom headers (User-Agent \"pip-outdated\"\
+      ) and TCPConnector limit of 5. It imports aiohttp.\n\nNotes: purpose: centralize\
+      \ creation of http session for pip-outdated tool, enforce user-agent and connection\
+      \ limit.\n\nPotential usage: call get_session() to obtain session; ensure to\
+      \ close session after use (async with or finally). Not in code but we can note\
+      \ best practice.\n\nDocument that function returns a new session each call;\
+      \ not a singleton. So users may call each time.\n\nAdd note about dependencies:\
+      \ aiohttp required.\n\nAlso note that function has no parameters.\n\nNow produce\
+      \ markdown notes with bullet points. Use double quotes for strings.\n\nLet's\
+      \ format:\n\n- **File**: `pip_outdated/session.py`\n- **Purpose**: Provide a\
+      \ helper to create a pre\u2011configured `aiohttp.ClientSession` for the *pip\u2011\
+      outdated* CLI.\n- **Key function**: `get_session() -> aiohttp.ClientSession`\n\
+      \  - Returns a new `aiohttp.ClientSession` each call.\n  - Sets default HTTP\
+      \ header `\"User-Agent\": \"pip-outdated\"`.\n  - Uses an `aiohttp.TCPConnector`\
+      \ with `limit=5` to restrict concurrent connections.\n- **Usage pattern** (as\
+      \ a note for users):\n  ```python\n  import asyncio\n  from pip_outdated.session\
+      \ import get_session\n\n  async def main():\n      async with get_session()\
+      \ as session:\n          async with session.get(\"https://pypi.org/pypi/pip/json\"\
+      ) as resp:\n              data = await resp.json()\n              ...\n\n  asyncio.run(main())\n\
+      \  ```\n  - The `async with` block ensures the session is closed properly.\n\
+      - **Dependencies**: Requires the `aiohttp` library.\n- **Design considerations**:\n\
+      \  - Centralising session creation makes it easy to adjust headers or connection\
+      \ limits in one place.\n  - The low connection limit (`5`) is suitable for the\
+      \ modest parallelism the tool performs.\n- **Potential extension points**:\n\
+      \  - Add optional parameters (e.g., timeout, proxy) if future features need\
+      \ more flexibility.\n  - Cache a singleton session to reuse across multiple\
+      \ calls (currently a new session per call).\n\nMake sure not to hallucinate\
+      \ any additional behavior."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "## \U0001F4C4 File Overview  \n\n- **Path:** `pip_outdated/session.py`\
+      \  \n- **Language:** Python  \n- **Primary role:** Centralises creation of a\
+      \ pre\u2011configured `aiohttp.ClientSession` for the *pip\u2011outdated* tool.\
+      \  \n\n## \U0001F527 Key Function  \n\n- **Signature:** `get_session() -> aiohttp.ClientSession`\
+      \  \n- **What it does:**  \n  - Instantiates a new `aiohttp.ClientSession` on\
+      \ every call.  \n  - Sets a default HTTP header `\"User-Agent\": \"pip-outdated\"\
+      `.  \n  - Uses an `aiohttp.TCPConnector` with `limit=5` to cap concurrent connections.\
+      \  \n\n## \U0001F4E6 Usage Example (User\u2011Facing)  \n\n```python\nimport\
+      \ asyncio\nfrom pip_outdated.session import get_session\n\nasync def main()\
+      \ -> None:\n    async with get_session() as session:\n        async with session.get(\"\
+      https://pypi.org/pypi/pip/json\") as resp:\n            data = await resp.json()\n\
+      \            # \u2026 process the JSON response \u2026\n\nasyncio.run(main())\n\
+      ```\n\n- **Note:** Wrapping the session in an `async with` block guarantees\
+      \ proper cleanup (the session is closed automatically).  \n\n## \U0001F4DA Dependencies\
+      \  \n\n- Requires the third\u2011party library **`aiohttp`**.  \n\n## \U0001F6E0\
+      \ Design Rationale  \n\n- **Single source of truth:** All HTTP requests made\
+      \ by the tool share the same User\u2011Agent and connection limit, making future\
+      \ adjustments straightforward.  \n- **Connection limit (`5`):** Aligns with\
+      \ the modest parallelism the CLI performs, preventing excessive open sockets.\
+      \  \n\n## \U0001F680 Potential Extension Points  \n\n- **Configurable parameters:**\
+      \ Expose optional arguments (e.g., timeout, proxy settings) if later features\
+      \ need them.  \n- **Session reuse:** Consider a singleton pattern to reuse a\
+      \ single session across multiple calls, reducing overhead.  \n\nThese notes\
+      \ capture the essential, user\u2011relevant details of `pip_outdated/session.py`\
+      \ for future documentation."
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233503-YXkxuk136edrcTNeRViz
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:38:23Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 534
+    input_audio_tokens: 0
+    input_tokens: 525
+    output_audio_tokens: 0
+    output_tokens: 958
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: expected value at line 1 column 1
+      input: "## \U0001F4C4 File Overview  \n\n- **Path:** `pip_outdated/session.py`\
+        \  \n- **Language:** Python  \n- **Primary role:** Centralises creation of\
+        \ a pre\u2011configured `aiohttp.ClientSession` for the *pip\u2011outdated*\
+        \ tool.  \n\n## \U0001F527 Key Function  \n\n- **Signature:** `get_session()\
+        \ -> aiohttp.ClientSession`  \n- **What it does:**  \n  - Instantiates a new\
+        \ `aiohttp.ClientSession` on every call.  \n  - Sets a default HTTP header\
+        \ `\"User-Agent\": \"pip-outdated\"`.  \n  - Uses an `aiohttp.TCPConnector`\
+        \ with `limit=5` to cap concurrent connections.  \n\n## \U0001F4E6 Usage Example\
+        \ (User\u2011Facing)  \n\n```python\nimport asyncio\nfrom pip_outdated.session\
+        \ import get_session\n\nasync def main() -> None:\n    async with get_session()\
+        \ as session:\n        async with session.get(\"https://pypi.org/pypi/pip/json\"\
+        ) as resp:\n            data = await resp.json()\n            # \u2026 process\
+        \ the JSON response \u2026\n\nasyncio.run(main())\n```\n\n- **Note:** Wrapping\
+        \ the session in an `async with` block guarantees proper cleanup (the session\
+        \ is closed automatically).  \n\n## \U0001F4DA Dependencies  \n\n- Requires\
+        \ the third\u2011party library **`aiohttp`**.  \n\n## \U0001F6E0 Design Rationale\
+        \  \n\n- **Single source of truth:** All HTTP requests made by the tool share\
+        \ the same User\u2011Agent and connection limit, making future adjustments\
+        \ straightforward.  \n- **Connection limit (`5`):** Aligns with the modest\
+        \ parallelism the CLI performs, preventing excessive open sockets.  \n\n##\
+        \ \U0001F680 Potential Extension Points  \n\n- **Configurable parameters:**\
+        \ Expose optional arguments (e.g., timeout, proxy settings) if later features\
+        \ need them.  \n- **Session reuse:** Consider a singleton pattern to reuse\
+        \ a single session across multiple calls, reducing overhead.  \n\nThese notes\
+        \ capture the essential, user\u2011relevant details of `pip_outdated/session.py`\
+        \ for future documentation."
+      loc: []
+      msg: 'Invalid JSON: expected value at line 1 column 1'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_a72cc8d7e4804541a82905904e9f93a9
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "The user attempted to provide output as JSON but got validation error\
+      \ because output must be JSON. The instructions earlier said output format markdown.\
+      \ But now they ask to fix errors and try again. Likely they expect the assistant\
+      \ to output JSON that matches some schema? No schema provided. The validation\
+      \ error indicates the system expected JSON output, but got markdown text. So\
+      \ we need to output valid JSON. Probably the expected output is a JSON object\
+      \ containing notes. Could be something like:\n\n{\n  \"file_overview\": \"...\"\
+      ,\n  \"key_function\": \"...\",\n  \"usage_example\": \"...\",\n  \"dependencies\"\
+      : \"...\",\n  \"design_rationale\": \"...\",\n  \"potential_extensions\": \"\
+      ...\"\n}\n\nWe must ensure strings double quoted. Use proper JSON. No markdown\
+      \ inside. Keep content as plain strings. Use newline characters \\n. Must escape\
+      \ double quotes. Let's construct JSON.\n\nFields: file_overview, key_function,\
+      \ usage_example, dependencies, design_rationale, potential_extensions.\n\nProvide\
+      \ concise notes.\n\nMake sure to escape backticks? JSON strings can contain\
+      \ backticks but it's okay. Use double quotes for strings and escape internal\
+      \ double quotes.\n\nLet's write content.\n\nfile_overview: \"Path: pip_outdated/session.py\\\
+      nLanguage: Python\\nPrimary role: Centralises creation of a pre-configured aiohttp.ClientSession\
+      \ for the pip-outdated tool.\"\n\nkey_function: \"Signature: get_session() ->\
+      \ aiohttp.ClientSession\\nWhat it does:\\n- Instantiates a new aiohttp.ClientSession\
+      \ on every call.\\n- Sets a default HTTP header \\\"User-Agent\\\": \\\"pip-outdated\\\
+      \".\\n- Uses an aiohttp.TCPConnector with limit=5 to cap concurrent connections.\"\
+      \n\nusage_example: include python code as string with escaped quotes.\n\ndependencies:\
+      \ \"Requires the third\u2011party library aiohttp.\"\n\ndesign_rationale: \"\
+      Single source of truth: All HTTP requests share the same User-Agent and connection\
+      \ limit, simplifying future adjustments.\\nConnection limit (5): Matches the\
+      \ modest parallelism of the CLI, preventing excessive open sockets.\"\n\npotential_extensions:\
+      \ \"- Configurable parameters such as timeout or proxy.\\n- Session reuse via\
+      \ a singleton to reduce overhead.\"\n\nReturn JSON object.\n\nWe'll output only\
+      \ JSON."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "{\n  \"file_overview\": \"Path: pip_outdated/session.py\\nLanguage:\
+      \ Python\\nPrimary role: Centralises creation of a pre-configured aiohttp.ClientSession\
+      \ for the pip-outdated tool.\",\n  \"key_function\": \"Signature: get_session()\
+      \ -> aiohttp.ClientSession\\nWhat it does:\\n- Instantiates a new aiohttp.ClientSession\
+      \ on every call.\\n- Sets a default HTTP header \\\"User-Agent\\\": \\\"pip-outdated\\\
+      \".\\n- Uses an aiohttp.TCPConnector with limit=5 to cap concurrent connections.\"\
+      ,\n  \"usage_example\": \"import asyncio\\nfrom pip_outdated.session import\
+      \ get_session\\n\\nasync def main() -> None:\\n    async with get_session()\
+      \ as session:\\n        async with session.get(\\\"https://pypi.org/pypi/pip/json\\\
+      \") as resp:\\n            data = await resp.json()\\n            # ... process\
+      \ the JSON response ...\\n\\nasyncio.run(main())\",\n  \"dependencies\": \"\
+      Requires the third\u2011party library aiohttp.\",\n  \"design_rationale\": \"\
+      Single source of truth: All HTTP requests share the same User-Agent and connection\
+      \ limit, simplifying future adjustments.\\nConnection limit (5): Matches the\
+      \ modest parallelism of the CLI, preventing excessive open sockets.\",\n  \"\
+      potential_extensions\": \"- Configurable parameters such as timeout or proxy.\\\
+      n- Session reuse via a singleton to reduce overhead.\"\n}"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233551-65F8EDlOjw5WdgSiDsnF
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:39:11Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 442
+    input_audio_tokens: 0
+    input_tokens: 2026
+    output_audio_tokens: 0
+    output_tokens: 738
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - input:
+        dependencies: "Requires the third\u2011party library aiohttp."
+        design_rationale: 'Single source of truth: All HTTP requests share the same
+          User-Agent and connection limit, simplifying future adjustments.
+
+          Connection limit (5): Matches the modest parallelism of the CLI, preventing
+          excessive open sockets.'
+        file_overview: 'Path: pip_outdated/session.py
+
+          Language: Python
+
+          Primary role: Centralises creation of a pre-configured aiohttp.ClientSession
+          for the pip-outdated tool.'
+        key_function: 'Signature: get_session() -> aiohttp.ClientSession
+
+          What it does:
+
+          - Instantiates a new aiohttp.ClientSession on every call.
+
+          - Sets a default HTTP header "User-Agent": "pip-outdated".
+
+          - Uses an aiohttp.TCPConnector with limit=5 to cap concurrent connections.'
+        potential_extensions: '- Configurable parameters such as timeout or proxy.
+
+          - Session reuse via a singleton to reduce overhead.'
+        usage_example: "import asyncio\nfrom pip_outdated.session import get_session\n\
+          \nasync def main() -> None:\n    async with get_session() as session:\n\
+          \        async with session.get(\"https://pypi.org/pypi/pip/json\") as resp:\n\
+          \            data = await resp.json()\n            # ... process the JSON\
+          \ response ...\n\nasyncio.run(main())"
+      loc:
+      - response
+      msg: Field required
+      type: missing
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_480d0da34d39436396d1179920d47970
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        response:
+          type: string
+      required:
+      - response
+      type: object
+    name: Annotated
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: response
+    parameters_json_schema:
+      properties:
+        response:
+          type: string
+      required:
+      - response
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

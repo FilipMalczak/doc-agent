@@ -1,5 +1,0 @@
-colored_latest returns a red bold "None" string if outdate.pypi_not_found() is True;
-  returns a green bold string of the latest version if the package is installed and
-  the installed version is less than the latest version; otherwise returns the latest
-  version as a plain string.
-...

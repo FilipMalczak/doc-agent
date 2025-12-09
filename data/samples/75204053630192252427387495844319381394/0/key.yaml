@@ -1,0 +1,9 @@
+"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n### 1. Project\
+  \ Overview\n### 2. Command\u2011Line Interface (CLI)\n### 3. Core Modules & Their\
+  \ Responsibilities\n### 4. Detailed Module Highlights\n#### `find_require.py`\n\
+  #### `check_outdated.py`\n#### `print_outdated.py`\n- Initializes `colorama` for\
+  \ cross\u2011platform colour support.\n- Builds an ASCII table (`terminaltables.AsciiTable`).\n\
+  - Colour logic:\n  - **Red** \u2013 missing, unavailable, or outdated.\n  - **Green**\
+  \ \u2013 updatable.\n- Prints a legend, the table, and exits with status\u202F1\
+  \ unless `quiet` is true.\n- Handles three terminal states: no requirements, everything\
+  \ up\u2011to\u2011date, or some packages outdated.\n"

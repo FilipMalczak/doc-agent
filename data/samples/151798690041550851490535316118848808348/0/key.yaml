@@ -1,6 +1,0 @@
-"# Notes on `pip_outdated/session.py`\n\n## Extensibility Tips\n- If a different concurrency\
-  \ level is required, modify the `limit` argument in `TCPConnector`.\n- To add additional\
-  \ default headers (e.g., authentication tokens), extend the `headers` dictionary\
-  \ before creating the session.\n- For advanced use\u2011cases (proxy support, SSL\
-  \ configuration), replace the `TCPConnector` with a custom connector and pass it\
-  \ to `ClientSession`."

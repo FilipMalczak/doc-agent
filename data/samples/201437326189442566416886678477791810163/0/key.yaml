@@ -1,0 +1,3 @@
+The test defines a function named test_parse_cfg that receives a tmp_path fixture
+  (provided by pytest) as its only argument.
+...

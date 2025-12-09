@@ -1,0 +1,30 @@
+"## Project Notes \u2013 `pip_outdated/find_require.py`\n\n### Overview\n- **Purpose**:\
+  \ Provides utilities to locate and parse Python package requirement specifications\
+  \ from various files (e.g., `requirements.txt`, `setup.cfg`).\n- **Reference**:\
+  \ Mirrors the requirements file format described in the official pip documentation:\
+  \ <https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format>\n\
+  \n### Key Functions\n| Function | Description | Important Details |\n|---|---|---|\n\
+  | `iter_files(patterns)` | Yields `pathlib.Path` objects for each file matching\
+  \ one or more glob patterns. | Accepts a list of patterns. If a pattern is an existing\
+  \ file, it yields that file directly; otherwise it expands the pattern using `Path.glob`.\n\
+  | `file_to_lines(file)` | Reads a file and yields processed lines, handling comments\
+  \ (`#`) and line\u2011continuation (`\\`). | Calls `parse_lines` on the file iterator;\
+  \ prints the file being parsed when `verbose()` is truthy.\n| `parse_lines(lines)`\
+  \ | Core line\u2011pre\u2011processing generator. | - Strips comments (anything\
+  \ after a `#` that is preceded by whitespace or start of line).<br>- Concatenates\
+  \ lines ending with a backslash (`\\`) to support continuation.<br>- Removes trailing\
+  \ new\u2011line characters.\n| `parse_requirements(file)` | Parses a requirements\
+  \ file, yielding `packaging.requirements.Requirement` objects for each valid line.\
+  \ | Utilises `file_to_lines` then `parse_require`.\n| `parse_requirements_text(text)`\
+  \ | Same as above but works on a raw string (useful for inline text). | Splits the\
+  \ string into lines with `splitlines(True)` before feeding to `parse_lines`.\n|\
+  \ `parse_cfg(file)` | Extracts requirement specifications from a `setup.cfg`\u2011\
+  style config file. | Looks in the `options` section for `setup_requires` and `install_requires`,\
+  \ and iterates over all entries in `options.extras_require`. Each extracted text\
+  \ block is fed to `parse_requirements_text`.\n| `find_require(files)` | High\u2011\
+  level helper that iterates over a collection of files (globs or explicit paths)\
+  \ and yields all discovered `Requirement` objects. | Determines the parser based\
+  \ on file suffix: `.cfg` \u2192 `parse_cfg`; otherwise \u2192 `parse_requirements`.\n\
+  | `parse_require(text)` | Converts a single requirement string into a `Requirement`\
+  \ object, stripping any command\u2011line style options (e.g., `--no-binary`). |\
+  \ Returns `None` if the string is not a valid requirement (catches `InvalidRequirement`).\n"

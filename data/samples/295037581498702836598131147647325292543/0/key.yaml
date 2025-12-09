@@ -1,0 +1,2 @@
+"Version 0.8.0 (released Aug\u202F9\u202F2025) removed the setuptools dependency and\
+  \ switched to configparse for reading setup.cfg."

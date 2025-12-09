@@ -1,4 +1,0 @@
-"## Project Component: `pip_outdated/print_outdated.py`\n### Dependencies\n- `colorama`\
-  \ \u2013 ensures ANSI colors work on Windows.\n- `termcolor` \u2013 applies color\
-  \ styling to individual cell strings.\n- `terminaltables` \u2013 builds the printable\
-  \ ASCII table.\n- Local import: `OutdateResult` from `.check_outdated`.\n"

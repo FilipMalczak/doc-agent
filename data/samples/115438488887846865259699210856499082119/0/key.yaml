@@ -1,0 +1,12 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n## How to Use\n```python\nimport\
+  \ asyncio\nimport aiohttp\nfrom packaging.requirements import Requirement\nfrom\
+  \ pip_outdated.check_outdated import check_outdated\n\nasync def main():\n    req\
+  \ = Requirement(\"requests>=2.20,<3\")\n    async with aiohttp.ClientSession() as\
+  \ session:\n        result = await check_outdated(req, session)\n        if result.outdated():\n\
+  \            print(\n                f\"{result.name} is outdated: installed {result.version},\
+  \ \"\n                f\"wanted {result.wanted}, latest {result.latest}\"\n    \
+  \        )\n        else:\n            print(f\"{result.name} is up-to-date.\")\n\
+  \nasyncio.run(main())\n```\n- **Parameters**\n  - `require`: a `Requirement` object\
+  \ describing the package and version constraints.  \n  - `session`: an `aiohttp.ClientSession`\
+  \ (or compatible async HTTP client) used for the PyPI request.\n- **Return**: an\
+  \ `OutdateResult` instance that can be inspected via its methods.\n"

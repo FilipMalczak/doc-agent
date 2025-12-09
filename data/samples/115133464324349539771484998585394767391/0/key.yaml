@@ -1,5 +1,0 @@
-"## Project Component: `pip_outdated/verbose.py`\n\n### Integration Points\n- **CLI\
-  \ / Configuration**: Expected to be set based on command\u2011line arguments (e.g.,\
-  \ `--verbose`) or configuration files during project initialization.\n- **Logging**:\
-  \ Modules that emit detailed output should call `verbose()` to decide whether to\
-  \ include extra information.\n"

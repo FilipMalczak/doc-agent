@@ -1,3 +1,0 @@
-Version 0.8.0 was released on Aug 9, 2025, dropping the setuptools dependency and
-  switching to configparse for reading "setup.cfg".
-...

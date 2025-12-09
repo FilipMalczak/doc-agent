@@ -1,2 +1,0 @@
-'"pip-outdated" compares each package''s installed version with the version specifier
-  defined in "requirements.txt" or "setup.cfg".'

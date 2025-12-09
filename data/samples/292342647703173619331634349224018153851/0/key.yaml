@@ -1,3 +1,0 @@
-Inside the async with block, the test awaits get_pypi_versions with arguments "pytz"
-  and the session object.
-...

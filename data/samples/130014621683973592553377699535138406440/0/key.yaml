@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ When `line.endswith(\"\\\\n\")` is true, the code appends `line[0:-2]`\n    to\
-  \ `pre_line` and continues the loop.\n  fact: Line continuation handling treats\
-  \ a line ending with a backslash followed\n    by a newline (`\\\\n`) as a signal\
-  \ to concatenate the next line without the backslash.\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

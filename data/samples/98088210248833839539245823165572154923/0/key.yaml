@@ -1,0 +1,19 @@
+"# Directory\u2011Level Documentation: `tests`\n\n## Purpose of the `tests` Package\n\
+  - Provides a **pytest\u2011compatible test suite** for the `pip_outdated` project.\n\
+  - The presence of an ``__init__.py`` file marks the directory as a Python package,\
+  \ allowing test modules to be imported via package syntax.\n\n## Overview of Test\
+  \ Files\n| File | Primary Focus | Key Take\u2011aways |\n|------|---------------|----------------|\n\
+  | `tests/__init__.py` | Package marker | Empty file; its sole role is to make `tests`\
+  \ importable. |\n| `tests/test_parse_cfg.py` | Unit test for `parse_cfg` (in `pip_outdated.find_require`)\
+  \ | Verifies that `parse_cfg` correctly extracts **package names** from a `setup.cfg`\
+  \ file, handling `setup_requires`, `install_requires`, and any `extras_require`\
+  \ sections. Version specifiers are stripped and the original order is preserved.\
+  \ |\n| `tests/test_pytz.py` | Async integration test for PyPI lookup | Uses `pytest\u2011\
+  asyncio` to ensure `get_pypi_versions` can fetch version data for the `pytz` package\
+  \ via an async HTTP session (`get_session`). Passes if no exception is raised. |\n\
+  \n## Common Testing Patterns\n- **pytest** is the test runner throughout the suite.\n\
+  - **`tmp_path` fixture** (in `test_parse_cfg.py`) is used to create temporary configuration\
+  \ files on\u2011the\u2011fly.\n- **Async tests** are enabled with the `pytest\u2011\
+  asyncio` plugin and the `@pytest.mark.asyncio` decorator (see `test_pytz.py`).\n\
+  - Tests focus on **behavioural verification** rather than exhaustive assertions;\
+  \ e.g., `test_pytz.py` succeeds if the network call completes without error.\n"

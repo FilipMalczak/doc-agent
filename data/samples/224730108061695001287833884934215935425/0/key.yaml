@@ -1,5 +1,0 @@
-"### Asynchronous handling  \n\n- The script cannot use `asyncio.run` because that\
-  \ would close the event loop, which conflicts with `aiohttp`\u2019s known issue\
-  \ (see https://github.com/aio-libs/aiohttp/issues/1925).  \n- Instead, it retrieves\
-  \ the current event loop with `asyncio.get_event_loop()` and runs `_main()` until\
-  \ completion.  \n"

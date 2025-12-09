@@ -2,14 +2,13 @@ import datetime
 import uuid
 from contextlib import asynccontextmanager
 from dataclasses import replace
-from typing import Iterable, Optional, Any, Awaitable, Literal, AsyncIterator, Callable, Self
+from typing import Any, Awaitable, AsyncIterator, Self
 
 from opentelemetry.trace import get_current_span
-from pydantic import BaseModel, TypeAdapter
-from pydantic_ai import ModelMessage, ModelSettings, ModelResponse, RequestUsage, RunContext, ModelRequest, \
-    ModelRequestPart, ModelResponsePart
+from pydantic import BaseModel
+from pydantic_ai import ModelMessage, ModelSettings, ModelResponse, RequestUsage, RunContext, ModelRequestPart, \
+    ModelResponsePart
 from pydantic_ai.models import Model, ModelRequestParameters, StreamedResponse
-
 
 from docassist.sampling.protocols import SamplingSlot
 from docassist.sampling.std.provider import SlotProvider
@@ -48,7 +47,7 @@ class ModelInput(BaseModel):
             m = replace(m)
             m.parts = [part(p) for p in m.parts]
             #arbitrary constant UUID
-            m.run_id = uuid.UUID("9063c696-c25f-11f0-8000-f020ff65b25b")
+            m.run_id = str(uuid.UUID("9063c696-c25f-11f0-8000-f020ff65b25b"))
             return m
         return ModelInput(
             messages=[msg(m) for m in self.messages],

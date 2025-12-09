@@ -1,4 +1,4 @@
-from typing import TypedDict, Literal, Annotated, AnyStr
+from typing import Literal, Annotated
 
 from pydantic import BaseModel, Field
 

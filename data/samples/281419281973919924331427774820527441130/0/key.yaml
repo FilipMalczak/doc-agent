@@ -1,0 +1,27 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n## Overview\n## Key Components\n\
+  \n### `OutdateResult` (dataclass)\n- **Purpose:** Represents the result of an outdated\u2011\
+  check for a single requirement.\n- **Fields**\n  - `requirement: Requirement` \u2013\
+  \ Original `packaging.Requirement` object.  \n  - `version: Optional[Version]` \u2013\
+  \ Currently installed version (or `None` if not installed).  \n  - `all_versions:\
+  \ List[Version]` \u2013 All non\u2011prerelease versions found on PyPI, sorted ascending.\
+  \  \n  - `wanted: Optional[Version]` \u2013 Newest version that satisfies the requirement\
+  \ specifier (computed in `__post_init__`).  \n  - `latest: Optional[Version]` \u2013\
+  \ Newest version on PyPI (last element of `all_versions`).  \n- **Computed properties\
+  \ & methods**\n  - `name` \u2013 Returns `requirement.name`.  \n  - `install_not_found()`\
+  \ \u2013 `True` when the package is not installed locally.  \n  - `install_not_wanted()`\
+  \ \u2013 `True` when the installed version does not match the specifier.  \n  -\
+  \ `pypi_not_found()` \u2013 `True` when no suitable version could be retrieved from\
+  \ PyPI.  \n  - `outdated()` \u2013 `True` if the installed version differs from\
+  \ either `wanted` or `latest`.\n\n### Asynchronous Helper Functions\n| Function\
+  \ | Description | Return type |\n|----------|-------------|-------------|\n| `async\
+  \ def get_local_version(name: str) -> Optional[Version]` | Executes ``pip show <name>``\
+  \ in a subprocess, parses the `Version:` line, and returns a `Version` object or\
+  \ `None` if the package is not installed. | `Optional[Version]` |\n| `async def\
+  \ get_pypi_versions(name: str, session) -> List[Version]` | Performs an HTTP GET\
+  \ to ``https://pypi.org/pypi/<name>/json`` using the provided `session` (expected\
+  \ to be an `aiohttp` client). Collects all release keys, filters out invalid or\
+  \ prerelease versions, sorts them, and returns the list. | `List[Version]` |\n|\
+  \ `async def check_outdated(require, session) -> OutdateResult` | Orchestrates the\
+  \ check: canonicalizes the requirement name, obtains the local version, fetches\
+  \ PyPI versions, prints a verbose message if enabled, and returns an `OutdateResult`.\
+  \ | `OutdateResult` |\n"

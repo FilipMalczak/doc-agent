@@ -1,0 +1,2 @@
+"The package is marked as zip\u2011safe (i.e., it can be installed as a .egg zip archive)\
+  \ by setting \"zip_safe = True\" in the [options] section."

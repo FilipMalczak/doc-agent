@@ -1,0 +1,9 @@
+"# Execute the full test suite\npytest tests\n```\n- An internet connection is required\
+  \ for `test_pytz.py` because it contacts PyPI.\n\n## Guidance for Extending the\
+  \ Test Suite\n- **Adding new requirement\u2011parsing tests**: emulate the structure\
+  \ of `test_parse_cfg.py` \u2013 create a temporary `setup.cfg`, write the desired\
+  \ sections, invoke `parse_cfg`, and assert the extracted names.\n- **Adding async\
+  \ PyPI tests**: follow the pattern in `test_pytz.py` \u2013 decorate the async function\
+  \ with `@pytest.mark.asyncio`, open a session via `get_session()`, call `get_pypi_versions`\
+  \ for the target package, and consider adding assertions on the returned version\
+  \ list (e.g., non\u2011empty, valid semver strings).\n"

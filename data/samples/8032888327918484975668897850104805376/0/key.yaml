@@ -1,0 +1,7 @@
+"# Directory\u2011Level Documentation: `tests`\n\n## Common Testing Patterns\n- **pytest**\
+  \ is the test runner throughout the suite.\n- **`tmp_path` fixture** (in `test_parse_cfg.py`)\
+  \ is used to create temporary configuration files on\u2011the\u2011fly.\n- **Async\
+  \ tests** are enabled with the `pytest\u2011asyncio` plugin and the `@pytest.mark.asyncio`\
+  \ decorator (see `test_pytz.py`).\n- Tests focus on **behavioural verification**\
+  \ rather than exhaustive assertions; e.g., `test_pytz.py` succeeds if the network\
+  \ call completes without error.\n"

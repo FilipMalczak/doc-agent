@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The import lines `from termcolor import colored` and `from terminaltables\n  \
+  \  import AsciiTable as Table` confirm this.\n  fact: The file imports the colored\
+  \ function from the termcolor package and the AsciiTable\n    class (aliased as\
+  \ Table) from the terminaltables package.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

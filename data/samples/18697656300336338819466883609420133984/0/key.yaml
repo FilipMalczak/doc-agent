@@ -1,7 +1,0 @@
-"## Workflow Summary  \n\n1. **Parse requirement** (from elsewhere in the project)\
-  \ into a ``Requirement`` object.  \n2. **Canonicalize package name** using ``packaging.utils.canonicalize_name`.\
-  \  \n3. **Fetch installed version** with ``get_local_version`.  \n4. **Fetch all\
-  \ stable PyPI versions** with ``get_pypi_versions`.  \n5. **Instantiate ``OutdateResult``**\
-  \ \u2013 automatically computes the *wanted* and *latest* versions.  \n6. **Interpret\
-  \ result** using helper methods (`install_not_found`, `install_not_wanted`, `pypi_not_found`,\
-  \ `outdated`).  \n\n---\n"

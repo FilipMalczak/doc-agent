@@ -1,0 +1,4 @@
+The function iter_files(patterns) yields pathlib.Path objects for each file matching
+  the given glob patterns; if a pattern points to an existing file, it yields that
+  file directly.
+...

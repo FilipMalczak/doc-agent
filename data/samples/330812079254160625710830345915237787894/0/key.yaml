@@ -1,0 +1,4 @@
+"Print_outdated iterates over the provided awaitable results with `for count, outdate\
+  \ in enumerate(outdates, 1):`, awaits each result, converts it to a table row via\
+  \ make_row, and appends the row to data only when make_row returns a non\u2011None\
+  \ value."

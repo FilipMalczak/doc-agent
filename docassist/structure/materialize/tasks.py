@@ -1,9 +1,8 @@
 from typing import NamedTuple, Any
 
-from pydantic import BaseModel, TypeAdapter
+from pydantic import BaseModel, TypeAdapter, Field, AliasChoices
 
 from docassist.simple_xml import to_simple_xml
-from docassist.structure.materialize.models import VariableSpecification
 from docassist.system_prompts import PromptingTask
 
 
@@ -26,9 +25,9 @@ class EvaluateVariableInput(BaseModel):
     variable_definition: str
 
 class EvaluateVariableOutput(BaseModel):
-    variable_name: str
-    variable_value: str
-    explanation: str
+    variable_name: str = Field(validation_alias=AliasChoices("name", "variable", "var", "var_name"))
+    variable_value: str = Field(validation_alias=AliasChoices("value", "val", "result"))
+    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
 
 def evaluate_variable(name: str, description: str) -> AgentInput:
     return AgentInput(

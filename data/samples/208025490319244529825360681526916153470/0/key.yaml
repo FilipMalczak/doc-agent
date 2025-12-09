@@ -1,0 +1,468 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>documentation</repo_item_type>\n\
+      <path>README.rst</path>\n<language>ReStructuredText</language>\n<content>\n\
+      pip-outdated\n============\n\n.. image:: https://travis-ci.com/eight04/pip-outdated.svg?branch=master\n\
+      \    :target: https://travis-ci.com/eight04/pip-outdated\n    \n.. image:: https://codecov.io/gh/eight04/pip-outdated/branch/master/graph/badge.svg\n\
+      \  :target: https://codecov.io/gh/eight04/pip-outdated\n\nFind outdated dependencies\
+      \ in your requirements.txt or setup.cfg file. Report missing/outdated/incompatible\
+      \ packages with table and colors.\n\nThis tool compares the version number with\
+      \ the version specifier in ``requirements.txt`` or ``setup.cfg``. If you just\
+      \ want to list all updatable package, simply use ``pip list --outdated`` command.\n\
+      \nInstallation\n------------\n\nFrom `pypi <https://pypi.org/project/pip-outdated/>`__\n\
+      \n::\n\n\tpip install pip-outdated\n\nUsage\n-----\n\n::\n\n  usage: pip-outdated\
+      \ [-h] [-v] [-q] [<file> [<file> ...]]\n\n  Find outdated dependencies in your\
+      \ requirements.txt or setup.cfg file.\n\n  positional arguments:\n    <file>\
+      \         Read dependencies from requirements files. This option\n         \
+      \          accepts glob pattern. (default: ['requirements.txt',\n          \
+      \         'setup.cfg'])\n\n  optional arguments:\n    -h, --help     show this\
+      \ help message and exit\n    -v, --verbose  Print verbose information. (default:\
+      \ False)\n    -q, --quiet    Don't return exit code 1 if not everything is up\
+      \ to date.\n                   (default: False)\n    \nCheck multiple files\
+      \ e.g. ``test-requirements.txt`` and ``dev-requirements.txt``::\n\n  pip-outdated\
+      \ *-requirements.txt\n  \nCheck files under ``requirements`` folder::\n\n  pip-outdated\
+      \ requirements/*.txt\n  \nTodos\n-----\n\n* Add options to update the package?\n\
+      * Add options to update the requirements.txt/setup.cfg file?\n* Add options\
+      \ to list all packages? (e.g. ``-g, --global``)\n\nChangelog\n---------\n\n\
+      * 0.8.0 (Aug 9, 2025)\n\n  - Change: drop setuptools dependency, switch to configparse\
+      \ for reading setup.cfg.\n\n* 0.7.0 (Aug 13, 2024)\n\n  - Change: ignore ``InvalidVersion``\
+      \ error.\n\n* 0.6.0 (Jan 1, 2023)\n\n  - Bump dependencies.\n  - Drop cchardet.\n\
+      \  - Change: fetch package version from ``pip`` CLI, so we can get package version\
+      \ in venv.\n\n* 0.5.0 (Jan 12, 2022)\n\n  - Bump dependencies.\n  - Add: typehint.\n\
+      \n* 0.4.0 (Jan 30, 2020)\n\n  - **Breaking: bump Python to 3.7**\n  - Add: request\
+      \ in parallel.\n  - Add: ``--quiet`` option.\n\n* 0.3.0 (Oct 13, 2019)\n\n \
+      \ - **Breaking: set exit code to 1 if not all good.**\n  - Fix: don't check\
+      \ prereleases.\n  - Add: check ``setup_requires`` and ``extras_require`` in\
+      \ cfg files.\n\n* 0.2.0 (Feb 10, 2019)\n\n  - Bump dependencies:\n  \n    -\
+      \ colorama@0.4.x\n    - packaging@19.x\n    - requests@2.x\n    - termcolor@1.x\n\
+      \    - terminaltables@3.x\n\n* 0.1.0 (May 12, 2018)\n\n  - First release.\n\n\
+      \n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'We need to extract atomic facts from this README file. Provide list
+      of facts with explanations why each is fact. Each fact self-contained, mention
+      the file context (README.rst). Use format likely JSON/YAML? The schema expects
+      final_result with a field "facts". Probably a list of objects with "statement"
+      and "explanation". Not specified but we can output facts as list of strings?
+      The developer prompts: "extract atomic facts from the input file". Provide explanation
+      why each statement is a fact. Possibly each fact object with "fact" and "reason".
+      Use double quotes for strings. Provide as JSON array. Let''s output per schema:
+      final_result expects object with "facts": any[]. So we can give list of objects
+      each with "statement" and "explanation". Use double quotes.
+
+
+      Proceed to craft facts:
+
+
+      - Project name: pip-outdated, defined at top. Fact: The repository contains
+      a tool named "pip-outdated". Explanation: Title of README.
+
+
+      - Purpose: Finds outdated dependencies in requirements.txt or setup.cfg. etc.
+
+
+      - Comparison: compares version number with version specifier in those files.
+
+
+      - Alternate usage: pip list --outdated lists all updatable packages.
+
+
+      - Installation: available on PyPI, install via pip install pip-outdated.
+
+
+      - Command-line usage syntax: pip-outdated [-h] [-v] [-q] [<file> ...].
+
+
+      - Default input files are requirements.txt and setup.cfg.
+
+
+      - Verbose flag -v prints verbose info, default false.
+
+
+      - Quiet flag -q prevents exit code 1 when not up-to-date, default false.
+
+
+      - Accepts glob patterns for file arguments.
+
+
+      - Example: pip-outdated *-requirements.txt to check multiple files.
+
+
+      - Example: pip-outdated requirements/*.txt to check folder.
+
+
+      - TODO items: options to update package, update requirements files, list all
+      packages.
+
+
+      - Changelog entries: version 0.8.0 (Aug 9 2025) drop setuptools dependency,
+      switch to configparse for reading setup.cfg.
+
+
+      - Version 0.7.0 (Aug 13 2024) ignore InvalidVersion error.
+
+
+      - Version 0.6.0 (Jan 1 2023): bump dependencies, drop cchardet, fetch package
+      version from pip CLI to get version in venv.
+
+
+      - Version 0.5.0 (Jan 12 2022): bump dependencies, add typehint.
+
+
+      - Version 0.4.0 (Jan 30 2020): break: bump Python to 3.7, add request in parallel,
+      add --quiet option.
+
+
+      - Version 0.3.0 (Oct 13 2019): break: set exit code to 1 if not all good; fix:
+      don''t check prereleases; add check for setup_requires and extras_require in
+      cfg.
+
+
+      - Version 0.2.0 (Feb 10 2019): bump dependencies: list of packages with versions.
+
+
+      - Version 0.1.0 (May 12 2018): first release.
+
+
+      - Badges: Travis CI build status badge URL, Codecov badge URL.
+
+
+      Let''s produce facts with statements like "The README.rst includes a Travis
+      CI build status badge linking to https://travis-ci.com/eight04/pip-outdated".
+      Provide explanation.
+
+
+      We''ll output as JSON with list of objects.
+
+
+      Proceed.'
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233503-wPwdDrlM2ikI8Lbhr4BE
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:38:23Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 743
+    input_audio_tokens: 0
+    input_tokens: 1340
+    output_audio_tokens: 0
+    output_tokens: 2081
+- instructions: null
+  kind: request
+  parts:
+  - content: Please return text or include your response in a tool call.
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_87a13649c123419c81d78c49ed5487b7
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'The system expects plain text, not JSON? It said "return text or include
+      your response in a tool call." So we should output plain text list, maybe markdown
+      bullet list with facts and explanation. Provide as plain text.
+
+
+      Let''s output each fact as a bullet with statement then explanation indented.
+
+
+      We''ll follow formatting rules: double quotes for strings. In markdown bullet
+      list hyphen style.
+
+
+      Proceed.'
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "- **Fact:** The project name is **pip\u2011outdated**.  \n  **Why:**\
+      \ The README.rst title line reads \"`pip-outdated`\", indicating the tool's\
+      \ name.\n\n- **Fact:** pip\u2011outdated finds outdated dependencies in *requirements.txt*\
+      \ or *setup.cfg* files.  \n  **Why:** The introductory paragraph states: \u201C\
+      Find outdated dependencies in your requirements.txt or setup.cfg file.\u201D\
+      \n\n- **Fact:** The tool reports missing, outdated, or incompatible packages\
+      \ with a colored table.  \n  **Why:** The same paragraph mentions \u201CReport\
+      \ missing/outdated/incompatible packages with table and colors.\u201D\n\n- **Fact:**\
+      \ pip\u2011outdated compares the installed version number with the version specifier\
+      \ declared in the requirements file.  \n  **Why:** The README explains: \u201C\
+      This tool compares the version number with the version specifier in ``requirements.txt``\
+      \ or ``setup.cfg``.\u201D\n\n- **Fact:** To list all updatable packages without\
+      \ version checks, users can run ``pip list --outdated``.  \n  **Why:** The README\
+      \ notes: \u201CIf you just want to list all updatable package, simply use ``pip\
+      \ list --outdated`` command.\u201D\n\n- **Fact:** pip\u2011outdated is published\
+      \ on PyPI and can be installed with ``pip install pip-outdated``.  \n  **Why:**\
+      \ The *Installation* section provides a command block containing that exact\
+      \ pip install line.\n\n- **Fact:** The command\u2011line interface syntax is:\
+      \  \n  ```  \n  pip-outdated [-h] [-v] [-q] [<file> [<file> ...]]  \n  ``` \
+      \ \n  **Why:** The *Usage* section displays this usage pattern.\n\n- **Fact:**\
+      \ By default, pip\u2011outdated reads dependencies from ``requirements.txt``\
+      \ and ``setup.cfg`` if no file arguments are supplied.  \n  **Why:** The positional\u2011\
+      argument description lists \u201C(default: ['requirements.txt', 'setup.cfg'])\u201D\
+      .\n\n- **Fact:** The ``-v``/``--verbose`` flag enables verbose output; its default\
+      \ value is `False`.  \n  **Why:** The optional\u2011arguments table defines\
+      \ \u201C-v, --verbose  Print verbose information. (default: False)\u201D.\n\n\
+      - **Fact:** The ``-q``/``--quiet`` flag suppresses exit code\u202F1 when not\
+      \ all packages are up\u2011to\u2011date; its default value is `False`.  \n \
+      \ **Why:** The same table defines \u201C-q, --quiet  Don't return exit code\
+      \ 1 if not everything is up to date. (default: False)\u201D.\n\n- **Fact:**\
+      \ pip\u2011outdated accepts glob patterns for file arguments, allowing multiple\
+      \ requirement files to be checked in one run.  \n  **Why:** The positional\u2011\
+      argument description states: \u201CThis option accepts glob pattern.\u201D\n\
+      \n- **Fact:** Example usage to check files matching a pattern: ``pip-outdated\
+      \ *-requirements.txt``.  \n  **Why:** The README provides this concrete example\
+      \ under \u201CCheck multiple files\u2026\u201D.\n\n- **Fact:** Example usage\
+      \ to check all ``*.txt`` files inside a ``requirements`` folder: ``pip-outdated\
+      \ requirements/*.txt``.  \n  **Why:** The README provides this example under\
+      \ \u201CCheck files under ``requirements`` folder\u201D.\n\n- **Fact:** The\
+      \ project\u2019s TODO list includes adding options to update packages, update\
+      \ the requirements file, and list all packages globally (e.g., via ``-g``/``--global``).\
+      \  \n  **Why:** The *Todos* section enumerates these three items.\n\n- **Fact:**\
+      \ Version **0.8.0** (released Aug\u202F9\u202F2025) removed the setuptools dependency\
+      \ and switched to ``configparse`` for reading ``setup.cfg``.  \n  **Why:** The\
+      \ *Changelog* entry for 0.8.0 specifies these changes.\n\n- **Fact:** Version\
+      \ **0.7.0** (released Aug\u202F13\u202F2024) added handling to ignore ``InvalidVersion``\
+      \ errors.  \n  **Why:** The *Changelog* entry for 0.7.0 lists \u201Cignore ``InvalidVersion``\
+      \ error.\u201D\n\n- **Fact:** Version **0.6.0** (released Jan\u202F1\u202F2023)\
+      \ bumped dependencies, removed ``cchardet``, and changed the version\u2011fetching\
+      \ method to use the ``pip`` CLI so that versions are resolved within virtual\
+      \ environments.  \n  **Why:** The 0.6.0 entry describes all three modifications.\n\
+      \n- **Fact:** Version **0.5.0** (released Jan\u202F12\u202F2022) bumped dependencies\
+      \ and added type hints.  \n  **Why:** The 0.5.0 entry mentions \u201CBump dependencies.\u201D\
+      \ and \u201CAdd: typehint.\u201D\n\n- **Fact:** Version **0.4.0** (released\
+      \ Jan\u202F30\u202F2020) introduced a breaking change that raised the minimum\
+      \ Python version to 3.7, added parallel HTTP requests, and introduced the ``--quiet``\
+      \ option.  \n  **Why:** The 0.4.0 entry lists these three items, marking the\
+      \ Python bump as a breaking change.\n\n- **Fact:** Version **0.3.0** (released\
+      \ Oct\u202F13\u202F2019) introduced a breaking change that sets the exit code\
+      \ to\u202F1 when any dependency is not up\u2011to\u2011date, stopped checking\
+      \ pre\u2011releases, and added support for ``setup_requires`` and ``extras_require``\
+      \ sections in ``setup.cfg`` files.  \n  **Why:** The 0.3.0 entry details each\
+      \ of these changes.\n\n- **Fact:** Version **0.2.0** (released Feb\u202F10\u202F\
+      2019) bumped several dependencies to specific major versions: ``colorama@0.4.x``,\
+      \ ``packaging@19.x``, ``requests@2.x``, ``termcolor@1.x``, and ``terminaltables@3.x``.\
+      \  \n  **Why:** The 0.2.0 entry enumerates these dependency updates.\n\n- **Fact:**\
+      \ Version **0.1.0** (released May\u202F12\u202F2018) is the initial public release\
+      \ of pip\u2011outdated.  \n  **Why:** The 0.1.0 entry states \u201CFirst release.\u201D\
+      \n\n- **Fact:** The README includes a Travis CI build status badge that links\
+      \ to <https://travis-ci.com/eight04/pip-outdated>.  \n  **Why:** The first image\
+      \ directive references that URL as its target.\n\n- **Fact:** The README includes\
+      \ a Codecov coverage badge that links to <https://codecov.io/gh/eight04/pip-outdated>.\
+      \  \n  **Why:** The second image directive references that URL as its target."
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233522-quh5GYIA5LCvzhlEQQgj
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:38:42Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 79
+    input_audio_tokens: 0
+    input_tokens: 2012
+    output_audio_tokens: 0
+    output_tokens: 1458
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: invalid number at line 1 column 2
+      input: "- **Fact:** The project name is **pip\u2011outdated**.  \n  **Why:**\
+        \ The README.rst title line reads \"`pip-outdated`\", indicating the tool's\
+        \ name.\n\n- **Fact:** pip\u2011outdated finds outdated dependencies in *requirements.txt*\
+        \ or *setup.cfg* files.  \n  **Why:** The introductory paragraph states: \u201C\
+        Find outdated dependencies in your requirements.txt or setup.cfg file.\u201D\
+        \n\n- **Fact:** The tool reports missing, outdated, or incompatible packages\
+        \ with a colored table.  \n  **Why:** The same paragraph mentions \u201CReport\
+        \ missing/outdated/incompatible packages with table and colors.\u201D\n\n\
+        - **Fact:** pip\u2011outdated compares the installed version number with the\
+        \ version specifier declared in the requirements file.  \n  **Why:** The README\
+        \ explains: \u201CThis tool compares the version number with the version specifier\
+        \ in ``requirements.txt`` or ``setup.cfg``.\u201D\n\n- **Fact:** To list all\
+        \ updatable packages without version checks, users can run ``pip list --outdated``.\
+        \  \n  **Why:** The README notes: \u201CIf you just want to list all updatable\
+        \ package, simply use ``pip list --outdated`` command.\u201D\n\n- **Fact:**\
+        \ pip\u2011outdated is published on PyPI and can be installed with ``pip install\
+        \ pip-outdated``.  \n  **Why:** The *Installation* section provides a command\
+        \ block containing that exact pip install line.\n\n- **Fact:** The command\u2011\
+        line interface syntax is:  \n  ```  \n  pip-outdated [-h] [-v] [-q] [<file>\
+        \ [<file> ...]]  \n  ```  \n  **Why:** The *Usage* section displays this usage\
+        \ pattern.\n\n- **Fact:** By default, pip\u2011outdated reads dependencies\
+        \ from ``requirements.txt`` and ``setup.cfg`` if no file arguments are supplied.\
+        \  \n  **Why:** The positional\u2011argument description lists \u201C(default:\
+        \ ['requirements.txt', 'setup.cfg'])\u201D.\n\n- **Fact:** The ``-v``/``--verbose``\
+        \ flag enables verbose output; its default value is `False`.  \n  **Why:**\
+        \ The optional\u2011arguments table defines \u201C-v, --verbose  Print verbose\
+        \ information. (default: False)\u201D.\n\n- **Fact:** The ``-q``/``--quiet``\
+        \ flag suppresses exit code\u202F1 when not all packages are up\u2011to\u2011\
+        date; its default value is `False`.  \n  **Why:** The same table defines \u201C\
+        -q, --quiet  Don't return exit code 1 if not everything is up to date. (default:\
+        \ False)\u201D.\n\n- **Fact:** pip\u2011outdated accepts glob patterns for\
+        \ file arguments, allowing multiple requirement files to be checked in one\
+        \ run.  \n  **Why:** The positional\u2011argument description states: \u201C\
+        This option accepts glob pattern.\u201D\n\n- **Fact:** Example usage to check\
+        \ files matching a pattern: ``pip-outdated *-requirements.txt``.  \n  **Why:**\
+        \ The README provides this concrete example under \u201CCheck multiple files\u2026\
+        \u201D.\n\n- **Fact:** Example usage to check all ``*.txt`` files inside a\
+        \ ``requirements`` folder: ``pip-outdated requirements/*.txt``.  \n  **Why:**\
+        \ The README provides this example under \u201CCheck files under ``requirements``\
+        \ folder\u201D.\n\n- **Fact:** The project\u2019s TODO list includes adding\
+        \ options to update packages, update the requirements file, and list all packages\
+        \ globally (e.g., via ``-g``/``--global``).  \n  **Why:** The *Todos* section\
+        \ enumerates these three items.\n\n- **Fact:** Version **0.8.0** (released\
+        \ Aug\u202F9\u202F2025) removed the setuptools dependency and switched to\
+        \ ``configparse`` for reading ``setup.cfg``.  \n  **Why:** The *Changelog*\
+        \ entry for 0.8.0 specifies these changes.\n\n- **Fact:** Version **0.7.0**\
+        \ (released Aug\u202F13\u202F2024) added handling to ignore ``InvalidVersion``\
+        \ errors.  \n  **Why:** The *Changelog* entry for 0.7.0 lists \u201Cignore\
+        \ ``InvalidVersion`` error.\u201D\n\n- **Fact:** Version **0.6.0** (released\
+        \ Jan\u202F1\u202F2023) bumped dependencies, removed ``cchardet``, and changed\
+        \ the version\u2011fetching method to use the ``pip`` CLI so that versions\
+        \ are resolved within virtual environments.  \n  **Why:** The 0.6.0 entry\
+        \ describes all three modifications.\n\n- **Fact:** Version **0.5.0** (released\
+        \ Jan\u202F12\u202F2022) bumped dependencies and added type hints.  \n  **Why:**\
+        \ The 0.5.0 entry mentions \u201CBump dependencies.\u201D and \u201CAdd: typehint.\u201D\
+        \n\n- **Fact:** Version **0.4.0** (released Jan\u202F30\u202F2020) introduced\
+        \ a breaking change that raised the minimum Python version to 3.7, added parallel\
+        \ HTTP requests, and introduced the ``--quiet`` option.  \n  **Why:** The\
+        \ 0.4.0 entry lists these three items, marking the Python bump as a breaking\
+        \ change.\n\n- **Fact:** Version **0.3.0** (released Oct\u202F13\u202F2019)\
+        \ introduced a breaking change that sets the exit code to\u202F1 when any\
+        \ dependency is not up\u2011to\u2011date, stopped checking pre\u2011releases,\
+        \ and added support for ``setup_requires`` and ``extras_require`` sections\
+        \ in ``setup.cfg`` files.  \n  **Why:** The 0.3.0 entry details each of these\
+        \ changes.\n\n- **Fact:** Version **0.2.0** (released Feb\u202F10\u202F2019)\
+        \ bumped several dependencies to specific major versions: ``colorama@0.4.x``,\
+        \ ``packaging@19.x``, ``requests@2.x``, ``termcolor@1.x``, and ``terminaltables@3.x``.\
+        \  \n  **Why:** The 0.2.0 entry enumerates these dependency updates.\n\n-\
+        \ **Fact:** Version **0.1.0** (released May\u202F12\u202F2018) is the initial\
+        \ public release of pip\u2011outdated.  \n  **Why:** The 0.1.0 entry states\
+        \ \u201CFirst release.\u201D\n\n- **Fact:** The README includes a Travis CI\
+        \ build status badge that links to <https://travis-ci.com/eight04/pip-outdated>.\
+        \  \n  **Why:** The first image directive references that URL as its target.\n\
+        \n- **Fact:** The README includes a Codecov coverage badge that links to <https://codecov.io/gh/eight04/pip-outdated>.\
+        \  \n  **Why:** The second image directive references that URL as its target."
+      loc: []
+      msg: 'Invalid JSON: invalid number at line 1 column 2'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_89846af5a964470dba60f157507146bc
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

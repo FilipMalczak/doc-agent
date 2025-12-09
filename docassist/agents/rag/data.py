@@ -1,6 +1,6 @@
 from typing import Self
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, AliasChoices
 
 from docassist.index.document import Document
 from docassist.index.protocols import SearchResult
@@ -67,6 +67,6 @@ class RerankingInput(BaseModel):
     additional_instructions: str
 
 class RerankingOutput(BaseModel):
-    document_id: str
-    new_score: int
-    explanation: str
+    document_id: str = Field(validation_alias=AliasChoices("id", "doc_id"))
+    new_score: int = Field(validation_alias=AliasChoices("updated_score", "score"))
+    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))

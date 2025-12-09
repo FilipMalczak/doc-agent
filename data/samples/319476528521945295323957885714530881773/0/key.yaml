@@ -1,0 +1,3 @@
+"## \U0001F4C4 File Overview\n\n- **Path:** `pip_outdated/session.py`\n- **Language:**\
+  \ Python\n- **Primary role:** Centralises creation of a pre\u2011configured `aiohttp.ClientSession`\
+  \ for the *pip\u2011outdated* tool.\n"

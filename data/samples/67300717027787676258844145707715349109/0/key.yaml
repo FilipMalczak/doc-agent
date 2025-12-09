@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test function is defined with async def, making it an asynchronous\n    coroutine\
+  \ that can await other async calls.\n  fact: The test function test_pytz is defined\
+  \ as an async coroutine.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

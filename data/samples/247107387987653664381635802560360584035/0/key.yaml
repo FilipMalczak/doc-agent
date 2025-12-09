@@ -1,3 +1,0 @@
-"## Additional Configuration (`[vpip]` section)\n- **`command_fallback`**: `\"python\
-  \ cute.py\"`  \n  - Indicates a custom fallback command used by the `vpip` tool\
-  \ (if the project is used within that environment).  \n"

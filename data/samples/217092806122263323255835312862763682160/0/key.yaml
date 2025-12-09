@@ -1,4 +1,0 @@
-colored_current returns the installed version as a red bold string if outdate.install_not_found()
-  or outdate.install_not_wanted() is True; otherwise it returns the installed version
-  as a plain string.
-...

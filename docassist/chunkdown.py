@@ -1,12 +1,11 @@
 from dataclasses import field, dataclass
 from functools import cached_property
-from typing import Self, Iterable, Literal, assert_never
+from typing import Self, Iterable, assert_never
 from uuid import uuid4
 
-from docassist.index.document import ChunkVariant, NoteMeta, NoteChunkMeta, NoteSimpleChunkMeta, NoteDerivedChunkMeta, \
+from docassist.index.document import NoteMeta, NoteChunkMeta, NoteSimpleChunkMeta, NoteDerivedChunkMeta, \
     NoteChunkVariant, DerivedChunkVariant
 from docassist.index.protocols import Document
-from docassist.index.utils import embed_metadata
 
 
 @dataclass

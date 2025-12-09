@@ -1,0 +1,8 @@
+"## pip-outdated \u2013 Quick Reference\n### Quick Start Checklist for Users\n1. **Install**\
+  \ the tool (`pip install pip-outdated`).\n2. **Run** it in your project root (or\
+  \ specify files):\n   - `pip-outdated` \u2013 checks default files.\n   - `pip-outdated\
+  \ *-requirements.txt` \u2013 custom pattern.\n   - `pip-outdated requirements/*.txt`\
+  \ \u2013 folder scan.\n3. **Interpret** the table:\n   - **Green** \u2192 up\u2011\
+  to\u2011date.\n   - **Yellow** \u2192 newer version available.\n   - **Red** \u2192\
+  \ version specifier is not satisfied or package missing.\n4. **Optional**: Use `-q`\
+  \ to suppress non\u2011zero exit status, or `-v` for more details.\n\n---"

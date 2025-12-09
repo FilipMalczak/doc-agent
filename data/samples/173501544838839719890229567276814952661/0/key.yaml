@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ A regular expression removes option fragments, and a try/except block\n    handles\
+  \ InvalidRequirement.\n  fact: The function parse_require(text) strips any option\
+  \ flags (e.g., '--no-deps')\n    by truncating at the first whitespace followed\
+  \ by a dash, then attempts to construct\n    a Requirement; it returns null if InvalidRequirement\
+  \ is raised.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

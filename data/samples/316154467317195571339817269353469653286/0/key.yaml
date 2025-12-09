@@ -1,3 +1,0 @@
-The module imports asyncio, dataclass, List, Optional, Requirement, canonicalize_name,
-  Version, InvalidVersion, parse_version, and verbose from the local package.
-...

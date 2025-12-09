@@ -1,0 +1,22 @@
+"## Project Overview\n\n- **Package name**: `pip-outdated`\n- **Current version**:\
+  \ `0.8.0`\n- **Primary purpose**: Command\u2011line utility that scans a project's\
+  \ `requirements.txt` or `setup.cfg` (or any file matching a glob pattern) and reports\
+  \ which dependencies are outdated.\n\n## Entry Point\n\n- The module `pip_outdated/__init__.py`\
+  \ defines the executable entry point used by the `pip-outdated` console script.\n\
+  \n## Core Functions\n\n- **`parse_args()`** \u2013 Builds an `argparse.ArgumentParser`\
+  \ with the following options:\n  - `-v, --verbose` (store_true): Enable verbose\
+  \ output.\n  - `-q, --quiet` (store_true): Suppress the non\u2011zero exit code\
+  \ when some packages are not up\u2011to\u2011date.\n  - `<file>` (positional, accepts\
+  \ zero or more values, defaults to `[\"requirements.txt\", \"setup.cfg\"]`): Files\
+  \ or glob patterns from which to read dependencies.\n- **`main()`** \u2013 Starts\
+  \ the async workflow. It deliberately avoids `asyncio.run()` because of a known\
+  \ `aiohttp` issue, instead retrieving the current event loop and running `_main()`\
+  \ until completion.\n- **`_main()`** (async) \u2013 Orchestrates the program flow:\n\
+  \  1. Parses CLI arguments.\n  2. Sets the global verbosity flag via `pip_outdated.verbose.set_verbose`.\n\
+  \  3. Imports helper modules lazily:\n     - `find_require` \u2013 discovers dependency\
+  \ specifications from the provided files.\n     - `check_outdated` \u2013 contacts\
+  \ PyPI (through an aiohttp session) to determine the latest version for each requirement.\n\
+  \     - `print_outdated` \u2013 formats and displays the results.\n     - `session.get_session`\
+  \ \u2013 provides an aiohttp session context manager.\n  4. Generates a list of\
+  \ asynchronous tasks (`check_outdated`) for each requirement.\n  5. Awaits `print_outdated`\
+  \ to output the aggregated results, respecting the `--quiet` flag.\n"

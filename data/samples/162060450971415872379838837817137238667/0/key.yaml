@@ -1,0 +1,4 @@
+Similarly, the conditional `if outdate.version < outdate.latest` inside colored_latest
+  ensures that the latest version is highlighted in green only when the installed
+  version is older than the latest version and the package is installed.
+...

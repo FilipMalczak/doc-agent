@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The Installation section provides a command block containing that exact\n    pip\
+  \ install line.\n  fact: pip-outdated is published on PyPI and can be installed\
+  \ with ``pip install\n    pip-outdated``.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

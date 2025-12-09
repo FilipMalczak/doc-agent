@@ -1,3 +1,0 @@
-Inside the test, a temporary file `setup.cfg` is created under the directory represented
-  by `tmp_path`.
-...

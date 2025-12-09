@@ -1,10 +1,7 @@
-from contextlib import contextmanager, asynccontextmanager
+from contextlib import asynccontextmanager
 from contextvars import ContextVar
-from email.policy import default
 from pathlib import Path
-from typing import Callable, ContextManager, AsyncContextManager
-
-from pydantic import BaseModel
+from typing import Callable, AsyncContextManager
 
 from docassist.sampling.protocols import SamplingSlot, SamplingController, SamplingStrategy
 from docassist.sampling.slots.deferred import DeferredScope

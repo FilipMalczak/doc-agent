@@ -1,5 +1,0 @@
-"# Project\u2011Level Notes for **`pip\u2011outdated`**\n## 3. Command\u2011Line Interface\
-  \  \n### Example Invocations  \n\n- Scan all `*-requirements.txt` files:  \n\n \
-  \ ```bash\n  pip-outdated *-requirements.txt\n  ```  \n\n- Scan every file inside\
-  \ a `requirements` folder:  \n\n  ```bash\n  pip-outdated requirements/*.txt\n \
-  \ ```  \n\n---  \n"

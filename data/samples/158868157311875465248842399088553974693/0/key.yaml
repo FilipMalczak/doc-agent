@@ -1,3 +1,0 @@
-The created aiohttp.ClientSession will send HTTP requests with a custom User-Agent
-  header set to "pip-outdated".
-...

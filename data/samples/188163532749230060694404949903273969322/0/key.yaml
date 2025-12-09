@@ -1,0 +1,2 @@
+'In the [options] section, the key setup_requires lists two requirements: setuptools_scm
+  >= 1.15.0 and setuptools_scm_git_archive >= 1.0.'

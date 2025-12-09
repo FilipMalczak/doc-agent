@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The branch `if not outdate.install_not_found() and outdate.version\n    < outdate.wanted:`\
+  \ uses `colored(..., \"green\", attrs=[\"bold\"])`.\n  fact: If the package is installed\
+  \ and its installed version is less than the wanted\n    version, colored_wanted\
+  \ returns the wanted version colored green and bold; otherwise\n    it returns the\
+  \ wanted version as an uncolored string.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

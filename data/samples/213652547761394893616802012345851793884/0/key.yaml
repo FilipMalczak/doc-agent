@@ -1,0 +1,15 @@
+'## Summary of `tests/test_parse_cfg.py`
+
+  ### Example Usage (Based on the Test)
+
+
+  ```python
+
+  from pip_outdated.find_require import parse_cfg
+
+
+  cfg_path = "path/to/your/setup.cfg"
+
+  requirements = parse_cfg(cfg_path)
+
+  '

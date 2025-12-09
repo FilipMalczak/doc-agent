@@ -1,3 +1,0 @@
-The test does not contain any explicit assertions; it likely verifies that get_pypi_versions
-  executes without raising an exception for the "pytz" package.
-...

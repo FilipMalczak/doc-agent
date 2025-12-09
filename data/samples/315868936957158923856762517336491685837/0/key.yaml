@@ -1,0 +1,2 @@
+'In the [options] section, the key install_requires lists two requirements: ansible
+  >= 2.5 and ansible-lint >= 4.0.2, < 5.'

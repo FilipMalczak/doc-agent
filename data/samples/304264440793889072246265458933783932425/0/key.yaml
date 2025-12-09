@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Four consecutive import statements bring these functions into the coroutine.\n\
+  \  fact: _main() imports find_require from .find_require, check_outdated from .check_outdated,\n\
+  \    print_outdated from .print_outdated, and get_session from .session.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

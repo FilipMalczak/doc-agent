@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ \"The function\\u2019s body contains a conditional based on file.suffix\\\n  \
+  \  \\ and yields from the appropriate parser.\"\n  fact: The function find_require(files)\
+  \ accepts a list of file patterns, expands\n    them with iter_files, selects parse_cfg\
+  \ for files ending in .cfg and parse_requirements\n    otherwise, and yields all\
+  \ discovered Requirement objects.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

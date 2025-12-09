@@ -1,0 +1,10 @@
+"## Project Configuration \u2013 `setup.py`\n\n**File path:** `setup.py`  \n**Language:**\
+  \ Python  \n\n### Immediate actions the user should take\n- **Add required metadata**\
+  \ to the `setup()` call, for example:\n  ```python\n  setup(\n      name=\"your-package-name\"\
+  ,\n      version=\"0.1.0\",\n      description=\"A short description of the project\"\
+  ,\n      author=\"Your Name\",\n      author_email=\"you@example.com\",\n      url=\"\
+  https://github.com/your/repo\",\n      packages=find_packages(),\n      install_requires=[\n\
+  \          # list runtime dependencies here, e.g. \"requests>=2.0\"\n      ],\n\
+  \      python_requires=\">=3.8\",\n  )\n  ```\n- **Import helpers** as needed:\n\
+  \  - `from setuptools import find_packages` if using `find_packages()`.\n  - Any\
+  \ other setuptools extensions (e.g., `entry_points`) for command\u2011line tools.\n"

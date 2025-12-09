@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The if line.endswith(\"\\\\\\n\") block implements this behavior.\n  fact: Lines\
+  \ ending with a backslash-newline (\\\"\\\\\\n\\\") are treated as continuations;\n\
+  \    the backslash and newline are removed and the line is concatenated with the\
+  \ following\n    line.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

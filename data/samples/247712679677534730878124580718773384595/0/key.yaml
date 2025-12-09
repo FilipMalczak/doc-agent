@@ -1,7 +1,0 @@
-"## 6. Concurrency Model  \n\n- The tool uses **`asyncio`** together with **`aiohttp`**:\
-  \  \n  - Subprocess calls (`pip show`) and HTTP GET requests are wrapped in `async`\
-  \ functions.  \n  - Tasks are scheduled concurrently, limited only by the aiohttp\
-  \ connector\u2019s `limit=5`.  \n- **Why not `asyncio.run`?** \u2013 To avoid closing\
-  \ the event loop prematurely, which can clash with aiohttp\u2019s connection cleanup\
-  \ (see aiohttp issue #1925). The code instead fetches the current loop via `asyncio.get_event_loop()`.\n\
-  \n---  \n"

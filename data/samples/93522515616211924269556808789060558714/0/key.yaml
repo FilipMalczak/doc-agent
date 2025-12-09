@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The second image directive includes that URL as its target.\n  fact: The README\
-  \ displays a Codecov coverage badge linking to https://codecov.io/gh/eight04/pip-outdated.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

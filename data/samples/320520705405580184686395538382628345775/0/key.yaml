@@ -1,3 +1,0 @@
-If the data table contains only the header row (length of data equals 1), print_outdated
-  prints a cyan bold message "Everything is up-to-date!" and returns early.
-...

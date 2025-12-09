@@ -1,0 +1,5 @@
+'# Install the package in editable mode (optional but useful for development)
+
+  pip install -e .
+
+  '

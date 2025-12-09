@@ -1,0 +1,6 @@
+"## \U0001F4E6 Usage Example (User\u2011Facing)\n\n```python\nimport asyncio\nfrom\
+  \ pip_outdated.session import get_session\n\nasync def main() -> None:\n    async\
+  \ with get_session() as session:\n        async with session.get(\"https://pypi.org/pypi/pip/json\"\
+  ) as resp:\n            data = await resp.json()\n            # \u2026 process the\
+  \ JSON response \u2026\n\nasyncio.run(main())\n```\n- **Note:** Wrapping the session\
+  \ in an `async with` block guarantees proper cleanup (the session is closed automatically).\n"

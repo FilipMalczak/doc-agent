@@ -1,0 +1,201 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: '<document_type>source_file</document_type>
+
+      <type>file</type>
+
+      <repo_item_type>test</repo_item_type>
+
+      <path>tests/__init__.py</path>
+
+      <language>python</language>
+
+      <content></content>'
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: 'We need to extract atomic facts from this file. The file path is tests/__init__.py,
+      content is empty. So facts: it''s a Python package initializer for tests, file
+      is empty, likely used to mark directory as a package. Provide explanation. Also
+      meta-facts: file type, language, path. Need to output list of facts, each self-contained,
+      with reason why it''s a fact. Follow formatting rules: quotes double, markdown
+      bullet points list hyphen style. Probably produce YAML? Not specified output
+      format. Use markdown bullet points. Provide each fact as a statement and maybe
+      a reason. Could embed reason as separate bullet? It says extract atomic facts,
+      explain why you think each statement is a fact. Could include explanation after
+      each fact, maybe as parentheses. But atomic facts should be short; explanation
+      can be separate sentences.
+
+
+      Let''s output as a list of objects? Not specified. Use markdown bullet points.
+      Each bullet: "Fact: ..." and maybe "Reason: ...". Provide as separate bullet?
+      Could combine.
+
+
+      I''ll produce hyphen bullet list, each bullet containing two sentences: first
+      the fact, second the reason.
+
+
+      Make sure strings double quotes. But bullet list not YAML, plain markdown.
+
+
+      Proceed.'
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "- **Fact:** The file `tests/__init__.py` exists in the repository. \
+      \ \n  **Reason:** Its presence is indicated by the `<path>` element in the provided\
+      \ metadata.\n\n- **Fact:** The file `tests/__init__.py` is a Python source file.\
+      \  \n  **Reason:** The `<language>` tag specifies `\"python\"` for this item.\n\
+      \n- **Fact:** The file `tests/__init__.py` is intended to be a package initializer\
+      \ for the `tests` directory.  \n  **Reason:** Python treats any `__init__.py`\
+      \ file inside a directory as the initializer that marks the directory as a package.\n\
+      \n- **Fact:** The content of `tests/__init__.py` is empty.  \n  **Reason:**\
+      \ The `<content>` element is empty, indicating that no code or documentation\
+      \ is present in the file.\n\n- **Fact:** The `tests` directory is classified\
+      \ as a test module within the repository.  \n  **Reason:** The `<repo_item_type>`\
+      \ tag has the value `\"test\"`, which designates this path as part of the project's\
+      \ test suite."
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233503-9NjGiW4S92vTIx7kVwgR
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:38:23Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 244
+    input_audio_tokens: 0
+    input_tokens: 532
+    output_audio_tokens: 0
+    output_tokens: 478
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        error: invalid number at line 1 column 2
+      input: "- **Fact:** The file `tests/__init__.py` exists in the repository. \
+        \ \n  **Reason:** Its presence is indicated by the `<path>` element in the\
+        \ provided metadata.\n\n- **Fact:** The file `tests/__init__.py` is a Python\
+        \ source file.  \n  **Reason:** The `<language>` tag specifies `\"python\"\
+        ` for this item.\n\n- **Fact:** The file `tests/__init__.py` is intended to\
+        \ be a package initializer for the `tests` directory.  \n  **Reason:** Python\
+        \ treats any `__init__.py` file inside a directory as the initializer that\
+        \ marks the directory as a package.\n\n- **Fact:** The content of `tests/__init__.py`\
+        \ is empty.  \n  **Reason:** The `<content>` element is empty, indicating\
+        \ that no code or documentation is present in the file.\n\n- **Fact:** The\
+        \ `tests` directory is classified as a test module within the repository.\
+        \  \n  **Reason:** The `<repo_item_type>` tag has the value `\"test\"`, which\
+        \ designates this path as part of the project's test suite."
+      loc: []
+      msg: 'Invalid JSON: invalid number at line 1 column 2'
+      type: json_invalid
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_fa4ce571bb0945ee91a56767c596bfc7
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

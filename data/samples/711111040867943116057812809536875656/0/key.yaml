@@ -1,6 +1,0 @@
-"# Notes on `pip_outdated/session.py`\n\n## Usage (for developers)\n```python\nimport\
-  \ aiohttp\nfrom pip_outdated.session import get_session\n\nasync def fetch_something(url:\
-  \ str):\n    async with get_session() as session:\n        async with session.get(url)\
-  \ as response:\n            return await response.text()\n```\n- Call `get_session()`\
-  \ whenever you need a fresh client session.\n- Use `async with` to ensure the session\
-  \ and its connector are properly closed after use.\n"

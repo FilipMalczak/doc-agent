@@ -1,0 +1,409 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>RAG\
+      \ helper specialised in reranking of documents</persona>\n<task>\n  <context>\n\
+      \nWe are retrieving indexed documents for RAG.\nWe retrieved candidates with\
+      \ redundancy, searching for different queries and getting results that require\
+      \ normalization.\nWe need to rescore them with more semantic approach than simple\
+      \ index search.\n\n  </context>\n  <high_level>Given a list of scored documents\
+      \ and a purpose for current search, provide a list of their updated scores.</high_level>\n\
+      \  <low_level>\n\nYou will be given full content of the input documents, as\
+      \ well as their metadata and current score.\nInput score will always be in [0.0,\
+      \ 1.0] range.\nYou will use that knowledge to produce integer scores in 1-10\
+      \ range.\nYou will treat the content as the most important. All the metadata,\
+      \ including previous score, should have much lower priority, but otherwise uniform\
+      \ amongst available details.\nYou will emit an appropriate output item for each\
+      \ input item. There will be exactly one output item for each input item. You\
+      \ will correlate the items by their document ID. The set of input IDs MUST be\
+      \ exactly the same as set of output IDs. Keep the order of input and output\
+      \ entries aligned. \nYou will explain your choices, one at the time, referring\
+      \ to the input data and your inherent knowledge.\n\n  </low_level>\n  <detailed>\n\
+      \nWhen choosing the scores for the documents you should use 1-10 scale (without\
+      \ 0, all integers). \nThis output scale is different from the input one on purpose.\
+      \ DO NOT PRODUCE [0.0, 1.0] FLOAT SCORES.\nONLY produce integer scores in the\
+      \ 1-10 range.\nYou can use the following to get the gist of what does each value\
+      \ mean.\n\nFor example, if the purpose of the search is solving quantum physics\
+      \ problem, then the scores might be:\n- a daily newspaper -> 1\n- high-school\
+      \ physics book -> 3\n- university-level quantum physics book -> 7\n- scientific\
+      \ paper explicitly tackling the problem -> 10\n\nNotice that 0 is NOT a valid\
+      \ score, which is why the daily newspaper is given score 1.\n\nIf not sure whether\
+      \ to choose a number or one bigger, explain the bigger choice and reevaluate.\
+      \ \nIf you choose the lower value at that point, include the original explanation\
+      \ of the bigger choice, explanation of the switch and explanation of the chosen\
+      \ value as if it were chosen originally. \n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Find the current project name in the knowledge base</purpose>\n\
+      <documents>\n  <list>\n    <item index=\"0\">\n      <score>0.86</score>\n \
+      \     <document>\n        <id>063b5ea0-3fc0-4610-bde5-243370a20ad8</id>\n  \
+      \      <content>The project name is pip-outdated.</content>\n        <metadata>\n\
+      \          <document_type>chunk</document_type>\n          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>5c62e1c1-f6b4-4725-be5f-fdba45fccfd5</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>README.rst</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"1\">\n\
+      \      <score>0.78</score>\n      <document>\n        <id>d3dbc167-d046-40d0-affe-cb67e25b96df</id>\n\
+      \        <content>The project name is \"pip-outdated\" as specified by the \"\
+      name\" field in the [metadata] section.</content>\n        <metadata>\n    \
+      \      <document_type>chunk</document_type>\n          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"2\">\n\
+      \      <score>0.7407</score>\n      <document>\n        <id>3f7cba76-893c-4f4f-bcf4-0784deaad07f</id>\n\
+      \        <content>\n## 5. Project Metadata (from `setup.cfg`)\n```ini\n[metadata]\n\
+      name = pip-outdated\nversion = 0.8.0\nauthor = eight\nauthor_email = eight04@gmail.com\n\
+      license = MIT\nurl = https://github.com/eight04/pip-outdated\nlong_description\
+      \ = file: README.rst\nclassifiers =\n    Development Status :: 4 - Beta\n  \
+      \  Environment :: Console\n    Intended Audience :: Developers\n    Programming\
+      \ Language :: Python :: 3.7\n    Topic :: Software Development :: Build Tools\n\
+      keywords = pip, check, outdate, npm\n\n[options]\ninstall_requires =\n    aiohttp~=3.12\n\
+      \    colorama~=0.4.6\n    packaging~=25.0\n    termcolor~=3.1\n    terminaltables~=3.1\n\
+      zip_safe = True\n\n[options.entry_points]\nconsole_scripts =\n    pip-outdated\
+      \ = pip_outdated:main\n\n[vpip]\ncommand_fallback = python cute.py\n```\n- **Console\
+      \ script** `pip-outdated` maps directly to `pip_outdated:main`.\n- Optional\
+      \ `[vpip]` section provides a fallback command for the external *vpip* tool.\n\
+      \n---\n\n        </content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>note</chunk_source_document_type>\n \
+      \         <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            \
+      \  <item index=\"1\">4</item>\n            </list>\n          </chunk_coordinates>\n\
+      \          <chunked_note_id>3a4abb8e-2ce7-4a21-ae65-62dac7fe9c6c</chunked_note_id>\n\
+      \          <chunked_note_subject_path></chunked_note_subject_path>\n       \
+      \   <chunked_note_subject_type>directory</chunked_note_subject_type>\n     \
+      \   </metadata>\n      </document>\n    </item>\n    <item index=\"3\">\n  \
+      \    <score>0.71</score>\n      <document>\n        <id>733ef6d1-03ea-461c-a32a-54bbbfebdaad</id>\n\
+      \        <content>Verbose flag variable</content>\n        <metadata>\n    \
+      \      <document_type>chunk</document_type>\n          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">2</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>126b57a4-c24e-4ff7-ab30-8371c3cbc96c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>pip_outdated/verbose.py</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"4\">\n\
+      \      <score>0.6625911891460419</score>\n      <document>\n        <id>dacbdfb4-da50-43d4-baa7-c7d489f9aaa4</id>\n\
+      \        <content>File path `tests/__init__.py` is present in the project metadata.</content>\n\
+      \        <metadata>\n          <document_type>chunk</document_type>\n      \
+      \    <chunk_source_document_type>facts</chunk_source_document_type>\n      \
+      \    <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>708c1d16-6201-4842-8368-a259f2dfd9ed</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>tests/__init__.py</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"5\">\n\
+      \      <score>0.6</score>\n      <document>\n        <id>c5b3447e-7f6b-4140-9f09-ca8023bebcd7</id>\n\
+      \        <content>\n## Project Configuration \u2013 `setup.py`\n\n**File path:**\
+      \ `setup.py`  \n**Language:** Python  \n\n### Immediate actions the user should\
+      \ take\n- **Add required metadata** to the `setup()` call, for example:\n  ```python\n\
+      \  setup(\n      name=\"your-package-name\",\n      version=\"0.1.0\",\n   \
+      \   description=\"A short description of the project\",\n      author=\"Your\
+      \ Name\",\n      author_email=\"you@example.com\",\n      url=\"https://github.com/your/repo\"\
+      ,\n      packages=find_packages(),\n      install_requires=[\n          # list\
+      \ runtime dependencies here, e.g. \"requests>=2.0\"\n      ],\n      python_requires=\"\
+      >=3.8\",\n  )\n  ```\n- **Import helpers** as needed:\n  - `from setuptools\
+      \ import find_packages` if using `find_packages()`.\n  - Any other setuptools\
+      \ extensions (e.g., `entry_points`) for command\u2011line tools.\n\n       \
+      \ </content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>note</chunk_source_document_type>\n \
+      \         <chunk_variant>extracted</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            \
+      \  <item index=\"1\">2</item>\n            </list>\n          </chunk_coordinates>\n\
+      \          <chunked_note_id>946d23cc-e65d-473b-b731-fde4620433e0</chunked_note_id>\n\
+      \          <chunked_note_subject_path>setup.py</chunked_note_subject_path>\n\
+      \          <chunked_note_subject_type>file</chunked_note_subject_type>\n   \
+      \       <chunk_include_previous_content>True</chunk_include_previous_content>\n\
+      \        </metadata>\n      </document>\n    </item>\n  </list>\n</documents>\n\
+      <additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: tool_call
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to output updated scores (1-10) for each document, with explanation\
+      \ for each. Must keep same order and match IDs. Provide explanations referencing\
+      \ content and purpose: find the current project name in knowledge base. So documents\
+      \ that explicitly state the project name \"pip-outdated\" are most relevant.\
+      \ Those that are unrelated (verbose flag, tests file) less relevant. Also the\
+      \ setup.cfg snippet contains name. The setup.py note is about adding metadata,\
+      \ not actual name, less relevant.\n\nWe need to output list of items with id\
+      \ and new score, plus explanation for each. Format: likely JSON-like list of\
+      \ objects? Not specified output schema but we must match the style. Could be\
+      \ YAML list with id and score and explanation for each. Provide explanations\
+      \ separate lines? Probably each item as an object containing id and new_score\
+      \ and explanation.\n\nWe'll produce in YAML list style, as per formatting rules.\
+      \ Use double quotes for strings. Include explanation as multi-line string with\
+      \ |- style.\n\nExample:\n\n- id: \"063b5ea0-3fc0-4610-bde5-243370a20ad8\"\n\
+      \  new_score: 9\n  explanation: |\n    The content directly states the project\
+      \ name ...\n\nWe'll assign scores 9-10 for best matches. Since purpose is to\
+      \ find current project name, documents that explicitly give it should be highest.\
+      \ There are several:\n\nitem0: \"The project name is pip-outdated.\" => strong,\
+      \ score 10 maybe.\n\nitem1: similar with quotes, explicit - also 10.\n\nitem2:\
+      \ snippet includes name = pip-outdated, plus context, also very relevant ->\
+      \ maybe 9.\n\nitem3: irrelevant \"Verbose flag variable\" => low, maybe 2.\n\
+      \nitem4: mentions test file path present in metadata, not about name; low maybe\
+      \ 3.\n\nitem5: generic setup.py advice about adding metadata, not providing\
+      \ name; maybe 4.\n\nNeed to ensure monotonic but okay.\n\nExplain each.\n\n\
+      Return final result via function."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - args: "{\n  \"response\": [\n    {\n      \"id\": \"063b5ea0-3fc0-4610-bde5-243370a20ad8\"\
+      ,\n      \"new_score\": 10,\n      \"explanation\": \"The content explicitly\
+      \ states the project name as *pip-outdated* in a clear declarative sentence.\
+      \ This directly satisfies the purpose of locating the current project name,\
+      \ making it the most relevant document.\"\n    },\n    {\n      \"id\": \"d3dbc167-d046-40d0-affe-cb67e25b96df\"\
+      ,\n      \"new_score\": 10,\n      \"explanation\": \"The document repeats the\
+      \ exact project name *pip-outdated* and cites the \\\"name\\\" field in the\
+      \ [metadata] section, providing the same explicit answer as the top document\
+      \ with additional context.\"\n    },\n    {\n      \"id\": \"3f7cba76-893c-4f4f-bcf4-0784deaad07f\"\
+      ,\n      \"new_score\": 9,\n      \"explanation\": \"The excerpt from `setup.cfg`\
+      \ contains the `[metadata]` block where `name = pip-outdated`. This is a definitive\
+      \ source, though embedded within a larger configuration file, so it is slightly\
+      \ less direct than the pure statements above.\"\n    },\n    {\n      \"id\"\
+      : \"733ef6d1-03ea-461c-a32a-54bbbfebdaad\",\n      \"new_score\": 2,\n     \
+      \ \"explanation\": \"The content only mentions a \\\"Verbose flag variable\\\
+      \" and does not provide any information about the project name. It is therefore\
+      \ minimally useful for the given purpose.\"\n    },\n    {\n      \"id\": \"\
+      dacbdfb4-da50-43d4-baa7-c7d489f9aaa4\",\n      \"new_score\": 3,\n      \"explanation\"\
+      : \"The document notes that `tests/__init__.py` exists in the project metadata,\
+      \ which is unrelated to the project name. It receives a low relevance score.\"\
+      \n    },\n    {\n      \"id\": \"c5b3447e-7f6b-4140-9f09-ca8023bebcd7\",\n \
+      \     \"new_score\": 4,\n      \"explanation\": \"This note gives generic advice\
+      \ on adding metadata to `setup.py` but does not actually contain the current\
+      \ project's name. It is somewhat relevant to the topic of project metadata,\
+      \ so it gets a modest score.\"\n    }\n  ]\n}"
+    id: null
+    part_kind: tool-call
+    tool_call_id: chatcmpl-tool-125aa21f5b0842b383f49aa11f7b974a
+    tool_name: final_result
+  provider_details:
+    finish_reason: tool_calls
+  provider_name: openrouter
+  provider_response_id: gen-1765298643-LJZ6JAlmq5E9lhfj1P4s
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-09T16:44:03Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 880
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 481
+    input_audio_tokens: 0
+    input_tokens: 2686
+    output_audio_tokens: 0
+    output_tokens: 940
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - input:
+        explanation: The content explicitly states the project name as *pip-outdated*
+          in a clear declarative sentence. This directly satisfies the purpose of
+          locating the current project name, making it the most relevant document.
+        id: 063b5ea0-3fc0-4610-bde5-243370a20ad8
+        new_score: 10
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 0
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+        explanation: The document repeats the exact project name *pip-outdated* and
+          cites the "name" field in the [metadata] section, providing the same explicit
+          answer as the top document with additional context.
+        id: d3dbc167-d046-40d0-affe-cb67e25b96df
+        new_score: 10
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 1
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+        explanation: The excerpt from `setup.cfg` contains the `[metadata]` block
+          where `name = pip-outdated`. This is a definitive source, though embedded
+          within a larger configuration file, so it is slightly less direct than the
+          pure statements above.
+        id: 3f7cba76-893c-4f4f-bcf4-0784deaad07f
+        new_score: 9
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 2
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+        explanation: The content only mentions a "Verbose flag variable" and does
+          not provide any information about the project name. It is therefore minimally
+          useful for the given purpose.
+        id: 733ef6d1-03ea-461c-a32a-54bbbfebdaad
+        new_score: 2
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 3
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+        explanation: The document notes that `tests/__init__.py` exists in the project
+          metadata, which is unrelated to the project name. It receives a low relevance
+          score.
+        id: dacbdfb4-da50-43d4-baa7-c7d489f9aaa4
+        new_score: 3
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 4
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+        explanation: This note gives generic advice on adding metadata to `setup.py`
+          but does not actually contain the current project's name. It is somewhat
+          relevant to the topic of project metadata, so it gets a modest score.
+        id: c5b3447e-7f6b-4140-9f09-ca8023bebcd7
+        new_score: 4
+      loc:
+      - response
+      - list[RerankingOutput]
+      - 5
+      - updated_score
+      msg: Field required
+      type: missing
+    - input:
+      - explanation: The content explicitly states the project name as *pip-outdated*
+          in a clear declarative sentence. This directly satisfies the purpose of
+          locating the current project name, making it the most relevant document.
+        id: 063b5ea0-3fc0-4610-bde5-243370a20ad8
+        new_score: 10
+      - explanation: The document repeats the exact project name *pip-outdated* and
+          cites the "name" field in the [metadata] section, providing the same explicit
+          answer as the top document with additional context.
+        id: d3dbc167-d046-40d0-affe-cb67e25b96df
+        new_score: 10
+      - explanation: The excerpt from `setup.cfg` contains the `[metadata]` block
+          where `name = pip-outdated`. This is a definitive source, though embedded
+          within a larger configuration file, so it is slightly less direct than the
+          pure statements above.
+        id: 3f7cba76-893c-4f4f-bcf4-0784deaad07f
+        new_score: 9
+      - explanation: The content only mentions a "Verbose flag variable" and does
+          not provide any information about the project name. It is therefore minimally
+          useful for the given purpose.
+        id: 733ef6d1-03ea-461c-a32a-54bbbfebdaad
+        new_score: 2
+      - explanation: The document notes that `tests/__init__.py` exists in the project
+          metadata, which is unrelated to the project name. It receives a low relevance
+          score.
+        id: dacbdfb4-da50-43d4-baa7-c7d489f9aaa4
+        new_score: 3
+      - explanation: This note gives generic advice on adding metadata to `setup.py`
+          but does not actually contain the current project's name. It is somewhat
+          relevant to the topic of project metadata, so it gets a modest score.
+        id: c5b3447e-7f6b-4140-9f09-ca8023bebcd7
+        new_score: 4
+      loc:
+      - response
+      - json[list[RerankingOutput]]
+      msg: JSON input should be string, bytes or bytearray
+      type: json_type
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: chatcmpl-tool-125aa21f5b0842b383f49aa11f7b974a
+    tool_name: final_result
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        RerankingOutput:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankingOutput'
+          type: array
+      required:
+      - response
+      type: object
+    name: list
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: response
+    parameters_json_schema:
+      $defs:
+        RerankingOutput:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankingOutput'
+          type: array
+      required:
+      - response
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

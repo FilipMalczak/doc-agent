@@ -1,0 +1,8 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The combination of colored output, table rendering, legend messages,\n    and\
+  \ the exit code logic implements this purpose.\n  fact: \"The overall purpose of\
+  \ the module is to display a colored table of Python\\\n    \\ package version information,\
+  \ highlighting outdated or unavailable packages in\\\n    \\ red and updatable packages\
+  \ in green, and to exit with a non\\u2011zero status\\\n    \\ when there are outdated\
+  \ packages unless the quiet flag is set.\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

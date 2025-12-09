@@ -1,0 +1,177 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>RAG\
+      \ helper specialised in deduplication of documents</persona>\n<task>\n  <context>\n\
+      \nWe are retrieving indexed documents for RAG. \nAt indexing stage we introduced\
+      \ redundancy and indexed different variants and subsections of each documents.\n\
+      When retrieving, we found multiple documents stemming from the same original\
+      \ source.\nWe need to pick one representative of each document.\n\n  </context>\n\
+      \  <high_level>Given a list of document variants and the task they will be used\
+      \ to solve, pick the most relevant and propose a new score.</high_level>\n \
+      \ <low_level>\n\nDeduplicate the variants of the retrieved document. \nReduce\
+      \ the list of candidates to a single, best one. \nMeasure 'best' against the\
+      \ given purpose.\nCorrect (usually raise; if not - include the reason in the\
+      \ explanation) the score to reflect the document being found multiple times.\
+      \ \nBoth the input and updated score should be in [0.0, 1.0] range, where 1.0\
+      \ means the best similarity and 0.0 means no similarity.\nPick the representative\
+      \ by responding with its document ID. You MUST pick EXACTLY one representative\
+      \ and it MUST have the document ID that was present in the input.\nExplain your\
+      \ choices, referring to the input data and your inherent knowledge.\n\n  </low_level>\n\
+      </task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Find the current project name from knowledge base</purpose>\n\
+      <documents>\n  <list>\n    <item index=\"0\">\n      <index>0</index>\n    \
+      \  <score>0.7154632210731506</score>\n      <document>\n        <id>63e9b703-9108-4446-9a04-edc3e4e719e6</id>\n\
+      \        <content>The keywords associated with the project are \"pip\", \"check\"\
+      , \"outdate\", and \"npm\".</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">5</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"1\">\n\
+      \      <index>1</index>\n      <score>0.7017636001110077</score>\n      <document>\n\
+      \        <id>d3dbc167-d046-40d0-affe-cb67e25b96df</id>\n        <content>The\
+      \ project name is \"pip-outdated\" as specified by the \"name\" field in the\
+      \ [metadata] section.</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">0</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"2\">\n\
+      \      <index>2</index>\n      <score>0.6944504976272583</score>\n      <document>\n\
+      \        <id>c6001604-10c8-4dca-a2d4-10604429089d</id>\n        <content>The\
+      \ project version is \"0.8.0\" as specified by the \"version\" field in the\
+      \ [metadata] section.</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">1</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"3\">\n\
+      \      <index>3</index>\n      <score>0.688378632068634</score>\n      <document>\n\
+      \        <id>830bdf3c-8899-491f-8e7f-06a31d2bab95</id>\n        <content>The\
+      \ author of the project is \"eight\" with email \"eight04@gmail.com\" as listed\
+      \ in the [metadata] section.</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">3</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"4\">\n\
+      \      <index>4</index>\n      <score>0.6870346665382385</score>\n      <document>\n\
+      \        <id>8c47e3d9-a322-4435-bd7f-b856e5220647</id>\n        <content>The\
+      \ project is licensed under the MIT license as indicated by the \"license\"\
+      \ field.</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">6</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"5\">\n\
+      \      <index>5</index>\n      <score>0.6853030920028687</score>\n      <document>\n\
+      \        <id>7490cba6-bdf6-4e73-a541-f88ba34598b0</id>\n        <content>The\
+      \ project classifiers include Development Status :: 4 - Beta, Environment ::\
+      \ Console, Intended Audience :: Developers, Programming Language :: Python ::\
+      \ 3.7, and Topic :: Software Development :: Build Tools.</content>\n       \
+      \ <metadata>\n          <document_type>chunk</document_type>\n          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">4</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"6\">\n\
+      \      <index>6</index>\n      <score>0.6741426289081573</score>\n      <document>\n\
+      \        <id>be8d6467-0b2f-490a-9d07-aa3a29c74e6a</id>\n        <content>The\
+      \ project homepage URL is \"https://github.com/eight04/pip-outdated\" as defined\
+      \ in the \"url\" field.</content>\n        <metadata>\n          <document_type>chunk</document_type>\n\
+      \          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">8</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n    <item index=\"7\">\n\
+      \      <index>7</index>\n      <score>0.665225088596344</score>\n      <document>\n\
+      \        <id>64fbd057-ca63-4cfa-85ea-cb1323b43b49</id>\n        <content>The\
+      \ long description of the project is read from the file \"README.rst\" as indicated\
+      \ by the \"long_description\" field.</content>\n        <metadata>\n       \
+      \   <document_type>chunk</document_type>\n          <chunk_source_document_type>facts</chunk_source_document_type>\n\
+      \          <chunk_variant>simple</chunk_variant>\n          <chunk_coordinates>\n\
+      \            <list>\n              <item index=\"0\">7</item>\n            </list>\n\
+      \          </chunk_coordinates>\n          <chunked_facts_id>86d2e4ef-e2a1-47e0-ace8-58507aa9377c</chunked_facts_id>\n\
+      \          <chunked_facts_subject_path>setup.cfg</chunked_facts_subject_path>\n\
+      \          <chunked_facts_subject_type>file</chunked_facts_subject_type>\n \
+      \       </metadata>\n      </document>\n    </item>\n  </list>\n</documents>\n\
+      <additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        document_id:
+          type: string
+        explanation:
+          type: string
+        new_score:
+          type: number
+      required:
+      - document_id
+      - new_score
+      - explanation
+      title: DeduplicationOutput
+      type: object
+    name: DeduplicationOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      properties:
+        document_id:
+          type: string
+        explanation:
+          type: string
+        new_score:
+          type: number
+      required:
+      - document_id
+      - new_score
+      - explanation
+      title: DeduplicationOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

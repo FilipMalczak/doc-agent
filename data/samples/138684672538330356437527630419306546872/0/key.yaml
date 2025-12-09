@@ -1,3 +1,0 @@
-The parser adds a -v/--verbose flag that stores True when present and has the help
-  text "Print verbose information.".
-...

@@ -1,6 +1,0 @@
-"## Project Component: `pip_outdated/print_outdated.py`\n\n### Points to Highlight\
-  \ in Documentation\n- Explain the meaning of each color and what \u201CWanted\u201D\
-  \ vs. \u201CLatest\u201D represent.\n- Mention that the function automatically handles\
-  \ missing or unreachable packages.\n- Clarify the exit\u2011code semantics (non\u2011\
-  zero when outdated packages are present unless `quiet` is set).\n- Provide a simple\
-  \ example of the table output for both up\u2011to\u2011date and outdated scenarios."

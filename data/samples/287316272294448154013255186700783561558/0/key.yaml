@@ -1,0 +1,4 @@
+The function find_require(files) accepts a list of file patterns, expands them with
+  iter_files, selects parse_cfg for files ending in .cfg and parse_requirements otherwise,
+  and yields all discovered Requirement objects.
+...

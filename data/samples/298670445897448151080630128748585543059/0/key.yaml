@@ -1,4 +1,0 @@
-"## Project Component: `pip_outdated/print_outdated.py`\n\n### Overview\n- This module\
-  \ is responsible for **displaying the results** of a pip\u2011outdated check in\
-  \ a user\u2011friendly, colored table.  \n- It is part of the **`pip_outdated`**\
-  \ package and works with the `OutdateResult` data model defined in `check_outdated.py`.\n"

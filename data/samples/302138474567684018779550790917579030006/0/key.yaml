@@ -1,0 +1,32 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code is stored at pip_outdated/verbose.py in the repository.\n\
+  \      fact: File location\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The module begins with a docstring Simple namespace to share\
+  \ verbose\n        state., which serves as a module-level description.\n      fact:\
+  \ Purpose comment\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The module defines a global variable VERBOSE annotated as bool\n\
+  \        and initialized to None, providing a shared verbose flag.\n      fact:\
+  \ Verbose flag variable\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The function set_verbose(value: bool) -> None assigns the argument\n\
+  \        value to the global VERBOSE variable, allowing code to modify the flag.'\n\
+  \      fact: Setter function\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: \"The function verbose() -> bool returns the current value of\
+  \ the\\\n        \\ global VERBOSE variable, providing read\\u2011only access.\"\
+  \n      fact: Getter function\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The module implements a lightweight namespace for sharing verbose\n\
+  \        state across the pip_outdated project without a class or complex configuration.\n\
+  \      fact: Namespace design\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

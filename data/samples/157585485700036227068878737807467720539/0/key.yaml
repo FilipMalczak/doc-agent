@@ -1,0 +1,7 @@
+"### User\u2011Facing Behaviour\n- **Running the tool** will print a nicely formatted\
+  \ ASCII table; no extra formatting is required from the user.  \n- The `quiet` flag\
+  \ suppresses the non\u2011zero exit code, making the command usable in CI pipelines\
+  \ where you only need the table output.  \n- If the project\u2019s `requirements.txt`\
+  \ (or equivalent) is empty, the tool reports **\u201CNo requirements found.\u201D\
+  ** in red.  \n- When everything is current, the tool reports **\u201CEverything\
+  \ is up\u2011to\u2011date!\u201D** in cyan bold text.\n"

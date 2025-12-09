@@ -1,3 +1,0 @@
-If the quiet flag is False, print_outdated terminates the process with exit code 1
-  after displaying the table.
-...

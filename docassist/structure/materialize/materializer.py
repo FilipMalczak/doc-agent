@@ -1,6 +1,6 @@
 import asyncio
 from logging import getLogger
-from typing import assert_never
+from typing import assert_never, Awaitable
 
 from logfire import instrument
 from pydantic_ai import FunctionToolset
@@ -9,7 +9,6 @@ from docassist.agents.rag.data import ScoredDocument
 from docassist.agents.rag.tool import SearchKBTool
 from docassist.index.protocols import DocumentIndex
 from docassist.sampling.protocols import SamplingController
-
 from docassist.structure.materialize.agent import materialization_aide
 from docassist.structure.materialize.models import MaterializationState, VariableValuation
 from docassist.structure.materialize.tasks import EvaluateVariableOutput, evaluate_variable
@@ -72,10 +71,10 @@ class Materializer:
                 new_name,
                 new_preamble,
                 new_afterword,
-                _flatten(
+                _flatten([
                     await self._materialize(spec, new_state)
                     for spec in c.content
-                )
+                ])
             )
         ]
 
@@ -95,31 +94,81 @@ class Materializer:
         task = evaluate_variable(name, desc)
         tool = SearchKBTool(self.index, self.sampling, state.fact_docs())
 
-        def search_knowledge_base(*, purpose: str, queries: list[str],
+        async def search_knowledge_base(*, purpose: str, queries: list[str],
                        rewrite_count: int | None = None, expansion_count: int | None = None,
                        additional_rephrasing_instructions: str | None = None,
                        additional_deduplication_instructions: str | None = None,
                        additional_reranking_instructions: str | None = None,
                        cutoff: float | int = 0.8
                        ) -> list[ScoredDocument]:
-            return asyncio.run(
-                lambda : tool(
-                    purpose=purpose, queries=queries,
-                    rewrite_count=rewrite_count, expansion_count=expansion_count,
-                    additional_rephrasing_instructions=additional_rephrasing_instructions,
-                    additional_deduplication_instructions=additional_deduplication_instructions,
-                    additional_reranking_instructions=additional_reranking_instructions,
-                    cutoff=cutoff
-                )
-            )
+            #fixme copypasted
+            """
+            Run a multi-stage retrieval pipeline and return scored documents relevant to a given purpose.
 
-        response = await self.sampling.run_transaction(
-            materialization_aide.run,
-            task.message_content(),
-            output_type=EvaluateVariableOutput,
-            toolsets=[FunctionToolset(tools=[search_knowledge_base])]
+            This pipeline is more than a simple vector search. It orchestrates several LLM-powered steps, each of which
+            contributes to expanding, cleaning, and ranking the search space:
+
+            **1. Search-area expansion**
+               - An agent generates query rewrites and auxiliary queries to broaden the retrieval space.
+
+            **2. Vector index retrieval**
+               - Documents are retrieved in high volume from the vector store.
+               - Quality is intentionally unfiltered at this stage to maximize recall.
+
+            **3. Deduplication / grouping**
+               - Retrieved documents are clustered:
+                   • Original source files form their own groups and are always promoted.
+                   • Derived documents (e.g., chunks) are grouped by type and subject.
+               - Each group is sent to a specialized agent, which selects a representative and may adjust its score.
+
+            **4. Reranking**
+               - Group representatives are evaluated by another agent that assigns new scores based on alignment
+                 with the overall search purpose.
+
+            **5. Softmax normalization**
+               - Documents are sorted by score and normalized so scores sum to 1.
+               - Relative score ratios from the reranker are preserved.
+
+            **6. Cutoff-based selection**
+               - Documents are collected in descending score order until their cumulative normalized score
+                 reaches the cutoff threshold.
+               - Only the collected documents are returned.
+
+            :param purpose: The high-level reason for performing the search. Provided to all agents in the
+                pipeline for contextual alignment.
+            :param queries: The initial search terms or phrases.
+            :param rewrite_count: Number of rewrites per original query during expansion. Defaults to
+                `max(2, log2(len(queries)))`.
+            :param expansion_count: Number of auxiliary expansion queries. Defaults to the maximum of:
+                `max(3, log2(len(queries)), rewrite_count)`.
+            :param additional_rephrasing_instructions: Extra guidance for the expansion agent. Useful for applying
+                constraints such as “use only the vocabulary present in the original queries” or other domain-specific rules.
+            :param additional_deduplication_instructions: Extra guidance for the deduplication agent. Can express preferences
+                such as “prefer smaller chunks” or “prefer full documents over chunk extracts”.
+            :param additional_reranking_instructions: Extra guidance for the reranking agent. Can express relevance and
+                priority rules, such as ranking complete documents above chunked ones when their content overlaps.
+            :param cutoff: The score accumulation threshold used during final selection. Accepts either a float in the
+                range [0.0, 1.0] or an integer in the range [0, 100]. Defaults to 0.8 (Pareto 80%).
+            :return: The final set of documents, sorted by decreasing score and annotated with their normalized relevance
+                values.
+                    """
+            return await tool.invoke(
+                purpose=purpose, queries=queries,
+                rewrite_count=rewrite_count, expansion_count=expansion_count,
+                additional_rephrasing_instructions=additional_rephrasing_instructions,
+                additional_deduplication_instructions=additional_deduplication_instructions,
+                additional_reranking_instructions=additional_reranking_instructions,
+                cutoff=cutoff
+            )
+        out = await materialization_aide.run(
+            task, EvaluateVariableOutput,
+            toolsets=[
+                FunctionToolset(
+                    max_retries=3, require_parameter_descriptions=True,
+                    tools=[search_knowledge_base]
+                )
+            ]
         )
-        out: EvaluateVariableOutput = response.output
         valuation = VariableValuation(value=out.variable_value, explanation=out.explanation)
         return valuation
 

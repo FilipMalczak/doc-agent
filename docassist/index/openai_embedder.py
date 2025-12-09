@@ -1,6 +1,5 @@
 import numpy as np
 from openai import AsyncOpenAI
-from openai import OpenAIError
 
 from docassist.index.protocols import Embeddings, Embedder
 

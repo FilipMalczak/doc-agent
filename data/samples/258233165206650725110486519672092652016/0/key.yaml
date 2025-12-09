@@ -1,0 +1,27 @@
+"## \U0001F4C4 Project Notes \u2013 `pip_outdated/print_outdated.py`\n\n### Overview\n\
+  - This module formats and displays the results of a **pip\u2011outdated** scan.\
+  \  \n- It builds a colour\u2011coded ASCII table that shows, for each package, the\
+  \ **installed**, **wanted**, and **latest** versions.  \n- The output is designed\
+  \ for end\u2011users who run the tool from a terminal.\n\n### Key Functions\n\n\
+  | Function | Purpose | Important Behaviour |\n|----------|---------|---------------------|\n\
+  | `make_row(outdate: OutdateResult) \u2192 Optional[List[str]]` | Creates a single\
+  \ table row **only if** the package is outdated. | * Returns `None` when the package\
+  \ is up\u2011to\u2011date.  <br> * Colours: <br>   \u2022 **Current** \u2013 red\
+  \ **bold** when the package isn\u2019t installed or the user didn\u2019t request\
+  \ an update. <br>   \u2022 **Wanted** \u2013 red **bold** when the package can\u2019\
+  t be found on PyPI or no version specifier exists; green **bold** when a newer version\
+  \ is available. <br>   \u2022 **Latest** \u2013 red **bold** when the package can\u2019\
+  t be found on PyPI; green **bold** when a newer version exists. |\n| `print_outdated(outdates:\
+  \ List[Awaitable[OutdateResult]], quiet: bool) \u2192 None` | Orchestrates the whole\
+  \ display process. | 1. Calls `colorama.init()` to enable cross\u2011platform colour\
+  \ support. <br> 2. Builds the table header `[\"Name\", \"Installed\", \"Wanted\"\
+  , \"Latest\"]`. <br> 3. Iterates over the **awaitable** `OutdateResult` objects,\
+  \ appending rows from `make_row`. <br> 4. Handles three terminal states: <br>  \
+  \ \u2022 **No requirements found** \u2013 prints a red message and returns. <br>\
+  \   \u2022 **Everything up\u2011to\u2011date** \u2013 prints a cyan bold message\
+  \ and returns. <br>   \u2022 **Outdated packages present** \u2013 prints a colour\
+  \ legend, the ASCII table, and **exits with status\u202F1** unless `quiet` is `True`.\
+  \ |\n| Helper methods inside `make_row` (`colored_current`, `colored_wanted`, `colored_latest`)\
+  \ | Encapsulate the colour\u2011logic for each column. | Use `termcolor.colored`\
+  \ with double\u2011quoted colour names and attributes (e.g., \"red\", \"green\"\
+  ). |\n"

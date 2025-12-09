@@ -1,0 +1,7 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ \"Within the async with block, the test awaits the get_pypi_versions\\\n    \\\
+  \ coroutine with the package name \\\"pytz\\\" and the previously obtained session,\\\
+  \n    \\ exercising the version\\u2011retrieval logic for the pytz package.\"\n\
+  \  fact: The test awaits get_pypi_versions(\"pytz\", session) inside the async with\
+  \ block.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

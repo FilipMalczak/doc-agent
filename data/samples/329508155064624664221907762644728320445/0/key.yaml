@@ -1,3 +1,0 @@
-The package discovery uses setuptools.find_packages with an exclusion of the "tests"
-  directory.
-...

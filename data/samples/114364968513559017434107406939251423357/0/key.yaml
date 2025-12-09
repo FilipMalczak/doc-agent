@@ -1,0 +1,3 @@
+When executed as a script, the file performs a relative import of the module named
+  main from the same package.
+...

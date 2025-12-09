@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The second import pulls the get_pypi_versions function from the pip_outdated.check_outdated\n\
+  \    module, indicating that the test will exercise this function.\n  fact: The\
+  \ module imports get_pypi_versions from pip_outdated.check_outdated.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

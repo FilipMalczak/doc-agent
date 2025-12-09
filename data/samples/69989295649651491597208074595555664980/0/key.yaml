@@ -1,5 +1,0 @@
-"## Project Component: `pip_outdated/verbose.py`\n\n### Usage Patterns\n- **Setting\
-  \ Verbosity**\n  ```python\n  from pip_outdated.verbose import set_verbose\n  set_verbose(True)\
-  \   # Enable verbose output across the project\n  ```\n- **Checking Verbosity**\n\
-  \  ```python\n  from pip_outdated.verbose import verbose\n  if verbose():\n    \
-  \  print(\"Detailed operation info\")\n  ```\n"

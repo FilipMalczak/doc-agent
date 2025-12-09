@@ -1,0 +1,10 @@
+'### TODO (planned features)
+
+  - Add an option to automatically update the package.
+
+  - Add an option to update the `requirements.txt` / `setup.cfg` file.
+
+  - Add a global list option (e.g., `-g, --global`).
+
+
+  ---'

@@ -1,0 +1,4 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n\n---\n\n# Install\
+  \ the tool\npip install pip-outdated\n\n# Run with default files (requirements.txt,\
+  \ setup.cfg)\npip-outdated\n\n# Run against custom patterns\npip-outdated requirements/dev/*.txt\n\
+  \n# Verbose mode for debugging\npip-outdated -v\n"

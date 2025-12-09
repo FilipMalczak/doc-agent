@@ -4,9 +4,8 @@ import numpy as np
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
 
-from docassist.index.faiss import FAISSIndex
 from docassist.index.openai_embedder import OpenAIEmbedder
-from docassist.index.protocols import Embedder, DocumentIndex
+from docassist.index.protocols import Embedder
 from docassist.sampling.common import ConstantSamplingStrategy
 from docassist.sampling.protocols import SamplingStrategy, Sampler
 from docassist.sampling.slots._fsio import FSIO, SpecializedFSIO, YAMLFSIO, PickleFSIO
@@ -15,7 +14,7 @@ from docassist.sampling.std.sampler import StandardSampler
 
 load_dotenv()
 from os import getenv
-from typing import NamedTuple, Self, TypedDict
+from typing import NamedTuple, TypedDict
 
 from pydantic_ai.models import Model
 from pydantic_ai.models.openai import OpenAIChatModel

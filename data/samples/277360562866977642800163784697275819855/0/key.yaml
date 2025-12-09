@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The 0.5.0 entry mentions \"Bump dependencies.\" and \"Add: typehint.\"'\n  fact:\
+  \ \"Version 0.5.0 (released Jan\\u202F12\\u202F2022) bumped dependencies and added\\\
+  \n    \\ type hints.\"\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

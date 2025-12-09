@@ -1,3 +1,0 @@
-The module defines a test function named `test_parse_cfg` that accepts a `tmp_path`
-  argument.
-...

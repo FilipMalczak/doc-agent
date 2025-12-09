@@ -1,8 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function uses session.get, processes the 'releases' keys, handles\n    exceptions,\
-  \ skips prereleases, sorts the resulting Version objects.\n  fact: The async function\
-  \ get_pypi_versions(name, session) fetches JSON from https://pypi.org/pypi/{name}/json,\n\
-  \    extracts release version strings, parses them into Version objects, filters\
-  \ out\n    InvalidVersion and prereleases, sorts them, and returns the list.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,8 +1,0 @@
-"# Notes on `pip_outdated/__main__.py`\n\n## Overview\n- This file serves as the **entry\
-  \ point** for the `pip_outdated` package when it is executed as a script (e.g.,\
-  \ `python -m pip_outdated`).\n- Its sole purpose is to invoke the package\u2019\
-  s main functionality defined elsewhere (in `pip_outdated/main.py`).\n\n## Execution\
-  \ Flow\n```python\nif __name__ == \"__main__\":\n    from . import main\n    main()\n\
-  ```\n- When the module is run directly (`__name__ == \"__main__\"`), it:\n  1. Imports\
-  \ the `main` module from the same package (`from . import main`).\n  2. Executes\
-  \ the `main()` function, which contains the core logic of the project.\n"

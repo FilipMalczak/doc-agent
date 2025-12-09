@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The [options] section's \"install_requires\" list enumerates those packages\n\
-  \    with version specs.\n  fact: The runtime dependencies are aiohttp (compatible\
-  \ with version 3.12), colorama\n    (0.4.6), packaging (25.0), termcolor (3.1),\
-  \ and terminaltables (3.1).\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

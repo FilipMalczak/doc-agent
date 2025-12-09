@@ -1,0 +1,4 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n\n## Overview\n- Provides **asynchronous\
+  \ utilities** to check if a Python package installed via `pip` is outdated compared\
+  \ to versions available on PyPI.  \n- Part of the **`pip_outdated`** project, aimed\
+  \ at helping users identify and upgrade stale dependencies.\n"

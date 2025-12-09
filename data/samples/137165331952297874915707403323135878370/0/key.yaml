@@ -1,0 +1,3 @@
+The test relies on the successful completion of get_pypi_versions without raising
+  errors as its pass condition.
+...

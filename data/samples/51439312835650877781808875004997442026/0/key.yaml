@@ -1,5 +1,0 @@
-"## Project Overview\n## Metadata (for documentation)\n## Classifiers (useful for\
-  \ PyPI listing)\n## Packaging Details\n## Dependencies (runtime)\n## Console Entry\
-  \ Point\n## Additional Configuration (`[vpip]` section)\n- **`command_fallback`**:\
-  \ `\"python cute.py\"`  \n  - Indicates a custom fallback command used by the `vpip`\
-  \ tool (if the project is used within that environment).  \n"

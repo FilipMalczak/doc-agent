@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ '''long_description = file: README.rst'' tells setuptools to load the\n    detailed\
+  \ description from that file.'\n  fact: The long description of the project is read\
+  \ from the file \"README.rst\" as\n    indicated by the \"long_description\" field.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

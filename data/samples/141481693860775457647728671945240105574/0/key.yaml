@@ -1,9 +1,0 @@
-"## \U0001F4C2 Directory\u2011Level Notes \u2013 `tests/`\n### Overview\n### Package\
-  \ Initialization (`tests/__init__.py`)\n### Test Modules\n### Common Themes Across\
-  \ Tests\n- **Reliance on Async Utilities**: `test_pytz.py` demonstrates the asynchronous\
-  \ architecture used for PyPI queries.\n- **Emphasis on Clean Dependency Extraction**:\
-  \ `test_parse_cfg.py` ensures that dependency parsing isolates package names, a\
-  \ core requirement for the project's outdated\u2011package analysis.\n- **Minimal\
-  \ Assertions in Smoke Tests**: Some tests (e.g., `test_pytz.py`) verify successful\
-  \ execution rather than detailed output, encouraging developers to add richer checks\
-  \ over time.\n"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'The line VERBOSE: bool = None explicitly creates the variable with\n    a type\
-  \ hint and a default value.'\n  fact: \"The module defines a top\\u2011level variable\
-  \ VERBOSE annotated as bool and\\\n    \\ initialized to None.\"\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

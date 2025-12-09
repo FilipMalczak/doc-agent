@@ -1,6 +1,5 @@
 from typing import Protocol, AsyncContextManager, Callable, Awaitable
 
-from key_value.shared.code_gen.run import await_awaitable
 from pydantic import BaseModel
 from pydantic_ai.models import Model
 

@@ -1,0 +1,29 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: The assistant tried to output <think> tags, which is not allowed. Need
+    to output final result via function final_result. Must produce response string
+    with markdown. Use function call.
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765233505-OP7pz7EGqeeawUWBrmyY
+run_id: 0631338c-9a58-4fcc-8536-2ba1a892da0b
+timestamp: '2025-12-08T22:38:25Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 46
+  input_audio_tokens: 0
+  input_tokens: 727
+  output_audio_tokens: 0
+  output_tokens: 424

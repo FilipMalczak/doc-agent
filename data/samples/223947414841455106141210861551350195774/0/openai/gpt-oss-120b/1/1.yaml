@@ -1,0 +1,40 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to produce directory-level notes for directory (presumably tests).
+    Use file-level notes to compile into higher-level summary. Output markdown. Should
+    include overall purpose of tests folder, key components, common patterns, usage
+    instructions, etc.
+
+
+    We must not hallucinate. Use only info from given notes. Summarize each file.
+    Provide documentation for users.
+
+
+    Will output markdown.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765234996-gHelNknfYSduyaDZxaCe
+run_id: 9ae59ff7-1f5a-4d6e-9055-895215624d66
+timestamp: '2025-12-08T23:03:16Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 75
+  input_audio_tokens: 0
+  input_tokens: 2282
+  output_audio_tokens: 0
+  output_tokens: 1148

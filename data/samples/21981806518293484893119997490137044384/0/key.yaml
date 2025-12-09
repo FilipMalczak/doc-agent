@@ -1,9 +1,0 @@
-"# Project\u2011Level Notes for **`pip\u2011outdated`**\n## 4. Core Features  \n\n\
-  - Parses **requirements files** (`requirements.txt`) and **setup configuration**\
-  \ (`setup.cfg`).  \n- Handles **glob patterns** to process multiple files in a single\
-  \ run.  \n- Performs **asynchronous** PyPI version look\u2011ups using `aiohttp`\
-  \ (concurrency limit\u202F5).  \n- Presents results in a **colored ASCII table**\
-  \ (green\u202F=\u202Fup\u2011to\u2011date, red\u202F=\u202Fout\u2011of\u2011specifier,\
-  \ yellow\u202F=\u202Fmissing).  \n- Provides **quiet mode** (`-q`) to avoid exiting\
-  \ with status\u202F1 on outdated packages.  \n- Verbose mode (`-v`) prints extra\
-  \ diagnostics.  \n\n---  \n"

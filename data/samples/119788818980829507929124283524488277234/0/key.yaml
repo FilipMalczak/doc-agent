@@ -1,0 +1,4 @@
+"# Project Notes: **pip-outdated** (from `setup.cfg`)\n## Overview\n## Classification\
+  \ (PyPI classifiers)\n## Keywords\n## Packaging Details\n- Packages are discovered\
+  \ automatically (`packages = find:`) with the `tests` directory excluded.\n- The\
+  \ distribution is zip\u2011safe (`zip_safe = True`).\n"

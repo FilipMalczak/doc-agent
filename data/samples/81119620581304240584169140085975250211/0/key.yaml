@@ -1,0 +1,3 @@
+The main() function runs the asynchronous coroutine _main() using the event loop's
+  run_until_complete method instead of asyncio.run().
+...

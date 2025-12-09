@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The introductory paragraph states: \"Find outdated dependencies in\n    your\
+  \ requirements.txt or setup.cfg file.\"'\n  fact: pip-outdated finds outdated dependencies\
+  \ in requirements.txt or setup.cfg\n    files.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,13 @@
+'## Extensibility Points
+
+
+  - **Adding new input formats**: Implement additional parsers and register them in
+  `find_require`.
+
+  - **Custom output handling**: Replace or extend `print_outdated` to support JSON,
+  HTML, or other formats.
+
+  - **Alternative version sources**: Modify `check_outdated` to query alternative
+  package indexes or use different resolution strategies.
+
+  '

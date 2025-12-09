@@ -1,9 +1,8 @@
-from typing import Annotated, NamedTuple, Any, Awaitable
+from typing import Annotated
 
 from pydantic_ai import Agent, TextOutput, ModelRetry
 
 from docassist.config import CONFIG
-from docassist.simple_xml import to_simple_xml
 from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
 
 MD_CODE = "```"

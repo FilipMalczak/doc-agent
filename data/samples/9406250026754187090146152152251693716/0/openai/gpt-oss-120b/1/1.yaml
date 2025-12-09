@@ -1,0 +1,43 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to take notes from the source file, focusing on user perspective,
+    for later documentation. Provide markdown notes. Should include what the file
+    does: test for pytz using async get_pypi_versions. Mention dependencies: pytest,
+    pip_outdated.check_outdated.get_pypi_versions, pip_outdated.session.get_session.
+    Also that test is async, uses pytest.mark.asyncio. So notes: purpose, functionality,
+    how to run, requirements.
+
+
+    We need to obey formatting: double quotes for strings. Use markdown bullet points
+    hyphen style.
+
+
+    Provide notes in Markdown. Probably include sections: Overview, Test Description,
+    Usage, Dependencies.
+
+
+    Let''s craft.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765233503-mMZDcLiG6pGxMyfWXckS
+run_id: 513e78de-fd17-45dc-ba0e-318fb29ff09e
+timestamp: '2025-12-08T22:38:23Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 165
+  input_audio_tokens: 0
+  input_tokens: 586
+  output_audio_tokens: 0
+  output_tokens: 713

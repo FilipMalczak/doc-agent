@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'connector = aiohttp.TCPConnector(limit=5)' constructs a connector\n\
+  \    object that restricts simultaneous connections to five.\n  fact: The function\
+  \ creates an aiohttp.TCPConnector with a concurrency limit of 5\n    connections.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

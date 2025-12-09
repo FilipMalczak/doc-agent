@@ -1,0 +1,29 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'The assistant must output response per format: markdown. The prior response
+    tried to include <think> tag, which is not allowed. Need to provide final answer
+    as markdown. Use double quotes for strings where needed. Provide notes.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765233511-R7JopDPHR39I7IOolayR
+run_id: b37bed60-6b38-432f-b6cf-59c8a2f16e09
+timestamp: '2025-12-08T22:38:31Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 45
+  input_audio_tokens: 0
+  input_tokens: 953
+  output_audio_tokens: 0
+  output_tokens: 845

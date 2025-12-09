@@ -1,0 +1,13 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n\n---\n\n## 5. Project\
+  \ Metadata (from `setup.cfg`)\n```ini\n[metadata]\nname = pip-outdated\nversion\
+  \ = 0.8.0\nauthor = eight\nauthor_email = eight04@gmail.com\nlicense = MIT\nurl\
+  \ = https://github.com/eight04/pip-outdated\nlong_description = file: README.rst\n\
+  classifiers =\n    Development Status :: 4 - Beta\n    Environment :: Console\n\
+  \    Intended Audience :: Developers\n    Programming Language :: Python :: 3.7\n\
+  \    Topic :: Software Development :: Build Tools\nkeywords = pip, check, outdate,\
+  \ npm\n\n[options]\ninstall_requires =\n    aiohttp~=3.12\n    colorama~=0.4.6\n\
+  \    packaging~=25.0\n    termcolor~=3.1\n    terminaltables~=3.1\nzip_safe = True\n\
+  \n[options.entry_points]\nconsole_scripts =\n    pip-outdated = pip_outdated:main\n\
+  \n[vpip]\ncommand_fallback = python cute.py\n```\n- **Console script** `pip-outdated`\
+  \ maps directly to `pip_outdated:main`.\n- Optional `[vpip]` section provides a\
+  \ fallback command for the external *vpip* tool.\n\n---\n"

@@ -1,3 +1,0 @@
-The test uses the pytest `tmp_path` fixture to provide an isolated temporary directory
-  for file creation.
-...

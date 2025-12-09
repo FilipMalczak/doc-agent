@@ -1,0 +1,5 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line requires = find_require(args.file) assigns this value.\n  fact: _main()\
+  \ calls find_require(args.file) and stores the result in the variable\n    requires.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

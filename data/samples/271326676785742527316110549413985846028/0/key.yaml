@@ -1,0 +1,15 @@
+"# Project Notes: `pip_outdated/check_outdated.py`\n## Key Components\n### `OutdateResult`\
+  \ (dataclass)\n- **Purpose:** Represents the result of an outdated\u2011check for\
+  \ a single requirement.\n- **Fields**\n  - `requirement: Requirement` \u2013 Original\
+  \ `packaging.Requirement` object.  \n  - `version: Optional[Version]` \u2013 Currently\
+  \ installed version (or `None` if not installed).  \n  - `all_versions: List[Version]`\
+  \ \u2013 All non\u2011prerelease versions found on PyPI, sorted ascending.  \n \
+  \ - `wanted: Optional[Version]` \u2013 Newest version that satisfies the requirement\
+  \ specifier (computed in `__post_init__`).  \n  - `latest: Optional[Version]` \u2013\
+  \ Newest version on PyPI (last element of `all_versions`).  \n- **Computed properties\
+  \ & methods**\n  - `name` \u2013 Returns `requirement.name`.  \n  - `install_not_found()`\
+  \ \u2013 `True` when the package is not installed locally.  \n  - `install_not_wanted()`\
+  \ \u2013 `True` when the installed version does not match the specifier.  \n  -\
+  \ `pypi_not_found()` \u2013 `True` when no suitable version could be retrieved from\
+  \ PyPI.  \n  - `outdated()` \u2013 `True` if the installed version differs from\
+  \ either `wanted` or `latest`.\n"

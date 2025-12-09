@@ -1,5 +1,0 @@
-colored_wanted returns a red bold "None" string if outdate.pypi_not_found() is True
-  or outdate.wanted is falsy; returns a green bold string of the wanted version if
-  the package is installed and the installed version is less than the wanted version;
-  otherwise returns the wanted version as a plain string.
-...

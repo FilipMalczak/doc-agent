@@ -1,0 +1,2 @@
+'Inside get_session, a headers dictionary is created with a single entry: User-Agent
+  set to "pip-outdated".'

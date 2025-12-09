@@ -1,0 +1,5 @@
+"## Project Overview\n\n- **Package name**: `pip-outdated`\n- **Current version**:\
+  \ `0.8.0`\n- **Primary purpose**: Command\u2011line utility that scans a project's\
+  \ `requirements.txt` or `setup.cfg` (or any file matching a glob pattern) and reports\
+  \ which dependencies are outdated.\n\n## Entry Point\n\n- The module `pip_outdated/__init__.py`\
+  \ defines the executable entry point used by the `pip-outdated` console script.\n"

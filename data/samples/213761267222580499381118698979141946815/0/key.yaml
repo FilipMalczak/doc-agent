@@ -1,4 +1,0 @@
-"## Project Overview\n- **Name**: `pip-outdated`  \n- **Current version**: `0.8.0`\
-  \  \n- **Purpose**: Scans a `requirements.txt` or `setup.cfg` file and reports outdated\
-  \ Python dependencies.  \n- **Target audience**: Developers who want an easy way\
-  \ to keep their project dependencies up\u2011to\u2011date.  \n"

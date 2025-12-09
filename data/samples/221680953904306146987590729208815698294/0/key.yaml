@@ -1,3 +1,0 @@
-A FIXME comment in main explains that asyncio.run cannot be used because it closes
-  the event loop, referencing an aiohttp issue.
-...

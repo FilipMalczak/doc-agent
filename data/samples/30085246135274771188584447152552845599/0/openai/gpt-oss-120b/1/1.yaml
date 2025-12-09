@@ -1,0 +1,74 @@
+finish_reason: tool_call
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: We need to call the function final_result with facts list. Let's construct.
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- args: '{"facts": [{"explanation": "The file imports asyncio, dataclasses, typing,
+    and several packaging modules, and a local verbose function.", "fact": "pip_outdated/check_outdated.py
+    imports asyncio, dataclass, List, Optional, Requirement, canonicalize_name, Version,
+    InvalidVersion, parse_version, and verbose from .verbose."}, {"explanation": "A
+    dataclass named OutdateResult is declared with specific attributes.", "fact":
+    "The file defines a @dataclass OutdateResult with fields: requirement (Requirement),
+    version (Optional[Version]), all_versions (List[Version]), wanted (Optional[Version]),
+    and latest (Optional[Version])."}, {"explanation": "__post_init__ computes wanted
+    and latest based on all_versions.", "fact": "OutdateResult.__post_init__ sets
+    wanted to the most recent version in all_versions that satisfies the requirement
+    specifier, and sets latest to the last element of all_versions."}, {"explanation":
+    "Provides a convenient name property.", "fact": "OutdateResult has a name property
+    that returns requirement.name."}, {"explanation": "Method checks if the package
+    is not installed.", "fact": "OutdateResult.install_not_found() returns True when
+    version is None, indicating the package is not installed locally."}, {"explanation":
+    "Method checks if installed version does not satisfy the requirement.", "fact":
+    "OutdateResult.install_not_wanted() returns True when a version is installed but
+    it does not match the requirement specifier."}, {"explanation": "Method indicates
+    if no versions were found on PyPI.", "fact": "OutdateResult.pypi_not_found() returns
+    True when latest is None, meaning no PyPI versions were retrieved."}, {"explanation":
+    "Method determines if the package is outdated.", "fact": "OutdateResult.outdated()
+    returns True when the installed version differs from either the wanted version
+    or the latest version."}, {"explanation": "Async function runs pip show to get
+    local version.", "fact": "The async function get_local_version(name) executes
+    ''pip show {name}'' and returns the parsed Version from the ''Version:'' line,
+    or None if the command fails."}, {"explanation": "Async function fetches and filters
+    PyPI release versions.", "fact": "The async function get_pypi_versions(name, session)
+    retrieves JSON from https://pypi.org/pypi/{name}/json, parses release keys into
+    Version objects, excludes invalid and prerelease versions, sorts them, and returns
+    the list."}, {"explanation": "Main async function combines the above to produce
+    OutdateResult.", "fact": "The async function check_outdated(require, session)
+    prints a checking message if verbose() is true, canonicalizes the requirement
+    name, obtains the local version via get_local_version, fetches PyPI versions via
+    get_pypi_versions, and returns an OutdateResult constructed with these values."},
+    {"explanation": "verbose is used to optionally print debugging information.",
+    "fact": "The module imports verbose from .verbose and calls verbose() to conditionally
+    print the package being checked."}, {"explanation": "parse_version is an alias
+    for packaging.version.parse used to parse version strings.", "fact": "The name
+    parse_version is imported as an alias for packaging.version.parse and is used
+    to parse version strings from pip output and PyPI data."}, {"explanation": "canonicalize_name
+    normalizes package names for consistent lookup.", "fact": "canonicalize_name from
+    packaging.utils is used to normalize the requirement name before querying local
+    and PyPI versions."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: call_2e0519a711434fd7b0a48505
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1765233519-isyjuBokP90mKawtzm14
+run_id: 2df57b8d-7997-46c2-afc9-dafd0a03c807
+timestamp: '2025-12-08T22:38:39Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 59
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 19
+  input_audio_tokens: 0
+  input_tokens: 1784
+  output_audio_tokens: 0
+  output_tokens: 787

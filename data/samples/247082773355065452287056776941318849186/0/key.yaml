@@ -1,0 +1,4 @@
+The conditional `if outdate.version < outdate.wanted` inside colored_wanted ensures
+  that the wanted version is highlighted in green only when the installed version
+  is older than the wanted version and the package is installed.
+...

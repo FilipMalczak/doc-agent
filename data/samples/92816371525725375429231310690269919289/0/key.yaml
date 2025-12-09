@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Within the conditional block the code `from . import main` imports\n    the `main`\
-  \ module from the same package, confirming that the file is part of a\n    package\
-  \ and relies on a sibling module named `main`.\n  fact: Inside the guard, the file\
-  \ performs a relative import `from . import main`.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

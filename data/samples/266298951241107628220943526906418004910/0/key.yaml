@@ -1,4 +1,0 @@
-Version 0.6.0 was released on Jan 1, 2023, bumping dependencies, dropping the "cchardet"
-  package, and changing the implementation to fetch package versions from the pip
-  CLI to obtain versions inside virtual environments.
-...

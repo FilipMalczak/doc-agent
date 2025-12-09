@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The line \"await get_pypi_versions(\\\"pytz\\\", session)\" calls the imported\n\
-  \    function with the specified package name and session.\n  fact: Inside the async\
-  \ with block, the test awaits get_pypi_versions with arguments\n    \"pytz\" and\
-  \ the session object.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

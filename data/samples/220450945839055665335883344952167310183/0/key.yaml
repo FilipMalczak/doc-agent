@@ -1,0 +1,82 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The file imports asyncio, dataclasses, typing, and several packaging\n\
+  \        modules, and a local verbose function.\n      fact: pip_outdated/check_outdated.py\
+  \ imports asyncio, dataclass, List, Optional,\n        Requirement, canonicalize_name,\
+  \ Version, InvalidVersion, parse_version, and\n        verbose from .verbose.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: A dataclass named OutdateResult is declared with\
+  \ specific attributes.\n      fact: 'The file defines a @dataclass OutdateResult\
+  \ with fields: requirement\n        (Requirement), version (Optional[Version]),\
+  \ all_versions (List[Version]),\n        wanted (Optional[Version]), and latest\
+  \ (Optional[Version]).'\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: __post_init__ computes wanted and latest based on all_versions.\n\
+  \      fact: OutdateResult.__post_init__ sets wanted to the most recent version\
+  \ in\n        all_versions that satisfies the requirement specifier, and sets latest\
+  \ to\n        the last element of all_versions.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Provides a convenient name property.\n      fact:\
+  \ OutdateResult has a name property that returns requirement.name.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Method checks if the package is not installed.\n\
+  \      fact: OutdateResult.install_not_found() returns True when version is None,\
+  \ indicating\n        the package is not installed locally.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Method checks if installed version does not satisfy\
+  \ the requirement.\n      fact: OutdateResult.install_not_wanted() returns True\
+  \ when a version is installed\n        but it does not match the requirement specifier.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Method indicates if no versions were found on\
+  \ PyPI.\n      fact: OutdateResult.pypi_not_found() returns True when latest is\
+  \ None, meaning\n        no PyPI versions were retrieved.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Method determines if the package is outdated.\n\
+  \      fact: OutdateResult.outdated() returns True when the installed version differs\n\
+  \        from either the wanted version or the latest version.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: Async function runs pip show to get local version.\n\
+  \      fact: The async function get_local_version(name) executes 'pip show {name}'\n\
+  \        and returns the parsed Version from the 'Version:' line, or None if the\
+  \ command\n        fails.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Async function fetches and filters PyPI release versions.\n\
+  \      fact: The async function get_pypi_versions(name, session) retrieves JSON\
+  \ from\n        https://pypi.org/pypi/{name}/json, parses release keys into Version\
+  \ objects,\n        excludes invalid and prerelease versions, sorts them, and returns\
+  \ the list.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Main async function combines the above to produce OutdateResult.\n\
+  \      fact: The async function check_outdated(require, session) prints a checking\n\
+  \        message if verbose() is true, canonicalizes the requirement name, obtains\n\
+  \        the local version via get_local_version, fetches PyPI versions via get_pypi_versions,\n\
+  \        and returns an OutdateResult constructed with these values.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: verbose is used to optionally print debugging\
+  \ information.\n      fact: The module imports verbose from .verbose and calls verbose()\
+  \ to conditionally\n        print the package being checked.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: parse_version is an alias for packaging.version.parse\
+  \ used to parse\n        version strings.\n      fact: The name parse_version is\
+  \ imported as an alias for packaging.version.parse\n        and is used to parse\
+  \ version strings from pip output and PyPI data.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: canonicalize_name normalizes package names for\
+  \ consistent lookup.\n      fact: canonicalize_name from packaging.utils is used\
+  \ to normalize the requirement\n        name before querying local and PyPI versions.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

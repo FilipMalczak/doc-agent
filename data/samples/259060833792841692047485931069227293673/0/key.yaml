@@ -1,3 +1,0 @@
-The file uses Python type hints throughout, including Optional[Version] and List[Version]
-  to indicate possible None values and collections of Version objects.
-...

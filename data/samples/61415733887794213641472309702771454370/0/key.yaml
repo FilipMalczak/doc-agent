@@ -1,3 +1,0 @@
-Verbose mode is configured by importing set_verbose from the sibling module verbose
-  and calling it with args.verbose.
-...

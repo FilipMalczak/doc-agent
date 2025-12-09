@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The third import pulls the get_session coroutine from pip_outdated.session,\n\
+  \    showing that the test will create an asynchronous HTTP session.\n  fact: The\
+  \ module imports get_session from pip_outdated.session.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

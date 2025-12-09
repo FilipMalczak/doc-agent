@@ -1,0 +1,35 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: "We need to output JSON (as final result). The tool expects a function\
+    \ call to final_result with facts array. So need to output JSON with \"facts\"\
+    \ key containing list of fact objects (each with fact and reason). Must be valid\
+    \ JSON. Use double quotes. Ensure no markdown fences.\n\nLet's construct JSON.\n\
+    \nMake sure to escape quotes properly. Use double quotes for strings. Use \\n\
+    \ in JSON not needed as separate lines; we can put each object on separate lines\
+    \ for readability, but it's okay. We'll output:\n\n{\n  \"facts\": [\n    {\"\
+    fact\": \"...\", \"reason\": \"...\"},\n    ...\n  ]\n}\n\nMake sure no trailing\
+    \ commas.\n\nLet's produce."
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1765233584-VQCFxXMevyVfuUXn8S8T
+run_id: 2f250800-6a50-4b1b-97b6-3430cef1185e
+timestamp: '2025-12-08T22:39:44Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 165
+  input_audio_tokens: 0
+  input_tokens: 3877
+  output_audio_tokens: 0
+  output_tokens: 1128

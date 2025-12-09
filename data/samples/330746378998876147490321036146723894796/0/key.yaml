@@ -1,0 +1,496 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n  </lists>\n  <multiline_text>\n    <yaml>Prefer\
+      \ `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n<constraints>\n\
+      \  <hallucinations>forbidden without exception</hallucinations>\n  <invent_data>forbidden,\
+      \ unless explicitly asked to</invent_data>\n  <modify_content>only structure\
+      \ and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <low_level>given\
+      \ a source file extract a list of facts that can be inferred from it; they should\
+      \ be short and self-enclosed</low_level>\n  <detailed>extract atomic pieces\
+      \ of knowledge that can be later used to prepare user-facing documentation of\
+      \ the project that the input file is part of; explain why you think that each\
+      \ statement is a fact; facts should include all the necessary details to be\
+      \ understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<document_type>source_file</document_type>\n<type>file</type>\n<repo_item_type>code</repo_item_type>\n\
+      <path>pip_outdated/print_outdated.py</path>\n<language>python</language>\n<content>\n\
+      import sys\nfrom typing import Awaitable, List, Optional\n\nimport colorama\n\
+      \nfrom termcolor import colored\nfrom terminaltables import AsciiTable as Table\n\
+      \nfrom .check_outdated import OutdateResult\n\n\ndef make_row(outdate: OutdateResult)\
+      \ -> Optional[List[str]]:\n    if not outdate.outdated():\n        return None\n\
+      \        \n    def colored_current():\n        if outdate.install_not_found()\
+      \ or outdate.install_not_wanted():\n            return colored(str(outdate.version),\
+      \ \"red\", attrs=[\"bold\"])\n        return str(outdate.version)\n        \n\
+      \    def colored_wanted():\n        if outdate.pypi_not_found() or not outdate.wanted:\n\
+      \            return colored(\"None\", \"red\", attrs=[\"bold\"])\n        if\
+      \ not outdate.install_not_found() and outdate.version < outdate.wanted:\n  \
+      \          return colored(str(outdate.wanted), \"green\", attrs=[\"bold\"])\n\
+      \        return str(outdate.wanted)\n        \n    def colored_latest():\n \
+      \       if outdate.pypi_not_found():\n            return colored(\"None\", \"\
+      red\", attrs=[\"bold\"])\n        if not outdate.install_not_found() and outdate.version\
+      \ < outdate.latest:\n            return colored(str(outdate.latest), \"green\"\
+      , attrs=[\"bold\"])\n        return str(outdate.latest)\n    \n    return [\n\
+      \        outdate.name,\n        colored_current(),\n        colored_wanted(),\n\
+      \        colored_latest()\n    ]\n\nasync def print_outdated(outdates: List[Awaitable[OutdateResult]],\
+      \ quiet: bool):\n    colorama.init()\n    \n    data = [[\"Name\", \"Installed\"\
+      , \"Wanted\", \"Latest\"]]\n    count = 0\n    for count, outdate in enumerate(outdates,\
+      \ 1):\n        row = make_row(await outdate)\n        if row:\n            data.append(row)\n\
+      \            \n    if not count:\n        print(colored(\"No requirements found.\"\
+      , \"red\"))\n        return\n        \n    if len(data) == 1:\n        print(colored(\"\
+      Everything is up-to-date!\", \"cyan\", attrs=[\"bold\"]))\n        return\n\
+      \        \n    print(colored(\"Red = unavailable/outdated/out of version specifier\"\
+      , \"red\", attrs=[\"bold\"]))\n    print(colored(\"Green = updatable\", \"green\"\
+      , attrs=[\"bold\"]))\n    table = Table(data)\n    print(table.table)\n    if\
+      \ not quiet:\n        sys.exit(1)\n\n</content>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: stop
+  kind: response
+  model_name: openai/gpt-oss-120b
+  parts:
+  - content: "We need to extract atomic facts from this source file. Need to list\
+      \ facts with explanation why each is a fact. Must output via final_result function\
+      \ with \"facts\" list, each fact is a string perhaps.\n\nWe must include all\
+      \ necessary context so each fact is self-contained. Let's parse the file.\n\n\
+      File: pip_outdated/print_outdated.py\n\n- imports: sys, typing Awaitable, List,\
+      \ Optional, colorama, termcolor.colored, terminaltables.AsciiTable as Table,\
+      \ .check_outdated.OutdateResult.\n\n- Defines function make_row(outdate: OutdateResult)\
+      \ -> Optional[List[str]].\n\n   - If not outdate.outdated(): return None.\n\n\
+      \   - Defines nested function colored_current(): returns red bold version if\
+      \ outdate.install_not_found() or outdate.install_not_wanted(), else str(outdate.version).\n\
+      \n   - colored_wanted(): if outdate.pypi_not_found() or not outdate.wanted:\
+      \ return red bold \"None\". If not outdate.install_not_found() and outdate.version\
+      \ < outdate.wanted: return green bold wanted. else str(wanted)\n\n   - colored_latest():\
+      \ similar: if outdate.pypi_not_found(): red bold \"None\". If not outdate.install_not_found()\
+      \ and outdate.version < outdate.latest: return green bold latest. else str(latest).\n\
+      \n   - Returns list [outdate.name, colored_current(), colored_wanted(), colored_latest()].\n\
+      \n- async def print_outdated(outdates: List[Awaitable[OutdateResult]], quiet:\
+      \ bool):\n\n   - colorama.init()\n\n   - data header row.\n\n   - count = 0;\
+      \ for count, outdate in enumerate(outdates, 1): row = make_row(await outdate);\
+      \ if row: data.append(row)\n\n   - After loop, if not count: print \"No requirements\
+      \ found.\" (red). return.\n\n   - If len(data)==1: print \"Everything is up-to-date!\"\
+      \ (cyan bold) and return.\n\n   - Else print legends: red ... green..., create\
+      \ Table(data), print table.table, if not quiet: sys.exit(1)\n\nFacts to extract:\
+      \ roles of functions, behavior, conditions.\n\nWe need atomic facts with justification.\n\
+      \nLet's list facts like:\n\n- The file defines function make_row that takes\
+      \ OutdateResult and returns optional list of strings representing a table row,\
+      \ or None if not outdated.\n\n- make_row uses colored to color version strings\
+      \ based on conditions: red if install missing or unwanted, green if upgrade\
+      \ available, etc.\n\n- print_outdated is async and takes list of Awaitable OutdateResult\
+      \ and a boolean quiet; it initializes colorama, builds a table, prints messages\
+      \ accordingly, exits with code 1 when not quiet and there are outdated packages.\n\
+      \n- If outdates list empty, prints \"No requirements found.\" in red and returns.\n\
+      \n- If no outdated packages (data only header), prints \"Everything is up-to-date!\"\
+      \ in cyan bold.\n\n- Table displayed via terminaltables.AsciiTable, prints colored\
+      \ legends.\n\n- When not quiet, sys.exit(1) after printing table.\n\n- The function\
+      \ uses enumerate starting from 1 to set count.\n\n- The function's loop increments\
+      \ count; after loop if count still 0 means no outdates iterable? Actually count\
+      \ will be last index; if list empty count stays 0.\n\n- outdate parameter type:\
+      \ List[Awaitable[OutdateResult]].\n\n- It awaits each outdate before passing\
+      \ to make_row.\n\n- make_row returns None for up-to-date packages.\n\n- colored\
+      \ function from termcolor used with parameters.\n\n- colorama.init() called\
+      \ each time.\n\n- The file imports .check_outdated.OutdateResult, so OutdateResult\
+      \ must have methods: outdated(), install_not_found(), install_not_wanted(),\
+      \ version, wanted, latest, name, pypi_not_found().\n\n- The printed legend:\
+      \ \"Red = unavailable/outdated/out of version specifier\". \"Green = updatable\"\
+      . Colors.\n\n- Quiet flag determines whether to exit with code 1; if quiet is\
+      \ False exit 1, else benign.\n\nNow we need to produce JSON list of facts.\n\
+      \nLet's format each fact as a string.\n\nMake sure to add explanation for why\
+      \ each is fact.\n\nOk."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: "{\n  \"facts\": [\n    \"The module defines a function named **make_row**\
+      \ that accepts an *OutdateResult* instance and returns either a list of four\
+      \ string values (package name, installed version, wanted version, latest version)\
+      \ or **None** when the package is not outdated; this is evident from the early\
+      \ `if not outdate.outdated(): return None` statement.\",\n    \"Inside **make_row**,\
+      \ the nested function **colored_current** returns the package's current version\
+      \ as a red bold string when either the package is not installed (`outdate.install_not_found()`)\
+      \ or the user does not want it (`outdate.install_not_wanted()`); otherwise it\
+      \ returns the version as a plain string. This logic is expressed by the conditional\
+      \ that checks those two methods before applying `colored(..., \\\"red\\\", attrs=[\\\
+      \"bold\\\"])`.\",\n    \"Inside **make_row**, the nested function **colored_wanted**\
+      \ returns the string **\\\"None\\\"** colored red and bold when the package\
+      \ is not found on PyPI (`outdate.pypi_not_found()`) or when the package has\
+      \ no wanted version (`not outdate.wanted`). If the package is installed and\
+      \ its installed version is less than the wanted version, it returns the wanted\
+      \ version colored green and bold; otherwise it returns the wanted version as\
+      \ an uncolored string. This follows the three\u2011branch conditional in the\
+      \ function.\",\n    \"Inside **make_row**, the nested function **colored_latest**\
+      \ returns **\\\"None\\\"** colored red and bold when the package is not found\
+      \ on PyPI, otherwise it returns the latest version colored green and bold if\
+      \ the package is installed and its installed version is less than the latest\
+      \ version; otherwise it returns the latest version as an uncolored string. This\
+      \ mirrors the conditional structure of the function.\",\n    \"The **print_outdated**\
+      \ function is declared as **async** and expects a list of **Awaitable[OutdateResult]**\
+      \ objects and a boolean flag **quiet**; this is evident from its signature `async\
+      \ def print_outdated(outdates: List[Awaitable[OutdateResult]], quiet: bool):`.\"\
+      ,\n    \"At the start of **print_outdated**, the function calls `colorama.init()`\
+      \ to initialize cross\u2011platform colored output, as shown by the direct call\
+      \ in the function body.\",\n    \"In **print_outdated**, a list named **data**\
+      \ is created with a single header row `[[\\\"Name\\\", \\\"Installed\\\", \\\
+      \"Wanted\\\", \\\"Latest\\\"]]`; this establishes the table column headings\
+      \ for the output.\",\n    \"The loop `for count, outdate in enumerate(outdates,\
+      \ 1):` iterates over the provided awaitable results, awaiting each with `await\
+      \ outdate`, converting each to a table row via **make_row**, and appends the\
+      \ row to **data** only when **make_row** returns a non\u2011None value; this\
+      \ is inferred from the `if row: data.append(row)` line.\",\n    \"If the **outdates**\
+      \ iterable is empty, the variable **count** remains `0`; the function then prints\
+      \ the red message **\\\"No requirements found.\\\"** and returns early, as shown\
+      \ by the `if not count:` block.\",\n    \"If the **data** list contains only\
+      \ the header row (i.e., its length is `1`), the function prints the cyan bold\
+      \ message **\\\"Everything is up-to-date!\\\"** and returns, indicated by the\
+      \ `if len(data) == 1:` block.\",\n    \"When there are outdated packages, the\
+      \ function prints two colored legend lines: red for \\\"unavailable/outdated/out\
+      \ of version specifier\\\" and green for \\\"updatable\\\"; these are printed\
+      \ using `colored(..., \\\"red\\\", attrs=[\\\"bold\\\"])` and `colored(...,\
+      \ \\\"green\\\", attrs=[\\\"bold\\\"])` respectively.\",\n    \"The function\
+      \ creates a table object using `terminaltables.AsciiTable` with the **data**\
+      \ list and prints the rendered table via `print(table.table)`, demonstrating\
+      \ that the output is formatted as an ASCII table.\",\n    \"If the **quiet**\
+      \ argument is **False**, the function terminates the program with exit code\
+      \ **1** after printing the table, as indicated by the conditional `if not quiet:\
+      \ sys.exit(1)` at the end of the function.\",\n    \"The file imports the **colored**\
+      \ function from the **termcolor** package and the **AsciiTable** class (aliased\
+      \ as **Table**) from the **terminaltables** package, confirming its reliance\
+      \ on these third\u2011party libraries for colored terminal output and ASCII\
+      \ table rendering.\",\n    \"The source file imports **colorama**, which is\
+      \ used solely to call `colorama.init()` for initializing colored output on Windows\
+      \ and other platforms.\",\n    \"The function **make_row** expects the **OutdateResult**\
+      \ object to provide the following attributes or methods: `outdated()`, `install_not_found()`,\
+      \ `install_not_wanted()`, `pypi_not_found()`, `version`, `wanted`, `latest`,\
+      \ and `name`; this is deduced from the attribute and method accesses within\
+      \ the function.\",\n    \"The conditional `if outdate.version < outdate.wanted`\
+      \ inside **colored_wanted** ensures that the wanted version is highlighted in\
+      \ green only when the installed version is older than the wanted version and\
+      \ the package is installed, expressing the program's rule for indicating upgradable\
+      \ packages.\",\n    \"Similarly, the conditional `if outdate.version < outdate.latest`\
+      \ inside **colored_latest** ensures that the latest version is highlighted in\
+      \ green only when the installed version is older than the latest version and\
+      \ the package is installed.\",\n    \"The overall purpose of the module is to\
+      \ display a colored table of Python package version information, highlighting\
+      \ outdated or unavailable packages in red and upgradable packages in green,\
+      \ and to exit with a non\u2011zero status when there are outdated packages unless\
+      \ the **quiet** flag is set.\"\n  ]\n}"
+    id: null
+    part_kind: text
+  provider_details:
+    finish_reason: stop
+  provider_name: openrouter
+  provider_response_id: gen-1765233503-M0HaYarqFbvVWY0NGkOh
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2025-12-08T22:38:23Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: false
+      reasoning_tokens: 994
+    input_audio_tokens: 0
+    input_tokens: 1038
+    output_audio_tokens: 0
+    output_tokens: 2082
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - ctx:
+        class_name: Fact
+      input: 'The module defines a function named **make_row** that accepts an *OutdateResult*
+        instance and returns either a list of four string values (package name, installed
+        version, wanted version, latest version) or **None** when the package is not
+        outdated; this is evident from the early `if not outdate.outdated(): return
+        None` statement.'
+      loc:
+      - facts
+      - 0
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: Inside **make_row**, the nested function **colored_current** returns
+        the package's current version as a red bold string when either the package
+        is not installed (`outdate.install_not_found()`) or the user does not want
+        it (`outdate.install_not_wanted()`); otherwise it returns the version as a
+        plain string. This logic is expressed by the conditional that checks those
+        two methods before applying `colored(..., "red", attrs=["bold"])`.
+      loc:
+      - facts
+      - 1
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: "Inside **make_row**, the nested function **colored_wanted** returns\
+        \ the string **\"None\"** colored red and bold when the package is not found\
+        \ on PyPI (`outdate.pypi_not_found()`) or when the package has no wanted version\
+        \ (`not outdate.wanted`). If the package is installed and its installed version\
+        \ is less than the wanted version, it returns the wanted version colored green\
+        \ and bold; otherwise it returns the wanted version as an uncolored string.\
+        \ This follows the three\u2011branch conditional in the function."
+      loc:
+      - facts
+      - 2
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: Inside **make_row**, the nested function **colored_latest** returns **"None"**
+        colored red and bold when the package is not found on PyPI, otherwise it returns
+        the latest version colored green and bold if the package is installed and
+        its installed version is less than the latest version; otherwise it returns
+        the latest version as an uncolored string. This mirrors the conditional structure
+        of the function.
+      loc:
+      - facts
+      - 3
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: 'The **print_outdated** function is declared as **async** and expects
+        a list of **Awaitable[OutdateResult]** objects and a boolean flag **quiet**;
+        this is evident from its signature `async def print_outdated(outdates: List[Awaitable[OutdateResult]],
+        quiet: bool):`.'
+      loc:
+      - facts
+      - 4
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: "At the start of **print_outdated**, the function calls `colorama.init()`\
+        \ to initialize cross\u2011platform colored output, as shown by the direct\
+        \ call in the function body."
+      loc:
+      - facts
+      - 5
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: In **print_outdated**, a list named **data** is created with a single
+        header row `[["Name", "Installed", "Wanted", "Latest"]]`; this establishes
+        the table column headings for the output.
+      loc:
+      - facts
+      - 6
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: "The loop `for count, outdate in enumerate(outdates, 1):` iterates over\
+        \ the provided awaitable results, awaiting each with `await outdate`, converting\
+        \ each to a table row via **make_row**, and appends the row to **data** only\
+        \ when **make_row** returns a non\u2011None value; this is inferred from the\
+        \ `if row: data.append(row)` line."
+      loc:
+      - facts
+      - 7
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: If the **outdates** iterable is empty, the variable **count** remains
+        `0`; the function then prints the red message **"No requirements found."**
+        and returns early, as shown by the `if not count:` block.
+      loc:
+      - facts
+      - 8
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: If the **data** list contains only the header row (i.e., its length is
+        `1`), the function prints the cyan bold message **"Everything is up-to-date!"**
+        and returns, indicated by the `if len(data) == 1:` block.
+      loc:
+      - facts
+      - 9
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: 'When there are outdated packages, the function prints two colored legend
+        lines: red for "unavailable/outdated/out of version specifier" and green for
+        "updatable"; these are printed using `colored(..., "red", attrs=["bold"])`
+        and `colored(..., "green", attrs=["bold"])` respectively.'
+      loc:
+      - facts
+      - 10
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: The function creates a table object using `terminaltables.AsciiTable`
+        with the **data** list and prints the rendered table via `print(table.table)`,
+        demonstrating that the output is formatted as an ASCII table.
+      loc:
+      - facts
+      - 11
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: 'If the **quiet** argument is **False**, the function terminates the
+        program with exit code **1** after printing the table, as indicated by the
+        conditional `if not quiet: sys.exit(1)` at the end of the function.'
+      loc:
+      - facts
+      - 12
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: "The file imports the **colored** function from the **termcolor** package\
+        \ and the **AsciiTable** class (aliased as **Table**) from the **terminaltables**\
+        \ package, confirming its reliance on these third\u2011party libraries for\
+        \ colored terminal output and ASCII table rendering."
+      loc:
+      - facts
+      - 13
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: The source file imports **colorama**, which is used solely to call `colorama.init()`
+        for initializing colored output on Windows and other platforms.
+      loc:
+      - facts
+      - 14
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: 'The function **make_row** expects the **OutdateResult** object to provide
+        the following attributes or methods: `outdated()`, `install_not_found()`,
+        `install_not_wanted()`, `pypi_not_found()`, `version`, `wanted`, `latest`,
+        and `name`; this is deduced from the attribute and method accesses within
+        the function.'
+      loc:
+      - facts
+      - 15
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: The conditional `if outdate.version < outdate.wanted` inside **colored_wanted**
+        ensures that the wanted version is highlighted in green only when the installed
+        version is older than the wanted version and the package is installed, expressing
+        the program's rule for indicating upgradable packages.
+      loc:
+      - facts
+      - 16
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: Similarly, the conditional `if outdate.version < outdate.latest` inside
+        **colored_latest** ensures that the latest version is highlighted in green
+        only when the installed version is older than the latest version and the package
+        is installed.
+      loc:
+      - facts
+      - 17
+      msg: Input should be an object
+      type: model_type
+    - ctx:
+        class_name: Fact
+      input: "The overall purpose of the module is to display a colored table of Python\
+        \ package version information, highlighting outdated or unavailable packages\
+        \ in red and upgradable packages in green, and to exit with a non\u2011zero\
+        \ status when there are outdated packages unless the **quiet** flag is set."
+      loc:
+      - facts
+      - 18
+      msg: Input should be an object
+      type: model_type
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: pyd_ai_3c1e7a560f08421c8cb7c13266a265ce
+    tool_name: null
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    name: Facts
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          additionalProperties: false
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

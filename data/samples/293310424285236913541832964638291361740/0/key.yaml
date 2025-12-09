@@ -1,0 +1,5 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n## 1. Quick Project\
+  \ Summary\n## 2. Installation\n## 3. Command\u2011Line Interface (CLI)\n### Options\n\
+  - `-v, --verbose` \u2013 Enable verbose output (extra diagnostic prints).\n- `-q,\
+  \ --quiet`   \u2013 Suppress the non\u2011zero exit status when outdated packages\
+  \ are found (useful for CI pipelines).\n"

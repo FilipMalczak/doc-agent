@@ -1,32 +1,24 @@
-from collections.abc import Callable
-from datetime import datetime, UTC
-from dataclasses import dataclass
 from io import StringIO
 from os.path import join
-from sys import prefix
-from typing import Any, TextIO, TypedDict, Literal, Awaitable
-
+from typing import Awaitable
 from uuid import uuid4
 
 import yaml
-from pydantic import BaseModel
 from pydantic_graph.beta import GraphBuilder, StepContext
 from pydantic_graph.beta.join import reduce_list_append, reduce_list_extend
 from yaml import Loader
 
-from docassist.agents.generators.facts_from_file import fact_extractor
+from docassist.agents.generators.facts_from_file import fact_extractor, Facts
 from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, \
     dir_note_taker, doc_to_notes
-from docassist.agents.generators.notes_from_file import file_note_taker
-from docassist.chunkdown import break_to_entries, MarkdownChapter
+from docassist.agents.generators.notes_from_file import file_note_taker, Markdown
+from docassist.chunkdown import break_to_entries
 from docassist.config import CONFIG
 from docassist.index.document import SourceMeta, FileNoteMeta, DirNoteMeta, NoteMeta, NoteChunkMeta, FactsMeta, \
     FactsChunkMeta
-from docassist.index.protocols import Document, IndexSnapshot
-from docassist.index.utils import embed_metadata
-from docassist.llmio import object_from_user
-from docassist.simple_xml import to_simple_xml
-from docassist.subjects import AnalysedRepo, RepoItemType, CodeFilePath
+from docassist.index.protocols import Document
+from docassist.structured_agent import call_agent
+from docassist.subjects import AnalysedRepo, CodeFilePath
 
 g = GraphBuilder(name="process-repository", output_type=list[Document])
 sampling = CONFIG.sampler.controller()
@@ -60,8 +52,7 @@ async def take_file_notes(ctx: StepContext[None, None, Document[SourceMeta]]) ->
     doc = ctx.inputs
     input_data = dict(doc.metadata)
     input_data["content"] = doc.content
-    input_ = to_simple_xml(input_data)
-    content = (await sampling.run_transaction(file_note_taker.run, input_)).output
+    content = await call_agent(sampling, file_note_taker, input_data, Markdown)
     return Document(id=str(uuid4()), content=content, metadata=FileNoteMeta(
             document_type = "note",
             subject_path = doc.metadata.path,
@@ -82,17 +73,8 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document[FileNo
     dir_desc = structurize(paths)
     out = []
     for path, files, dirs in dir_desc.depth_first():
-        q = object_from_user(
-        # q = question(
-            sorted(
-                [
-                    notes[join(path, x)]
-                    for x in files + dirs
-                ],
-                key=lambda n: n.subject_path
-            )
-        )
-        dir_notes = (await sampling.run_transaction(dir_note_taker.run, q)).output
+        q = sorted([notes[join(path, x)] for x in files + dirs], key=lambda n: n.subject_path)
+        dir_notes = await call_agent(sampling, dir_note_taker, q, Markdown)
         doc = Document(id=str(uuid4()), content=dir_notes, metadata=DirNoteMeta(
                 document_type = "note",
                 subject_path = path,
@@ -114,7 +96,7 @@ async def extract_facts(ctx: StepContext[None, None, Document[SourceMeta]]) -> D
     doc = ctx.inputs
     user_msg = dict(doc.metadata)
     user_msg["content"] = doc.content
-    facts_obj = (await sampling.run_transaction(fact_extractor.run, to_simple_xml(user_msg))).output
+    facts_obj = await call_agent(sampling, fact_extractor, user_msg, Facts)
     with StringIO() as t:
         yaml.dump(facts_obj, t)
         content = t.getvalue()
@@ -129,7 +111,7 @@ async def extract_facts(ctx: StepContext[None, None, Document[SourceMeta]]) -> D
             subject_document_type = "source_file",
             subject_repo_item_type = doc.metadata.repo_item_type,
             subject_language = doc.metadata.language
-    )
+        )
     )
 
 @g.step

@@ -1,0 +1,16 @@
+"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n## 1. Quick Project\
+  \ Summary\n## 2. Installation\n## 3. Command\u2011Line Interface (CLI)\n## 4. Core\
+  \ Packages and Modules\n## 5. Project Metadata (from `setup.cfg`)\n## 6. Test Suite\
+  \ (directory `tests`)\n- **Purpose**: validates core functionality with **pytest**\
+  \ and **pytest\u2011asyncio**.\n- **Key test files**:\n  - `tests/test_parse_cfg.py`\
+  \ \u2013 checks that `find_require.parse_cfg` correctly extracts package names from\
+  \ a `setup.cfg` file, preserving order and handling `setup_requires`, `install_requires`,\
+  \ and `extras_require`.\n  - `tests/test_pytz.py` \u2013 async integration test\
+  \ that ensures `check_outdated.get_pypi_versions` can retrieve version data for\
+  \ the `pytz` package via an `aiohttp` session.\n- **Running the tests**:\n  ```bash\n\
+  \  pip install pytest pytest-asyncio   # test dependencies\n  pip install -e . \
+  \                    # optional editable install\n  pytest tests\n  ```\n- An active\
+  \ internet connection is required for `test_pytz.py`.\n- Adding new tests should\
+  \ follow the existing patterns: use `tmp_path` for temporary files, decorate async\
+  \ tests with `@pytest.mark.asyncio`, and focus on behavioural verification.\n\n\
+  ---\n"

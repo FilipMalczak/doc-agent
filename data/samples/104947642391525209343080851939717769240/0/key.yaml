@@ -1,0 +1,3 @@
+During package discovery, the "tests" directory is excluded, as specified by 'exclude
+  = tests' under [options.packages.find].
+...

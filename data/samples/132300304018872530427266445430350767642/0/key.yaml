@@ -1,6 +1,0 @@
-"## Command\u2011Line Interface  \n\n```\nusage: pip-outdated [-h] [-v] [-q] [<file>\
-  \ [<file> ...]]\n\nFind outdated dependencies in your requirements.txt or setup.cfg\
-  \ file.\n```\n\n### Example Commands  \n\n- **Check multiple requirement files:**\
-  \  \n\n  ```bash\n  pip-outdated *-requirements.txt\n  ```\n\n- **Check all files\
-  \ inside a `requirements` folder:**  \n\n  ```bash\n  pip-outdated requirements/*.txt\n\
-  \  ```\n"

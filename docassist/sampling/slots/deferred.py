@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 from docassist.sampling.protocols import SamplingSlot
 
+
 class DeferredSlot[V: BaseModel](SamplingSlot[V]):
     """
     Decorator that defers persistence and deletion until flush().

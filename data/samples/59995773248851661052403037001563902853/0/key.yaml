@@ -1,8 +1,0 @@
-"## Project Overview\n- **Name**: `pip-outdated`  \n- **Current version**: `0.8.0`\
-  \  \n- **Purpose**: Scans a `requirements.txt` or `setup.cfg` file and reports outdated\
-  \ Python dependencies.  \n- **Target audience**: Developers who want an easy way\
-  \ to keep their project dependencies up\u2011to\u2011date.  \n\n## Metadata (for\
-  \ documentation)\n- **Description**: `\"Find outdated dependencies in your requirements.txt\
-  \ or setup.cfg\"`  \n- **Author**: `\"eight\"` (`eight04@gmail.com`)  \n- **License**:\
-  \ `\"MIT\"`  \n- **Project homepage**: `\"https://github.com/eight04/pip-outdated\"\
-  `  \n- **Keywords**: `\"pip, check, outdate, npm\"`  \n"

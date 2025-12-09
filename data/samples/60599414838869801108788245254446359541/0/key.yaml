@@ -1,0 +1,4 @@
+"# Quiet mode for CI (non\u2011zero exit suppressed)\npip-outdated -q\n```\n\n---\n\
+  \n*These directory\u2011level notes gather the essential information needed to write\
+  \ user\u2011facing documentation, README sections, or a quick\u2011start guide for\
+  \ the `pip_outdated` project.*"

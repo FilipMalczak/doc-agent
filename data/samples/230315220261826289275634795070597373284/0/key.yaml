@@ -1,0 +1,3 @@
+The function parse_requirements_text(text) performs the same operation as parse_requirements
+  but operates on a raw string by splitting it into lines.
+...

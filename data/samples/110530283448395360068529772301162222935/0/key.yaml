@@ -1,0 +1,5 @@
+"## pip-outdated \u2013 Quick Reference\n\n### Overview\n- **Purpose**: Detect outdated,\
+  \ missing, or incompatible dependencies listed in `requirements.txt` or `setup.cfg`.\n\
+  - **Output**: Shows a table with color\u2011coded status for each dependency.\n\
+  - **Note**: For a simple list of updatable packages you can also run `pip list --outdated`.\n\
+  \n---\n### Installation\n```bash\npip install pip-outdated\n```\n\n---"

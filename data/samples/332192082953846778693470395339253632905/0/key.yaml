@@ -1,3 +1,0 @@
-When all helper functions have produced their strings, make_row returns a list containing
-  outdate.name, the result of colored_current(), colored_wanted(), and colored_latest().
-...

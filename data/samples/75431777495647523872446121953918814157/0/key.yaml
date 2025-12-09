@@ -1,0 +1,6 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function constructs a new ClientSession object each time it is\n    invoked\
+  \ and does not store it globally.\n  fact: Each call to get_session creates a fresh\
+  \ ClientSession instance; the function\n    does not cache or reuse a session.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

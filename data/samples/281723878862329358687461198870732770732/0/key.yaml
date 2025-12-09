@@ -1,0 +1,47 @@
+"!!python/object:docassist.agents.generators.facts_from_file.Facts\n__dict__:\n  facts:\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The first line of the file is 'import aiohttp', which brings\
+  \ the\n        aiohttp module into the namespace.\n      fact: The file pip_outdated/session.py\
+  \ imports the aiohttp library.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function definition is written as 'def get_session()' indicating\n\
+  \        no arguments are required.\n      fact: The file defines a function named\
+  \ get_session that takes no parameters.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function signature includes '-> aiohttp.ClientSession',\
+  \ indicating\n        the expected return type.\n      fact: The return type annotation\
+  \ of get_session is aiohttp.ClientSession.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The code assigns headers = {\"User-Agent\": \"pip-outdated\"\
+  }, which\n        defines the HTTP header used for the session.'\n      fact: 'Inside\
+  \ get_session, a headers dictionary is created with a single entry:\n        User-Agent\
+  \ set to \"pip-outdated\".'\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line 'connector = aiohttp.TCPConnector(limit=5)' constructs\n\
+  \        a connector object that restricts simultaneous connections to five.\n \
+  \     fact: The function creates an aiohttp.TCPConnector with a concurrency limit\n\
+  \        of 5 connections.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The return statement constructs aiohttp.ClientSession(headers=headers,\n\
+  \        connector=connector) and returns it.\n      fact: The get_session function\
+  \ returns a new aiohttp.ClientSession configured\n        with the headers and connector\
+  \ defined above.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function constructs a new ClientSession object each time\
+  \ it\n        is invoked and does not store it globally.\n      fact: Each call\
+  \ to get_session creates a fresh ClientSession instance; the function\n        does\
+  \ not cache or reuse a session.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.agents.generators.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The file's content contains only the single import statement\
+  \ for\n        aiohttp and no other import lines.\n      fact: The module is written\
+  \ in Python and uses only the aiohttp library; no\n        other external imports\
+  \ are present.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

@@ -1,0 +1,12 @@
+"# Project Documentation Notes: `pip_outdated/verbose.py`\n\n## Overview\n`verbose.py`\
+  \ provides a simple, module\u2011level namespace for managing a **global verbose\
+  \ flag** used throughout the *pip_outdated* project. It allows other parts of the\
+  \ codebase to query or modify the verbose state in a consistent way.\n\n## Public\
+  \ API\n\n- **`VERBOSE: bool`**\n  - A module\u2011level variable that holds the\
+  \ current verbose state.\n  - Initialized to `None` (meaning \u201Cunset\u201D).\n\
+  \n- **`set_verbose(value: bool) -> None`**\n  - Sets the global `VERBOSE` flag to\
+  \ the provided boolean `value`.\n  - Example:\n    ```python\n    from pip_outdated.verbose\
+  \ import set_verbose\n    set_verbose(True)\n    ```\n\n- **`verbose() -> bool`**\n\
+  \  - Returns the current value of `VERBOSE`.\n  - Example:\n    ```python\n    from\
+  \ pip_outdated.verbose import verbose\n    if verbose():\n        print(\"Running\
+  \ in verbose mode\")\n    ```\n"
