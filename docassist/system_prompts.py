@@ -26,7 +26,9 @@ def system_prompt_dict(
         task: PromptingTask,
         persona: str | None = None,
         input_format: str | None = None,
-        output_format: str | None = None) -> dict[str, Any]:
+        output_format: str | None = None,
+        turbo: bool = False, #fixme
+) -> dict[str, Any]:
     out = dict()
     formats = {}
     if input_format:
@@ -59,6 +61,24 @@ def system_prompt_dict(
             "match_output_format": "required if `format.output` available",
         }
     })
+    if turbo:
+        out.update({
+            "behaviour": {
+                "contract": {
+                    "invariant": "Each response MUST contain exactly one tool call. Responses without a tool call are "
+                                 "invalid.",
+                    "fallback": "If no tool clearly applies, call final_result anyway." #todo tool name may differ
+                },
+                "reasoning": {
+                    "permission": "Internal reasoning MAY be performed.",
+                    "constraint": "Reasoning is strictly limited. After reasoning, you MUST immediately call a tool.",
+                    "prohibition": "Reasoning alone is forbidden as a response."
+                },
+                "output": "Natural language output outside tools is forbidden. Responses consisting only of thinking or "
+                          "reasoning are invalid. `final_result` tool is the only valid means of emitting output.", #todo again, tool name
+                "decisiveness": "If uncertain, choose a tool and proceed. An imperfect action is preferred over hesitation."
+            }
+        })
     if persona:
         out.update({
             "persona": persona
@@ -71,11 +91,7 @@ def system_prompt_dict(
 def simple_xml_system_prompt(task: PromptingTask,
         persona: str | None = None,
         input_format: str | None = None,
-        output_format: str | None = None) -> str:
-    return to_simple_xml(system_prompt_dict(task, persona, input_format, output_format))
-
-#
-# def yaml_system_prompt(task: PromptingTask, persona: str | None = None) -> str:
-#     out = StringIO()
-#     yaml.dump(system_prompt_dict(task), out, sort_keys=False)
-#     return out.getvalue()
+        output_format: str | None = None,
+        turbo: bool = False, #fixme
+) -> str:
+    return to_simple_xml(system_prompt_dict(task, persona, input_format, output_format, turbo))

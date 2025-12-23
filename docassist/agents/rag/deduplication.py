@@ -7,6 +7,7 @@ deduplicator = StructuredAgent(
     persona="RAG helper specialised in deduplication of documents",
     input_type=DeduplicationInput,
     output_type=DeduplicationOutput,
+    turbo=True,#fixme
     task=PromptingTask(
         context="""
 We are retrieving indexed documents for RAG. 

@@ -4,7 +4,6 @@ from itertools import chain
 from math import log2, exp
 from typing import assert_never
 
-from logfire import instrument
 from opentelemetry.trace import get_current_span
 from pydantic_ai import ModelRetry
 
@@ -14,6 +13,7 @@ from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
 from docassist.index.protocols import Document, DocumentIndex
+from docassist.retries import phase, step
 from docassist.sampling.protocols import SamplingController
 from docassist.structured_agent import call_agent
 
@@ -128,13 +128,14 @@ class SearchKBTool:
         await self._retrieve_stage(state)
         await self._deduplicate_stage(state)
         #sideload is added to deduplication results because sideloaded documents are meant to be out of index and unique
-        state.deduplicated.extend(self.sideload)
+        # their score is Pareto 0.8 - we assume they might be useful, but we're not sure; reranking happens anyways
+        state.deduplicated.extend([ScoredDocument(score=0.8, document=d) for d in self.sideload])
         await self._rerank_stage(state)
         await self._normalize_stage(state)
         self._choose_final_results(state)
         return state.final
 
-    @instrument()
+    @step
     def _prepare_params(self, purpose: str, queries: list[str],
                        rewrite_count: int | None = None, expansion_count: int | None = None,
                        additional_rephrasing_instructions: str | None = None,
@@ -167,7 +168,7 @@ class SearchKBTool:
             cutoff
         )
 
-    @instrument()
+    @phase()
     async def _rephrase_stage(self, state: SearchState):
         new_rephrasings = await self._rephrase(
             state.params.purpose,
@@ -197,7 +198,7 @@ class SearchKBTool:
             yield from rephrasings.expansions
         return list(i())
 
-    @instrument()
+    @phase()
     async def _retrieve_stage(self, state: SearchState):
         s = get_current_span()
         all_index_queries = list(set(state.params.queries + state.rephrasings))
@@ -211,7 +212,7 @@ class SearchKBTool:
 
         state.scored_docs.extend(ScoredDocument.from_search_result(x) for x in search_results)
 
-    @instrument()
+    @phase()
     async def _deduplicate_stage(self, state: SearchState):
         s = get_current_span()
         grouped = self._group_for_dedup(state.scored_docs)
@@ -260,16 +261,6 @@ class SearchKBTool:
 
 
     async def _deduplicate(self, purpose: str, group: list[ScoredDocument], instructions: str) -> ScoredDocument:
-        # dedup_output = await call_agent(
-        #     self.sampling,
-        #     deduplicator,
-        #     DeduplicationInput(
-        #         purpose=purpose,
-        #         documents=IndexedScoredDocument.from_scored_documents(group),
-        #         additional_instructions=instructions
-        #     ),
-        #     DeduplicationOutput
-        # )
         dedup_output = await deduplicator.run(DeduplicationInput(
                 purpose=purpose,
                 documents=IndexedScoredDocument.from_scored_documents(group),
@@ -277,7 +268,7 @@ class SearchKBTool:
             ))
         chosen = [ x for x in group if x.document.id == dedup_output.document_id ]
         assert len(chosen) < 2
-        if not chosen:
+        if not chosen: #fixme modelretry restarts the whole tool; find the way to make reties per-stage
             raise ModelRetry(f"Returned document ID {dedup_output.document_id} does not match any input document!")
         if dedup_output.new_score < 0.0 or dedup_output.new_score > 1.0: #fixme this should be in model validator
             raise ModelRetry(f"Modified score must be in [0.0, 1.0] range! Returned score was {dedup_output.new_score} "
@@ -285,7 +276,7 @@ class SearchKBTool:
         rescored = chosen[0].rescore(dedup_output.new_score)
         return rescored
 
-    @instrument()
+    @phase()
     async def _rerank_stage(self, state: SearchState):
         reranked = await self._rerank(
             state.params.purpose,
@@ -321,7 +312,7 @@ class SearchKBTool:
             for doc in documents
         ]
 
-    @instrument()
+    @phase()
     async def _normalize_stage(self, state: SearchState):
         state.normalized.extend(self._softmax(state.reranked))
 
@@ -333,7 +324,7 @@ class SearchKBTool:
             for i, item in enumerate(data)
         ]
 
-    @instrument()
+    @phase()
     def _choose_final_results(self, state: SearchState):
         s = get_current_span()
         state.final.extend(self._cutoff(state.normalized, state.params.cutoff))

@@ -1,20 +1,22 @@
-import asyncio
 from logging import getLogger
-from typing import assert_never, Awaitable
+from typing import assert_never
 
-from logfire import instrument
-from pydantic_ai import FunctionToolset
+from pydantic_ai import FunctionToolset, ModelRetry
 
 from docassist.agents.rag.data import ScoredDocument
 from docassist.agents.rag.tool import SearchKBTool
 from docassist.index.document import Document
 from docassist.index.protocols import DocumentIndex
+from docassist.retries import phase, step
 from docassist.sampling.protocols import SamplingController
 from docassist.structure.materialize.agent import materialization_aide
+from docassist.structure.materialize.expansion.graph import expand_domain
+# from docassist.structure.materialize.agent import tooled_materialization_aide
 from docassist.structure.materialize.models import MaterializationState, VariableValuation
-from docassist.structure.materialize.tasks import EvaluateVariableOutput, evaluate_variable
+from docassist.structure.materialize.tasks import EvaluateVariableOutput, evaluate_variable, choose_an_answer, \
+    ChooseAnAnswerOutput
 from docassist.structure.model import DocumentSpecification, DocumentDefinition, VariableValues, ChapterSpecification, \
-    ChapterDefinition, ArticleDefinition, ArticleSpecification, BindingScope, Variant, Expansion
+    ChapterDefinition, ArticleDefinition, ArticleSpecification, BindingScope, Variant, Expansion, Answer
 
 logger = getLogger(__name__)
 
@@ -37,7 +39,7 @@ class Materializer:
         self.index: DocumentIndex = index
         self.sampling: SamplingController = sampling
 
-    @instrument()
+    @phase()
     async def _materialize(self, specification: DocumentSpecification,
                      state: MaterializationState
                      ) -> list[DocumentDefinition]:
@@ -59,7 +61,7 @@ class Materializer:
             case _ as never:
                 assert_never(never)
 
-    @instrument()
+    @step
     async def _materialize_chapter(self, c: ChapterSpecification,
                              state: MaterializationState) -> list[ChapterDefinition]:
         new_name = state.format_text_template(c.name)
@@ -79,7 +81,7 @@ class Materializer:
             )
         ]
 
-    @instrument()
+    @phase()
     def _materialize_article(self, a: ArticleSpecification,
                              state: MaterializationState) -> list[ArticleDefinition]:
             return [
@@ -90,7 +92,7 @@ class Materializer:
             ]
 
     def _tools(self, sideload: list[Document]) -> FunctionToolset:
-        tool = SearchKBTool(self.index, self.sampling, )
+        tool = SearchKBTool(self.index, self.sampling, sideload)
 
         async def search_knowledge_base(*, purpose: str, queries: list[str],
                                         rewrite_count: int | None = None, expansion_count: int | None = None,
@@ -165,7 +167,7 @@ class Materializer:
             tools=[search_knowledge_base]
         )
 
-    @instrument
+    @phase()
     async def _resolve_variable(self, name, desc, state: MaterializationState) -> VariableValuation: #todo return type
         task = evaluate_variable(name, desc)
 
@@ -178,11 +180,12 @@ class Materializer:
         valuation = VariableValuation(value=out.variable_value, explanation=out.explanation)
         return valuation
 
-    @instrument()
+    @phase()
     async def _materialize_scope[T](self, s: BindingScope[T],
                              state: MaterializationState) -> list[DocumentDefinition]:
         new_state = state
         for var_name, var_desc in s.variables.items():
+            #fixme variables are resolved in isolation (all calls use old state); is this a good idea? maybe switch to resolving all at once too?
             resolved = await self._resolve_variable(var_name, var_desc, state)
             new_state = (new_state
                      .set_variable(var_name, resolved)
@@ -191,67 +194,42 @@ class Materializer:
 
         return await self._materialize(s.content, new_state)
 
-    @instrument()
+    @phase()
+    async def _pick_an_answer[T](self, v: Variant[T],
+                             state: MaterializationState) -> tuple[str, Answer[T]]:
+        task, answer_ids = choose_an_answer(
+            v.question,
+            [a.explanation for a in v.answers]
+        )
+        # assert len(answer_ids) == len(v.answers)
+        out = await materialization_aide.run(
+            task, ChooseAnAnswerOutput,
+            toolsets=[
+                self._tools(state.fact_docs())
+            ]
+        )
+        if out.correct_answer_id not in answer_ids:
+            #fixme this is a wrong exception, it works only in tools and output functions; handle the retries on stage level
+            raise ModelRetry(f"Answer ID `{out.correct_answer_id}` is not within available answer IDs: `{answer_ids}`")
+        answer_idx = answer_ids.index(out.correct_answer_id)
+        result = v.answers[answer_idx]
+        return v.answers[answer_idx].explanation, result
+
+    @phase()
     async def _materialize_variant[T](self, v: Variant[T],
                              state: MaterializationState) -> list[DocumentDefinition]:
-        assert False
-        # logger.info(f"Gathering data to answer {v.question}")
-        # with self.controller.defer_until_success():
-        #     response = self.model.feed(expand_the_answers(ExpandAnswersInput(
-        #         expansions_count=5,
-        #         question=v.question,
-        #         answers=[IndexedAnswer(index=idx, answer=a.explanation) for idx, a in enumerate(v.answers)]
-        #     ), self.llmio))
-        #     expansions = self.llmio.lax_parse(response.content, ExpandAnswersOutput)
-        #     queries = expansions.expanded
-        #     assert queries
-        # logger.info(f"Queries: {queries}")
-        # docs = self.index.find(queries, n=5).grouped()
-        # docs = self._rerank(closed_question(v.question, [a.explanation for a in v.answers]), docs)
-        # logger.info("RAG result:")
-        # for i, x in enumerate(docs):
-        #     logger.info(f"DOCUMENT {i + 1}/{len(docs)}:")
-        #     logger.info(x.entry.id + " //// " + str(x.score))
-        #     logger.info(x.entry.txt)
-        #     logger.info("-" * 80)
-        # logger.info(f"Figuring out: {v.question}")
-        # # fixme we're not using ancestors here
-        # response = self.model.feed(
-        #     choose_the_answer(
-        #         ChooseTheAnswerInput(
-        #             question=v.question,
-        #             answers=[IndexedAnswer(index=i+1, answer=a.explanation) for i, a in enumerate(v.answers)],
-        #             resources=DocumentChunk.from_items(
-        #                 docs + [ #todo these should be added in reranking stage
-        #                     ScoredItem(
-        #                         entry=IndexedEntry.make(
-        #                             "memory:processing_notes",
-        #                             {},
-        #                             self.llmio.dump(Facts(facts=state.facts))
-        #                         ),
-        #                         score=1.0
-        #                     )
-        #                 ] if state.facts else []
-        #             )
-        #         ),
-        #         self.llmio
-        #     )
-        # )
-        # choice = self.llmio.lax_parse(response.content, ChooseTheAnswerOutput)
-        # idx = int(choice.chosen_index) - 1 # we give answers with 1-based index, we want 0-based one here
-        # logger.info(f"LLM chose answer #{idx+1}: {v.answers[idx] if idx < len(v.answers) and idx > 0 else 'I dont know'}")
-        # logger.info(f"The explanation of the choice was: <<{choice.explanation}>>")
-        # assert idx < len(v.answers), "The LLM cannot reply with 'I dont know'"
-        # chosen = v.answers[idx]
-        # logger.info(f"Proceeding with {chosen}")
-        # #todo add fact 'when presented with question ... we decided ...[ because ...]'
-        # chosen_materialized = self._materialize(chosen.value, state)
-        # return chosen_materialized
+        new_state = state
+        text, picked = await self._pick_an_answer(v, state)
+        new_state = new_state.add_fact(f"The answer to '{v.question}' is '{text}", picked.explanation)
 
-    @instrument()
+        return await self._materialize(picked.value, new_state)
+
+
+    @step
     async def _materialize_expansion[T](self, exp: Expansion[T],
                                   state: MaterializationState) -> list[DocumentDefinition]:
-        assert False
+        response = await expand_domain(exp.domain_description, dict(exp.variables))
+        assert False, f"Handle the response: {response}"
         # out = []
         # # fixme we're not using ancestors here
         # response = self.model.feed(
@@ -280,6 +258,6 @@ class Materializer:
         #     out.extend(self._materialize(exp.content_template, new_state))
         # return out
 
-    @instrument()
+    @step
     async def materialize_specification(self, specification: DocumentSpecification) -> list[DocumentDefinition]:
         return await self._materialize(specification, state=MaterializationState(ancestors=[], variable_values={}, facts=[]))

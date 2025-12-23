@@ -33,7 +33,8 @@ data_dir: Path = repo_dir / "data"
 
 class Config(NamedTuple):
     raw_model: Model = OpenAIChatModel(
-        'openai/gpt-oss-120b',
+        # 'openai/gpt-oss-120b',
+        "deepseek/deepseek-r1-0528",
         provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
     )
     embedder_params: dict[str, str | int | None] = {"model_name": "text-embedding-3-small"}

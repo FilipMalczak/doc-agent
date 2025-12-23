@@ -4,7 +4,7 @@ from typing import Self
 from pydantic import BaseModel
 
 from docassist.agents.generators.facts_from_file import Fact
-from docassist.index.document import Document, TransientDocumentType, CommonMetadata
+from docassist.index.document import Document, TransientDocumentType, CommonMetadata, TransientMeta
 from docassist.simple_xml import to_simple_xml
 
 
@@ -15,9 +15,6 @@ class VariableValuation(BaseModel):
 class Ancestor(BaseModel):
     title: str
     preamble: str | None
-
-class TransientMetadata(CommonMetadata):
-    document_type: TransientDocumentType
 
 @dataclass
 class MaterializationState:
@@ -67,7 +64,7 @@ class MaterializationState:
             Document(
                 id=f"transient_{i}",
                 content=to_simple_xml(f.model_dump(mode="json")),
-                metadata=TransientMetadata()
+                metadata=TransientMeta(document_type="transient")
             )
             for i, f in enumerate(self.facts)
         ]

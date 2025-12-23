@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Awaitable
 
 from pydantic import BaseModel, TypeAdapter
 from pydantic_ai import Agent
@@ -33,10 +33,12 @@ class StructuredAgent[I, O]:
 
     def __init__(self, *,
                  name: str, persona: str | None = None, task: PromptingTask,
+                 turbo: bool = False, #fixme
                  input_type: type[I] = Any, output_type: type[O] = None,
                  input_format: str | None = None, output_format: str | None = None,
                  model: Model | None = None, sampling: SamplingController | None = None):
         persona = persona or name
+        self.turbo = turbo
         self.pydantic_agent = Agent(
             model=model or CONFIG.model,
             name=name,
@@ -47,16 +49,15 @@ class StructuredAgent[I, O]:
                 persona=persona,
                 task=task,
                 input_format=input_format,
-                output_format=output_format
+                output_format=output_format,
+                turbo=self.turbo
             )
         )
         self.sampling = sampling or CONFIG.sampler.controller()
         self.input_type = input_type
         self.output_type = output_type
 
-    async def run[O](self, input: I, output_type: type[O] | None = None, **kwargs) -> O:
+    def run[O](self, input: I, output_type: type[O] | None = None, **kwargs) -> Awaitable[O]:
         real_output_type = output_type or self.output_type
         assert real_output_type is not None
-        return await call_agent(self.sampling, self.pydantic_agent, input, real_output_type, **kwargs)
-
-
+        return call_agent(self.sampling, self.pydantic_agent, input, real_output_type, **kwargs)

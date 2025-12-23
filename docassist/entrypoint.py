@@ -2,19 +2,20 @@ from logging import getLogger
 from pathlib import Path
 from pprint import pprint
 
-from logfire import span, instrument
+from logfire import span
 from namesgenerator import get_random_name
 
 from docassist.config import CONFIG
 from docassist.index.faiss import FAISSIndex
 from docassist.preindexing_graph import repo_preindexing
+from docassist.retries import step
 from docassist.structure.materialize.materializer import Materializer
 from docassist.structure.spec import root_specification
 from docassist.subjects import AnalysedRepo
 
 log = getLogger(__name__)
 
-@instrument()
+@step
 async def handle_repo(repo: AnalysedRepo):
     repo_index_path = Path(CONFIG.indices_dir / repo.name)
     index_ready_marker = repo_index_path / "index_ready.bool"

@@ -7,6 +7,7 @@ reranker = StructuredAgent(
     persona="RAG helper specialised in reranking of documents",
     input_type=RerankingInput,
     output_type=list[RerankingOutput],
+    turbo=True,#fixme
     task=PromptingTask(
         context="""
 We are retrieving indexed documents for RAG.

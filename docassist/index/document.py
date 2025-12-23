@@ -122,7 +122,10 @@ class FactsChunkMeta(CommonChunkMeta):
 
 ChunkMeta = Annotated[ NoteChunkMeta | FactsChunkMeta, Field(discriminator="chunk_source_document_type")]
 
-AnyMetadata = Annotated[SourceMeta | NoteMeta | FactsMeta | ChunkMeta, Field(discriminator="document_type")]
+class TransientMeta(CommonMetadata):
+    document_type: TransientDocumentType
+
+AnyMetadata = Annotated[SourceMeta | NoteMeta | FactsMeta | ChunkMeta | TransientMeta, Field(discriminator="document_type")]
 
 class Document[Meta: AnyMetadata](BaseModel):
     id: DocumentId
