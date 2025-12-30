@@ -180,17 +180,14 @@ class SearchKBTool:
         state.rephrasings.extend(new_rephrasings)
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
-        rephrasings = await call_agent(
-            self.sampling,
-            query_rephraser,
+        rephrasings = await query_rephraser.run(
             RephrasingInput(
                 purpose=purpose,
                 rewrite_count=rewrite_count,
                 expansion_count=expansion_count,
                 initial_queries=queries,
                 additional_instructions=instructions
-            ),
-            RephrasingOutput
+            )
         )
         def i():
             for per_query in rephrasings.rewrites:

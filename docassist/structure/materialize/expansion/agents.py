@@ -1,13 +1,12 @@
 from docassist.structure.materialize.expansion.models import DomainInterpretationInput, InterpretedDomain, \
     CandidateHypothesis, EntityAnchorInput, EntityAnchorOutput, SchemaProjectorInput, SchemaProjectedItem, \
     AnchoredEntity
-from docassist.structured_agent import StructuredAgent
+from docassist.structured_agent import StructuredAgent, DoerAgent, SolverAgent
 from docassist.system_prompts import PromptingTask
 
-domain_interpreter = StructuredAgent(
+domain_interpreter = DoerAgent(
     name="domain interpreter",
     persona="expert in translating natural language specifications into formal constraints",
-    turbo=True,
     task=PromptingTask(
         context=(
             "You are part of a documentation materialization pipeline. "
@@ -33,10 +32,10 @@ domain_interpreter = StructuredAgent(
     output_type=InterpretedDomain
 )
 
-candidate_hypothesizer = StructuredAgent(
+#fixme could this be a doer?
+candidate_hypothesizer = SolverAgent(
     name="candidate hypothesizer",
     persona="analyst generating plausible entity hypotheses from specifications",
-    turbo=True,
     task=PromptingTask(
         context=(
             "You assist in discovering project entities by proposing candidate "
@@ -60,10 +59,9 @@ candidate_hypothesizer = StructuredAgent(
     output_type=list[CandidateHypothesis]
 )
 
-entity_anchor = StructuredAgent(
+entity_anchor = SolverAgent(
     name="entity anchor",
     persona="knowledge base specialist responsible for grounding entities",
-    turbo=True,
     task=PromptingTask(
         context=(
             "You are responsible for resolving candidate hypotheses into real, "
@@ -81,17 +79,17 @@ entity_anchor = StructuredAgent(
         detailed=(
             "Use the search tool extensively. Deduplicate similar results. "
             "For each accepted entity, provide identifiers, evidence document references, "
-            "and a confidence score reflecting strength of support."
+            "and a confidence score reflecting strength of support. Refer to evidence by "
+            "their ID, as available under `found_chunk.document.id`. "
         ),
     ),
     input_type=EntityAnchorInput,
     output_type=list[AnchoredEntity],
 )
 
-schema_projector = StructuredAgent(
+schema_projector = DoerAgent(
     name="schema projector",
     persona="technical writer specializing in schema-driven content projection",
-    turbo=True,
     task=PromptingTask(
         context=(
             "You transform grounded project entities into structured documentation "

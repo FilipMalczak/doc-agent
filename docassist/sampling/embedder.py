@@ -20,6 +20,7 @@ class SamplingEmbedder(Embedder):
 
     async def get_embeddings(self, content: str) -> Embeddings:
         #fixme this is pretty half-assed
+        #fixme and its mssing usage attributes, which is why usage tracking is missing stuff; weirdly it works in sampled model
         with logfire.span(f"embeddings {self.model_name}") as s:
             s.set_attribute("sampling.enabled", True)
             slot: SamplingSlot[str, Embeddings] = self._provider.get_slot(content, Embeddings, self._delegate.model_name)

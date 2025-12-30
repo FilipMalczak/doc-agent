@@ -1,13 +1,10 @@
 from docassist.agents.rag.data import DeduplicationOutput, DeduplicationInput
-from docassist.structured_agent import StructuredAgent
+from docassist.structured_agent import StructuredAgent, DoerAgent
 from docassist.system_prompts import PromptingTask
 
-deduplicator = StructuredAgent(
+deduplicator = DoerAgent(
     name="document deduplicator",
     persona="RAG helper specialised in deduplication of documents",
-    input_type=DeduplicationInput,
-    output_type=DeduplicationOutput,
-    turbo=True,#fixme
     task=PromptingTask(
         context="""
 We are retrieving indexed documents for RAG. 
@@ -26,5 +23,7 @@ Pick the representative by responding with its document ID. You MUST pick EXACTL
 Explain your choices, referring to the input data and your inherent knowledge.
 """,
         detailed=None
-    )
+    ),
+    input_type=DeduplicationInput,
+    output_type=DeduplicationOutput,
 )

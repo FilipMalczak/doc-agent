@@ -62,7 +62,7 @@ async def main():
             print("USAGE")
             print(details)
             def calc(usage_class):
-                return {
+                out = {
                     model_name: calculate(
                         COSTS[model_name],
                         USAGE_COLLECTOR.by_model[usage_class][model_name]["prompt_tokens"],
@@ -70,6 +70,8 @@ async def main():
                     )
                     for model_name in USAGE_COLLECTOR.by_model[usage_class]
                 }
+                out["total"] = sum(out.values())
+                return out
 
             spending = {
                 "would_spend": calc("all"),
@@ -78,4 +80,3 @@ async def main():
             }
             print("SPENDING")
             print(spending)
-            #TODO calculate costs, print a report "would cost/costs this time/saved on model/total"

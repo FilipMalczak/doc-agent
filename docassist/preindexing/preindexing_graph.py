@@ -1,6 +1,7 @@
+from functools import wraps
 from io import StringIO
 from os.path import join
-from typing import Awaitable
+from typing import Awaitable, Callable, Any
 from uuid import uuid4
 
 import yaml
@@ -8,20 +9,27 @@ from pydantic_graph.beta import GraphBuilder, StepContext
 from pydantic_graph.beta.join import reduce_list_append, reduce_list_extend
 from yaml import Loader
 
-from docassist.agents.generators.facts_from_file import fact_extractor, Facts
-from docassist.agents.generators.notes_from_dir import dir_notes_input, SubjectNotes, structurize, \
-    dir_note_taker, doc_to_notes
-from docassist.agents.generators.notes_from_file import file_note_taker, Markdown
 from docassist.chunkdown import break_to_entries
 from docassist.config import CONFIG
 from docassist.index.document import SourceMeta, FileNoteMeta, DirNoteMeta, NoteMeta, NoteChunkMeta, FactsMeta, \
     FactsChunkMeta
 from docassist.index.protocols import Document
-from docassist.structured_agent import call_agent
+from docassist.preindexing.agents.notes_from_file import file_note_taker, FullyDescribedFile
+from docassist.structured_agent import call_agent, StructuredAgent
 from docassist.subjects import AnalysedRepo, CodeFilePath
 
 g = GraphBuilder(name="process-repository", output_type=list[Document])
 sampling = CONFIG.sampler.controller()
+
+#fixme this belongs to the other graph, where the agents are composed into full pipeline
+def agent_step[I, O](a: StructuredAgent[I, O]):
+    def decorator(foo: Callable[[StepContext[Any, Any, I]], O | Awaitable[O]]) -> Callable[[StepContext[Any, Any, I]], Awaitable[O]]:
+        @g.step
+        @wraps(foo)
+        def impl(ctx: StepContext[Any, Any, I]) -> Awaitable[O]:
+            return a.run(ctx.inputs)
+        return impl
+    return decorator
 
 
 @g.step
@@ -49,10 +57,9 @@ async def load_sources(ctx: StepContext[None, None, AnalysedRepo]) -> list[Docum
 
 @g.step
 async def take_file_notes(ctx: StepContext[None, None, Document[SourceMeta]]) -> Document[FileNoteMeta]:
-    doc = ctx.inputs
-    input_data = dict(doc.metadata)
-    input_data["content"] = doc.content
-    content = await call_agent(sampling, file_note_taker, input_data, Markdown)
+    agent = file_note_taker.parametrized_as(role="end-user", relationship_to_project="developer")
+    input_data = FullyDescribedFile.of(ctx.inputs)
+    content = await agent.run(input_data)
     return Document(id=str(uuid4()), content=content, metadata=FileNoteMeta(
             document_type = "note",
             subject_path = doc.metadata.path,
@@ -60,7 +67,7 @@ async def take_file_notes(ctx: StepContext[None, None, Document[SourceMeta]]) ->
             subject_type = "file",
             subject_document_type = "source_file",
             subject_repo_item_type = doc.metadata.repo_item_type,
-            subject_language = doc.metadata.language
+            subject_language = doc.metadata.languaged
         )
     )
 
@@ -74,7 +81,7 @@ async def take_directory_notes(ctx: StepContext[None, None, list[Document[FileNo
     out = []
     for path, files, dirs in dir_desc.depth_first():
         q = sorted([notes[join(path, x)] for x in files + dirs], key=lambda n: n.subject_path)
-        dir_notes = await call_agent(sampling, dir_note_taker, q, Markdown)
+        dir_notes = await dir_note_taker.run(q)
         doc = Document(id=str(uuid4()), content=dir_notes, metadata=DirNoteMeta(
                 document_type = "note",
                 subject_path = path,
@@ -96,7 +103,7 @@ async def extract_facts(ctx: StepContext[None, None, Document[SourceMeta]]) -> D
     doc = ctx.inputs
     user_msg = dict(doc.metadata)
     user_msg["content"] = doc.content
-    facts_obj = await call_agent(sampling, fact_extractor, user_msg, Facts)
+    facts_obj = await fact_extractor.run(user_msg)
     with StringIO() as t:
         yaml.dump(facts_obj, t)
         content = t.getvalue()

@@ -32,8 +32,11 @@ repo_dir: Path = Path(__file__).parent.parent
 data_dir: Path = repo_dir / "data"
 
 class Config(NamedTuple):
-    raw_model: Model = OpenAIChatModel(
-        # 'openai/gpt-oss-120b',
+    raw_text_model: Model = OpenAIChatModel(
+        'openai/gpt-oss-120b',
+        provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
+    )
+    raw_tool_model: Model = OpenAIChatModel(
         "deepseek/deepseek-r1-0528",
         provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
     )
@@ -59,11 +62,12 @@ class Config(NamedTuple):
         sampling_strategy
     )
 
-    model: Model = sampler.over_model(raw_model)
+    text_model: Model = sampler.over_model(raw_text_model)
+    tool_model: Model = sampler.over_model(raw_tool_model)
     repos: list[AnalysedRepo] = [
         PipOutdatedRepo()
     ]
-    async_openai: AsyncOpenAI = raw_model.client
+    async_openai: AsyncOpenAI = raw_text_model.client
     embedder_config: EmbedderConfig = EmbedderConfig(**embedder_params)
     raw_embedder: Embedder = OpenAIEmbedder(async_openai, **embedder_config)
     embedder: Embedder = sampler.over_embedder(raw_embedder)

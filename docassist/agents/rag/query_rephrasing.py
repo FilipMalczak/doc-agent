@@ -3,16 +3,13 @@ from pydantic_ai import Agent
 from docassist.agents.rag.data import RephrasingOutput, RephrasingInput
 from docassist.config import CONFIG
 from docassist.llmio import object_from_user, object_from_llm
-from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
+from docassist.structured_agent import DoerAgent
+from docassist.system_prompts import PromptingTask
 
-#fixme should be a StructuredAgent
-query_rephraser: Agent[None, RephrasingOutput]= Agent(
+query_rephraser = DoerAgent(
     name="query rephraser",
-    model=CONFIG.model,
-    output_type=RephrasingOutput,
-    system_prompt=simple_xml_system_prompt(
-        persona="RAG helper, specialised in rephrasing of queries",
-        task=PromptingTask(
+    persona="RAG helper, specialised in rephrasing of queries",
+    task=PromptingTask(
             context="you are at the beginning of the RAG pipeline",
             high_level="expand on given RAG queries to extend search area",
             low_level="given a list of RAG queries generate rewrites/rephrasings of queries and auxiliary queries",
@@ -70,6 +67,7 @@ object_from_llm(
 }
 """,
 
-        )
-    )
+        ),
+    input_type=RephrasingInput,
+    output_type=RephrasingOutput,
 )

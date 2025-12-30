@@ -1,4 +1,8 @@
 1. MAKE SEPARATE TEXT/AGENT MODELS! That is required to be able to restart code without prerendered indices
+
+> WIP
+
+
 2. Track usage per session; add it to session attributes 
     a. https://chatgpt.com/c/694b0541-4000-832d-9c25-194900153a3e
 3. add validator to domain expander

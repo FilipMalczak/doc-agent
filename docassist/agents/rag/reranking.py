@@ -1,13 +1,12 @@
 from docassist.agents.rag.data import RerankingOutput, RerankingInput
-from docassist.structured_agent import StructuredAgent
+from docassist.structured_agent import StructuredAgent, DoerAgent
 from docassist.system_prompts import PromptingTask
 
-reranker = StructuredAgent(
+
+
+reranker = DoerAgent(
     name="document reranker",
     persona="RAG helper specialised in reranking of documents",
-    input_type=RerankingInput,
-    output_type=list[RerankingOutput],
-    turbo=True,#fixme
     task=PromptingTask(
         context="""
 We are retrieving indexed documents for RAG.
@@ -40,6 +39,8 @@ Notice that 0 is NOT a valid score, which is why the daily newspaper is given sc
 If not sure whether to choose a number or one bigger, explain the bigger choice and reevaluate. 
 If you choose the lower value at that point, include the original explanation of the bigger choice, explanation of the switch and explanation of the chosen value as if it were chosen originally. 
 """
-    )
+    ),
+    input_type=RerankingInput,
+    output_type=list[RerankingOutput],
 )
 

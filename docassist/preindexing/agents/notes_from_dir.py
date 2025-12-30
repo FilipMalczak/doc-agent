@@ -4,14 +4,14 @@ from pathlib import Path
 from typing import NamedTuple, Self, Iterable
 
 from pydantic import BaseModel
-from pydantic_ai import Agent
 
-from docassist.agents.generators.notes_from_file import MarkdownOutput
-from docassist.config import CONFIG
+from docassist.agents.rag.data import ScoredDocument
 from docassist.index.document import DirNoteMeta
 from docassist.index.protocols import Document
+from docassist.preindexing.perspectives import PERSPECTIVES, perspective
+from docassist.structured_agent import WriterAgent, ParametrizedAgent
 from docassist.subjects import CodeFilePath, EntryType
-from docassist.system_prompts import simple_xml_system_prompt, PromptingTask
+from docassist.system_prompts import PromptingTask
 
 RelativePath = str
 Filename = str
@@ -65,13 +65,13 @@ class SubjectNotes(BaseModel):
 class LowerLevelNotes(BaseModel):
     lower_level_notes: list[SubjectNotes]
 
-dir_note_taker = Agent(
-    name="note taker that handles a whole directory",
-    model=CONFIG.model,
-    output_type=MarkdownOutput,
-    output_retries=3,
-    system_prompt=simple_xml_system_prompt(
+dir_note_taker = ParametrizedAgent(
+    PERSPECTIVES,
+    lambda role, relationship_to_project:
+        WriterAgent(
+        name="note taker that handles a whole directory",
         persona="note taker",
+        perspective=perspective(role, relationship_to_project),
         task=PromptingTask(
             high_level="take notes from the files in a directory",
             low_level="use previously prepared file-level notes and notes on subdirectories generated the same way "
@@ -80,10 +80,10 @@ dir_note_taker = Agent(
                      "that the input file is part of",
             context="you've read the whole project once, you're compiling your file-level notes into directory-level notes"
         ),
+        input_type=list[ScoredDocument],
         output_format="Markdown"
     )
 )
-
 
 def doc_to_notes(d: Document) -> SubjectNotes:
     return SubjectNotes(
