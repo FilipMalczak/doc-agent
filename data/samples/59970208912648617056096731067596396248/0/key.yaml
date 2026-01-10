@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The file's content contains only the single import statement for aiohttp\n   \
-  \ and no other import lines.\n  fact: The module is written in Python and uses only\
-  \ the aiohttp library; no other\n    external imports are present.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,0 +1,3 @@
+The function 'get_local_version' attempts to execute the 'pip show' command to get
+  package metadata.
+...

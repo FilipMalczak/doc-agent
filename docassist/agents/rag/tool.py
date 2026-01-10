@@ -13,6 +13,7 @@ from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
 from docassist.index.protocols import Document, DocumentIndex
+from docassist.preindexing.perspectives import FINAL_DOCUMENTATION_PERSPECTIVE, FINAL_DOCUMENTATION_PERSPECTIVE_POINTER
 from docassist.retries import phase, step
 from docassist.sampling.protocols import SamplingController
 from docassist.structured_agent import call_agent
@@ -180,7 +181,8 @@ class SearchKBTool:
         state.rephrasings.extend(new_rephrasings)
 
     async def _rephrase(self, purpose: str, rewrite_count: int, expansion_count: int, queries: list[str], instructions) -> list[str]:
-        rephrasings = await query_rephraser.run(
+        #todo parametrize agents once and store them in self
+        rephrasings = await query_rephraser.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).run(
             RephrasingInput(
                 purpose=purpose,
                 rewrite_count=rewrite_count,
@@ -232,16 +234,23 @@ class SearchKBTool:
         chunkable_by_id: dict[str, Document] = dict()
         chunks_by_source_id: dict[str, list[Document]] = defaultdict(list)
 
+        deduplicated_by_id: dict[str, ScoredDocument] = {}
         for chunk in chunks:
-            match chunk.document.metadata.document_type:
-                case "source_file":
+            deduplicated_by_id[chunk.document.id] = chunk
+
+        for chunk in deduplicated_by_id.values():
+            match chunk.document.document_type: #todo these string constants should be taken from types
+                case "source_file" | "transient":
                     assert chunk not in sources
                     sources.append(chunk)
                 case "note" | "facts":
-                    assert chunk.document.metadata.subject_path not in chunkable_by_id
-                    chunkable_by_id[chunk.document.id] = chunk
-                case "chunk":
-                    chunks_by_source_id[chunk.document.metadata.chunk_source_document_id()].append(chunk)
+                    doc_id = chunk.document.id
+                    assert doc_id not in chunkable_by_id
+                    chunkable_by_id[doc_id] = chunk
+                case "note_chapter" | "single_fact":
+                    provenance = chunk.document.provenance
+                    parent_id = provenance[-1].subject.id
+                    chunks_by_source_id[parent_id].append(chunk)
                 case _ as never: assert_never(never)
 
         def i():
@@ -252,19 +261,22 @@ class SearchKBTool:
                 if cid not in visited_cids:
                     visited_cids.add(cid)
                     full = [ chunkable_by_id[cid] ] if cid in chunkable_by_id else []
-                    yield full + chunks_by_source_id[cid]
+                    # I can get literal duplicates (same ID, same metadata, etc) in input, because I'm searching across queries
+                    # thus, I need to deduplicate; fixme it could be done beforehand
+                    yield sorted(full + chunks_by_source_id[cid], key=lambda x: x.score, reverse=True)
 
         return list(i())
 
 
     async def _deduplicate(self, purpose: str, group: list[ScoredDocument], instructions: str) -> ScoredDocument:
-        dedup_output = await deduplicator.run(DeduplicationInput(
+        dedup_output = await deduplicator.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).run(DeduplicationInput(
                 purpose=purpose,
                 documents=IndexedScoredDocument.from_scored_documents(group),
                 additional_instructions=instructions
             ))
         chosen = [ x for x in group if x.document.id == dedup_output.document_id ]
-        assert len(chosen) < 2
+        if not len(chosen) < 2:
+            assert len(chosen) < 2
         if not chosen: #fixme modelretry restarts the whole tool; find the way to make reties per-stage
             raise ModelRetry(f"Returned document ID {dedup_output.document_id} does not match any input document!")
         if dedup_output.new_score < 0.0 or dedup_output.new_score > 1.0: #fixme this should be in model validator
@@ -283,7 +295,7 @@ class SearchKBTool:
         state.reranked.extend(sorted(reranked, key=lambda x: x.score, reverse=True))
 
     async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
-        reranked: list[RerankingOutput] = await reranker.run(
+        reranked: list[RerankingOutput] = await reranker.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).run(
             RerankingInput(
                 purpose=purpose,
                 documents=documents,

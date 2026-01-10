@@ -1,6 +1,0 @@
-"# Project Documentation Notes: `pip_outdated/verbose.py`\n\n## Why It Exists\n\n\
-  A single source of truth for the verbose state avoids passing the flag through many\
-  \ function signatures and ensures that any component can check whether verbose output\
-  \ should be produced.\n\n---\n*These notes are intended for inclusion in user\u2011\
-  facing documentation, helping developers understand how to control and query the\
-  \ project's verbose mode.*"

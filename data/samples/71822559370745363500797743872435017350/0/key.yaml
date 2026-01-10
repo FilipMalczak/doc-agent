@@ -1,0 +1,5 @@
+"### What the tool does\n- Scans a **requirements.txt** or **setup.cfg** (or any file\
+  \ matching a glob pattern) to locate declared Python dependencies.  \n- Checks each\
+  \ dependency against the Python Package Index to determine whether a newer version\
+  \ is available.  \n- Prints a report of outdated packages, optionally adjusting\
+  \ the exit code based on the **quiet** flag.\n"

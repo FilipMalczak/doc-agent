@@ -1,0 +1,54 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: A function named 'get_local_version' is defined\
+  \ using 'async def',\n        indicating it is an asynchronous function designed\
+  \ to retrieve the local installed\n        version of a Python package.\n      fact:\
+  \ There is a function called 'get_local_version' in 'pip_outdated/check_outdated.py'.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function utilizes asyncio's create_subprocess_shell\
+  \ to run\n        'pip show {name}' with the provided package name, and parses the\
+  \ output to\n        extract the version.\n      fact: The function 'get_local_version'\
+  \ attempts to execute the 'pip show' command\n        to get package metadata.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The '@dataclass' decorator is used to define\
+  \ a class 'OutdateResult',\n        which encapsulates result information for outdated\
+  \ package checks.\n      fact: The file 'pip_outdated/check_outdated.py' defines\
+  \ a data class named 'OutdateResult'.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The 'outdated' method compares the installed version with the\
+  \ wanted\n        version or the latest version, returning True if the installed\
+  \ version is\n        different, thereby determining if a package is considered\
+  \ outdated.\n      fact: The 'OutdateResult' class has a property method 'outdated'\
+  \ that evaluates\n        whether a package is outdated.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: It imports 'asyncio' and uses 'async def' for\
+  \ functions, showing\n        that the code is written to handle asynchronous operations,\
+  \ such as running\n        command-line tools.\n      fact: The module 'pip_outdated/check_outdated.py'\
+  \ uses 'asyncio' for asynchronous\n        execution of subprocesses.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The presence of 'from packaging.requirements\
+  \ import Requirement'\n        indicates that the code uses the 'packaging' library\
+  \ to parse and manage Python\n        package requirements.\n      fact: The module\
+  \ 'pip_outdated/check_outdated.py' imports 'Requirement' from\n        the 'packaging.requirements'\
+  \ module.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n  \
+  \    explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'check_outdated' function is defined with\
+  \ 'async def', and\n        it interacts with a session object, suggesting it handles\
+  \ asynchronous operations\n        for checking outdated packages.\n      fact:\
+  \ There is a function called 'check_outdated' in the file 'pip_outdated/check_outdated.py',\n\
+  \        which is asynchronous.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Inside the 'check_outdated' function, it calls 'get_pypi_versions'\n\
+  \        and passes the package name and a session object, which likely manages\
+  \ HTTP\n        requests asynchronously.\n      fact: The 'check_outdated' function\
+  \ utilizes 'get_pypi_versions' to retrieve\n        available versions of a package\
+  \ from the Python Package Index (PyPI).\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

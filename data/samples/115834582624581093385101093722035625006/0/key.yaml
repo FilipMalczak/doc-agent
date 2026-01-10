@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The content only includes the shebang, the import statement, and the\n    call\
-  \ to 'setup()', without any additional statements or arguments.\n  fact: The file\
-  \ does not define any additional code, variables, or metadata for the\n    package\
-  \ configuration.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

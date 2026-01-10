@@ -1,0 +1,4 @@
+The file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2 contains a docstring for the
+  `file_to_lines` function that describes handling of '#' comments and '\' continuation
+  escapes.
+...

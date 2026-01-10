@@ -1,9 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n### 5. Extensibility\
-  \ Points (where developers might add features)\n- **New input formats** \u2013 extend\
-  \ `find_require` with additional parsers.\n- **Alternative output formats** \u2013\
-  \ replace or augment `print_outdated` (e.g., JSON, HTML).\n- **Different version\
-  \ sources** \u2013 modify `check_outdated` to query private indexes or use alternative\
-  \ resolution strategies.\n- **Session configuration** \u2013 expose parameters in\
-  \ `session.get_session` (timeout, proxy, etc.) or implement session reuse.\n- **Verbosity\
-  \ handling** \u2013 enhance `verbose` module for thread safety or hierarchical logging.\n\
-  \n---\n"

@@ -1,0 +1,8 @@
+"# Maintainer\u2013Facing Notes for `pip_outdated/find_require.py`\n## Suggested Documentation\
+  \ Snippet (User\u2011Facing)\n\n> **Finding Project Requirements**  \n> The `pip_outdated.find_require`\
+  \ module scans requirement definitions across plain `requirements.txt` files and\
+  \ `setup.cfg` configuration files. It intelligently removes comments, merges line\
+  \ continuations, and discards unsupported option flags, returning clean `Requirement`\
+  \ objects that the tool can analyze for outdated packages.\n\n--- \n\n*Prepared\
+  \ for maintainers to ensure the `find_require` utilities are correctly understood,\
+  \ integrated, and documented for end\u2011users.*"

@@ -1,0 +1,8 @@
+"- **File:** `pip_outdated/__main__.py`  \n- **Purpose:** Provides the package\u2019\
+  s command\u2011line entry point. When the module is executed directly (`python -m\
+  \ pip_outdated`), it imports the package\u2019s `main` function and runs it.  \n\
+  - **Implication for end\u2011users:** Allows users to invoke the tool without needing\
+  \ to know the internal module layout; they can simply run the package as a script.\
+  \  \n- **Maintainer note:** Ensure this file remains synchronized with any changes\
+  \ to the public `main` function (e.g., signature changes or relocation) so the CLI\
+  \ continues to work correctly.  "

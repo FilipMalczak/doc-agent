@@ -1,8 +1,0 @@
-'### File arguments
-
-  - Zero or more positional arguments. If none are supplied the tool uses the default
-  list `[''requirements.txt'', ''setup.cfg'']`.
-
-  - Glob patterns are allowed (e.g., `requirements/*.txt`).
-
-  '

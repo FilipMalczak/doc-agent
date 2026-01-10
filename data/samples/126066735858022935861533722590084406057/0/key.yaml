@@ -1,0 +1,3 @@
+In file 'pip_outdated/print_outdated.py', the output is rendered using 'AsciiTable'
+  from the 'terminaltables' library, creating a formatted ASCII table in the terminal.
+...

@@ -1,0 +1,3 @@
+In pip_outdated/verbose.py, a global variable called VERBOSE is defined as a boolean
+  with an initial value of None.
+...

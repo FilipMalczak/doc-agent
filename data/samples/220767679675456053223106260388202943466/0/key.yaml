@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'make_row' function applies conditional color formatting to 'Installed',\n\
+  \    'Wanted', and 'Latest' version fields. This helps users identify problematic\
+  \ version\n    states.\n  fact: In file 'pip_outdated/print_outdated.py', version\
+  \ fields in the output table\n    are colored red (errors) or green (updatable)\
+  \ based on the 'OutdateResult' object's\n    state comparisons.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

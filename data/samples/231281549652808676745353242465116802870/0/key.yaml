@@ -1,0 +1,22 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function `get_session` is explicitly defined\
+  \ in the provided\n        file, returning an `aiohttp.ClientSession` configured\
+  \ with a custom User-Agent\n        and a TCPConnector.\n      fact: In document\
+  \ with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there is one\n        function named\
+  \ `get_session` of type `aiohttp.ClientSession`\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The headers dictionary in the function explicitly\
+  \ sets the `User-Agent`\n        to `pip-outdated`.\n      fact: In document with\
+  \ ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the `get_session`\n        function creates\
+  \ headers with a `User-Agent` value of `pip-outdated`\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The `TCPConnector` instance is initialized with\
+  \ the `limit=5` parameter,\n        controlling concurrent connections.\n      fact:\
+  \ In document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the `get_session`\n\
+  \        function uses a `TCPConnector` configured with `limit=5`\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

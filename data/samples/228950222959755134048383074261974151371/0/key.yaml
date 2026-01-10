@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The argparse.ArgumentParser add_argument method is called with default\n    parameter\
+  \ set to ['requirements.txt', 'setup.cfg'].\n  fact: In document with ID e66496b8-e454-5538-92b9-b2023e11adea,\
+  \ the default files\n    to read dependencies from are requirements.txt and setup.cfg.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This function provides a programmatic way to update the verbose state,\n    which\
+  \ affects output behavior across the project.\n  fact: The pip_outdated/verbose.py\
+  \ contains a function named set_verbose that modifies\n    the global VERBOSE variable's\
+  \ value when called with a boolean argument.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

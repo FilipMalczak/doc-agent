@@ -1,2 +1,0 @@
-"At the start of print_outdated, the function calls colorama.init() to initialize\
-  \ cross\u2011platform colored output."

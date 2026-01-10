@@ -1,6 +1,0 @@
-"## Project Configuration \u2013 `setup.py`\n\n**File path:** `setup.py`  \n**Language:**\
-  \ Python  \n\n### Common fields to consider adding\n- `long_description` (often\
-  \ read from a `README.md` or `README.rst`).\n- `long_description_content_type` (e.g.,\
-  \ \"text/markdown\").\n- `license` (e.g., \"MIT\").\n- `classifiers` (list of trove\
-  \ classifiers indicating development status, supported Python versions, etc.).\n\
-  - `extras_require` for optional dependency groups (e.g., testing, docs).\n"

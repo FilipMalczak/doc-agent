@@ -1,0 +1,102 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code defines a function called iter_files,\
+  \ which takes patterns\n        as input and yields file paths. The function checks\
+  \ if a pattern is a file\n        and yields it or uses glob to find matching files.\
+  \ The provided ID corresponds\n        to the current document.\n      fact: The\
+  \ function `iter_files` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \        to yield file paths based on multiple glob patterns.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code includes a function named file_to_lines\
+  \ that reads a file\n        and yields its lines. It handles comments indicated\
+  \ by '#' and continuation\n        escapes with '\\'. This function also prints\
+  \ the file being parsed if the verbose\n        option is active.\n      fact: The\
+  \ function `file_to_lines` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \        to yield lines from a file while handling comments and continuation escapes.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: A function parse_lines is implemented to process\
+  \ lines from an\n        input. It manages lines with comments denoted by '#' and\
+  \ continuation characters\n        '\\'. The function is used to parse lines and\
+  \ combine them as necessary.\n      fact: The function `parse_lines` is defined\
+  \ in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n        to process lines\
+  \ by handling comments and continuation escapes.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code defines a function called parse_requirements,\
+  \ which processes\n        lines from a file using file_to_lines, then applies parse_require\
+  \ to extract\n        requirements.\n      fact: The function `parse_requirements`\
+  \ is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n        to generate\
+  \ requirements from a file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: A function parse_requirements_text is written to take a string\n\
+  \        input, split it into lines, process them using parse_lines, and yield requirements\n\
+  \        via parse_require.\n      fact: The function `parse_requirements_text`\
+  \ is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n        to extract\
+  \ requirements from a given text by processing its lines.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_cfg uses ConfigParser to read\
+  \ configuration\n        files, specifically looking for 'setup_requires', 'install_requires',\
+  \ and\n        'extras_require' sections. It processes the text in these sections\
+  \ to extract\n        requirements.\n      fact: The function `parse_cfg` is defined\
+  \ in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n        to parse configuration\
+  \ files for Python package dependencies.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The find_require function uses iter_files to iterate over files.\n\
+  \        For each file, if the extension is '.cfg', it uses parse_cfg; otherwise,\
+  \ it\n        uses parse_requirements. It yields all the processed requirements.\n\
+  \      fact: The function `find_require` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \        to locate and generate requirements from given files based on their extensions.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The parse_require function processes a text line\
+  \ by stripping any\n        options and attempting to convert it into a requirement\
+  \ object. If the text\n        is not a valid requirement, it returns None.\n  \
+  \    fact: The function `parse_require` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \        to parse a text line into a requirement, handling options and ignoring\
+  \ invalid\n        formats.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code imports ConfigParser from configparser to read and\
+  \ process\n        configuration files, particularly for extracting dependency information.\n\
+  \      fact: The module uses the `ConfigParser` class from the `configparser` module\n\
+  \        to handle configuration files in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code imports these classes to parse and validate\
+  \ Python package\n        requirements, handling cases where the input is not a\
+  \ valid requirement.\n      fact: The module imports `Requirement` and `InvalidRequirement`\
+  \ from the `packaging.requirements`\n        module in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The verbose function is imported to conditionally\
+  \ print messages\n        during file parsing based on verbosity settings.\n   \
+  \   fact: The module imports `verbose` from `.verbose` in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \        for controlling verbose output.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code imports pathlib for file path manipulations, such as\
+  \ checking\n        if a pattern is a file and globbing for patterns.\n      fact:\
+  \ The module uses `pathlib.Path` to handle file paths and operations in\n      \
+  \  file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function's docstring explicitly states its\
+  \ purpose to yield\n        lines from a file while managing comment and continuation\
+  \ characters.\n      fact: The file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\
+  \ contains a docstring\n        for the `file_to_lines` function that describes\
+  \ handling of '#' comments and\n        '\\' continuation escapes.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The iter_files function's docstring describes\
+  \ how it processes\n        multiple glob patterns to find and yield file paths.\n\
+  \      fact: The file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2 includes a docstring\n\
+  \        for the `iter_files` function, which explains its role in yielding paths\
+  \ from\n        glob patterns.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

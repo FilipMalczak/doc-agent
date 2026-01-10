@@ -1,4 +1,0 @@
-"## Summary of `tests/test_parse_cfg.py`\n### Key Test Steps\n### What the Test Reveals\
-  \ About `parse_cfg`\n### Practical Take\u2011aways for Users\n### Example Usage\
-  \ (Based on the Test)\n\n```python\nfrom pip_outdated.find_require import parse_cfg\n\
-  \ncfg_path = \"path/to/your/setup.cfg\"\nrequirements = parse_cfg(cfg_path)\n"

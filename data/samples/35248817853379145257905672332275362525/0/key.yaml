@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The Usage section displays this usage pattern.\n  fact: 'The command-line interface\
-  \ syntax is: ``pip-outdated [-h] [-v] [-q] [<file>\n    [<file> ...]]``.'\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -57,7 +57,7 @@ class DeduplicationInput(BaseModel):
 class DeduplicationOutput(BaseModel):
     document_id: str
     new_score: float
-    explanation: str
+    explanation: str = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
 
 
 
@@ -69,4 +69,4 @@ class RerankingInput(BaseModel):
 class RerankingOutput(BaseModel):
     document_id: str = Field(validation_alias=AliasChoices("id", "doc_id"))
     new_score: int = Field(validation_alias=AliasChoices("updated_score", "score"))
-    explanation: str  = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
+    explanation: str = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))

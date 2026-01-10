@@ -1,5 +1,0 @@
-"# Project Notes: **pip-outdated** (from `setup.cfg`)\n## Overview\n## Classification\
-  \ (PyPI classifiers)\n## Keywords\n## Packaging Details\n## Runtime Dependencies\n\
-  ## Command\u2011Line Interface\n- **Console script**: `pip-outdated`\n  - Entry\
-  \ point defined as `pip_outdated:main`.\n  - Installing the package adds the `pip-outdated`\
-  \ command to the user's PATH.\n"

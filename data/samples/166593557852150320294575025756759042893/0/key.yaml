@@ -1,0 +1,4 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The first line header states 'pip-outdated' as the project name\n  fact: The project's\
+  \ name is 'pip-outdated'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,4 @@
+The function make_row in pip_outdated/print_outdated.py uses helper functions colored_current,
+  colored_wanted, and colored_latest to generate color-coded strings for package version
+  information
+...

@@ -1,3 +1,0 @@
-parse_args() adds a -q / --quiet flag that stores True when supplied and displays
-  the help text "Don't return exit code 1 if not everything is up to date.".
-...

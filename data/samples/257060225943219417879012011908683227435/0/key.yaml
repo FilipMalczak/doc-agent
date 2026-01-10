@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function empty_result is described in the document as a way to\n    indicate\
+  \ that there is no meaningful result to the task being handled.\n  fact: There is\
+  \ one function named empty_result in the document with ID c70abb08-f4fa-Indicate\n\
+  \    that there is no meaningful result to the task you're handling. It means a\
+  \ successful,\n    but empty response.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

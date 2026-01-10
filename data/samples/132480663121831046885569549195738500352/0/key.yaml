@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The OutdateResult class provides methods to determine if a package's\n    installed\
+  \ version is outdated, not found, or not matching the specified requirements.\n\
+  \    These methods are directly accessible via this class implementation.\n  fact:\
+  \ The file implements package status checking functionality including 'outdated()',\n\
+  \    'install_not_found()', and 'install_not_wanted()' methods in the OutdateResult\n\
+  \    class for evaluating package versions in document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

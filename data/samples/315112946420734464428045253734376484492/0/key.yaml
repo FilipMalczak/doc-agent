@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The main function contains a comment indicating that asyncio.run cannot\n    be\
+  \ used because of an issue with aiohttp closing the event loop.\n  fact: In document\
+  \ with ID e66496b8-e454-5538-92b9-b2023e11adea, the main function\n    uses asyncio.get_event_loop().run_until_complete\
+  \ to runasyncio run is not used\n    due to an issue with aiohttp.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

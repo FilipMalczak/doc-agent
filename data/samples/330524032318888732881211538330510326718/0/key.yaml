@@ -1,6 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n# Basic run (default\
-  \ files)\n# Specify custom files or glob patterns\n# Verbose mode\n# Quiet mode\
-  \ for CI (non\u2011zero exit suppressed)\npip-outdated -q\n```\n\n---\n\n*These\
-  \ directory\u2011level notes gather the essential information needed to write user\u2011\
-  facing documentation, README sections, or a quick\u2011start guide for the `pip_outdated`\
-  \ project.*"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ All these members are accessed within make_row's logic.\n  fact: The make_row\
-  \ function expects the OutdateResult object to provide the methods\n    outdated(),\
-  \ install_not_found(), install_not_wanted(), pypi_not_found() and the\n    attributes\
-  \ version, wanted, latest, and name.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

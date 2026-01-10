@@ -1,0 +1,49 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"facts": [{"fact": "There is one function named get_session in document
+    with ID 7cb0c458-ef11- limit=5", "explanation": "The function is defined in the
+    document and takes no arguments."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-16642df4a5684dc5a165470f9e929096
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The function get_session returns an instance of aiohttp.ClientSession",
+    "explanation": "The return type is explicitly stated as aiohttp.ClientSession."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-8d5c9c5fe8054408bbb17f2fda0cc00e
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The function get_session sets headers to include User-Agent:
+    pip-outdated", "explanation": "The headers dictionary is created with User-Agent:
+    pip-outcode."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-d78e9e077d0f4b83bc39574aab53b0e2
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The function get_session uses a TCPConnector with a
+    limit of Bet_connector limit=5", "explanation": "The TCPConnector is initialized
+    with limit=5"}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-b89d0e62c6804235a059d1f1638b169f
+  tool_name: final_result_Facts
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767965028-S17F6pscyiPWhY60M0yv
+run_id: d93101c1-83f5-4863-b5cb-51d2c2b29711
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1478
+  output_audio_tokens: 0
+  output_tokens: 235

@@ -125,7 +125,7 @@ class ManagedDirectory:
         assert type_ is None or type_ == "directory"
         return ManagedDirectory.of(self.subpath(*path))
 
-RepoItemType = Literal["code", "test", "documentation", "config"] # todo: prompt allows for "test config" and "code and test" too
+repo_function = Literal["code", "test", "documentation", "config"]
 
 class AnalysedRepo(ManagedDirectory, ABC):
     def __init__(self, clone_path: str):
@@ -147,7 +147,7 @@ class AnalysedRepo(ManagedDirectory, ABC):
     @abstractmethod
     def list_configs(self) -> Iterable[CodeFilePath]: ...
 
-    def list(self, item_type, *item_types: RepoItemType) -> Iterable[tuple[RepoItemType, CodeFilePath]]:
+    def list(self, item_type, *item_types: repo_function) -> Iterable[tuple[repo_function, CodeFilePath]]:
         for i_t in set(chain([item_type], item_types)):
             source: Iterable[CodeFilePath] = None
             match i_t:
@@ -159,8 +159,8 @@ class AnalysedRepo(ManagedDirectory, ABC):
                 #todo add examples
             yield from ( (i_t, x) for x in source )
 
-    def list_all(self) -> Iterable[tuple[RepoItemType, CodeFilePath]]:
-        return self.list(*RepoItemType.__args__)
+    def list_all(self) -> Iterable[tuple[repo_function, CodeFilePath]]:
+        return self.list(*repo_function.__args__)
 
 class PipOutdatedRepo(AnalysedRepo):
     """

@@ -1,0 +1,9 @@
+"- **Helper function:** `get_session()` returns an `aiohttp.ClientSession` used for\
+  \ all HTTP requests in the project.  \n- **Custom User-Agent:** The session includes\
+  \ the header `{\"User-Agent\": \"pip-outdated\"}` so external services can identify\
+  \ requests originating from this tool.  \n- **Connection limit:** A `TCPConnector`\
+  \ with `limit=5` restricts the number of simultaneous connections to five, which\
+  \ balances network load and performance when checking multiple packages.  \n- **Implication\
+  \ for users:** This configuration ensures consistent request behavior and a moderate\
+  \ level of concurrency, which may affect how quickly the tool can query package\
+  \ indexes."

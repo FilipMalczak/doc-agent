@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Inside the 'check_outdated' function, it calls 'get_pypi_versions'\n    and passes\
+  \ the package name and a session object, which likely manages HTTP requests\n  \
+  \  asynchronously.\n  fact: The 'check_outdated' function utilizes 'get_pypi_versions'\
+  \ to retrieve available\n    versions of a package from the Python Package Index\
+  \ (PyPI).\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

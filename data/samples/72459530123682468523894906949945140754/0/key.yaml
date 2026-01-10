@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function parse_cfg uses ConfigParser to read configuration files,\n    specifically\
+  \ looking for 'setup_requires', 'install_requires', and 'extras_require'\n    sections.\
+  \ It processes the text in these sections to extract requirements.\n  fact: The\
+  \ function `parse_cfg` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
+  \    to parse configuration files for Python package dependencies.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

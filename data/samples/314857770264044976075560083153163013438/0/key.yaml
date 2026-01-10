@@ -1,5 +1,0 @@
-"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n\n---\n\n## 3. Command\u2011\
-  Line Interface (CLI)\n```bash\npip-outdated [options] [<file> ...]\n```\n### Options\n\
-  - `-v, --verbose` \u2013 Enable verbose output (extra diagnostic prints).\n- `-q,\
-  \ --quiet`   \u2013 Suppress the non\u2011zero exit status when outdated packages\
-  \ are found (useful for CI pipelines).\n"

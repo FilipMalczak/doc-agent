@@ -1,0 +1,3 @@
+In document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf', the test function 'test_pytz'
+  utilizes an async context manager from 'get_session' to handle session lifecycle.
+...

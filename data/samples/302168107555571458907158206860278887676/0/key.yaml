@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ this is directly stated in the import statement and the async with\n    usage\n\
+  \  fact: the test imports `get_session` from pip_outdated.session and uses it as\
+  \ an\n    async context manager in tests/test_pytz.py\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

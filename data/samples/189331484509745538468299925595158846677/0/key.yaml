@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file defines a function named verbose that returns the current\n    value\
+  \ of the global VERBOSE variable.\n  fact: The document with ID d1ef4334-7006-5204-a81e-17bb357c0661\
+  \ defines a function\n    verbose() -> bool in the source file pip_outdated/verbose.py\
+  \ that returns the\n    global VERBOSE value.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

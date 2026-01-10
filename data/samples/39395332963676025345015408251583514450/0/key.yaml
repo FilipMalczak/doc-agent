@@ -1,0 +1,24 @@
+".**Maintainer\u2011focused notes extracted from `tests/test_parse_cfg.py`**\n\n-\
+  \ **Purpose of the test**  \n  Verifies that `pip_outdated.find_require.parse_cfg`\
+  \ correctly parses a `setup.cfg` file and extracts the *package names* (without\
+  \ version constraints) from the following sections:\n  - `options.setup_requires`\n\
+  \  - `options.install_requires`\n  - `options.extras_require` (specifically the\
+  \ `docs` extra)\n\n- **Key behavior validated**\n  - The function reads the file\
+  \ path supplied as a string.\n  - It returns an **iterable of requirement objects**\
+  \ where each object provides a `.name` attribute.\n  - Only the **package name**\
+  \ is retained; version specifiers (e.g., `>= 1.15.0`) and range limits (e.g., `>=\
+  \ 4.0.2, < 5`) are stripped.\n  - All requirement sections are processed in the\
+  \ order they appear in the file, yielding a deterministic ordering:\n    1. `setup_requires`\
+  \ entries\n    2. `install_requires` entries\n    3. Extras (`docs`) entries\n\n\
+  - **Sample `setup.cfg` used in the test**\n  ```ini\n  [options]\n  setup_requires\
+  \ =\n      setuptools_scm >= 1.15.0\n      setuptools_scm_git_archive >= 1.0\n \
+  \     \n  install_requires =\n      ansible >= 2.5\n      ansible-lint >= 4.0.2,\
+  \ < 5\n      \n  [options.extras_require]\n  docs =\n      alabaster\n      Sphinx\n\
+  \  ```\n\n- **Expected output (list of package names)**\n  ```python\n  [\n    \
+  \  \"setuptools_scm\",\n      \"setuptools_scm_git_archive\",\n      \"ansible\"\
+  ,\n      \"ansible-lint\",\n      \"alabaster\",\n      \"Sphinx\"\n  ]\n  ```\n\
+  \n- **Implications for end\u2011users / documentation**\n  - Users relying on `parse_cfg`\
+  \ can expect it to provide a clean list of dependency names, which is useful for\
+  \ generating requirement reports or for tools that need to audit a project's declared\
+  \ dependencies.\n  - Version constraints are **not** included in the output, so\
+  \ any downstream tool that needs version information must handle it separately."

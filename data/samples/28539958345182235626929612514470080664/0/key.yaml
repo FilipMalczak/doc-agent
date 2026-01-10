@@ -1,0 +1,3 @@
+In file 'pip_outdated/find_require.py', there is a function named 'find_require' that
+  identifies and yields requirements from files based on their file extension.
+...

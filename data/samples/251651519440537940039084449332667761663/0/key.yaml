@@ -1,0 +1,12 @@
+"### Important implementation details for users\n\n- **Verbosity**: Controlled by\
+  \ `pip_outdated.verbose.verbose()`. When true, each parsed file is printed (`Parse:\
+  \ <path>`). Ensure your environment sets this flag appropriately if you need debug\
+  \ output.\n- **Comment handling**: Only the first `#` not preceded by a back\u2011\
+  slash is treated as a comment delimiter. Anything after it on the same line is discarded.\n\
+  - **Line continuation**: A line ending with `\\` (escaped newline) is concatenated\
+  \ with the next line before further processing.\n- **Option stripping**: `parse_require`\
+  \ removes any trailing `--option` or `-o` pattern before constructing a `Requirement`.\
+  \ This aligns with pip\u2019s \u201Crequirements file format\u201D where options\
+  \ may follow a package spec.\n- **Error tolerance**: Invalid requirement lines (e.g.,\
+  \ malformed specifiers) are silently ignored (`None` is returned). Callers should\
+  \ be aware that missing entries may be due to parsing failures.\n"

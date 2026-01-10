@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document provides installation instructions using pip install pip-outdated\n\
+  \  fact: The tool can be installed via pip from PyPI\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

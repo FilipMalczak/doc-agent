@@ -1,0 +1,27 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ explicitly\n        defines a test case for the 'pytz' package using async programming\
+  \ and PyPI\n        version-checking functionality, which establishes it as a specific\
+  \ implementation\n        detail within this file.\n      fact: The document with\
+  \ ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' contains a\n        test file for checking\
+  \ 'pytz' package PyPI versions using asynchronous operations.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ imports\n        and utilizes 'get_pypi_versions' and 'get_session' functions\
+  \ from the project's\n        implementation code, demonstrating their usage in\
+  \ a test context. This shows\n        an explicit dependency between the test file\
+  \ and these library functions.\n      fact: The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ implements\n        a test that uses PyPI version-checking functionality from\
+  \ the 'pip_outdated'\n        library.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The document explicitly marks the test function with '@pytest.mark.asyncio'\n\
+  \        to indicate asynchronous execution, making async testing an observable\
+  \ and\n        documented feature of this test file.\n      fact: The document with\
+  \ ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' implements\n        an asynchronous\
+  \ test for PyPI version checking.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

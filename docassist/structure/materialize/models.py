@@ -3,8 +3,8 @@ from typing import Self
 
 from pydantic import BaseModel
 
-from docassist.agents.generators.facts_from_file import Fact
-from docassist.index.document import Document, TransientDocumentType, CommonMetadata, TransientMeta
+from docassist.index.document import Document
+from docassist.preindexing.agents.facts_from_file import Fact
 from docassist.simple_xml import to_simple_xml
 
 
@@ -61,12 +61,8 @@ class MaterializationState:
 
     def fact_docs(self) -> list[Document]:
         return [
-            Document(
-                id=f"transient_{i}",
-                content=to_simple_xml(f.model_dump(mode="json")),
-                metadata=TransientMeta(document_type="transient")
-            )
-            for i, f in enumerate(self.facts)
+            Document.transient(to_simple_xml(f.model_dump(mode="json")))
+            for f in self.facts
         ]
 
 class VariableSpecification(BaseModel):

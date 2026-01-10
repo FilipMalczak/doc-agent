@@ -1,0 +1,239 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <contract>\n    <precedence>Contract rules override all other sections.</precedence>\n\
+      \    <invariant>Exactly one response is allowed. The response MUST contain exactly\
+      \ one tool call to the designated output tool. Calling the same tool with the\
+      \ same parameters twice is disallowed.</invariant>\n    <fallback>If no tool\
+      \ clearly applies, call the designated output tool anyway.</fallback>\n  </contract>\n\
+      \  <deliberation>\n    <permission>Internal deliberation MAY be performed.</permission>\n\
+      \    <visibility>Internal deliberation MUST NOT appear in the response.</visibility>\n\
+      \    <constraint>After deliberation, you MUST immediately emit the tool call.</constraint>\n\
+      \  </deliberation>\n  <output>Natural language output outside tools is forbidden.\
+      \ The designated output tool is the only valid means of emitting results.</output>\n\
+      \  <decisiveness>If uncertain, choose an action and proceed. An imperfect action\
+      \ is preferred over hesitation.</decisiveness>\n</behaviour>\n<persona>fact\
+      \ extractor</persona>\n<task>\n  <context>you're reading the whole project for\
+      \ the first time; you need to extract the useful information for later usage</context>\n\
+      \  <high_level>extract atomic facts from the input file</high_level>\n  <perspective>\n\
+      \    <role>\n      <slug>maintainer</slug>\n      <details>someone who work\
+      \ with the project, but doesn't use it directly; someone that makes sure that\
+      \ endusers can use it</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>given a source file extract a list of facts that can be inferred\
+      \ from it; they should be short, self-enclosed and relevant only to the required\
+      \ perspective; you should not look into the dependent and depending files, your\
+      \ sole focus should be on currently processed file</low_level>\n  <detailed>extract\
+      \ atomic pieces of knowledge that can be later used to prepare user-facing documentation\
+      \ of the project that the input file is part of; explain why you think that\
+      \ each statement is a fact; facts should include all the necessary details to\
+      \ be understandable without additional context; make sure not to make statements\
+      \ like 'there is one <something>', contextualize instead, resulting in 'there\
+      \ is one <something> in <this file>'; avoid indirect statements like 'in current\
+      \ file' in favour of very explicit statements like 'in document with ID <specific\
+      \ ID>'; at this stage you should extract facts meaningful to a single perspective\
+      \ (this will happen for any possible perspective in parallel); do not note things\
+      \ that are not applicable to the current perspective; if there are no facts\
+      \ to be extracted from given perspective,use the `empty_result` tool to indicate\
+      \ and explain that. In other case, emit the response aligned with the provided\
+      \ schema via `final_result` tool.</detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<id>653d1fa4-fc8a-53d4-997f-a13ae24438e2</id>\n<document_type>source_file</document_type>\n\
+      <details>\n  <path>pip_outdated/find_require.py</path>\n</details>\n<provenance>\n\
+      \  <list>\n  </list>\n</provenance>\n<content>\n\"\"\"\nFind requirements.\n\
+      https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format\n\
+      \"\"\"\n\nfrom collections.abc import Iterable\nfrom configparser import ConfigParser\n\
+      import pathlib\nimport re\n\nfrom packaging.requirements import Requirement,\
+      \ InvalidRequirement\nfrom .verbose import verbose\n\ndef iter_files(patterns):\n\
+      \    \"\"\"Yield path.Path(file) from multiple glob patterns.\"\"\"\n    for\
+      \ pattern in patterns:\n        if pathlib.Path(pattern).is_file():\n      \
+      \      yield pathlib.Path(pattern)\n        else:\n            yield from pathlib.Path(\"\
+      .\").glob(pattern)\n                \ndef file_to_lines(file):\n    \"\"\"Yield\
+      \ line from a file. Handle '#' comment and '\\' continuation escape.\n    \"\
+      \"\"\n    if verbose():\n        print(f\"Parse: {file}\")\n    with file.open(\"\
+      r\", encoding=\"utf-8\") as f:\n        yield from parse_lines(f)\n\ndef parse_lines(lines:\
+      \ Iterable[str]):\n    pre_line = \"\"\n    for line in lines:\n        match\
+      \ = re.match(r\"(.*?)(^|\\s)#\", line)\n        if match:\n            yield\
+      \ pre_line + match.group(1)\n            pre_line = \"\"\n            continue\n\
+      \        if line.endswith(\"\\\\\\n\"):\n            pre_line += line[0:-2]\n\
+      \            continue\n        if line.endswith(\"\\n\"):\n            yield\
+      \ pre_line + line[0:-1]\n            pre_line = \"\"\n            continue\n\
+      \        yield pre_line + line\n        pre_line = \"\"\n\ndef parse_requirements(file):\n\
+      \    for line in file_to_lines(file):\n        require = parse_require(line)\n\
+      \        if require:\n            yield require\n\ndef parse_requirements_text(text:\
+      \ str):\n    for line in parse_lines(text.splitlines(True)):\n        require\
+      \ = parse_require(line)\n        if require:\n            yield require\n\n\
+      def parse_cfg(file):\n    conf = ConfigParser()\n    conf.read(file, encoding=\"\
+      utf-8\")\n\n    def get_texts():\n        try:\n            yield conf[\"options\"\
+      ][\"setup_requires\"]\n        except KeyError:\n            pass\n        try:\n\
+      \            yield conf[\"options\"][\"install_requires\"]\n        except KeyError:\n\
+      \            pass\n        try:\n            for key in conf[\"options.extras_require\"\
+      ]:\n                yield conf[\"options.extras_require\"][key]\n        except\
+      \ KeyError:\n            pass\n\n    for text in get_texts():\n        if not\
+      \ text:\n            continue\n        yield from parse_requirements_text(text)\n\
+      \    \ndef find_require(files):\n    for file in iter_files(files):\n      \
+      \  requires = parse_cfg(file) if file.suffix == \".cfg\" else parse_requirements(file)\n\
+      \        yield from requires\n    \ndef parse_require(text):\n    # strip options\n\
+      \    match = re.match(r\"(.*?)\\s--?[a-z]\", text)\n    if match:\n        text\
+      \ = match.group(1)\n    try:\n        return Requirement(text)\n    except InvalidRequirement:\n\
+      \        return None\n    \n\n</content>\n<additional_details>\n  <language>python</language>\n\
+      \  <repo_function>code</repo_function>\n</additional_details>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools:
+  - description: '<summary>Indicate that there is no meaningful result to the task
+      you''re handling. It means a successful, but empty
+
+      response.</summary>
+
+      <returns>
+
+      <description>end of the agent session</description>
+
+      </returns>'
+    kind: function
+    metadata: null
+    name: empty_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      additionalProperties: false
+      properties:
+        comment:
+          description: explanation as to why current task has no result
+          type: string
+      required:
+      - comment
+      type: object
+    sequential: false
+    strict: null
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        Fact:
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          title: Fact
+          type: object
+      additionalProperties: false
+      properties:
+        result:
+          anyOf:
+          - additionalProperties: false
+            properties:
+              data:
+                properties:
+                  facts:
+                    items:
+                      $ref: '#/$defs/Fact'
+                    type: array
+                required:
+                - facts
+                type: object
+              kind:
+                const: Facts
+                type: string
+            required:
+            - kind
+            - data
+            title: Facts
+            type: object
+          - additionalProperties: false
+            properties:
+              data:
+                properties:
+                  response:
+                    type: 'null'
+                required:
+                - response
+                type: object
+              kind:
+                const: NoneType
+                type: string
+            required:
+            - kind
+            - data
+            title: NoneType
+            type: object
+      required:
+      - result
+      type: object
+    name: null
+    strict: null
+  output_tools:
+  - description: 'Facts: The final response which ends this conversation'
+    kind: output
+    metadata: null
+    name: final_result_Facts
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        Fact:
+          properties:
+            explanation:
+              type: string
+            fact:
+              type: string
+          required:
+          - fact
+          - explanation
+          title: Fact
+          type: object
+      properties:
+        facts:
+          items:
+            $ref: '#/$defs/Fact'
+          type: array
+      required:
+      - facts
+      title: Facts
+      type: object
+    sequential: false
+    strict: null
+  - description: 'NoneType: The final response which ends this conversation'
+    kind: output
+    metadata: null
+    name: final_result_NoneType
+    outer_typed_dict_key: response
+    parameters_json_schema:
+      properties:
+        response:
+          type: 'null'
+      required:
+      - response
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

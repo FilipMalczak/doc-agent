@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_args' function lets users provide file paths, with defaults\n    set\
+  \ to 'requirements.txt' and 'setup.cfg'.\n  fact: The 'pip-outdated' CLI allows\
+  \ users to specify requirements files for dependency\n    checks.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

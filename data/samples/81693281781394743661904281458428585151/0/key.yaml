@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The find_require function uses iter_files to iterate over files. For\n    each\
+  \ file, if the extension is '.cfg', it uses parse_cfg; otherwise, it uses parse_requirements.\n\
+  \    It yields all the processed requirements.\n  fact: The function `find_require`\
+  \ is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n    to locate\
+  \ and generate requirements from given files based on their extensions.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

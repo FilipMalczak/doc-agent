@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Having a __main__.py with a __main__ guard that imports and runs a\n    main function\
-  \ is the conventional mechanism for making a package executable as\n    a module.\n\
-  \  fact: The file is intended to serve as the entry point for the pip_outdated package\n\
-  \    when executed via 'python -m pip_outdated'.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

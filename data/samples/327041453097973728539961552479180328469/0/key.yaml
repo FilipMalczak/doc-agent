@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_lines' generator processes raw lines, managing line continuations\n\
+  \    and comments, which is critical for accurate requirement parsing.\n  fact:\
+  \ In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function\n\
+  \    named parse_lines that yields cleaned lines by handling comment markers and\
+  \ line\n    continuations.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

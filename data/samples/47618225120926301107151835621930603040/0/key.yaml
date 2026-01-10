@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The __version__ variable is set to '0.8.0', but there is a TODO comment\n    indicating\
+  \ that the version badge needs updating.\n  fact: In document with ID e66496b8-e454-5538-9version\
+  \ badge is not up-to-date.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

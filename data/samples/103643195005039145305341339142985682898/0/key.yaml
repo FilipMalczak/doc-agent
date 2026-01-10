@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The TCPConnector is created with limit=7.\n  fact: The get_session function uses\
+  \ an aiohttp.ClientSession with a TCPConnector\n    having a limit of 7 in pip_out\
+  \ Dokumentationen session.py\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

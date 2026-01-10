@@ -1,9 +1,0 @@
-"### Usage\n```bash\npip-outdated [options] [<file> ...]\n```\n- **Positional arguments**\
-  \ \u2013 one or more requirement files (supports glob patterns). Default: `['requirements.txt',\
-  \ 'setup.cfg']`.\n- **Options**\n  - `-h`, `--help` \u2013 Show help message and\
-  \ exit.\n  - `-v`, `--verbose` \u2013 Print verbose information (default: `false`).\n\
-  \  - `-q`, `--quiet` \u2013 Do **not** return exit code\u202F1 when everything is\
-  \ up\u2011to\u2011date (default: `false`).\n\n#### Example commands\n- Check multiple\
-  \ files (e.g., `test-requirements.txt` and `dev-requirements.txt`):\n  ```bash\n\
-  \  pip-outdated *-requirements.txt\n  ```\n- Check all files in a folder:\n  ```bash\n\
-  \  pip-outdated requirements/*.txt\n  ```\n\n---"

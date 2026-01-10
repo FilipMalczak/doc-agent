@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function find_require is defined in the file, which iterates over\n    files,\
+  \ calling either parse_cfg or parse_requirements based on the file's suffix.\n \
+  \ fact: The file pip_outdated/find_require.py contains a function named find_require\n\
+  \    that processes files for requirements.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

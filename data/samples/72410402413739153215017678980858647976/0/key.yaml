@@ -1,0 +1,4 @@
+"## Project Overview (maintainer perspective)\n### Additional Configuration (`[vpip]`\
+  \ section)\n- **`command_fallback = python cute.py`** \u2013 provides a fallback\
+  \ command for the `vpip` tool (if used). This is a custom configuration that may\
+  \ need documentation for users of `vpip`.\n"

@@ -1,0 +1,2450 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"facts": [{"fact": "In file ''pip_outdated/find_require.py'', there is a
+    function named ''iter_files'' that takes a list of glob patterns and yields file
+    paths matching those patterns.", "explanation": "The function ''iter_files'' is
+    defined in the given Python source file. It takes a parameter ''patterns'' and
+    uses the pathlib module to check if a pattern is a file or to glob for matching
+    files. The function''s purpose is to yield file paths based on the provided patterns."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''file_to_lines'' that reads a file and yields lines while handling comments and
+    line continuation.", "explanation": "The ''file_to_lines'' function is defined
+    in the given Python source file. It opens a file in read mode, prints the file
+    to parse if verbose mode is enabled, and processes lines using the ''parse_lines''
+    function to handle comments and line continuation characters. The function yields
+    each processed line."}, {"fact": "In file ''pip_outdated/find_require.py'', there
+    is a function named ''parse_lines'' that processes lines by removing comments
+    and handling line continuation escape characters.", "explanation": "The ''parse_lines''
+    function is defined in the source file. It takes an iterable of lines and processes
+    them by removing comments and handling line continuation escape characters (\\).
+    The function yields processed lines after handling these cases."}, {"fact": "In
+    file ''pip_outdated/find_require.py'', there is a function named ''parse_requirements''
+    that parses a file and extracts requirement lines using ''parse_require''.", "explanation":
+    "The ''parse_requirements'' function is defined in the source file. It uses the
+    ''file_to_lines'' function to iterate over the lines of a file and apply the ''parse_require''
+    function to each line, yielding valid requirements extracted from the file."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''parse_requirements_text'' that takes a string of text, splits it into lines,
+    and processes them to extract requirements.", "explanation": "The ''parse_requirements_text''
+    function is defined in the source file. It takes a string of text, splits it into
+    lines, processes them using the ''parse_lines'' function, and applies the ''parse_require''
+    function to each line to yield valid requirements."}, {"fact": "In file ''pip_outdated/find_require.py'',
+    there is a function named ''parse_cfg'' that parses a configuration file (e.g.,
+    .cfg) and extracts requirement information from it.", "explanation": "The ''parse_cfg''
+    function is defined in the source file. It uses the ConfigParser to read a .cfg
+    file and extract setup_requires, install_requires, and extras_require sections.
+    It processes the extracted text using ''parse_requirements_text'' to yield valid
+    requirements."}, {"fact": "In file ''pip_outdated/find_require.py'', there is
+    a function named ''find_require'' that identifies and yields requirements from
+    files based on their file extension.", "explanation": "The ''find_require'' function
+    is defined in the source file. It iterates over files based on the provided patterns
+    using ''iter_files'', and depending on the file''s suffix (e.g., .cfg), it uses
+    ''parse_cfg'' or ''parse_requirements'' to extract and yield requirements."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''parse_require'' that processes a line of text to extract a single requirement,
+    ignoring options and handling invalid requirements.", "explanation": "The ''parse_require''
+    function is defined in the source file. It processes a line of text by removing
+    option flags and attempting to parse it as a single requirement using the ''Requirement''
+    class from the ''packaging.requirements'' module. If the line is an invalid requirement,
+    the function returns None."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-61a3dff0c9f243f080ffacad01b64131
+  tool_name: final_result_Facts
+- args: '{"comment": "The file ''pip_outdated/find_require.py'' is a source file related
+    to parsing requirements in Python projects. The focus here is on extracting and
+    processing dependencies. From the perspective of a maintainer who ensures end-users
+    can use the project, there are no direct facts to extract as this file is more
+    about internal implementation details and tooling rather than user-facing features
+    or documentation requirements."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-92f66cc5390c46a39943308b92c99bc8
+  tool_name: empty_result
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-cd2675094ba844cfacca157d05d13b02
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In file ''pip_outdated/find_require.py'', there is a
+    function named ''iter_files'' that takes a list of glob patterns and yields file
+    paths matching those patterns.", "explanation": "The function ''iter_files'' is
+    defined in the given Python source file. It takes a parameter ''patterns'' and
+    uses the pathlib module to check if a pattern is a file or to glob for matching
+    files. The function''s purpose is to yield file paths based on the provided patterns."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''file_to_lines'' that reads a file and yields lines while handling comments and
+    line continuation.", "explanation": "The ''file_to_lines'' function is defined
+    in the given Python source file. It opens a file in read mode, prints the file
+    to parse if verbose mode is enabled, and processes lines using the ''parse_lines''
+    function to handle comments and line continuation characters. The function yields
+    each processed line."}, {"fact": "In file ''pip_outdated/find_require.py'', there
+    is a function named ''parse_lines'' that processes lines by removing comments
+    and handling line continuation escape characters.", "explanation": "The ''parse_lines''
+    function is defined in the source file. It takes an iterable of lines and processes
+    them by removing comments and handling line continuation escape characters (\\).
+    The function yields processed lines after handling these cases."}, {"fact": "In
+    file ''pip_outdated/find_require.py'', there is a function named ''parse_requirements''
+    that parses a file and extracts requirement lines using ''parse_require''.", "explanation":
+    "The ''parse_requirements'' function is defined in the source file. It uses the
+    ''file_to_lines'' function to iterate over the lines of a file and apply the ''parse_require''
+    function to each line, yielding valid requirements extracted from the file."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''parse_requirements_text'' that takes a string of text, splits it into lines,
+    and processes them to extract requirements.", "explanation": "The ''parse_requirements_text''
+    function is defined in the source file. It takes a string of text, splits it into
+    lines, processes them using the ''parse_lines'' function, and applies the ''parse_require''
+    function to each line to yield valid requirements."}, {"fact": "In file ''pip_outdated/find_require.py'',
+    there is a function named ''parse_cfg'' that parses a configuration file (e.g.,
+    .cfg) and extracts requirement information from it.", "explanation": "The ''parse_cfg''
+    function is defined in the source file. It uses the ConfigParser to read a .cfg
+    file and extract setup_requires, install_requires, and extras_require sections.
+    It processes the extracted text using ''parse_requirements_text'' to yield valid
+    requirements."}, {"fact": "In file ''pip_outdated/find_require.py'', there is
+    a function named ''find_require'' that identifies and yields requirements from
+    files based on their file extension.", "explanation": "The ''find_require'' function
+    is defined in the source file. It iterates over files based on the provided patterns
+    using ''iter_files'', and depending on the file''s suffix (e.g., .cfg), it uses
+    ''parse_cfg'' or ''parse_requirements'' to extract and yield requirements."},
+    {"fact": "In file ''pip_outdated/find_require.py'', there is a function named
+    ''parse_require'' that processes a line of text to extract a single requirement,
+    ignoring options and handling invalid requirements.", "explanation": "The ''parse_require''
+    function is defined in the source file. It processes a line of text by removing
+    option flags and attempting to parse it as a single requirement using the ''Requirement''
+    class from the ''packaging.requirements'' module. If the line is an invalid requirement,
+    the function returns None."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-d0576fdb4eed4a73bc799945dd00fdc0
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-94906b769c194e23a74c8419f0d2e8d9
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In the Python source file ''pip_outdated/find_require.py'',
+    there is a function named ''parse_require'' that extracts requirements from a
+    line of text, ignoring options and handling invalid requirements.", "explanation":
+    "The function ''parse_require'' is defined in the source file. It processes a
+    line of text by stripping any options and attempting to parse it as a single requirement
+    using the ''Requirement'' class from the ''packaging.requirements'' module. If
+    the line is an invalid requirement, the function returns None instead of raising
+    an error."}, {"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''parse_cfg'' that reads a configuration file (e.g., .cfg) and extracts
+    requirement information from it.", "explanation": "The ''parse_cfg'' function
+    uses the ConfigParser to read a .cfg file and extract sections like setup_requires,
+    install_requires, and extras_require. It then processes the extracted text using
+    ''parse_requirements_text'' to yield valid requirements from the configuration
+    file."}, {"fact": "The function ''find_require'' in ''pip_outdated/find_require.py''
+    is responsible for identifying and yielding requirements from files based on their
+    file extensions.", "explanation": "The ''find_require'' function uses ''iter_files''
+    to iterate over files matching the provided patterns. Depending on the file''s
+    extension (e.g., .cfg), it calls ''parse_cfg'' or ''parse_requirements'' to extract
+    and yield requirements."}, {"fact": "There is a function named ''parse_requirements''
+    defined in ''pip_outdated/find_require.py'' that extracts requirements from a
+    file by processing each line using the ''parse_require'' function.", "explanation":
+    "The ''parse_requirements'' function uses ''file_to_lines'' to process each line
+    of a file. It applies the ''parse_require'' function to each line to extract valid
+    requirements and yields them for further use."}, {"fact": "In the file ''pip_outdated/find_require.py'',
+    there is a ''parse_requirements_text'' function that processes a string of text
+    into lines and extracts requirements from those lines.", "explanation": "The ''parse_requirements_text''
+    function takes a string of text, splits it into lines, processes those lines using
+    ''parse_lines'', and then applies ''parse_require'' to extract valid requirements
+    from the text."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file, handles comments and line continuation characters, and yields processed
+    lines.", "explanation": "The ''file_to_lines'' function opens a file in read mode,
+    uses ''parse_lines'' to handle comments and line continuation escape characters,
+    and yields each processed line for further analysis."}, {"fact": "In the Python
+    file ''pip_outdated/find_require.py'', the ''iter_files'' function iterates over
+    file paths based on provided glob patterns, yielding valid file paths.", "explanation":
+    "The ''iter_files'' function takes a list of glob patterns and checks whether
+    each is a file or needs to be expanded using the ''pathlib'' module''s glob functionality.
+    It yields valid file paths that match the given patterns for further processing."},
+    {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py'' processes
+    lines of text by removing comments and handling line continuation escape characters.",
+    "explanation": "The ''parse_lines'' function takes an iterable of lines, removes
+    any leading or trailing comments, and handles line continuation characters (e.g.,
+    ''\") to produce processed lines for further parsing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-e9cc2955f97244b5912c894da6bc255e
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-7fc50093603d4a1eb91c7a93d1a3f926
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-e52ae2586d524ea38673d70595b50fbd
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function named ''iter_files'' that processes glob patterns and yields matching
+    file paths.", "explanation": "The ''iter_files'' function is defined in the source
+    file. It takes a list of glob patterns as input and iterates over them, using
+    the pathlib module to check if each pattern is a valid file or to glob for matching
+    files. It yields each valid file path for further processing."}, {"fact": "The
+    function ''file_to_lines'' in ''pip_outdated/find_require.py'' reads lines from
+    a file, removes comments, and processes line continuation escape characters.",
+    "explanation": "The ''file_to_lines'' function is responsible for opening a file
+    in read mode, printing the file name if verbose mode is enabled, and using the
+    ''parse_lines'' function to handle comments and line continuation escape characters.
+    It yields each processed line of text."}, {"fact": "The ''parse_lines'' function
+    in ''pip_outdated/find_require.py'' processes lines by removing comments and handling
+    continuation escape characters (e.g., ''\") to form complete lines for parsing.",
+    "explanation": "The ''parse_lines'' function takes an iterable of lines and processes
+    them by removing comments and handling line continuation characters. It ensures
+    that lines with continuation are properly merged and processed before being yielded
+    for further analysis."}, {"fact": "In ''pip_outdated/find_require.py'', there
+    is a function named ''parse_requirements'' that extracts requirements from a file
+    by iterating over each line and using the ''parse_require'' function.", "explanation":
+    "The ''parse_requirements'' function uses ''file_to_lines'' to process each line
+    of a file and applies the ''parse_require'' function to extract valid requirements.
+    It iterates over the lines and yields each extracted requirement."}, {"fact":
+    "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    processes a string of text into lines and extracts requirements from them.", "explanation":
+    "The ''parse_requirements_text'' function takes a string of text, splits it into
+    lines, processes those lines using ''parse_lines'', and applies the ''parse_require''
+    function to each line to extract valid requirements and yield them."}, {"fact":
+    "The ''parse_cfg'' function in ''pip_outdated/find_require.py'' reads a .cfg configuration
+    file and extracts requirement information from its sections like setup_requires,
+    install_requires, and extras_require.", "explanation": "The ''parse_cfg'' function
+    uses the ConfigParser to read a .cfg file and extract specific sections containing
+    requirement information. It processes the extracted text using ''parse_requirements_text''
+    to yield valid requirements from the configuration file."}, {"fact": "The function
+    ''find_require'' in ''pip_outdated/find_require.py'' identifies and yields requirements
+    from files based on their file extensions.", "explanation": "The ''find_require''
+    function uses ''iter_files'' to iterate over files matching the provided patterns
+    and, based on the file''s suffix (e.g., .cfg), calls ''parse_cfg'' or ''parse_requirements''
+    to extract and yield requirements."}, {"fact": "The ''parse_require'' function
+    in ''pip_outdated/find_require.py'' processes a line of text to extract a single
+    requirement, ignoring any options and handling invalid requirements gracefully.",
+    "explanation": "The ''parse_require'' function strips any options from the line,
+    attempts to parse it as a single requirement using the ''Requirement'' class,
+    and returns the parsed requirement if valid. If the line is an invalid requirement,
+    it returns None instead of raising an error."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-52a1c97e580f469fa56321c684381c29
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-6f5f7717587e4e9a95b8ca65dd43313f
+  tool_name: final_result_NoneType
+- args: '{"comment": "There are no user-facing features or documentation-related details
+    to extract from the provided source file ''pip_outdated/find_require.py''. The
+    file is focused on internal implementation details for parsing requirements in
+    Python projects, which may not be directly relevant to maintaining user documentation."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-8c6e8a1bdf5247e3befca70c0d68cec6
+  tool_name: empty_result
+- args: '{"comment": "The provided source file ''pip_outdated/find_require.py'' does
+    not contain any user-facing features or documentation-related details that need
+    extraction for the specified perspective."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-fd18b157adbe4cd69c1494a93b965fe0
+  tool_name: empty_result
+- args: '{"comment": "The file is related to the pip_outdated package and handles
+    parsing requirement files and configuration files. However, for the given perspective
+    (a user who uses the project but does not work on it), there are no relevant facts
+    to extract as it deals with internal tooling for dependency management rather
+    than user-facing documentation or features."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-df52209e2d704c349e582077f935b31e
+  tool_name: empty_result
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function named ''iter_files'' that takes a list of glob patterns and yields file
+    paths matching those patterns.", "explanation": "The ''iter_files'' function is
+    defined in the source file and processes each pattern to check if it is a valid
+    file or needs to be expanded as a glob pattern. It uses the pathlib module to
+    iterate over matching files and yield each valid file path for further processing."},
+    {"fact": "In ''pip_outdated/find_require.py'', there is a function named ''file_to_lines''
+    that reads a file, handles comments and line continuation characters, and yields
+    processed lines.", "explanation": "The ''file_to_lines'' function opens the file
+    in read mode, processes each line using the ''parse_lines'' function to remove
+    comments and handle line continuation escape characters, and yields each processed
+    line for further analysis."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    processes lines by removing comments and handling line continuation escape characters.",
+    "explanation": "This function takes an iterable of lines, removes any comments
+    using regular expressions, and handles line continuation escape characters. It
+    ensures that lines are properly merged and processed before yielding the final
+    lines."}, {"fact": "In ''pip_outdated/find_require.py'', there is a function named
+    ''parse_requirements'' that extracts requirements from a file using the ''parse_require''
+    function.", "explanation": "The ''parse_requirements'' function uses ''file_to_lines''
+    to process each line of a file and applies the ''parse_require'' function to extract
+    valid requirements. It iterates over the file''s lines and yields each parsed
+    requirement."}, {"fact": "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    processes a string of text into lines and extracts requirements from them.", "explanation":
+    "This function takes a string of text, splits it into lines, processes those lines
+    using ''parse_lines'', and applies the ''parse_require'' function to extract valid
+    requirements from the text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file and extracts requirement information from it.",
+    "explanation": "This function uses the ConfigParser to read a .cfg file and extract
+    sections like setup_requires, install_requires, and extras_require. It processes
+    the extracted text using ''parse_requirements_text'' to yield valid requirements
+    from the configuration file."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    identifies and yields requirements from files based on their file extensions.",
+    "explanation": "The ''find_require'' function iterates over files using ''iter_files''.
+    Depending on the file''s suffix (e.g., .cfg), it uses either ''parse_cfg'' or
+    ''parse_requirements'' to extract and yield requirements from the file."}, {"fact":
+    "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a single requirement, ignoring options and handling
+    invalid requirements gracefully.", "explanation": "The ''parse_require'' function
+    strips any option flags from a line of text and attempts to parse it as a single
+    requirement using the ''Requirement'' class. If the line is invalid, it returns
+    None instead of raising an error, ensuring the function does not crash but instead
+    handles invalid lines gracefully."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-dc98283a41ec4e78a46d7097cda0b482
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-ab2715bb3ea14388944471b03a45ea09
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-255bcf8c8a184878b98658148bba71d1
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function named ''iter_files'' that processes multiple glob patterns and yields
+    valid file paths.", "explanation": "The ''iter_files'' function is defined in
+    the source file and iterates over the provided glob patterns to yield file paths.
+    If a pattern is a valid file, it is directly yielded; otherwise, the function
+    uses ''glob'' to expand the pattern and yield matching files."}, {"fact": "In
+    ''pip_outdated/find_require.py'', there is a function named ''file_to_lines''
+    that reads a file, processes its lines to remove comments and handle line continuation,
+    and yields the cleaned lines.", "explanation": "The ''file_to_lines'' function
+    opens the file in read mode, prints the file name if verbose mode is enabled,
+    and uses the ''parse_lines'' function to handle comments (those starting with
+    a ''#'') and line continuation escape characters (e.g., ''\"). Each processed
+    line is yielded for further use."}, {"fact": "The ''parse_lines'' function in
+    ''pip_outdated/find_require.py'' processes lines by removing comments and handling
+    line continuation characters to form complete lines of text.", "explanation":
+    "This function iterates through lines, removes comments using regular expressions,
+    and handles line continuation by appending lines that end in a backslash. It ensures
+    that each line is a complete, processed string for further parsing."}, {"fact":
+    "In ''pip_outdated/find_require.py'', there is a function named ''parse_requirements''
+    that extracts requirements from a file by iterating over each line and using ''parse_require''
+    to parse valid requirements.", "explanation": "The ''parse_requirements'' function
+    uses ''file_to_lines'' to read and process each line of a file. The function applies
+    the ''parse_require'' method to each line to extract valid requirements and yields
+    them."}, {"fact": "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    processes a string of text into valid requirements by splitting it into lines
+    and using ''parse_lines'' to handle comments and line continuation.", "explanation":
+    "This function takes a string of text, splits it into lines, processes those lines
+    using the ''parse_lines'' function, and applies ''parse_require'' to extract valid
+    requirements. It yields each parsed requirement from the text."}, {"fact": "The
+    ''parse_cfg'' function in ''pip_outdated/find_require.py'' reads a .cfg configuration
+    file and extracts requirement data from its sections such as setup_requires, install_requires,
+    and extras_require.", "explanation": "The ''parse_cfg'' function uses the ''ConfigParser''
+    to read a .cfg file and extract the relevant sections that contain requirement
+    information. It processes the extracted text using ''parse_requirements_text''
+    to yield the requirements."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    identifies and yields requirements from files based on their file extension, using
+    ''parse_cfg'' for .cfg files and ''parse_requirements'' for others.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to iterate over files based
+    on the provided patterns. Depending on the file''s extension (e.g., .cfg), it
+    calls either ''parse_cfg'' or ''parse_requirements'' to extract and yield the
+    requirements."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a single requirement, removing any options
+    and handling invalid requirements gracefully by returning None instead of raising
+    an error.", "explanation": "The ''parse_require'' function strips any option flags
+    from the line, attempts to parse it as a single requirement using the ''Requirement''
+    class, and returns the parsed requirement if valid. If the line is not a valid
+    requirement, it returns None, ensuring the function does not crash but handles
+    the error silently."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-6b96e6e401944da4a3f7688e2a2f4c9e
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-fa2403a59e9e4f6fac7d35f39601d2c6
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function named ''iter_files'' that parses multiple glob patterns and yields file
+    paths that match those patterns.", "explanation": "The ''iter_files'' function
+    is defined in the source file and takes a list of patterns. It checks if each
+    pattern is a valid file and yields it, or else it expands the pattern using ''glob''
+    to find matching files and yields them for further processing."}, {"fact": "In
+    ''pip_outdated/find_require.py'', there is a function named ''file_to_lines''
+    that reads a file, processes its lines to remove comments and handle line continuation,
+    and yields the cleaned lines one by one.", "explanation": "The ''file_to_lines''
+    function opens the file in read mode, prints a message if verbose mode is enabled,
+    and uses the ''parse_lines'' function to process each line by removing comments
+    and handling line continuation escape characters. The function then yields the
+    processed lines for further use."}, {"fact": "The function ''parse_lines'' in
+    ''pip_outdated/find_require.py'' is responsible for processing lines by removing
+    comments and handling line continuation escape characters to produce clean lines
+    of text.", "explanation": "This function takes an iterable of lines and processes
+    each one by using regular expressions to remove comments and managing lines ending
+    with a backslash (line continuation). It ensures that each line is properly processed
+    before yielding it."}, {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines using ''file_to_lines'', and extracts valid
+    requirements with the help of the ''parse_require'' function.", "explanation":
+    "The ''parse_requirements'' function iterates over the lines of the input file,
+    processing each line using ''file_to_lines'', and then applies the ''parse_require''
+    function to extract valid requirements. It yields each valid requirement found
+    in the file."}, {"fact": "In ''pip_outdated/find_require.py'', the function ''parse_requirements_text''
+    takes a string of text, splits it into lines, and uses ''parse_lines'' to process
+    the text and extract valid requirements.", "explanation": "The ''parse_requirements_text''
+    function uses the ''parse_lines'' function to split and process the input text
+    into lines, and then applies the ''parse_require'' function to extract valid requirements.
+    It yields the parsed requirements from the text."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' is used to parse a .cfg file, extract
+    sections like setup_requires and install_requires, and process the extracted text
+    to yield valid requirements.", "explanation": "The ''parse_cfg'' function uses
+    the ''ConfigParser'' to read a .cfg file and extract the relevant sections that
+    contain requirement information. It processes the extracted text using ''parse_requirements_text''
+    to yield the valid requirements from the configuration file."}, {"fact": "The
+    function ''find_require'' in ''pip_outdated/find_require.py'' processes files
+    based on their extension by using ''parse_cfg'' for .cfg files or ''parse_requirements''
+    for other file types to extract and yield requirements.", "explanation": "The
+    ''find_require'' function uses ''iter_files'' to iterate over the provided patterns.
+    For each file, it determines the file type by extension and uses the appropriate
+    parser to extract requirements, either through ''parse_cfg'' for .cfg files or
+    ''parse_requirements'' for other file types."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_require'' function processes a single line of text to extract a requirement,
+    stripping any option flags and handling invalid requirements by returning None
+    instead of raising an error.", "explanation": "The ''parse_require'' function
+    removes option flags from the input line, attempts to parse it as a valid requirement
+    using the ''Requirement'' class, and returns the parsed object if successful.
+    If the line is invalid, it returns None to handle errors gracefully without causing
+    the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-40cb1cf8067a4db99460addbded578f8
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-14e64de88ff94cadb2dd08df9d5d6c1e
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-0265b128dee44ac5acd1a3f387321f8b
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The Python file ''pip_outdated/find_require.py'' defines
+    a function called ''iter_files'' to process a list of glob patterns and yield
+    matching file paths.", "explanation": "The function ''iter_files'' is defined
+    in the file. It takes a list of patterns and checks if each is a valid file using
+    the ''pathlib.Path'' module. If a pattern is valid, it is yielded; otherwise,
+    the function uses ''glob'' to find matching files and yields them for further
+    processing."}, {"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''file_to_lines'' that reads a file, processes each line to remove comments
+    and handle line continuation, and yields the cleaned lines.", "explanation": "The
+    ''file_to_lines'' function opens the file in read mode, prints a message in verbose
+    mode, and processes each line using the ''parse_lines'' function to handle comments
+    and line continuation characters. It then yields the processed lines for further
+    use."}, {"fact": "The function ''parse_lines'' in ''pip_outdated/find_require.py''
+    processes lines of text by removing comments and handling line continuation escape
+    characters.", "explanation": "This function takes an iterable of lines and processes
+    each one using regular expressions to remove comments and manage line continuation.
+    It ensures that each line is clean and properly formatted before being yielded."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines via ''file_to_lines'', and extracts valid requirements
+    using the ''parse_require'' function.", "explanation": "The ''parse_requirements''
+    function uses ''file_to_lines'' to iterate over each line of the file and applies
+    the ''parse_require'' function to extract valid requirements. It yields each valid
+    requirement found in the file for further processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the function ''parse_requirements_text'' takes a block of text, splits it into
+    lines, and processes those lines to extract valid requirements.", "explanation":
+    "The ''parse_requirements_text'' function splits the input text into lines, processes
+    each line using ''parse_lines'', and then uses ''parse_require'' to extract valid
+    requirements. It yields each parsed requirement from the text."}, {"fact": "The
+    ''parse_cfg'' function in ''pip_outdated/find_require.py'' is designed to parse
+    .cfg files by reading their configuration data and extracting requirement sections
+    such as setup_requires and install_requires.", "explanation": "This function uses
+    the ''ConfigParser'' to read a .cfg file and extract the relevant sections containing
+    requirements. It processes the extracted text using ''parse_requirements_text''
+    to yield the valid requirements from the configuration file."}, {"fact": "The
+    ''find_require'' function in ''pip_outdated/find_require.py'' iterates over files
+    based on the provided patterns and uses either ''parse_cfg'' for .cfg files or
+    ''parse_requirements'' for other files to extract requirements.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to process the given patterns
+    and iterate over the files. Depending on the file''s suffix (e.g., .cfg), it applies
+    the appropriate parsing function to extract and yield the requirements."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the function ''parse_require'' processes
+    a line of text to extract a requirement, removing any option flags and handling
+    invalid requirements gracefully by returning None instead of raising an error.",
+    "explanation": "The ''parse_require'' function removes any options from the line,
+    attempts to parse it as a valid requirement using the ''Requirement'' class, and
+    returns the parsed requirement if valid. If the line is not a valid requirement,
+    it returns None to avoid crashing the function and allows for error handling."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-3984446056d0428f842e0d01ad697c95
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-f03535b4616841b5988bb5d321bfe1ce
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In the file ''pip_outdated/find_require.py'', there
+    is a function named ''iter_files'' that processes multiple glob patterns and yields
+    file paths that match those patterns.", "explanation": "The ''iter_files'' function
+    is defined in the source file and takes a list of glob patterns as input. It iterates
+    over these patterns, checks if each is a valid file using the ''pathlib.Path''
+    module, and yields the corresponding path or, in the case of a pattern, expands
+    it and yields matching files."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the function ''file_to_lines'' reads a file, processes each line to remove comments
+    and handle line continuation, and yields the cleaned lines for further processing.",
+    "explanation": "The ''file_to_lines'' function is responsible for opening a file
+    in read mode and using the ''parse_lines'' function to process each line. It removes
+    comments using regular expressions and manages line continuation characters, ensuring
+    that each line is clean before it is yielded."}, {"fact": "The function ''parse_lines''
+    in ''pip_outdated/find_require.py'' processes lines of text by removing comments
+    and handling line continuation escape characters to generate clean lines for requirement
+    parsing.", "explanation": "This function is designed to take an iterable of lines
+    and process each line by using regular expressions to detect and remove comments.
+    It also handles line continuation characters such as ''\", ensuring that each
+    processed line is complete and ready for further analysis."}, {"fact": "The file
+    ''pip_outdated/find_require.py'' defines a function called ''parse_requirements''
+    that reads a file, processes its lines, and extracts valid requirements using
+    the ''parse_require'' function.", "explanation": "The ''parse_requirements'' function
+    iterates over each line of the file using ''file_to_lines'' and applies the ''parse_require''
+    function to each line. It yields each valid requirement that is successfully parsed
+    for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    function ''parse_requirements_text'' is used to process a string of text into
+    valid requirements by splitting it into lines and using ''parse_lines'' to clean
+    and parse them.", "explanation": "The ''parse_requirements_text'' function takes
+    a string of text, splits it into individual lines, and processes those lines using
+    ''parse_lines'' to remove comments and handle line continuation. It then uses
+    the ''parse_require'' function to extract valid requirements from the processed
+    lines."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    is designed to parse .cfg configuration files and extract requirement information
+    from specific sections like setup_requires and install_requires.", "explanation":
+    "This function reads a .cfg file using the ''ConfigParser'' and checks for sections
+    such as ''options/setup_requires'' and ''options/install_requires''. It processes
+    the extracted text using ''parse_requirements_text'' to yield valid requirements
+    from the configuration file."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files based on provided patterns, using ''parse_cfg'' for .cfg files
+    and ''parse_requirements'' for other files to extract requirements and yield them.",
+    "explanation": "The ''find_require'' function uses ''iter_files'' to iterate over
+    files that match the provided patterns. Depending on the file''s suffix (e.g.,
+    .cfg), it calls either ''parse_cfg'' or ''parse_requirements'' to extract and
+    yield requirements for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the function ''parse_require'' processes a single line of text to extract a requirement,
+    stripping away any options and handling invalid requirements by returning None
+    instead of raising an error.", "explanation": "The ''parse_require'' function
+    is responsible for removing any option flags from a line of text and attempting
+    to parse it as a single requirement using the ''Requirement'' class. If the line
+    is not a valid requirement, the function returns None to handle the error gracefully
+    without crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-cdc84ceccde14c65885ad55918a95956
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-73f7b03e57744ad0a81daaedddc09039
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields valid file paths that match those
+    patterns.", "explanation": "The ''iter_files'' function takes a list of patterns
+    and checks if each is a valid file using the ''pathlib.Path'' module. If valid,
+    the file path is yielded. If not, the function uses ''glob'' to expand the pattern
+    and yield all matching files."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file and processes each line to remove
+    comments and handle line continuation, yielding the cleaned lines for further
+    analysis.", "explanation": "The ''file_to_lines'' function opens the file in read
+    mode, prints the file name if verbose mode is enabled, and processes each line
+    using the ''parse_lines'' function. It yields the cleaned lines after removing
+    comments and handling line continuation escape characters."}, {"fact": "The ''parse_lines''
+    function in ''pip_outdated/find_require.py'' ensures that lines of text are processed
+    by removing comments and handling line continuation escape characters such as
+    ''\", resulting in complete and clean lines of text.", "explanation": "This function
+    removes comments by matching lines that begin with a ''#'', handles line continuation
+    by checking for a backslash at the end of a line, and ensures that each line is
+    processed and merged properly before being yielded."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, processes its lines
+    via ''file_to_lines'', and extracts valid requirements using the ''parse_require''
+    function.", "explanation": "The ''parse_requirements'' function iterates through
+    the lines processed by ''file_to_lines'' and applies the ''parse_require'' function
+    to extract each valid requirement. It yields the parsed requirements for use in
+    the project."}, {"fact": "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    takes a block of text and processes it into valid requirements by first splitting
+    it into lines, then applying the same processing as the ''parse_requirements''
+    function.", "explanation": "This function splits the input text into individual
+    lines and processes those lines using ''parse_lines'' to clean them. The cleaned
+    lines are then passed through the ''parse_require'' function to yield valid requirements
+    from the text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file and extracts requirement information from specific
+    sections, such as setup_requires and install_requires.", "explanation": "This
+    function uses the ''ConfigParser'' to read a .cfg file and locate sections containing
+    requirement information. It then processes the extracted text using ''parse_requirements_text''
+    to yield valid requirements from those sections."}, {"fact": "The ''find_require''
+    function in ''pip_outdated/find_require.py'' iterates over files based on a list
+    of patterns, using ''iter_files'' to find them, and extracts requirements using
+    either ''parse(cfg)'' for .cfg files or ''parse_requirements'' for others.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to find matching files. For
+    each file, based on its extension (e.g., .cfg), it calls the appropriate parsing
+    function (''parse_cfg'' for .cfg or ''parse_requirements'' for others) to extract
+    and yield the requirements."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_require'' function processes a single line of text to extract a requirement,
+    strips away any options, and handles invalid requirements gracefully by returning
+    None instead of raising an error.", "explanation": "The ''parse_require'' function
+    attempts to remove any options that appear at the beginning of a line and then
+    parse the remainder as a single requirement using the ''Requirement'' class. If
+    parsing fails due to an invalid requirement, the function returns None to avoid
+    crashing and allows for error management."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-c8c07c56d7564a0582425d01b1320d71
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-0fa4329028c1473caff4f895aa63c1df
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In the file ''pip_outdated/find_require.py'', there
+    is a function named ''iter_files'' that processes multiple glob patterns and yields
+    matching file paths.", "explanation": "The ''iter_files'' function is defined
+    in the source file and takes a list of patterns as input. It iterates over each
+    pattern, checking if it is a valid file or using ''glob'' to find matching files
+    and yield the corresponding paths."}, {"fact": "The function ''file_to_lines''
+    in ''pip_outdated/find_require.py'' reads a file, processes each line to remove
+    comments and handle line continuation characters, and yields the cleaned lines.",
+    "explanation": "This function opens a file in read mode, prints a message if in
+    verbose mode, and uses ''parse_lines'' to process each line. Comments are removed,
+    and line continuation characters (e.g., ''\") are handled, resulting in clean
+    lines being yielded."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines''
+    function processes lines by removing comments and handling line continuation escape
+    characters, ensuring clean and complete lines of text for parsing.", "explanation":
+    "The ''parse_lines'' function takes an iterable of lines, removes comments using
+    regular expressions, and processes line continuation characters to merge split
+    lines. It ensures that each line is properly formatted for further processing."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines using ''file_to_lines'', and extracts valid
+    requirements with the help of the ''parse_require'' function.", "explanation":
+    "The function uses ''file_to_lines'' to process each line and ''parse_require''
+    to extract valid requirements. It iterates over and yields each valid requirement
+    found in the file."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function takes a string of text, processes it by splitting into lines and applying
+    ''parse_lines'', and then extracts valid requirements using ''parse_require''.",
+    "explanation": "This function splits the input text into individual lines, uses
+    ''parse_lines'' to clean them, and then applies the ''parse_require'' function
+    to extract valid requirements from each line."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' is responsible for reading a .cfg configuration
+    file and extracting requirement information from specific sections, such as setup_requires
+    and install_requires.", "explanation": "Using the ''ConfigParser'', this function
+    reads a .cfg file and extracts requirement-related sections. The extracted text
+    is processed using ''parse_requirements_text'' to yield valid requirements for
+    use in the project."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files based on their extension, using ''parse_cfg'' for .cfg files and
+    ''parse_requirements'' for other files to extract and yield requirements.", "explanation":
+    "This function uses ''iter_files'' to find matching files. Depending on the file''s
+    extension, it calls either ''parse_cfg'' or ''parse_requirements'' to extract
+    requirements and yield them for further use."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_require'' function processes a line of text to extract a single requirement,
+    removes any options, and handles invalid requirements by returning None rather
+    than raising an error.", "explanation": "The function removes any option flags
+    from the input line and attempts to parse it as a valid requirement. If the line
+    is invalid, it returns None to ensure the function does not crash and allows for
+    graceful error handling."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-b77b55b308d746c3a1790abdc52e4d45
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-33b0aa89cc2a4a838b672e9398d23349
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' defines a
+    function called ''iter_files'' that processes multiple glob patterns and yields
+    matching file paths.", "explanation": "The ''iter_files'' function is designed
+    to handle a list of glob patterns and iterate over them to find valid files. It
+    uses the ''pathlib.Path'' module to check if a pattern is a valid file or expand
+    it to find matching files, which are then yielded for further processing."}, {"fact":
+    "The ''file_to_lines'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes each line to remove comments and handle line continuation, and yields
+    cleaned lines for further use.", "explanation": "This function opens the file
+    in read mode, processes each line using the ''parse_lines'' function to remove
+    comments and handle line continuation characters, and then yields each processed
+    line for further analysis."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    removes comments from lines and manages line continuation escape characters, ensuring
+    the lines are clean for requirement processing.", "explanation": "This function
+    iterates through each line of text, uses regular expressions to remove comments,
+    and handles lines with continuation escape characters to merge them into complete
+    lines for further processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements'' function reads a file, processes its lines using ''file_to_lines'',
+    and extracts valid requirements with the help of ''parse_require''.", "explanation":
+    "The function ''parse_requirements'' uses ''file_to_lines'' to process the lines
+    of the file and then applies the ''parse_require'' function to extract valid requirements
+    from each line. It yields each parsed requirement for the project."}, {"fact":
+    "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    takes a string of text, splits it into lines, processes those lines for comments
+    and line continuation, and then applies ''parse_require'' to extract valid requirements.",
+    "explanation": "This function is used to process a block of text by splitting
+    it into individual lines and passing those lines through ''parse_lines'' to handle
+    comments and line continuation. The resulting lines are then parsed into valid
+    requirements using ''parse_require''."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg configuration file and extracts
+    sections containing requirement information, such as setup_requires and install_requires.",
+    "explanation": "This function uses the ''ConfigParser'' to read a .cfg file and
+    extract specific sections that contain requirement lists. It processes the extracted
+    text using ''parse_requirements_text'' to yield valid requirements for use in
+    the project."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files based on their extensions by using ''parse_cfg'' for .cfg files
+    and ''parse_requirements'' for other files to extract and yield requirements.",
+    "explanation": "This function iterates over files found using ''iter_files'' and
+    calls the appropriate parsing function based on the file''s type. For .cfg files,
+    it uses ''parse_cfg'', and for other file types, it uses ''parse_requirements''
+    to extract requirements."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    ''parse_require'' function processes a line of text to extract a requirement,
+    strips any option flags from it, and returns None if the requirement is invalid
+    instead of raising an error.", "explanation": "The function removes any options
+    from the line and attempts to parse it as a valid requirement using the ''Requirement''
+    class. If the line is not a valid requirement, the function returns None to manage
+    the error gracefully rather than crashing the process."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-319b44aec6714f71bc0168a468b6dfb5
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-1fa28a0a5d234a2f8e4a948194ec499c
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-00806b3728a64a8bb3941a278622da1d
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "There is a function named ''iter_files'' in the file
+    ''pip_outdated/find_require.py'' that processes multiple glob patterns and yields
+    valid file paths matching those patterns.", "explanation": "The ''iter_files''
+    function is designed to accept a list of patterns and, using the ''pathlib'' module,
+    checks if each is a valid file. If it is not a valid file, the function expands
+    the pattern using the ''glob'' method to find matching files and yields those
+    paths for further processing."}, {"fact": "In the file ''pip_outdated/find_require.py'',
+    the function ''file_to_lines'' reads a file, handles comments and line continuation
+    escape characters, and yields cleaned lines for further processing.", "explanation":
+    "The ''file_to_lines'' function opens a file in read mode, processes each line
+    to remove comments and handle line continuation characters, and yields the cleaned
+    lines. It prints the file name if the verbose option is enabled."}, {"fact": "The
+    function ''parse_lines'' in ''pip_outdated/find_require.py'' processes lines by
+    removing comments and handling line continuation escape characters to ensure each
+    line is complete and ready for requirement parsing.", "explanation": "The ''parse_lines''
+    function iterates through an iterable of lines, uses regular expressions to remove
+    comments, and handles lines ending with a backslash to merge them into a single
+    line. This ensures that the lines are properly formatted for further processing."},
+    {"fact": "The file ''pip_outdated/find_require.py'' contains a function called
+    ''parse_requirements'' that reads a file, processes its lines using ''file_to_lines'',
+    and extracts valid requirements using the ''parse_require'' function.", "explanation":
+    "The ''parse_requirements'' function iterates through the lines generated by ''file_to_lines''
+    and applies the ''parse_require'' function to each line. It yields the parsed
+    requirements from the file for the project''s use."}, {"fact": "In ''pip_outdated/find_require.py'',
+    there is a function named ''parse_requirements_text'' that takes a string of text,
+    splits it into lines, and uses ''parse_lines'' and ''parse_require'' to extract
+    valid requirements from the text.", "explanation": "The ''parse_requirements_text''
+    function processes a block of text by splitting it into lines, applying the ''parse_lines''
+    function to clean those lines, and then using ''parse_require'' to extract valid
+    requirements from the processed text."}, {"fact": "The function ''parse_cfg''
+    in ''pip_outdated/find_require.py'' is responsible for parsing a .cfg configuration
+    file and extracting requirement information from specific sections such as setup_requires
+    and install_requires.", "explanation": "The ''parse_cfg'' function uses the ''ConfigParser''
+    to read the .cfg file and extract relevant sections that contain requirement strings.
+    It then processes these strings using ''parse_requirements_text'' to yield valid
+    requirements from the file."}, {"fact": "In the file ''pip_outdated/find_require.py'',
+    the ''find_require'' function processes files based on their extensions. It uses
+    ''parse_cfg'' for .cfg files and ''parse_requirements'' for other file types to
+    extract and yield requirements.", "explanation": "The ''find_require'' function
+    uses ''iter_files'' to find matching files and then applies the appropriate parsing
+    function based on the file''s extension (e.g., .cfg). This allows for the extraction
+    of requirements from various file types."}, {"fact": "The ''parse_require'' function
+    in ''pip_outdated/find_require.py'' processes a line of text to extract a requirement,
+    strips any options from the line, and returns None if the line is invalid instead
+    of raising an error.", "explanation": "The ''parse_require'' function removes
+    any option flags that appear after a line and attempts to parse the remaining
+    text as a requirement. It uses the ''Requirement'' class to validate the line
+    and returns the parsed requirement if valid or None if invalid, ensuring the function
+    does not crash in case of invalid input."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-2e3bb4b89ba14ab8bcee64a7cb638ac6
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-41a2d83a564a4b6fa4b210490c14618d
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    called ''iter_files'' that accepts a list of glob patterns and yields file paths
+    that match these patterns.", "explanation": "The ''iter_files'' function is responsible
+    for iterating over a list of patterns and using the ''pathlib'' module to determine
+    if each is a valid file. If a pattern is not a file, it expands the pattern using
+    the ''glob'' method to yield matching file paths."}, {"fact": "The function ''file_to_lines''
+    in ''pip_outdated/find_require.py'' reads a file and processes each line to remove
+    comments and handle line continuation escape characters, yielding clean lines
+    for further use.", "explanation": "This function opens a file, uses the ''parse_lines''
+    function to process the lines by removing comments and managing line continuation,
+    and yields each processed line for requirement extraction."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_lines'' function is used to process an iterable of lines, ensuring
+    comments are removed and line continuation characters are handled to provide complete
+    lines for parsing.", "explanation": "The ''parse_lines'' function processes each
+    line by removing comments with regular expressions and managing lines that end
+    with a continuation character (e.g., ''\") to merge them into a single line."},
+    {"fact": "The function ''parse_requirements'' in ''pip_outdated/find_require.py''
+    iterates over a file''s lines processed by ''file_to_lines'' and extracts valid
+    requirements using the ''parse_require'' function.", "explanation": "The ''parse_requirements''
+    function uses ''file_to_lines'' to retrieve each line of the file and applies
+    the ''parse_require'' function to identify and yield valid requirements."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_requirements_text'' function
+    processes a string of text by splitting it into lines and using ''parse_lines''
+    and ''parse_require'' to extract valid requirements from the text.", "explanation":
+    "This function takes a string of text, splits it into lines, processes them using
+    ''parse_lines'', and applies ''parse_require'' to each line to extract and yield
+    valid requirements."}, {"fact": "The function ''parse_cfg'' in ''pip_outdated/find_require.py''
+    is responsible for reading a .cfg configuration file and extracting requirement
+    sections such as setup_requires and install_requires using ''ConfigParser'', which
+    are then processed by ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "The ''parse_cfg'' function uses the ''ConfigParser'' module to
+    read a .cfg file, extract the required sections containing dependencies, and pass
+    them to ''parse_requirements_text'' for further processing and requirement extraction."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''find_require'' function determines
+    the file type based on its extension. It processes .cfg files using ''parse_cfg''
+    and other files using ''parse_requirements'' to extract and yield requirements.",
+    "explanation": "The ''find_require'' function uses ''iter_files'' to find matching
+    files. It then applies either ''parse_cfg'' for .cfg files or ''parse_requirements''
+    for other file types to extract and yield requirements based on the file''s extension."},
+    {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a single requirement, removing any option flags and
+    returning None for invalid lines instead of raising exceptions.", "explanation":
+    "The ''parse_require'' function attempts to remove any option flags from the line
+    and parse the remainder as a requirement. If the line is invalid, it returns None
+    to handle the error gracefully instead of causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-d025044dfbe148da9c810a3a7a089e6e
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-926046c5b7924d67b4ba157997f69576
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files by determining the appropriate parser based on the file''s extension.",
+    "explanation": "The function ''find_require'' uses the ''iter_files'' function
+    to iterate over files. Depending on the file''s suffix (e.g., .cfg), it uses either
+    ''parse_cfg'' for .cfg files or ''parse_requirements'' for other file types to
+    extract requirements."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_cfg''
+    function reads a .cfg configuration file and extracts requirement information
+    from specific sections like setup_requires and install_requires.", "explanation":
+    "The ''parse_cfg'' function utilizes the ''ConfigParser'' module to read a .cfg
+    file and extract the sections containing requirement data. It then processes these
+    sections using the ''parse_requirements_text'' function to yield valid requirements."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    processes a file by extracting lines and using ''parse_require'' to identify valid
+    requirements.", "explanation": "This function leverages the ''file_to_lines''
+    function to read and clean file lines, and then applies ''parse_require'' to extract
+    and yield valid requirements from the processed lines."}, {"fact": "The ''parse_requirements_text''
+    function in ''pip_outdated/find_require.py'' takes a string of text, splits it
+    into lines, and processes each line to extract valid requirements.", "explanation":
+    "This function first splits the input text into lines and then uses ''parse_lines''
+    and ''parse_require'' to process each line, ensuring that valid requirements are
+    extracted and returned."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a single requirement, removing any options
+    and returning None for invalid lines instead of raising an error.", "explanation":
+    "The function ''parse_require'' strips any option flags from a line and attempts
+    to parse it as a valid requirement. If the line is invalid, it returns None to
+    allow for graceful error handling."}, {"fact": "The ''file_to_lines'' function
+    in ''pip_outdated/find_require.py'' reads a file, processes lines to remove comments
+    and handle line continuation, and yields cleaned lines for further processing.",
+    "explanation": "The ''file_to_lines'' function uses ''parse_lines'' to process
+    each line of the file, ensuring that comments and line continuation are handled
+    correctly before yielding the lines."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_lines'' function processes lines by removing comments and handling
+    line continuation escape characters to form complete lines of text.", "explanation":
+    "The ''parse_lines'' function ensures that each line is processed by removing
+    comments using regular expressions and managing line continuation escape characters,
+    thus providing clean and complete lines for further parsing."}, {"fact": "The
+    ''iter_files'' function in ''pip_outdated/find_require.py'' accepts a list of
+    glob patterns and yields valid file paths that match those patterns.", "explanation":
+    "This function uses the ''pathlib'' module to process each pattern, determining
+    if it is a valid file or requiring expansion via globbing. It ensures that valid
+    file paths are yielded for further processing by other functions."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-30816a9b84dd453dbb12168d97eade73
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5c4c80c45d4842a9a09bf8f0163f8ee5
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files by determining the appropriate parser based on their file extensions.",
+    "explanation": "The function ''find_require'' iterates over files using ''iter_files''
+    and utilizes ''parse_cfg'' for .cfg files and ''parse_requirements'' for other
+    file types to extract requirements based on the extension."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_cfg'' function reads .cfg files and extracts requirement data from
+    specific sections like setup_requires and install_requires.", "explanation": "This
+    function uses the ''ConfigParser'' module to read the .cfg file and extract requirement-related
+    sections. It processes the extracted text using ''parse_requirements_text'' to
+    yield valid requirements from the configuration file."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' extracts valid requirements from
+    a file by processing each line and applying the ''parse_require'' function.",
+    "explanation": "The function ''parse_requirements'' uses ''file_to_lines'' to
+    process and clean the file''s lines and then applies ''parse_require'' to extract
+    each valid requirement, which is then yielded for further use."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''parse_requirements_text'' function takes
+    a text string, processes it into lines, and uses ''parse_require'' to extract
+    valid requirements from the text.", "explanation": "This function is designed
+    to handle a block of text by splitting it into lines and processing each line
+    using ''parse_lines'' and ''parse_require'' to extract valid requirements and
+    yield them."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a single requirement, removing any option
+    flags and returning None for invalid lines instead of raising exceptions.", "explanation":
+    "The function ''parse_require'' is responsible for handling each line by removing
+    option flags and attempting to parse the line as a requirement. If the line is
+    invalid, it returns None, ensuring that the function does not crash and handles
+    errors gracefully."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file, processes each line to handle comments and line continuation, and
+    yields clean lines for further processing.", "explanation": "This function uses
+    ''parse_lines'' to ensure that comments are removed and line continuation is handled
+    properly. It opens the file in read mode and yields the cleaned lines after processing
+    for the next steps."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines''
+    function processes an iterable of lines to remove comments and handle line continuation
+    escape characters for requirement parsing.", "explanation": "This function ensures
+    that lines are processed by removing comments using regular expressions and managing
+    line continuation characters to merge split lines into complete ones for further
+    use in requirement extraction."}, {"fact": "The ''iter_files'' function in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields valid file paths that match these
+    patterns for further processing.", "explanation": "The ''iter_files'' function
+    uses the ''pathlib'' module to iterate over the provided patterns, checking if
+    each is a valid file or expanding the pattern to find matching files. It yields
+    the valid file paths for use in other functions of the module."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-aed7b338f2494a58b8fb90f2d1d717f2
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-3551400506854de7b08cce6c62ec912c
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5527944739314409a7e0c77ee0f1ac11
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "In the file ''pip_outdated/find_require.py'', there
+    is a function called ''iter_files'' that processes glob patterns and yields file
+    paths that match these patterns.", "explanation": "The ''iter_files'' function
+    uses the ''pathlib'' module to iterate over each pattern in the input list. It
+    checks if the pattern is a valid file and yields it directly. If not, it expands
+    the pattern using ''glob'' to find matching files and yields each individual file
+    path."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file and processes each line to remove comments and handle line continuation,
+    yielding the cleaned lines for further use.", "explanation": "This function opens
+    the file in read mode, prints the file name if verbose mode is enabled, and processes
+    each line using the ''parse_lines'' function to remove comments and handle line
+    continuation escape characters. The clean lines are then yielded for use in other
+    functions."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines''
+    function processes lines by removing comments and handling line continuation escape
+    characters, ensuring each line is complete and ready for requirement parsing.",
+    "explanation": "The ''parse_lines'' function iterates over an iterable of lines,
+    removing comments that start with a ''#'' and handling lines that end with a backslash
+    (\\) to merge them with the next line. This ensures that each line is clean and
+    complete for further processing."}, {"fact": "The ''parse_requirements'' function
+    in ''pip_outdated/find_require.py'' reads a file, processes its lines to extract
+    requirements, and uses the ''parse_require'' function to validate and yield each
+    requirement.", "explanation": "The ''parse_requirements'' function utilizes ''file_to_lines''
+    to read and process the lines of the file. It then applies the ''parse_require''
+    function to each cleaned line to extract valid requirements and yield them."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function takes a string of text, processes it by splitting into lines, and uses
+    ''parse_lines'' and ''parse_require'' to extract valid requirements from the text.",
+    "explanation": "This function is designed to handle a block of text by splitting
+    it into individual lines and processing them in the same way as ''parse_requirements''.
+    It uses ''parse_lines'' and ''parse_require'' to extract valid requirements from
+    the text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    is responsible for parsing a .cfg configuration file and extracting requirement
+    information from specific sections like setup_requires and install_requires.",
+    "explanation": "Using the ''ConfigParser'' module, the ''parse_cfg'' function
+    reads a .cfg file, locates the relevant sections containing requirement strings,
+    and processes these strings using ''parse_requirements_text'' to yield valid requirements."},
+    {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py'' iterates
+    over files and uses ''parse_cfg'' for .cfg files or ''parse_requirements'' for
+    other files to extract and yield requirements based on the file extension.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to find and iterate over files
+    matching the provided patterns. Depending on the file''s extension (e.g., .cfg),
+    it applies the appropriate parsing function to extract and yield the requirements."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_require'' function
+    processes a line of text to extract a single requirement, removes any option flags,
+    and returns None for invalid lines instead of raising an error.", "explanation":
+    "The ''parse_require'' function is responsible for removing any option flags from
+    the line and attempting to parse it as a valid requirement. If the line is not
+    a valid requirement, it returns None to handle the error gracefully instead of
+    causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-35faca06b42e4b31841392f089e64bbc
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-3d8db63e4df64c6c966aa73855be7bd0
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function called ''iter_files'' that processes glob patterns to iteratively yield
+    file paths matching those patterns.", "explanation": "The ''iter_files'' function
+    takes a list of glob patterns and uses the ''pathlib.Path'' module to iterate
+    over them. If a pattern is a valid file, it is directly yielded. If not, the function
+    expands the pattern using the ''glob'' method and yields all matching files."},
+    {"fact": "The function ''file_to_lines'' in ''pip_outdated/find_require.py'' is
+    designed to read a file, process each line to remove comments and line continuation,
+    and yield the resulting lines for further parsing.", "explanation": "The ''file_to_lines''
+    function opens the file in read mode and uses the ''parse_lines'' function to
+    process each line. Comments and line continuation characters are handled, ensuring
+    that only clean lines are yielded for subsequent processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    there is a function named ''parse_lines'' that processes lines of text by removing
+    comments and managing line continuation escape characters to form complete lines
+    for requirement parsing.", "explanation": "The ''parse_lines'' function iterates
+    through an iterable of lines, uses regular expressions to remove comments and
+    manage line continuation with escape characters, and ensures the lines are clean
+    and ready for further analysis."}, {"fact": "The ''parse_requirements'' function
+    in ''pip_outdated/find_require.py'' extracts requirements from a file by first
+    processing the lines with ''file_to_lines'' and then using ''parse_require'' to
+    yield valid requirements.", "explanation": "This function uses ''file_to_lines''
+    to read and process the file''s lines. It then applies the ''parse_require'' function
+    to each line, extracting valid requirements and yielding them for further use."},
+    {"fact": "The ''parse_requirements_text'' function in ''pip_outdated/find_require.py''
+    takes a string of text, splits it into lines, and processes each line with ''parse_lines''
+    and ''parse_require'' to extract valid requirements from the text.", "explanation":
+    "This function converts the input text into an iterable of lines, processes the
+    lines using ''parse_lines'', and then uses ''parse_require'' to extract valid
+    requirements. The extracted requirements are then yielded for further use."},
+    {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py'' is responsible
+    for reading .cfg files, extracting requirement-related sections like setup_requires,
+    and processing them to yield valid requirements.", "explanation": "This function
+    uses ''ConfigParser'' to read a .cfg file and extract the sections containing
+    requirement strings. It processes the extracted information using ''parse_requirements_text''
+    to yield valid requirements from the configuration file."}, {"fact": "The ''find_require''
+    function in ''pip_outdated/find_require.py'' processes files by determining the
+    appropriate parser based on the file''s extension. For .cfg files, it uses ''parse_cfg'',
+    otherwise ''parse_requirements'' is used to extract and yield requirements.",
+    "explanation": "The ''find_require'' function iterates over files using ''iter_files''
+    and decides which parser to use based on the file''s extension. This ensures that
+    requirements are correctly parsed and yielded regardless of the file type."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_require'' function
+    processes a line of text to extract a requirement, strips any option flags from
+    the line, and returns None if the line is invalid instead of raising an exception.",
+    "explanation": "The ''parse_require'' function attempts to remove any option flags
+    from the line and parse it as a requirement. If the line is not a valid requirement,
+    the function returns None to prevent errors and ensure smooth operation."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-2d30de99ab9344508841a615f85725b1
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-8af07930fbf444dab59305cb0ad44828
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-902adda733ac4e4fa99f40643a200309
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields file paths that match those patterns.",
+    "explanation": "The ''iter_files'' function is designed to accept a list of patterns.
+    For each pattern, it checks if it is a valid file using ''pathlib.Path'' and directly
+    yields it if valid. If not, it expands the pattern using ''glob'' to find matching
+    files and yields them for further processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file, processes each line to remove comments
+    and handle line continuation, and yields the cleaned lines for further use.",
+    "explanation": "This function opens a file in read mode, uses the ''parse_lines''
+    function to process each line (removing comments and handling line continuation),
+    and yields the processed lines for subsequent analysis."}, {"fact": "The ''parse_lines''
+    function in ''pip_outdated/find_require.py'' processes lines of text by removing
+    comments and handling line continuation escape characters, ensuring that each
+    line is clean and complete for requirement parsing.", "explanation": "This function
+    iterates through an iterable of lines, uses regular expressions to detect and
+    remove comments, and manages line continuation characters to merge lines into
+    complete strings. The resulting lines are yielded for further processing."}, {"fact":
+    "The ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads
+    a file, processes its lines using ''file_to_lines'', and extracts valid requirements
+    using the ''parse_require'' function.", "explanation": "The ''parse_requirements''
+    function utilizes ''file_to_lines'' to process each line of the file. It then
+    applies the ''parse_require'' function to each processed line to extract valid
+    requirements, which are then yielded for the project''s use."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, using ''parse_lines'' to clean the lines, and applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling text input by splitting it into individual lines. It
+    processes those lines with ''parse_lines'' and then uses ''parse_require'' to
+    extract valid requirements and yield them."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg configuration file using the
+    ''ConfigParser'' and extracts requirement information from specific sections,
+    such as setup_requires and install_requires, using ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function processes a .cfg
+    file to locate and extract requirement-relevant sections. The extracted information
+    is passed to ''parse_requirements_text'', which further processes the text to
+    extract valid requirements."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    iterates over files, using ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other file types, to extract and yield requirements based on the file''s extension.",
+    "explanation": "This function leverages ''iter_files'' to find and process the
+    files. Depending on the file''s suffix, it uses either ''parse_cfg'' for .cfg
+    files or ''parse_requirements'' for other files to extract and yield the requirements."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_require'' function
+    processes a line of text to extract a requirement, removes any option flags from
+    the line, and returns None if the line is invalid to avoid raising an error.",
+    "explanation": "The ''parse_require'' function attempts to remove option flags
+    and parse the line as a requirement. It gracefully handles invalid lines by returning
+    None instead of allowing the function to crash, which ensures error resilience."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-10cbb5bfff404fe9adc3f5bbf98f7906
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-27b25aa670414f7498401e14513afc5a
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5acec8a2d7874678ab1d58e68a5afa83
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes a list of glob patterns and yields valid file paths that match those
+    patterns.", "explanation": "The ''iter_files'' function uses the ''pathlib'' module
+    to iterate over each pattern in the input list. It checks if the pattern is a
+    valid file and yields it directly. If not, it expands the pattern using ''glob''
+    to find matching files and yields them for further processing."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''file_to_lines'' function reads a file
+    and processes each line to remove comments and handle line continuation escape
+    characters, yielding the cleaned lines for further requirements parsing.", "explanation":
+    "The ''file_to_lines'' function opens the file in read mode and uses the ''parse_lines''
+    function to process each line. It removes comments and manages line continuation
+    by appending lines that end with a backslash, ensuring that each line is clean
+    and complete before yielding it."}, {"fact": "The ''parse_lines'' function in
+    ''pip_outdated/find_require.py'' processes lines by removing comments and handling
+    line continuation escape characters, ensuring each line is clean and ready for
+    extraction of requirements.", "explanation": "This function is responsible for
+    iterating through an iterable of lines and processing each line by removing comments
+    and handling line continuation. It ensures that the lines are properly formatted
+    and ready for further requirements parsing."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, processes its lines
+    using ''file_to_lines'', and extracts valid requirements by applying the ''parse_require''
+    function to each line.", "explanation": "The ''parse_requirements'' function utilizes
+    ''file_to_lines'' to process the lines of a file and then applies ''parse_require''
+    to each line. It yields the extracted valid requirements for use in the project."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a string of text by splitting it into lines and using ''parse_lines''
+    and ''parse_require'' to extract valid requirements from the text.", "explanation":
+    "This function is designed to handle text input by splitting it into lines and
+    processing them using ''parse_lines'' and ''parse_require''. The extracted requirements
+    from the text are then yielded for further use."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' reads a .cfg file using ''ConfigParser''
+    to extract requirement information from sections like setup_requires and install_requires,
+    using ''parse_requirements_text'' to yield the valid requirements.", "explanation":
+    "This function uses the ''ConfigParser'' to read a .cfg file and extract the sections
+    containing requirement strings. It then processes these strings using ''parse_requirements_text''
+    to yield valid requirements from the configuration file."}, {"fact": "The ''find_require''
+    function in ''pip_outdated/find_require.py'' processes files based on their extension
+    by using ''parse_cfg'' for .cfg files and ''parse_requirements'' for other file
+    types to extract and yield requirements.", "explanation": "The ''find_require''
+    function uses ''iter_files'' to find and iterate over files. Depending on the
+    file''s extension (e.g., .cfg), it applies the appropriate parsing function to
+    extract the requirements and yield them for use in the project."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''parse_require'' function processes a line
+    of text to extract a requirement, removes any option flags from the line, and
+    returns None for invalid lines instead of raising an error.", "explanation": "The
+    ''parse_require'' function is responsible for handling each line by removing any
+    option flags and attempting to parse the line as a valid requirement. If the line
+    is invalid, it returns None to manage the error gracefully and prevent the function
+    from crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-85a4c3f2dad4443bbd4eb257a5df444d
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-218b4a4cde8043db8d1df05637692c7f
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''iter_files'' function in ''pip_outdated/find_require.py''
+    processes a list of glob patterns and yields file paths that match these patterns.",
+    "explanation": "This function uses the ''pathlib'' module to iterate over each
+    pattern and check if it is a valid file. If a pattern is not a file, it is expanded
+    using the ''glob'' method to find matching files. Each valid file path is then
+    yielded for further processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file, processes each line to remove comments
+    and handle line continuation, and yields the resulting lines for further analysis.",
+    "explanation": "This function opens the file in read mode and uses the ''parse_lines''
+    function to process the lines, ensuring that comments are removed and line continuation
+    characters are handled before yielding the lines for use in other functions."},
+    {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py'' processes
+    lines of text by removing any comments and managing line continuation escape characters,
+    resulting in clean lines for requirement parsing.", "explanation": "This function
+    iterates through lines and processes them by using regular expressions to remove
+    comments. It also handles lines that end with a backslash, allowing for the merging
+    of lines into a single string for further requirements parsing."}, {"fact": "The
+    ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes its lines using ''file_to_lines'', and extracts valid requirements by
+    applying the ''parse_require'' function to each line.", "explanation": "The ''parse_requirements''
+    function leverages ''file_to_lines'' to clean the file''s lines, which it then
+    processes with ''parse_require'' to extract and yield each valid requirement for
+    use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a string of text by splitting it into lines, using ''parse_lines''
+    and ''parse_require'' to extract valid requirements from the text.", "explanation":
+    "This function is responsible for taking a string of text, splitting it into lines,
+    processing each line with ''parse_lines'' to clean it, and then applying ''parse_require''
+    to extract the valid requirements and yield them."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' reads a .cfg configuration file and
+    extracts requirement information using the ''ConfigParser'' module, then processes
+    it with ''parse_requirements_text'' to yield valid requirements.", "explanation":
+    "This function uses the ''ConfigParser'' to read the .cfg file and extract requirement
+    sections. It passes the extracted data to ''parse_requirements_text'' for processing
+    and requirement extraction."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    determines the appropriate parser based on a file''s extension. It uses ''parse_cfg''
+    for .cfg files and ''parse_requirements'' for other file types to extract and
+    yield requirements.", "explanation": "The ''find_require'' function utilizes ''iter_files''
+    to find matching files and then applies the appropriate parser based on the file''s
+    suffix, extracting requirements according to the file type for further use."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_require'' function
+    processes a line of text to extract a single requirement, removes any option flags
+    from the line, and returns None if the line is invalid to avoid raising an exception.",
+    "explanation": "The ''parse_require'' function is designed to process each line
+    by removing options and attempting to parse the line as a requirement. If the
+    line is invalid, it returns None to manage the error gracefully without causing
+    the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-9abe53f939134798908106db706dddb1
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-f7f7a6f67095478494c9c468623ad051
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes a list of glob patterns and yields matching file paths for further processing.",
+    "explanation": "The ''iter_files'' function is responsible for iterating over
+    a list of patterns. It checks if each pattern is a valid file and yields it, or
+    expands the pattern using ''glob'' to yield individual file paths that match the
+    pattern for further processing by other functions."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file, cleans the lines by removing comments
+    and line continuation characters, and yields the processed lines for requirement
+    parsing.", "explanation": "The ''file_to_lines'' function opens a file in read
+    mode, prints a message if in verbose mode, and uses the ''parse_lines'' function
+    to process the lines. It removes comments and handles line continuation characters
+    to yield clean lines for use in other functions."}, {"fact": "The ''parse_lines''
+    function in ''pip_outdated/find_require.py'' ensures that lines of text are processed
+    by removing comments and managing line continuation escape characters, resulting
+    in clean and complete lines of text.", "explanation": "The function iterates through
+    lines of text, removing any comments using regular expressions, and manages line
+    continuation by appending lines that end with a backslash. This ensures each line
+    is processed correctly for further requirements parsing."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' processes a file''s lines to extract
+    valid requirements by iterating over each line and applying the ''parse_require''
+    function.", "explanation": "The ''parse_requirements'' function uses ''file_to_lines''
+    to process the file''s lines and then applies the ''parse_require'' function to
+    each line. It yields the valid requirements found in the file for use in the project."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a text string by splitting it into lines and applying ''parse_lines''
+    and ''parse_require'' to extract valid requirements from the text.", "explanation":
+    "This function is designed to take a string of text, split it into lines, and
+    process those lines using ''parse_lines'' and ''parse_require''. The extracted
+    requirements are then yielded for use in the project."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' reads a .cfg configuration file,
+    extracts requirement information from sections like setup_requires and install_requires,
+    and processes it with ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "The ''parse_cfg'' function uses the ''ConfigParser'' to read a
+    configuration file, locate requirement sections, and process the extracted text
+    using ''parse_requirements_text'' to yield valid requirements for use in the project."},
+    {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py'' determines
+    the appropriate parser based on the file''s extension. It uses ''parse_cfg'' for
+    .cfg files and ''parse_requirements'' for other files to extract and yield requirements.",
+    "explanation": "The ''find_require'' function iterates over files using ''iter_files'',
+    and for each file, it applies ''parse_cfg'' if the file is a .cfg file or ''parse_requirements''
+    otherwise. This ensures that requirements are correctly extracted regardless of
+    the file type."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_require''
+    function processes a line of text to extract a requirement, removes any option
+    flags from the line, and gracefully handles invalid input by returning None instead
+    of raising an error.", "explanation": "The ''parse_require'' function is responsible
+    for removing any option flags from a line and attempting to parse it as a valid
+    requirement. If the line is invalid, it returns None to handle the error gracefully,
+    ensuring the function does not crash and allowing for error management."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-69f2615762154324820f69c03ac2e3c4
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-c23ddddce6a549e9b68689995072296c
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function called ''iter_files'' that processes multiple glob patterns and yields
+    valid file paths matching those patterns.", "explanation": "This function iterates
+    over a list of glob patterns and checks if each is a valid file using the ''pathlib.Path''
+    module. If a pattern is valid, it is yielded directly. If not, it expands the
+    pattern to find matching files and yields the results."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function is responsible for reading a file, processing its
+    lines to handle comments and line continuation, and yielding the cleaned lines
+    for further use in requirement parsing.", "explanation": "The ''file_to_lines''
+    function uses the ''parse_lines'' function to clean each line of the file. It
+    ensures that comments are removed and line continuation is handled properly before
+    yielding each line for further processing."}, {"fact": "The ''parse_lines'' function
+    in ''pip_outdated/find_require.py'' processes lines of text by removing comments
+    and handling line continuation escape characters to create complete and clean
+    lines for parsing.", "explanation": "This function uses regular expressions to
+    remove comments and line continuation handling to merge split lines into complete
+    strings. The processed lines are then yielded for further requirements parsing."},
+    {"fact": "The function ''parse_requirements'' in ''pip_outdated/find_require.py''
+    reads a file''s content by using ''file_to_lines'' and extracts valid requirements
+    from each line using the ''parse_require'' function.", "explanation": "The ''parse_requirements''
+    function leverages ''file_to_lines'' to clean the file''s lines and applies ''parse_require''
+    to each line to extract valid requirements, which are then yielded for use in
+    the project."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a string of text by splitting it into lines, using ''parse_lines''
+    to clean each line, and then applying ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is responsible for handling text
+    input by splitting it into lines and processing those lines using ''parse_lines''
+    and ''parse_require'' to extract valid requirements and yield them for further
+    use."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file, extracts setup_requires and install_requires,
+    and processes the text using ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "This function uses the ''ConfigParser'' to read a .cfg file and
+    extract required sections containing dependency information. The extracted text
+    is passed to ''parse_requirements_text'' for further processing and extraction
+    of valid requirements."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    processes files based on their file types. For .cfg files, it uses ''parse_cfg''
+    to extract requirements, and for other files, it uses ''parse_requirements'' to
+    yield the requirements.", "explanation": "This function iterates over files using
+    ''iter_files'' and uses ''parse_cfg'' for .cfg files or ''parse_requirements''
+    for other files to extract and yield requirements based on the file type."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_require'' function handles a
+    line of text by extracting a requirement, removing any option flags, and returning
+    None if the line is invalid instead of raising an error.", "explanation": "The
+    ''parse_require'' function ensures that any option flags are removed from the
+    line and that the line is parsed as a requirement. If the line is invalid, the
+    function returns None to manage the error gracefully and prevent the function
+    from crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-f0a636d428cf4d6295815a45b5757a6e
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-06aeb162c2e54e448eca79d0c0119041
+  tool_name: final_result_NoneType
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-642a8045409043498471f7629e36873b
+  tool_name: final_result_Facts
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', the function ''iter_files''
+    processes glob patterns and yields file paths that match these patterns for further
+    processing.", "explanation": "The ''iter_files'' function is designed to iterate
+    over a list of patterns, using ''pathlib'' to check if each is a valid file. If
+    a pattern is valid, it is yielded directly; otherwise, it is expanded using ''glob''
+    to find matching files and yield them."}, {"fact": "The ''file_to_lines'' function
+    in ''pip_outdated/find_require.py'' reads a file, processes each line to remove
+    comments and line continuation, and yields the cleaned lines for further use in
+    requirement parsing.", "explanation": "This function opens a file in read mode
+    and uses the ''parse_lines'' function to process each line. It removes comments
+    and handles line continuation characters to ensure clean lines are yielded for
+    further processing."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    is responsible for processing lines by removing comments and handling line continuation
+    escape characters to yield complete and clean lines of text.", "explanation":
+    "This function iterates through each line of text, removes comments using regular
+    expressions, and handles lines ending with a backslash to merge them into a single
+    line. This ensures that the lines are properly formatted for further requirements
+    parsing."}, {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    iterates over the lines processed by ''file_to_lines'' and uses the ''parse_require''
+    function to extract valid requirements from each line.", "explanation": "The ''parse_requirements''
+    function utilizes ''file_to_lines'' to process lines of a file and then applies
+    the ''parse_require'' function to each line. It yields the extracted valid requirements
+    for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    ''parse_requirements_text'' function processes a string of text by splitting it
+    into lines and using ''parse_lines'' and ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is responsible for taking a string
+    input, splitting it into lines, processing each line with ''parse_lines'', and
+    then using ''parse_require'' to extract valid requirements. The extracted requirements
+    are then yielded for use in the project."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg file using ''ConfigParser'' to
+    extract sections containing requirement information, such as setup_requires and
+    install_requires, which are then processed using ''parse_requirements_text'' to
+    yield valid requirements.", "explanation": "This function reads a .cfg file, extracts
+    the necessary sections using ''ConfigParser'', and processes the extracted content
+    using ''parse_requirements_text'' to yield valid requirements for the project."},
+    {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py'' determines
+    the appropriate parsing function based on the file''s extension. For .cfg files,
+    it uses ''parse_cfg'', and for other files, it uses ''parse_requirements'' to
+    extract and yield requirements.", "explanation": "This function uses ''iter_files''
+    to find matching files and applies the appropriate parsing function based on the
+    file''s suffix. This ensures that requirements are correctly extracted and yielded
+    for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    ''parse_require'' function processes a line of text to extract a single requirement,
+    removes any option flags from the line, and returns None for invalid lines instead
+    of raising an error.", "explanation": "The ''parse_require'' function is responsible
+    for cleaning each line by removing option flags and attempting to parse it as
+    a valid requirement. If the line is invalid, it returns None to manage the error
+    gracefully and avoid crashing the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-58a1d1c2213145aeb0ff2bcc1c9ab8b4
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-bdc1a486016142028217f5f66d7cb398
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''iter_files'' that processes glob patterns and yields matching file paths
+    for further processing.", "explanation": "The ''iter_files'' function is defined
+    to take a list of patterns and iterate over them. It uses the ''pathlib.Path''
+    module to either directly yield a valid file or expand the pattern using ''glob''
+    to yield matching files."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file, processes each line to remove comments and handle line continuation,
+    and yields the cleaned lines for further use in requirements parsing.", "explanation":
+    "This function opens the file in read mode, prints the file name if in verbose
+    mode, and processes the lines using the ''parse_lines'' function to ensure comments
+    and line continuation are properly handled before yielding the lines."}, {"fact":
+    "The ''parse_lines'' function in ''pip_outdated/find_require.py'' processes lines
+    by removing comments and handling line continuation escape characters, ensuring
+    that each line is clean and complete for requirement extraction.", "explanation":
+    "This function iterates through each line in an iterable, using regular expressions
+    to remove comments and handle line continuation. It ensures that each processed
+    line is clean and ready for further processing by other functions."}, {"fact":
+    "The ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads
+    a file, processes its lines using ''file_to_lines'', and extracts valid requirements
+    by applying the ''parse_require'' function to each line.", "explanation": "This
+    function is responsible for cleaning file lines using ''file_to_lines'' and extracting
+    valid requirements by iterating over the lines and applying the ''parse_require''
+    function."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a string of text by splitting it into lines, applying ''parse_lines''
+    to clean them, and using ''parse_require'' to extract valid requirements from
+    the text.", "explanation": "The function takes a string input, splits it into
+    lines, processes those lines with ''parse_lines'', and then extracts valid requirements
+    using ''parse_require'' for further use in the project."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' reads a .cfg file, extracts requirement-related
+    sections using ''ConfigParser'', and processes the extracted text with ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function uses the ''ConfigParser''
+    module to read a .cfg file and extract specific sections containing requirement
+    information. The extracted text is passed to ''parse_requirements_text'' to yield
+    valid requirements."}, {"fact": "The ''find_require'' function in ''pip_outdated/find_require.py''
+    determines the appropriate parsing function based on a file''s extension. For
+    .cfg files, it uses ''parse_cfg''; otherwise, it uses ''parse_requirements'' to
+    extract and yield requirements.", "explanation": "The ''find_require'' function
+    uses ''iter_files'' to find matching files and applies the appropriate parsing
+    function based on the file''s suffix, ensuring the correct extraction of requirements
+    for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    ''parse_require'' function processes a line of text to extract a requirement,
+    removes any option flags from the line, and returns None if the line is invalid
+    instead of raising an error.", "explanation": "This function is responsible for
+    cleaning a line by removing any option flags and parsing it as a requirement.
+    If the line is invalid, it returns None to handle the error gracefully without
+    causing a crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-fb37db416c65424db877f0732b0491f5
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-c56595f43a8e44efa04869582ae0fda3
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function named ''iter_files'' that processes a list of glob patterns and yields
+    file paths that match these patterns.", "explanation": "The ''iter_files'' function
+    is defined to accept a list of patterns. It iterates over these patterns and uses
+    the ''pathlib'' module to check if each is a valid file. If not a valid file,
+    it expands the pattern using ''glob'' to yield matching paths for further processing."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines'' function
+    reads a file, processes its lines to remove comments and line continuation, and
+    yields the resulting lines for further use in requirements parsing.", "explanation":
+    "This function opens a file in read mode and uses the ''parse_lines'' function
+    to process each line. It ensures comments and line continuation characters are
+    handled properly before the lines are yielded for further use in other functions."},
+    {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py'' is
+    responsible for removing comments from lines of text and handling line continuation
+    escape characters, resulting in clean lines for further processing.", "explanation":
+    "This function iterates through an iterable of lines and uses regular expressions
+    to remove comments. It also manages line continuation by merging split lines,
+    ensuring the lines are clean and complete for further parsing."}, {"fact": "The
+    ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes its lines using ''file_to_lines'', and applies ''parse_require'' to
+    each line to extract valid requirements and yield them.", "explanation": "This
+    function is designed to process a file by cleaning the lines with ''file_to_lines''
+    and then iterating over each line to apply ''parse_require'' and extract valid
+    requirements for the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, using ''parse_lines'' to clean the lines, and then applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for taking a text input, splitting it into lines, and processing those
+    lines with ''parse_lines'' and ''parse_require'' to ensure valid requirements
+    are extracted from the text input."}, {"fact": "The ''parse_cfg'' function in
+    ''pip_outdated/find_require.py'' reads a .cfg file using the ''ConfigParser''
+    module to extract setup_requires and install_requires, which are then processed
+    using ''parse_requirements_text'' to yield valid requirements.", "explanation":
+    "This function reads a .cfg configuration file and extracts specific sections
+    containing requirement information. The extracted data is then passed to ''parse_requirements_text''
+    for processing and extraction of valid requirements."}, {"fact": "The ''find_require''
+    function in ''pip_outdated/find_require.py'' determines the appropriate parsing
+    method based on the file''s extension. It uses ''parse_cfg'' for .cfg files and
+    ''parse_requirements'' for other files to extract and yield requirements.", "explanation":
+    "The ''find_require'' function leverages ''iter_files'' to find and process files.
+    It determines the appropriate parsing method based on the file''s suffix, ensuring
+    requirements are correctly extracted and yielded for further use."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_require'' function processes
+    a line of text to extract a single requirement, strips any option flags from the
+    line, and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for handling a line of text by removing any option
+    flags and parsing it as a requirement. If invalid, it returns None to manage the
+    error gracefully without causing a crash in the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-b0644278a1174b818b19ead8b1f06ba5
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-d109404da1724ab39cebc331b9734de8
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields matching file paths for further processing.",
+    "explanation": "The ''iter_files'' function takes a list of pattern inputs and
+    uses the ''pathlib'' module to iterate over them. It checks if each is a valid
+    file and yields it directly, or expands it using ''glob'' to yield matching files
+    if not."}, {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines''
+    function reads a file, processes each line to handle comments and line continuation,
+    and yields the cleaned lines for further requirements parsing.", "explanation":
+    "This function uses ''parse_lines'' to clean each line of the file by removing
+    comments and handling line continuation characters. Each processed line is then
+    yielded for subsequent processing by other functions."}, {"fact": "The ''parse_lines''
+    function in ''pip_outdated/find_require.py'' ensures that lines of text are processed
+    by removing comments and managing line continuation escape characters, resulting
+    in clean and complete lines of text.", "explanation": "This function iterates
+    through each line in an iterable, using regular expressions to remove comments
+    and managing line continuation escape characters. This ensures that each line
+    is properly formatted for further use in requirements parsing."}, {"fact": "The
+    ''parse_requirements'' function in ''pip_outdated/find_require.py'' processes
+    each line of a file by using ''file_to_lines'' to clean the lines and applies
+    ''parse_require'' to extract valid requirements from them.", "explanation": "This
+    function is responsible for cleaning the file''s lines using ''file_to_lines''
+    and iterating over each line to apply ''parse_require'' for requirement extraction
+    and yielding of valid requirements."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function takes a text input, splits it into lines,
+    processes each line with ''parse_lines'', and uses ''parse_require'' to extract
+    valid requirements from the text.", "explanation": "This function is designed
+    to process text input by splitting it into lines and applying ''parse_lines''
+    and ''parse_require'' to ensure valid requirements are extracted from the input
+    text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg file, extracts relevant requirement sections using ''ConfigParser'',
+    and processes the extracted text with ''parse_requirements_text'' to yield valid
+    requirements.", "explanation": "This function uses the ''ConfigParser'' module
+    to read a .cfg configuration file and extract specific sections containing requirement
+    strings. The extracted text is then processed using ''parse_requirements_text''
+    to yield valid requirements for the project."}, {"fact": "The ''find_require''
+    function in ''pip_outdated/find_require.py'' determines the appropriate parser
+    based on a file''s extension. For .cfg files, it uses ''parse_cfg'', and for other
+    files, it uses ''parse_requirements'' to extract and yield requirements.", "explanation":
+    "The ''find_require'' function iterates over files using ''iter_files'' and decides
+    which parsing method to apply based on the file''s suffix, ensuring that the correct
+    requirements are extracted and yielded for use in the project."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''parse_require'' function processes a line
+    of text to extract a single requirement, strips any option flags from the line,
+    and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for cleaning a line of text by removing option flags
+    and attempting to parse it as a requirement. If the line is invalid, it returns
+    None to manage the error gracefully and avoid crashing the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-7ecd807edb1444c0a591c15f762fa45c
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-30b2ce9ff702499c97c18fdfdbc316e8
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function called ''iter_files'' that processes multiple glob patterns and yields
+    valid file paths that match those patterns.", "explanation": "The ''iter_files''
+    function is designed to iterate over a list of glob patterns and yield file paths
+    when they are valid or matched via the ''glob'' method. It uses the ''pathlib''
+    module to handle file checks and pattern expansions for file path matching."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines'' function
+    reads a file, processes each line to remove comments and handle line continuation,
+    and yields the cleaned lines for further use in requirement parsing.", "explanation":
+    "The ''file_to_lines'' function opens a file in read mode and uses the ''parse_lines''
+    function to process each line. Comments and line continuation characters are removed,
+    resulting in clean lines that are yielded for subsequent processing in other functions."},
+    {"fact": "The function ''parse_lines'' in ''pip_outdated/find_require.py'' processes
+    each line of text by removing comments and handling line continuation escape characters,
+    ensuring that lines are clean for further processing.", "explanation": "This function
+    iterates through an iterable of lines, removing comments with regular expressions
+    and handling line continuation escape characters to merge lines. This ensures
+    that the lines are clean and complete for requirement parsing."}, {"fact": "The
+    ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes its lines using ''file_to_lines'', and extracts valid requirements by
+    applying the ''parse_require'' function to each line.", "explanation": "The ''parse_requirements''
+    function uses ''file_to_lines'' to process the lines of a file and then applies
+    ''parse_require'' to each processed line to extract valid requirements that are
+    subsequently yielded for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, using ''parse_lines'' to clean the lines, and then applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling a text input by splitting it into lines, processing each
+    line with ''parse_lines'' to clean it, and then using ''parse_require'' to extract
+    valid requirements from the text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads .cfg files by using the ''ConfigParser'' module to extract setup_requires
+    and install_requires, which are then processed by ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function reads a .cfg file
+    with ''ConfigParser'' to locate and extract requirement sections. The extracted
+    text is then passed to ''parse_requirements_text'' for processing and valid requirement
+    extraction."}, {"fact": "In ''pip_outdated/find_require.py'', the ''find_require''
+    function determines the appropriate parsing method based on the file''s extension.
+    It uses ''parse_cfg'' for .cfg files and ''parse_requirements'' for other file
+    types to extract and yield requirements.", "explanation": "The ''find_require''
+    function uses ''iter_files'' to find the files and applies the appropriate parsing
+    method (''parse_cfg'' for .cfg or ''parse_requirements'' otherwise) according
+    to the file''s type to ensure requirements are correctly extracted and yielded."},
+    {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a requirement, removes any option flags from the line,
+    and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for cleaning a line by removing any option flags
+    and parsing it as a requirement. Invalid lines return None to manage errors gracefully
+    without causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-a9f0643f78914810b7cb2ccf6f0e6a7b
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5186a3014f074c5198b38b04292e65d7
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields valid file paths that match those
+    patterns for further processing.", "explanation": "The ''iter_files'' function
+    uses the ''pathlib'' module to iterate over each pattern in the input list. If
+    a pattern is a valid file, it is directly yielded. If not, the function expands
+    the pattern using the ''glob'' method to yield matching files for use in other
+    functions."}, {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines''
+    function reads a file, processes its lines to handle comments and line continuation,
+    and yields the cleaned lines for further use in requirements parsing.", "explanation":
+    "The ''file_to_lines'' function opens a file in read mode and uses the ''parse_lines''
+    function to process each line. It removes comments and handles line continuation
+    characters to ensure only clean lines are yielded for further processing by other
+    functions."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    processes lines of text by removing comments and handling line continuation escape
+    characters, resulting in clean and complete lines for further parsing.", "explanation":
+    "This function iterates through an iterable of lines, using regular expressions
+    to remove comments and manage line continuation. This ensures that lines are properly
+    formatted for processing into requirements."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, processes its lines
+    using ''file_to_lines'', and extracts valid requirements by applying the ''parse_require''
+    function to each line.", "explanation": "The ''parse_requirements'' function uses
+    ''file_to_lines'' to clean the file''s lines and iterates over each line, applying
+    ''parse_require'' to extract valid requirements which are subsequently yielded
+    for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'', the
+    ''parse_requirements_text'' function processes a string of text by splitting it
+    into lines, using ''parse_lines'' to clean the lines, and applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    designed to take a text input, split it into lines, process those lines with ''parse_lines'',
+    and then use ''parse_require'' to extract valid requirements from each line of
+    the processed text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg file, extracts sections like setup_requires and install_requires
+    using ''ConfigParser'', and processes the extracted text using ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function utilizes the ''ConfigParser''
+    module to read a .cfg configuration file and extract relevant sections containing
+    requirement strings. These strings are then passed to ''parse_requirements_text''
+    for processing and requirements extraction."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing method based
+    on the file''s extension. It uses ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other files to extract and yield requirements.", "explanation": "The ''find_require''
+    function uses ''iter_files'' to find and process files. It applies ''parse_cfg''
+    to .cfg files and ''parse_requirements'' to other file types, ensuring that the
+    correct requirements are extracted and yielded based on the file type."}, {"fact":
+    "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a requirement, removes any option flags from the line,
+    and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for cleaning a line by removing option flags and
+    parsing it as a requirement. If the line is invalid, it returns None to handle
+    the error gracefully and avoid crashing the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-4f995205f7494d6488300e2a7beed2d9
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-ca313004389249839e26707c0342f4cd
+  tool_name: final_result_NoneType
+- args: '{"comment": "The provided source file ''pip_outdated/find_require.py'' is
+    focused on parsing requirement files and configuration files. From the perspective
+    of a maintainer who ensures end-users can use the project, there are no direct
+    user-facing facts to extract. The file deals with internal implementation details
+    related to requirement parsing and does not contribute directly to user-facing
+    documentation or features."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-2e6e2ced78624a838c9657a0a76e231d
+  tool_name: empty_result
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''iter_files'' that processes glob patterns and yields matching file paths
+    for further use.", "explanation": "The ''iter_files'' function is defined in the
+    file and takes a list of patterns as input. It iterates over each pattern, checking
+    if it is a valid file and yielding the path or expanding the pattern to find and
+    yield matching files."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file, cleans each line by removing comments and handling line continuation,
+    and yields the processed lines for further parsing.", "explanation": "This function
+    uses ''parse_lines'' to process lines, ensuring that comments are removed and
+    line continuation is handled before yielding the lines for use in other functions
+    like ''parse_requirements''."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    is responsible for removing comments from lines and handling line continuation
+    escape characters to provide clean lines for requirement parsing.", "explanation":
+    "This function processes lines by detecting and removing comments using regular
+    expressions and managing lines that end with a backslash to merge them with the
+    next line for complete requirement parsing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements'' function reads a file, processes its lines using ''file_to_lines'',
+    and extracts valid requirements by applying the ''parse_require'' function to
+    each line.", "explanation": "The ''parse_requirements'' function uses ''file_to_lines''
+    to clean the lines of the file and then applies ''parse_require'' to each line
+    to extract valid requirements for use in the project."}, {"fact": "The ''parse_requirements_text''
+    function in ''pip_outdated/find_require.py'' processes a string of text by splitting
+    it into lines and using ''parse_lines'' and ''parse_require'' to extract valid
+    requirements from the text.", "explanation": "This function is responsible for
+    handling text input by splitting it into lines and applying the same processing
+    as the file-based ''parse_requirements'' function. This ensures that any requirement
+    strings within the text are properly extracted and returned."}, {"fact": "The
+    ''parse_cfg'' function in ''pip_outdated/find_require.py'' reads a .cfg configuration
+    file, extracts sections like setup_requires and install_requires, and processes
+    the extracted text using ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "This function uses the ''ConfigParser'' module to read a .cfg
+    file and locate sections that contain requirement information. The extracted text
+    is passed to ''parse_requirements_text'' to yield valid requirements for the project."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''find_require'' function iterates
+    over files using ''iter_files'' and determines the appropriate parsing function
+    based on the file''s extension (e.g., using ''parse_cfg'' for .cfg files or ''parse_requirements''
+    for others).", "explanation": "This function leverages ''iter_files'' to find
+    matching files and applies the appropriate parsing function based on the file''s
+    type to ensure that requirements are extracted accurately for the project."},
+    {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a single requirement, removes any option flags, and
+    handles invalid lines gracefully by returning None instead of raising an error.",
+    "explanation": "The ''parse_require'' function is responsible for cleaning a line
+    by removing flags and attempting to parse it as a requirement. Invalid lines are
+    handled by returning None to allow for error resilience and prevent the function
+    from crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-4206674f461a4184b9d85f195429c578
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-902c009c2d474b7fbca45f00c30ea08e
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''iter_files'' function in ''pip_outdated/find_require.py''
+    is defined to process multiple glob patterns and yield valid file paths that match
+    these patterns.", "explanation": "The function ''iter_files'' iterates over the
+    provided list of glob patterns and uses the ''pathlib'' module to either directly
+    yield a valid file or expand it to find matching files. This allows the function
+    to be used in other parts of the code to locate and process requirements files."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines'' function
+    reads a file, processes each line to remove comments and handle line continuation,
+    and yields the resulting lines for further use in requirement parsing.", "explanation":
+    "The ''file_to_lines'' function is responsible for processing the file''s content
+    by applying the ''parse_lines'' function to each line. This ensures that lines
+    are properly cleaned and formatted before being passed to other functions for
+    requirement extraction."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    is designed to process lines of text by removing comments and managing line continuation
+    escape characters, making them suitable for further processing.", "explanation":
+    "This function ensures that lines are clean by identifying and removing comment
+    blocks and managing line continuation to merge lines ending with a backslash.
+    This prepares the lines for use in extracting requirements."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, iterates over its lines
+    using ''file_to_lines'', and applies the ''parse_require'' function to extract
+    valid requirements from each line.", "explanation": "This function uses ''file_to_lines''
+    to process the file''s lines and ''parse_require'' to validate and extract requirements.
+    It yields each valid requirement for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, applying ''parse_lines'' to clean each line, and using ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function handles
+    text input by splitting it into manageable lines and applying the same processing
+    steps as ''parse_requirements'', ensuring consistency in how requirements are
+    parsed from different sources."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    is responsible for reading .cfg configuration files and extracting requirement
+    data from sections like setup_requires and install_requires using the ''ConfigParser''
+    module.", "explanation": "This function utilizes the ''ConfigParser'' to read
+    the .cfg file and extract sections containing dependency strings. The extracted
+    text is further processed using ''parse_requirements_text'' to yield valid requirements
+    for the project."}, {"fact": "In ''pip_outdated/find_require.py'', the ''find_require''
+    function iterates over files using ''iter_files'', and based on the file''s extension,
+    uses either ''parse_cfg'' for .cfg files or ''parse_requirements'' for other file
+    types to extract requirements.", "explanation": "The ''find_require'' function
+    determines the appropriate parsing method based on the file''s suffix. It ensures
+    that requirements are accurately extracted regardless of the file format in which
+    they are stored."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    is designed to process a line of text by extracting a single requirement, removing
+    any options from the line, and returning None for invalid lines instead of raising
+    an error.", "explanation": "This function allows for graceful error handling by
+    returning None for invalid lines. It ensures that any options are removed before
+    attempting to parse the requirement, preventing the function from crashing when
+    faced with incorrect input."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-eadc609aca08434eab54d072a21f4304
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-55cae9c861ee48a7903975e10d810236
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    called ''iter_files'' that processes a list of glob patterns and yields file paths
+    that match those patterns for further processing.", "explanation": "The ''iter_files''
+    function is designed to take a list of patterns and use the ''pathlib'' module
+    to iterate over them, either directly yielding valid files or expanding patterns
+    to find and yield matching files."}, {"fact": "The ''file_to_lines'' function
+    in ''pip_outdated/find_require.py'' reads a file, processes each line to remove
+    comments and handle line continuation, and yields the resulting lines for use
+    in requirements parsing.", "explanation": "This function uses the ''parse_lines''
+    function to ensure that lines are clean by removing comments and handling line
+    continuation before they are yielded for further processing in the requirements
+    parsing functions."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines''
+    function processes lines of text by removing comments and handling line continuation
+    escape characters to create complete and clean lines for parsing.", "explanation":
+    "This function is responsible for iterating over lines and ensuring they are properly
+    formatted by removing any unnecessary comments and line continuation escape characters.
+    It ensures that each line is clean and ready for further processing by other functions."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines using ''file_to_lines'', and extracts valid
+    requirements by applying the ''parse_require'' function to each line.", "explanation":
+    "This function is responsible for reading a file and using ''file_to_lines'' to
+    process its content. The processed lines are then passed to ''parse_require''
+    to extract valid requirements for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, applying ''parse_lines'' to clean each line, and then using ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling text inputs by splitting them into lines, processing
+    those lines with ''parse_lines'', and then using ''parse_require'' to ensure valid
+    requirements are extracted and returned."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg configuration file, extracts
+    relevant requirement sections using ''ConfigParser'', and processes the text with
+    ''parse_requirements_text'' to yield valid requirements.", "explanation": "This
+    function reads a .cfg file using ''ConfigParser'' to locate sections that contain
+    requirement strings. The extracted text is then processed using ''parse_requirements_text''
+    to yield valid requirements for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function processes files based on their extension. For .cfg
+    files, it uses ''parse_cfg'', and for other file types, it uses ''parse_requirements''
+    to extract and yield requirements.", "explanation": "This function uses ''iter_files''
+    to find the relevant files and applies the appropriate parsing method based on
+    the file type to ensure accurate extraction of requirements."}, {"fact": "The
+    ''parse_require'' function in ''pip_outdated/find_require.py'' processes a line
+    of text to extract a requirement, removes any option flags from the line, and
+    returns None if the line is invalid instead of raising an error.", "explanation":
+    "This function is responsible for cleaning a line by removing any option flags
+    and parsing it as a requirement. If the line is invalid, it gracefully handles
+    the error by returning None, allowing the function to operate without crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-05e7999b46f149ac821bd8463478ea10
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-22243a28eb4547a2af42d07c64cda989
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''iter_files'' that processes multiple glob patterns and yields matching
+    file paths for further use.", "explanation": "The ''iter_files'' function is defined
+    in the file. It accepts a list of patterns and iterates over them, using the ''pathlib''
+    module to check if each pattern is a valid file. If it is not, the function expands
+    the pattern to find and yield matching files."}, {"fact": "The ''file_to_lines''
+    function in ''pip_outdated/find_require.py'' reads a file, processes each line
+    to handle comments and line continuation, and yields the cleaned lines for further
+    analysis.", "explanation": "This function uses ''parse_lines'' to process each
+    line of the file by removing comments and managing line continuation. The processed
+    lines are then yielded for further use in other functions, such as ''parse_requirements''."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines'' function is
+    responsible for processing an iterable of lines, removing comments, and managing
+    line continuation to ensure each line is clean and ready for parsing.", "explanation":
+    "This function iterates through each line and uses regular expressions to remove
+    comments. It also handles line continuation characters to merge lines and create
+    clean lines for further processing."}, {"fact": "The ''parse_requirements'' function
+    in ''pip_outdated/find_require.py'' reads a file, processes its lines using ''file_to_lines'',
+    and extracts valid requirements by applying the ''parse_require'' function to
+    each line.", "explanation": "The ''parse_requirements'' function utilizes ''file_to_lines''
+    to clean the file''s lines, then applies ''parse_require'' to each line to extract
+    valid requirements, which are then yielded for use in the project."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_requirements_text'' function
+    processes a string of text by splitting it into lines, using ''parse_lines'' to
+    clean the lines, and applying ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is designed to handle text input
+    by splitting it into lines, cleaning them with ''parse_lines'', and using ''parse_require''
+    to extract valid requirements for the project."}, {"fact": "The ''parse_cfg''
+    function in ''pip_outdated/find_require.py'' reads a .cfg configuration file,
+    extracts sections like setup_requires and install_requires, and processes the
+    text with ''parse_requirements_text'' to yield valid requirements.", "explanation":
+    "This function uses the ''ConfigParser'' module to read a .cfg file and extract
+    the relevant sections containing dependency strings. The extracted text is processed
+    using ''parse_requirements_text'' to yield valid requirements."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''find_require'' function determines the
+    appropriate parsing function based on the file''s extension. It uses ''parse_cfg''
+    for .cfg files and ''parse_requirements'' for other file types to extract and
+    yield requirements.", "explanation": "This function is responsible for processing
+    files by leveraging ''iter_files'' to find them and applying the correct parsing
+    method based on the file''s suffix. This ensures that requirements are correctly
+    extracted regardless of the file type."}, {"fact": "The ''parse_require'' function
+    in ''pip_outdated/find_require.py'' processes a line of text to extract a requirement,
+    removes any option flags, and returns None for invalid lines instead of raising
+    an error.", "explanation": "This function handles a line by removing any option
+    flags and parsing it as a requirement. If the line is invalid, it returns None
+    to manage the error gracefully without causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-f72e033f862b4b94822f2abb9ce52c68
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-6ef51944d1e4466aa2e9dc258bf7bf93
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''iter_files'' function in ''pip_outdated/find_require.py''
+    processes a list of glob patterns and yields matching file paths for further processing.",
+    "explanation": "The ''iter_files'' function is designed to iterate over a list
+    of patterns, using the ''pathlib.Path'' module to either yield valid files or
+    expand patterns to find matching files. This allows the function to provide a
+    list of files for use in other functions such as ''parse_requirements''."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''file_to_lines'' function reads a file
+    and processes each line to remove comments and handle line continuation, yielding
+    the resulting lines for requirement parsing.", "explanation": "The ''file_to_lines''
+    function uses the ''parse_lines'' function to process each line of the file. It
+    ensures that comments and line continuation characters are properly handled before
+    the lines are yielded for use in other functions like ''parse_requirements''."},
+    {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py'' processes
+    lines of text by removing comments and managing line continuation escape characters,
+    resulting in clean lines for parsing.", "explanation": "This function is responsible
+    for cleaning up the lines by removing any comments using regular expressions and
+    managing lines that end with a backslash to merge them into a complete line for
+    further parsing."}, {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines using ''file_to_lines'', and extracts valid
+    requirements by applying the ''parse_require'' function to each line.", "explanation":
+    "The ''parse_requirements'' function uses ''file_to_lines'' to clean the lines
+    of the file and then applies ''parse_require'' to each line to extract valid requirements,
+    which are subsequently yielded for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, using ''parse_lines'' to clean the lines, and then applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for taking a string of text, splitting it into lines, processing them
+    with ''parse_lines'' to clean the lines, and then applying ''parse_require'' to
+    extract valid requirements from the text for further processing."}, {"fact": "The
+    ''parse_cfg'' function in ''pip_outdated/find_require.py'' reads a .cfg configuration
+    file, extracts sections like setup_requires and install_requires using ''ConfigParser'',
+    and processes the extracted text using ''parse_requirements_text'' to yield valid
+    requirements.", "explanation": "This function utilizes the ''ConfigParser'' module
+    to read a .cfg file and extract specific sections containing requirement information.
+    The extracted text is then passed to ''parse_requirements_text'' for parsing and
+    yielding valid requirements."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing function based
+    on the file''s extension. It uses ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other file types to extract and yield requirements.", "explanation": "The
+    ''find_require'' function uses ''iter_files'' to find and iterate over the relevant
+    files. Based on the file''s suffix, it applies the appropriate parsing function
+    (''parse_cfg'' for .cfg or ''parse_requirements'' otherwise) to ensure correct
+    extraction of requirements."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a requirement, removes any option flags from
+    the line, and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for handling a line of text by removing any option
+    flags and attempting to parse it as a requirement. If the line is invalid, it
+    returns None to manage the error gracefully and avoid crashing the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-4c86d2317003443db7454f6d3e7c2a31
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-c9fdf42475084b3ab91e525ffa194288
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    is designed to process a list of glob patterns and yield valid file paths that
+    match those patterns.", "explanation": "The ''iter_files'' function uses the ''pathlib.Path''
+    module to iterate over each pattern in the input list. If a pattern is a valid
+    file, it is directly yielded. If not, the function expands the pattern using the
+    ''glob'' method to find and yield matching files for further processing."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''file_to_lines'' function reads a file,
+    processes each line to handle comments and line continuation, and yields the cleaned
+    lines for further use in requirements parsing.", "explanation": "The ''file_to_lines''
+    function opens a file and uses ''parse_lines'' to process each line. This processing
+    includes removing comments and managing line continuation escape characters to
+    ensure that only clean lines are yielded for subsequent parsing."}, {"fact": "The
+    ''parse_lines'' function in ''pip_outdated/find_require.py'' processes lines of
+    text by removing comments and handling line continuation escape characters to
+    form clean, complete lines for further parsing.", "explanation": "This function
+    iterates through an iterable of lines and uses regular expressions to detect and
+    remove comments. It also manages line continuation by appending lines to form
+    complete strings for further processing in other functions."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file''s lines using ''file_to_lines''
+    and extracts valid requirements by applying the ''parse_require'' function to
+    each line.", "explanation": "The ''parse_requirements'' function leverages ''file_to_lines''
+    to process the file''s lines, ensuring that each line is clean. It then applies
+    ''parse_require'' to each line to extract valid requirements for use in the project."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_requirements_text''
+    function processes a string of text by splitting it into lines, using ''parse_lines''
+    to clean the lines, and applying ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is responsible for taking a string
+    of text, splitting it into lines, and processing those lines with ''parse_lines''
+    and ''parse_require'' to ensure valid requirements are extracted and yielded from
+    the input text."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file, extracts sections like setup_requires and install_requires
+    using ''ConfigParser'', and processes the extracted text with ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function uses the ''ConfigParser''
+    module to read a .cfg file and extract relevant sections containing dependency
+    information. The extracted text is then passed to ''parse_requirements_text''
+    for parsing and yielding valid requirements for the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing method based
+    on the file''s extension. It uses ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other files to extract and yield requirements.", "explanation": "This function
+    iterates over files using ''iter_files'' and applies the appropriate parsing method
+    based on the file''s suffix. This ensures that requirements are correctly extracted
+    and yielded for further use in the project."}, {"fact": "The ''parse_require''
+    function in ''pip_outdated/find_require.py'' processes a line of text by extracting
+    a requirement, removing any option flags from the line, and returning None for
+    invalid lines instead of raising an error.", "explanation": "This function is
+    responsible for handling a line by removing any option flags and parsing it as
+    a requirement. If the line is invalid, it returns None to manage the error gracefully
+    without crashing the function."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-8fd33920747742b68068c0b226ea5863
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-09658d238ece4351924d6c85ae520278
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The ''iter_files'' function in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields valid file paths that match these
+    patterns for further use in the project.", "explanation": "The function ''iter_files''
+    is designed to iterate over a list of patterns and, using the ''pathlib'' module,
+    checks if each is a valid file. If not valid, it expands the pattern using ''glob''
+    to yield matching file paths for further processing."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file, processes each line to remove comments
+    and handle line continuation, and yields the cleaned lines for further parsing.",
+    "explanation": "This function uses the ''parse_lines'' function to process each
+    line of the file, ensuring that comments are removed and line continuation is
+    handled before the lines are yielded for further use in the ''parse_requirements''
+    function."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    processes lines of text by removing comments and managing line continuation escape
+    characters to form complete and clean lines for parsing requirements.", "explanation":
+    "This function iterates through an iterable of lines, removing comments using
+    regular expressions and managing lines that end with a backslash to merge them
+    into complete lines for further requirements parsing."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, processes its lines
+    using ''file_to_lines'', and extracts valid requirements by applying the ''parse_require''
+    function to each line.", "explanation": "This function uses ''file_to_lines''
+    to clean the lines of a file and then applies ''parse_require'' to each line to
+    extract valid requirements for the project''s use."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, applying ''parse_lines'' to clean the lines, and using ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling text input by splitting it into lines, processing those
+    lines with ''parse_lines'', and then using ''parse_require'' to extract valid
+    requirements from the text for further use."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg configuration file, extracts
+    sections like setup_requires and install_requires using the ''ConfigParser'',
+    and processes the text with ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "This function uses ''ConfigParser'' to read a .cfg file and extract
+    specific sections containing requirement strings. The extracted text is then passed
+    to ''parse_requirements_text'' for parsing and yielding valid requirements."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''find_require'' function determines
+    the appropriate parsing function based on the file''s extension. It uses ''parse_cfg''
+    for .cfg files and ''parse_requirements'' for other files to extract and yield
+    requirements.", "explanation": "The ''find_require'' function iterates over files
+    using ''iter_files'' and decides on the correct parsing method based on the file''s
+    suffix to ensure requirements are accurately extracted for the project."}, {"fact":
+    "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a requirement, removes any option flags, and returns
+    None for invalid lines instead of raising an error.", "explanation": "This function
+    is responsible for cleaning a line by removing any option flags and parsing it
+    as a requirement. Invalid lines are handled by returning None to manage the error
+    gracefully without causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-aab1352ff77a4ccfafa386d901372c19
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-ce52d2474f6a445aab6659b746aabab0
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes multiple glob patterns and yields valid file paths that match those
+    patterns for further processing.", "explanation": "The ''iter_files'' function
+    is responsible for iterating over each pattern provided in the input list. Using
+    the ''pathlib'' module, it checks if each pattern is a valid file and yields it
+    directly, or expands the pattern to yield matching files if it is not a valid
+    file."}, {"fact": "In ''pip_outdated/find_require.py'', the ''file_to_lines''
+    function reads a file, processes each line to handle comments and line continuation,
+    and yields the resulting lines for further requirements parsing.", "explanation":
+    "This function opens a file in read mode and uses ''parse_lines'' to process each
+    line, ensuring that comments are removed and line continuation characters are
+    managed. The cleaned lines are then yielded for use in other functions like ''parse_requirements''."},
+    {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py'' is
+    designed to process lines of text by removing comments and handling line continuation
+    escape characters, creating clean lines for further requirements parsing.", "explanation":
+    "This function iterates through lines and uses regular expressions to remove comments,
+    as well as managing lines that end with a backslash to form complete lines. These
+    processed lines are then yielded for parsing requirements."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' reads a file, processes its lines
+    using ''file_to_lines'', and extracts valid requirements by applying the ''parse_require''
+    function to each line.", "explanation": "The ''parse_requirements'' function uses
+    ''file_to_lines'' to clean the lines of the file and then applies ''parse_require''
+    to each line to extract and yield valid requirements for the project."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_requirements_text'' function
+    processes a string of text by splitting it into lines, using ''parse_lines'' to
+    clean each line, and then applying ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is responsible for handling text
+    input by splitting it into lines, processing each line with ''parse_lines'', and
+    then using ''parse_require'' to extract valid requirements from the text for use
+    in the project."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg file using ''ConfigParser'', extracts relevant requirement sections
+    like setup_requires and install_requires, and processes the extracted text using
+    ''parse_requirements_text'' to yield valid requirements.", "explanation": "This
+    function uses the ''ConfigParser'' module to read a .cfg file, locate the sections
+    containing requirement data, and then process the extracted text with ''parse_requirements_text''
+    to yield valid requirements."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing method based
+    on the file''s extension. For .cfg files, it uses ''parse_cfg''; otherwise, it
+    uses ''parse_requirements'' to extract and yield requirements.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to iterate over files and applies
+    the appropriate parsing function based on the file''s suffix. This ensures that
+    requirements are correctly extracted and yielded according to the file type."},
+    {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text by extracting a requirement, removing any option flags from the
+    line, and returning None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for handling each line by removing option flags
+    and parsing the line as a requirement. If the line is invalid, it returns None
+    to handle the error gracefully and prevent the function from crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-f09b7f5fb926460282b2849659da3a76
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-b5d4742a4a074c56a92c42f8f3b3aa59
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''iter_files'' that processes a list of glob patterns and yields valid file
+    paths that match those patterns.", "explanation": "The ''iter_files'' function
+    is defined to iterate over a list of patterns and use the ''pathlib'' module to
+    determine if each is a valid file. If not a valid file, it is expanded using the
+    ''glob'' method to yield all matching file paths for further use in the project."},
+    {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py'' reads
+    a file, processes each line to remove comments and handle line continuation, and
+    yields the resulting lines for further requirements parsing.", "explanation":
+    "This function is responsible for processing the file''s content using ''parse_lines''
+    to ensure that each line is clean by removing any comments and handling line continuation
+    escape characters before the lines are yielded for further processing by other
+    functions."}, {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines''
+    function is responsible for processing lines by removing comments and handling
+    line continuation escape characters to form clean and complete lines for further
+    processing.", "explanation": "This function iterates through an iterable of lines,
+    using regular expressions to remove comments and managing lines that end with
+    a backslash to merge split lines into complete lines for use in requirements parsing."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, processes its lines using ''file_to_lines'', and extracts valid
+    requirements by applying the ''parse_require'' function to each line.", "explanation":
+    "The ''parse_requirements'' function leverages ''file_to_lines'' to clean the
+    lines of the file and iterates over each line using ''parse_require'' to extract
+    valid requirements which are then yielded for the project''s use."}, {"fact":
+    "In ''pip_outdated/find_require.py'', the ''parse_requirements_text'' function
+    processes a string of text by splitting it into lines, applying ''parse_lines''
+    to clean the lines, and then using ''parse_require'' to extract valid requirements
+    from the text.", "explanation": "This function is responsible for taking a text
+    input, splitting it into lines, cleaning each line with ''parse_lines'', and then
+    using ''parse_require'' to extract valid requirements from the text for further
+    use in the project."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file, extracts sections like setup_requires and install_requires
+    using ''ConfigParser'', and processes the extracted text using ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function uses ''ConfigParser''
+    to read a .cfg file and extract the necessary sections containing requirement
+    strings. These extracted strings are then processed using ''parse_requirements_text''
+    to yield valid requirements for the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing function based
+    on the file''s extension. It uses ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other files to extract and yield requirements.", "explanation": "The ''find_require''
+    function uses ''iter_files'' to find and iterate over matches. It applies the
+    correct parsing method (''parse_cfg'' for .cfg files or ''parse_requirements''
+    otherwise) to extract and yield requirements for further use in the project."},
+    {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py'' processes
+    a line of text to extract a single requirement, removes any option flags, and
+    returns None for invalid lines to prevent errors.", "explanation": "This function
+    is responsible for cleaning and parsing each line by removing option flags and
+    extracting valid requirements. Invalid lines are gracefully handled by returning
+    None, ensuring the function remains resilient to erroneous input."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-9b286506c827488dabb8152dc92b99e5
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-4e65e8574e91414daf7622d590485276
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The file ''pip_outdated/find_require.py'' contains a
+    function called ''iter_files'' that processes multiple glob patterns and yields
+    valid file paths that match these patterns.", "explanation": "The ''iter_files''
+    function is designed to iterate over a list of glob patterns and use the ''pathlib''
+    module to either directly yield valid files or expand the patterns using the ''glob''
+    method to find matching files. This allows the function to be used in other functions
+    like ''find_require'' to locate and process requirements files."}, {"fact": "In
+    ''pip_outdated/find_require.py'', the ''file_to_lines'' function reads a file,
+    processes each line to remove comments and handle line continuation, and yields
+    the cleaned lines for use in requirement parsing.", "explanation": "The ''file_to_lines''
+    function uses the ''parse_lines'' function to process each line of the file, ensuring
+    that comments are removed and line continuation is handled properly before the
+    lines are yielded for further processing."}, {"fact": "The ''parse_lines'' function
+    in ''pip_outdated/find_require.py'' is responsible for processing lines by removing
+    comments and managing line continuation escape characters to create clean lines
+    for further requirements parsing.", "explanation": "This function iterates through
+    an iterable of lines and uses regular expressions to remove comments while managing
+    line continuation. This ensures that each line is clean and complete for further
+    use in functions like ''parse_requirements''."}, {"fact": "The ''parse_requirements''
+    function in ''pip_outdated/find_require.py'' processes a file''s lines to extract
+    valid requirements by using ''file_to_lines'' to clean the lines and ''parse_require''
+    to validate each requirement.", "explanation": "This function uses ''file_to_lines''
+    to process the file''s content and then iterates over each line, applying ''parse_require''
+    to extract valid requirements. The extracted requirements are then yielded for
+    further use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, using ''parse_lines'' to clean the lines, and then applying ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling a text input by splitting it into lines and processing
+    them with ''parse_lines'' and ''parse_require'' to ensure any valid requirements
+    are extracted and returned."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file, extracts sections like setup_requires and install_requires,
+    and processes the extracted text using ''parse_requirements_text'' to yield valid
+    requirements.", "explanation": "This function uses the ''ConfigParser'' module
+    to read a .cfg file and extract specific sections containing requirement strings.
+    The extracted text is then passed to ''parse_requirements_text'' for parsing and
+    yielding valid requirements."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''find_require'' function determines the appropriate parsing method based
+    on a file''s extension. For .cfg files, it uses ''parse_cfg''; otherwise, it uses
+    ''parse_requirements'' to extract and yield requirements from the file.", "explanation":
+    "The ''find_require'' function uses ''iter_files'' to find and iterate over the
+    relevant files. Based on the file''s suffix, it applies the appropriate parsing
+    function to ensure that requirements are correctly extracted and yielded for the
+    project."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text by extracting a requirement, stripping any option flags,
+    and returning None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for handling a line by removing any option flags
+    and parsing it as a requirement. If the line is invalid, it returns None to gracefully
+    handle the error and prevent the function from crashing."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-78bdc9cf7d53401b9c25ab056a992ce5
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-12b98c49e7f14673950e640f8ff0c041
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "The function ''iter_files'' in ''pip_outdated/find_require.py''
+    processes a list of glob patterns and yields valid file paths that match those
+    patterns for further processing by other functions.", "explanation": "The ''iter_files''
+    function is defined to accept a list of patterns and use the ''pathlib'' module
+    to check if each is a valid file. If not valid, the function expands the pattern
+    using the ''glob'' method to yield matching file paths that can be processed by
+    other functions such as ''find_require''."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''file_to_lines'' function reads a file, processes each line to remove comments
+    and handle line continuation, and yields the processed lines for further use in
+    requirements parsing.", "explanation": "This function uses ''parse_lines'' to
+    process the lines of the file by removing comments and managing line continuation.
+    The resulting lines are then yielded for use in other functions such as ''parse_requirements''
+    to extract requirements."}, {"fact": "The ''parse_lines'' function in ''pip_outdated/find_require.py''
+    is responsible for processing lines of text by removing comments and managing
+    line continuation escape characters to form clean lines for further parsing.",
+    "explanation": "This function iterates through an iterable of lines, using regular
+    expressions to remove comments and manage line continuation, ensuring that the
+    lines are clean and ready for further processing in other functions like ''parse_require''."},
+    {"fact": "The ''parse_requirements'' function in ''pip_outdated/find_require.py''
+    reads a file, cleans its lines using ''file_to_lines'', and extracts valid requirements
+    by applying the ''parse_require'' function to each line.", "explanation": "The
+    ''parse_requirements'' function uses ''file_to_lines'' to process the lines of
+    a file and then iterates over them, using ''parse_require'' to extract valid requirements
+    and yield them for the project''s use."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines and applying ''parse_lines'' and ''parse_require'' to extract valid
+    requirements from the text.", "explanation": "This function is responsible for
+    taking a text input, splitting it into lines, processing those lines with ''parse_lines''
+    to clean them, and using ''parse_require'' to extract valid requirements for the
+    project."}, {"fact": "The ''parse_cfg'' function in ''pip_outdated/find_require.py''
+    reads a .cfg configuration file, extracts sections like setup_requires and install_requires
+    using the ''ConfigParser'', and processes the extracted text with ''parse_requirements_text''
+    to yield valid requirements.", "explanation": "This function uses ''ConfigParser''
+    to read a .cfg file, locate relevant sections containing requirement strings,
+    and process those strings with ''parse_requirements_text'' to extract valid requirements
+    for the project."}, {"fact": "In ''pip_outdated/find_require.py'', the ''find_require''
+    function determines the appropriate parsing method based on a file''s extension.
+    For .cfg files, it uses ''parse_cfg''; otherwise, it uses ''parse_requirements''
+    to extract and yield requirements based on the file type.", "explanation": "This
+    function uses ''iter_files'' to find matching files and decides which parsing
+    method to apply based on the file''s suffix. This ensures that the correct requirements
+    are extracted and yielded for the project."}, {"fact": "The ''parse_require''
+    function in ''pip_outdated/find_require.py'' processes a line of text to extract
+    a single requirement, removes any option flags, and returns None for invalid lines
+    instead of raising an error.", "explanation": "This function is designed to handle
+    each line by removing any option flags and parsing the line as a requirement.
+    If the line is invalid, it returns None to manage the error gracefully without
+    causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-1296e88c36f24a3b943f74b0c98086dc
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-35f264c0810a483c9d05429f9ca64a3d
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    named ''iter_files'' that processes multiple glob patterns and yields valid file
+    paths that match those patterns for further processing.", "explanation": "The
+    ''iter_files'' function is defined to take a list of patterns and iterate over
+    them, using the ''pathlib'' module to yield either valid files or expanded pattern
+    matches via the ''glob'' method. This allows the function to provide a list of
+    file paths for other functions to use in the processing of requirements."}, {"fact":
+    "The ''file_to_lines'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes each line to remove comments and handle line continuation, and yields
+    the processed lines for use in requirements parsing.", "explanation": "This function
+    uses the ''parse_lines'' function to process the lines of a file, ensuring that
+    any comments and line continuation are properly handled. The resulting clean lines
+    are then yielded for further processing by functions like ''parse_requirements''."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines'' function processes
+    each line of text by removing comments and managing line continuation escape characters
+    to form clean lines for further use in parsing requirements.", "explanation":
+    "This function iterates through an iterable of lines, removes any comments using
+    regular expressions, and handles line continuation characters, merging lines as
+    necessary to ensure the lines are clean for further processing."}, {"fact": "The
+    ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads a file,
+    processes its lines using ''file_to_lines'', and extracts valid requirements by
+    applying the ''parse_require'' function to each line.", "explanation": "The ''parse_requirements''
+    function uses ''file_to_lines'' to clean the lines of the file and iterates over
+    them, applying ''parse_require'' to each line to extract valid requirements which
+    are then yielded for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, applying ''parse_lines'' to clean the lines, and using ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for handling text input by splitting it into lines and processing
+    each line with ''parse_lines'' and ''parse_require'' to ensure valid requirements
+    are extracted from the text input."}, {"fact": "The ''parse_cfg'' function in
+    ''pip_outdated/find_require.py'' reads a .cfg file by utilizing the ''ConfigParser''
+    module and extracts sections like setup_requires and install_requires. It then
+    processes the data using ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "This function uses the ''ConfigParser'' to read a .cfg file and
+    locate relevant sections containing requirement strings. The extracted text is
+    passed to ''parse_requirements_text'' for further processing and requirement extraction."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''find_require'' function processes
+    files based on their suffix. It uses ''parse_cfg'' for .cfg files and ''parse_requirements''
+    for other files to extract and yield requirements for further use in the project.",
+    "explanation": "This function uses ''iter_files'' to find and iterate over files,
+    and according to the file''s extension, it applies the appropriate parsing function
+    to ensure that requirements are accurately extracted and returned for use in the
+    project."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a requirement, removes any option flags from
+    the line, and returns None for invalid lines instead of raising an error.", "explanation":
+    "This function is responsible for handling each line by cleaning it of any option
+    flags and parsing it as a requirement. If the line is invalid, it gracefully returns
+    None to manage the error without causing the function to crash."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5c4212d2767e497ca857e68e1041cde3
+  tool_name: final_result_Facts
+- args: '{"response": null}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-b55fda1bba98462488c7bce99ff3dd1a
+  tool_name: final_result_NoneType
+- args: '{"facts": [{"fact": "In ''pip_outdated/find_require.py'', there is a function
+    called ''iter_files'' that processes a list of glob patterns and yields valid
+    file paths that match these patterns for further processing.", "explanation":
+    "The ''iter_files'' function is defined to accept a list of patterns. It uses
+    the ''pathlib'' module to either directly yield a valid file or expand the pattern
+    using ''glob'' to find and yield matching files for use in other functions like
+    ''find_require''."}, {"fact": "The ''file_to_lines'' function in ''pip_outdated/find_require.py''
+    reads a file, processes each line to remove comments and handle line continuation,
+    and yields the resulting lines for further use in requirements parsing.", "explanation":
+    "This function uses the ''parse_lines'' function to process each line of the file,
+    ensuring that comments are removed and line continuation is managed. The processed
+    lines are then yielded for use in other functions like ''parse_requirements''."},
+    {"fact": "In ''pip_outdated/find_require.py'', the ''parse_lines'' function processes
+    lines of text by removing comments and managing line continuation escape characters
+    to form clean lines for further parsing.", "explanation": "The ''parse_lines''
+    function iterates over an iterable of lines, removing comments with regular expressions
+    and managing line continuation by appending lines that end with a backslash. This
+    ensures that the lines are clean and complete for further processing."}, {"fact":
+    "The ''parse_requirements'' function in ''pip_outdated/find_require.py'' reads
+    a file, processes its lines using ''file_to_lines'', and extracts valid requirements
+    by applying the ''parse_require'' function to each line.", "explanation": "The
+    ''parse_requirements'' function utilizes ''file_to_lines'' to process the file''s
+    lines and then applies ''parse_require'' to each line to extract valid requirements,
+    which are subsequently yielded for use in the project."}, {"fact": "In ''pip_outdated/find_require.py'',
+    the ''parse_requirements_text'' function processes a string of text by splitting
+    it into lines, applying ''parse_lines'' to clean the lines, and using ''parse_require''
+    to extract valid requirements from the text.", "explanation": "This function is
+    responsible for splitting a string input into lines, processing them with ''parse_lines''
+    to clean them, and then using ''parse_require'' to extract valid requirements
+    from the text for further processing."}, {"fact": "The ''parse_cfg'' function
+    in ''pip_outdated/find_require.py'' reads a .cfg configuration file, extracts
+    setup_requires and install_requires using the ''ConfigParser'' module, and processes
+    the extracted text with ''parse_requirements_text'' to yield valid requirements.",
+    "explanation": "This function uses the ''ConfigParser'' module to read a .cfg
+    file and extract the necessary sections containing requirement strings. These
+    strings are passed to ''parse_requirements_text'' to yield valid requirements
+    for further use."}, {"fact": "In ''pip_outdated/find_require.py'', the ''find_require''
+    function determines the appropriate parsing function based on the file''s extension.
+    For .cfg files, it uses ''parse_cfg''; otherwise, it uses ''parse_requirements''
+    to extract and yield requirements.", "explanation": "This function uses ''iter_files''
+    to find the relevant files and applies the correct parsing method based on the
+    file''s suffix to ensure that requirements are accurately extracted and returned
+    for the project."}, {"fact": "The ''parse_require'' function in ''pip_outdated/find_require.py''
+    processes a line of text to extract a requirement, removes any option flags from
+    the line, and returns None if the line is invalid'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-662a7d294cae4b41a4e3403485dc907d
+  tool_name: final_result_Facts
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767966055-37mhYFWJsuXleh2tp9CX
+run_id: d8862dfa-27c0-4ae9-83f9-d262a0226711
+timestamp: '2026-01-09T13:40:55Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 2005
+  output_audio_tokens: 0
+  output_tokens: 34618

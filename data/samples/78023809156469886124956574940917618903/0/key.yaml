@@ -1,6 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n\n*Compiled from\
-  \ the individual file\u2011level notes for the package\u2019s source files.*\n\n\
-  ---\n\n### 4. Detailed Module Highlights\n#### `verbose.py`\n- Simple module\u2011\
-  level storage of a global `VERBOSE` flag.\n- Functions `set_verbose(bool)` and `verbose()`\
-  \ access or modify the flag.\n- Not thread\u2011safe \u2013 intended for single\u2011\
-  threaded CLI usage.\n\n---\n"

@@ -1,4 +1,0 @@
-"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n## 2. Installation\n\
-  ```bash\npip install pip-outdated\n```\nThe package pulls in the runtime dependencies\
-  \ listed in **setup.cfg**:\n- `aiohttp~=3.12`\n- `colorama~=0.4.6`\n- `packaging~=25.0`\n\
-  - `termcolor~=3.1`\n- `terminaltables~=3.1`\n\n---\n"

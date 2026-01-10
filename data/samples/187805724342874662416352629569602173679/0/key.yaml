@@ -1,0 +1,3 @@
+The file pip_outdated/print_outdated.py defines a function named make_row that takes
+  an OutdateResult object and returns a list of strings or None
+...

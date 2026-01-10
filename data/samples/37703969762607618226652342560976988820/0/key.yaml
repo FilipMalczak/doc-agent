@@ -1,0 +1,3 @@
+The file pip_outdated/find_require.py contains a function named parse_cfg that reads
+  a cfg file for requirements.
+...

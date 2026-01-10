@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 0.3.0 entry details each of these changes.\n  fact: \"Version 0.3.0 (released\
-  \ Oct\\u202F13\\u202F2019) introduced a breaking change\\\n    \\ that sets the\
-  \ exit code to 1 when any dependency is not up-to-date, stopped\\\n    \\ checking\
-  \ pre-releases, and added support for setup_requires and extras_require\\\n    \\\
-  \ sections in setup.cfg files.\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ canonicalize_name normalizes package names for consistent lookup.\n  fact: canonicalize_name\
-  \ from packaging.utils is used to normalize the requirement\n    name before querying\
-  \ local and PyPI versions.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

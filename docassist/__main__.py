@@ -23,7 +23,7 @@ if __name__ == "__main__":
         service_name="docassist",
         scrubbing=False, # do not scrub, or you'll lose anything session-related or anything that mentions auth - content of notes included
         environment="local",
-        additional_span_processors=[USAGE_COLLECTOR]
+        additional_span_processors=[USAGE_COLLECTOR],
         # send_to_logfire=False, # this is here if you needed to debug OTEL again; otherwise, keep commented out
     )
     # logfire.instrument_pydantic() # this doesn't help; it actually makes the spans less readable

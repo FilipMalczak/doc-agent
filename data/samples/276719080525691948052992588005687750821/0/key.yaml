@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The installation instructions specify that the tool can be installed\n    from\
+  \ PyPI using pip install pip-outdated as shown in the '::' code block under\n  \
+  \  'Installation' section.\n  fact: The pip-outdated tool described in document\
+  \ with ID c70abb08-f4fa-543d-ad2e-52421c056692\n    is available for installation\
+  \ via PyPI using the command 'pip install pip-outdated'.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

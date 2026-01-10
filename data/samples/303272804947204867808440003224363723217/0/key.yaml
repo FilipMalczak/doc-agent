@@ -1,3 +1,0 @@
-The -q/--quiet flag suppresses exit code 1 when not all packages are up-to-date; its
-  default value is false.
-...

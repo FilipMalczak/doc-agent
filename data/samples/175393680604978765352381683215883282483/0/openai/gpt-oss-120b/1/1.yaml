@@ -1,0 +1,49 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to output using a tool? The instructions: "If there are no notes
+    to be taken from given perspective,use the `empty_result` tool to indicate and
+    explain that". We have notes, so we should return a tool call? Actually they said
+    "Responses consisting only of thoughts, analysis, deliberation, or meta-commentary
+    are invalid. Responses must contain an assistant message. If an output format
+    is provided, the response MUST conform to it exactly." The format output is markdown.
+    So we should just output markdown text, not a tool call. The earlier spec about
+    empty_result tool is for tool usage, but we have content, so just plain markdown.
+    Let''s produce markdown.
+
+
+    '
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "- **Purpose**: Provides the package\u2019s entry point when executed as\
+    \ a script (e.g., `python -m pip_outdated`).  \n- **Behavior**: Imports the `main`\
+    \ function from the same package and invokes it, delegating all command\u2011\
+    line handling and core logic to `pip_outdated/main.py`.  \n- **Implications for\
+    \ Maintainers**:  \n  - Ensures end\u2011users can run the tool directly without\
+    \ needing a separate script.  \n  - Simplifies packaging and distribution by relying\
+    \ on Python\u2019s module execution mechanism.  \n  - No additional arguments\
+    \ or environment handling are performed here; all user\u2011facing functionality\
+    \ must be implemented inside `main()`."
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1767966055-FwyvjjkbYxU7YmYqzmwv
+run_id: f06a8c55-e948-4a3b-a58e-a0994a223285
+timestamp: '2026-01-09T13:40:55Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 137
+  input_audio_tokens: 0
+  input_tokens: 1164
+  output_audio_tokens: 0
+  output_tokens: 286

@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'In the file_to_lines function, ''if verbose()'' conditionally prints\n    a message\
+  \ with ''print(f''Parse: {file}'')''.'\n  fact: The file pip_outdated/find_require.py\
+  \ prints a message if verbose mode is\n    enabled when parsing a file.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

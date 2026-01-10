@@ -1,0 +1,11 @@
+"## Important Behaviors for End\u2011User Experience\n- **Comment handling** \u2013\
+  \ Any `#` character beginning a comment (including inline) terminates the line before\
+  \ the comment is yielded.\n- **Line continuation** \u2013 A trailing backslash (`\\\
+  `) followed by a newline continues the requirement onto the next line.\n- **Option\
+  \ stripping** \u2013 Options that start with a hyphen (e.g., `--hash=...`, `-r other.txt`)\
+  \ are stripped before the requirement is parsed. Invalid requirements are silently\
+  \ ignored (`None` is yielded).\n- **Verbose mode** \u2013 When `verbose()` returns\
+  \ `True`, each processed file is printed to stdout, which can help with troubleshooting\
+  \ but may clutter normal CLI output.\n- **File type detection** \u2013 Only files\
+  \ with the `.cfg` suffix are treated as `setup.cfg` files; all others are assumed\
+  \ to be plain requirement files.\n"

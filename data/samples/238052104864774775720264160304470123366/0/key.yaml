@@ -1,0 +1,4 @@
+"### How to run it\n```bash\npip-outdated [options] [<file> ...]\n```\n- If no `<file>`\
+  \ arguments are supplied, the tool defaults to searching `requirements.txt` and\
+  \ `setup.cfg` in the current directory.  \n- `<file>` may be a glob pattern (e.g.,\
+  \ `requirements-*.txt`) to target multiple requirement files.\n"

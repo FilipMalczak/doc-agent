@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'get_pypi_versions' uses an 'async with' statement and\n    makes\
+  \ an HTTP request to the PyPI URL, indicating that it is defined in the file\n \
+  \   to fetch version data.\n  fact: In file 'pip_outdated/check_outdated.py', an\
+  \ asynchronous function 'get_pypi_versions'\n    is defined to retrieve and parse\
+  \ available package versions from 'https://pypi.org/pypi/'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,7 +1,0 @@
-"## Project Overview\n## Entry Point\n## Core Functions\n## Usage Synopsis (User\u2011\
-  Facing Documentation)\n## Implementation Notes (For Developers)\n## Extensibility\
-  \ Points\n\n- **Adding new input formats**: Implement additional parsers and register\
-  \ them in `find_require`.\n- **Custom output handling**: Replace or extend `print_outdated`\
-  \ to support JSON, HTML, or other formats.\n- **Alternative version sources**: Modify\
-  \ `check_outdated` to query alternative package indexes or use different resolution\
-  \ strategies.\n"

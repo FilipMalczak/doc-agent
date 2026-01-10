@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code imports these classes to parse and validate Python package\n    requirements,\
+  \ handling cases where the input is not a valid requirement.\n  fact: The module\
+  \ imports `Requirement` and `InvalidRequirement` from the `packaging.requirements`\n\
+  \    module in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

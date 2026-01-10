@@ -1,0 +1,12 @@
+"- **File:** `tests/test_parse_cfg.py` \u2013 a unit test for the `parse_cfg` function\
+  \ in `pip_outdated.find_require`.\n- **Purpose:** Verifies that `parse_cfg` can\
+  \ read a `setup.cfg` file and correctly extract the names of required packages.\n\
+  - **Test setup:**\n  - Creates a temporary `setup.cfg` containing:\n    - `[options]`\
+  \ section with `setup_requires` and `install_requires` entries.\n    - `[options.extras_require]`\
+  \ section with a `docs` extra.\n  - Sample entries include version constraints (e.g.,\
+  \ `>= 1.15.0`, `< 5`) and commas.\n- **Expected outcome:** `parse_cfg` returns an\
+  \ iterable of requirement objects whose `name` attributes match the list:\n  - `\"\
+  setuptools_scm\"`\n  - `\"setuptools_scm_git_archive\"`\n  - `\"ansible\"`\n  -\
+  \ `\"ansible-lint\"`\n  - `\"alabaster\"`\n  - `\"Sphinx\"`\n- **Implication for\
+  \ users:** The function reliably strips version specifiers and punctuation, returning\
+  \ only clean package names from both standard requirements and extras."

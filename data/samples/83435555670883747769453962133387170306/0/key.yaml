@@ -1,3 +1,0 @@
-The file imports the colored function from the termcolor package and the AsciiTable
-  class (aliased as Table) from the terminaltables package.
-...

@@ -1,9 +1,0 @@
-"# Project Notes: `tests/test_pytz.py`\n## Documentation Insights\n- This test can\
-  \ serve as a **template** for adding further async tests for other packages.\n-\
-  \ Because it lacks explicit assertions, consider enhancing it in future documentation\
-  \ by checking that the returned version list:\n  - Is non\u2011empty.\n  - Contains\
-  \ expected semantic version strings.\n- The test also implicitly verifies that the\
-  \ **session handling** (`get_session`) correctly creates and closes an async HTTP\
-  \ client.\n\n---\n*Prepared for user\u2011facing documentation to help developers\
-  \ understand the purpose, execution, and requirements of the `tests/test_pytz.py`\
-  \ file.*"

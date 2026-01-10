@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The call parser.add_argument(\"-q\", \"--quiet\", action=\"store_true\",\n   \
-  \ help=\"Don't return exit code 1 if not everything is up to date.\") defines this\n\
-  \    flag.\n  fact: parse_args() adds a -q / --quiet flag that stores True when\
-  \ supplied and displays\n    the help text \"Don't return exit code 1 if not everything\
-  \ is up to date.\".\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

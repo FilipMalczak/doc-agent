@@ -1,3 +1,4 @@
+from docassist.preindexing.perspectives import FINAL_DOCUMENTATION_PERSPECTIVE
 from docassist.structure.materialize.expansion.models import DomainInterpretationInput, InterpretedDomain, \
     CandidateHypothesis, EntityAnchorInput, EntityAnchorOutput, SchemaProjectorInput, SchemaProjectedItem, \
     AnchoredEntity
@@ -7,6 +8,7 @@ from docassist.system_prompts import PromptingTask
 domain_interpreter = DoerAgent(
     name="domain interpreter",
     persona="expert in translating natural language specifications into formal constraints",
+    perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
             "You are part of a documentation materialization pipeline. "
@@ -36,6 +38,7 @@ domain_interpreter = DoerAgent(
 candidate_hypothesizer = SolverAgent(
     name="candidate hypothesizer",
     persona="analyst generating plausible entity hypotheses from specifications",
+    perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
             "You assist in discovering project entities by proposing candidate "
@@ -62,6 +65,7 @@ candidate_hypothesizer = SolverAgent(
 entity_anchor = SolverAgent(
     name="entity anchor",
     persona="knowledge base specialist responsible for grounding entities",
+    perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
             "You are responsible for resolving candidate hypotheses into real, "
@@ -90,6 +94,7 @@ entity_anchor = SolverAgent(
 schema_projector = DoerAgent(
     name="schema projector",
     persona="technical writer specializing in schema-driven content projection",
+    perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
             "You transform grounded project entities into structured documentation "

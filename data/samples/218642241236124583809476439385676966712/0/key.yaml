@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code block starting with 'def parse_args():' defines the function\n    in\
+  \ this file.\n  fact: The function 'parse_args' is defined in the '__init__.py'\
+  \ file.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

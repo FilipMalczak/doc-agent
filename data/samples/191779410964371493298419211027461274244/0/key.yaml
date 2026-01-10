@@ -1,0 +1,4 @@
+In file 'pip_outdated/check_outdated.py', the method 'install_not_wanted' in 'OutdateResult'
+  class checks if the installed version does not conform to the requirement's version
+  specifier.
+...

@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The argparse.ArgumentParser add_argument method is called with -q/--quiet\n  \
+  \  flag and action store True.\n  fact: In document with ID e66496b8-e454- quiet\
+  \ mode can be enabled with --quiet\n    flag.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

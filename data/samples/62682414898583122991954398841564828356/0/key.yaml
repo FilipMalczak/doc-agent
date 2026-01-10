@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code defines these nested functions within make_row and uses their\n    return\
+  \ values in constructing the output row\n  fact: The function make_row in pip_outdated/print_outdated.py\
+  \ uses helper functions\n    colored_current, colored_wanted, and colored_latest\
+  \ to generate color-coded strings\n    for package version information\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

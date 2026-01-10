@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The changelog explicitly documents version 0.8.0 (Aug 9, 2025) with\n    changes\
+  \ related to dependency updates (dropping setuptools and switching to configparse)\n\
+  \    as shown in the bullet point under the 'Changelog' section.\n  fact: The pip-outdated\
+  \ tool described in document with ID c70abb08-f4fa-543d-ad2e-52421c056692\n    had\
+  \ a version update on Aug 9, 2025 (v0.8.0) where it dropped setuptools dependency\n\
+  \    and switched to using configparse for reading setup.cfg files.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

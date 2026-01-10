@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function parse_args creates an argument parser with several command-line\n\
+  \    options including -v, -q, and file, which are typical for command-line interfaces.\n\
+  \  fact: The parse_args function uses argparse to set up command-line arguments\
+  \ for\n    the pip-outdated tool.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

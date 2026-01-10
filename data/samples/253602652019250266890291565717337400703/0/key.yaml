@@ -1,4 +1,0 @@
-OutdateResult.__post_init__ sets wanted to the most recent version in all_versions
-  that satisfies the requirement specifier, and sets latest to the last element of
-  all_versions.
-...

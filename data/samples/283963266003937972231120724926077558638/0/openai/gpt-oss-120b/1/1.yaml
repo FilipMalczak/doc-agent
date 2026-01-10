@@ -1,0 +1,31 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: We need to output markdown notes from perspective of maintainer (someone
+    who ensures end users can use it). Need to extract useful info for later user-facing
+    documentation. The file is a test for parse_cfg function. From maintainer perspective,
+    notes about behavior, expected output, required file format. Provide notes. Must
+    output markdown per format. No extra tool calls. Provide final_result.
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1767965028-LeQVo9vSi6J0o8iQP8en
+run_id: 9e17c2c1-862e-4c78-ba7e-3b3b734f92d9
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 99
+  input_audio_tokens: 0
+  input_tokens: 1312
+  output_audio_tokens: 0
+  output_tokens: 99

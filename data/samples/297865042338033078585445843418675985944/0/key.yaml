@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ __version__ variable is defined with value '0.argparse.ArgumentParser\n    prog\
+  \ parameter is set to ' pip-outdated', which indicates the program name.\n  fact:\
+  \ \"In document with ID e66496b8-e454-\\u7248\\u672C\\u53F7\\u662F0.8.0\\u3002\"\
+  \n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

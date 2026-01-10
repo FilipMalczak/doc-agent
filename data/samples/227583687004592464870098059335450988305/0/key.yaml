@@ -1,4 +1,0 @@
-The function parse_require(text) strips any option flags (e.g., '--no-deps') by truncating
-  at the first whitespace followed by a dash, then attempts to construct a Requirement;
-  it returns null if InvalidRequirement is raised.
-...

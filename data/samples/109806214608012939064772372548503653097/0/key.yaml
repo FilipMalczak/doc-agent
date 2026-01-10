@@ -1,0 +1,3 @@
+'The ''check_outdated()'' function in document 79501155-b71e-5dd6-a529-82fd14d4a11b
+  conditionally prints ''Checking: <package> <specifier>'' messages when verbose mode
+  is enabled'

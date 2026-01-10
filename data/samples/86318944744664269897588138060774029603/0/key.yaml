@@ -1,9 +1,0 @@
-"# Project Notes: `pip_outdated/check_outdated.py`\n## Potential Extensibility Points\n\
-  - **Custom HTTP Clients:** The `session` argument can be swapped for other async\
-  \ HTTP libraries exposing a compatible `.get()` method.\n- **Additional Filters:**\
-  \ Extend `get_pypi_versions` to include pre\u2011releases or apply custom version\u2011\
-  selection logic.\n- **Parallel Checks:** Consumers can schedule multiple `check_outdated`\
-  \ calls concurrently using `asyncio.gather` for batch processing.\n\n---\n\n*These\
-  \ notes are intended to assist authors in creating user\u2011facing documentation\
-  \ (e.g., README sections, API reference, or usage guides) for the `pip_outdated`\
-  \ project.*"

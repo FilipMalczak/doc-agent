@@ -1,0 +1,1 @@
+"# Quiet mode (no non\u2011zero exit code)\npip-outdated -q\n"

@@ -1,3 +1,0 @@
-In pip_outdated/find_require.py, the module provides utilities to locate and parse
-  Python package requirements from files.
-...

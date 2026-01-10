@@ -1,0 +1,5 @@
+"- **File:** `tests/__init__.py`  \n- **Language:** Python  \n- **Repository role:**\
+  \ Test suite (initialization module)  \n- **Maintainer notes:**  \n  - The empty\
+  \ `__init__.py` file marks the `tests` directory as a Python package, enabling test\
+  \ discovery and imports (e.g., by `pytest`).  \n  - Its presence is required for\
+  \ proper packaging of test modules but does not contain executable code.  "

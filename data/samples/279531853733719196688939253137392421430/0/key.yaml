@@ -1,0 +1,100 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file path 'requirements.txt' is specified\
+  \ as a default argument\n        in the 'parse_args' function.\n      fact: There\
+  \ is one file named requirements.txt in the project.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file path 'setup.cfg' is specified as a default\
+  \ argument in\n        the 'parse_args' function.\n      fact: There is one file\
+  \ named setup.cfg in the project.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The version is set in the '__version__' variable in the '__init__.py'\n\
+  \        file.\n      fact: The module 'pip_outdated' has a version 0.8.0.\n   \
+  \ __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code block starting with 'def parse_args():'\
+  \ defines the function\n        in this file.\n      fact: The function 'parse_args'\
+  \ is defined in the '__init__.py' file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The code block starting with 'def main():' defines the function\n\
+  \        in this file.\n      fact: The function 'main' is defined in the '__init__.py'\
+  \ file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n    \
+  \  explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code block starting with 'async def _main():'\
+  \ defines the function\n        in this file.\n      fact: The function '_main'\
+  \ is defined in the '__init__.py' file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line 'from .verbose import set_verbose' imports it, indicating\n\
+  \        it belongs to the same package.\n      fact: The function 'set_verbose'\
+  \ is imported from the 'verbose' module in the\n        same package.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The line 'from .find_require import find_require'\
+  \ imports it, indicating\n        it belongs to the same package.\n      fact: The\
+  \ function 'find_require' is imported from the 'find_require' module\n        in\
+  \ the same package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line 'from .check_outdated import check_outdated' imports\
+  \ it,\n        indicating it belongs to the same package .\n      fact: The function\
+  \ 'check_outdated' is imported from the 'check_outdated' module\n        in the\
+  \ same package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line 'from .print_outdated import print_outdated' imports\
+  \ it,\n        indicating it belongs to the same package .\n      fact: The function\
+  \ 'print_outdated' is imported from the 'print_outdated' module\n        in the\
+  \ same package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The line 'from .session import get_session' imports it, indicating\n\
+  \        it belongs to the same package.\n      fact: The function 'get_session'\
+  \ is imported from the 'session' module in the\n        same package.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: It imports 'asyncio' and uses 'async/await' syntax\
+  \ in functions\n        such as 'main' and '_main'.\n      fact: The '__init__.py'\
+  \ file uses asyncio for asynchronous execution.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: AFIXME comment in the code references a GitHub\
+  \ issue where 'asyncio.run'\n        is not suitable.\n      fact: The '__init__.py'\
+  \ file has aFIXME comment about using 'asyncio.get_event_loop().run_until_complete'\n\
+  \        due to an issue with 'asyncio.run'.\n    __pydantic_extra__: null\n   \
+  \ __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n  \
+  \  __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'import argparse' and 'import asyncio' statements\
+  \ are at the\n        top, while the other imports occur inside the '_main' function.\n\
+  \      fact: The '__init__.py' file imports modules at the top of the file except\
+  \ for\n        'verbose', 'find_require', 'check_outdated', 'print_outdated', and\
+  \ 'session',\n        which are imported inside the '_main' function.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'argparse' module is used to create a CLI\
+  \ that parses command-line\n        arguments for the 'pip-outdated' program.\n\
+  \      fact: The '__init__.py' file has a command-line interface (CLI) for checking\n\
+  \        outdated dependencies.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The 'parse_args' function lets users provide file paths, with\
+  \ defaults\n        set to 'requirements.txt' and 'setup.cfg'.\n      fact: The\
+  \ 'pip-outdated' CLI allows users to specify requirements files for\n        dependency\
+  \ checks.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n  \
+  \    explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The CLI includes a '-v' or '--verbose' argument\
+  \ that stores a boolean\n        value to control verbose output.\n      fact: The\
+  \ 'pip-outdated' CLI supports a verbose mode via the '-v' or '--verbose'\n     \
+  \   option.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The CLI includes a '-q' or '--quiet' argument that prevents\
+  \ exiting\n        with code 1 when there are outdated dependencies.\n      fact:\
+  \ The 'pip-outdated' CLI allows users to suppress exit code 1 via the '-q'\n   \
+  \     or '--quiet' option.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

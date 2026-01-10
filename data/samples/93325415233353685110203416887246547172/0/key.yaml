@@ -1,0 +1,4 @@
+In file 'pip_outdated/check_outdated.py', an asynchronous function 'get_local_version'
+  is defined that executes the command-line instruction 'pip show' to obtain the version
+  of a Python package.
+...

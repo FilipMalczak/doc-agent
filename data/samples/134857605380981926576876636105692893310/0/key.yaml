@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The required dependencies 'aiohttp~=3.12', 'colorama~=0.4.6', etc.\n    are explicitly\
+  \ listed in install_requires (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \  fact: The package has install dependencies including 'aiohttp~=3.12', 'colorama~=0.4.6',\n\
+  \    'packaging~=25.0', 'termcolor~=3.1', and 'terminaltables~=3.1' as per setup.cfg.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+The 'OutdateResult' class has a property method 'outdated' that evaluates whether
+  a package is outdated.
+...

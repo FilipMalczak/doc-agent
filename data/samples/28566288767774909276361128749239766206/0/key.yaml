@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The use of a global boolean suggests this state is intended to be shared\n   \
+  \ implicitly between different parts of the pip-outdated application.\n  fact: The\
+  \ pip_outdated/verbose.py implementation explicitly uses Python's global\n    keyword\
+  \ to modify the VERBOSE variable inside the set_verbose function.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

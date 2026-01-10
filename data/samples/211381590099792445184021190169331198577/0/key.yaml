@@ -1,4 +1,0 @@
-The module defines a function named make_row that accepts an OutdateResult instance
-  and returns either a list of four string values (package name, installed version,
-  wanted version, latest version) or None when the package is not outdated.
-...

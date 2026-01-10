@@ -1,4 +1,0 @@
-"## \U0001F6E0 Design Rationale\n\n- **Single source of truth:** All HTTP requests\
-  \ share the same User\u2011Agent and connection limit, simplifying future adjustments.\n\
-  - **Connection limit (`5`):** Matches the modest parallelism of the CLI, preventing\
-  \ excessive open sockets.\n"

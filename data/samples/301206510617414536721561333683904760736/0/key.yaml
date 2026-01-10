@@ -1,4 +1,0 @@
-"## \U0001F680 Potential Extension Points\n\n- **Configurable parameters:** Expose\
-  \ optional arguments (e.g., timeout, proxy) if later features need them.\n- **Session\
-  \ reuse:** Consider a singleton pattern to reuse a single session across multiple\
-  \ calls, reducing overhead.\n"

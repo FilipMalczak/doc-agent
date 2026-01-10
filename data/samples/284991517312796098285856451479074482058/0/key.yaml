@@ -1,3 +1,0 @@
-Line comments are detected using the regular expression r"(.*?)(^|\s)#", which treats
-  any '#' preceded by start-of-line or whitespace as the start of a comment.
-...

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'outdated' method is defined within 'OutdateResult' and compares\n    the\
+  \ 'version' attribute against 'wanted' and 'latest' to determine if a version\n\
+  \    is outdated.\n  fact: In file 'pip_outdated/check_outdated.py', the 'OutdateResult'\
+  \ class includes\n    a method 'outdated' that returns a boolean based on the comparison\
+  \ of 'version'\n    with 'wanted' and 'latest' attributes.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

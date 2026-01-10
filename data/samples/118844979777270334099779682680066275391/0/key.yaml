@@ -1,3 +1,0 @@
-Each call to get_session creates a fresh ClientSession instance; the function does
-  not cache or reuse a session.
-...

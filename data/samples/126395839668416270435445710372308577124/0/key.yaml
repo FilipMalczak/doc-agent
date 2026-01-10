@@ -1,3 +1,0 @@
-"## Command\u2011Line Interface\n- **Console script**: `pip-outdated`\n  - Entry point\
-  \ defined as `pip_outdated:main`.\n  - Installing the package adds the `pip-outdated`\
-  \ command to the user's PATH.\n"

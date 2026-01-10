@@ -1,0 +1,3 @@
+In file 'pip_outdated/print_outdated.py', the output colors packages in red ('unavailable/outdated/out
+  of version specifier') and green ('updatable') to convey their status visually.
+...

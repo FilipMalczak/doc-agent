@@ -1,0 +1,21 @@
+"**Project Overview (End\u2011User Perspective)**  \n\n- **Name:** `pip-outdated`\
+  \  \n- **Current version:** `0.8.0` (Beta)  \n- **Purpose:** Quickly identify packages\
+  \ in a `requirements.txt` or `setup.cfg` that are out of date.  \n- **Primary use\
+  \ case:** Developers who run Python projects can run a single command to see which\
+  \ dependencies need updating, similar to how `npm outdated` works for Node.js. \
+  \ \n\n**Key Features for Users**  \n\n- **Console command:**  \n  ```bash\n  pip-outdated\n\
+  \  ```  \n  Executes the `main` function from the `pip_outdated` module, printing\
+  \ a list of outdated packages.  \n- **Supports both `requirements.txt` and `setup.cfg`\
+  \ files** \u2013 no need to convert formats before checking.  \n- **Lightweight\
+  \ installation:** Only a few core dependencies are required (`aiohttp`, `colorama`,\
+  \ `packaging`, `termcolor`, `terminaltables`).  \n\n**Installation**  \n\n```bash\n\
+  pip install pip-outdated\n```  \n\n**Configuration (Optional)**  \n\n- The `[vpip]`\
+  \ section provides a fallback command (`python cute.py`) that can be invoked if\
+  \ needed, but typical users will not need to modify this.  \n\n**Licensing & Project\
+  \ Info**  \n\n- **License:** MIT (permissive, free to use and modify).  \n- **Repository:**\
+  \ https://github.com/eight04/pip-outdated  \n- **Author:** \u201Ceight\u201D (contact:\
+  \ eight04@gmail.com).  \n\n**What Users Can Expect**  \n\n- A simple, single\u2011\
+  line tool that reports which dependencies are older than the latest released versions.\
+  \  \n- No complex setup; the tool works out\u2011of\u2011the\u2011box after installation.\
+  \  \n- Helpful output formatting via `terminaltables` for clear, readable tables\
+  \ in the console.  "

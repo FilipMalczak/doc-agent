@@ -1,0 +1,9 @@
+"answer.\n\n**Project: pip-outdated (maintainer perspective)**  \n\n- **Package name:**\
+  \ `pip-outdated`  \n- **Current version:** `0.8.0`  \n- **Short description:** \u201C\
+  Find outdated dependencies in your requirements.txt or setup.cfg\u201D  \n- **Long\
+  \ description source:** `README.rst` (included via `long_description = file: README.rst`)\
+  \  \n- **Author:** `eight` (`eight04@gmail.com`)  \n- **License:** MIT \u2013 suitable\
+  \ for open\u2011source distribution.  \n- **Project homepage / source:** <https://github.com/eight04/pip-outdated>\
+  \  \n\n### Classification & Audience\n### Keywords (for discoverability)\n### Installation\
+  \ requirements\n### Packaging details\n### Entry points (user\u2011facing CLI)\n\
+  ### Additional configuration\n### Documentation notes for end\u2011users"

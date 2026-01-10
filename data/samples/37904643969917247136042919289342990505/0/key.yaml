@@ -1,4 +1,0 @@
-"## \U0001F527 Key Function\n\n- **Signature:** `get_session() -> aiohttp.ClientSession`\n\
-  - **What it does:**\n  - Instantiates a new `aiohttp.ClientSession` on every call.\n\
-  \  - Sets a default HTTP header `\"User-Agent\": \"pip-outdated\"`.\n  - Uses an\
-  \ `aiohttp.TCPConnector` with `limit=5` to cap concurrent connections.\n"

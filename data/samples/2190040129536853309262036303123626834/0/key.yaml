@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The verbose function is imported to conditionally print messages during\n    file\
+  \ parsing based on verbosity settings.\n  fact: The module imports `verbose` from\
+  \ `.verbose` in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n    for controlling\
+  \ verbose output.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Users or components can check the current verbosity state via this\n    accessor\
+  \ function to conditionally show additional output.\n  fact: The verbose() function\
+  \ in pip_outdated/verbose.py returns the current value\n    of the global VERBOSE\
+  \ variable, allowing inspection of the application's verbosity\n    setting.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,6 +1,0 @@
-"### Core Logic\n```python\nif __name__ == \"__main__\":\n    from . import main\n\
-  \    main()\n```\n- The `if __name__ == \"__main__\":` guard ensures the code runs\
-  \ **only** when the module is executed directly, not when imported.\n- `from . import\
-  \ main` performs a **relative import** from the same package, locating the `main`\
-  \ module (or callable) that contains the core logic.\n- `main()` invokes the entry\u2011\
-  point function to start the program.\n"

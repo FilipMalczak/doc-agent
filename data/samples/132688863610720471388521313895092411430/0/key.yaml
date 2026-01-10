@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The ordering in the asserted list matches that order in the configuration\n  \
-  \  file.\n  fact: 'The expected order of requirement names returned by parse_cfg\
-  \ is: first the\n    two setup_requires entries, then the two install_requires entries,\
-  \ followed by\n    the two docs extra entries.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

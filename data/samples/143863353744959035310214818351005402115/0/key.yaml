@@ -1,9 +1,0 @@
-"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n# Install the tool\n\
-  # Run with default files (requirements.txt, setup.cfg)\n# Run against custom patterns\n\
-  # Verbose mode for debugging\n# Quiet mode \u2013 CI\u2011friendly (no failing exit\
-  \ status)\npip-outdated -q\n```\n\n---\n\n## 10. References\n- PyPI page: <https://pypi.org/project/pip-outdated/>\n\
-  - CI status (Travis CI): <https://travis-ci.com/eight04/pip-outdated>\n- Test coverage\
-  \ (Codecov): <https://codecov.io/gh/eight04/pip-outdated>\n\n---\n\n*These compiled\
-  \ notes bring together the file\u2011level documentation for `README.rst`, `setup.cfg`,\
-  \ `setup.py`, the `pip_outdated` package, and its test suite, providing a ready\u2011\
-  to\u2011publish overview for users and contributors.*"

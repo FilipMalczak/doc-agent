@@ -1,4 +1,0 @@
-The async function get_pypi_versions(name, session) retrieves JSON from https://pypi.org/pypi/{name}/json,
-  parses release keys into Version objects, excludes invalid and prerelease versions,
-  sorts them, and returns the list.
-...

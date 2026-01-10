@@ -1,0 +1,23 @@
+"### Key functionalities (public API)\n\n| Function | Description | Typical use by\
+  \ end\u2011users |\n|----------|-------------|--------------------------|\n| `iter_files(patterns)`\
+  \ | Yields `pathlib.Path` objects for each glob pattern or direct file path. | Allows\
+  \ callers to pass a list of glob patterns (e.g., `[\"requirements.txt\", \"src/**/*.txt\"\
+  ]`). |\n| `file_to_lines(file)` | Reads a file and yields cleaned lines via `parse_lines`.\
+  \ Verbose mode prints the file being parsed. | Used internally to feed a file into\
+  \ the requirement parser. |\n| `parse_lines(lines)` | Normalises an iterable of\
+  \ raw lines: removes comments (`#`), handles back\u2011slash continuations, strips\
+  \ trailing newlines. | Core line\u2011pre\u2011processing shared between file\u2011\
+  based and text\u2011based parsing. |\n| `parse_requirements(file)` | Parses a requirements\u2011\
+  style file, yielding `Requirement` objects for each valid line. | Entry point for\
+  \ scripts that need to read `requirements.txt`\u2011like files. |\n| `parse_requirements_text(text)`\
+  \ | Same as above but works on a raw string (useful for in\u2011memory data). |\
+  \ Helpful for testing or runtime\u2011generated requirement snippets. |\n| `parse_cfg(file)`\
+  \ | Reads a `setup.cfg` file and extracts requirement sections (`setup_requires`,\
+  \ `install_requires`, `extras_require`). | Enables projects that declare dependencies\
+  \ in `setup.cfg` to be handled uniformly. |\n| `find_require(files)` | Accepts glob\
+  \ patterns or file paths, determines file type (`.cfg` vs others), and yields all\
+  \ discovered `Requirement` objects. | One\u2011stop function for command\u2011line\
+  \ tools or CI scripts that need to enumerate all project dependencies. |\n| `parse_require(text)`\
+  \ | Strips trailing options (`--option` style) then attempts to build a `Requirement`;\
+  \ returns `None` on failure. | Internal helper that tolerates lines with pip options\
+  \ (e.g., `package>=1.0 --hash=...`). |\n"

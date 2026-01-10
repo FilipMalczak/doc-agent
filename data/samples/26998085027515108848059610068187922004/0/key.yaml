@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ It calls parse_lines on text.splitlines(True) and then processes each\n    line\
-  \ with parse_require.\n  fact: The function parse_requirements_text(text) performs\
-  \ the same operation as\n    parse_requirements but operates on a raw string by\
-  \ splitting it into lines.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

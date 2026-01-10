@@ -1,6 +1,0 @@
-"#### `check_outdated.py`\n- Uses `canonicalize_name` to match PyPI naming.\n- `OutdateResult`\
-  \ captures:\n  - Original requirement, local version, all PyPI versions, newest\
-  \ version satisfying the specifier (`wanted`), and absolute latest (`latest`).\n\
-  - Provides helper properties (`install_not_found`, `outdated`, etc.) for easy status\
-  \ checks.\n- Retrieves local version via `pip show` subprocess; fetches PyPI data\
-  \ via `aiohttp`.\n- Verbose flag toggles per\u2011package diagnostic prints.\n"

@@ -1,0 +1,6 @@
+"### Important Implementation Details for Users\n\n- The tool **does not** use `asyncio.run()`\
+  \ because of a known issue with the event loop in `aiohttp` (see GitHub issue linked\
+  \ in the source).  \n- The default behavior **exits with code\u202F1** if any outdated\
+  \ package is found, unless `--quiet` is specified.  \n\nThese notes capture the\
+  \ user\u2011facing aspects of the module needed for documentation such as help messages,\
+  \ usage guides, or release notes."

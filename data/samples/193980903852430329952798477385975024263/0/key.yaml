@@ -1,4 +1,0 @@
-The file imports Iterable from collections.abc, ConfigParser from configparser, pathlib,
-  re, Requirement and InvalidRequirement from packaging.requirements, and a local
-  verbose function.
-...

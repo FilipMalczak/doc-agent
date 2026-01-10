@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The same pattern as colored_wanted is used for the latest version.\n  fact: Similarly,\
-  \ the conditional `if outdate.version < outdate.latest` inside colored_latest\n\
-  \    ensures that the latest version is highlighted in green only when the installed\n\
-  \    version is older than the latest version and the package is installed.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

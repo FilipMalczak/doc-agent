@@ -1,0 +1,8 @@
+"### Documentation considerations\n- **Explain supported file types** (`*.txt`\u2011\
+  style requirements files and `setup.cfg`).\n- **Clarify how comments and continuations\
+  \ are interpreted**, matching pip\u2019s specification.\n- **Mention that malformed\
+  \ lines are ignored silently**, and suggest logging or validation if strictness\
+  \ is required.\n- **Provide guidance on verbosity control** (`pip_outdated.verbose.verbose()`),\
+  \ especially for CI environments.\n- **State the dependency on `packaging`** (for\
+  \ `Requirement` objects) and `configparser` (for `.cfg` parsing). Ensure these packages\
+  \ are listed as runtime dependencies of `pip_outdated`."

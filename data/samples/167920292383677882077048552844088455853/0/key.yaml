@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The method 'install_not_found' checks for 'self.version' being None,\n    a condition\
+  \ where a package's installed version could not be found.\n  fact: In file 'pip_outdated/check_outdated.py',\
+  \ the function 'install_not_found'\n    within the 'OutdateResult' class checks\
+  \ if the installed version is None, indicating\n    the package is not installed.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

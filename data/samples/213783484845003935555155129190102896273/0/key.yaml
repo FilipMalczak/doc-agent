@@ -1,3 +1,0 @@
-If the outdates iterable is empty, count remains 0, the function prints the red message
-  "No requirements found." and returns early.
-...

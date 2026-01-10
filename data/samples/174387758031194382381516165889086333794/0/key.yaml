@@ -1,4 +1,0 @@
-"Version 0.3.0 (released Oct\u202F13\u202F2019) introduced a breaking change that\
-  \ sets the exit code to 1 when any dependency is not up-to-date, stopped checking\
-  \ pre-releases, and added support for setup_requires and extras_require sections\
-  \ in setup.cfg files."

@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'Its signature is `async def print_outdated(outdates: List[Awaitable[OutdateResult]],\n\
-  \    quiet: bool):`.'\n  fact: The print_outdated function is declared as async\
-  \ and expects a list of Awaitable[OutdateResult]\n    objects and a boolean flag\
-  \ quiet.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

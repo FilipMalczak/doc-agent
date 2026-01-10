@@ -1,6 +1,0 @@
-"## Project Note: `pip_outdated/__main__.py`\n### Purpose\n### Core Logic\n### Implications\
-  \ for Users\n### Documentation Tips\n- Highlight that `__main__.py` is the **standard\
-  \ Python convention** for making a package executable via `python -m`.\n- Explain\
-  \ that any updates to the program\u2019s main behavior should be made in the `main`\
-  \ module, not here.\n- Mention that users do not need to interact with this file\
-  \ directly; it is invoked automatically by package execution mechanisms.\n"

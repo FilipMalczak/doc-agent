@@ -1,0 +1,36 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The import statements and the __version__ variable\
+  \ in the content\n        confirm it is a Python module and the version is specified\
+  \ as 0.8.0.\n      fact: The file pip_outdated/__init__.py defines a Python module\
+  \ for the pip-outdated\n        tool, version 0.8.0.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_args creates an argument parser\
+  \ with several\n        command-line options including -v, -q, and file, which are\
+  \ typical for command-line\n        interfaces.\n      fact: The parse_args function\
+  \ uses argparse to set up command-line arguments\n        for the pip-outdated tool.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The comment in the main function indicates that\
+  \ asyncio.run is\n        avoided because it closes the event loop, referencing\
+  \ a GitHub issue related\n        to aiohttp.\n      fact: The main function in\
+  \ pip_outdated/__init__.py uses the asyncio event loop\n        directly instead\
+  \ of asyncio.run, due to a known issue with aiohttp.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The relative imports from .verbose, .find_require,\
+  \ etc., show that\n        the __init__.py file uses internal modules of the pip-outdated\
+  \ package.\n      fact: The __init__.py file imports functions from modules such\
+  \ as verbose, find_require,\n        check_outdated, and print_outdated, which are\
+  \ part of the same package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The _main function is declared with async and uses async/await\n\
+  \        syntax with functions like get_session and print_outdated, indicating it\
+  \ is\n        asynchronous.\n      fact: The _main function is an asynchronous function\
+  \ that handles finding dependencies,\n        checking for outdated packages, and\
+  \ printing the results.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

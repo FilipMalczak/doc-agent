@@ -1,6 +1,0 @@
-"### Recommendations\n- Keep `setup.cfg` or `pyproject.toml` for static metadata where\
-  \ possible; they can reduce the amount of code needed in `setup.py`.\n- Pin versions\
-  \ of critical dependencies to avoid accidental breakage.\n- Include a `README` and\
-  \ a `LICENSE` file in the repository root; they can be referenced from `setup()`.\n\
-  \n---  \n\n*These notes capture the current state of `setup.py` and outline the\
-  \ steps a user should follow to turn it into a functional package configuration.*"

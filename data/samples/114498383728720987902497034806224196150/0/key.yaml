@@ -1,0 +1,36 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The document explicitly states that pip-outdated\
+  \ is used to find\n        outdated dependencies in requirements.txt or setup.cfg\
+  \ files, which is a core\n        functionality from the user perspective.\n   \
+  \   fact: There is one tool named pip-outdated in document with ID c70abb08-f4fa-543d-ad2e-52421c056692\n\
+  \        that identifies outdated dependencies in requirements.txt or setup.cfg\
+  \ files.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n   \
+  \   explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The installation instructions directly show this\
+  \ pip command in\n        the ::-formatted code block for PyPI installation.\n \
+  \     fact: Document with ID c70abb08-f4fa-543d-ad2e-52421c056692 provides PyPI\
+  \ installation\n        for pip-outdated via 'pip install pip-outdated' command.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The tool's usage description explicitly mentions\
+  \ accepting glob\n        patterns for file arguments, demonstrated in examples\
+  \ like *-requirements.txt.\n      fact: In document with ID c70abb08-f4fa-543d-ad2e-52421c056692,\
+  \ pip-outdated's\n        positional file argument supports glob patterns for file\
+  \ globbing.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The optional arguments section explicitly lists --quiet and\
+  \ their\n        effect on exit codes, shown in the usage description.\n      fact:\
+  \ Document with ID c70abb08-f4fa-543d-ad2e-52421c056692 contains --quiet\n     \
+  \   option implementation for pip-outdated that suppresses exit code 1 when dependencies\n\
+  \        are outdated.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The 0.8.0 changelog entry explicitly states dependency changes\n\
+  \        from setuptools to configparser for setup.cfg parsing.\n      fact: Version\
+  \ 0.8.0 of pip-outdated in document c70abb08-f4fa-543d-ad2e-52421c056692\n     \
+  \   changed from setuptools to configparser for reading setup.cfg files.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

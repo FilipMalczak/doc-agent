@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file exists as an empty __init__.py in the tests directory, which\n    is\
+  \ common in Python projects to mark a directory as a package. Since it has the\n\
+  \    repo_function 'test', this indicates the tests directory is intended to be\
+  \ a test\n    package, even though the content is empty.\n  fact: There is one Python\
+  \ source file named '__init__.py' located in the 'tests'\n    directory with ID\
+  \ 'eaf4d26b-3758-556a-99cc-1db5e0a99711'.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

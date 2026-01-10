@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code snippet defines a dataclass named 'OutdateResult' including\n    specific\
+  \ attributes with type annotations. These attributes are directly mentioned,\n \
+  \   which confirms the existence of each with their types.\n  fact: In file 'pip_outdated/check_outdated.py',\
+  \ the 'OutdateResult' class is defined\n    with attributes 'requirement', 'version',\
+  \ 'all_versions', 'wanted', and 'latest',\n    all with specific data types.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

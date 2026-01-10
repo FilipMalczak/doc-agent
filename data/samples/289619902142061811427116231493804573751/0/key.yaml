@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ No assertions or explicit checks are present, implying that the test\n    passes\
-  \ if get_pypi_versions completes without raising an exception.\n  fact: The test\
-  \ relies on the successful completion of get_pypi_versions without\n    raising\
-  \ errors as its pass condition.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

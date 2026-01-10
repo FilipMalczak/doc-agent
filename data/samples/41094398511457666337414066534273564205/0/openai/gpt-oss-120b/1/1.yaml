@@ -1,0 +1,45 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to produce notes from the perspective of an end-user (someone
+    who uses the project). The input file is a minimal setup.py with just import and
+    call to setup(). For user documentation, what can be noted? The file configures
+    packaging; but there is nothing actionable for end-user. So likely no meaningful
+    notes. According to instructions, if no notes, use empty_result tool with explanation.
+    Must not produce any other text. The contract says exactly one textual response
+    allowed, tool calling is forbidden? Wait contract: "tool calling is forbidden."
+    The behavior says "Exactly one textual response is allowed. Tool calling is forbidden."
+    So we cannot call empty_result tool. Must produce a textual response (i.e., output)
+    in markdown format per system. Must contain notes or "N/A". If no meaningful content,
+    we should reply with ''N/A'' (as per low_level: "or reply with ''N/A'' to indicate
+    no meaningful content from that perspective").
+
+
+    Thus output should be N/A. Must be markdown? Output format is Markdown. So just
+    "N/A".'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: N/A
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1767965029-15NWAq5wDyIHSiWRnUbx
+run_id: 34c5b32f-7683-4006-827f-4257956f7589
+timestamp: '2026-01-09T13:23:49Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 912
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 259
+  input_audio_tokens: 0
+  input_tokens: 1042
+  output_audio_tokens: 0
+  output_tokens: 234

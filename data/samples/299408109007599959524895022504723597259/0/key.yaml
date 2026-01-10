@@ -1,3 +1,0 @@
-The source file imports colorama, which is used only to call colorama.init() for initializing
-  colored output on Windows and other platforms.
-...

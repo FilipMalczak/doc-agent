@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' explicitly\n    defines\
+  \ a test case for the 'pytz' package using async programming and PyPI version-checking\n\
+  \    functionality, which establishes it as a specific implementation detail within\n\
+  \    this file.\n  fact: The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ contains a test\n    file for checking 'pytz' package PyPI versions using asynchronous\
+  \ operations.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

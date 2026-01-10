@@ -1,8 +1,0 @@
-'### What the file currently does
-
-  - Imports the `setup` function from **setuptools**.
-
-  - Calls `setup()` with **no arguments**, meaning the package metadata and configuration
-  are currently empty.
-
-  '

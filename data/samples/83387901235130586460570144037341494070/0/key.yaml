@@ -1,4 +1,0 @@
-"### Dependencies (installed automatically when the package is installed)\n- `colorama`\
-  \ \u2013 ensures colour codes work on Windows terminals.  \n- `termcolor` \u2013\
-  \ provides the `colored` helper used throughout the module.  \n- `terminaltables`\
-  \ \u2013 renders the ASCII table (`AsciiTable`).  \n"

@@ -1,4 +1,0 @@
-The make_row function expects the OutdateResult object to provide the methods outdated(),
-  install_not_found(), install_not_wanted(), pypi_not_found() and the attributes version,
-  wanted, latest, and name.
-...

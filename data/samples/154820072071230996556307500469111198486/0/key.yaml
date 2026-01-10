@@ -1,5 +1,0 @@
-'# Install test dependencies
-
-  pip install pytest pytest-asyncio
-
-  '

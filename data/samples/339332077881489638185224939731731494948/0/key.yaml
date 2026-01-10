@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ parse_version is an alias for packaging.version.parse used to parse\n    version\
-  \ strings.\n  fact: The name parse_version is imported as an alias for packaging.version.parse\n\
-  \    and is used to parse version strings from pip output and PyPI data.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

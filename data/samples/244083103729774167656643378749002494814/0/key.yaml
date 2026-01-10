@@ -1,0 +1,12 @@
+"### Changelog Highlights (Relevant to Users)\n- **0.8.0 (Aug\u202F9\u202F2025)**\
+  \ \u2013 Removed `setuptools` dependency; now uses `configparse` for reading `setup.cfg`.\
+  \  \n- **0.7.0 (Aug\u202F13\u202F2024)** \u2013 Ignores `InvalidVersion` errors\
+  \ gracefully.  \n- **0.6.0 (Jan\u202F1\u202F2023)** \u2013 Fetches package versions\
+  \ via the `pip` CLI, ensuring correct versions inside virtual environments; dropped\
+  \ `cchardet`.  \n- **0.4.0 (Jan\u202F30\u202F2020)** \u2013 Raised minimum Python\
+  \ version to 3.7; introduced parallel request handling and the `--quiet` flag. \
+  \ \n- **0.3.0 (Oct\u202F13\u202F2019)** \u2013 Changed exit\u2011code behavior to\
+  \ `1` when any dependency is outdated; added checks for `setup_requires` and `extras_require`.\
+  \  \n\n--- \n\n*These notes capture the information an end\u2011user would need\
+  \ to understand what `pip-outdated` does, how to install it, how to run it, which\
+  \ options are available, and what recent changes may affect their usage.*"

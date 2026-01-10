@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'The same table defines \"-q, --quiet  Don''t return exit code 1 if\n    not everything\
-  \ is up to date. (default: False)\".'\n  fact: The -q/--quiet flag suppresses exit\
-  \ code 1 when not all packages are up-to-date;\n    its default value is false.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

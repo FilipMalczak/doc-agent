@@ -1,6 +1,0 @@
-"## Project Note: `pip_outdated/__main__.py`\n\n- **File Path**: `pip_outdated/__main__.py`\n\
-  - **Language**: Python\n\n### Implications for Users\n- Users can run the tool without\
-  \ needing to know the internal module layout:\n  - **Command line**: `python -m\
-  \ pip_outdated`\n  - **Executable wrapper** (if provided by setup tools) will likely\
-  \ point to this entry point.\n- The file abstracts away the implementation details,\
-  \ offering a clean, single command to start the package\u2019s functionality.\n"

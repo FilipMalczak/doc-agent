@@ -1,4 +1,0 @@
-"# Directory\u2011Level Documentation: `tests`\n## Purpose of the `tests` Package\n\
-  - Provides a **pytest\u2011compatible test suite** for the `pip_outdated` project.\n\
-  - The presence of an ``__init__.py`` file marks the directory as a Python package,\
-  \ allowing test modules to be imported via package syntax.\n"

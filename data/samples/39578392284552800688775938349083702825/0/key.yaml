@@ -1,0 +1,4 @@
+The main package status evaluation occurs in 'check_outdated()' function of document
+  79501155-b71e-5dd6-a529-82fd14d4a11b, comparing local versions against PyPI versions
+  through async operations
+...

@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ make_row returns a list with outdate.name and outputs from helper functions.\n\
+  \  fact: make_row returns a list containing outdate.name, colored_current(), colored_wanted(),\n\
+  \    and colored_latest()\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

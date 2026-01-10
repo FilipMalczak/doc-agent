@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'from setuptools import setup' demonstrates that the setup.py\n    file\
+  \ imports the setup function from the setuptools module.\n  fact: The setup.py file\
+  \ imports the 'setup' function from 'setuptools' module.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

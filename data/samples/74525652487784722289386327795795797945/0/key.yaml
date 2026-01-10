@@ -1,0 +1,77 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code snippet defines a dataclass named 'OutdateResult'\
+  \ including\n        specific attributes with type annotations. These attributes\
+  \ are directly mentioned,\n        which confirms the existence of each with their\
+  \ types.\n      fact: In file 'pip_outdated/check_outdated.py', the 'OutdateResult'\
+  \ class is\n        defined with attributes 'requirement', 'version', 'all_versions',\
+  \ 'wanted',\n        and 'latest', all with specific data types.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The '__post_init__' method is implemented within\
+  \ the 'OutdateResult'\n        class definition. It utilizes the 'requirement' and\
+  \ 'all_versions' class attributes\n        to set the values of 'wanted' and 'latest'.\n\
+  \      fact: In file 'pip_outdated/check_outdated.py', the 'OutdateResult' class\
+  \ has\n        a method '__post_init__' that initializes 'wanted' and 'latest' attributes\n\
+  \        based on 'all_versions' and 'requirement' attributes.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'outdated' method is defined within 'OutdateResult'\
+  \ and compares\n        the 'version' attribute against 'wanted' and 'latest' to\
+  \ determine if a version\n        is outdated.\n      fact: In file 'pip_outdated/check_outdated.py',\
+  \ the 'OutdateResult' class includes\n        a method 'outdated' that returns a\
+  \ boolean based on the comparison of 'version'\n        with 'wanted' and 'latest'\
+  \ attributes.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function 'get_local_version' is presented with an 'async\
+  \ def'\n        statement, and it executes 'pip show' for the specified package\
+  \ as part of\n        command-line subprocess handling.\n      fact: In file 'pip_outdated/check_outdated.py',\
+  \ an asynchronous function 'get_local_version'\n        is defined that executes\
+  \ the command-line instruction 'pip show' to obtain\n        the version of a Python\
+  \ package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n \
+  \     explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function 'get_pypi_versions' uses an 'async\
+  \ with' statement\n        and makes an HTTP request to the PyPI URL, indicating\
+  \ that it is defined in\n        the file to fetch version data.\n      fact: In\
+  \ file 'pip_outdated/check_outdated.py', an asynchronous function 'get_pypi_versions'\n\
+  \        is defined to retrieve and parse available package versions from 'https://pypi.org/pypi/'.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function 'check_outdated' is structured to\
+  \ call 'get_local_version'\n        and 'get_pypi_versions' in order to instantiate\
+  \ and return an 'OutdateResult'.\n      fact: In file 'pip_outdated/check_outdated.py',\
+  \ the asynchronous function 'check_outdated'\n        uses 'get_local_version' and\
+  \ 'get_pypi_versions' to assess a package's current\n        version against PyPI's\
+  \ versions.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The 'pypi_not_found' method is present and returns 'True' when\n\
+  \        'self.latest' is None, which would occur if no version data was retrieved\n\
+  \        from PyPI.\n      fact: In file 'pip_outdated/check_outdated.py', the method\
+  \ 'pypi_not_found'\n        within 'OutdateResult' class checks whether the latest\
+  \ version is None, indicating\n        a failure to find the package on PyPI.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The method 'install_not_found' checks for 'self.version'\
+  \ being\n        None, a condition where a package's installed version could not\
+  \ be found.\n      fact: In file 'pip_outdated/check_outdated.py', the function\
+  \ 'install_not_found'\n        within the 'OutdateResult' class checks if the installed\
+  \ version is None,\n        indicating the package is not installed.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The method 'install_not_wanted' evaluates if\
+  \ 'self.version' is\n        not included in 'self.requirement.specifier', which\
+  \ reflects a version mismatch.\n      fact: In file 'pip_outdated/check_outdated.py',\
+  \ the method 'install_not_wanted'\n        in 'OutdateResult' class checks if the\
+  \ installed version does not conform\n        to the requirement's version specifier.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'parse_version' call inside 'get_pypi_versions'\
+  \ includes a\n        check for 'is_prerelease' and ignores such versions, explicitly\
+  \ stated in\n        the code.\n      fact: In file 'pip_outdated/check_outdated.py',\
+  \ the function 'get_pypi_versions'\n        filters out pre-release versions when\
+  \ retrieving a package's version history\n        from PyPI.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Method indicates if no versions were found on PyPI.\n  fact: OutdateResult.pypi_not_found()\
-  \ returns True when latest is None, meaning no\n    PyPI versions were retrieved.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

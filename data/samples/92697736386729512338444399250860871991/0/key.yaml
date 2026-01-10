@@ -1,0 +1,3 @@
+the test imports `get_session` from pip_outdated.session and uses it as an async context
+  manager in tests/test_pytz.py
+...

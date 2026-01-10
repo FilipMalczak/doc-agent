@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'get_local_version' is presented with an 'async def' statement,\n\
+  \    and it executes 'pip show' for the specified package as part of command-line\
+  \ subprocess\n    handling.\n  fact: In file 'pip_outdated/check_outdated.py', an\
+  \ asynchronous function 'get_local_version'\n    is defined that executes the command-line\
+  \ instruction 'pip show' to obtain the\n    version of a Python package.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

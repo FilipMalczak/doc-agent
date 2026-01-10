@@ -1,3 +1,0 @@
-The module imports verbose from .verbose and calls verbose() to conditionally print
-  the package being checked.
-...

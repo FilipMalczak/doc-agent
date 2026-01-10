@@ -8,7 +8,7 @@ from tenacity import stop_after_attempt, sleep
 def step(foo):
     return instrument()(foo)
 
-def phase(**kwargs):
+def phase(attempts: int = 3, **kwargs):
     def decorator(foo):
         def _retry():
             x = dict(
@@ -23,6 +23,9 @@ def phase(**kwargs):
             )
         return _retry()(step(foo))
     return decorator
+
+
+
 #
 # def stage[**P, R](foo: Callable[[P], R]) -> Callable[[P], R]:
 #     return default_retry()(

@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ \"The function instantiates ArgumentParser using prog=\\\"pip-outdated\\\"\\\n\
-  \    \\ and a multi\\u2011line description.\"\n  fact: The function parse_args()\
-  \ creates an argparse.ArgumentParser with prog \"pip-outdated\"\n    and a description\
-  \ mentioning finding outdated dependencies in requirements.txt\n    or setup.cfg.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

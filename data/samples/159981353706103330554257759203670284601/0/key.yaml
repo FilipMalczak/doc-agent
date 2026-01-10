@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function parse_lines uses regex to split lines at comment markers\n    and\
+  \ handle continuation with backslashes.\n  fact: The file pip_outdated/find_require.py\
+  \ uses a regular expression to handle\n    comments and continuation in requirements\
+  \ files.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

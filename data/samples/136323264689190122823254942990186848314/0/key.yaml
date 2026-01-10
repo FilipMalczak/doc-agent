@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function print_outdated is defined in the given file.\n  fact: there is one\
+  \ function called print_outdated in document with ID cb702584-8007-68a-80b4-c4dbaa226784\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

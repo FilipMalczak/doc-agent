@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_require' function is defined in the source file. It processes\n   \
+  \ a line of text by removing option flags and attempting to parse it as a single\n\
+  \    requirement using the 'Requirement' class from the 'packaging.requirements'\
+  \ module.\n    If the line is an invalid requirement, the function returns None.\n\
+  \  fact: In file 'pip_outdated/find_require.py', there is a function named 'parse_require'\n\
+  \    that processes a line of text to extract a single requirement, ignoring options\n\
+  \    and handling invalid requirements.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

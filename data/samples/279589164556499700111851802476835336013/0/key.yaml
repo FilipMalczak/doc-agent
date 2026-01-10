@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The line 'version = 0.8.0' defines the current version of the package.\n  fact:\
-  \ The project version is \"0.8.0\" as specified by the \"version\" field in the\n\
-  \    [metadata] section.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

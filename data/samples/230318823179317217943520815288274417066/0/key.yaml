@@ -1,3 +1,0 @@
-canonicalize_name from packaging.utils is used to normalize the requirement name before
-  querying local and PyPI versions.
-...

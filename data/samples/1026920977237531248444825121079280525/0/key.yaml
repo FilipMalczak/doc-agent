@@ -1,0 +1,6 @@
+"### CLI Options (parsed by `parse_args()`)\n\n- `-v`, `--verbose` \u2013 Enable verbose\
+  \ output.  \n- `-q`, `--quiet` \u2013 Suppress a non\u2011zero exit code when all\
+  \ dependencies are up\u2011to\u2011date.  \n- `file` (positional, may be repeated)\
+  \ \u2013 Paths or glob patterns of requirement files to inspect.  \n  - Default\
+  \ values: `[\"requirements.txt\", \"setup.cfg\"]`  \n  - Accepts typical shell\u2011\
+  style globbing.  \n"

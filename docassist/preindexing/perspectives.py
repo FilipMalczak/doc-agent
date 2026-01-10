@@ -1,8 +1,10 @@
 from typing import TypedDict, Literal
 
-from docassist.structured_agent import cross_product, expand_on
+from pydantic import BaseModel
 
-AudienceRole = Literal["end-user", "maintainer"]
+from docassist.parametrized import expand_on, cross_product
+
+AudienceRole = Literal["enduser", "maintainer"]
 AudienceToProjectRelationship = Literal["user", "developer"]
 
 class Description[T](TypedDict):
@@ -15,14 +17,14 @@ class ContentDerivationPerspective(TypedDict):
     summary: str
 
 ROLES = {
-    "end-user": {
-        "slug": "end-user",
+    "enduser": {
+        "slug": "enduser",
         "details": "someone who uses the project we're working on to solve the problems or finish some tasks"
     },
     "maintainer": {
         "slug": "maintainer",
         "details": "someone who work with the project, but doesn't use it directly; someone that makes sure that "
-                   "end-users can use it"
+                   "endusers can use it"
     }
 }
 
@@ -38,17 +40,21 @@ LITERACY = {
 }
 
 SUMMARY = {
-    ("end-user", "user"): "...",
-    ("end-user", "developer"): "...",
+    ("enduser", "user"): "...",
+    ("enduser", "developer"): "...",
     ("maintainer", "user"): "...",
     ("maintainer", "developer"): "...",
 }
 
-def perspective(role: AudienceRole, rel: AudienceToProjectRelationship) -> ContentDerivationPerspective:
+class PerspectivePointer(BaseModel):
+    role:AudienceRole
+    relationship_to_project: AudienceToProjectRelationship
+
+def perspective(role: AudienceRole, relationship_to_project: AudienceToProjectRelationship) -> ContentDerivationPerspective:
     return {
         "role": ROLES[role],
-        "relationship_to_project": LITERACY[rel],
-        "summary": SUMMARY[(role, rel)]
+        "relationship_to_project": LITERACY[relationship_to_project],
+        "summary": SUMMARY[(role, relationship_to_project)]
     }
 
 PERSPECTIVES = list(
@@ -59,3 +65,6 @@ PERSPECTIVES = list(
         }
     )
 )
+
+FINAL_DOCUMENTATION_PERSPECTIVE_POINTER = dict(role="enduser", relationship_to_project="user")
+FINAL_DOCUMENTATION_PERSPECTIVE = perspective(**FINAL_DOCUMENTATION_PERSPECTIVE_POINTER)

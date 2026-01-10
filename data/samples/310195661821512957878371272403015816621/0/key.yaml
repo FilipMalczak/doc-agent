@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_version' call inside 'get_pypi_versions' includes a check\n    for\
+  \ 'is_prerelease' and ignores such versions, explicitly stated in the code.\n  fact:\
+  \ In file 'pip_outdated/check_outdated.py', the function 'get_pypi_versions'\n \
+  \   filters out pre-release versions when retrieving a package's version history\
+  \ from\n    PyPI.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

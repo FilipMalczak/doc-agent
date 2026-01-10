@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The exclude directive tells the find command to skip that folder when\n    locating\
-  \ packages.\n  fact: During package discovery, the \"tests\" directory is excluded,\
-  \ as specified\n    by 'exclude = tests' under [options.packages.find].\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

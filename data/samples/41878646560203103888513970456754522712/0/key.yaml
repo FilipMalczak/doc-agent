@@ -1,0 +1,8 @@
+"Let's craft.**Project:** `pip-outdated` \u2013 Find outdated dependencies in `requirements.txt`\
+  \ or `setup.cfg`\n\n---\n\n### What the tool does\n### Why a user would care\n###\
+  \ Installation (for end\u2011users)\n### Basic usage\n### Command\u2011line options\n\
+  ### Example workflow for a typical user\n### Planned enhancements (TODOs) \u2013\
+  \ helpful to know what may appear in future releases\n### Recent changes (high\u2011\
+  level, useful for users)\n### Quick reference cheat\u2011sheet (copy\u2011paste\
+  \ for end\u2011users)\n# Install\n# Basic scan (default files)\n# Scan specific\
+  \ files (supports glob)\n# Quiet mode (no non\u2011zero exit code)\n# Verbose output"

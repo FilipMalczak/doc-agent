@@ -1,8 +1,0 @@
-"## Summary of `tests/test_parse_cfg.py`\n### What the Test Reveals About `parse_cfg`\n\
-  \n- **Supported Sections**\n  - `setup_requires`\n  - `install_requires`\n  - Any\
-  \ key under `[options.extras_require]` (e.g., `docs`)\n\n- **Parsing Rules**\n \
-  \ - Handles **multiline, indented requirement lists**.\n  - **Ignores version specifications**\
-  \ and any extra markers, returning only the package name.\n  - Preserves the **original\
-  \ order** of entries as they appear in the file.\n\n- **Return Type**\n  - An **iterable**\
-  \ (likely a list or generator) of objects with at least a `.name` attribute.  \n\
-  \  - The test does not depend on the full requirement object, only the name string.\n"

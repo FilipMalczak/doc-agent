@@ -1,3 +1,0 @@
-"Version 0.6.0 (released Jan\u202F1\u202F2023) bumped dependencies, removed cchardet,\
-  \ and changed the version-fetching method to use the pip CLI so that versions are\
-  \ resolved within virtual environments."

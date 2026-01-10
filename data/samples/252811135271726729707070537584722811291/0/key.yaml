@@ -1,0 +1,10 @@
+"### \U0001F4CB Suggested Documentation Snippets (for end\u2011users)\n\n> **How the\
+  \ tool decides a package is outdated**  \n> 1. It reads the requirement (e.g., `\"\
+  requests>=2.20,<3\"`).  \n> 2. It obtains the version you currently have installed\
+  \ (`pip show`).  \n> 3. It fetches every stable release of that package from PyPI.\
+  \  \n> 4. It marks a package as *out\u2011of\u2011date* if the installed version\
+  \ is either **not** within the required range **or** is not the latest stable release.\
+  \  \n\n> **Running the check**  \n> ```bash\n> python -m pip_outdated check requirements.txt\n\
+  > ```  \n> (The command internally calls `check_outdated` for each entry.)  \n\n\
+  These notes should help maintainers understand the module\u2019s responsibilities,\
+  \ spot integration issues, and draft clear user\u2011facing help text."

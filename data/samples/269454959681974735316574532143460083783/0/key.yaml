@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test file contains a setup.cfg configuration file that defines\n    setup_requires\
+  \ with specific version constraints for setuptools_scm and setuptools_scm_git_archive.\n\
+  \  fact: In tests/test_parse_cfg.py, the setup.cfg file contains [options.setup_requires]\n\
+  \    with 'setuptools_scm >= 1.15.0' and 'setuptools_scm_git_archive >= 1.0'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

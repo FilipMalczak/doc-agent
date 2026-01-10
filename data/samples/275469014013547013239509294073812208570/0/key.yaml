@@ -1,7 +1,0 @@
-"## Notable Implementation Details\n- **Canonicalization:** Package names are normalized\
-  \ with `canonicalize_name` to match PyPI naming rules.\n- **Version Filtering:**\
-  \ Pre\u2011release versions are ignored to focus on stable releases.\n- **Error\
-  \ Handling:**  \n  - If `pip show` fails (non\u2011zero exit code), `get_local_version`\
-  \ returns `None`.  \n  - Invalid version strings from PyPI are silently skipped.\n\
-  - **Verbose Mode:** When `verbose()` returns `True`, each check prints the package\
-  \ name and its specifier.\n"

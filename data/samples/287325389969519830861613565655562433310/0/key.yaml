@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document describes a tool named pip-outdated which is designed\n    to identify\
+  \ outdated dependencies in requirements.txt or setup.cfg files. This\n    is explicitly\
+  \ stated in the first paragraph of the content.\n  fact: There is a tool named pip-outdated\
+  \ described in document with ID c70abb08-f4fa-543d-ad2e-52421c056692\n    that is\
+  \ used to find outdated dependencies in requirements.txt or setup.cfg files\n  \
+  \  by comparing version numbers with their specifiers.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

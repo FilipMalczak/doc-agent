@@ -1,0 +1,4 @@
+In document with ID cb702584-8007-568a-80b4-c4dbaa226784, the 'print_outdated' function
+  prints color-coded package status tables and exits with code 1 when outdated packages
+  exist if 'quiet' is False
+...

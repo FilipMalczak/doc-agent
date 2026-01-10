@@ -1,7 +1,0 @@
-'## Entry Point
-
-
-  - The module `pip_outdated/__init__.py` defines the executable entry point used
-  by the `pip-outdated` console script.
-
-  '

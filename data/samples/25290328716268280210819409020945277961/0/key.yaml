@@ -1,0 +1,53 @@
+"**Project File:** `pip_outdated/find_require.py`  \n\n**Perspective:** *Maintainer*\
+  \ \u2013 ensuring that end\u2011users can successfully discover and parse requirement\
+  \ specifications.\n\n---\n\n### High\u2011level purpose\n- Provides utilities to\
+  \ **locate and parse Python package requirements** from various source files (requirements\
+  \ files, `setup.cfg`, etc.).\n- Supports handling of comments, line continuations,\
+  \ and simple option stripping to produce `packaging.requirements.Requirement` objects.\n\
+  \n### Key functionalities (public API)\n\n| Function | Description | Typical use\
+  \ by end\u2011users |\n|----------|-------------|--------------------------|\n|\
+  \ `iter_files(patterns)` | Yields `pathlib.Path` objects for each glob pattern or\
+  \ direct file path. | Allows callers to pass a list of glob patterns (e.g., `[\"\
+  requirements.txt\", \"src/**/*.txt\"]`). |\n| `file_to_lines(file)` | Reads a file\
+  \ and yields cleaned lines via `parse_lines`. Verbose mode prints the file being\
+  \ parsed. | Used internally to feed a file into the requirement parser. |\n| `parse_lines(lines)`\
+  \ | Normalises an iterable of raw lines: removes comments (`#`), handles back\u2011\
+  slash continuations, strips trailing newlines. | Core line\u2011pre\u2011processing\
+  \ shared between file\u2011based and text\u2011based parsing. |\n| `parse_requirements(file)`\
+  \ | Parses a requirements\u2011style file, yielding `Requirement` objects for each\
+  \ valid line. | Entry point for scripts that need to read `requirements.txt`\u2011\
+  like files. |\n| `parse_requirements_text(text)` | Same as above but works on a\
+  \ raw string (useful for in\u2011memory data). | Helpful for testing or runtime\u2011\
+  generated requirement snippets. |\n| `parse_cfg(file)` | Reads a `setup.cfg` file\
+  \ and extracts requirement sections (`setup_requires`, `install_requires`, `extras_require`).\
+  \ | Enables projects that declare dependencies in `setup.cfg` to be handled uniformly.\
+  \ |\n| `find_require(files)` | Accepts glob patterns or file paths, determines file\
+  \ type (`.cfg` vs others), and yields all discovered `Requirement` objects. | One\u2011\
+  stop function for command\u2011line tools or CI scripts that need to enumerate all\
+  \ project dependencies. |\n| `parse_require(text)` | Strips trailing options (`--option`\
+  \ style) then attempts to build a `Requirement`; returns `None` on failure. | Internal\
+  \ helper that tolerates lines with pip options (e.g., `package>=1.0 --hash=...`).\
+  \ |\n\n### Important implementation details for users\n\n- **Verbosity**: Controlled\
+  \ by `pip_outdated.verbose.verbose()`. When true, each parsed file is printed (`Parse:\
+  \ <path>`). Ensure your environment sets this flag appropriately if you need debug\
+  \ output.\n- **Comment handling**: Only the first `#` not preceded by a back\u2011\
+  slash is treated as a comment delimiter. Anything after it on the same line is discarded.\n\
+  - **Line continuation**: A line ending with `\\` (escaped newline) is concatenated\
+  \ with the next line before further processing.\n- **Option stripping**: `parse_require`\
+  \ removes any trailing `--option` or `-o` pattern before constructing a `Requirement`.\
+  \ This aligns with pip\u2019s \u201Crequirements file format\u201D where options\
+  \ may follow a package spec.\n- **Error tolerance**: Invalid requirement lines (e.g.,\
+  \ malformed specifiers) are silently ignored (`None` is returned). Callers should\
+  \ be aware that missing entries may be due to parsing failures.\n\n### Usage example\
+  \ (maintainer\u2011oriented)\n\n```python\nfrom pip_outdated.find_require import\
+  \ find_require\n\n# Locate all requirement specifications in the repo\npatterns\
+  \ = [\"requirements.txt\", \"setup.cfg\", \"src/**/*.txt\"]\nfor req in find_require(patterns):\n\
+  \    print(f\"Package: {req.name}, Specifier: {req.specifier}\")\n```\n\n### Documentation\
+  \ considerations\n- **Explain supported file types** (`*.txt`\u2011style requirements\
+  \ files and `setup.cfg`).\n- **Clarify how comments and continuations are interpreted**,\
+  \ matching pip\u2019s specification.\n- **Mention that malformed lines are ignored\
+  \ silently**, and suggest logging or validation if strictness is required.\n- **Provide\
+  \ guidance on verbosity control** (`pip_outdated.verbose.verbose()`), especially\
+  \ for CI environments.\n- **State the dependency on `packaging`** (for `Requirement`\
+  \ objects) and `configparser` (for `.cfg` parsing). Ensure these packages are listed\
+  \ as runtime dependencies of `pip_outdated`."

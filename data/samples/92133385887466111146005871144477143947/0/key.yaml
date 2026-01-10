@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_cfg' function is defined in the source file. It uses the\n    ConfigParser\
+  \ to read a .cfg file and extract setup_requires, install_requires,\n    and extras_require\
+  \ sections. It processes the extracted text using 'parse_requirements_text'\n  \
+  \  to yield valid requirements.\n  fact: In file 'pip_outdated/find_require.py',\
+  \ there is a function named 'parse_cfg'\n    that parses a configuration file (e.g.,\
+  \ .cfg) and extracts requirement information\n    from it.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

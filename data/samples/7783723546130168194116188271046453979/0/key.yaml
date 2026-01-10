@@ -1,0 +1,19 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function is defined with def get_session()\
+  \ and returns an aiohttp.ClientSession.\n      fact: There is one function named\
+  \ get_session in pip_outdated/session.py\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The function sets the headers variable to {''User-Agent'':\
+  \ ''pip-outdated''}\n        before creating the ClientSession.'\n      fact: The\
+  \ get_session function sets a User-Agent header to 'pip-outdated' in\n        pip_out\
+  \ Dokumentationen session.py\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The TCPConnector is created with limit=7.\n      fact: The get_session\
+  \ function uses an aiohttp.ClientSession with a TCPConnector\n        having a limit\
+  \ of 7 in pip_out Dokumentationen session.py\n    __pydantic_extra__: null\n   \
+  \ __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n  \
+  \  __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

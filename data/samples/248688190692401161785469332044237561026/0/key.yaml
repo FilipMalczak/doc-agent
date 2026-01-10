@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ Under the 'classifiers' key, each indented line lists a Trove classifier\n   \
-  \ that categorizes the package.\n  fact: 'The project classifiers include Development\
-  \ Status :: 4 - Beta, Environment\n    :: Console, Intended Audience :: Developers,\
-  \ Programming Language :: Python ::\n    3.7, and Topic :: Software Development\
-  \ :: Build Tools.'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
-  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

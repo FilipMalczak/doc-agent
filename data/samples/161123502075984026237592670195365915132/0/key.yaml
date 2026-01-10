@@ -1,0 +1,4 @@
+The '__init__.py' file imports modules at the top of the file except for 'verbose',
+  'find_require', 'check_outdated', 'print_outdated', and 'session', which are imported
+  inside the '_main' function.
+...

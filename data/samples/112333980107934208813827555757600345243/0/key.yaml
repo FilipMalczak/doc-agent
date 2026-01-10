@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code calls 'colorama.init()' and uses 'colored()' with color specifications\n\
+  \    to generate the terminal output\n  fact: The print_outdated function in pip_outdated/print_outdated.py\
+  \ initializes\n    colorama and prints colored messages to indicate package update\
+  \ statuses\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

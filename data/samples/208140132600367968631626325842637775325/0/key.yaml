@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test demonstrates that the parse_cfg function processes both required\n  \
+  \  dependencies and optional extras_require sections.\n  fact: In tests/test_parse_cfg.py,\
+  \ the test covers parse_cfg's ability to extract\n    dependencies from both [options]\
+  \ and [options.extras_require] sections of a setup.cfg\n    file.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

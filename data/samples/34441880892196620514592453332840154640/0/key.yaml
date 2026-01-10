@@ -1,0 +1,11 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file is a Python source file as indicated\
+  \ by the .py extension\n        and the content shows a conditional block that imports\
+  \ main from the same\n        package and calls it when the file is run as the entry\
+  \ point.\n      fact: There is one Python source file in document with ID 39602d80-9488-51ec-a\n\
+  \        main function is being imported from another module within the same package\n\
+  \        when the script is run as the entry point.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

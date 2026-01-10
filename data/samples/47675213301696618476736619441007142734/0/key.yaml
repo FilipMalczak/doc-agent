@@ -1,0 +1,48 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file contains a dataclass named 'OutdateResult'\
+  \ which encapsulates\n        version comparison information for a package.\n  \
+  \    fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there is a\
+  \ class\n        declaration for OutdateResult representing package version comparison\
+  \ results.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n \
+  \     explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code implements async functions to check\
+  \ package versions against\n        PyPI, indicating the tool uses asynchronous\
+  \ operations to avoid blocking.\n      fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ there is an\n        asynchronous function 'get_pypi_versions' that retrieves\
+  \ version information\n        from PyPI.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The implementation queries PyPI's JSON API (https://pypi.org/pypi/{name}/json)\n\
+  \        to find available versions for a package.\n      fact: In document with\
+  \ ID 79501155-b71e-5dd6-a529-82fd14d4a11b, the PyPI version\n        data is fetched\
+  \ via HTTP to https://pypi.org/pypi/{package}/json endpoint.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The code uses 'pip show' command to retrieve\
+  \ installed package\n        version information from the local environment.\n \
+  \     fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, local package\n\
+  \        versions are determined by running 'pip show {package}' command.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'outdated' method considers a package outdated\
+  \ if the installed\n        version either does not match the latest version or\
+  \ is not in the requirement\n        specifier.\n      fact: In document with ID\
+  \ 79501155-b71e-5dd6-a529-82fd14d4a11b, a package is\n        marked outdated when\
+  \ installed version differs from latest available version\n        or doesn't meet\
+  \ specifier.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The implementation filters out prerelease versions when determining\n\
+  \        the latest available version from PyPI.\n      fact: In document with ID\
+  \ 79501155-b71e-5dd6-a529-82fd14d4a11b, PyPI versions\n        with 'is_prerelease'\
+  \ flag are excluded from version comparisons.\n    __pydantic_extra__: null\n  \
+  \  __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n \
+  \   __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The main function 'check_outdated' serves as\
+  \ the entry point for\n        comparing requirements against installed versions.\n\
+  \      fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there exists\n\
+  \        a primary function 'check_outdated' that performs version comparison checks.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+In file 'pip_outdated/print_outdated.py', version fields in the output table are colored
+  red (errors) or green (updatable) based on the 'OutdateResult' object's state comparisons.
+...

@@ -1,0 +1,2 @@
+"### Additional configuration\n- `[vpip]` section defines a fallback command: `python\
+  \ cute.py` (used when the main command cannot be resolved).  \n"

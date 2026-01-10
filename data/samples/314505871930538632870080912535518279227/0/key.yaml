@@ -1,0 +1,3 @@
+"### Additional configuration\n- The `[vpip]` section defines a fallback command (`python\
+  \ cute.py`). This is internal configuration and does not affect typical end\u2011\
+  user usage.  "

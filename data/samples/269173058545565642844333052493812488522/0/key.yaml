@@ -1,5 +1,0 @@
-Inside make_row, the nested function colored_latest returns "None" colored red and
-  bold when the package is not found on PyPI; otherwise it returns the latest version
-  colored green and bold if the installed version is older than the latest version,
-  or as an uncolored string otherwise.
-...

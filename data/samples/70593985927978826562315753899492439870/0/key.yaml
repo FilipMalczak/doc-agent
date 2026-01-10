@@ -1,3 +1,0 @@
-"### Options\n- `-v, --verbose` \u2013 Enable verbose output (extra diagnostic prints).\n\
-  - `-q, --quiet`   \u2013 Suppress the non\u2011zero exit status when outdated packages\
-  \ are found (useful for CI pipelines).\n"

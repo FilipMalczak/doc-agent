@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The tool uses colored text to provide visual cues for outdated packages.\n   \
+  \ Red indicates issues (unavailable/outdated), and green indicates updatable packages.\n\
+  \  fact: In file 'pip_outdated/print_outdated.py', the output colors packages in\
+  \ red\n    ('unavailable/outdated/out of version specifier') and green ('updatable')\
+  \ to convey\n    their status visually.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

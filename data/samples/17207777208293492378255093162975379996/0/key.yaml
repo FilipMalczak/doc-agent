@@ -1,9 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n\n*Compiled from\
-  \ the individual file\u2011level notes for the package\u2019s source files.*\n\n\
-  ---\n\n### 4. Detailed Module Highlights\n#### `check_outdated.py`\n- Uses `canonicalize_name`\
-  \ to match PyPI naming.\n- `OutdateResult` captures:\n  - Original requirement,\
-  \ local version, all PyPI versions, newest version satisfying the specifier (`wanted`),\
-  \ and absolute latest (`latest`).\n- Provides helper properties (`install_not_found`,\
-  \ `outdated`, etc.) for easy status checks.\n- Retrieves local version via `pip\
-  \ show` subprocess; fetches PyPI data via `aiohttp`.\n- Verbose flag toggles per\u2011\
-  package diagnostic prints.\n"

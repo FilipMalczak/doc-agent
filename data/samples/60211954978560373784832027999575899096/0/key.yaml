@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: This file defines the entry point for the application\
+  \ by importing\n        and executing the main module when run as a script.\n  \
+  \    fact: There is one application entry point defined in pip_outdated/__main__.py\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

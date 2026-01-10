@@ -1,8 +1,0 @@
-"## Usage Synopsis (User\u2011Facing Documentation)\n\n```bash\npip-outdated [options]\
-  \ [<file> ...]\n```\n\n- **Default behavior**: If no `<file>` arguments are supplied,\
-  \ the tool searches for `requirements.txt` and `setup.cfg` in the current directory.\n\
-  - **Glob patterns**: Users can supply patterns such as `\"requirements/*.txt\"`\
-  \ to analyze multiple files.\n- **Verbose mode** (`-v`/`--verbose`): Prints detailed\
-  \ internal processing information, helpful for debugging.\n- **Quiet mode** (`-q`/`--quiet`):\
-  \ The program will exit with status `0` even when outdated packages are found, making\
-  \ it suitable for CI pipelines that only need the printed report.\n"

@@ -1,0 +1,3 @@
+The pip_outdated/verbose.py implementation explicitly uses Python's global keyword
+  to modify the VERBOSE variable inside the set_verbose function.
+...

@@ -1,0 +1,3 @@
+The print_outdated function in pip_outdated/print_outdated.py exits the program with
+  code 1 when outdated packages are found and the quiet flag is not set
+...

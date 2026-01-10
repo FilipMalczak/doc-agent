@@ -1,3 +1,0 @@
-The function parse_requirements(file) iterates over lines from file_to_lines and yields
-  Requirement objects created by parse_require; lines that cannot be parsed are ignored.
-...

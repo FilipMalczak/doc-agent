@@ -1,0 +1,23 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file declares a global boolean variable VERBOSE\
+  \ initialized\n        to None.\n      fact: The document with ID d1ef4334-7006-5204-a81e-17bb357c0661\
+  \ contains a global\n        variable named VERBOSE of type bool set to None in\
+  \ the source file pip_outdated/verbose.py.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The file defines a function called set_verbose that accepts\
+  \ a boolean\n        argument and assigns it to the global VERBOSE variable.\n \
+  \     fact: 'The document with ID d1ef4334-7006-5204-a81e-17bb357c0661 defines a\
+  \ function\n        set_verbose(value: bool) -> None in the source file pip_outdated/verbose.py\n\
+  \        that modifies the global VERBOSE variable.'\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file defines a function named verbose that\
+  \ returns the current\n        value of the global VERBOSE variable.\n      fact:\
+  \ The document with ID d1ef4334-7006-5204-a81e-17bb357c0661 defines a function\n\
+  \        verbose() -> bool in the source file pip_outdated/verbose.py that returns\n\
+  \        the global VERBOSE value.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

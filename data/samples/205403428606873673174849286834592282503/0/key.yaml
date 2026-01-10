@@ -1,0 +1,3 @@
+The tool accepts -v/--verbose (prints detailed info) and -q/--quiet (suppresses non-zero
+  exit code) flags in pip_outdated/__init__.py
+...

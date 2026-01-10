@@ -1,6 +1,0 @@
-"## \U0001F4C4 File Overview\n## \U0001F527 Key Function\n## \U0001F4E6 Usage Example\
-  \ (User\u2011Facing)\n## \U0001F4DA Dependencies\n## \U0001F6E0 Design Rationale\n\
-  ## \U0001F680 Potential Extension Points\n\n- **Configurable parameters:** Expose\
-  \ optional arguments (e.g., timeout, proxy) if later features need them.\n- **Session\
-  \ reuse:** Consider a singleton pattern to reuse a single session across multiple\
-  \ calls, reducing overhead.\n"

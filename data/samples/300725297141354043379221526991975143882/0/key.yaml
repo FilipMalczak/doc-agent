@@ -1,0 +1,2 @@
+"### Entry points (user\u2011facing CLI)\n- Console script: `pip-outdated` \u2192\
+  \ invokes `pip_outdated:main`  \n"

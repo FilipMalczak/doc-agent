@@ -1,5 +1,0 @@
-'# Run against custom patterns
-
-  pip-outdated requirements/dev/*.txt
-
-  '

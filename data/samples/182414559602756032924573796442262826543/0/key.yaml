@@ -1,9 +1,0 @@
-"# Project\u2011Level Documentation \u2013 **pip\u2011outdated**\n## 7. Development\
-  \ Note \u2013 `setup.py`\n- The repository contains a **bare `setup.py`** that calls\
-  \ `setuptools.setup()` with no arguments.  \n- All actual package metadata lives\
-  \ in **`setup.cfg`**, which is the modern, declarative configuration format.  \n\
-  - For developers who prefer a classic `setup.py`, the notes in the original file\
-  \ suggest populating fields such as `name`, `version`, `description`, `author`,\
-  \ `url`, `packages`, and `install_requires`.  \n- However, for the current project\
-  \ the empty `setup.py` is harmless because `pip` reads the configuration from `setup.cfg`.\n\
-  \n---\n"

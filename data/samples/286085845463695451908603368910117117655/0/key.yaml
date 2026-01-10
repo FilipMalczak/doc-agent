@@ -1,0 +1,4 @@
+"## End\u2011User Notes on **`pip_outdated/__init__.py`**\n\n- **Package version**:\
+  \ `\"0.8.0\"`  \n- **Command\u2011line program**: `pip-outdated`  \n- **Purpose**:\
+  \ Scans one or more requirement files (`requirements.txt`, `setup.cfg` by default)\
+  \ and reports any packages that have newer releases available.  \n"

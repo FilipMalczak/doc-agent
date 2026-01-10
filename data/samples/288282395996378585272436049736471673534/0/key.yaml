@@ -1,0 +1,36 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test file contains a setup.cfg configuration\
+  \ file that defines\n        setup_requires with specific version constraints for\
+  \ setuptools_scm and setuptools_scm_git_archive.\n      fact: In tests/test_parse_cfg.py,\
+  \ the setup.cfg file contains [options.setup_requires]\n        with 'setuptools_scm\
+  \ >= 1.15.0' and 'setuptools_scm_git_archive >= 1.0'.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test file's setup.cfg defines install_requires\
+  \ with ansible\n        and ansible-lint dependencies having explicit version ranges.\n\
+  \      fact: In tests/test_parse_cfg.py, the setup.cfg file contains [options.install_requires]\n\
+  \        with 'ansible >= 2.5' and 'ansible-lint >= 4.0.2, < 5'.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test file's setup.cfg includes extras_require\
+  \ for documentation\n        dependencies.\n      fact: In tests/test_parse_cfg.py,\
+  \ the setup.cfg file contains [options.extras_require.docs]\n        with 'alabaster'\
+  \ and 'Sphinx'.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The test verifies that the parse_cfg function extracts all package\n\
+  \        names from various sections without version information.\n      fact: In\
+  \ tests/test_parse_cfg.py, the test asserts that parse_cfg returns package\n   \
+  \     names ['setuptools_scm', 'setuptools_scm_git_archive', 'ansible', 'ansible-lint',\n\
+  \        'alabaster', 'Sphinx'] from the setup.cfg file.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test demonstrates that the parse_cfg function\
+  \ processes both\n        required dependencies and optional extras_require sections.\n\
+  \      fact: In tests/test_parse_cfg.py, the test covers parse_cfg's ability to\
+  \ extract\n        dependencies from both [options] and [options.extras_require]\
+  \ sections of\n        a setup.cfg file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

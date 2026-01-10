@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document explicitly marks the test function with '@pytest.mark.asyncio'\n\
+  \    to indicate asynchronous execution, making async testing an observable and\
+  \ documented\n    feature of this test file.\n  fact: The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ implements an\n    asynchronous test for PyPI version checking.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

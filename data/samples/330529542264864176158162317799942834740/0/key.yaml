@@ -1,0 +1,57 @@
+"**User\u2011Facing Notes \u2013 `pip_outdated/check_outdated.py`**\n\n- **Purpose**\
+  \ \u2013 Provides the core logic for checking whether a Python package installed\
+  \ in the current environment is outdated compared with the version(s) available\
+  \ on PyPI and with the version constraints declared in a requirement specification.\n\
+  \n- **Key Public API**  \n  - `async def check_outdated(require, session) -> OutdateResult`\
+  \  \n    - **Inputs**  \n      - `require`: a `packaging.requirements.Requirement`\
+  \ object that represents the package name and version specifier (e.g., `\"requests>=2.0\"\
+  `).  \n      - `session`: an `aiohttp` (or compatible) client session used to query\
+  \ the PyPI JSON API.  \n    - **Output** \u2013 an `OutdateResult` instance (see\
+  \ below) that summarises the version state for the given package.  \n\n- **Result\
+  \ Object \u2013 `OutdateResult`**  \n  - **Fields** (populated automatically)  \n\
+  \    - `requirement`: the original requirement object.  \n    - `version`: the currently\
+  \ installed version (`None` if the package is not installed).  \n    - `all_versions`:\
+  \ a sorted list of all **non\u2011prerelease** versions published on PyPI.  \n \
+  \   - `wanted`: the newest version that satisfies the requirement\u2019s specifier\
+  \ (or `None` if no such version exists).  \n    - `latest`: the newest version on\
+  \ PyPI (or `None` if PyPI data could not be retrieved).  \n  - **Convenient Properties\
+  \ / Methods** (for user\u2011oriented decision making)  \n    - `name`: returns\
+  \ the package name as a string.  \n    - `install_not_found() -> bool`: `True` when\
+  \ the package is not installed locally.  \n    - `install_not_wanted() -> bool`:\
+  \ `True` when the installed version does not satisfy the requirement specifier.\
+  \  \n    - `pypi_not_found() -> bool`: `True` when no version information could\
+  \ be obtained from PyPI.  \n    - `outdated() -> bool`: `True` when the installed\
+  \ version differs from either the *wanted* version or the *latest* version on PyPI.\
+  \  \n\n- **How the Check Works (high\u2011level flow)**  \n  1. **Verbose Logging**\
+  \ \u2013 If the project\u2019s verbose mode is enabled, the module prints the package\
+  \ name and its version specifier before checking.  \n  2. **Canonicalisation** \u2013\
+  \ The package name is normalised using `packaging.utils.canonicalize_name` to match\
+  \ PyPI\u2019s naming conventions.  \n  3. **Local Version Retrieval** \u2013 `get_local_version`\
+  \ runs `pip show <name>` in a subprocess and parses the reported \u201CVersion:\u201D\
+  \ line.  \n  4. **Remote Version Retrieval** \u2013 `get_pypi_versions` queries\
+  \ `https://pypi.org/pypi/<name>/json`, extracts all release keys, discards invalid\
+  \ or prerelease versions, and returns a sorted list of `Version` objects.  \n  5.\
+  \ **Result Construction** \u2013 An `OutdateResult` is instantiated with the gathered\
+  \ data; its `__post_init__` method automatically determines the *wanted* and *latest*\
+  \ versions.  \n\n- **User Benefits**  \n  - Quickly determine if a required package\
+  \ is missing, installed with an unsuitable version, or simply behind the most recent\
+  \ stable release.  \n  - Ability to incorporate the check into asynchronous scripts\
+  \ or CLI tools without blocking the main event loop.  \n  - Simple boolean helpers\
+  \ (`install_not_found`, `install_not_wanted`, `outdated`, etc.) make it easy to\
+  \ drive user prompts or automated upgrade actions.  \n\n- **Typical Usage Pattern\
+  \ for an End\u2011User**  \n  ```python\n  import aiohttp, asyncio\n  from packaging.requirements\
+  \ import Requirement\n  from pip_outdated.check_outdated import check_outdated\n\
+  \n  async def main():\n      req = Requirement(\"requests>=2.25\")\n      async\
+  \ with aiohttp.ClientSession() as session:\n          result = await check_outdated(req,\
+  \ session)\n\n      if result.install_not_found():\n          print(f\"{result.name}\
+  \ is not installed.\")\n      elif result.outdated():\n          print(f\"{result.name}\
+  \ is outdated (installed: {result.version}, wanted: {result.wanted}, latest: {result.latest}).\"\
+  )\n      else:\n          print(f\"{result.name} is up\u2011to\u2011date.\")\n \
+  \ \n  asyncio.run(main())\n  ```\n\n- **Limitations to Be Aware Of**  \n  - Only\
+  \ *stable* (non\u2011prerelease) versions are considered; pre\u2011releases are\
+  \ ignored.  \n  - If the PyPI request fails (network error, package does not exist,\
+  \ etc.), `latest` will be `None` and `pypi_not_found()` will return `True`.  \n\
+  \  - The check relies on the local `pip` command being available and callable. \
+  \ \n\nThese notes capture the user\u2011oriented functionality of `check_outdated.py`\
+  \ and can serve as a foundation for documentation aimed at end\u2011users who need\
+  \ to assess package version health."

@@ -1,0 +1,27 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"comment": "Document is empty"}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-6e28b7df8a7041dfbec9bc0bb4887c4b
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767965028-xtTVuXaAu0ue7UTl0yXX
+run_id: 2ad74c74-fea3-4435-a49f-62081dc3bfcd
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1409
+  output_audio_tokens: 0
+  output_tokens: 23

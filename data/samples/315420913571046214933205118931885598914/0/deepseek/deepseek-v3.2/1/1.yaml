@@ -1,0 +1,35 @@
+finish_reason: tool_call
+kind: response
+model_name: deepseek/deepseek-v3.2
+parts:
+- content: 'I''ll search for information about the current project name in the knowledge
+    base.
+
+
+    '
+  id: null
+  part_kind: text
+- args: '{"purpose": "Find information about the current project name", "queries":
+    ["project name", "current project", "project_name", "name of project"]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: call_00_lpE5nWWIEq9dEMdwTOQpC4Y7
+  tool_name: search_knowledge_base
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767968721-2NAMJW6g30Bfd4o8x3L9
+run_id: ee955843-d4f2-45de-ad89-e0b330d3180a
+timestamp: '2026-01-09T14:25:21Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 2718
+  output_audio_tokens: 0
+  output_tokens: 64

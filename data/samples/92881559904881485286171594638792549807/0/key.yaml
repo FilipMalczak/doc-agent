@@ -1,0 +1,3 @@
+In file 'pip_outdated/check_outdated.py', the function 'get_pypi_versions' filters
+  out pre-release versions when retrieving a package's version history from PyPI.
+...

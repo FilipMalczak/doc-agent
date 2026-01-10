@@ -1,5 +1,0 @@
-"## Project Configuration \u2013 `setup.py`\n### Typical workflow after completing\
-  \ `setup.py`\n1. **Build the distribution**  \n   ```bash\n   python -m build\n\
-  \   ```\n2. **Test installation locally**  \n   ```bash\n   pip install .\n   ```\n\
-  3. **Upload to PyPI** (if publishing)  \n   ```bash\n   twine upload dist/*\n  \
-  \ ```\n"

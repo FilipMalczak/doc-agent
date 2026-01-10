@@ -1,4 +1,0 @@
-"### Purpose\n- Serves as the **entry point** for the `pip_outdated` package when\
-  \ executed as a script (e.g., `python -m pip_outdated`).\n- Triggers the package\u2019\
-  s main functionality by importing and executing the `main` function defined elsewhere\
-  \ in the package.\n"

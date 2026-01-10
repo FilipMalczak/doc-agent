@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ These import statements appear at the top of the source file, showing\n    the\
-  \ dependencies used throughout the module.\n  fact: The file imports Iterable from\
-  \ collections.abc, ConfigParser from configparser,\n    pathlib, re, Requirement\
-  \ and InvalidRequirement from packaging.requirements, and\n    a local verbose function.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

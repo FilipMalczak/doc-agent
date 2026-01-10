@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The usage examples explicitly demonstrate that the tool accepts glob\n    patterns\
+  \ (like *-requirements.txt) and supports checking multiple files under\n    directories\
+  \ as shown in the '::' code blocks under 'Usage' section.\n  fact: The pip-outdated\
+  \ tool described in document with ID c70abb08-f4fa-543d-ad2e-52421c056692\n    supports\
+  \ reading dependencies from multiple requirements files using glob patterns,\n \
+  \   such as 'pip-outdated *-requirements.txt' or 'pip-outdated requirements/*.txt'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

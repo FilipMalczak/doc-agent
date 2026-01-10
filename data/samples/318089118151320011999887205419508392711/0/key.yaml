@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The import statement explicitly includes 'import pathlib', and the\n    code uses\
+  \ Path objects from it.\n  fact: The file pip_outdated/find_require.py uses the\
+  \ pathlib module to handle file\n    paths.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'iter_files' is defined in the given Python source file.\n    It\
+  \ takes a parameter 'patterns' and uses the pathlib module to check if a pattern\n\
+  \    is a file or to glob for matching files. The function's purpose is to yield\
+  \ file\n    paths based on the provided patterns.\n  fact: In file 'pip_outdated/find_require.py',\
+  \ there is a function named 'iter_files'\n    that takes a list of glob patterns\
+  \ and yields file paths matching those patterns.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

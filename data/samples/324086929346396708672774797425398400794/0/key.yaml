@@ -1,0 +1,5 @@
+"### Documentation notes for end\u2011users\n- The CLI tool can be invoked via `pip-outdated`\
+  \ after installation.  \n- It analyzes `requirements.txt` or `setup.cfg` to report\
+  \ outdated packages.  \n- Users should ensure the required Python version (\u2265\
+  \u202F3.7) and dependencies are installed.  \n- The MIT license permits unrestricted\
+  \ use, modification, and distribution.  "

@@ -1,0 +1,4 @@
+In file 'pip_outdated/check_outdated.py', the 'OutdateResult' class is defined with
+  attributes 'requirement', 'version', 'all_versions', 'wanted', and 'latest', all
+  with specific data types.
+...

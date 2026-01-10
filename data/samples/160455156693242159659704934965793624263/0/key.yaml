@@ -1,0 +1,3 @@
+In file 'pip_outdated/print_outdated.py', the output explains that 'Red = unavailable/outdated/out
+  of version specifier' and 'Green = updatable' before displaying the package table.
+...

@@ -1,7 +1,0 @@
-"## Summary of `tests/test_parse_cfg.py`\n\n- **File purpose** \u2013 Unit test that\
-  \ verifies the **`parse_cfg`** function (imported from `pip_outdated.find_require`)\
-  \ correctly extracts package names from a `setup.cfg` file.  \n- **Testing framework**\
-  \ \u2013 Uses **pytest** with the built\u2011in `tmp_path` fixture to create a temporary\
-  \ configuration file.\n\n### Example Usage (Based on the Test)\n\n```python\nfrom\
-  \ pip_outdated.find_require import parse_cfg\n\ncfg_path = \"path/to/your/setup.cfg\"\
-  \nrequirements = parse_cfg(cfg_path)\n"

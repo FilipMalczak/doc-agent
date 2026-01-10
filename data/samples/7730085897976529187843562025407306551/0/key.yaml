@@ -1,3 +1,0 @@
-The async function get_local_version(name) executes 'pip show {name}' and returns
-  the parsed Version from the 'Version:' line, or None if the command fails.
-...

@@ -1,0 +1,20 @@
+'### Runtime Dependencies
+
+  | Dependency | Version constraint |
+
+  |------------|--------------------|
+
+  | `aiohttp`   | `~=3.12` (compatible with 3.12.x) |
+
+  | `colorama`  | `~=0.4.6` |
+
+  | `packaging` | `~=25.0` |
+
+  | `termcolor` | `~=3.1` |
+
+  | `terminaltables` | `~=3.1` |
+
+
+  *These must be satisfied for the console command to function correctly.*
+
+  '

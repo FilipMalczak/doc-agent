@@ -10,7 +10,7 @@ agent_roles = tuple(AgentRole.__args__)
 Perspective = str | dict[str, Any]
 
 
-class Example[I, O](NamedTuple):
+class Example[I, O](BaseModel):
     input: I
     output: O
     foreword: str | None = None
@@ -33,7 +33,7 @@ class Example[I, O](NamedTuple):
         return out
 
 
-class PromptingTask(NamedTuple):
+class PromptingTask(BaseModel):
     #this will get sorted alphabetically, so ctx, high, low, specific; keep that in mind if you modify it
     # we're lucky that the alphabetical order makes sense
     high_level: str
@@ -83,7 +83,8 @@ def _behaviour(b: AgentRole):
                 },
                 "output": (
                     "Natural language output is required. "
-                    "Responses consisting only of analysis, deliberation, or meta-commentary are invalid. "
+                    "Responses consisting only of thoughts, analysis, deliberation, or meta-commentary are invalid. "
+                    "Responses must contain an assistant message. "
                     "If an output format is provided, the response MUST conform to it exactly."
                 ),
             }
@@ -96,11 +97,12 @@ def _behaviour(b: AgentRole):
                     "invariant": (
                         "Exactly one response is allowed. "
                         "The response MUST contain exactly one tool call "
-                        "to the designated output tool."
+                        "to the designated output tool. "
+                        "Calling the same tool with the same parameters twice is disallowed."
                     ),
                     "fallback": (
                         "If no tool clearly applies, call the designated output tool anyway."
-                    ),
+                    )
                 },
                 "deliberation": {
                     **base["deliberation"],
@@ -125,11 +127,18 @@ def _behaviour(b: AgentRole):
                     **base["contract"],
                     "invariant": (
                         "Exactly one response is allowed. "
-                        "The response MUST contain exactly one tool call."
+                        "The response MUST contain exactly one tool call. "
+                        "Calling the same tool with the same parameters twice is disallowed."
                     ),
                     "fallback": (
                         "If no tool clearly applies, call the designated output tool anyway."
                     ),
+                    "eagerness": (
+                        "As soon as you're able to give a viable response anchored in the data, emit it with appropriate "
+                        "tool. "
+                        "Don't rush to the answer, but don't hesitate or over-research."
+                    )
+
                 },
                 "deliberation": {
                     **base["deliberation"],
@@ -143,7 +152,8 @@ def _behaviour(b: AgentRole):
                 ),
                 "decisiveness": (
                     "If uncertain, choose a tool and proceed. "
-                    "An imperfect action is preferred over hesitation."
+                    "An imperfect action is preferred over hesitation. "
+                    "Respond with designated tool as soon as you're sensibly sure of the response."
                 ),
             }
 

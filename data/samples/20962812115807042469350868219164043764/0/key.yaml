@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 0.8.0 changelog entry explicitly states dependency changes from\n    setuptools\
+  \ to configparser for setup.cfg parsing.\n  fact: Version 0.8.0 of pip-outdated\
+  \ in document c70abb08-f4fa-543d-ad2e-52421c056692\n    changed from setuptools\
+  \ to configparser for reading setup.cfg files.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

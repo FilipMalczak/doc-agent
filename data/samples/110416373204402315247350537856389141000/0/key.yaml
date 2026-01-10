@@ -1,7 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n### 6. User\u2011\
-  Facing Behaviour Summary\n- Run the tool directly (`pip-outdated`) or via `python\
-  \ -m pip_outdated`.\n- By default it checks `requirements.txt` and `setup.cfg`.\n\
-  - Use `-v/--verbose` for detailed processing logs.\n- Use `-q/--quiet` to avoid\
-  \ a failing exit status in CI pipelines.\n- Output is a colour\u2011coded table;\
-  \ red entries indicate problems, green entries show upgrades.\n- Exit code **1**\
-  \ signals at least one upgrade is available (unless `--quiet`).\n\n---\n"

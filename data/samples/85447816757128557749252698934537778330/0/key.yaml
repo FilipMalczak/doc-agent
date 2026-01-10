@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The version number '0.8.0' is explicitly declared in the metadata section\n  \
+  \  (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n  fact: The project\
+  \ has a version of '0.8.0' as declared in the setup.cfg file.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

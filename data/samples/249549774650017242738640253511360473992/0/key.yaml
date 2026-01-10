@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The helper function colored_wanted returns outdate.wanted as a string\n    if\
+  \ no update is needed.\n  fact: colored_wanted returns outdate.wanted as string\
+  \ if no update needed\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

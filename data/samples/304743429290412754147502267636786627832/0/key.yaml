@@ -1,2 +1,0 @@
-'The expected order of requirement names returned by parse_cfg is: first the two setup_requires
-  entries, then the two install_requires entries, followed by the two docs extra entries.'

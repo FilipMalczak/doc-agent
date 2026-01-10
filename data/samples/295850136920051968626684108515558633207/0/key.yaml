@@ -1,9 +1,0 @@
-'#### `session.py`
-
-  - Returns a fresh `aiohttp.ClientSession` each call.
-
-  - Sets default `User-Agent: pip-outdated`.
-
-  - Limits concurrent connections to 5 via `TCPConnector`.
-
-  '

@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The argparse.ArgumentParser add_argument method is called with -v/--verbose\n\
+  \    flag and action store True.\n  fact: In document with ID e66496b8-e45low level(verbose)\
+  \ output can be enabled with\n    --verbose flag.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

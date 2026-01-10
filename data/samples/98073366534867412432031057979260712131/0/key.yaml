@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The tool's usage description explicitly mentions accepting glob patterns\n   \
+  \ for file arguments, demonstrated in examples like *-requirements.txt.\n  fact:\
+  \ In document with ID c70abb08-f4fa-543d-ad2e-52421c056692, pip-outdated's positional\n\
+  \    file argument supports glob patterns for file globbing.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

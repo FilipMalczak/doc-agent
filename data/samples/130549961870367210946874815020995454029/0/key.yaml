@@ -1,2 +1,0 @@
-'Example usage to check all *.txt files inside a requirements folder: ``pip-outdated
-  requirements/*.txt``.'

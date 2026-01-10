@@ -1,0 +1,37 @@
+"**Project:** `pip-outdated` \u2013 a command\u2011line tool for detecting outdated\
+  \ Python dependencies in `requirements.txt` or `setup.cfg`.\n\n---\n\n### Overview\
+  \ (End\u2011User Perspective)\n- Finds outdated, missing, or incompatible packages\
+  \ and presents results in a colored table.  \n- Works with both `requirements.txt`\
+  \ and `setup.cfg` formats.  \n- Can be used as a drop\u2011in replacement for `pip\
+  \ list --outdated` when you need to respect version specifiers.\n\n### Installation\n\
+  - Available on PyPI.  \n- Install with:\n\n  ```bash\n  pip install pip-outdated\n\
+  \  ```\n\n### Basic Usage\n```bash\npip-outdated [options] [<file> ...]\n```\n-\
+  \ **Default files:** `requirements.txt`, `setup.cfg` (automatically searched). \
+  \ \n- Accepts glob patterns, e.g.:\n\n  - `pip-outdated *-requirements.txt` \u2013\
+  \ scan all files matching the pattern.  \n  - `pip-outdated requirements/*.txt`\
+  \ \u2013 scan every `.txt` file under a `requirements` folder.\n\n### Command\u2011\
+  Line Options\n| Option | Description |\n| ------ | ----------- |\n| `-h`, `--help`\
+  \ | Show help message and exit. |\n| `-v`, `--verbose` | Enable verbose output (default:\
+  \ `False`). |\n| `-q`, `--quiet` | Suppress exit code `1` when not all dependencies\
+  \ are up\u2011to\u2011date (default: `False`). |\n\n### Features Highlighted for\
+  \ Users\n- **Version Specifier Awareness:** Checks actual installed version against\
+  \ the version constraints defined in your files.  \n- **Colored Table Output:**\
+  \ Easy visual identification of outdated vs. up\u2011to\u2011date packages.  \n\
+  - **Parallel Requests:** Faster scans for larger dependency lists (since v0.4.0).\
+  \  \n- **Support for `setup_requires` and `extras_require`** in `setup.cfg` (since\
+  \ v0.3.0).  \n\n### Todo Items (User\u2011Facing Roadmap)\n- Add options to automatically\
+  \ update packages.  \n- Add options to rewrite `requirements.txt` / `setup.cfg`\
+  \ with the latest compatible versions.  \n- Add a global\u2011list mode (e.g., `-g`,\
+  \ `--global`) to list all updatable packages regardless of specifiers.\n\n### Changelog\
+  \ Highlights (Relevant to Users)\n- **0.8.0 (Aug\u202F9\u202F2025)** \u2013 Removed\
+  \ `setuptools` dependency; now uses `configparse` for reading `setup.cfg`.  \n-\
+  \ **0.7.0 (Aug\u202F13\u202F2024)** \u2013 Ignores `InvalidVersion` errors gracefully.\
+  \  \n- **0.6.0 (Jan\u202F1\u202F2023)** \u2013 Fetches package versions via the\
+  \ `pip` CLI, ensuring correct versions inside virtual environments; dropped `cchardet`.\
+  \  \n- **0.4.0 (Jan\u202F30\u202F2020)** \u2013 Raised minimum Python version to\
+  \ 3.7; introduced parallel request handling and the `--quiet` flag.  \n- **0.3.0\
+  \ (Oct\u202F13\u202F2019)** \u2013 Changed exit\u2011code behavior to `1` when any\
+  \ dependency is outdated; added checks for `setup_requires` and `extras_require`.\
+  \  \n\n--- \n\n*These notes capture the information an end\u2011user would need\
+  \ to understand what `pip-outdated` does, how to install it, how to run it, which\
+  \ options are available, and what recent changes may affect their usage.*"

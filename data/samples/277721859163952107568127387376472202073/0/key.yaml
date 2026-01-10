@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function print_outdated prints Red = unavailable out dated out\n    of version\
+  \ specifier message.\n  fact: print_outdated prints Red = unavailable out dated\
+  \ out of version specifier\n    message\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

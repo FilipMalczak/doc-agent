@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The core package checking functionality is implemented in the 'check_outdated()'\n\
+  \    function which combines local and PyPI version information in document with\
+  \ ID\n    79501155-b71e-5dd6-a529-82fd14d4a11b\n  fact: The main package status\
+  \ evaluation occurs in 'check_outdated()' function of\n    document 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ comparing local versions against\n    PyPI versions through async operations\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

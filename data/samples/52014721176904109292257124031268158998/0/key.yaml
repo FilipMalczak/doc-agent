@@ -1,0 +1,3 @@
+colored_wanted returns green bolded wanted version if outdate.version is less than
+  outdate.wanted
+...

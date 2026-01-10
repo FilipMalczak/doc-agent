@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The helper function colored latest returns red bolded None if outdate.pypi_not\n\
+  \    Found() returns True.\n  fact: colored_latest returns red bolded None if outdate.pypi_not\
+  \ Found() returns\n    True\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,3 +1,0 @@
-Print_outdated creates an AsciiTable object with the data list and prints the rendered
-  ASCII table via `print(table.table)`.
-...

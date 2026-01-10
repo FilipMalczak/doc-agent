@@ -1,0 +1,29 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: This variable is used to track the application's\
+  \ verbosity globally.\n        The initial value indicates the state is uninitialized.\n\
+  \      fact: In pip_outdated/verbose.py, a global variable called VERBOSE is defined\n\
+  \        as a boolean with an initial value of None.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: This function provides a programmatic way to\
+  \ update the verbose\n        state, which affects output behavior across the project.\n\
+  \      fact: The pip_outdated/verbose.py contains a function named set_verbose that\n\
+  \        modifies the global VERBOSE variable's value when called with a boolean\
+  \ argument.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Users or components can check the current verbosity state via\
+  \ this\n        accessor function to conditionally show additional output.\n   \
+  \   fact: The verbose() function in pip_outdated/verbose.py returns the current\n\
+  \        value of the global VERBOSE variable, allowing inspection of the application's\n\
+  \        verbosity setting.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The use of a global boolean suggests this state is intended\
+  \ to\n        be shared implicitly between different parts of the pip-outdated application.\n\
+  \      fact: The pip_outdated/verbose.py implementation explicitly uses Python's\
+  \ global\n        keyword to modify the VERBOSE variable inside the set_verbose\
+  \ function.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

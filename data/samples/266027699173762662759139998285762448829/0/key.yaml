@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ It imports 'asyncio' and uses 'async/await' syntax in functions such\n    as 'main'\
+  \ and '_main'.\n  fact: The '__init__.py' file uses asyncio for asynchronous execution.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

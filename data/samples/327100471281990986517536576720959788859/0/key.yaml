@@ -1,0 +1,62 @@
+"# Maintainer\u2013Facing Notes for `pip_outdated/find_require.py`\n\n## Overview\n\
+  - This module implements utilities for locating and parsing Python package requirement\
+  \ specifications from various sources (plain requirement files, `setup.cfg` files,\
+  \ and raw requirement strings).  \n- It is used by the **pip\u2011outdated** tool\
+  \ to discover which packages a project declares as dependencies.\n\n## Public API\n\
+  | Function / Symbol | Purpose | Typical Return | Remarks |\n|---|---|---|---|\n\
+  | `iter_files(patterns)` | Yield `pathlib.Path` objects matching one or more glob\
+  \ patterns. | Generator of `Path` | Accepts both file paths and glob patterns. |\n\
+  | `file_to_lines(file)` | Stream lines from a file while handling comments (`#`)\
+  \ and line\u2011continuation (`\\`). | Generator of `str` | Verbose mode prints\
+  \ `\"Parse: {file}\"`. |\n| `parse_lines(lines)` | Core line\u2011pre\u2011processing\
+  \ helper used by `file_to_lines` and `parse_requirements_text`. | Generator of `str`\
+  \ | Removes comments, joins continuation lines, strips trailing new\u2011lines.\
+  \ |\n| `parse_requirements(file)` | Parse a requirements file into `packaging.requirements.Requirement`\
+  \ objects. | Generator of `Requirement` | Skips unparsable lines. |\n| `parse_requirements_text(text)`\
+  \ | Same as `parse_requirements` but operates on an in\u2011memory string. | Generator\
+  \ of `Requirement` | Useful for the `setup.cfg` `install_requires` field which is\
+  \ a multiline string. |\n| `parse_cfg(file)` | Extract requirement strings from\
+  \ a `setup.cfg` file (supports `setup_requires`, `install_requires`, and `extras_require`).\
+  \ | Generator of `Requirement` | Reads the file with `ConfigParser`. |\n| `find_require(files)`\
+  \ | Master entry point: iterate over provided file patterns, dispatch to the appropriate\
+  \ parser (`.cfg` \u2192 `parse_cfg`, otherwise \u2192 `parse_requirements`). | Generator\
+  \ of `Requirement` | Returns a flat stream of all discovered requirements. |\n|\
+  \ `parse_require(text)` | Helper that strips trailing option flags (e.g., `--hash=...`)\
+  \ and builds a `Requirement` object, returning `None` on failure. | `Requirement`\
+  \ or `None` | Relies on `packaging.requirements.Requirement`. |\n| `verbose()` (imported)\
+  \ | Determines whether debug prints are emitted. | `bool` | Used only inside `file_to_lines`.\
+  \ |\n\n## Important Behaviors for End\u2011User Experience\n- **Comment handling**\
+  \ \u2013 Any `#` character beginning a comment (including inline) terminates the\
+  \ line before the comment is yielded.\n- **Line continuation** \u2013 A trailing\
+  \ backslash (`\\`) followed by a newline continues the requirement onto the next\
+  \ line.\n- **Option stripping** \u2013 Options that start with a hyphen (e.g., `--hash=...`,\
+  \ `-r other.txt`) are stripped before the requirement is parsed. Invalid requirements\
+  \ are silently ignored (`None` is yielded).\n- **Verbose mode** \u2013 When `verbose()`\
+  \ returns `True`, each processed file is printed to stdout, which can help with\
+  \ troubleshooting but may clutter normal CLI output.\n- **File type detection**\
+  \ \u2013 Only files with the `.cfg` suffix are treated as `setup.cfg` files; all\
+  \ others are assumed to be plain requirement files.\n\n## Usage Recommendations\
+  \ for Maintainers\n- **Integration point** \u2013 Expose `find_require` as the public\
+  \ function for any part of the project that needs to collect dependencies. It already\
+  \ accepts glob patterns, making it flexible for varied project layouts.\n- **Error\
+  \ handling** \u2013 Since unparsable lines are dropped silently, consider adding\
+  \ a higher\u2011level logger or warning system if you need visibility into malformed\
+  \ requirement entries.\n- **Testing** \u2013 Unit\u2011test each parser with a combination\
+  \ of:  \n  - Simple requirement lines (`\"requests>=2.0\"`).  \n  - Lines containing\
+  \ comments and continuation characters.  \n  - `setup.cfg` files with missing sections\
+  \ to ensure graceful fallback.  \n- **Performance** \u2013 The module streams files\
+  \ line\u2011by\u2011line; it is suitable for large requirement files without loading\
+  \ them fully into memory.\n\n## Limitations / Open Issues\n- The regex in `parse_require`\
+  \ (`r\"(.*?)\\s--?[a-z]\"`) removes any trailing option that begins with a hyphen\
+  \ followed by a letter, which may unintentionally truncate legitimate requirement\
+  \ specifiers that contain hyphens (e.g., `my-package -extra`).  \n- No explicit\
+  \ handling for `-r other-requirements.txt` include directives; such lines will be\
+  \ stripped to the empty string and ignored.  \n- Verbose output is printed directly\
+  \ with `print`; consider using the project's logging framework for better control.\n\
+  \n## Suggested Documentation Snippet (User\u2011Facing)\n\n> **Finding Project Requirements**\
+  \  \n> The `pip_outdated.find_require` module scans requirement definitions across\
+  \ plain `requirements.txt` files and `setup.cfg` configuration files. It intelligently\
+  \ removes comments, merges line continuations, and discards unsupported option flags,\
+  \ returning clean `Requirement` objects that the tool can analyze for outdated packages.\n\
+  \n--- \n\n*Prepared for maintainers to ensure the `find_require` utilities are correctly\
+  \ understood, integrated, and documented for end\u2011users.*"

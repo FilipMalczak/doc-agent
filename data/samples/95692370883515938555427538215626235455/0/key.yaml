@@ -1,0 +1,3 @@
+The file pip_outdated/find_require.py handles both .cfg and non-.cfg files to parse
+  requirements.
+...

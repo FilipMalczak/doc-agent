@@ -1,4 +1,0 @@
-"## `pip_outdated` \u2013 Directory\u2011Level Documentation Notes\n### 4. Detailed\
-  \ Module Highlights\n#### `session.py`\n- Returns a fresh `aiohttp.ClientSession`\
-  \ each call.\n- Sets default `User-Agent: pip-outdated`.\n- Limits concurrent connections\
-  \ to 5 via `TCPConnector`.\n"

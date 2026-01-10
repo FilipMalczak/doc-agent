@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The presence of 'zip_safe = True' signals to setuptools that the project\n   \
-  \ does not require extraction.\n  fact: \"The package is marked as zip\\u2011safe\
-  \ (i.e., it can be installed as a .egg\\\n    \\ zip archive) by setting \\\"zip_safe\
-  \ = True\\\" in the [options] section.\"\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

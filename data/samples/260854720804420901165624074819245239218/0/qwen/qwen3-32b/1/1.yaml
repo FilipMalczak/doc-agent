@@ -1,0 +1,28 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"comment": "perspective: maintainer role with relationship as user; nothing
+    found"}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-4bf9ba254b094d0e9ec301ca81c9887f
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767965028-1w8MJ48odafM5kmb2jZa
+run_id: 2de9d8e7-cf61-408a-a43a-738d590c8336
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1678
+  output_audio_tokens: 0
+  output_tokens: 31

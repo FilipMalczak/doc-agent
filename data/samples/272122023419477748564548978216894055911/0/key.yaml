@@ -1,0 +1,13 @@
+"- **File:** `tests/test_pytz.py` (Python test file)  \n- **Purpose:** Validates that\
+  \ the core functionality of the *pip_outdated* package can retrieve version information\
+  \ from PyPI for the widely\u2011used `pytz` library without raising errors.  \n\
+  - **Key Elements:**  \n  - Uses **pytest** with the `@pytest.mark.asyncio` decorator,\
+  \ indicating that the test runs asynchronously.  \n  - Leverages `get_session()`\
+  \ from `pip_outdated.session` to create an async HTTP session.  \n  - Calls `get_pypi_versions(\"\
+  pytz\", session)` from `pip_outdated.check_outdated`, which fetches all available\
+  \ versions of the `pytz` package on PyPI.  \n- **User\u2011Facing Insight:**  \n\
+  \  - The presence of this test shows that the tool can handle real\u2011world packages\
+  \ (e.g., `pytz`) in an asynchronous manner, giving confidence that similar checks\
+  \ will work for other installed libraries.  \n  - No assertions are made; the test\
+  \ passes if the function completes without throwing an exception, confirming basic\
+  \ connectivity and parsing logic.  "

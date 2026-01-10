@@ -1,0 +1,18 @@
+"### \U0001F3D7\uFE0F Key Data Structure  \n\n#### `OutdateResult` (dataclass)  \n\
+  | Field | Type | Description |\n|-------|------|-------------|\n| `requirement`\
+  \ | `Requirement` | Parsed requirement (name\u202F+\u202Fspecifier) coming from\
+  \ `requirements.txt` or similar. |\n| `version` | `Optional[Version]` | Version\
+  \ currently installed on the host system (`None` if not installed). |\n| `all_versions`\
+  \ | `List[Version]` | Sorted list of **all** non\u2011prerelease versions found\
+  \ on PyPI for the package. |\n| `wanted` | `Optional[Version]` | Highest version\
+  \ that satisfies the requirement\u2019s specifier (calculated in `__post_init__`).\
+  \ |\n| `latest` | `Optional[Version]` | The newest version available on PyPI (last\
+  \ element of `all_versions`). |\n\n**Computed properties & helpers**  \n- `name`\
+  \ \u2013 returns the canonical package name.  \n- `install_not_found()` \u2013 `True`\
+  \ when the package is not installed locally.  \n- `install_not_wanted()` \u2013\
+  \ `True` when the installed version does **not** satisfy the requirement specifier.\
+  \  \n- `pypi_not_found()` \u2013 `True` when no versions could be retrieved from\
+  \ PyPI.  \n- `outdated()` \u2013 `True` when the local version differs from either\
+  \ the *wanted* or the *latest* version.\n\nThese helpers make it easy for higher\u2011\
+  level code (e.g., the CLI output formatter) to decide what message to show to the\
+  \ end\u2011user.\n\n---\n"

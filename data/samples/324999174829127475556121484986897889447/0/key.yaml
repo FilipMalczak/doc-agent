@@ -1,0 +1,4 @@
+"### Why a user would care\n- Quickly spot which libraries need to be upgraded to\
+  \ satisfy the version constraints you\u2019ve defined.\n- Avoid runtime errors caused\
+  \ by incompatible package versions.\n- Get an at\u2011a\u2011glance view (colored\
+  \ table) rather than parsing raw `pip` output.\n\n---\n"

@@ -1,3 +1,0 @@
-"#### `verbose.py`\n- Simple module\u2011level storage of a global `VERBOSE` flag.\n\
-  - Functions `set_verbose(bool)` and `verbose()` access or modify the flag.\n- Not\
-  \ thread\u2011safe \u2013 intended for single\u2011threaded CLI usage.\n\n---\n"

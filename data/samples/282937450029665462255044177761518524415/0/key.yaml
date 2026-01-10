@@ -1,2 +1,0 @@
-'When there are outdated packages, print_outdated prints two colored legend lines:
-  red for "unavailable/outdated/out of version specifier" and green for "updatable".'

@@ -1,0 +1,4 @@
+In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function named
+  parse_cfg that parses .cfg files for setup_requires, install_requires, and extras_require
+  entries.
+...

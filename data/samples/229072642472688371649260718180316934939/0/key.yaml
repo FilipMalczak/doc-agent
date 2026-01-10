@@ -1,9 +1,0 @@
-'## Dependencies
-
-  - **Runtime**: `pip_outdated` package (provides `get_pypi_versions` and `get_session`).
-
-  - **Testing**: `pytest`, `pytest-asyncio`.
-
-  - **Network**: Access to the internet is required to reach PyPI.
-
-  '

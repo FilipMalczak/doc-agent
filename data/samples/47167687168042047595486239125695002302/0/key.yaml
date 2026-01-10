@@ -1,0 +1,8 @@
+"## End\u2011User Notes on **`pip_outdated/__init__.py`**\n### Execution Flow (user\u2011\
+  visible behavior)\n\n1. **Entry point**: `main()` \u2013 invoked when the tool is\
+  \ run.  \n2. Calls `asyncio.get_event_loop().run_until_complete(_main())` (uses\
+  \ asyncio for network checks).  \n3. `_main()`:\n   - Parses the CLI arguments.\
+  \  \n   - Sets verbosity based on the `--verbose` flag.  \n   - Locates dependencies\
+  \ via `find_require`.  \n   - Opens an asynchronous HTTP session (`get_session`).\
+  \  \n   - Checks each dependency for newer versions (`check_outdated`).  \n   -\
+  \ Prints the results (`print_outdated`), respecting the `--quiet` flag.  \n"

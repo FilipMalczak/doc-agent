@@ -1,0 +1,5 @@
+"# Maintainer\u2013Facing Notes for `pip_outdated/find_require.py`\n## Overview\n\
+  - This module implements utilities for locating and parsing Python package requirement\
+  \ specifications from various sources (plain requirement files, `setup.cfg` files,\
+  \ and raw requirement strings).  \n- It is used by the **pip\u2011outdated** tool\
+  \ to discover which packages a project declares as dependencies.\n"

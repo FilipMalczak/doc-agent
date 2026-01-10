@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_lines' function is defined in the source file. It takes\n    an iterable\
+  \ of lines and processes them by removing comments and handling line\n    continuation\
+  \ escape characters (\\). The function yields processed lines after\n    handling\
+  \ these cases.\n  fact: In file 'pip_outdated/find_require.py', there is a function\
+  \ named 'parse_lines'\n    that processes lines by removing comments and handling\
+  \ line continuation escape\n    characters.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

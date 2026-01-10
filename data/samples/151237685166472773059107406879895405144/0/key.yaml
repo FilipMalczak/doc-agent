@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'check_outdated' is structured to call 'get_local_version'\n    and\
+  \ 'get_pypi_versions' in order to instantiate and return an 'OutdateResult'.\n \
+  \ fact: In file 'pip_outdated/check_outdated.py', the asynchronous function 'check_outdated'\n\
+  \    uses 'get_local_version' and 'get_pypi_versions' to assess a package's current\n\
+  \    version against PyPI's versions.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

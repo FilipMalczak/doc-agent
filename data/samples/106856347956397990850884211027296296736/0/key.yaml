@@ -1,0 +1,23 @@
+".**Notes for End\u2011User Documentation**\n\n- **Purpose of `parse_cfg`**  \n  -\
+  \ Reads a `setup.cfg` file and extracts the *package names* from the following sections:\n\
+  \    - `setup_requires`\n    - `install_requires`\n    - `options.extras_require`\
+  \ (any defined extra groups)\n\n- **What is returned**  \n  - A sequence of requirement\
+  \ objects (or simple records) whose `.name` attribute holds the *plain package name*\u2014\
+  *version constraints and other specifiers are stripped*.\n\n- **Behaviour demonstrated\
+  \ by the test `test_parse_cfg`**  \n  - Given a `setup.cfg` containing:\n    ```ini\n\
+  \    [options]\n    setup_requires =\n        setuptools_scm >= 1.15.0\n       \
+  \ setuptools_scm_git_archive >= 1.0\n\n    install_requires =\n        ansible >=\
+  \ 2.5\n        ansible-lint >= 4.0.2, < 5\n\n    [options.extras_require]\n    docs\
+  \ =\n        alabaster\n        Sphinx\n    ```\n  - `parse_cfg` returns the names\
+  \ in this exact order:\n    - `setuptools_scm`\n    - `setuptools_scm_git_archive`\n\
+  \    - `ansible`\n    - `ansible-lint`\n    - `alabaster`\n    - `Sphinx`\n\n- **Implications\
+  \ for users**  \n  - When you point the tool at a `setup.cfg`, you can expect a\
+  \ clean list of dependency *names* suitable for:\n    - Checking which packages\
+  \ might be outdated.\n    - Generating simple dependency reports.\n    - Feeding\
+  \ into other tools that need just the package identifiers.\n\n- **How to invoke\
+  \ in your code**  \n  ```python\n  from pip_outdated.find_require import parse_cfg\n\
+  \n  requirement_objs = parse_cfg(\"path/to/setup.cfg\")\n  package_names = [req.name\
+  \ for req in requirement_objs]\n  ```\n\n- **Key takeaway**  \n  - `parse_cfg` abstracts\
+  \ away version specifications and focuses solely on the *identifiers* of the packages\
+  \ declared in a `setup.cfg`. This makes it handy for any workflow that needs to\
+  \ work with the raw list of required packages."

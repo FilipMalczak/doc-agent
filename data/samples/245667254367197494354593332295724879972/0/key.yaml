@@ -1,0 +1,34 @@
+"**Project:** `pip_outdated`  \n**File:** `pip_outdated/__init__.py`  \n\n### Overview\
+  \ for Maintainers  \n- **Package version** \u2013 defined as `__version__ = \"0.8.0\"\
+  `. Ensure this is kept in sync with any release tags.  \n- **Entry\u2011point**\
+  \ \u2013 the module provides a `main()` function that is intended to be used as\
+  \ the console script `pip-outdated`.  \n\n### Command\u2011Line Interface (CLI)\
+  \  \n- **Program name:** `pip-outdated`  \n- **Description:** \u201CFind outdated\
+  \ dependencies in your `requirements.txt` or `setup.cfg` file.\u201D  \n- **Arguments\
+  \ & Options** (generated via `argparse`):  \n\n| Option | Short | Type | Default\
+  \ | Effect |\n|--------|------|------|---------|--------|\n| `--verbose` | `-v`\
+  \ | flag | `False` | Enable verbose output (passes through to internal logger).\
+  \ |\n| `--quiet`   | `-q` | flag | `False` | Suppresses exit\u2011code\u202F1 when\
+  \ some dependencies are up\u2011to\u2011date; useful for CI pipelines that only\
+  \ care about failures. |\n| `file` | \u2013 | positional (zero or more) | `[\"requirements.txt\"\
+  , \"setup.cfg\"]` | One or more file paths or glob patterns from which to read dependencies.\
+  \ If omitted, the two default files are scanned. |\n\n### Runtime Behavior  \n-\
+  \ The CLI parses arguments, sets the global verbose flag (`verbose.set_verbose`),\
+  \ discovers required packages (`find_require`), and then runs an asynchronous workflow\
+  \ to check for outdated packages.  \n- **Async Execution:** Uses `asyncio.get_event_loop().run_until_complete(_main())`\
+  \ instead of `asyncio.run()` due to a known issue with aiohttp event\u2011loop handling.\
+  \  \n- **Workflow inside `_main()`**  \n  1. Retrieve CLI arguments.  \n  2. Import\
+  \ and configure helper modules (`verbose`, `find_require`, `check_outdated`, `print_outdated`,\
+  \ `session`).  \n  3. Resolve the list of required packages.  \n  4. Open an HTTP\
+  \ session (`get_session()`) for contacting PyPI.  \n  5. Create a task for each\
+  \ requirement to check its latest version (`check_outdated`).  \n  6. Await completion\
+  \ and format results via `print_outdated`, respecting the `--quiet` flag.  \n\n\
+  ### Maintenance Considerations  \n- **Version bump** \u2013 remember to update `__version__`\
+  \ whenever the public API or CLI behavior changes.  \n- **Dependency checks** \u2013\
+  \ the async implementation relies on `aiohttp`; ensure compatibility with the latest\
+  \ `aiohttp` releases (the comment notes a known issue).  \n- **User documentation**\
+  \ \u2013 expose the CLI options exactly as defined here; the default file list (`requirements.txt`,\
+  \ `setup.cfg`) should be highlighted for end\u2011users.  \n- **Testing** \u2013\
+  \ verify that both the `-v/--verbose` and `-q/--quiet` flags behave as described,\
+  \ especially the exit\u2011code handling when `--quiet` is used.  \n\n*No further\
+  \ actionable items are present in this file.*"

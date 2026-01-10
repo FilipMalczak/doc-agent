@@ -1,0 +1,24 @@
+"# Maintainer\u2013Facing Notes for `pip_outdated/find_require.py`\n## Public API\n\
+  | Function / Symbol | Purpose | Typical Return | Remarks |\n|---|---|---|---|\n\
+  | `iter_files(patterns)` | Yield `pathlib.Path` objects matching one or more glob\
+  \ patterns. | Generator of `Path` | Accepts both file paths and glob patterns. |\n\
+  | `file_to_lines(file)` | Stream lines from a file while handling comments (`#`)\
+  \ and line\u2011continuation (`\\`). | Generator of `str` | Verbose mode prints\
+  \ `\"Parse: {file}\"`. |\n| `parse_lines(lines)` | Core line\u2011pre\u2011processing\
+  \ helper used by `file_to_lines` and `parse_requirements_text`. | Generator of `str`\
+  \ | Removes comments, joins continuation lines, strips trailing new\u2011lines.\
+  \ |\n| `parse_requirements(file)` | Parse a requirements file into `packaging.requirements.Requirement`\
+  \ objects. | Generator of `Requirement` | Skips unparsable lines. |\n| `parse_requirements_text(text)`\
+  \ | Same as `parse_requirements` but operates on an in\u2011memory string. | Generator\
+  \ of `Requirement` | Useful for the `setup.cfg` `install_requires` field which is\
+  \ a multiline string. |\n| `parse_cfg(file)` | Extract requirement strings from\
+  \ a `setup.cfg` file (supports `setup_requires`, `install_requires`, and `extras_require`).\
+  \ | Generator of `Requirement` | Reads the file with `ConfigParser`. |\n| `find_require(files)`\
+  \ | Master entry point: iterate over provided file patterns, dispatch to the appropriate\
+  \ parser (`.cfg` \u2192 `parse_cfg`, otherwise \u2192 `parse_requirements`). | Generator\
+  \ of `Requirement` | Returns a flat stream of all discovered requirements. |\n|\
+  \ `parse_require(text)` | Helper that strips trailing option flags (e.g., `--hash=...`)\
+  \ and builds a `Requirement` object, returning `None` on failure. | `Requirement`\
+  \ or `None` | Relies on `packaging.requirements.Requirement`. |\n| `verbose()` (imported)\
+  \ | Determines whether debug prints are emitted. | `bool` | Used only inside `file_to_lines`.\
+  \ |\n"

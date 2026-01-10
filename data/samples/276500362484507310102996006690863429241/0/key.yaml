@@ -1,0 +1,30 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The file contains a test case that creates and\
+  \ parses a setup.cfg\n        file with explicit sections and options.\n      fact:\
+  \ In the document with ID '7f70c452-3de8-51f4-968c-80115530e69c', a setup.cfg\n\
+  \        file is generated with an [options] section containing setup_requires and\n\
+  \        install_requires subsections.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The test code demonstrates that the parse_cfg function processes\n\
+  \        dependencies listed under [options.setup_requires] and [options.install_requires].\n\
+  \      fact: In document ID '7f70c452-3de8-51f4-968c-80115530e69c', the parse_cfg\
+  \ function\n        is shown to extract dependencies from the setup_requires and\
+  \ install_requires\n        subsections of the [options] section in a setup.cfg\
+  \ file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n    \
+  \  explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test explicitly defines an [options.extras_require]\
+  \ section\n        in the generated setup.cfg file.\n      fact: Document ID '7f70c452-3de8-51f4-968c-80115530e69c'\
+  \ creates a setup.cfg\n        file containing an [options.extras_require] section\
+  \ with a 'docs' requirement\n        group including 'alabaster' and 'Sphinx'.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test asserts parsed package names match those\
+  \ listed in setup_requires,\n        install_requires, and extras_require subsections.\n\
+  \      fact: In document ID '7f70c452-3de8-51f4-968c-80115530e69c', the parse_cfg\
+  \ function\n        is verified to collect all packages from setup_requires, install_requires,\n\
+  \        and extras_require subsections in the setup.cfg file.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

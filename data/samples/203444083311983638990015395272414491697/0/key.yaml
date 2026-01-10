@@ -1,3 +1,0 @@
-The module is written in Python and uses only the aiohttp library; no other external
-  imports are present.
-...

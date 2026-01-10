@@ -1,4 +1,0 @@
-If the package is installed and its installed version is less than the wanted version,
-  colored_wanted returns the wanted version colored green and bold; otherwise it returns
-  the wanted version as an uncolored string.
-...

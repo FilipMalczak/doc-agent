@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test directory exclusion 'exclude = tests' is defined in options.packages.find\n\
+  \    (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n  fact: The setup.cfg\
+  \ configures package discovery to exclude 'tests' from being included\n    in distributions.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

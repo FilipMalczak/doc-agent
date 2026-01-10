@@ -3,17 +3,23 @@ from pydantic_ai import Agent
 from docassist.agents.rag.data import RephrasingOutput, RephrasingInput
 from docassist.config import CONFIG
 from docassist.llmio import object_from_user, object_from_llm
-from docassist.structured_agent import DoerAgent
+from docassist.parametrized import Parametrized
+from docassist.preindexing.perspectives import PERSPECTIVES, perspective
+from docassist.structured_agent import DoerAgent, SolverAgent
 from docassist.system_prompts import PromptingTask
 
-query_rephraser = DoerAgent(
-    name="query rephraser",
-    persona="RAG helper, specialised in rephrasing of queries",
-    task=PromptingTask(
-            context="you are at the beginning of the RAG pipeline",
-            high_level="expand on given RAG queries to extend search area",
-            low_level="given a list of RAG queries generate rewrites/rephrasings of queries and auxiliary queries",
-            detailed=f"""You will be given a list of input queries and numbers that control how much additional content
+query_rephraser = Parametrized(
+    parameters=PERSPECTIVES,
+    factory=lambda name_suffix, params:
+        SolverAgent(
+            name="query rephraser",
+            persona="RAG helper, specialised in rephrasing of queries",
+            perspective=perspective(**params),
+            task=PromptingTask(
+                    context="you are at the beginning of the RAG pipeline",
+                    high_level="expand on given RAG queries to extend search area",
+                    low_level="given a list of RAG queries generate rewrites/rephrasings of queries and auxiliary queries",
+                    detailed=f"""You will be given a list of input queries and numbers that control how much additional content
 you should generate. For each query you will generate `rewrite_count` queries that have similar meaning, but sound 
 differently. Additionally, you will generate `expansion_count` queries that do not relate to one specific input query,
 but are similar in meaning to all the input queries. You can think of rewrites as interpolation of search area, while
@@ -67,7 +73,8 @@ object_from_llm(
 }
 """,
 
-        ),
-    input_type=RephrasingInput,
-    output_type=RephrasingOutput,
+                ),
+            input_type=RephrasingInput,
+            output_type=RephrasingOutput,
+        )
 )

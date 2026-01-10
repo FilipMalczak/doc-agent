@@ -1,0 +1,23 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test function 'test_pytz' uses 'get_session'\
+  \ to create an asynchronous\n        session context for testing.\n      fact: In\
+  \ document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf', the test function\n \
+  \       'test_pytz' utilizes an async context manager from 'get_session' to handle\n\
+  \        session lifecycle.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The test function demonstrates how 'get_pypi_versions' is used\n\
+  \        with an async session to fetch PyPI versions for 'pytz'.\n      fact: In\
+  \ document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf', the test verifies\n \
+  \       integration between 'get_pypi_versions' and async session handling by querying\n\
+  \        PyPI for 'pytz'.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The file is explicitly designated as a test for PyPI version\
+  \ checking\n        functionality.\n      fact: In document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf',\
+  \ the Python\n        module implements a test focused on PyPI version retrieval\
+  \ for the 'pytz'\n        package.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

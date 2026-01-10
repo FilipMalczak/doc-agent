@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ __post_init__ computes wanted and latest based on all_versions.\n  fact: OutdateResult.__post_init__\
-  \ sets wanted to the most recent version in all_versions\n    that satisfies the\
-  \ requirement specifier, and sets latest to the last element\n    of all_versions.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

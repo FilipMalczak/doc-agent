@@ -1,0 +1,20 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: this is inferred directly from the code, which\
+  \ creates an async\n        context manager and calls the get_pypi_versions function\
+  \ with the first argument\n        set to 'pytz'\n      fact: there is an asynchronous\
+  \ test for `get_pypi_versions` function for the\n        argument 'pytz' in the\
+  \ file tests/test_pytz.py\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: this is directly stated in the import statement and the async\
+  \ with\n        usage\n      fact: the test imports `get_session` from pip_outdated.session\
+  \ and uses it as\n        an async context manager in tests/test_pytz.py\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: this is directly stated in the import statement\n\
+  \      fact: the test imports `get_pypi_versions` from pip_outdated.check_outdated\n\
+  \        in tests/test_pytz.py\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__:\
+  \ null\n"

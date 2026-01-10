@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The variable VERBOSE is declared with a global statement inside the\n    set_verbose\
+  \ function, indicating it's a global variable accessible across modules.\n  fact:\
+  \ \"There is one global variable named VERBOSE in file d1ef4334-\\u6587\\u6863\\\
+  \n    ID\"\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

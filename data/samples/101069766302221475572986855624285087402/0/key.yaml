@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The loop calls parse_require on each line and yields the result only\n    if it\
-  \ is truthy.\n  fact: The function parse_requirements(file) iterates over lines\
-  \ from file_to_lines\n    and yields Requirement objects created by parse_require;\
-  \ lines that cannot be\n    parsed are ignored.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

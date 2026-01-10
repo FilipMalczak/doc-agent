@@ -1,4 +1,0 @@
-The function parse_cfg(file) reads a configuration file using ConfigParser, extracts
-  setup_requires, install_requires, and all entries under options.extras_require,
-  and parses each extracted requirement string.
-...

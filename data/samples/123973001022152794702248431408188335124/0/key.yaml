@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The first line of the file is 'import aiohttp', which brings the aiohttp\n   \
-  \ module into the namespace.\n  fact: The file pip_outdated/session.py imports the\
-  \ aiohttp library.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
-  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,11 @@
+"### \u2699\uFE0F Functions  \n\n| Function | Signature | Purpose |\n|----------|-----------|----------|\n\
+  | `get_local_version(name: str) -> Optional[Version]` | `async` | Executes `pip\
+  \ show <name>` via a subprocess, parses the `Version:` line, and returns a `Version`\
+  \ object (or `None` if the package is missing). |\n| `get_pypi_versions(name: str,\
+  \ session) -> List[Version]` | `async` | Queries PyPI JSON API (`https://pypi.org/pypi/<name>/json`)\
+  \ using an already\u2011opened `aiohttp` session, filters out invalid or pre\u2011\
+  release versions, sorts them, and returns the list. |\n| `check_outdated(require,\
+  \ session) -> OutdateResult` | `async` | Orchestrates the two helpers above: canonicalizes\
+  \ the package name, fetches the local version, fetches the PyPI version list, and\
+  \ returns a populated `OutdateResult`. Also prints a debug line when the global\
+  \ `verbose()` flag is set. |\n\n---\n"

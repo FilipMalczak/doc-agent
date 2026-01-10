@@ -1,5 +1,0 @@
-"## Project Configuration \u2013 `setup.py`\n### Why this matters to the user\n- `setup.py`\
-  \ is the traditional entry point for building, distributing, and installing a Python\
-  \ package.\n- Without supplied arguments, tools like `pip install .` or `python\
-  \ setup.py sdist` will not produce a usable distribution because essential metadata\
-  \ (name, version, packages, etc.) is missing.\n"

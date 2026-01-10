@@ -1,6 +1,0 @@
-"## Documentation Use Cases\n- The notes above can be incorporated into **user\u2011\
-  facing documentation** to explain:\n  - The role of the `tests` directory within\
-  \ the project.\n  - How each test file validates core functionality of `pip_outdated`.\n\
-  \  - Instructions for developers to run or extend the test suite.\n\n---\n*Compiled\
-  \ from file\u2011level notes to provide a concise, high\u2011level overview of the\
-  \ `tests` directory for documentation purposes.*"

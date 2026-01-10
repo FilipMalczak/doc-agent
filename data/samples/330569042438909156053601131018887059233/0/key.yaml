@@ -1,0 +1,3 @@
+colored_latest returns green bolded latest version if outdate.version is less than
+  out date latest
+...

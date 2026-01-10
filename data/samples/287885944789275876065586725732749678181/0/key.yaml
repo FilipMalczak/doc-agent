@@ -1,7 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code tests `outdate.pypi_not_found()` or `not outdate.wanted` and\n    returns\
-  \ `colored(\"None\", \"red\", attrs=[\"bold\"])`.\n  fact: Inside make_row, the\
-  \ nested function colored_wanted returns the string \"None\"\n    colored red and\
-  \ bold when the package is not found on PyPI or when the package\n    has no wanted\
-  \ version.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

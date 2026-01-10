@@ -1,0 +1,66 @@
+"**Project\u202FFile:** `pip_outdated/check_outdated.py`  \n**Language:** Python \
+  \ \n\n---\n\n### \U0001F4C4 Overview  \n- This module implements the **core logic**\
+  \ for detecting outdated Python packages.  \n- It is used by the CLI tool (presumably\
+  \ `pip-outdated`) to compare the version installed locally with the versions available\
+  \ on PyPI.  \n- All heavy\u2011lifting is performed **asynchronously** so that multiple\
+  \ packages can be checked in parallel without blocking the event loop.\n\n---\n\n\
+  ### \U0001F3D7\uFE0F Key Data Structure  \n\n#### `OutdateResult` (dataclass)  \n\
+  | Field | Type | Description |\n|-------|------|-------------|\n| `requirement`\
+  \ | `Requirement` | Parsed requirement (name\u202F+\u202Fspecifier) coming from\
+  \ `requirements.txt` or similar. |\n| `version` | `Optional[Version]` | Version\
+  \ currently installed on the host system (`None` if not installed). |\n| `all_versions`\
+  \ | `List[Version]` | Sorted list of **all** non\u2011prerelease versions found\
+  \ on PyPI for the package. |\n| `wanted` | `Optional[Version]` | Highest version\
+  \ that satisfies the requirement\u2019s specifier (calculated in `__post_init__`).\
+  \ |\n| `latest` | `Optional[Version]` | The newest version available on PyPI (last\
+  \ element of `all_versions`). |\n\n**Computed properties & helpers**  \n- `name`\
+  \ \u2013 returns the canonical package name.  \n- `install_not_found()` \u2013 `True`\
+  \ when the package is not installed locally.  \n- `install_not_wanted()` \u2013\
+  \ `True` when the installed version does **not** satisfy the requirement specifier.\
+  \  \n- `pypi_not_found()` \u2013 `True` when no versions could be retrieved from\
+  \ PyPI.  \n- `outdated()` \u2013 `True` when the local version differs from either\
+  \ the *wanted* or the *latest* version.\n\nThese helpers make it easy for higher\u2011\
+  level code (e.g., the CLI output formatter) to decide what message to show to the\
+  \ end\u2011user.\n\n---\n\n### \u2699\uFE0F Functions  \n\n| Function | Signature\
+  \ | Purpose |\n|----------|-----------|----------|\n| `get_local_version(name: str)\
+  \ -> Optional[Version]` | `async` | Executes `pip show <name>` via a subprocess,\
+  \ parses the `Version:` line, and returns a `Version` object (or `None` if the package\
+  \ is missing). |\n| `get_pypi_versions(name: str, session) -> List[Version]` | `async`\
+  \ | Queries PyPI JSON API (`https://pypi.org/pypi/<name>/json`) using an already\u2011\
+  opened `aiohttp` session, filters out invalid or pre\u2011release versions, sorts\
+  \ them, and returns the list. |\n| `check_outdated(require, session) -> OutdateResult`\
+  \ | `async` | Orchestrates the two helpers above: canonicalizes the package name,\
+  \ fetches the local version, fetches the PyPI version list, and returns a populated\
+  \ `OutdateResult`. Also prints a debug line when the global `verbose()` flag is\
+  \ set. |\n\n---\n\n### \U0001F527 Integration Points  \n\n- **`verbose`**: The module\
+  \ imports `verbose` from `.verbose`. When enabled, each package check prints: `\"\
+  Checking: <name> <specifier>\"`.  \n- **Async Context**: All public functions are\
+  \ `async`; callers must run them inside an event loop (e.g., via `asyncio.run`).\
+  \  \n- **HTTP Session**: `check_outdated` expects an existing async HTTP session\
+  \ (commonly an `aiohttp.ClientSession`) so that connection pooling can be reused\
+  \ across many package checks.  \n\n---\n\n### \U0001F6E1\uFE0F Maintainer\u2011\
+  Focused Notes  \n\n- **Dependency Management**: The module relies on the external\
+  \ `packaging` library for requirement parsing and version handling. Ensure this\
+  \ library is listed in the project's runtime dependencies.  \n- **Error Handling**:\
+  \  \n  - If `pip show` fails (non\u2011zero exit code), the function silently returns\
+  \ `None`. This is intentional to treat missing installations as \u201Cnot found\u201D\
+  .  \n  - Network errors from PyPI are propagated via `raise_for_status()`. Callers\
+  \ should catch `aiohttp.ClientError` to present a friendly message to users.  \n\
+  - **Performance**:  \n  - The design is fully asynchronous, allowing thousands of\
+  \ packages to be checked concurrently with a modest number of open sockets (controlled\
+  \ by the `aiohttp` connector limits).  \n  - Filtering of pre\u2011release versions\
+  \ is done client\u2011side; no extra API parameters are needed.  \n- **Extensibility**:\
+  \  \n  - If future requirements need to include pre\u2011release versions, modify\
+  \ `get_pypi_versions` to drop the `if version.is_prerelease: continue` guard.  \n\
+  \  - To support alternative package indexes, inject a base URL into `check_outdated`\
+  \ and adjust the JSON path accordingly.  \n\n---\n\n### \U0001F4CB Suggested Documentation\
+  \ Snippets (for end\u2011users)\n\n> **How the tool decides a package is outdated**\
+  \  \n> 1. It reads the requirement (e.g., `\"requests>=2.20,<3\"`).  \n> 2. It obtains\
+  \ the version you currently have installed (`pip show`).  \n> 3. It fetches every\
+  \ stable release of that package from PyPI.  \n> 4. It marks a package as *out\u2011\
+  of\u2011date* if the installed version is either **not** within the required range\
+  \ **or** is not the latest stable release.  \n\n> **Running the check**  \n> ```bash\n\
+  > python -m pip_outdated check requirements.txt\n> ```  \n> (The command internally\
+  \ calls `check_outdated` for each entry.)  \n\nThese notes should help maintainers\
+  \ understand the module\u2019s responsibilities, spot integration issues, and draft\
+  \ clear user\u2011facing help text."

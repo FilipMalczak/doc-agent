@@ -1,3 +1,0 @@
-The get_session function returns a new aiohttp.ClientSession configured with the headers
-  and connector defined above.
-...

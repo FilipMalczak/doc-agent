@@ -1,6 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ These two lines appear under \"install_requires =\" inside the written\n    config.\n\
-  \  fact: 'In the [options] section, the key install_requires lists two requirements:\n\
-  \    ansible >= 2.5 and ansible-lint >= 4.0.2, < 5.'\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The first image directive references that URL as its target.\n  fact: The README\
-  \ includes a Travis CI build status badge that links to https://travis-ci.com/eight04/pip-outdated.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

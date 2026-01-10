@@ -1,0 +1,8 @@
+"### Typical usage scenario for an end\u2011user\n1. **Check a standard project:**\
+  \  \n   ```bash\n   pip-outdated\n   ```\n   *Scans `requirements.txt` and `setup.cfg`\
+  \ automatically.*\n\n2. **Target specific files:**  \n   ```bash\n   pip-outdated\
+  \ my-requirements.txt\n   ```\n\n3. **Get detailed logs:**  \n   ```bash\n   pip-outdated\
+  \ --verbose\n   ```\n\n4. **Ignore the \u201Cout\u2011of\u2011date\u201D exit status\
+  \ (useful in CI pipelines):**  \n   ```bash\n   pip-outdated --quiet\n   ```\n\n\
+  These notes capture the user\u2011facing behavior, command syntax, and options needed\
+  \ to document `pip-outdated` for end users."

@@ -1,4 +1,0 @@
-parse_args() adds a positional argument named file that accepts zero or more values,
-  defaults to ["requirements.txt", "setup.cfg"], uses metavar "<file>", and explains
-  it reads dependencies from requirement files and accepts glob patterns.
-...

@@ -1,0 +1,97 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function iter_files is defined in the file,\
+  \ which takes patterns\n        and yields Path objects.\n      fact: The file pip_outdated/find_require.py\
+  \ contains a function named iter_files\n        that yields file paths based on\
+  \ glob patterns.\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function file_to_lines is defined in the file, which processes\n\
+  \        lines from a file, handling '#' comments and backslash continuation.\n\
+  \      fact: The file pip_outdated/find_require.py contains a function named file_to_lines\n\
+  \        that reads a file and processes lines to handle comments and continuation.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_lines is defined in the file,\
+  \ which processes\n        lines, handling '#' comments and backslash continuation.\n\
+  \      fact: The file pip_outdated/find_require.py contains a function named parse_lines\n\
+  \        that processes lines to handle comments and continuation.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_requirements is defined in\
+  \ the file, which iterates\n        over lines from a file and parses them into\
+  \ requirements.\n      fact: The file pip_outdated/find_require.py contains a function\
+  \ named parse_requirements\n        that parses a file for requirements.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_requirements_text is defined\
+  \ in the file, which\n        processes a string of lines to extract requirements.\n\
+  \      fact: The file pip_outdated/find_require.py contains a function named parse_requirements_text\n\
+  \        that parses a text string for requirements.\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_cfg is defined in the file,\
+  \ which reads a ConfigParser\n        object from a file to extract requirement\
+  \ texts.\n      fact: The file pip_outdated/find_require.py contains a function\
+  \ named parse_cfg\n        that reads a cfg file for requirements.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function find_require is defined in the file,\
+  \ which iterates\n        over files, calling either parse_cfg or parse_requirements\
+  \ based on the file's\n        suffix.\n      fact: The file pip_outdated/find_require.py\
+  \ contains a function named find_require\n        that processes files for requirements.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_require is defined in the\
+  \ file, which attempts\n        to extract a requirement from a text line, stripping\
+  \ options and using the\n        packaging.requirements.Requirement class.\n   \
+  \   fact: The file pip_outdated/find_require.py contains a function named parse_require\n\
+  \        that parses a text line into a requirement object.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The import statement explicitly includes 'from\
+  \ packaging.requirements\n        import Requirement, InvalidRequirement'.\n   \
+  \   fact: The file pip_outdated/find_require.py imports the Requirement class from\n\
+  \        the packaging.requirements module.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The import statement explicitly includes 'from configparser\
+  \ import\n        ConfigParser'.\n      fact: The file pip_outdated/find_require.py\
+  \ imports the ConfigParser class from\n        the configparser module.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The import statement explicitly includes 'from\
+  \ .verbose import\n        verbose'.\n      fact: The file pip_outdated/find_require.py\
+  \ imports the verbose function from\n        the .verbose module.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_lines uses regex to split\
+  \ lines at comment markers\n        and handle continuation with backslashes.\n\
+  \      fact: The file pip_outdated/find_require.py uses a regular expression to\
+  \ handle\n        comments and continuation in requirements files.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function parse_cfg reads 'options' and 'options.extras_require'\n\
+  \        sections from a .cfg file to extract requirements.\n      fact: The file\
+  \ pip_outdated/find_require.py processes .cfg files by reading\n        ConfigParser\
+  \ sections for setup_requires, install_requires, and extras_require.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function find_require checks the file suffix\
+  \ to decide whether\n        to use parse_cfg or parse_requirements.\n      fact:\
+  \ The file pip_outdated/find_require.py handles both .cfg and non-.cfg files\n \
+  \       to parse requirements.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'In the file_to_lines function, ''if verbose()'' conditionally\n\
+  \        prints a message with ''print(f''Parse: {file}'')''.'\n      fact: The\
+  \ file pip_outdated/find_require.py prints a message if verbose mode\n        is\
+  \ enabled when parsing a file.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The import statement explicitly includes 'import pathlib', and\n\
+  \        the code uses Path objects from it.\n      fact: The file pip_outdated/find_require.py\
+  \ uses the pathlib module to handle\n        file paths.\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

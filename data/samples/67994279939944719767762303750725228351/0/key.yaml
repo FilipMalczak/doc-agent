@@ -1,3 +1,0 @@
-A comment in main() references an aiohttp issue (https://github.com/aio-libs/aiohttp/issues/1925)
-  as the reason for not using asyncio.run().
-...

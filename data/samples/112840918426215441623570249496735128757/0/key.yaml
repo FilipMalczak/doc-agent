@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function utilizes asyncio's create_subprocess_shell to run 'pip\n    show\
+  \ {name}' with the provided package name, and parses the output to extract\n   \
+  \ the version.\n  fact: The function 'get_local_version' attempts to execute the\
+  \ 'pip show' command\n    to get package metadata.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

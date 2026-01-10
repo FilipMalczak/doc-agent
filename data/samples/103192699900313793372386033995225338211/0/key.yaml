@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The project description 'Find outdated dependencies in your requirements.txt\n\
+  \    or setup.cfg' is stated in the metadata section (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \  fact: The tool's purpose is to 'Find outdated dependencies in your requirements.txt\n\
+  \    or setup.cfg' as described in the setup.cfg.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+Key functionality modules (find_require, check_outdated, print_outdated) are imported
+  inside the _main function in pip_outdated/__init__.py
+...

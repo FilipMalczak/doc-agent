@@ -1,0 +1,62 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: 'We need to follow contract: exactly one textual response, no tool calls.
+    Output format: Markdown. Need to take notes from perspective: enduser (someone
+    who uses the project). So we should note user-facing info: version, command usage,
+    description, options, behavior. Summarize for documentation. Provide notes in
+    markdown. No tool calls. Let''s produce notes'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: ".**Project: `pip-outdated` (Version\u202F0.8.0)**  \n\n---\n\n### What\
+    \ the tool does\n- Scans a **requirements.txt** or **setup.cfg** (or any file\
+    \ matching a glob pattern) to locate declared Python dependencies.  \n- Checks\
+    \ each dependency against the Python Package Index to determine whether a newer\
+    \ version is available.  \n- Prints a report of outdated packages, optionally\
+    \ adjusting the exit code based on the **quiet** flag.\n\n### How to run it\n\
+    ```bash\npip-outdated [options] [<file> ...]\n```\n- If no `<file>` arguments\
+    \ are supplied, the tool defaults to searching `requirements.txt` and `setup.cfg`\
+    \ in the current directory.  \n- `<file>` may be a glob pattern (e.g., `requirements-*.txt`)\
+    \ to target multiple requirement files.\n\n### Command\u2011line options\n| Option\
+    \ | Alias | Effect |\n|--------|-------|--------|\n| `-v`   | `--verbose` | Enables\
+    \ verbose output (extra debugging information). |\n| `-q`   | `--quiet`   | Suppresses\
+    \ the non\u2011zero exit code when some dependencies are up\u2011to\u2011date\
+    \ (i.e., the program will exit with code\u202F0 even if not all packages are current).\
+    \ |\n\n### Exit codes\n- **0** \u2013 All dependencies are up\u2011to\u2011date\
+    \ **or** the `--quiet` flag was used.  \n- **1** \u2013 At least one dependency\
+    \ is outdated and `--quiet` was **not** specified.\n\n### Implementation notes\
+    \ (useful for advanced users)\n- The script uses **asyncio** to perform checks\
+    \ concurrently, improving speed for large dependency sets.  \n- Because of an\
+    \ `aiohttp` issue, it runs the async entry point via `asyncio.get_event_loop().run_until_complete()`\
+    \ instead of `asyncio.run()`.  \n- Verbose mode is managed by the internal `verbose.set_verbose`\
+    \ helper.  \n\n### Typical usage scenario for an end\u2011user\n1. **Check a standard\
+    \ project:**  \n   ```bash\n   pip-outdated\n   ```\n   *Scans `requirements.txt`\
+    \ and `setup.cfg` automatically.*\n\n2. **Target specific files:**  \n   ```bash\n\
+    \   pip-outdated my-requirements.txt\n   ```\n\n3. **Get detailed logs:**  \n\
+    \   ```bash\n   pip-outdated --verbose\n   ```\n\n4. **Ignore the \u201Cout\u2011\
+    of\u2011date\u201D exit status (useful in CI pipelines):**  \n   ```bash\n   pip-outdated\
+    \ --quiet\n   ```\n\nThese notes capture the user\u2011facing behavior, command\
+    \ syntax, and options needed to document `pip-outdated` for end users."
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1767965028-MkdTYDUY47Viyldj9UFS
+run_id: 6492c7bd-4b48-4e87-a82a-1d93dc93bdea
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 768
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 90
+  input_audio_tokens: 0
+  input_tokens: 1372
+  output_audio_tokens: 0
+  output_tokens: 641

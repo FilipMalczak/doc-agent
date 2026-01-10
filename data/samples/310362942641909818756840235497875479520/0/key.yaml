@@ -1,3 +1,0 @@
-pip-outdated accepts glob patterns for file arguments, allowing multiple requirement
-  files to be checked in one run.
-...

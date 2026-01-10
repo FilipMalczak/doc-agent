@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ this is inferred directly from the code, which creates an async context\n    manager\
+  \ and calls the get_pypi_versions function with the first argument set to\n    'pytz'\n\
+  \  fact: there is an asynchronous test for `get_pypi_versions` function for the\
+  \ argument\n    'pytz' in the file tests/test_pytz.py\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

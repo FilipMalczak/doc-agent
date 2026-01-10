@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The instantiation of `aiohttp.TCPConnector(limit=5)` directly shows\n    this\
+  \ configuration.\n  fact: In pip_outdated/session.py, the TCPConnector is used with\
+  \ a limit of 5 connections.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

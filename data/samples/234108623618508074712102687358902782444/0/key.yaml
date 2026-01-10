@@ -1,0 +1,9 @@
+"- **Purpose**: Provides the package\u2019s entry point when executed as a script\
+  \ (e.g., `python -m pip_outdated`).  \n- **Behavior**: Imports the `main` function\
+  \ from the same package and invokes it, delegating all command\u2011line handling\
+  \ and core logic to `pip_outdated/main.py`.  \n- **Implications for Maintainers**:\
+  \  \n  - Ensures end\u2011users can run the tool directly without needing a separate\
+  \ script.  \n  - Simplifies packaging and distribution by relying on Python\u2019\
+  s module execution mechanism.  \n  - No additional arguments or environment handling\
+  \ are performed here; all user\u2011facing functionality must be implemented inside\
+  \ `main()`."

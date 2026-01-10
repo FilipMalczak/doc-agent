@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function signature includes '-> aiohttp.ClientSession', indicating\n    the\
-  \ expected return type.\n  fact: The return type annotation of get_session is aiohttp.ClientSession.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

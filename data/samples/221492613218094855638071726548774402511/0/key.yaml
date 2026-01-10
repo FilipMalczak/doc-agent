@@ -1,0 +1,4 @@
+In file 'pip_outdated/print_outdated.py', when 'print_outdated' detects outdated packages
+  and the 'quiet' argument is false, it explicitly calls 'sys.exit(1)' to signal failure
+  in automated workflows.
+...

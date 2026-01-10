@@ -1,0 +1,3 @@
+The command-line interface is created with 'pip-outdated = pip_outdated:main' in the
+  setup.cfg entry points.
+...

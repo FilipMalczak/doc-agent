@@ -163,7 +163,7 @@ class Materializer:
         #todo add rephrase tool
 
         return FunctionToolset(
-            max_retries=3, require_parameter_descriptions=True,
+            max_retries=3, require_parameter_descriptions=True, #todo retries count
             tools=[search_knowledge_base]
         )
 
@@ -230,33 +230,6 @@ class Materializer:
                                   state: MaterializationState) -> list[DocumentDefinition]:
         response = await expand_domain(exp.domain_description, dict(exp.variables))
         assert False, f"Handle the response: {response}"
-        # out = []
-        # # fixme we're not using ancestors here
-        # response = self.model.feed(
-        #     expand_domain(
-        #         input=ExpandOnDomainInput(
-        #             domain_description=exp.domain_description,
-        #             variables=exp.variables,
-        #             resources=self.rag.retrieve(
-        #                 index=self.index,
-        #                 task=expansion(exp.domain_description),
-        #                 queries=[exp.domain_description]
-        #             )
-        #         ),
-        #         llmio=self.llmio
-        #     )
-        # )
-        # result = self.llmio.lax_parse(response.content, ExpandOnDomainOutput).results
-        # logger.info("Examples:")
-        # for r in result:
-        #     logger.info(pformat(r))
-        #     new_state = state
-        #     for k, v in r.values.items():
-        #         new_state = (new_state
-        #                      .set_variable(k, v)
-        #                      .add_fact(f"The value of variable '{k}' defined as '{exp.variables[k]}' is '{v}'."))
-        #     out.extend(self._materialize(exp.content_template, new_state))
-        # return out
 
     @step
     async def materialize_specification(self, specification: DocumentSpecification) -> list[DocumentDefinition]:

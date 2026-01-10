@@ -1,0 +1,39 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'make_row' function generates a formatted\
+  \ row for outdated\n        package display with color-coded status indicators,\
+  \ which is crucial for understanding\n        output formatting strategies for maintainer-facing\
+  \ documentation\n      fact: In document with ID cb702584-8007-568a-80b4-c4dbaa226784,\
+  \ the 'make_row'\n        function generates color-coded output rows for outdated\
+  \ packages using termcolor\n        and colorama libraries\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The 'print_outdated' function implements specific\
+  \ output formatting\n        requirements and exit codes indicating package status,\
+  \ important for documenting\n        system behavior\n      fact: In document with\
+  \ ID cb702584-8007-568a-80b4-c4dbaa226784, the 'print_outdated'\n        function\
+  \ prints color-coded package status tables and exits with code 1 when\n        outdated\
+  \ packages exist if 'quiet' is False\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Dependencies like colorama, terminaltables, and termcolor are\
+  \ actively\n        used in the implementation, establishing required runtime dependencies\
+  \ for\n        the module\n      fact: Document with ID cb702584-8007-568a-80b4-c4dbaa226784\
+  \ imports and uses\n        colorama, terminaltables, and termcolor for console\
+  \ output formatting\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: Asynchronous processing pattern is implemented through awaitable\n\
+  \        OutdateResult objects, defining how this module integrates with async workflows\n\
+  \      fact: In document with ID cb702584-8007-568a-80b4-c4dbaa226784, the 'print_outdated'\n\
+  \        function processes List[Awaitable[OutdateResult]] asynchronously\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The module implements specific status codes through\
+  \ color-coding\n        conventions, which is essential knowledge for users and\
+  \ maintainers\n      fact: 'Document with ID cb702584-8007-568a-80b4-c4dbaa226784\
+  \ defines color status\n        indicators: green for updatable packages, red for\
+  \ issues, and cyan for success\n        states'\n    __pydantic_extra__: null\n\
+  \    __pydantic_fields_set__: !!set\n      explanation: null\n      fact: null\n\
+  \    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  facts: null\n__pydantic_private__: null\n"

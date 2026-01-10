@@ -1,0 +1,5 @@
+"### Implementation notes (useful for advanced users)\n- The script uses **asyncio**\
+  \ to perform checks concurrently, improving speed for large dependency sets.  \n\
+  - Because of an `aiohttp` issue, it runs the async entry point via `asyncio.get_event_loop().run_until_complete()`\
+  \ instead of `asyncio.run()`.  \n- Verbose mode is managed by the internal `verbose.set_verbose`\
+  \ helper.  \n"

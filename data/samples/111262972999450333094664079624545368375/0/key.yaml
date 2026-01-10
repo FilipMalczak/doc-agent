@@ -1,0 +1,8 @@
+"**Notes for End\u2011User (from `pip_outdated/__main__.py`)**\n\n- This file is the\
+  \ *module entry point* for the **pip_outdated** package.  \n- When the package is\
+  \ executed as a module (`python -m pip_outdated`), the code in this file runs. \
+  \ \n- It simply imports the package\u2019s `main` function and calls it, launching\
+  \ the tool\u2019s command\u2011line interface.  \n- As an end\u2011user, you can\
+  \ start the outdated\u2011pip\u2011packages check without needing to know the internal\
+  \ module layout; just run the module or use any console\u2011script wrapper that\
+  \ the package provides.  "

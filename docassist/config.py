@@ -36,8 +36,15 @@ class Config(NamedTuple):
         'openai/gpt-oss-120b',
         provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
     )
+    raw_mixed_model: Model = OpenAIChatModel(
+        'qwen/qwen3-32b',
+        # 'openai/gpt-oss-120b',
+        # 'openai/gpt-oss-20b',
+        provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
+    )
     raw_tool_model: Model = OpenAIChatModel(
-        "deepseek/deepseek-r1-0528",
+        # "deepseek/deepseek-r1-0528",
+        "deepseek/deepseek-v3.2",
         provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
     )
     embedder_params: dict[str, str | int | None] = {"model_name": "text-embedding-3-small"}
@@ -63,6 +70,7 @@ class Config(NamedTuple):
     )
 
     text_model: Model = sampler.over_model(raw_text_model)
+    mixed_model: Model = sampler.over_model(raw_mixed_model)
     tool_model: Model = sampler.over_model(raw_tool_model)
     repos: list[AnalysedRepo] = [
         PipOutdatedRepo()

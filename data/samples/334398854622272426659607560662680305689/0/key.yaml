@@ -1,0 +1,3 @@
+In file 'pip_outdated/print_outdated.py', the message 'Everything is up-to-date!'
+  is printed in cyan bold text when all packages are up-to-date.
+...

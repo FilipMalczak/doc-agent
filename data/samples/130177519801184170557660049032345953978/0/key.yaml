@@ -1,0 +1,35 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The variable VERBOSE is declared with a global\
+  \ statement inside\n        the set_verbose function, indicating it's a global variable\
+  \ accessible across\n        modules.\n      fact: \"There is one global variable\
+  \ named VERBOSE in file d1ef4334-\\u6587\\u6863\\\n        ID\"\n    __pydantic_extra__:\
+  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
+  \ null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The variable VERBOSE is typed as bool at declaration.\n\
+  \      fact: \"The VERBOSE variable is of type bool in file d\\u6587\\u6863ID\"\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function set_verbose is defined with def\
+  \ statement.\n      fact: \"There is one function named set_verbose in file d\\\
+  u6587\\u6863ID\"\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n\
+  \      explanation: null\n      fact: null\n    __pydantic_private__: null\n  -\
+  \ !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The function signature shows that set_verbose accepts a single\n\
+  \        parameter 'value' of type bool.\n      fact: \"The set_verbose function\
+  \ takes one parameter named value of type bool\\\n        \\ in file d\\u6587\\\
+  u6863ID\"\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n  \
+  \    explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The return type annotation for set_verbose is\
+  \ None.\n      fact: \"The set_verbose function returns None in file d\\u6587\\\
+  u6863ID\"\n    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n  \
+  \    explanation: null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The function verbose is defined with def statement.\n\
+  \      fact: \"There is one function named verbose in file d\\u6587\\u6863ID\"\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The return type annotation for verbose is bool.\n\
+  \      fact: \"The verbose function returns a bool in file d\\u6587\\u6863ID\"\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

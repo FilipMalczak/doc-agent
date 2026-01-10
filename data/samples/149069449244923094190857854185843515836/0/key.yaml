@@ -1,5 +1,0 @@
-"!!python/object:docassist.agents.generators.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The comment block immediately precedes the run_until_complete call.\n  fact: A\
-  \ comment in main() references an aiohttp issue (https://github.com/aio-libs/aiohttp/issues/1925)\n\
-  \    as the reason for not using asyncio.run().\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

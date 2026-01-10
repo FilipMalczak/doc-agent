@@ -6,8 +6,8 @@ from pydantic import BaseModel, TypeAdapter, Field, AliasChoices
 from docassist.simple_xml import to_simple_xml
 from docassist.system_prompts import PromptingTask
 
-
-class MaterializationAideInput[I](NamedTuple):
+#fixme get rid of named tuples, make everything BaseModels!!!
+class MaterializationAideInput[I](BaseModel):
     current_task: PromptingTask
     input: I
 

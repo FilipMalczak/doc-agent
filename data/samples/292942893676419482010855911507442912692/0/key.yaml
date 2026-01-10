@@ -1,0 +1,3 @@
+"# Locate all requirement specifications in the repo\npatterns = [\"requirements.txt\"\
+  , \"setup.cfg\", \"src/**/*.txt\"]\nfor req in find_require(patterns):\n    print(f\"\
+  Package: {req.name}, Specifier: {req.specifier}\")\n```\n\n### Documentation considerations"

@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' imports\n    and utilizes\
+  \ 'get_pypi_versions' and 'get_session' functions from the project's\n    implementation\
+  \ code, demonstrating their usage in a test context. This shows an\n    explicit\
+  \ dependency between the test file and these library functions.\n  fact: The document\
+  \ with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' implements a test\n    that uses\
+  \ PyPI version-checking functionality from the 'pip_outdated' library.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

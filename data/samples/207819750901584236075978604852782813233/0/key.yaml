@@ -1,2 +1,0 @@
-'The project has the following runtime dependencies with version constraints: aiohttp~=3.12,
-  colorama~=0.4.6, packaging~=25.0, termcolor~=3.1, terminaltables~=3.1.'

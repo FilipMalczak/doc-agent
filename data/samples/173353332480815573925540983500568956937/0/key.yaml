@@ -1,4 +1,0 @@
-Lines ending with a backslash-newline (\"\\\n\") are treated as continuations; the
-  backslash and newline are removed and the line is concatenated with the following
-  line.
-...

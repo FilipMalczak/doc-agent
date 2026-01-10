@@ -1,0 +1,29 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"facts": [{"fact": "In document with ID 7f70c452-3de8- sections", "explanation":
+    "The document content shows sections such as [ options.extras_require], which
+    are part of the document''s structure."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-95e58d28e77f44288c8187b7d5ed40b4
+  tool_name: final_result_Facts
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1767965028-FvOzVG6WfZ7MHJUTheAo
+run_id: b39705d0-282d-445f-b946-aa49388aa6cf
+timestamp: '2026-01-09T13:23:48Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1586
+  output_audio_tokens: 0
+  output_tokens: 73

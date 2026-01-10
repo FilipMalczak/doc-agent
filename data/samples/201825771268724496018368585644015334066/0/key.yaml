@@ -1,0 +1,4 @@
+"## Project Overview (maintainer perspective)\n### Description & Purpose\n- **Short\
+  \ description:** \u201CFind outdated dependencies in your `requirements.txt` or\
+  \ `setup.cfg`.\u201D\n- **Long description source:** `README.rst` (referenced via\
+  \ `long_description = file: README.rst`).\n"

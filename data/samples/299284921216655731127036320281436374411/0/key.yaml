@@ -1,0 +1,4 @@
+Document ID '7f70c452-3de8-51f4-968c-80115530e69c' creates a setup.cfg file containing
+  an [options.extras_require] section with a 'docs' requirement group including 'alabaster'
+  and 'Sphinx'.
+...

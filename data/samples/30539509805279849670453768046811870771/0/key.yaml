@@ -1,2 +1,0 @@
-'_main() creates an asynchronous context manager with async with get_session() as
-  session: to obtain a network session object.'

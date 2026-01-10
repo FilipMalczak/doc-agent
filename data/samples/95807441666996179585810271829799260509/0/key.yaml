@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The presence of 'from packaging.requirements import Requirement' indicates\n \
+  \   that the code uses the 'packaging' library to parse and manage Python package\n\
+  \    requirements.\n  fact: The module 'pip_outdated/check_outdated.py' imports\
+  \ 'Requirement' from the\n    'packaging.requirements' module.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

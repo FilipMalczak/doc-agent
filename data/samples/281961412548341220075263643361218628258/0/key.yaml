@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'outdated' method compares the installed version with the wanted\n    version\
+  \ or the latest version, returning True if the installed version is different,\n\
+  \    thereby determining if a package is considered outdated.\n  fact: The 'OutdateResult'\
+  \ class has a property method 'outdated' that evaluates\n    whether a package is\
+  \ outdated.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

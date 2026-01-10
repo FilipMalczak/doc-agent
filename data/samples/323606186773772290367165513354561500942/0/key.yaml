@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_requirements_text' function is defined in the source file.\n    It\
+  \ takes a string of text, splits it into lines, processes them using the 'parse_lines'\n\
+  \    function, and applies the 'parse_require' function to each line to yield valid\n\
+  \    requirements.\n  fact: In file 'pip_outdated/find_require.py', there is a function\
+  \ named 'parse_requirements_text'\n    that takes a string of text, splits it into\
+  \ lines, and processes them to extract\n    requirements.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

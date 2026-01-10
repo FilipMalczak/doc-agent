@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'print_outdated' function uses colorama to initialize colored terminal\n \
+  \   output. This is essential for cross-platform compatibility (e.g., Windows terminals).\n\
+  \  fact: In file 'pip_outdated/print_outdated.py', the function 'print_outdated'\
+  \ calls\n    'colorama.init()' before printing to ensure color support works correctly\
+  \ in the\n    terminal.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

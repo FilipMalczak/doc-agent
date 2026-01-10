@@ -1,0 +1,48 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
+  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The project name 'pip-outdated' is explicitly\
+  \ defined in the metadata\n        section (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The project is named 'pip-outdated' and defined in the setup.cfg file.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The version number '0.8.0' is explicitly declared\
+  \ in the metadata\n        section (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The project has a version of '0.8.0' as declared in the setup.cfg file.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The project description 'Find outdated dependencies\
+  \ in your requirements.txt\n        or setup.cfg' is stated in the metadata section\
+  \ (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n      fact: The tool's\
+  \ purpose is to 'Find outdated dependencies in your requirements.txt\n        or\
+  \ setup.cfg' as described in the setup.cfg.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: 'The Python version compatibility ''Programming Language ::\
+  \ Python\n        :: 3.7'' is listed in classifiers (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).'\n\
+  \      fact: The project supports Python 3.7 as specified in the setup.cfg classifiers.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The console entry point 'pip-outdated = pip_outdated:main'\
+  \ is explicitly\n        defined in options.entry_points (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The command-line interface is created with 'pip-outdated = pip_outdated:main'\n\
+  \        in the setup.cfg entry points.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The required dependencies 'aiohttp~=3.12', 'colorama~=0.4.6',\
+  \ etc.\n        are explicitly listed in install_requires (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The package has install dependencies including 'aiohttp~=3.12', 'colorama~=0.4.6',\n\
+  \        'packaging~=25.0', 'termcolor~=3.1', and 'terminaltables~=3.1' as per setup.cfg.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
+  \    __dict__:\n      explanation: The test directory exclusion 'exclude = tests'\
+  \ is defined in options.packages.find\n        (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The setup.cfg configures package discovery to exclude 'tests' from\
+  \ being\n        included in distributions.\n    __pydantic_extra__: null\n    __pydantic_fields_set__:\
+  \ !!set\n      explanation: null\n      fact: null\n    __pydantic_private__: null\n\
+  \  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n    __dict__:\n\
+  \      explanation: The fallback command 'vpip' configuration is defined as 'python\n\
+  \        cute.py' in the vpip section (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
+  \      fact: The setup.cfg defines a fallback command for 'vpip' as 'python cute.py'.\n\
+  \    __pydantic_extra__: null\n    __pydantic_fields_set__: !!set\n      explanation:\
+  \ null\n      fact: null\n    __pydantic_private__: null\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  facts: null\n__pydantic_private__: null\n"

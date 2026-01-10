@@ -1,0 +1,3 @@
+The tool's description states it finds outdated dependencies in requirements files,
+  as declared in pip_outdated/__init__.py
+...

@@ -1,43 +1,31 @@
-from typing import TypedDict, Self
-
-from pydantic import BaseModel
-
-from docassist.index.document import SourceDocumentType, FileSubjectType, SourceMeta, Document
-from docassist.preindexing.perspectives import perspective, AudienceRole, AudienceToProjectRelationship, PERSPECTIVES
-from docassist.structured_agent import WriterAgent, ParametrizedAgent, expand_on, cross_product
-from docassist.subjects import RepoItemType
+from docassist.index.document import Document
+from docassist.parametrized import Parametrized
+from docassist.preindexing.perspectives import perspective, PERSPECTIVES
+from docassist.structured_agent import WriterAgent
 from docassist.system_prompts import PromptingTask
 
 
-class FullyDescribedFile(BaseModel):
-    document_type: SourceDocumentType
-    type: FileSubjectType
-    repo_item_type: RepoItemType
-    path: str
-    language: str
-    content: str
-
-    @classmethod
-    def of(cls, doc: Document[SourceMeta]) -> Self:
-        data = dict(doc.metadata)
-        data["content"] = doc.content
-        return cls(**data)
-
-file_note_taker = ParametrizedAgent(
+file_note_taker = Parametrized(
     PERSPECTIVES,
-    lambda role, relationship_to_project:
+    lambda name_suffix, params:
         WriterAgent(
-        name="note taker that handles single file",
-        persona="note taker",
-        perspective=perspective(role, relationship_to_project),
-        task=PromptingTask(
-            high_level="take notes from the input file",
-            low_level="take notes from the perspective of the user of this project",
-            detailed="take notes that can be later used to prepare user-facing documentation of the project "
-                     "that the input file is part of",
-            context="you're reading the whole project for the first time; you need to extract the useful information for later usage"
-        ),
-        input_type=FullyDescribedFile,
-        output_format="Markdown"
-    )
+            name="note taker that handles single file"+name_suffix,
+            persona="note taker",
+            perspective=perspective(**params),
+            task=PromptingTask(
+                high_level="take notes from the input file",
+                low_level="take notes from given perspective or reply with 'N/A' to indicate no meaningful content from "
+                          "that perspective; you should not look into the dependent and depending files, your sole focus "
+                          "should be on currently processed file",
+                detailed="take notes that can be later used to prepare user-facing documentation of the project "
+                         "that the input file is part of; at this stage you should take the notes from a single perspective "
+                         "(this will happen for any possible perspective in parallel); do not note things that are not "
+                         "applicable to the current perspective; if there are no notes to be taken from given perspective,"
+                         "use the `empty_result` tool to indicate and explain that",
+                context="you're reading the whole project for the first time; you need to extract the useful information for later usage"
+            ),
+            input_type=Document,
+            allow_no_result=True,
+            output_format="Markdown"
+        )
 )

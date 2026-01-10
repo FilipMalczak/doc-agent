@@ -1,8 +1,0 @@
-"### Points of Interest for Documentation Writers\n- Emphasise the **visual colour\
-  \ cues** because they are the primary way users assess package status.  \n- Explain\
-  \ the **meaning of the exit code** for automation contexts (e.g., CI pipelines).\
-  \  \n- Note the **`quiet` flag** as a way to get only the table output without a\
-  \ failing exit status.  \n- Clarify that the module expects **asynchronous** `OutdateResult`\
-  \ objects \u2013 the surrounding CLI handles the async gathering.\n\n---\n\n*These\
-  \ notes capture the user\u2011relevant behaviour of `print_outdated.py` and can\
-  \ be directly reused when drafting the project's user\u2011facing documentation.*"

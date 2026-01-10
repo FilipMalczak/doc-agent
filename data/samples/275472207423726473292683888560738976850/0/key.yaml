@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The '__post_init__' method is implemented within the 'OutdateResult'\n    class\
+  \ definition. It utilizes the 'requirement' and 'all_versions' class attributes\n\
+  \    to set the values of 'wanted' and 'latest'.\n  fact: In file 'pip_outdated/check_outdated.py',\
+  \ the 'OutdateResult' class has a\n    method '__post_init__' that initializes 'wanted'\
+  \ and 'latest' attributes based\n    on 'all_versions' and 'requirement' attributes.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"
