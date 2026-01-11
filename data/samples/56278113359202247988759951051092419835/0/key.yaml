@@ -1,0 +1,3 @@
+The 'set_verbose' function in 'pip_outdated/verbose.py' sets the global variable 'VERBOSE'
+  with a given boolean value.
+...

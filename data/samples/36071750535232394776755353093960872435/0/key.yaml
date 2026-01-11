@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The parse_require function strips command-line-style options (--option\n    flags)\
+  \ from a requirement line before parsing it with packaging.requirements.Requirement.\n\
+  \  fact: The document contains a function named parse_require that processes raw\
+  \ requirement\n    strings by stripping command-line flags in pip_outdated/find_require.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

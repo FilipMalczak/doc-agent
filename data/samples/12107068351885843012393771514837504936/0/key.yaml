@@ -1,0 +1,3 @@
+The document contains a function named parse_require that processes raw requirement
+  strings by stripping command-line flags in pip_outdated/find_require.py.
+...

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The documentation lists these options under the 'Usage' section, providing\n \
+  \   details about the functionalities they enable.\n  fact: The pip-outdated tool\
+  \ has several command-line options including `-h` for\n    help, `-v` for verbose\
+  \ output, and `-q` to suppress exit code 1 when some packages\n    are outdated.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

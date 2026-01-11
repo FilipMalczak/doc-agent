@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'get_session' function sets the HTTP headers for the request, specifically\n\
+  \    the 'User-Agent' header to 'pip-outdated'. This is directly visible in the\
+  \ 'headers'\n    dictionary assignment within the function body.\n  fact: In the\
+  \ document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n   \
+  \ function assigns a 'User-Agent' header with the value 'pip-outdated' to HTTP requests.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

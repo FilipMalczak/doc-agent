@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The parse_requirements function extracts valid requirements from a\n    file by\
+  \ iterating over cleaned lines and parsing them with packaging.requirements.Requirement.\n\
+  \  fact: The document contains a function named parse_requirements that generates\
+  \ Requirement\n    objects from a file in pip_outdated/find_require.py.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

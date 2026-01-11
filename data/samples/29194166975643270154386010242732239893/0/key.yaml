@@ -1,0 +1,5 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## Key features\
+  \  \n- Compares installed versions with version specifiers in requirement files.\
+  \  \n- Accepts **multiple files** (glob patterns supported).  \n- Provides **verbose**\
+  \ mode for detailed output and **quiet** mode to suppress non\u2011zero exit status.\
+  \  \n"

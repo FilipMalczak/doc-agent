@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The `headers` dictionary with the 'User-Agent' value is passed to the\n    ClientSession.\n\
-  \  fact: The `aiohttp.ClientSession` instances created in pip_outdated/session.py\
-  \ are\n    initialized with a custom User-Agent header 'pip-outdated'.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

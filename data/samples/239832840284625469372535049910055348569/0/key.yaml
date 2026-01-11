@@ -1,5 +1,0 @@
-"### Command\u2011line options\n| Option | Alias | Effect |\n|--------|-------|--------|\n\
-  | `-v`   | `--verbose` | Enables verbose output (extra debugging information). |\n\
-  | `-q`   | `--quiet`   | Suppresses the non\u2011zero exit code when some dependencies\
-  \ are up\u2011to\u2011date (i.e., the program will exit with code\u202F0 even if\
-  \ not all packages are current). |\n"

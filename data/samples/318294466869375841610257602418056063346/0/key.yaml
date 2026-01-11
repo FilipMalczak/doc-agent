@@ -1,0 +1,11 @@
+"- **File:** `pip_outdated/verbose.py`  \n- **Purpose:** Provides a minimal shared\
+  \ namespace for managing a global *verbose* flag used throughout the project.  \n\
+  - **Key elements:**  \n  - `VERBOSE: bool = None` \u2013 global variable that stores\
+  \ the current verbosity state.  \n  - `set_verbose(value: bool) -> None` \u2013\
+  \ function to set the global `VERBOSE` flag.  \n  - `verbose() -> bool` \u2013 function\
+  \ that returns the current value of `VERBOSE`.  \n- **Typical usage for end\u2011\
+  users:**  \n  1. Call `set_verbose(True)` (or `False`) early in your script or command\u2011\
+  line entry point to enable or disable verbose output globally.  \n  2. Throughout\
+  \ the codebase, call `verbose()` to check the current setting and conditionally\
+  \ emit detailed logs or messages.  \n\n*These notes capture the functional intent\
+  \ of the module for later user\u2011facing documentation.*"

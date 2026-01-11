@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is stated explicitly in the 'license' field under the [metadata]\n    section\
+  \ in the setup.cfg file.\n  fact: The project is licensed under the MIT license.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

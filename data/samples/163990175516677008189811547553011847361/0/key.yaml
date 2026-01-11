@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code includes an 'async def check_outdated' definition that performs\n   \
+  \ the described operations of version retrieval and returns the OutdateResult as\n\
+  \    seen in the implementation.\n  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ there is an async function check_outdated\n    that retrieves the current version\
+  \ and PyPI versions of a package then returns\n    an OutdateResult.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

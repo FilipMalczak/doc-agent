@@ -1,0 +1,4 @@
+The 'parse_args' function in pip_outdated/__init__.py defines a help message indicating
+  that pip-outdated is designed to find outdated dependencies in 'requirements.txt'
+  or 'setup.cfg' files.
+...

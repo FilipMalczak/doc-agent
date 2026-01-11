@@ -1,0 +1,4 @@
+The pip_outdated/print_outdated.py displays terminal messages including 'Everything
+  is up-to-date!' (cyan) and 'No requirements found.' (red) to indicate package status
+  summary.
+...

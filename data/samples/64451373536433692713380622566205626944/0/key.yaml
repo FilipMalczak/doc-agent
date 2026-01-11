@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The helper function colored_current checks if outdate.install_not_found()\n  \
-  \  or outdate.install_not_w wanted() returns True and returns a red bolded string.\n\
-  \  fact: colored_current returns a red bolded string if outdate.install_not_found()\n\
-  \    or outdate.install_not_w wanted() returns True\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

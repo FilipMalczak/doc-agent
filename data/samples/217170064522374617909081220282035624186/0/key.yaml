@@ -1,0 +1,7 @@
+"## Maintainer\u2011focused notes for **`pip_outdated/print_outdated.py`**\n### Execution\
+  \ considerations for maintainers\n- The function is **asynchronous**; callers must\
+  \ `await print_outdated(...)` or run it within an event loop.\n- The exit status\
+  \ (non\u2011zero when updates exist) is useful for CI pipelines or scripts that\
+  \ need to enforce up\u2011to\u2011date dependencies.\n- The `quiet` flag allows\
+  \ suppression of the non\u2011zero exit, useful for scenarios where the output is\
+  \ displayed but the script should continue without signalling failure.\n"

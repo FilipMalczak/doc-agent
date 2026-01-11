@@ -1,9 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Facts\n__dict__:\n \
-  \ facts:\n  - !!python/object:docassist.preindexing.agents.facts_from_file.Fact\n\
-  \    __dict__:\n      explanation: The 'name' and 'version' fields under the [metadata]\
-  \ section in\n        the setup.cfg file describe the project's name and version.\n\
-  \      fact: In the setup.cfg file with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
-  \ there\n        is a project named 'pip-outdated' with version 0.8.0.\n    __pydantic_extra__:\
-  \ null\n    __pydantic_fields_set__: !!set\n      explanation: null\n      fact:\
-  \ null\n    __pydantic_private__: null\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  facts: null\n__pydantic_private__: null\n"

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file implements conditional status messages like 'Everything is\n    up-to-date!'\
+  \ and 'No requirements found.' These are printed using colored text\n    to the\
+  \ terminal. End-users will see these exact messages based on their dependency\n\
+  \    status.\n  fact: The pip_outdated/print_outdated.py displays terminal messages\
+  \ including 'Everything\n    is up-to-date!' (cyan) and 'No requirements found.'\
+  \ (red) to indicate package\n    status summary.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

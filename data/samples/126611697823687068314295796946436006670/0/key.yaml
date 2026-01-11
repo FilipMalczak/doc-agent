@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'main' function manually retrieves and runs the event loop to execute\n  \
+  \  '_main', as noted by a FIXME comment referencing an aiohttp issue, suggesting\n\
+  \    this is a workaround for event loop management.\n  fact: The main function\
+  \ of pip-outdated uses asyncio to run an async '_main' function,\n    bypassing\
+  \ asyncio.run due to compatibility issues with aiohttp.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

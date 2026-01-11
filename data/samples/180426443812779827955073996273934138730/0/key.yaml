@@ -1,0 +1,4 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## Planned enhancements\
+  \ (Todo)  \n- Option to **update packages** automatically.  \n- Ability to **modify**\
+  \ `requirements.txt` / `setup.cfg` with new versions.  \n- Global listing mode (`-g`,\
+  \ `--global`).  \n"

@@ -1,3 +1,0 @@
-In tests/test_parse_cfg.py, the test covers parse_cfg's ability to extract dependencies
-  from both [options] and [options.extras_require] sections of a setup.cfg file.
-...

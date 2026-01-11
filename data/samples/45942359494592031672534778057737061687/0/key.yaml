@@ -1,0 +1,17 @@
+"facts:\n- explanation: The test writes a setup.cfg file with specific requirements\
+  \ in the\n    [options.setup_requires] section. These packages are explicitly listed.\n\
+  \  fact: 'In tests/test_parse_cfg.py, the [options.setup_requires] section of the\
+  \ simulated\n    setup.cfg contains two packages: ''setuptools_scm >= 1.15.0'' and\
+  \ ''setuptools_scm_git_archive\n    >= 1.0''.'\n- explanation: The [options.install_requires]\
+  \ section in the test's setup.cfg lists\n    two requirements with version constraints,\
+  \ as shown in the written_text of the\n    test.\n  fact: In tests/test_parse_cfg.py,\
+  \ the [options.install_requires] section of the\n    simulated setup.cfg includes\
+  \ 'ansible >= 2.5' and 'ansible-lint >= 4.0.2, < 5'.\n- explanation: The [options.extras_require.docs]\
+  \ section is explicitly defined in\n    the test's setup.cfg with two packages listed.\n\
+  \  fact: Tests/test_parse_cfg.py shows that [options.extras_require.docs] in the\
+  \ simulated\n    setup.cfg requires 'alabaster' and 'Sphinx'.\n- explanation: The\
+  \ test assertion explicitly states the expected output of parse_cfg,\n    confirming\
+  \ it extracts package names without version specifiers.\n  fact: The parse_cfg function\
+  \ in tests/test_parse_cfg.py is verified to return only\n    package names from\
+  \ all sections of setup.cfg, ignoring version constraints (e.g.,\n    'setuptools_scm',\
+  \ 'ansible', etc.).\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The setup.py file has a minimal setup() declaration with no parameters.\n    This\
+  \ is evident from the 'setup()' call which does not include any arguments in\n \
+  \   the given source code.\n  fact: The setup.py file in the document with ID '17ae6927-bfa3-579e-8306-4465b7a352d8'\n\
+  \    uses a minimal setup() declaration with no parameters for project configuration.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

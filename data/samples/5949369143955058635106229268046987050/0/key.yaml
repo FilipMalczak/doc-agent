@@ -1,9 +1,0 @@
-"### Maintenance Considerations  \n- **Version bump** \u2013 remember to update `__version__`\
-  \ whenever the public API or CLI behavior changes.  \n- **Dependency checks** \u2013\
-  \ the async implementation relies on `aiohttp`; ensure compatibility with the latest\
-  \ `aiohttp` releases (the comment notes a known issue).  \n- **User documentation**\
-  \ \u2013 expose the CLI options exactly as defined here; the default file list (`requirements.txt`,\
-  \ `setup.cfg`) should be highlighted for end\u2011users.  \n- **Testing** \u2013\
-  \ verify that both the `-v/--verbose` and `-q/--quiet` flags behave as described,\
-  \ especially the exit\u2011code handling when `--quiet` is used.  \n\n*No further\
-  \ actionable items are present in this file.*"

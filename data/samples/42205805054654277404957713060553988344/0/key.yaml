@@ -1,0 +1,20 @@
+"## Project Overview\n- **Name**: `pip-outdated`\n- **Version**: `0.8.0` (Beta)\n\
+  - **Description**: Finds outdated dependencies in your `requirements.txt` or `setup.cfg`.\n\
+  - **Author**: `eight` (`eight04@gmail.com`)\n- **License**: MIT\n- **Homepage**:\
+  \ <https://github.com/eight04/pip-outdated>\n\n## Installation\n```bash\npip install\
+  \ pip-outdated==0.8.0\n```\n*The package is marked as \u201CDevelopment Status ::\
+  \ 4 - Beta\u201D, so expect possible updates.*\n\n## Runtime Requirements\n- **Python**:\
+  \ 3.7 or newer (indicated by classifiers)\n- **Dependencies**:\n  - `aiohttp~=3.12`\n\
+  \  - `colorama~=0.4.6`\n  - `packaging~=25.0`\n  - `termcolor~=3.1`\n  - `terminaltables~=3.1`\n\
+  \n## Usage\n- After installation, run the console script:\n\n```bash\npip-outdated\n\
+  ```\n\n- The tool scans the project's `requirements.txt` or `setup.cfg` and reports\
+  \ any packages that have newer versions available.\n\n## Additional Configuration\n\
+  - The `[vpip]` section defines a fallback command:\n\n```ini\n[vpip]\ncommand_fallback\
+  \ = python cute.py\n```\n\n*This may be used by the tool (or related tooling) to\
+  \ invoke a custom script when the primary command cannot be executed.*\n\n## Keywords\
+  \ & Topics\n- **Keywords**: `pip`, `check`, `outdate`, `npm`\n- **Classifiers**:\n\
+  \  - Development Status :: 4 - Beta\n  - Environment :: Console\n  - Intended Audience\
+  \ :: Developers\n  - Programming Language :: Python :: 3.7\n  - Topic :: Software\
+  \ Development :: Build Tools\n\nThese notes capture the information a user would\
+  \ need to understand what the package does, how to install it, its requirements,\
+  \ how to run it, and where to find more details."

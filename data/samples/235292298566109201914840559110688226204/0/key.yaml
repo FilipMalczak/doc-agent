@@ -1,6 +1,0 @@
-"### Features Highlighted for Users\n- **Version Specifier Awareness:** Checks actual\
-  \ installed version against the version constraints defined in your files.  \n-\
-  \ **Colored Table Output:** Easy visual identification of outdated vs. up\u2011\
-  to\u2011date packages.  \n- **Parallel Requests:** Faster scans for larger dependency\
-  \ lists (since v0.4.0).  \n- **Support for `setup_requires` and `extras_require`**\
-  \ in `setup.cfg` (since v0.3.0).  \n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The metadata explicitly states this file's 'repo_function' is 'config',\n    indicating\
+  \ its role as a configuration file within the project.\n  fact: The document with\
+  \ ID '17ae6927-bfa3-579e-8306-4465b7a352d8' is marked as having\n    the 'config'\
+  \ role as a repository function according to its additional details.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

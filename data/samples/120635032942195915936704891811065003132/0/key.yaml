@@ -1,4 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function exits with code 0 if quiet is True.\n  fact: print_outdated exits\
-  \ with code 1 if quiet is False\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

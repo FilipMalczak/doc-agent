@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ A TCPConnector instance is created with the parameter 'limit=5' and\n    passed\
+  \ to the ClientSession constructor.\n  fact: The aiohttp.ClientSession is configured\
+  \ with a TCPConnector that has a connection\n    limit of 5.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

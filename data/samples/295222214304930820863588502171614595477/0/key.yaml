@@ -1,5 +1,0 @@
-"### Example workflow for a typical user\n1. **Check your main dependencies**\n  \
-  \ ```bash\n   pip-outdated\n   ```\n2. **Check additional requirement files**\n\
-  \   ```bash\n   pip-outdated dev-requirements.txt test-requirements.txt\n   ```\n\
-  3. **Run quietly in CI pipelines** (don\u2019t fail the build on outdated packages)\n\
-  \   ```bash\n   pip-outdated -q\n   ```\n\n---\n"

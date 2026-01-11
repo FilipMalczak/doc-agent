@@ -1,0 +1,7 @@
+"### Public API\n| Function | Purpose | Return type |\n|---|---|---|\n| `make_row(outdate:\
+  \ OutdateResult) -> Optional[List[str]]` | Builds a single table row for a package\
+  \ if it is outdated; otherwise returns `None`. | `list` of string values or `None`.\
+  \ |\n| `print_outdated(outdates: List[Awaitable[OutdateResult]], quiet: bool) ->\
+  \ Awaitable[None]` | Awaits each `OutdateResult`, assembles the table, prints colour\u2011\
+  coded guidance, and exits with status\u202F1 when updates are available (unless\
+  \ `quiet` is `True`). | `None` (async). |\n"

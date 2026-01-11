@@ -1,4 +1,0 @@
-The document with ID d1ef4334-7006-5204-a81e-17bb357c0661 defines a function verbose()
-  -> bool in the source file pip_outdated/verbose.py that returns the global VERBOSE
-  value.
-...

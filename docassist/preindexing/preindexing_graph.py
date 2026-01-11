@@ -113,7 +113,7 @@ async def extract_facts(ctx: StepContext[None, None, SourceDocument], *,
 @g.step
 async def chunk_facts(ctx: StepContext[None, None, FactsDocument]) -> list[SingleFactDocument]:
     doc = ctx.inputs
-    facts = yaml.load(doc.content, Loader=Loader)
+    facts = Facts(**yaml.load(doc.content, Loader=Loader))
     def i():
         for i, f in enumerate(facts.facts):
             yield doc.derive_fact(

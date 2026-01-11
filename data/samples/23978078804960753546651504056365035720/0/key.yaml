@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The `parse_lines` function handles comment lines with `#` symbols and\n    backslash-based\
+  \ line continuation, which is essential for proper requirements\n    file parsing.\n\
+  \  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a `parse_lines`\n\
+  \    function that processes line comments and continuation escapes.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

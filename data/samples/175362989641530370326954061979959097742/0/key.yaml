@@ -1,0 +1,5 @@
+"## Package Overview  \n\n- **Name:** `pip-outdated`  \n- **Current version:** `0.8.0`\
+  \  \n- **Short description:** Find outdated dependencies in your `requirements.txt`\
+  \ or `setup.cfg`.  \n- **Long description source:** `README.rst` (referenced via\
+  \ `long_description = file: README.rst`).  \n- **License:** MIT  \n- **Project URL:**\
+  \ <https://github.com/eight04/pip-outdated>  \n"

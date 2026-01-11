@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The provided XML data contains the document_type as 'source_file' and\n    the\
+  \ repo_function as 'test', indicating that this file is a source file for testing\n\
+  \    within the project.\n  fact: There is a document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ in the\n    project which is a source file for testing purposes.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

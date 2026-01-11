@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The test function 'test_pytz' uses 'get_session' to create an asynchronous\n \
-  \   session context for testing.\n  fact: In document with ID 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf',\
-  \ the test function\n    'test_pytz' utilizes an async context manager from 'get_session'\
-  \ to handle session\n    lifecycle.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

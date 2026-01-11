@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function verbose() -> bool in the file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py\n\
+  \    provides the ability to retrieve the current state of the global VERBOSE variable.\n\
+  \    This implies a need to access the verbosity setting from other parts of the\
+  \ codebase.\n  fact: The module d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py\
+  \ includes\n    a function named verbose() -> bool, which returns the current value\
+  \ of the global\n    VERBOSE variable.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

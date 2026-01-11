@@ -1,9 +1,0 @@
-"{\n  \"response\": \"# Notes for End Users (from `pip_outdated/session.py`)\\n\\\
-  n- The project provides a helper function **`get_session()`** that returns an `aiohttp.ClientSession`.\\\
-  n- The session is configured with:\\n  - A custom **User-Agent** header set to `\\\
-  \"pip-outdated\\\"`.\\n  - An `aiohttp.TCPConnector` that limits concurrent connections\
-  \ to **5** (`limit=5`).\\n- Use this session for any HTTP requests the tool performs\
-  \ (e.g., querying package indexes).\\n- Because the function creates a **new session\
-  \ each call**, you should **close the session** when you are finished to free resources.\\\
-  n- The built\u2011in limits help avoid overwhelming remote servers and keep network\
-  \ usage modest.\"\n}"

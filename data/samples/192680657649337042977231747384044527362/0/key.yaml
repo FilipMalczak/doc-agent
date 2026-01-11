@@ -1,0 +1,6 @@
+"## Command\u2011line interface  \n### Typical usage pattern  \n\n```bash\npip-outdated\
+  \                # checks requirements.txt and setup.cfg\npip-outdated -v      \
+  \       # same, but with verbose information\npip-outdated -q my*.txt     # checks\
+  \ files matching the glob `my*.txt` and does not exit with code\u202F1 on success\n\
+  ```\n\n*(No example is generated beyond what is directly implied by the argument\
+  \ definitions.)*  \n"

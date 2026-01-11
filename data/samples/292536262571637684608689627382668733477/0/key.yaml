@@ -1,0 +1,9 @@
+"facts:\n- explanation: The test verifies that the parse_cfg function correctly captures\
+  \ packages\n    under [options.setup_requires] in the setup.cfg.\n  fact: setup_requires\
+  \ includes setuptools_scm >= 1.15.0 and setuptools_scm_git_archive\n    >= 1.0 in\
+  \ the setup.cfg file.\n- explanation: The test checks packages under [options.install_requires]\
+  \ in setup.cfg\n    with version constraints.\n  fact: install_requires includes\
+  \ ansible >= 2.5 and ansible-lint >= 4.0.2, < 5 in\n    the setup.cfg file.\n- explanation:\
+  \ The test confirms that [options.extras_require.docs] packages are parsed\n   \
+  \ correctly.\n  fact: The docs extra requires alabaster and Sphinx in the setup.cfg\
+  \ file.\n"

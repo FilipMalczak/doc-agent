@@ -1,0 +1,4 @@
+"### What the output shows\n- A table with each dependency, its required version specifier,\
+  \ the currently installed version, and the latest available version.  \n- Colour\
+  \ coding highlights:\n  - **Green** \u2013 up\u2011to\u2011date.\n  - **Yellow/Red**\
+  \ \u2013 outdated or incompatible.\n"

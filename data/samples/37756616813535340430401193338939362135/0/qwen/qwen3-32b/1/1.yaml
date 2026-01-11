@@ -1,0 +1,35 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: "{\n      \"rewrites\": [\n        [\n          \"the name of the project\"\
+    ,\n          \"What is the name of the current project?\"\n        ],\n      \
+    \  [\n          \"name of the current project\",\n          \"Project name\"\n\
+    \        ],\n        [\n          \"project's name\",\n          \"What is the\
+    \ project's current name?\"\n        ],\n        [\n          \"name of the project\"\
+    ,\n          \"current project name\"\n        ]\n      ],\n      \"expansions\"\
+    : [\n        \"Identifying project names in the knowledge base\",\n        \"\
+    How to retrieve the current project name from knowledge base\",\n        \"Current\
+    \ projects in the knowledge base\"\n      ]\n    }\n  "
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-537722369ead4006bfc66f3f5cb81cc5
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768171109-9bvOg5vZn89uWxEHUXzh
+run_id: b4b75c6e-2974-4428-8edb-783cf3f8f61c
+timestamp: '2026-01-11T22:38:29Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1346
+  output_audio_tokens: 0
+  output_tokens: 149

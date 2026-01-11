@@ -1,0 +1,4 @@
+In the changelog, there was a significant change in version 0.4.0 where support for
+  Python was bumped to 3.7, introduced parallel processing, and added the `--quiet`
+  option to suppress exit code 1 when dependencies are outdated.
+...

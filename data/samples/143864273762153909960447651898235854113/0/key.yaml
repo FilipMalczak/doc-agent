@@ -1,0 +1,4 @@
+"### Dependencies (runtime)\n- `colorama` \u2013 enables cross\u2011platform ANSI\
+  \ colour handling.\n- `termcolor` \u2013 provides colourised text output.\n- `terminaltables`\
+  \ \u2013 renders the ASCII table.\n- Local module `.check_outdated` \u2013 defines\
+  \ the `OutdateResult` data structure used throughout.\n"

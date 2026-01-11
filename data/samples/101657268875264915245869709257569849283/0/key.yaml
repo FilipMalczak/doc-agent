@@ -1,0 +1,3 @@
+The [options.extras_require] section in the setup.cfg contains a 'docs' subsection
+  with packages 'alabaster' and 'Sphinx'.
+...

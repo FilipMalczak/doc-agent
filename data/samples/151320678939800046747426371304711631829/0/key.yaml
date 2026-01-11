@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ A function parse_requirements_text is written to take a string input,\n    split\
-  \ it into lines, process them using parse_lines, and yield requirements via\n  \
-  \  parse_require.\n  fact: The function `parse_requirements_text` is defined in\
-  \ file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n    to extract requirements\
-  \ from a given text by processing its lines.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

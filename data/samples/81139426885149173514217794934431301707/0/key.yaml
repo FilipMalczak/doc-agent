@@ -1,0 +1,18 @@
+"## \U0001F469\u200D\U0001F4BC Maintainer\u2011Focused Points  \n\n- **Consistency\
+  \ & Branding**  \n  - The fixed `User-Agent` string makes it easy for downstream\
+  \ services (e.g., PyPI) to recognize traffic from this tool. If the branding changes,\
+  \ update it here.  \n\n- **Connection Limits**  \n  - The `limit=5` setting is a\
+  \ deliberate throttling choice.  \n  - **When to adjust:**  \n    - If users frequently\
+  \ run the tool behind fast networks and experience slow scans, consider raising\
+  \ the limit after benchmarking.  \n    - If remote package indexes start rejecting\
+  \ the tool for too many concurrent connections, lower the limit.  \n\n- **Resource\
+  \ Management**  \n  - The function **creates** a new `ClientSession` each call.\
+  \  \n  - **Best practice for callers:**  \n    - Reuse the returned session for\
+  \ the whole run of the tool.  \n    - Explicitly **close** the session (`await session.close()`)\
+  \ when finished to free sockets and avoid warnings.  \n\n- **Compatibility**  \n\
+  \  - Relies on `aiohttp` (an asynchronous HTTP library).  \n  - Ensure the project's\
+  \ `requirements.txt` or `pyproject.toml` pins a version compatible with the project's\
+  \ Python version (\u22653.8 recommended).  \n\n- **Testing Implications**  \n  -\
+  \ In unit tests, mock `aiohttp.ClientSession` or patch `get_session` to avoid real\
+  \ network calls.  \n  - Verify that the `User-Agent` header is present in mock requests.\
+  \  \n"

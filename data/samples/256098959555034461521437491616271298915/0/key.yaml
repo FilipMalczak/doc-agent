@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is specified in the 'url' field under the [metadata] section in\n    the\
+  \ setup.cfg file.\n  fact: The project's URL is https://github.com/eight04/pip-outdated.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

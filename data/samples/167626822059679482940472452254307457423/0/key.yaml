@@ -1,4 +1,0 @@
-"### How end users interact with the tool\n- The package installs a **console script**\
-  \ named **`pip-outdated`** (declared under `options.entry_points`).  \n- Running\
-  \ `pip-outdated` from the command line invokes the project's `main` function (`pip_outdated:main`).\
-  \  \n"

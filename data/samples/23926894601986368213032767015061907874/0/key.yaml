@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is indicated in the <additional_details> section under repo_function\n  \
+  \  which is set to 'test'.\n  fact: The file 'tests/test_parse_cfg.py' is part of\
+  \ the test suite of the project.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

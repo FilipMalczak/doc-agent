@@ -1,3 +1,0 @@
-In file 'pip_outdated/print_outdated.py', the function 'print_outdated' calls 'colorama.init()'
-  before printing to ensure color support works correctly in the terminal.
-...

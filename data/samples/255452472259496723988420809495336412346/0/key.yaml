@@ -1,0 +1,33 @@
+"**Notes for End\u2011User Documentation \u2013 `pip_outdated/print_outdated.py`**\n\
+  \n- **Purpose**  \n  - Displays a table of Python packages that are outdated in\
+  \ the current environment.  \n  - Highlights version differences with colors to\
+  \ make it easy to see which packages need attention.\n\n- **How it works**  \n \
+  \ 1. Receives a list of *awaitable* `OutdateResult` objects (one per requirement).\
+  \  \n  2. For each result that reports an outdated package, builds a table row containing:\
+  \  \n     - Package name  \n     - Currently installed version  \n     - \u201C\
+  Wanted\u201D version (the version specified in the requirements file)  \n     -\
+  \ Latest version available on PyPI  \n  3. Prints the table using **ASCII art**\
+  \ (via `terminaltables.AsciiTable`).  \n\n- **Color coding (shown to the user)**\
+  \  \n  - **Red** \u2013 indicates a problem:  \n    - Package not installed or not\
+  \ found in the index.  \n    - Version information unavailable or does not satisfy\
+  \ the version specifier.  \n  - **Green** \u2013 indicates that the package can\
+  \ be **updated** (installed version < wanted/latest).  \n\n- **User\u2011visible\
+  \ messages**  \n  - *No requirements found*: `No requirements found.` (red)  \n\
+  \  - *Everything up\u2011to\u2011date*: `Everything is up-to-date!` (cyan, bold)\
+  \  \n  - *Legend*: `Red = unavailable/outdated/out of version specifier` and `Green\
+  \ = updatable` (both bold).  \n\n- **Exit behaviour**  \n  - If at least one package\
+  \ is outdated **and** the `quiet` flag is `False`, the script terminates the process\
+  \ with `sys.exit(1)`.  \n  - When `quiet=True`, the script only prints the table\
+  \ and **does not** exit with an error code.  \n\n- **Dependencies required for proper\
+  \ display**  \n  - `colorama` \u2013 initializes terminal color support.  \n  -\
+  \ `termcolor` \u2013 applies the actual color/attribute styling.  \n  - `terminaltables`\
+  \ \u2013 renders the ASCII table.  \n\n- **Typical usage pattern (from the higher\u2011\
+  level CLI)**  \n  ```python\n  # Assume `outdates` is a list of awaitable OutdateResult\
+  \ objects\n  await print_outdated(outdates, quiet=False)\n  ```  \n\n  - The function\
+  \ is **asynchronous**; it must be awaited within an async context.  \n\n- **Key\
+  \ take\u2011aways for the end\u2011user**  \n  - Running the command will give a\
+  \ quick, colored overview of which dependencies are behind the versions you want\
+  \ or the latest releases.  \n  - Non\u2011quiet mode will cause the command to exit\
+  \ with status\u202F1 when updates are needed, making it easy to use in CI pipelines\
+  \ or scripts that treat outdated dependencies as failures.  \n  - The output is\
+  \ readable even in plain\u2011text terminals thanks to the ASCII table format."

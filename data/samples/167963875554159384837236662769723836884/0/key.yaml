@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code for 'get_pypi_versions' contains a line that uses the 'session.get'\n\
+  \    method with a URL to 'https://pypi.org', which confirms the intended use as\
+  \ described\n    by the fact.\n  fact: 'The function get_pypi_versions in ''pip_outdated/check_outdated.py''\
+  \ uses\n    the session.get method to fetch data from the PyPI website. '\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

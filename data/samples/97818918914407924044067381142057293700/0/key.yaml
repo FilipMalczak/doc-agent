@@ -1,7 +1,0 @@
-'# Scan specific files (supports glob)
-
-  pip-outdated *-requirements.txt
-
-  pip-outdated requirements/*.txt
-
-  '

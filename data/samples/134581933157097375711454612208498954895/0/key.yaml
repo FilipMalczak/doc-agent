@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file setup.py is explicitly marked with the repo_function 'config'\n    and\
+  \ is located at path 'setup.py'.\n  fact: The project uses a setup.py file located\
+  \ in the root directory for configuration\n    purposes.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

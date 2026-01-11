@@ -1,4 +1,0 @@
-In document ID '7f70c452-3de8-51f4-968c-80115530e69c', the parse_cfg function is verified
-  to collect all packages from setup_requires, install_requires, and extras_require
-  subsections in the setup.cfg file.
-...

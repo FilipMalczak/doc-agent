@@ -1,0 +1,15 @@
+"## Command\u2011line interface  \n\n| Element | Description |\n|---------|-------------|\n\
+  | **Program name** | `pip-outdated` (as set by `argparse.ArgumentParser(prog=\"\
+  pip-outdated\")`) |\n| **Purpose** | \u201CFind outdated dependencies in your requirements.txt\
+  \ or setup.cfg file.\u201D |\n| **Default input files** | `requirements.txt` and\
+  \ `setup.cfg` (used when no positional arguments are supplied). |\n| **Positional\
+  \ argument** | `file` \u2013 one or more file paths or glob patterns; default `[\"\
+  requirements.txt\", \"setup.cfg\"]`. |\n| **Options** | - `-v`, `--verbose` \u2013\
+  \ enable verbose output (passed to the internal `verbose` module). <br> - `-q`,\
+  \ `--quiet` \u2013 suppress exit code\u202F1 when all dependencies are up\u2011\
+  to\u2011date. |\n\n### Typical usage pattern  \n\n```bash\npip-outdated        \
+  \        # checks requirements.txt and setup.cfg\npip-outdated -v             #\
+  \ same, but with verbose information\npip-outdated -q my*.txt     # checks files\
+  \ matching the glob `my*.txt` and does not exit with code\u202F1 on success\n```\n\
+  \n*(No example is generated beyond what is directly implied by the argument definitions.)*\
+  \  \n"

@@ -1,0 +1,3 @@
+The document contains a function named iter_files that processes multiple glob patterns
+  and yields file paths as pathlib.Path objects in pip_outdated/find_require.py.
+...

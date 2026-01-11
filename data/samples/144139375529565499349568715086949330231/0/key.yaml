@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The project is explicitly using setuptools as the build tool since\n    it imports\
+  \ from setuptools, which is the standard library for creating and managing\n   \
+  \ Python packages.\n  fact: 'The setup.py file (ID: 17ae6927-bfa3-579e-8306-4465b7a352d8)\
+  \ imports the\n    setup function from setuptools, indicating the project uses setuptools\
+  \ for packaging.'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

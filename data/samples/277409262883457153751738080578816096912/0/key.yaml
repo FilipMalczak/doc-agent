@@ -1,3 +1,0 @@
-"### Installation notes for end users\n- Install via pip (e.g., `pip install pip-outdated`).\
-  \  \n- The package is **zip\u2011safe** and discovers its Python packages automatically\
-  \ (excluding the `tests` directory).  \n"

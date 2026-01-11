@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ This variable is used to track the application's verbosity globally.\n    The\
-  \ initial value indicates the state is uninitialized.\n  fact: In pip_outdated/verbose.py,\
-  \ a global variable called VERBOSE is defined as\n    a boolean with an initial\
-  \ value of None.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

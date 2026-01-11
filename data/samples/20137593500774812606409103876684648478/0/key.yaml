@@ -1,0 +1,10 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'check_outdated' function is 'async' and utilizes an 'aiohttp'\n    session\
+  \ to perform HTTP requests to 'https://pypi.org'. It then processes the\n    response\
+  \ to extract and sort valid, non-prerelease versions. This is a key aspect\n   \
+  \ for the 'maintainer' to see how package information is sourced externally.\n \
+  \ fact: The 'check_outdated' function in 'pip_outdated/check_outdated.py' is defined\n\
+  \    as asynchronous and interacts with PyPI via HTTP requests to check for the\
+  \ latest\n    non-prerelease versions of a package.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

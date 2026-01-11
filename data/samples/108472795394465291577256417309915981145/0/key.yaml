@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ These are listed under the 'install_requires' section in the setup.cfg\n    file\
+  \ with specified version constraints.\n  fact: The primary dependencies required\
+  \ for the project include aiohttp, colorama,\n    packaging, termcolor, and terminaltables.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

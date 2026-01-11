@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Several usage examples are provided, including instructions on using\n    wildcards\
+  \ to read from multiple files and directory paths.\n  fact: The pip-outdated tool\
+  \ supports multiple usage scenarios, such as checking\n    multiple files (e.g.,\
+  \ test-requirements.txt and dev-requirements.txt) and using\n    glob patterns to\
+  \ check all files under a directory (e.g., requirements/*.txt).\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

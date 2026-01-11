@@ -1,0 +1,3 @@
+The global variable 'VERBOSE' in 'pip_outdated/verbose.py' is initialized to None,
+  but is expected to hold a boolean value.
+...

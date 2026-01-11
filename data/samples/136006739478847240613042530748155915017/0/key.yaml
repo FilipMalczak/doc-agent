@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document describes optional arguments such as -v/--verbose which\n    returns\
+  \ more information and -q/--quiet which modifies exit codes.\n  fact: pip-outdated\
+  \ supports flags for verbose output and quiet mode with custom\n    exit codes.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

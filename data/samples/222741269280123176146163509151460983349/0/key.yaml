@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The method 'install_not_wanted' evaluates if 'self.version' is not\n    included\
-  \ in 'self.requirement.specifier', which reflects a version mismatch.\n  fact: In\
-  \ file 'pip_outdated/check_outdated.py', the method 'install_not_wanted'\n    in\
-  \ 'OutdateResult' class checks if the installed version does not conform to the\n\
-  \    requirement's version specifier.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

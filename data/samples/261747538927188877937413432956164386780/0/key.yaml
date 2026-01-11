@@ -1,0 +1,3 @@
+"## Overview\n- This module provides a **simple namespace** for sharing a global *verbose*\
+  \ flag across the project.  \n- The flag is stored in the module\u2011level variable\
+  \ **`VERBOSE`**, which can be **`True`**, **`False`**, or **`None`** (uninitialized).\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The __post_init__ method is defined in the code for the OutdateResult\n    class.\
+  \ The implementation details show the exact behavior described in this fact.\n \
+  \ fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b, OutdateResult has a post-initialization\n\
+  \    method that attempts to assign wanted and latest version attributes based on\
+  \ the\n    all_versions list.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

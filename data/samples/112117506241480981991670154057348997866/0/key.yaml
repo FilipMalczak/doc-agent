@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'get_session' is defined in the document with the specified\n   \
+  \ ID. It returns an instance of aiohttp.ClientSession, which is evident from the\n\
+  \    return statement and the import statement.\n  fact: In the document with ID\
+  \ 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there is a function\n    named 'get_session'\
+  \ that returns an instance of 'aiohttp.ClientSession'.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

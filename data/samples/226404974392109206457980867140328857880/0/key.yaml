@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'from . import main' shows that it is importing a 'main' function\n \
+  \   or module from its own package.\n  fact: The source file with ID 39602d80-9488-51ec-a2a3-435dd2f18296\
+  \ imports 'main'\n    from its sibling module.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

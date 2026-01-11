@@ -1,0 +1,3 @@
+The pip-outdated tool compares the installed package versions in virtual environments
+  with the version specifiers defined in requirements.txt or setup.cfg.
+...

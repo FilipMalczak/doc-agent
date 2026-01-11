@@ -1,4 +1,0 @@
-"## Project Overview (maintainer perspective)\n### Packaging Options\n- **Zip\u2011\
-  safe:** `True` \u2013 the package can be installed as a zip archive.  \n- **Package\
-  \ discovery:** `find:` with `exclude = tests` to omit test modules from the distribution.\
-  \  \n"

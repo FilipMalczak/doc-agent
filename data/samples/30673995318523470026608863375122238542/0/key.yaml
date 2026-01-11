@@ -1,0 +1,18 @@
+"## Maintainer Notes \u2013 `pip_outdated/__main__.py`\n\n- **Purpose**  \n  - Provides\
+  \ the module\u2019s executable entry point. When the package is run directly (`python\
+  \ -m pip_outdated` or via the installed console script), this file invokes the package\u2019\
+  s core logic.\n\n- **Key Behaviour**  \n  - Checks `if __name__ == \"__main__\"\
+  ` to determine script execution.  \n  - Imports the `main` function from the same\
+  \ package (`from . import main`).  \n  - Calls `main()` immediately, handing control\
+  \ over to the primary application code.\n\n- **Implications for Release & Packaging**\
+  \  \n  - The `__main__` module must stay lightweight; all heavy lifting should reside\
+  \ in `pip_outdated/main.py`.  \n  - Ensure that `main()` is robust when invoked\
+  \ as a script (proper error handling, user\u2011friendly messages).  \n  - Verify\
+  \ that the package\u2019s `setup.cfg` / `pyproject.toml` correctly defines the console\
+  \ entry point (e.g., `pip-outdated = pip_outdated.__main__:main` if needed).\n\n\
+  - **Recommendations**  \n  - Add a docstring or short comment describing the entry\
+  \ point purpose for future contributors.  \n  - Include unit tests that simulate\
+  \ script execution (e.g., using `subprocess` to run `python -m pip_outdated`) to\
+  \ catch regressions in the CLI launch path.  \n  - Keep any future command\u2011\
+  line parsing logic within `pip_outdated/main.py` to maintain a clear separation\
+  \ between the interface (`__main__`) and the implementation."

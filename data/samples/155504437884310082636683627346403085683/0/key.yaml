@@ -1,0 +1,3 @@
+The '_main' function in pip_outdated/__init__.py uses a custom HTTP session via 'get_session()'
+  to manage network requests while checking for outdated packages.
+...

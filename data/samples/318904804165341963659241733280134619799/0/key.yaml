@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'This is reflected in the ''classifiers'' section where ''Development\n    Status\
+  \ :: 4 - Beta'' is listed in the setup.cfg file.'\n  fact: The project is in the\
+  \ beta stage of development.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

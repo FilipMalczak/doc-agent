@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code includes a function named file_to_lines that reads a file\n    and yields\
-  \ its lines. It handles comments indicated by '#' and continuation escapes\n   \
-  \ with '\\'. This function also prints the file being parsed if the verbose option\n\
-  \    is active.\n  fact: The function `file_to_lines` is defined in file with ID\
-  \ 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n    to yield lines from a file while handling\
-  \ comments and continuation escapes.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ It's stated in the input under 'language' as Python, 'details/path'\n    as tests/test_parse_cfg.py,\
+  \ and 'additional_details/repo_function' as test.\n  fact: document with ID 7f70c452-3de8-51f4-968c-80115530e69c\
+  \ is a source file for\n    the project in Python language; this file resides inside\
+  \ the tests directory,\n    specifically at tests/test_parse_cfg.py, and has the\
+  \ function type as Test.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

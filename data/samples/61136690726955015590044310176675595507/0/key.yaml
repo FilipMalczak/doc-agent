@@ -1,0 +1,4 @@
+"## Key features  \n- Compares installed versions with version specifiers in requirement\
+  \ files.  \n- Accepts **multiple files** (glob patterns supported).  \n- Provides\
+  \ **verbose** mode for detailed output and **quiet** mode to suppress non\u2011\
+  zero exit status.  \n"

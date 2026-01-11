@@ -1,0 +1,3 @@
+'The test function ''test_parse_cfg'' asserts that the names collected from the ''parse_cfg''
+  function should be in the order: ''setuptools_scm'', ''setuptools_scm_git_archive'',
+  ''ansible'', ''ansible-lint'', ''alabaster'', ''Sphinx''.'

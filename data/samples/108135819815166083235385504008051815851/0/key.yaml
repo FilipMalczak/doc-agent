@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ A detailed changelog is present in the file listing multiple versions\n    with\
+  \ their respective features and changes along with specific release dates.\n  fact:\
+  \ The pip-outdated project has a changelog that lists versions with release\n  \
+  \  dates and descriptions of changes, including version 0.8.0 released on August\n\
+  \    9, 2025, 0.7.0 released on August 13, 2024, 0.6.0 on January 1, 2023, and other\n\
+  \    earlier versions with specific improvements and features added.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

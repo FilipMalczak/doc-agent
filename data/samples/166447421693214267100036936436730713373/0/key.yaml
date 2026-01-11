@@ -1,3 +1,0 @@
-The 'pip-outdated' CLI allows users to suppress exit code 1 via the '-q' or '--quiet'
-  option.
-...

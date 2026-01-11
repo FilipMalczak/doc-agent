@@ -1,0 +1,22 @@
+"## Maintainer\u2011focused notes for **`pip_outdated/print_outdated.py`**\n### Behaviour\
+  \ details (relevant for end\u2011users)\n\n- **Colour coding** (displayed via `termcolor`\
+  \ and `colorama`):\n  - **Red** \u2013 indicates a version that cannot be determined,\
+  \ is unavailable, or does not satisfy the version specifier.\n  - **Green** \u2013\
+  \ indicates an up\u2011datable version (installed version is older than the wanted/latest\
+  \ version).\n  - **Cyan (bold)** \u2013 shown when everything is already up\u2011\
+  to\u2011date.\n- **Table columns** (always displayed when at least one package is\
+  \ outdated):\n  - **Name** \u2013 package name.\n  - **Installed** \u2013 current\
+  \ version; red\u2011styled if installation data is missing or not wanted.\n  - **Wanted**\
+  \ \u2013 version requested in requirements; red if the package is not found on PyPI\
+  \ or no version specifier.\n  - **Latest** \u2013 newest version on PyPI; red if\
+  \ the package cannot be queried.\n\n- **Control flow**:\n  1. Initializes colour\
+  \ handling with `colorama.init()`.\n  2. Constructs a header row `[\"Name\", \"\
+  Installed\", \"Wanted\", \"Latest\"]`.\n  3. Iterates over the supplied `outdates`\
+  \ list:\n     - Awaits each `OutdateResult`.\n     - Calls `make_row`; appends the\
+  \ row only when the package is outdated.\n  4. If **no requirements** were processed,\
+  \ prints *\u201CNo requirements found.\u201D* (red) and returns.\n  5. If **all\
+  \ packages are up\u2011to\u2011date**, prints *\u201CEverything is up\u2011to\u2011\
+  date!\u201D* (cyan, bold) and returns.\n  6. Otherwise prints colour legends, renders\
+  \ the Ascii table via `terminaltables.AsciiTable`, and outputs it.\n  7. If `quiet`\
+  \ is `False`, terminates the process with exit code **1** to signal that updates\
+  \ are required.\n"

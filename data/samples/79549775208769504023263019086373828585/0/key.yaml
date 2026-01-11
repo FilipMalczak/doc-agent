@@ -1,0 +1,4 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## What it does\
+  \  \n- Scans `requirements.txt` or `setup.cfg` and reports **outdated, missing,\
+  \ or incompatible** packages.  \n- Shows results in a **colored table** for easy\
+  \ visual inspection.  \n"

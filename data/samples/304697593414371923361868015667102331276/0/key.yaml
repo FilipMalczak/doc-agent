@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The installation instructions directly show this pip command in the\n    ::-formatted\
-  \ code block for PyPI installation.\n  fact: Document with ID c70abb08-f4fa-543d-ad2e-52421c056692\
-  \ provides PyPI installation\n    for pip-outdated via 'pip install pip-outdated'\
-  \ command.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

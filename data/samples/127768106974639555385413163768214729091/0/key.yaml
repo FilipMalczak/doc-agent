@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is derived from the 'repo_function' additional detail which states\n    it's\
+  \ code.\n  fact: The source file with ID 39602d80-9488-51ec-a2a3-435dd2f18296 serves\
+  \ a code\n    purpose within the repository.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

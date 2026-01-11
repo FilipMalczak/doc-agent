@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The function set_verbose(value: bool) -> None in the file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py\n\
+  \    allows external code to modify the global VERBOSE variable. This suggests that\n\
+  \    the purpose of this function is to provide an access point to control the verbosity\n\
+  \    level of the library or application.'\n  fact: 'The file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py\
+  \ contains\n    a function named set_verbose(value: bool) -> None, which modifies\
+  \ the global VERBOSE\n    variable.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

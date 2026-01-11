@@ -1,0 +1,3 @@
+The test function 'test_parse_cfg' calls 'parse_cfg(str(file))' and captures the 'name'
+  attribute of each returned item.
+...

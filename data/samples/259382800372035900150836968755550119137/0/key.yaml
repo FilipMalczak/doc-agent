@@ -1,0 +1,4 @@
+"## Public API\n- **`VERBOSE: bool = None`** \u2013 Global variable holding the current\
+  \ verbose state.  \n- **`set_verbose(value: bool) -> None`** \u2013 Updates the\
+  \ global `VERBOSE` variable.  \n- **`verbose() -> bool`** \u2013 Returns the current\
+  \ value of `VERBOSE`.\n"

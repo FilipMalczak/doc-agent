@@ -1,0 +1,4 @@
+"## Console Entry Point  \n\n- **Command:** `pip-outdated`  \n- **Implemented by:**\
+  \ `pip_outdated:main`  \n\nThis creates a command\u2011line tool that users can\
+  \ invoke directly after installation:  \n\n```bash\npip-outdated [options]\n```\
+  \  \n"

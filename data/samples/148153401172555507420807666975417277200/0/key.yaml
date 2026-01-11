@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Under the [options.packages.find] section in the setup.cfg file, it\n    is specified\
+  \ that packages are found using 'find:' and the 'exclude = tests' line\n    indicates\
+  \ that test directories are excluded.\n  fact: The project packages can be found\
+  \ using the find command, and tests are excluded.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

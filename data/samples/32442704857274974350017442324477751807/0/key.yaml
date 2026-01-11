@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The method 'name' is defined within the OutdateResult class in the\n    given\
+  \ code and is marked as a property using the '@property' decorator.\n  fact: The\
+  \ OutdateResult class has a method named name in file 'pip_outdated/check_outdated.py'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

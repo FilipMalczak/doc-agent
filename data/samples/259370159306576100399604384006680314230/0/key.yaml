@@ -1,0 +1,3 @@
+'In file `pip_outdated/__init__.py`, the tool accepts command-line arguments: `-v`/`--verbose`
+  for verbose output, `-q`/`--quiet` to suppress exit code 1, and `<file>` (defaulting
+  to `requirements.txt` and `setup.cfg`) to specify dependency files with glob patterns.'

@@ -1,0 +1,15 @@
+'## Project Overview
+
+  - **Name**: `pip-outdated`
+
+  - **Version**: `0.8.0` (Beta)
+
+  - **Description**: Finds outdated dependencies in your `requirements.txt` or `setup.cfg`.
+
+  - **Author**: `eight` (`eight04@gmail.com`)
+
+  - **License**: MIT
+
+  - **Homepage**: <https://github.com/eight04/pip-outdated>
+
+  '

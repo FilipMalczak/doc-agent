@@ -1,0 +1,2 @@
+'The test writes a setup.cfg file with content that includes three sections: [options],
+  [options.extras_require], and [install_requires].'

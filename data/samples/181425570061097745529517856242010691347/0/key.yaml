@@ -1,0 +1,3 @@
+The file depends on 'OutdateResult' from '.check_outdated' module to determine version
+  statuses, but the actual implementation of that class is not present in this file.
+...

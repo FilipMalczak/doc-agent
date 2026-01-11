@@ -1,0 +1,3 @@
+The function 'print_outdated' uses 'colorama.init()' to enable cross-platform terminal
+  color support and formats results in a colored table using 'terminaltables.AsciiTable'.
+...

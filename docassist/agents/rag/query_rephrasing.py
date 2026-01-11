@@ -11,7 +11,7 @@ from docassist.system_prompts import PromptingTask
 query_rephraser = Parametrized(
     parameters=PERSPECTIVES,
     factory=lambda name_suffix, params:
-        SolverAgent(
+        DoerAgent(
             name="query rephraser",
             persona="RAG helper, specialised in rephrasing of queries",
             perspective=perspective(**params),

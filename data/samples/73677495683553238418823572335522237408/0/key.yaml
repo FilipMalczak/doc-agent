@@ -1,0 +1,3 @@
+The pip_outdated/print_outdated.py defines a color-coded output system where red indicates
+  unavailable/outdated packages and green indicates updatable packages.
+...

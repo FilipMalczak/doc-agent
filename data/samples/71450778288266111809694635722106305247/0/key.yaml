@@ -1,3 +1,0 @@
-In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function named
-  parse_lines that yields cleaned lines by handling comment markers and line continuations.
-...

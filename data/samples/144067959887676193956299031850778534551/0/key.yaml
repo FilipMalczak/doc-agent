@@ -1,0 +1,11 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## Recent changelog\
+  \ highlights  \n\n- **0.8.0** (2025\u201108\u201109): Dropped `setuptools`; now\
+  \ uses `configparse` for `setup.cfg`.  \n- **0.7.0** (2024\u201108\u201113): Silently\
+  \ ignore `InvalidVersion` errors.  \n- **0.6.0** (2023\u201101\u201101): Retrieves\
+  \ package versions via the `pip` CLI (works inside virtual environments); removed\
+  \ `cchardet`.  \n- **0.5.0** (2022\u201101\u201112): Added type hints.  \n- **0.4.0**\
+  \ (2020\u201101\u201130): Bumped minimum Python to 3.7; added parallel requests\
+  \ and `--quiet`.  \n- **0.3.0** (2019\u201110\u201113): Exit code\u202F1 on any\
+  \ outdated package; disabled prerelease checks; added `setup_requires` and `extras_require`\
+  \ support.  \n\nThese notes capture the most relevant information for end\u2011\
+  users who want to install, run, and understand the capabilities of **pip\u2011outdated**."

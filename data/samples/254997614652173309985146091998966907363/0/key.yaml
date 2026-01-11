@@ -1,0 +1,5 @@
+"## \U0001F3A8\u202FColour Legend (maintainer\u2011relevant for end\u2011user docs)\
+  \  \n\n| Colour | Meaning |\n|--------|---------|\n| **Red** | Unavailable / outdated\
+  \ / does not satisfy version specifier |\n| **Green** | Package can be upgraded\
+  \ (newer version available) |\n\nThe legend is printed automatically before the\
+  \ table when outdated packages exist.\n\n---\n"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function find_require checks the file suffix to decide whether\n    to use\
-  \ parse_cfg or parse_requirements.\n  fact: The file pip_outdated/find_require.py\
-  \ handles both .cfg and non-.cfg files\n    to parse requirements.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

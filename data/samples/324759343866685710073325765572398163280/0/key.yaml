@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_args' function creates an ArgumentParser instance with specific\n \
+  \   options and parameters. It provides descriptions and default values for the\
+  \ command-line\n    arguments, indicating that it's the main argument parser for\
+  \ the pip-outdated\n    tool.\n  fact: The 'parse_args' function in pip_outdated/__init__.py\
+  \ is an argparse-based\n    command-line argument parser for the pip-outdated tool.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

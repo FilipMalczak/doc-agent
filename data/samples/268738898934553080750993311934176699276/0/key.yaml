@@ -1,5 +1,0 @@
-"### \U0001F4C4 Overview  \n- This module implements the **core logic** for detecting\
-  \ outdated Python packages.  \n- It is used by the CLI tool (presumably `pip-outdated`)\
-  \ to compare the version installed locally with the versions available on PyPI.\
-  \  \n- All heavy\u2011lifting is performed **asynchronously** so that multiple packages\
-  \ can be checked in parallel without blocking the event loop.\n\n---\n"

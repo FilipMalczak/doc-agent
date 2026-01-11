@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function uses 'termcolor.colored' with attributes like 'bold' and\n    colors\
+  \ like red/green to enforce visual distinction. For example, 'installed'\n    versions\
+  \ in red indicate conflicts (e.g., not wanted), while 'wanted' or 'latest'\n   \
+  \ versions in green signal potential updates.\n  fact: 'Conditional color-coding\
+  \ in ''make_row'' highlights package issues: red for\n    unavailable/outdated versions,\
+  \ green for updatable versions.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

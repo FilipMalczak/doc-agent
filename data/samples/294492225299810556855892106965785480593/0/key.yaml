@@ -1,0 +1,5 @@
+"## \U0001F4CC\u202FIntegration Points  \n\n- **Input:** `List[Awaitable[OutdateResult]]`\
+  \ \u2013 typically produced by `check_outdated.py`.  \n- **Output:** Printed colour\u2011\
+  coded table to **stdout**; optional process termination based on `quiet`.  \n\n\
+  Maintainers should ensure the `OutdateResult` contract remains stable, as `print_outdated`\
+  \ depends on its methods and attributes.\n\n---\n"

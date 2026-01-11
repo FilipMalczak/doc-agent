@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'await get_pypi_versions(\"pytz\", session)' within the 'test_pytz'\n\
+  \    function suggests that the function is used to await the result of 'get_pypi_versions'\n\
+  \    when checking the PyPi versions for the project 'pytz' using the acquired session.\n\
+  \  fact: The 'test_pytz' test function in 'test_pytz.py' calls 'await get_pypi_versions'\n\
+  \    to check PyPi versions for 'pytz' using the session.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

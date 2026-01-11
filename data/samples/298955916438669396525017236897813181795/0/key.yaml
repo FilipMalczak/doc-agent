@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function calls `await get_pypi_versions(\"pytz\", session)`, which\n    explicitly\
-  \ references the `pytz` package.\n  fact: The test in document b9979f2e-2b82-5c3c-9151-9f89ee7302cf\
-  \ specifically checks\n    PyPI version retrieval for the package `pytz`.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

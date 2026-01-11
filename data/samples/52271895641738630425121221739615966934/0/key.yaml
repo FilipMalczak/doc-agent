@@ -1,0 +1,6 @@
+"## Project Overview (maintainer perspective)\n### Maintainer\u2011relevant take\u2011\
+  aways\n- Ensure the listed dependencies are compatible with the target Python version\
+  \ (\u2265\u202F3.7).\n- The console script entry point provides the primary user\u2011\
+  facing CLI; verify that `pip_outdated.main` is correctly exposed.\n- The `vpip`\
+  \ fallback may be used by auxiliary tooling; confirm its purpose and impact on deployment\
+  \ scripts."

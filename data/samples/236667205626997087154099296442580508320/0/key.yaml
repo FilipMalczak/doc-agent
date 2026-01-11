@@ -1,0 +1,9 @@
+"**Notes for end\u2011user documentation**\n\n- The project contains a minimal `setup.py`\
+  \ that merely imports `setuptools` and calls `setup()` with no arguments.  \n- This\
+  \ indicates that all packaging metadata (name, version, dependencies, etc.) is expected\
+  \ to be defined in another configuration file such as `setup.cfg` or `pyproject.toml`.\
+  \  \n- For users installing the package (e.g., via `pip install .`), the actual\
+  \ installation behavior is driven by those external config files; `setup.py` itself\
+  \ does not expose configurable options or additional commands.  \n- The presence\
+  \ of this placeholder `setup.py` ensures compatibility with tools that still invoke\
+  \ `setup.py` during installation, even though the real configuration lives elsewhere."

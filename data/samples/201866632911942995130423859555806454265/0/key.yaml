@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 'argparse' module is used to create a CLI that parses command-line\n    arguments\
-  \ for the 'pip-outdated' program.\n  fact: The '__init__.py' file has a command-line\
-  \ interface (CLI) for checking outdated\n    dependencies.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

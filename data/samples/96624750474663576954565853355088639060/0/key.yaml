@@ -1,0 +1,3 @@
+The test function 'test_parse_cfg' uses 'tmp_path' as a fixture to create a temporary
+  setup.cfg file.
+...

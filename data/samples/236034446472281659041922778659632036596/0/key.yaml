@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'OutdateResult' class is a dataclass decorated with '@dataclass'\n    and\
+  \ includes methods like 'outdated()', 'pypi_not_found()', etc. These methods\n \
+  \   are part of the logic that determines the package's status, which is relevant\n\
+  \    for a maintainer to understand the structure of the tool's core logic.\n  fact:\
+  \ The 'OutdateResult' dataclass in 'pip_outdated/check_outdated.py' includes\n \
+  \   several methods to determine the status of a package (e.g., whether it is outdated,\n\
+  \    not found, or not wanted).\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

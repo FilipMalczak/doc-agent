@@ -1,0 +1,8 @@
+"- **Purpose of the test**: Verifies that the `get_pypi_versions` function can successfully\
+  \ retrieve version information for the **pytz** package without raising errors.\
+  \  \n- **Async testing**: Uses `pytest.mark.asyncio` to run the test asynchronously,\
+  \ demonstrating the library\u2019s support for async operations.  \n- **Session\
+  \ handling**: Shows how to obtain a session via `get_session()` and use it as an\
+  \ async context manager while calling `get_pypi_versions`.  \n- **User-facing implication**:\
+  \ Confirms that end\u2011users can rely on the library to fetch version data for\
+  \ any package (e.g., `pytz`) in an asynchronous workflow."

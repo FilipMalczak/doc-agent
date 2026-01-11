@@ -1,0 +1,18 @@
+"**File:** `pip_outdated/session.py`\n\n**Key points for end\u2011user documentation**\n\
+  \n- The module provides a helper function **`get_session()`** that creates an **`aiohttp.ClientSession`**.\n\
+  - The session is pre\u2011configured with:\n  - **Headers** \u2013 a custom `\"\
+  User-Agent\": \"pip-outdated\"` header is automatically included in every request\
+  \ made through the session.  \n  - **Connector** \u2013 an `aiohttp.TCPConnector`\
+  \ with a **connection limit of 5**, which restricts the maximum number of simultaneous\
+  \ outbound HTTP connections.\n- **Purpose:** Centralises HTTP session configuration\
+  \ so that all network interactions performed by the `pip\u2011outdated` tool use\
+  \ a consistent user\u2011agent string and respect a modest concurrency limit, helping\
+  \ to avoid overwhelming remote servers.  \n\n**Typical usage (by developers of the\
+  \ tool, not directly by end\u2011users):**\n\n```python\nimport aiohttp\nfrom pip_outdated.session\
+  \ import get_session\n\nasync def fetch_something(url: str) -> str:\n    async with\
+  \ get_session() as session:\n        async with session.get(url) as resp:\n    \
+  \        return await resp.text()\n```\n\n*End\u2011users do not interact with this\
+  \ file directly, but understanding that the tool makes HTTP requests with a limited\
+  \ connection pool and a custom user\u2011agent can be helpful for troubleshooting\
+  \ network\u2011related issues (e.g., firewalls, proxy configurations, or API rate\
+  \ limits).*"

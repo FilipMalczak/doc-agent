@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The import statement explicitly includes 'from packaging.requirements\n    import\
-  \ Requirement, InvalidRequirement'.\n  fact: The file pip_outdated/find_require.py\
-  \ imports the Requirement class from the\n    packaging.requirements module.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

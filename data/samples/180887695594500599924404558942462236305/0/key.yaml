@@ -1,0 +1,33 @@
+"facts:\n- explanation: The function iter_files is designed to find and yield file\
+  \ paths matching\n    given glob patterns, supporting both direct files and glob\
+  \ patterns.\n  fact: The document contains a function named iter_files that processes\
+  \ multiple\n    glob patterns and yields file paths as pathlib.Path objects in pip_outdated/find_require.py.\n\
+  - explanation: The function file_to_lines processes a file's lines by handling Python-style\n\
+  \    comments (#) and line continuation (\\), which is critical for parsing requirements\n\
+  \    files.\n  fact: The document contains a function named file_to_lines that handles\
+  \ '#' comments\n    and '\\' line continuation in pip_outdated/find_require.py.\n\
+  - explanation: The parse_lines function concatenates lines with continuation characters\n\
+  \    and strips comments to produce clean requirement strings.\n  fact: The document\
+  \ contains a function named parse_lines that processes text lines\n    by handling\
+  \ continuation characters and comment stripping in pip_outdated/find_require.py.\n\
+  - explanation: The parse_requirements function extracts valid requirements from\
+  \ a\n    file by iterating over cleaned lines and parsing them with packaging.requirements.Requirement.\n\
+  \  fact: The document contains a function named parse_requirements that generates\
+  \ Requirement\n    objects from a file in pip_outdated/find_require.py.\n- explanation:\
+  \ The parse_cfg function uses ConfigParser to extract setup_requires,\n    install_requires,\
+  \ and extras_require from .cfg files, which is common for setup.py-style\n    configurations.\n\
+  \  fact: The document contains a function named parse_cfg that parses .cfg files\
+  \ for\n    setup_requires, install_requires, and extras_require in pip_outdated/find_require.py.\n\
+  - explanation: The find_require function determines whether to parse a file as a\
+  \ .cfg\n    (using parse_cfg) or a standard requirements file (using parse_requirements).\n\
+  \  fact: The document contains a function named find_require that selects parsing\
+  \ method\n    based on file extension (cfg vs non-cfg) in pip_outdated/find_require.py.\n\
+  - explanation: The parse_require function strips command-line-style options (--option\n\
+  \    flags) from a requirement line before parsing it with packaging.requirements.Requirement.\n\
+  \  fact: The document contains a function named parse_require that processes raw\
+  \ requirement\n    strings by stripping command-line flags in pip_outdated/find_require.py.\n\
+  - explanation: The document references pip's requirements file format documentation,\n\
+  \    indicating it implements parsing compatible with pip's spec.\n  fact: The document\
+  \ includes a reference to pip's official requirements file format\n    documentation\
+  \ (https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)\n\
+  \    in pip_outdated/find_require.py.\n"

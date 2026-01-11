@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The main functionality is implemented by 'check_outdated()' which coordinates\n\
+  \    local version checks, PyPI version retrieval, and returns an 'OutdateResult'\
+  \ instance.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, the\
+  \ 'check_outdated()'\n    async function is the entry point for checking if a package\
+  \ requirement is outdated.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

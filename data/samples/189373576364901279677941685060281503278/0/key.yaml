@@ -1,9 +1,0 @@
-"- **Purpose**: Provides a tiny shared namespace for controlling the \u201Cverbose\u201D\
-  \ mode of the *pip_outdated* tool.  \n- **Key elements**  \n  - `VERBOSE: bool =\
-  \ None` \u2013 a module\u2011level variable that holds the current verbose flag\
-  \ (starts unset).  \n  - `set_verbose(value: bool) -> None` \u2013 sets the global\
-  \ `VERBOSE` flag; call this to enable (`True`) or disable (`False`) verbose output.\
-  \  \n  - `verbose() -> bool` \u2013 returns the current value of `VERBOSE`; other\
-  \ parts of the program can query this to decide how much information to display.\
-  \  \n- **Typical usage for an end\u2011user**  \n\n```python\nimport pip_outdated.verbose\
-  \ as v\n"

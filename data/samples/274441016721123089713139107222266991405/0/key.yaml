@@ -1,9 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 'file_to_lines' function is defined in the given Python source\n    file.\
-  \ It opens a file in read mode, prints the file to parse if verbose mode is\n  \
-  \  enabled, and processes lines using the 'parse_lines' function to handle comments\n\
-  \    and line continuation characters. The function yields each processed line.\n\
-  \  fact: In file 'pip_outdated/find_require.py', there is a function named 'file_to_lines'\n\
-  \    that reads a file and yields lines while handling comments and line continuation.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

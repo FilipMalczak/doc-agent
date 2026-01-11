@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The module implements specific status codes through color-coding conventions,\n\
-  \    which is essential knowledge for users and maintainers\n  fact: 'Document with\
-  \ ID cb702584-8007-568a-80b4-c4dbaa226784 defines color status\n    indicators:\
-  \ green for updatable packages, red for issues, and cyan for success\n    states'\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

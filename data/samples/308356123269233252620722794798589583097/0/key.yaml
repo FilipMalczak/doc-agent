@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test assertion explicitly states the expected output of parse_cfg,\n    confirming\
+  \ it extracts package names without version specifiers.\n  fact: The parse_cfg function\
+  \ in tests/test_parse_cfg.py is verified to return only\n    package names from\
+  \ all sections of setup.cfg, ignoring version constraints (e.g.,\n    'setuptools_scm',\
+  \ 'ansible', etc.).\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

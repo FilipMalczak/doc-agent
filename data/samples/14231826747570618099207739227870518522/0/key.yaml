@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The parse_lines function concatenates lines with continuation characters\n   \
+  \ and strips comments to produce clean requirement strings.\n  fact: The document\
+  \ contains a function named parse_lines that processes text lines\n    by handling\
+  \ continuation characters and comment stripping in pip_outdated/find_require.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

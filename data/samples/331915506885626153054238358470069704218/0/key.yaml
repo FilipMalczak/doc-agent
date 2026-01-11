@@ -1,0 +1,6 @@
+"### Quick reference cheat\u2011sheet (end\u2011user)\n\n- **Install:** `pip install\
+  \ pip-outdated`\n- **Run on defaults:** `pip-outdated`\n- **Run on custom files:**\
+  \ `pip-outdated path/to/file1.txt path/to/file2.cfg`\n- **Suppress error exit:**\
+  \ `pip-outdated -q`\n- **Verbose mode:** `pip-outdated -v`\n\nThese notes capture\
+  \ the most relevant information a user would need to understand, install, and run\
+  \ `pip-outdated` in their own projects."

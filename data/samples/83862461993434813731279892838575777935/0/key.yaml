@@ -1,0 +1,3 @@
+The document contains a function named parse_requirements that generates Requirement
+  objects from a file in pip_outdated/find_require.py.
+...

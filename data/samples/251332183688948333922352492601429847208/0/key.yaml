@@ -1,0 +1,55 @@
+"facts:\n- explanation: The provided input contains an XML element with the 'path'\
+  \ attribute\n    set to 'pip_outdated/__init__.py' and an 'id' attribute set to\
+  \ 'e66496b8-e454-5538-92b9-b2023e11adea'.\n    This directly indicates the existence\
+  \ of this Python source file within the project\n    structure.\n  fact: There is\
+  \ a Python source file with the path pip_outdated/__init__.py and document\n   \
+  \ ID e66496b8-e454-5538-92b9-b2023e11adea.\n- explanation: The variable '__version__'\
+  \ is explicitly set to '0.8.0' in the source\n    code. This is a standard practice\
+  \ to define the version of a Python package.\n  fact: The version of the package\
+  \ is 0.8.0, as defined by the '__version__' variable\n    in the pip_outdated/__init__.py\
+  \ file.\n- explanation: The 'parse_args' function creates an ArgumentParser instance\
+  \ with specific\n    options and parameters. It provides descriptions and default\
+  \ values for the command-line\n    arguments, indicating that it's the main argument\
+  \ parser for the pip-outdated\n    tool.\n  fact: The 'parse_args' function in pip_outdated/__init__.py\
+  \ is an argparse-based\n    command-line argument parser for the pip-outdated tool.\n\
+  - explanation: These options are defined through the 'add_argument' calls in the\
+  \ 'parse_args'\n    function. Each option's purpose, default values, and help messages\
+  \ are explicitly\n    specified in the code.\n  fact: 'The pip-outdated tool supports\
+  \ three command-line options: ''-v'' or ''--verbose''\n    to print verbose information,\
+  \ ''-q'' or ''--quiet'' to prevent returning an exit\n    code of 1 when dependencies\
+  \ are not up to date, and a positional ''<file>'' argument\n    to specify requirements\
+  \ files (defaulting to ''requirements.txt'' and ''setup.cfg'').'\n- explanation:\
+  \ A FIXME comment and reference to an GitHub issue indicate that the\n    developers\
+  \ are aware of the workaround. The code explicitly calls 'asyncio.get_event_loop().run_until_complete()'\n\
+  \    to execute the '_main' coroutine, avoiding the use of 'asyncio.run()' due to\
+  \ compatibility\n    issues with aiohttp.\n  fact: The 'main' function in pip_outdated/__init__.py\
+  \ implements a workaround for\n    asyncio limitations by using 'get_event_loop().run_until_complete()'\
+  \ instead of\n    'asyncio.run()' to execute the asynchronous '_main' function.\n\
+  - explanation: The '_main' function imports and uses 'find_require' to find dependencies,\n\
+  \    'check_outdated' to verify if packages are outdated, and 'print_outdated' to\
+  \ display\n    the results. These functions are essential for the tool's main functionality.\n\
+  \  fact: The asynchronous '_main' function in pip_outdated/__init__.py handles the\n\
+  \    core logic of the pip-outdated tool by finding dependencies, checking for outdated\n\
+  \    packages, and printing the results.\n- explanation: The code explicitly creates\
+  \ an async context manager with 'get_session()',\n    suggesting that it's used\
+  \ to handle HTTP requests for checking package versions.\n    The session is passed\
+  \ to 'check_outdated' tasks for network operations.\n  fact: The '_main' function\
+  \ in pip_outdated/__init__.py uses a custom HTTP session\n    via 'get_session()'\
+  \ to manage network requests while checking for outdated packages.\n- explanation:\
+  \ The code uses Python's relative import syntax ('from .module import\n    ...')\
+  \ to access functions from other modules within the same package. This indicates\n\
+  \    a structured package layout with multiple modules working together.\n  fact:\
+  \ The pip-outdated package uses relative imports for module components in the\n\
+  \    '_main' function of pip_outdated/__init__.py, including '.verbose.set_verbose',\n\
+  \    '.find_require', '.check_outdated', '.print_outdated', and '.session.get_session'.\n\
+  - explanation: The 'ArgumentParser' instance's 'description' parameter explicitly\n\
+  \    states that the tool's purpose is to find outdated dependencies in these specific\n\
+  \    file types, providing clear documentation within the code.\n  fact: The 'parse_args'\
+  \ function in pip_outdated/__init__.py defines a help message\n    indicating that\
+  \ pip-outdated is designed to find outdated dependencies in 'requirements.txt'\n\
+  \    or 'setup.cfg' files.\n- explanation: The 'ArgumentParser' instance is created\
+  \ with the 'formatter_class'\n    set to 'argparse.ArgumentDefaultsHelpFormatter',\
+  \ ensuring that default argument\n    values are displayed when users request help\
+  \ via the command line.\n  fact: The pip-outdated tool provides an 'ArgumentDefaultsHelpFormatter'\
+  \ for its\n    command-line interface, which automatically includes default values\
+  \ in help messages.\n"

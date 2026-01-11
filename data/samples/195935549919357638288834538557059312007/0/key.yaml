@@ -1,0 +1,3 @@
+The main function of pip-outdated uses asyncio to run an async '_main' function, bypassing
+  asyncio.run due to compatibility issues with aiohttp.
+...

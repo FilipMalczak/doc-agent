@@ -1,3 +1,0 @@
-The 'get_pypi_versions()' function in document 79501155-b71e-5dd6-a529-82fd14d4a11b
-  fetches and processes PyPI versions via https://pypi.org/pypi/<name>/json API endpoint
-...

@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The implementation filters out prerelease versions when determining\n    the latest\
-  \ available version from PyPI.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
-  \ PyPI versions with\n    'is_prerelease' flag are excluded from version comparisons.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

@@ -1,3 +1,0 @@
-"## Project Overview (maintainer perspective)\n### Entry Points (CLI)\n- **Console\
-  \ script:** `pip-outdated = pip_outdated:main`  \n  - Exposes a `pip-outdated` command\
-  \ that users invoke from the terminal.\n"

@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'make_row' function processes an 'OutdateResult' object to determine\n   \
+  \ if a package is outdated. It applies color-coding to installed, wanted, and latest\n\
+  \    version fields based on conditions like 'install_not_found' or 'version < wanted'.\n\
+  \    The function returns a list of strings for table display or None if the package\n\
+  \    is up-to-date.\n  fact: The file 'print_outdated.py' contains a function 'make_row'\
+  \ that generates\n    a formatted list entry for a package's version status, returning\
+  \ None if the package\n    is not outdated.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

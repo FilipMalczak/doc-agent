@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' specifies\n    that\
+  \ the Python package 'pip-outdated' is available for installation via PyPI.\n  \
+  \  This is indicated by the 'Installation' section's reference to PyPI.\n  fact:\
+  \ The Python package 'pip-outdated' is published on the Python Package Index\n \
+  \   (PyPI) under the name 'pip-outdated'.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

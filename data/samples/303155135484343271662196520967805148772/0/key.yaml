@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file defines a class 'OutdateResult' which encapsulates the result\n    of\
+  \ checking if a Python package is outdated. This includes attributes like current\n\
+  \    version, PyPI versions, and logical flags to determine status.\n  fact: In\
+  \ document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there is a @dataclass\n\
+  \    called 'OutdateResult' that holds the result of checking package up-to-dateness.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+The pip-outdated tool provides an 'ArgumentDefaultsHelpFormatter' for its command-line
+  interface, which automatically includes default values in help messages.
+...

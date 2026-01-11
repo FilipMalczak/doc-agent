@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 'outdated' method considers a package outdated if the installed\n    version\
-  \ either does not match the latest version or is not in the requirement\n    specifier.\n\
-  \  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, a package is\
-  \ marked\n    outdated when installed version differs from latest available version\
-  \ or doesn't\n    meet specifier.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

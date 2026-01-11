@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' lists 'requirements.txt'\n\
+  \    and 'setup.cfg' as the default files processed by 'pip-outdated' for dependency\n\
+  \    checks. This is shown in the 'Usage' section's default argument description.\n\
+  \  fact: The 'pip-outdated' tool processes 'requirements.txt' and 'setup.cfg' files\n\
+  \    by default to check for outdated dependencies.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

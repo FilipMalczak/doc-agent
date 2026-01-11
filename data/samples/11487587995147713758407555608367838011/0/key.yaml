@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The global variable VERBOSE is declared in the file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py\n\
+  \    and initialized to None. This variable seems to act as a flag to control verbose\n\
+  \    output settings.\n  fact: There is a global boolean variable named VERBOSE\
+  \ initialized to None in the\n    file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

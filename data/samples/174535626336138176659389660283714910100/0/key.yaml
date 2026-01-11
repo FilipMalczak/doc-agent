@@ -1,0 +1,11 @@
+"## \U0001F4DA Documentation Tips for End\u2011Users  \n\n- **Explain the Session\
+  \ Reuse:**  \n  - Users don\u2019t need to interact with `get_session` directly,\
+  \ but documentation should mention that the tool internally manages a single HTTP\
+  \ session with a limited number of concurrent connections.  \n\n- **Highlight Network\
+  \ Settings:**  \n  - If users encounter \u201Cconnection timeout\u201D or \u201C\
+  rate\u2011limit\u201D errors, point them to the session's connection limit as a\
+  \ configurable knob (future versions could expose it via CLI).  \n\n- **Safety Note:**\
+  \  \n  - Remind users that abrupt termination may leave open sockets; recommend\
+  \ using the tool in a well\u2011behaved shell or ensuring graceful shutdown (e.g.,\
+  \ handling `KeyboardInterrupt`).  \n\n---  \n\n*Prepared for the maintainer role\
+  \ to aid in end\u2011user documentation and future maintenance planning.*"

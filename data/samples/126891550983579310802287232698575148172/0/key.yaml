@@ -1,0 +1,3 @@
+The file 'pip_outdated/check_outdated.py' contains an asynchronous function 'get_local_version'
+  that retrieves the version of a package installed locally using 'pip show'.
+...

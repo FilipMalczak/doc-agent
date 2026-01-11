@@ -1,0 +1,3 @@
+The 'pip-outdated' tool includes a '--quiet' command-line option, introduced in version
+  0.4.0, which suppresses the non-zero exit code when dependencies are not up to date.
+...

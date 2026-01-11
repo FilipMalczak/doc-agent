@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code implements async functions to check package versions against\n    PyPI,\
-  \ indicating the tool uses asynchronous operations to avoid blocking.\n  fact: In\
-  \ document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there is an asynchronous\n\
-  \    function 'get_pypi_versions' that retrieves version information from PyPI.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

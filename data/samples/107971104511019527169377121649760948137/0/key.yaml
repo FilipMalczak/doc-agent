@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test verifies that the parse_cfg function correctly captures packages\n  \
+  \  under [options.setup_requires] in the setup.cfg.\n  fact: setup_requires includes\
+  \ setuptools_scm >= 1.15.0 and setuptools_scm_git_archive\n    >= 1.0 in the setup.cfg\
+  \ file.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

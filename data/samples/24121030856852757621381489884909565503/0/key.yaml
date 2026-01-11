@@ -1,0 +1,29 @@
+"## Notes for End\u2011User Documentation  \n\n**File:** `tests/test_parse_cfg.py`\
+  \ (Python test)  \n\n- **Purpose of the test**  \n  - Verifies that `pip_outdated.find_require.parse_cfg()`\
+  \ correctly parses a `setup.cfg` file and extracts the **names** of all required\
+  \ packages, ignoring version constraints and extra whitespace.  \n\n- **Key behaviors\
+  \ exercised by the test**  \n  - **Input file creation** \u2013 Uses the `tmp_path`\
+  \ fixture to create a temporary `setup.cfg` with several sections:  \n    - `[options]`\
+  \ \u2192 `setup_requires` and `install_requires`  \n    - `[options.extras_require]`\
+  \ \u2192 `docs` extra  \n  - **Parsing logic** \u2013 Calls `parse_cfg(str(file))`\
+  \ with the path to the temporary file.  \n  - **Result processing** \u2013 Collects\
+  \ the `.name` attribute from each requirement object returned by `parse_cfg`.  \n\
+  \  - **Expected outcome** \u2013 The ordered list of extracted package names is:\
+  \  \n    1. `setuptools_scm`  \n    2. `setuptools_scm_git_archive`  \n    3. `ansible`\
+  \  \n    4. `ansible-lint`  \n    5. `alabaster`  \n    6. `Sphinx`  \n\n- **Implications\
+  \ for end\u2011users**  \n  - **Function signature**: `parse_cfg(path: str) -> Iterable[Requirement]`\
+  \ (where each `Requirement` has a `.name` attribute).  \n  - **Supported sections**:\
+  \  \n    - `setup_requires` and `install_requires` under `[options]`.  \n    - Any\
+  \ extra requirement groups under `[options.extras_require]` (e.g., `docs`).  \n\
+  \  - **Version specifications** (e.g., `>= 1.15.0`, `< 5`) are **ignored**; only\
+  \ the package name is retained.  \n  - **Ordering**: The function preserves the\
+  \ order in which requirements appear in the file.  \n\n- **How an end\u2011user\
+  \ might use this**  \n  ```python\n  from pip_outdated.find_require import parse_cfg\n\
+  \n  requirements = parse_cfg(\"path/to/setup.cfg\")\n  package_names = [req.name\
+  \ for req in requirements]\n  print(package_names)\n  # => ['package1', 'package2',\
+  \ ...]\n  ```  \n\n- **Testing context**  \n  - The test is part of the project's\
+  \ test suite (`repo_function: test`).  \n  - No external dependencies are required\
+  \ beyond the standard library and the package under test.  \n\nThese points capture\
+  \ the functional expectations of `parse_cfg` as demonstrated by the test and can\
+  \ be referenced when documenting how users can extract dependency names from a `setup.cfg`\
+  \ file."

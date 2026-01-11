@@ -1,3 +1,0 @@
-The print_outdated function in pip_outdated/print_outdated.py creates a table of outdated
-  package information using terminaltables.AsciiTable
-...

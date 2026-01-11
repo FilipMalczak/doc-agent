@@ -1,0 +1,4 @@
+The 'check_outdated' function in 'pip_outdated/check_outdated.py' is defined as asynchronous
+  and interacts with PyPI via HTTP requests to check for the latest non-prerelease
+  versions of a package.
+...

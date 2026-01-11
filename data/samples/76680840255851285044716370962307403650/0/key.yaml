@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The content explicitly imports 'setup' from 'setuptools', indicating\n    the\
+  \ file's purpose for package configuration.\n  fact: The 'setup.py' file uses the\
+  \ 'setup' function from the 'setuptools' module.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

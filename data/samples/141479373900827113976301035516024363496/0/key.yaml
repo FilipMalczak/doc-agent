@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'OutdateResult' class is imported from a sibling module. This file\n    focuses\
+  \ on formatting logic rather than generating the raw data, indicating a\n    separation\
+  \ of concerns between checking package versions and displaying results.\n  fact:\
+  \ The file depends on 'OutdateResult' from '.check_outdated' module to determine\n\
+  \    version statuses, but the actual implementation of that class is not present\
+  \ in\n    this file.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

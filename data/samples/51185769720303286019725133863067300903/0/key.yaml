@@ -1,0 +1,10 @@
+"## Basic usage  \n```bash\npip-outdated\n```  \n- By default reads `requirements.txt`\
+  \ and `setup.cfg`.  \n\n### Command\u2011line options  \n\n| Option | Description\
+  \ |\n|--------|-------------|\n| `-h`, `--help` | Show help and exit. |\n| `-v`,\
+  \ `--verbose` | Print additional information (default: `False`). |\n| `-q`, `--quiet`\
+  \ | Do **not** return exit code\u202F1 when some packages are outdated (default:\
+  \ `False`). |\n| `<file>` (positional) | One or more requirement files; accepts\
+  \ glob patterns. Default: `['requirements.txt','setup.cfg']`. |\n\n### Example commands\
+  \  \n\n- **Check several requirement files**  \n  ```bash\n  pip-outdated *-requirements.txt\n\
+  \  ```\n- **Check all files in a folder**  \n  ```bash\n  pip-outdated requirements/*.txt\n\
+  \  ```\n"

@@ -1,0 +1,27 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"comment": "No facts extracted from this file."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-aa0082be2adb4df08829dfc9b87a2044
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768169078-m0FRfE2icoiXZA2cfexf
+run_id: a7e46cb3-7fd4-4552-baa7-68601b0e0a25
+timestamp: '2026-01-11T22:04:39Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1428
+  output_audio_tokens: 0
+  output_tokens: 26

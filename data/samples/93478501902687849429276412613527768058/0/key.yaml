@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The message 'Everything is up-to-date!' is displayed when no outdated\n    packages\
-  \ are found. This provides clear feedback to the user about the project's\n    state.\n\
-  \  fact: In file 'pip_outdated/print_outdated.py', the message 'Everything is up-to-date!'\n\
-  \    is printed in cyan bold text when all packages are up-to-date.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

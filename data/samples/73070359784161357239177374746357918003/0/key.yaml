@@ -1,0 +1,3 @@
+The 'find_require' function in the file 'pip_outdated/find_require.py' determines
+  which parsing function to use based on the file's extension (.cfg or not).
+...

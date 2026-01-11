@@ -1,4 +1,0 @@
-In file 'pip_outdated/check_outdated.py', the method 'pypi_not_found' within 'OutdateResult'
-  class checks whether the latest version is None, indicating a failure to find the
-  package on PyPI.
-...

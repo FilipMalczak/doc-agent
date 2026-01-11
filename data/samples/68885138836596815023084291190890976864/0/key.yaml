@@ -1,0 +1,3 @@
+The 'parse_args' function in pip_outdated/__init__.py is an argparse-based command-line
+  argument parser for the pip-outdated tool.
+...

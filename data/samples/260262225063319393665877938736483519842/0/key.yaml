@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ If outdate.outdated() returns True, make_row constructs and returns\n    a list\
-  \ of strings.\n  fact: make_row returns a list of strings if outdate.outdated()\
-  \ returns True\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

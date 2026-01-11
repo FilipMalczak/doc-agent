@@ -1,0 +1,3 @@
+"### Planned (TODO) features\n- Ability to automatically **update packages**.  \n\
+  - Option to **rewrite `requirements.txt` / `setup.cfg`** with the new version numbers.\
+  \  \n- Global listing of **all installed packages** (`-g/--global`).\n"

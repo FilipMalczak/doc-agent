@@ -14,9 +14,8 @@ file_note_taker = Parametrized(
             perspective=perspective(**params),
             task=PromptingTask(
                 high_level="take notes from the input file",
-                low_level="take notes from given perspective or reply with 'N/A' to indicate no meaningful content from "
-                          "that perspective; you should not look into the dependent and depending files, your sole focus "
-                          "should be on currently processed file",
+                low_level="take notes from given perspective; you should not look into the dependent and depending "
+                          "files, your sole focus should be on currently processed file",
                 detailed="take notes that can be later used to prepare user-facing documentation of the project "
                          "that the input file is part of; at this stage you should take the notes from a single perspective "
                          "(this will happen for any possible perspective in parallel); do not note things that are not "

@@ -1,0 +1,6 @@
+"## Project Overview (end\u2011user perspective)\n### Additional Configuration  \n\
+  \n- The `[vpip]` section includes a `command_fallback` setting (`python cute.py`).\
+  \ This is an internal hook and generally does **not** affect typical end\u2011user\
+  \ operation.  \n\n---  \n\n*These notes capture the essential information an end\u2011\
+  user would need to understand what the `pip-outdated` package does, how to install\
+  \ it, and how to invoke its primary functionality.*"

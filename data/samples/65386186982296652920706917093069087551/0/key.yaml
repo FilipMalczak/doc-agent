@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The implementation queries PyPI's JSON API (https://pypi.org/pypi/{name}/json)\n\
-  \    to find available versions for a package.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
-  \ the PyPI version\n    data is fetched via HTTP to https://pypi.org/pypi/{package}/json\
-  \ endpoint.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

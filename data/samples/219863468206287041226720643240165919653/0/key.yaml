@@ -1,0 +1,21 @@
+"facts:\n- explanation: The file implements a function called `find_require` that\
+  \ processes\n    files to extract Python package requirements. This is a core utility\
+  \ for the project's\n    main purpose.\n  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2,\
+  \ there is one function\n    called `find_require` that iterates through files and\
+  \ extracts package requirements.\n- explanation: The code distinguishes between\
+  \ .cfg files and other file types by using\n    ConfigParser for .cfg files, indicating\
+  \ support for parsing setup.cfg-style requirements.\n  fact: In document with ID\
+  \ 653d1fa4-fc8a-53d4-997f-a13ae24438e2, the `find_require`\n    function uses ConfigParser\
+  \ to handle files with .cfg extension.\n- explanation: The `parse_lines` function\
+  \ handles comment lines with `#` symbols and\n    backslash-based line continuation,\
+  \ which is essential for proper requirements\n    file parsing.\n  fact: In document\
+  \ with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a `parse_lines`\n    function\
+  \ that processes line comments and continuation escapes.\n- explanation: Specialized\
+  \ parsing logic exists for extracting `setup_requires`, `install_requires`,\n  \
+  \  and `extras_require` from configuration files using ConfigParser, revealing specific\n\
+  \    .cfg file support.\n  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2,\
+  \ the `parse_cfg`\n    function extracts requirements from three ConfigParser sections.\n\
+  - explanation: The `parse_require` function explicitly rejects invalid requirements\n\
+  \    using `packaging.requirements.InvalidRequirement` exception handling.\n  fact:\
+  \ In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a `parse_require`\n\
+  \    function that validates requirements via packaging library.\n"

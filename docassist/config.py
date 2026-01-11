@@ -37,6 +37,7 @@ class Config(NamedTuple):
         provider=OpenRouterProvider(api_key=getenv("OPENAI_API_KEY")),
     )
     raw_mixed_model: Model = OpenAIChatModel(
+        # "deepseek/deepseek-v3.2",
         'qwen/qwen3-32b',
         # 'openai/gpt-oss-120b',
         # 'openai/gpt-oss-20b',

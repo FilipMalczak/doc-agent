@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The shebang line '#! python3' at the beginning of the file explicitly\n    defines\
+  \ Python 3 as the interpreter.\n  fact: The setup.py file specifies Python 3 as\
+  \ the required interpreter.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

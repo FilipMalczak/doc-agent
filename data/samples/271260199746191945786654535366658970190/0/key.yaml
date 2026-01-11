@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function 'file_to_lines' handles file reading and preprocessing\n    of lines,\
-  \ including comments and continuation escapes, relevant for parsing requirements.\n\
-  \  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function\n\
-  \    named file_to_lines that yields processed lines from a file, handling '#' comments\n\
-  \    and '\\' continuation escapes.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

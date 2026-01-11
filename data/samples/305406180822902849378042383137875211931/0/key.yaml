@@ -1,0 +1,4 @@
+Document with ID 7f70c452-3de8-51f4-968c-80115530e69c contains a test function called
+  'test_parse_cfg' which uses the 'tmp_path' pytest fixture to create a temporary
+  directory and subsequently a temporary file named 'setup.cfg'.
+...

@@ -1,0 +1,19 @@
+"- **File purpose**: Provides a basic integration test for the `get_pypi_versions`\
+  \ function, confirming that it can successfully query PyPI for the `pytz` package\
+  \ using an asynchronous session.\n- **Test framework**: Utilizes **pytest** with\
+  \ the `@pytest.mark.asyncio` decorator to run the test as an asynchronous coroutine.\n\
+  - **Key imports**:\n  - `get_pypi_versions` \u2013 the function under test, located\
+  \ in `pip_outdated.check_outdated`.\n  - `get_session` \u2013 a context\u2011manager\
+  \ that yields an asynchronous HTTP session from `pip_outdated.session`.\n- **Test\
+  \ flow**:\n  1. Opens an async session via `async with get_session() as session`.\n\
+  \  2. Calls `await get_pypi_versions(\"pytz\", session)`.\n  3. No assertions are\
+  \ made; the test passes if the call completes without raising an exception (e.g.,\
+  \ network errors or parsing failures).\n- **Implications for maintainers**:\n  -\
+  \ Guarantees that the core \u201Cfetch versions from PyPI\u201D logic works for\
+  \ a real package (`pytz`) in an async environment.\n  - Acts as a guard against\
+  \ regressions in session handling, request execution, or response parsing.\n  -\
+  \ Future enhancements could add explicit assertions (e.g., checking that returned\
+  \ versions are non\u2011empty) to increase test coverage.\n- **User\u2011facing\
+  \ documentation relevance**:\n  - Indicates that the library supports asynchronous\
+  \ operations and can be used to retrieve package version data programmatically.\n\
+  \  - Demonstrates a simple usage pattern that can be shown in tutorials or examples."

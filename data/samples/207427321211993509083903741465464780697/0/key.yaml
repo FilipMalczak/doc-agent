@@ -1,0 +1,4 @@
+In file 'pip_outdated/find_require.py', there is a function named 'parse_cfg' that
+  reads a '.cfg' file and extracts 'setup_requires', 'install_requires', and 'extras_requires'
+  options from its configuration.
+...

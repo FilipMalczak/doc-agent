@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'set_verbose' is defined to take a boolean value and assign\n   \
+  \ it to the global variable 'VERBOSE'.\n  fact: The 'set_verbose' function in 'pip_outdated/verbose.py'\
+  \ sets the global variable\n    'VERBOSE' with a given boolean value.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

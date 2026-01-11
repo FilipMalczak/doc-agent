@@ -1,0 +1,4 @@
+The 'OutdateResult' dataclass in 'pip_outdated/check_outdated.py' includes several
+  methods to determine the status of a package (e.g., whether it is outdated, not
+  found, or not wanted).
+...

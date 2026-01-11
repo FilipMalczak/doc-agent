@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The line 'from .verbose import set_verbose' imports it, indicating\n    it belongs\
-  \ to the same package.\n  fact: The function 'set_verbose' is imported from the\
-  \ 'verbose' module in the same\n    package.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

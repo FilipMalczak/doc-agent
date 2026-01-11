@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'install_not_wanted' is defined within the OutdateResult\n    class,\
+  \ which is evident from the given code.\n  fact: The OutdateResult class has a method\
+  \ named install_not_wanted in file 'pip_outdated/check_outdated.py'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

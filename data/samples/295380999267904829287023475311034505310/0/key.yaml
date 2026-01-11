@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code distinguishes between .cfg files and other file types by using\n    ConfigParser\
+  \ for .cfg files, indicating support for parsing setup.cfg-style requirements.\n\
+  \  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, the `find_require`\n\
+  \    function uses ConfigParser to handle files with .cfg extension.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

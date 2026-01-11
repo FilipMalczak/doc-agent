@@ -1,0 +1,7 @@
+"### Potential documentation snippets (for end\u2011users)\n- *\u201CRun `pip\u2011\
+  outdated` to see which of your project's dependencies are behind the versions you\
+  \ requested or the latest releases on PyPI. Red entries mean the version cannot\
+  \ be determined or does not meet the specifier; green entries indicate up\u2011\
+  datable packages.\u201D*\n- *\u201CBy default the command exits with status\u202F\
+  1 when any package can be upgraded. Use `--quiet` to prevent the non\u2011zero exit\
+  \ while still seeing the report.\u201D*"

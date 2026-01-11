@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'Changelog' in the document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\n\
+  \    (version 0.3.0, October 13, 2019) explicitly mentions changing the exit code\
+  \ behavior\n    and handling of prereleases.\n  fact: In version 0.3.0 of 'pip-outdated',\
+  \ the tool was modified to exit with code\n    1 when dependencies are not up to\
+  \ date and to ignore prereleases during checks.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,3 +1,0 @@
-The '__init__.py' file has aFIXME comment about using 'asyncio.get_event_loop().run_until_complete'
-  due to an issue with 'asyncio.run'.
-...

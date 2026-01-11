@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The changelog for version 0.3.0 mentions additions to check setup_requires\n \
+  \   and extras_require fields.\n  fact: In version 0.3.0, pip-outdated checks setup_requires\
+  \ and extras_require in\n    config files.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

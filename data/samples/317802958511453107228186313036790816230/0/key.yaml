@@ -1,0 +1,4 @@
+In file 'pip_outdated/find_require.py', the function 'parse_requirements_text' processes
+  a given text string to split it into lines and parse each line as a Python package
+  requirement.
+...

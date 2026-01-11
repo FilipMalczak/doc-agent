@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The Todos section explicitly lists 'Add options to update the package?'\n    and\
-  \ 'Add options to update the requirements.txt/setup.cfg file?' as planned features,\n\
-  \    as seen in the bullet points.\n  fact: The pip-outdated tool described in document\
-  \ with ID c70abb08-f4fa-543d-ad2e-52421c056692\n    has planned features that may\
-  \ include options to update packages and requirements\n    files as noted in its\
-  \ Todos section.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

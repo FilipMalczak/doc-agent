@@ -1,0 +1,5 @@
+"## Project Overview (end\u2011user perspective)\n### How to Use  \n\n- After installation,\
+  \ a console script is provided:  \n\n  ```bash\n  pip-outdated\n  ```\n\n  This\
+  \ command maps to the function `main` in the module `pip_outdated`. Running it will\
+  \ scan your project\u2019s `requirements.txt` or `setup.cfg` and list any packages\
+  \ that have newer releases available.\n"

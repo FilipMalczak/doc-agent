@@ -7,7 +7,7 @@ from docassist.system_prompts import PromptingTask
 deduplicator = Parametrized(
     parameters=PERSPECTIVES,
     factory=lambda name_suffix, params:
-        SolverAgent(
+        DoerAgent(
             name="document deduplicator",
             persona="RAG helper specialised in deduplication of documents",
             perspective=perspective(**params),
@@ -26,8 +26,7 @@ Measure 'best' against the given purpose.
 Correct (usually raise; if not - include the reason in the explanation) the score to reflect the document being found multiple times. 
 Both the input and updated score should be in [0.0, 1.0] range, where 1.0 means the best similarity and 0.0 means no similarity.
 Pick the representative by responding with its document ID. 
-The document ID is the ID of the last element of the documents identity.
-You MUST pick EXACTLY one representative and it MUST have the document ID that was present in the input.
+You MUST pick EXACTLY one representative and it MUST have the document ID that was used as an input document ID.
 Explain your choices, referring to the input data and your inherent knowledge.
 """, # "the doc id is the last if in identiy" - copypasted to reranker too
                 detailed=None

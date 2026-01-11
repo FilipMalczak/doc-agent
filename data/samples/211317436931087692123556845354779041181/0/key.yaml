@@ -1,0 +1,19 @@
+"## Notes for End\u2011User Documentation  \n\n- **Purpose**: This module supplies\
+  \ a simple, global *verbose* flag that other parts of the project can read to decide\
+  \ whether to emit detailed output.  \n\n- **Key objects**:  \n  - `VERBOSE: bool\
+  \ | None` \u2013 a module\u2011level variable that holds the current verbose state.\
+  \ It is `None` by default (meaning \u201Cnot set\u201D).  \n  - `set_verbose(value:\
+  \ bool) -> None` \u2013 call this function to enable (`True`) or disable (`False`)\
+  \ verbose mode globally.  \n  - `verbose() -> bool` \u2013 returns the current value\
+  \ of `VERBOSE`; useful for conditional logging or detailed messages.  \n\n- **Typical\
+  \ usage pattern for an end\u2011user**:  \n  ```python\n  import pip_outdated.verbose\
+  \ as verbose_state\n\n  # Enable verbose mode for the whole application\n  verbose_state.set_verbose(True)\n\
+  \n  # Later, any part of the code can check the flag:\n  if verbose_state.verbose():\n\
+  \      print(\"Detailed operation info...\")\n  ```  \n\n- **Behavior**:  \n  -\
+  \ The flag is stored in a single place, so once set, all modules that import `verbose`\
+  \ see the same value.  \n  - No thread\u2011safety guarantees are provided; it is\
+  \ intended for simple scripts or single\u2011threaded usage.  \n\n- **Implications\
+  \ for the user**:  \n  - Use `set_verbose` at the start of your workflow if you\
+  \ want extra debugging or informational output.  \n  - Reset to `False` if you prefer\
+  \ concise output.  \n\nThese notes capture the essential information an end\u2011\
+  user needs to understand and control the project's verbose behavior."

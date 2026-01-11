@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The shebang line '#! python3' specifies that this script should be\n    executed\
+  \ using Python 3, indicating the project's compatibility with Python 3\n    interpreter.\n\
+  \  fact: 'The setup.py file (ID: 17ae6927-bfa3-579e-8306-4465b7a352d8) contains\
+  \ a shebang\n    line specifying Python 3 as the required interpreter.'\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'This is indicated by the classifier ''Environment :: Console'' listed\n    in\
+  \ the ''classifiers'' section of the setup.cfg file.'\n  fact: The project is intended\
+  \ for use in a console environment.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

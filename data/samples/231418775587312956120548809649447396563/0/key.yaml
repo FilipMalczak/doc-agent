@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Specialized parsing logic exists for extracting `setup_requires`, `install_requires`,\n\
+  \    and `extras_require` from configuration files using ConfigParser, revealing\
+  \ specific\n    .cfg file support.\n  fact: In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2,\
+  \ the `parse_cfg`\n    function extracts requirements from three ConfigParser sections.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

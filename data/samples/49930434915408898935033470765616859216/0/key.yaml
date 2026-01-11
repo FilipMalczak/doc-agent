@@ -1,0 +1,3 @@
+install_requires includes ansible >= 2.5 and ansible-lint >= 4.0.2, < 5 in the setup.cfg
+  file.
+...

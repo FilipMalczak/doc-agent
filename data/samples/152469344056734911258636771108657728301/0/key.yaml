@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'packaging' library is imported in the code, and its modules are\n    used\
+  \ for handling versions and requirements, such as using 'Requirement' and 'parse_version'\n\
+  \    which confirms this fact.\n  fact: The file 'pip_outdated/check_outdated.py'\
+  \ uses the 'packaging' library to\n    work with versions and requirements.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

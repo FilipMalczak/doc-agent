@@ -1,0 +1,43 @@
+"## \U0001F4C4\u202FFile Overview  \n**Path:** `pip_outdated/print_outdated.py`  \n\
+  \nThe module is responsible for presenting a user\u2011friendly, colour\u2011coded\
+  \ summary of outdated Python packages detected by the `check_outdated` logic.\n\n\
+  ---\n\n## \U0001F527\u202FKey Functions  \n\n- **`make_row(outdate: OutdateResult)\
+  \ -> Optional[List[str]]`**  \n  - Builds a table row for a single package.  \n\
+  \  - Returns **`None`** if the package is not outdated.  \n  - Applies colour logic:\
+  \  \n    - **Red** for unavailable, missing, or version\u2011specifier violations.\
+  \  \n    - **Green** for updatable versions.  \n  - Relies on `OutdateResult` methods:\
+  \  \n    - `outdated()`, `install_not_found()`, `install_not_wanted()`, `pypi_not_found()`,\
+  \ `version`, `wanted`, `latest`, `name`.  \n\n- **`async def print_outdated(outdates:\
+  \ List[Awaitable[OutdateResult]], quiet: bool)`**  \n  - Initializes colour handling\
+  \ with **`colorama.init()`**.  \n  - Constructs a table header `[\"Name\", \"Installed\"\
+  , \"Wanted\", \"Latest\"]`.  \n  - Iterates over the provided awaitable `OutdateResult`\
+  \ objects, converting each to a coloured row via `make_row`.  \n  - **Output scenarios:**\
+  \  \n    - **No requirements** \u2192 prints **red** \u201CNo requirements found.\u201D\
+  \ and returns.  \n    - **All up\u2011to\u2011date** \u2192 prints **cyan bold**\
+  \ \u201CEverything is up\u2011to\u2011date!\u201D and returns.  \n    - **Outdated\
+  \ packages present** \u2192 prints colour legend, renders an ASCII table via `terminaltables.AsciiTable`,\
+  \ and (if `quiet` is **false**) exits the process with status **1**.  \n\n---\n\n\
+  ## \U0001F3A8\u202FColour Legend (maintainer\u2011relevant for end\u2011user docs)\
+  \  \n\n| Colour | Meaning |\n|--------|---------|\n| **Red** | Unavailable / outdated\
+  \ / does not satisfy version specifier |\n| **Green** | Package can be upgraded\
+  \ (newer version available) |\n\nThe legend is printed automatically before the\
+  \ table when outdated packages exist.\n\n---\n\n## \U0001F6A6\u202FExit Behaviour\
+  \  \n\n- The function **exits with code `1`** when there are outdated packages **and**\
+  \ `quiet` is `False`.  \n- When `quiet` is `True`, the function finishes normally\
+  \ (exit code `0`).  \n\nThis is useful for CI pipelines that should fail when updates\
+  \ are required.\n\n---\n\n## \U0001F4E6\u202FExternal Dependencies  \n\n- **`colorama`**\
+  \ \u2013 enables cross\u2011platform colour handling.  \n- **`termcolor`** \u2013\
+  \ applies colour and text attributes to strings.  \n- **`terminaltables`** \u2013\
+  \ renders the ASCII table (`AsciiTable`).  \n\nThese packages must be listed as\
+  \ runtime dependencies for the project.\n\n---\n\n## \U0001F4CC\u202FIntegration\
+  \ Points  \n\n- **Input:** `List[Awaitable[OutdateResult]]` \u2013 typically produced\
+  \ by `check_outdated.py`.  \n- **Output:** Printed colour\u2011coded table to **stdout**;\
+  \ optional process termination based on `quiet`.  \n\nMaintainers should ensure\
+  \ the `OutdateResult` contract remains stable, as `print_outdated` depends on its\
+  \ methods and attributes.\n\n---\n\n## \U0001F6E0\uFE0F\u202FMaintenance Tips  \n\
+  \n- **Testing:** Mock `OutdateResult` objects to cover the three output paths (no\
+  \ requirements, all up\u2011to\u2011date, outdated).  \n- **Future UI changes:**\
+  \ Updating colour choices or table format only requires modifications inside `make_row`\
+  \ and the legend prints\u2014no impact on the underlying data flow.  \n- **CLI wrappers:**\
+  \ If a command\u2011line entry\u2011point uses `print_outdated`, remember to propagate\
+  \ the `quiet` flag to control exit status.  "

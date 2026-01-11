@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'long_description' field under the [metadata] section in the setup.cfg\n \
+  \   file references 'README.rst'.\n  fact: The long description for the project\
+  \ is sourced from the README.rst file.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

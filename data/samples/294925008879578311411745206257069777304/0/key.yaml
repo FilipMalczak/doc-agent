@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This fact is derived from the @dataclass decorator and the subsequent\n    class\
+  \ definition 'class OutdateResult:...' in the provided source code. The class\n\
+  \    is directly defined in the code, and the name is explicitly written.\n  fact:\
+  \ There is a class named OutdateResult defined in file 'pip_outdated/check_outdated.py'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

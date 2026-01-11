@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The import statements and the __version__ variable in the content confirm\n  \
-  \  it is a Python module and the version is specified as 0.8.0.\n  fact: The file\
-  \ pip_outdated/__init__.py defines a Python module for the pip-outdated\n    tool,\
-  \ version 0.8.0.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ A function parse_lines is implemented to process lines from an input.\n    It\
-  \ manages lines with comments denoted by '#' and continuation characters '\\'.\n\
-  \    The function is used to parse lines and combine them as necessary.\n  fact:\
-  \ The function `parse_lines` is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n\
-  \    to process lines by handling comments and continuation escapes.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

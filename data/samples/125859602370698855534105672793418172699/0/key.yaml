@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'OutdateResult' class provides methods to determine status flags\n    like\
+  \ 'outdated()', which checks if the installed version doesn't match either\n   \
+  \ the 'wanted' (matching requirements) or 'latest' (available) version from PyPI.\n\
+  \  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, the 'OutdateResult'\n\
+  \    class contains an 'outdated()' method that returns True if installed version\
+  \ differs\n    from either the 'wanted' or 'latest' version from PyPI.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

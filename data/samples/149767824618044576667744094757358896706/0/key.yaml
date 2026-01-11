@@ -1,0 +1,74 @@
+"facts:\n- explanation: The metadata section in the setup.cfg specifies the project's\
+  \ name\n    as pip-outdated.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'name' of the\n    pip-outdated metadata is set to 'pip-outdated'\n- explanation:\
+  \ The setup.cfg under metadata specifies the version of the project as\n    0.8.0.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'version'\
+  \ of\n    pip-outdated is 0.8.0\n- explanation: The setup.cfg's metadata section\
+  \ provides a description for pip-outdated,\n    explaining its purpose.\n  fact:\
+  \ In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'description'\n\
+  \    of pip-outdated is 'Find outdated dependencies in your requirements.txt or\
+  \ setup.cfg'\n- explanation: The metadata in setup.cfg attributes the project's\
+  \ author to 'eight'.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'author' of\n    pip-outdated is listed as 'eight'\n- explanation: The setup.cfg's\
+  \ metadata contains the author's email address as 'eight04@gmail.com'.\n  fact:\
+  \ In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'author_email'\n\
+  \    of pip-outdated is 'eight04@gmail.com'\n- explanation: The setup.cfg lists\
+  \ a classifier indicating that pip-outdated is in\n    beta development status.\n\
+  \  fact: 'In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the classifiers\n\
+  \    for pip-outdated include ''Development Status :: 4 - Beta'''\n- explanation:\
+  \ The setup.cfg's classifiers include the environment under which the\n    project\
+  \ is intended to operate.\n  fact: 'In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the classifiers\n    for pip-outdated include ''Environment :: Console'''\n- explanation:\
+  \ The setup.cfg specifies the primary audience for pip-outdated as developers.\n\
+  \  fact: 'In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the classifiers\n\
+  \    for pip-outdated include ''Intended Audience :: Developers'''\n- explanation:\
+  \ The metadata in setup.cfg states compatibility with Python 3.7 for\n    pip-outdated.\n\
+  \  fact: 'In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the classifiers\n\
+  \    for pip-outdated include ''Programming Language :: Python :: 3.7'''\n- explanation:\
+  \ The setup.cfg lists pip-outdated under the software development tools\n    topic.\n\
+  \  fact: 'In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the classifiers\n\
+  \    for pip-outdated include ''Topic :: Software Development :: Build Tools'''\n\
+  - explanation: The setup.cfg lists relevant keywords for pip-outdated to aid in\
+  \ categorization\n    or search.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'keywords' associated\n    with pip-outdated are 'pip, check, outdate, npm'\n\
+  - explanation: The setup.cfg's metadata section denotes the license under which\
+  \ pip-outdated\n    is distributed.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'license' for\n    pip-outdated is specified as MIT\n- explanation: The setup.cfg\
+  \ references an external file, README.rst, as the source\n    for long_description.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'long_description'\n\
+  \    for pip-outdated is obtained from the README.rst file\n- explanation: The setup.cfg\
+  \ provides a URL to the project's repository on GitHub.\n  fact: In document with\
+  \ ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'url' for pip-outdated\n    is 'https://github.com/eight04/pip-outdated'\n\
+  - explanation: The options section of setup.cfg specifies that pip-outdated is zip-safe.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, 'zip_safe' is\
+  \ set\n    to True in pip-outdated's options\n- explanation: The options section\
+  \ instructs setup.cfg to find and include packages\n    for pip-outdated.\n  fact:\
+  \ In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, 'packages' in pip-outdated's\n\
+  \    options are determined by a 'find' command\n- explanation: The setup.cfg lists\
+  \ 'aiohttp' as a required dependency with a specific\n    version for pip-outdated.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, 'install_requires'\n\
+  \    in pip-outdated's options include 'aiohttp~=3.12'\n- explanation: The setup.cfg\
+  \ includes 'colorama' with a specific version as one of\n    pip-outdated's dependencies.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, 'install_requires'\n\
+  \    in pip-outdated's options include 'colorama~=0.4.6'\n- explanation: The setup.cfg\
+  \ lists 'packaging' as a dependency of pip-outdated with\n    a version requirement.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, 'install_requires'\n\
+  \    in pip-outdated's options include 'packaging~=25.0'\n- explanation: The setup.cfg\
+  \ defines 'termcolor' with a version requirement as part\n    of pip-outdated's\
+  \ dependencies.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ 'install_requires'\n    in pip-outdated's options include 'termcolor~=3.1'\n-\
+  \ explanation: The setup.cfg specifies 'terminaltables' with a specific version\
+  \ as\n    a dependency for pip-outdated.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ 'install_requires'\n    in pip-outdated's options include 'terminaltables~=3.1'\n\
+  - explanation: The options.packages.find section in setup.cfg excludes the tests\
+  \ directory\n    from being included in the pip-outdated distribution.\n  fact:\
+  \ In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'exclude' directive\n\
+  \    in 'options.packages.find' is used to exclude tests from pip-outdated's package\n\
+  - explanation: The setup.cfg defines a console script entry point for pip-outdated\n\
+  \    which maps the command 'pip-outdated' to the 'main' function in the pip_outdated\n\
+  \    module.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'console_scripts'\n    entry in options.entry_points defines a command 'pip-outdated'\
+  \ that points to\n    pip_outdated:main\n- explanation: The vpip section in setup.cfg\
+  \ provides a fallback command for running\n    the package as 'python cute.py'.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'vpip' section\n\
+  \    specifies a command fallback 'python cute.py'\n"

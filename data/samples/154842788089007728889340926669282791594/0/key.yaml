@@ -1,0 +1,4 @@
+The asynchronous '_main' function in pip_outdated/__init__.py handles the core logic
+  of the pip-outdated tool by finding dependencies, checking for outdated packages,
+  and printing the results.
+...

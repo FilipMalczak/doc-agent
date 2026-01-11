@@ -1,5 +1,0 @@
-"### Basic Usage\n```bash\npip-outdated [options] [<file> ...]\n```\n- **Default files:**\
-  \ `requirements.txt`, `setup.cfg` (automatically searched).  \n- Accepts glob patterns,\
-  \ e.g.:\n\n  - `pip-outdated *-requirements.txt` \u2013 scan all files matching\
-  \ the pattern.  \n  - `pip-outdated requirements/*.txt` \u2013 scan every `.txt`\
-  \ file under a `requirements` folder.\n"

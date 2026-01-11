@@ -1,0 +1,49 @@
+"facts:\n- explanation: This fact is derived from the @dataclass decorator and the\
+  \ subsequent\n    class definition 'class OutdateResult:...' in the provided source\
+  \ code. The class\n    is directly defined in the code, and the name is explicitly\
+  \ written.\n  fact: There is a class named OutdateResult defined in file 'pip_outdated/check_outdated.py'.\n\
+  - explanation: The __post_init__ method is visible as a member of the OutdateResult\n\
+  \    class in the provided code snippet, which confirms this fact.\n  fact: The\
+  \ OutdateResult class has a method named __post_init__ in file 'pip_outdated/check_outdated.py'.\n\
+  - explanation: The method 'name' is defined within the OutdateResult class in the\n\
+  \    given code and is marked as a property using the '@property' decorator.\n \
+  \ fact: The OutdateResult class has a method named name in file 'pip_outdated/check_outdated.py'.\n\
+  - explanation: The code explicitly defines the 'install_not_found' method inside\
+  \ the\n    OutdateResult class, which is confirmed by its declaration in the source\
+  \ file.\n  fact: The OutdateResult class contains a method named install_not_found\
+  \ in file\n    'pip_outdated/check_outdated.py'.\n- explanation: The function 'install_not_wanted'\
+  \ is defined within the OutdateResult\n    class, which is evident from the given\
+  \ code.\n  fact: The OutdateResult class has a method named install_not_wanted in\
+  \ file 'pip_outdated/check_outdated.py'.\n- explanation: This is directly stated\
+  \ by the presence of the 'pypi_not_found' method\n    in the code of the OutdateResult\
+  \ class.\n  fact: The OutdateResult class has a method named pypi_not_found in file\
+  \ 'pip_outdated/check_outdated.py'.\n- explanation: The 'outdated' method is clearly\
+  \ defined in the code under the OutdateResult\n    class, confirming this fact.\n\
+  \  fact: The OutdateResult class has a method named outdated in file 'pip_outdated/check_outdated.py'.\n\
+  - explanation: The provided code in the file shows the declaration of the 'get_local_version'\n\
+  \    function, marked as 'async def', which confirms its presence and nature.\n\
+  \  fact: The file 'pip_outdated/check_outdated.py' defines an asynchronous function\n\
+  \    named get_local_version.\n- explanation: The code explicitly declares 'get_pypi_versions'\
+  \ as an asynchronous\n    function, which is confirmed in the given source code\
+  \ snippet.\n  fact: The file 'pip_outdated/check_outdated.py' defines an asynchronous\
+  \ function\n    named get_pypi_versions.\n- explanation: The presence of 'async\
+  \ def check_outdated' in the file confirms the\n    declaration of this function\
+  \ as asynchronous.\n  fact: The file 'pip_outdated/check_outdated.py' defines an\
+  \ asynchronous function\n    named check_outdated.\n- explanation: The code for\
+  \ the 'get_local_version' function imports and uses components\n    from the asyncio\
+  \ library, as is evident from the function's use of 'asyncio.create_subprocess_shell'.\n\
+  \  fact: 'The function get_local_version is defined in file ''pip_outdated/check_outdated.py''\n\
+  \    and uses the asyncio library. '\n- explanation: The code for 'get_pypi_versions'\
+  \ contains a line that uses the 'session.get'\n    method with a URL to 'https://pypi.org',\
+  \ which confirms the intended use as described\n    by the fact.\n  fact: 'The function\
+  \ get_pypi_versions in ''pip_outdated/check_outdated.py'' uses\n    the session.get\
+  \ method to fetch data from the PyPI website. '\n- explanation: The function 'check_outdated'\
+  \ includes calls to 'get_local_version'\n    and 'get_pypi_versions' within its\
+  \ code, which is evident from the usage of 'await\n    get_local_version' and 'await\
+  \ get_pypi_versions' in the function's body.\n  fact: The function check_outdated\
+  \ in 'pip_outdated/check_outdated.py' calls the\n    get_local_version and get_pypi_versions\
+  \ functions.\n- explanation: The 'packaging' library is imported in the code, and\
+  \ its modules are\n    used for handling versions and requirements, such as using\
+  \ 'Requirement' and 'parse_version'\n    which confirms this fact.\n  fact: The\
+  \ file 'pip_outdated/check_outdated.py' uses the 'packaging' library to\n    work\
+  \ with versions and requirements.\n"

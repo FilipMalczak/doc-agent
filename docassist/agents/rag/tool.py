@@ -1,14 +1,15 @@
+import asyncio
 from collections import defaultdict
 from dataclasses import dataclass, field
 from itertools import chain
 from math import log2, exp
-from typing import assert_never
+from typing import assert_never, Iterable
 
 from opentelemetry.trace import get_current_span
 from pydantic_ai import ModelRetry
 
 from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, IndexedScoredDocument, RerankingInput, \
-    RephrasingOutput, RerankingOutput
+    RephrasingOutput, RerankedItem, RerankingOutput
 from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
@@ -35,11 +36,22 @@ class SearchState:
     params: SearchParams
     rephrasings: list[str] = field(default_factory=list)
     scored_docs: list[ScoredDocument] = field(default_factory=list)
+    grouped_for_dedup: list[list[ScoredDocument]] = field(default_factory=list)
     deduplicated: list[ScoredDocument] = field(default_factory=list)
     reranked: list[ScoredDocument] = field(default_factory=list)
     normalized: list[ScoredDocument] = field(default_factory=list)
     final: list[ScoredDocument] = field(default_factory=list)
 
+
+def sliding_overlapping_window[T](data: list[T], step: int, max_len: int) -> Iterable[list[T]]:
+    ks = 0 # k-times-s; we just add step per iteraiton instead of multiplying each time
+    l = len(data)
+    while ks < l:
+        yield data[ks:ks+max_len]
+        ks += step
+
+def _ordered(sd: list[ScoredDocument]) -> list[ScoredDocument]:
+    return sorted(sd, key=lambda x: x.score, reverse=True)
 
 #todo add spans over this
 class SearchKBTool:
@@ -47,6 +59,15 @@ class SearchKBTool:
         self.index: DocumentIndex = index
         self.sideload = sideloaded_documents
         self.sampling = sampling
+        self._reranking_capacity: int = {
+            'openai/gpt-oss-120b': 10,
+            'deepseek/deepseek-v3.2': 10,
+            'qwen/qwen3-32b': 8,
+            'openai/gpt-oss-20b': 6
+        }[reranker.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).pydantic_agent.model.model_name]
+        """
+        Map the model names to reranking capacities here. Read the docstring for _rerank_stage(...) method.
+        """
 
     def tool_name(self) -> str:
         return "search_knowledge_base"
@@ -215,19 +236,31 @@ class SearchKBTool:
     async def _deduplicate_stage(self, state: SearchState):
         s = get_current_span()
         grouped = self._group_for_dedup(state.scored_docs)
+        state.grouped_for_dedup = grouped
         s.set_attribute("groups_len", len(grouped))
 
         deduplicated = []
+        agent_backlog = []
         for group in grouped:
             assert group
             if len(group) == 1:
                 deduplicated.extend(group)
             else:
-                best_choice = await self._deduplicate(state.params.purpose, group, state.params.additional_deduplication_instructions)
-                deduplicated.append(best_choice)
+                agent_backlog.append(group)
+        deduplicated.extend(
+            await asyncio.gather(
+                *(
+                    self._deduplicate(
+                        state.params.purpose,
+                        group,
+                        state.params.additional_deduplication_instructions
+                    )
+                    for group in agent_backlog
+                )
+            )
+        )
         s.set_attribute("deduplicated_len", len(deduplicated))
-
-        state.deduplicated.extend(sorted(deduplicated, key=lambda x: x.score, reverse=True))
+        state.deduplicated.extend(_ordered(deduplicated))
 
     def _group_for_dedup(self, chunks: list[ScoredDocument]) -> list[list[ScoredDocument]]:
         sources = list()
@@ -263,7 +296,7 @@ class SearchKBTool:
                     full = [ chunkable_by_id[cid] ] if cid in chunkable_by_id else []
                     # I can get literal duplicates (same ID, same metadata, etc) in input, because I'm searching across queries
                     # thus, I need to deduplicate; fixme it could be done beforehand
-                    yield sorted(full + chunks_by_source_id[cid], key=lambda x: x.score, reverse=True)
+                    yield _ordered(full + chunks_by_source_id[cid])
 
         return list(i())
 
@@ -287,15 +320,108 @@ class SearchKBTool:
 
     @phase()
     async def _rerank_stage(self, state: SearchState):
-        reranked = await self._rerank(
-            state.params.purpose,
-            state.deduplicated,
-            state.params.additional_reranking_instructions
-        )
-        state.reranked.extend(sorted(reranked, key=lambda x: x.score, reverse=True))
+        state.reranked = await self._rerank_dispatcher(state)
 
-    async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[ScoredDocument]:
-        reranked: list[RerankingOutput] = await reranker.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).run(
+    async def _rerank_dispatcher(self, state: SearchState) -> list[ScoredDocument]:
+        """
+        Each model has limited capability of how many documents it can effectively rescore in one batch. For smaller
+        models that's usually something like 8-10, with no model being able to realistically handle a hundred.
+
+        Previous step might emit way more documents though, so we need to handle the over-the-capability situation.
+
+        We have N input scored documents and a capability of rescoring M docs at once.
+        We sort the input from the best to the worst.
+        We apply sliding overlapping window with overlap O (0 < O < M).
+        We apply reranker to each window.
+
+        We need to reduce the scores from multiple window to a final result. We wanna account for documents from earlier
+        windows being probably better than the trailing ones and we wanna account for the updated score from each window.
+
+        Final formula is:
+
+             score(doc) = (
+                sum over windows containing doc:
+                    reranker_score(doc, window) /
+                    ( (window_index(window) + a) * (b + rank(doc, window))**2 )
+            ) / (
+                sum over windows containing doc: 1/(window_index(window) + a)
+            )
+
+        Since the number of windows for each element may vary (leading and trailing appearing less often than others)
+        and since we're weighing by window index (to reflect "earlier = better"), we need to normalize after summing.
+
+        `a` and `b` should amortize the window and document indexes/ranks, so that value of 1 doesn't overwhelm the rest
+        of the sample. They should probably be around `a: int in [1, 5], b: int in [50, 100]`.
+        """
+        N = len(state.deduplicated)
+        input_by_id = {
+            d.document.id: d
+            for d in state.deduplicated
+        }
+        M = self._reranking_capacity
+        if N <= M:
+            order: list[str, int] = await self._rerank(
+                state.params.purpose,
+                state.deduplicated,
+                state.params.additional_reranking_instructions
+            )
+            return [
+                input_by_id[id].rescore(new_score)
+                for (id, new_score) in order
+            ]
+
+        overlap_factor = 0.75
+        a = 5
+        b = 50
+        O = int(overlap_factor * M)
+        S = M - O
+        UpdatedScore = int  # 1-10
+        WindowRank = int
+        WindowIndex = int
+        score_accumulator: dict[str, list[tuple[UpdatedScore, WindowRank, WindowIndex]]] = defaultdict(list)
+        async def process_window(widx, window):
+            window: list[ScoredDocument]
+            order: list[str, int] = await self._rerank(
+                state.params.purpose,
+                window,
+                state.params.additional_reranking_instructions
+            )
+            result = []
+            for i, (id, new_score) in enumerate(order):
+                result.append((new_score, i, widx))
+            return {id: result}
+        to_sum = await asyncio.gather(
+            *(
+                process_window(widx, window)
+                for widx, window in enumerate(sliding_overlapping_window(state.deduplicated, S, M))
+            )
+        )
+        for x in to_sum:
+            score_accumulator.update(x)
+        reduced_scores_by_id = {}
+        for input_doc in state.deduplicated:
+            id = input_doc.document.id
+            upper = 0.0
+            lower = 0.0
+            for (score, rank, widx) in score_accumulator[id]:
+                upper += ( score / ((widx + a)*((b + rank)**2)) )
+                lower += ( 1 / (widx + a) )
+            reduced_scores_by_id[id] = upper / lower
+        return _ordered(
+            [
+                input_doc.rescore(
+                    reduced_scores_by_id[input_doc.document.id]
+                )
+                for input_doc in state.deduplicated
+            ]
+        )
+
+
+    async def _rerank(self, purpose: str, documents: list[ScoredDocument], instructions: str) -> list[tuple[str, int]]:
+        """
+        :return: list of (id, new_score) ordered by the agent
+        """
+        reranked: RerankingOutput = await reranker.parametrized_with(FINAL_DOCUMENTATION_PERSPECTIVE_POINTER).run(
             RerankingInput(
                 purpose=purpose,
                 documents=documents,
@@ -305,20 +431,22 @@ class SearchKBTool:
         docs_by_ids = {
             d.document.id: d for d in documents
         }
-        reranks_by_id = {
-            r.document_id: r for r in reranked
+        rescores_by_id = {
+            r.document_id: r for r in reranked.rescoring
         }
-        #todo these should be handled by StructuredAgent
-        missing_input = set(docs_by_ids.keys()).difference(set(reranks_by_id.keys()))
+        missing_input = set(docs_by_ids.keys()).difference(set(rescores_by_id.keys()))
         if missing_input:
+            #fixme wrong exception
             raise ModelRetry(f"Following document IDs were present in the input, but not the output: {', '.join(missing_input)}")
-        hallucinated_output = set(reranks_by_id.keys()).difference(set(docs_by_ids.keys()))
+        hallucinated_output = set(rescores_by_id.keys()).difference(set(docs_by_ids.keys()))
         if hallucinated_output:
             raise ModelRetry(f"Following document IDs were present in the output, but not the input: {', '.join(hallucinated_output)}")
-
+        ordering_by_score = sorted(rescores_by_id.keys(), key=lambda k: rescores_by_id[k].new_score, reverse=True)
+        if not ordering_by_score == reranked.ordered_document_ids:
+            raise ModelRetry(f"Explicit ordering of documents doesn't match score-induced ordering! (explicit: {reranked.ordered_document_ids}; by score: {ordering_by_score})")
         return [
-            doc.rescore(reranks_by_id[doc.document.id].new_score)
-            for doc in documents
+            (id, rescores_by_id[id].new_score)
+            for id in ordering_by_score
         ]
 
     @phase()

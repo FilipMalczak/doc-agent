@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The metadata section in the setup.cfg specifies the project's name\n    as pip-outdated.\n\
+  \  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the 'name' of\
+  \ the\n    pip-outdated metadata is set to 'pip-outdated'\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

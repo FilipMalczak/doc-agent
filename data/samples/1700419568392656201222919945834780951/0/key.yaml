@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code iterates over the result of 'parse_cfg(str(file))', accesses\n    the\
+  \ 'name' attribute for each item, and stores them in a list called 'names'.\n  fact:\
+  \ The test function 'test_parse_cfg' calls 'parse_cfg(str(file))' and captures\n\
+  \    the 'name' attribute of each returned item.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

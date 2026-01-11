@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function file_to_lines processes a file's lines by handling Python-style\n\
+  \    comments (#) and line continuation (\\), which is critical for parsing requirements\n\
+  \    files.\n  fact: The document contains a function named file_to_lines that handles\
+  \ '#' comments\n    and '\\' line continuation in pip_outdated/find_require.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

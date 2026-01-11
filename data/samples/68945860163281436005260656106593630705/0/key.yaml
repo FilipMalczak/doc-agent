@@ -1,4 +1,0 @@
-In file 'pip_outdated/print_outdated.py', there is a function called 'make_row' which
-  returns a list of strings representing a table row when a package is outdated. If
-  the package is up-to-date, it returns 'None'.
-...

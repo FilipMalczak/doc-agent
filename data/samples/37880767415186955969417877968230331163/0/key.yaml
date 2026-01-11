@@ -1,0 +1,29 @@
+"facts:\n- explanation: The file defines a class 'OutdateResult' which encapsulates\
+  \ the result\n    of checking if a Python package is outdated. This includes attributes\
+  \ like current\n    version, PyPI versions, and logical flags to determine status.\n\
+  \  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there is a @dataclass\n\
+  \    called 'OutdateResult' that holds the result of checking package up-to-dateness.\n\
+  - explanation: The 'OutdateResult' class provides methods to determine status flags\n\
+  \    like 'outdated()', which checks if the installed version doesn't match either\n\
+  \    the 'wanted' (matching requirements) or 'latest' (available) version from PyPI.\n\
+  \  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, the 'OutdateResult'\n\
+  \    class contains an 'outdated()' method that returns True if installed version\
+  \ differs\n    from either the 'wanted' or 'latest' version from PyPI.\n- explanation:\
+  \ The file implements 'get_local_version()' which uses async subprocess\n    to\
+  \ execute 'pip show' and extract the installed version of a package.\n  fact: In\
+  \ document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there's an async\n    function\
+  \ 'get_local_version()' that executes 'pip show' and returns locally installed\n\
+  \    package version.\n- explanation: The 'get_pypi_versions()' function fetches\
+  \ package metadata from PyPI's\n    JSON API, filters out prereleases, parses version\
+  \ strings, and returns sorted\n    Version objects.\n  fact: In document with ID\
+  \ 79501155-b71e-5dd6-a529-82fd14d4a11b, the 'get_pypi_versions()'\n    async function\
+  \ retrieves and processes version data from PyPI's JSON API endpoint\n    for a\
+  \ given package.\n- explanation: The main functionality is implemented by 'check_outdated()'\
+  \ which coordinates\n    local version checks, PyPI version retrieval, and returns\
+  \ an 'OutdateResult' instance.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ the 'check_outdated()'\n    async function is the entry point for checking if\
+  \ a package requirement is outdated.\n- explanation: The file uses 'packaging' library\
+  \ utilities for version comparison\n    and requirement parsing, including canonicalization\
+  \ of package names.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ package name normalization\n    is done using 'packaging.utils.canonicalize_name()'\
+  \ to ensure consistent comparison\n    with PyPI data.\n"

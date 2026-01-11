@@ -1,4 +1,0 @@
-In document ID '7f70c452-3de8-51f4-968c-80115530e69c', the parse_cfg function is shown
-  to extract dependencies from the setup_requires and install_requires subsections
-  of the [options] section in a setup.cfg file.
-...

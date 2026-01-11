@@ -1,0 +1,14 @@
+"### `OutdateResult` (dataclass)  \n| Attribute | Type | Description |\n|---|---|---|\n\
+  | `requirement` | `Requirement` | The original requirement (name\u202F+\u202Fspecifier)\
+  \ from the user's `requirements.txt` or similar. |\n| `version` | `Optional[Version]`\
+  \ | Currently installed version (or `None` if the package is not installed). |\n\
+  | `all_versions` | `List[Version]` | All non\u2011prerelease versions found on PyPI,\
+  \ sorted ascending. |\n| `wanted` *(computed)* | `Optional[Version]` | The newest\
+  \ version that satisfies the requirement's specifier, or `None` if none match. |\n\
+  | `latest` *(computed)* | `Optional[Version]` | The newest available version on\
+  \ PyPI (or `None` if none were fetched). |\n\n**Key methods**  \n- `install_not_found()`:\
+  \ *True* if the package is not installed.  \n- `install_not_wanted()`: *True* if\
+  \ the installed version does not satisfy the requirement specifier.  \n- `pypi_not_found()`:\
+  \ *True* if no versions could be fetched from PyPI.  \n- `outdated()`: *True* when\
+  \ the installed version differs from the wanted version **or** from the latest version.\
+  \  \n"

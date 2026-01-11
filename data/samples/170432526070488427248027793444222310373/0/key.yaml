@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The document includes an image with a TravisCI badge linking to the\n    project's\
-  \ CI page\n  fact: There is a TravisCI badge in the document\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

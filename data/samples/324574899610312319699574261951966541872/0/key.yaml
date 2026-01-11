@@ -1,0 +1,13 @@
+"### User\u2011focused notes  \n\n- With the current `setup.py`, installing the package\
+  \ (e.g., via `pip install .`) will succeed but **provides no useful information**\
+  \ about the package (name, version, description).  \n- Users will be unable to query\
+  \ the installed package for its version (`pip show <package>` will be empty or generic).\
+  \  \n- Documentation or release notes should be consulted to obtain the actual package\
+  \ name and version, as they are not defined in this file.  \n- If the project adopts\
+  \ a proper `setup.py` (or `pyproject.toml`), users will gain:\n  - Clear package\
+  \ identification (`pip install your-package-name`).  \n  - Accurate version tracking\
+  \ and upgrade paths.  \n  - Access to declared dependencies, ensuring the package\
+  \ works out\u2011of\u2011the\u2011box.  \n\n---  \n\n*Takeaway:* The existing `setup.py`\
+  \ is a placeholder and should be expanded with full metadata to support both maintainers\
+  \ (packaging & distribution) and end\u2011users (reliable installation and version\
+  \ awareness)."

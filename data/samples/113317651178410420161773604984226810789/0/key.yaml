@@ -1,0 +1,30 @@
+"facts:\n- explanation: The 'make_row' function processes an 'OutdateResult' object\
+  \ to determine\n    if a package is outdated. It applies color-coding to installed,\
+  \ wanted, and latest\n    version fields based on conditions like 'install_not_found'\
+  \ or 'version < wanted'.\n    The function returns a list of strings for table display\
+  \ or None if the package\n    is up-to-date.\n  fact: The file 'print_outdated.py'\
+  \ contains a function 'make_row' that generates\n    a formatted list entry for\
+  \ a package's version status, returning None if the package\n    is not outdated.\n\
+  - explanation: This function initializes colorama for consistent color output across\n\
+  \    operating systems. It constructs a table with columns 'Name', 'Installed',\
+  \ 'Wanted',\n    'Latest', and displays status messages (e.g., 'Everything is up-to-date!'\
+  \ in cyan)\n    with color-coded guidance for users.\n  fact: The function 'print_outdated'\
+  \ uses 'colorama.init()' to enable cross-platform\n    terminal color support and\
+  \ formats results in a colored table using 'terminaltables.AsciiTable'.\n- explanation:\
+  \ The function checks the 'quiet' flag. If not quiet and outdated packages\n   \
+  \ exist, it calls 'sys.exit(1)'. This behavior enables script-based tools to detect\n\
+  \    outdated dependencies programmatically, aligning with the maintainer's need\
+  \ to\n    integrate results into CI/CD pipelines or other automated flows.\n  fact:\
+  \ When non-quiet mode is active and outdated packages are present, 'print_outdated'\n\
+  \    exits with status code 1 to signal issues to the caller.\n- explanation: The\
+  \ 'OutdateResult' class is imported from a sibling module. This file\n    focuses\
+  \ on formatting logic rather than generating the raw data, indicating a\n    separation\
+  \ of concerns between checking package versions and displaying results.\n  fact:\
+  \ The file depends on 'OutdateResult' from '.check_outdated' module to determine\n\
+  \    version statuses, but the actual implementation of that class is not present\
+  \ in\n    this file.\n- explanation: The function uses 'termcolor.colored' with\
+  \ attributes like 'bold' and\n    colors like red/green to enforce visual distinction.\
+  \ For example, 'installed'\n    versions in red indicate conflicts (e.g., not wanted),\
+  \ while 'wanted' or 'latest'\n    versions in green signal potential updates.\n\
+  \  fact: 'Conditional color-coding in ''make_row'' highlights package issues: red\
+  \ for\n    unavailable/outdated versions, green for updatable versions.'\n"

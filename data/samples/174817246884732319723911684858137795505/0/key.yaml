@@ -1,0 +1,3 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## Basic usage \
+  \ \n```bash\npip-outdated\n```  \n- By default reads `requirements.txt` and `setup.cfg`.\
+  \  \n"

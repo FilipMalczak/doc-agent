@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'check_outdated' includes calls to 'get_local_version'\n    and 'get_pypi_versions'\
+  \ within its code, which is evident from the usage of 'await\n    get_local_version'\
+  \ and 'await get_pypi_versions' in the function's body.\n  fact: The function check_outdated\
+  \ in 'pip_outdated/check_outdated.py' calls the\n    get_local_version and get_pypi_versions\
+  \ functions.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

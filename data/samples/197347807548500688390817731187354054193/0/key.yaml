@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The file contains a function 'iter_files' that processes glob patterns\n    to\
-  \ yield file paths, which is essential for locating requirement files.\n  fact:\
-  \ In document with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function\n\
-  \    named iter_files that yields pathlib.Path objects from multiple glob patterns.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

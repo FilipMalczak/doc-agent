@@ -1,0 +1,47 @@
+"**Notes \u2013 End\u2011User Perspective**  \n\n- **Purpose**  \n  - Provides utilities\
+  \ to locate and parse Python package requirements from various sources (plain requirement\
+  \ files, `setup.cfg` files, or direct text).  \n\n- **Key Functions**  \n\n  - `iter_files(patterns)`\
+  \  \n    - *Input*: iterable of glob patterns or file paths (strings).  \n    -\
+  \ *Output*: yields `pathlib.Path` objects for each matching file.  \n    - *Behaviour*:\
+  \  \n      - If a pattern is an existing file, yields that file directly.  \n  \
+  \    - Otherwise performs a recursive glob (`Path(\".\").glob(pattern)`).  \n\n\
+  \  - `file_to_lines(file)`  \n    - *Input*: `pathlib.Path` pointing to a requirement\
+  \ file.  \n    - *Output*: generator of cleaned lines (comments removed, line continuations\
+  \ handled).  \n    - *Side\u2011effect*: prints `Parse: <file>` when `verbose()`\
+  \ is true.  \n\n  - `parse_lines(lines)`  \n    - *Input*: iterable of raw text\
+  \ lines.  \n    - *Output*: yields each logical line after:  \n      - stripping\
+  \ comments (`# \u2026`),  \n      - merging lines ending with a back\u2011slash\
+  \ (`\\`).  \n\n  - `parse_require(text)`  \n    - *Input*: a single requirement\
+  \ string (may include installer options).  \n    - *Process*: removes any trailing\
+  \ installer option (`--option` or `-o`).  \n    - *Output*: a `packaging.requirements.Requirement`\
+  \ object or `None` if the text is invalid.  \n\n  - `parse_requirements(file)` \
+  \ \n    - *Input*: `pathlib.Path` of a requirement file (`.txt`, `.pip`, etc.).\
+  \  \n    - *Output*: yields `Requirement` objects for each valid line.  \n\n  -\
+  \ `parse_requirements_text(text)`  \n    - *Input*: a multi\u2011line string containing\
+  \ requirement definitions.  \n    - *Output*: yields `Requirement` objects, using\
+  \ the same cleaning logic as file parsing.  \n\n  - `parse_cfg(file)`  \n    - *Input*:\
+  \ `pathlib.Path` to a `setup.cfg` file.  \n    - *Output*: yields `Requirement`\
+  \ objects extracted from:  \n      - `setup_requires`,  \n      - `install_requires`,\
+  \ and  \n      - any extra requirement groups under `options.extras_require`.  \n\
+  \n  - `find_require(files)`  \n    - *Input*: iterable of glob patterns or file\
+  \ paths.  \n    - *Output*: yields `Requirement` objects from all matched files,\
+  \ delegating to `parse_cfg` for `.cfg` files and to `parse_requirements` for others.\
+  \  \n\n- **Typical Usage for End\u2011Users**  \n\n  ```python\n  from pip_outdated.find_require\
+  \ import find_require\n\n  # Example: locate all requirements from *.txt and setup.cfg\
+  \ files in the project root\n  for req in find_require([\"requirements.txt\", \"\
+  setup.cfg\", \"src/**/*.txt\"]):\n      print(req)          # prints a Requirement\
+  \ object, e.g., \"requests>=2.0\"\n  ```\n\n- **Important Behaviour Details**  \n\
+  \n  - Comment handling respects the first `#` that appears after any characters\
+  \ (including leading whitespace).  \n  - Line continuations are recognised only\
+  \ when a line ends with a back\u2011slash followed by a newline (`\\\\\\n`).  \n\
+  \  - Invalid requirement lines are silently ignored (the parser returns `None`).\
+  \  \n  - Verbose mode (`verbose()` returns truthy) triggers console output for each\
+  \ file being parsed.  \n\n- **Dependencies**  \n\n  - Standard library: `collections.abc`,\
+  \ `configparser`, `pathlib`, `re`.  \n  - Third\u2011party: `packaging.requirements.Requirement`\
+  \ and `InvalidRequirement`.  \n\n- **Limitations for End\u2011Users**  \n\n  - Only\
+  \ files with a `.cfg` suffix are treated as configuration files; other formats must\
+  \ be plain requirement files.  \n  - Installer options embedded in requirement strings\
+  \ are stripped, but complex conditional markers (e.g., environment markers) are\
+  \ passed through unchanged to `Requirement`.  \n\nThese notes capture the functionality\
+  \ and usage of `pip_outdated/find_require.py` from the perspective of an end\u2011\
+  user who needs to extract package requirements for analysis or tooling."

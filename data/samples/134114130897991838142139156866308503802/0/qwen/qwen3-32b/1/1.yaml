@@ -1,0 +1,32 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"facts": []}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-31fca0d19ea54af08b7b114747c64096
+  tool_name: final_result
+- args: '{"comment": "empty facts list"}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-66f2d48659d941d2b03ca6d4dd00fd73
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768169078-AJWPPczPaErqHwEvsPzm
+run_id: efa8a49b-9839-4ec5-a438-ccdb58dce969
+timestamp: '2026-01-11T22:04:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1930
+  output_audio_tokens: 0
+  output_tokens: 36

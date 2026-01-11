@@ -1,0 +1,3 @@
+"## Project Overview (end\u2011user perspective)\n\n- **Name:** `pip-outdated`  \n\
+  - **Version:** `0.8.0`  \n- **Purpose:** Detects outdated packages listed in a `requirements.txt`\
+  \ or `setup.cfg` file, helping you keep your Python dependencies current.  \n"

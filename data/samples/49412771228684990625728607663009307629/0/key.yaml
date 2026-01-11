@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The provided input contains an XML element with the 'path' attribute\n    set\
+  \ to 'pip_outdated/__init__.py' and an 'id' attribute set to 'e66496b8-e454-5538-92b9-b2023e11adea'.\n\
+  \    This directly indicates the existence of this Python source file within the\
+  \ project\n    structure.\n  fact: There is a Python source file with the path pip_outdated/__init__.py\
+  \ and document\n    ID e66496b8-e454-5538-92b9-b2023e11adea.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

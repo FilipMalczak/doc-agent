@@ -1,0 +1,16 @@
+"## \U0001F527\u202FKey Functions  \n\n- **`make_row(outdate: OutdateResult) -> Optional[List[str]]`**\
+  \  \n  - Builds a table row for a single package.  \n  - Returns **`None`** if the\
+  \ package is not outdated.  \n  - Applies colour logic:  \n    - **Red** for unavailable,\
+  \ missing, or version\u2011specifier violations.  \n    - **Green** for updatable\
+  \ versions.  \n  - Relies on `OutdateResult` methods:  \n    - `outdated()`, `install_not_found()`,\
+  \ `install_not_wanted()`, `pypi_not_found()`, `version`, `wanted`, `latest`, `name`.\
+  \  \n\n- **`async def print_outdated(outdates: List[Awaitable[OutdateResult]], quiet:\
+  \ bool)`**  \n  - Initializes colour handling with **`colorama.init()`**.  \n  -\
+  \ Constructs a table header `[\"Name\", \"Installed\", \"Wanted\", \"Latest\"]`.\
+  \  \n  - Iterates over the provided awaitable `OutdateResult` objects, converting\
+  \ each to a coloured row via `make_row`.  \n  - **Output scenarios:**  \n    - **No\
+  \ requirements** \u2192 prints **red** \u201CNo requirements found.\u201D and returns.\
+  \  \n    - **All up\u2011to\u2011date** \u2192 prints **cyan bold** \u201CEverything\
+  \ is up\u2011to\u2011date!\u201D and returns.  \n    - **Outdated packages present**\
+  \ \u2192 prints colour legend, renders an ASCII table via `terminaltables.AsciiTable`,\
+  \ and (if `quiet` is **false**) exits the process with status **1**.  \n\n---\n"

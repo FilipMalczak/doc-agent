@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is clearly stated in the content where the setup_requires section\n    is\
+  \ defined with the specified packages and their versions.\n  fact: In the setup.cfg\
+  \ created in the test, the [options] section contains setup_requires\n    with 'setuptools_scm\
+  \ >= 1.15.0' and 'setuptools_scm_git_archive >= 1.0'.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

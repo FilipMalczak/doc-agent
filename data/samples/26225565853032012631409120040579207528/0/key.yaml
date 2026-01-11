@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function `get_session` is explicitly defined in the provided file,\n    returning\
-  \ an `aiohttp.ClientSession` configured with a custom User-Agent and a\n    TCPConnector.\n\
-  \  fact: In document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there is one\
-  \ function\n    named `get_session` of type `aiohttp.ClientSession`\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,0 +1,4 @@
+In file 79501155-b71e-5dd6-a529-82fd14d4a11b, there is an async function check_outdated
+  that retrieves the current version and PyPI versions of a package then returns an
+  OutdateResult.
+...

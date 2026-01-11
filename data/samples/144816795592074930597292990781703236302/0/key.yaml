@@ -1,0 +1,7 @@
+"## Project Overview (maintainer perspective)\n\n- **Package name**: `pip-outdated`\n\
+  - **Current version**: `0.8.0`\n- **Short description**: *Find outdated dependencies\
+  \ in your `requirements.txt` or `setup.cfg`*\n- **Author**: `eight` (`eight04@gmail.com`)\n\
+  - **License**: MIT\n- **Project homepage**: <https://github.com/eight04/pip-outdated>\n\
+  - **Long description source**: `README.rst` (included via `long_description = file:\
+  \ README.rst`)\n\n### Classification & Audience\n### Keywords\n### Packaging Details\n\
+  ### Additional Configuration\n### Maintainer\u2011relevant take\u2011aways"

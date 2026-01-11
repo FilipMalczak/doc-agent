@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file is identified as README.rst and contains ReStructuredText\n    (RST)\
+  \ content describing the pip-outdated package, including installation, usage,\n\
+  \    and other details.\n  fact: Documentation is in RST format, specifically for\
+  \ `pip-outdated` project's\n    README.rst file.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

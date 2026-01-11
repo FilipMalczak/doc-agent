@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is visible in the first line of the content, where the import\n    statement\
+  \ is written.\n  fact: The function 'test_parse_cfg' imports 'parse_cfg' from 'pip_outdated.find_require'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

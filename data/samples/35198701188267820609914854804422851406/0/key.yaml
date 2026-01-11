@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'file_to_lines' function opens the specified file and processes\n    its lines\
+  \ with 'parse_lines', which removes comments starting with '#' and handles\n   \
+  \ line continuation using a backslash character. This processed content is then\n\
+  \    yielded line by line.\n  fact: In file 'pip_outdated/find_require.py', the\
+  \ function 'file_to_lines' reads\n    the content of a file, handling comments and\
+  \ line continuations (using '#' for\n    comments and '\\' for continuing a line).\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

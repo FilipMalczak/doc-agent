@@ -1,0 +1,6 @@
+"## Project Overview (maintainer perspective)\n### Packaging Details\n- **Distribution\
+  \ settings**\n  - `zip_safe = True`\n  - Packages are discovered automatically with\
+  \ `find:`, excluding the `tests` directory.\n- **Dependencies**\n  - `aiohttp~=3.12`\n\
+  \  - `colorama~=0.4.6`\n  - `packaging~=25.0`\n  - `termcolor~=3.1`\n  - `terminaltables~=3.1`\n\
+  - **Console entry point**\n  - `pip-outdated = pip_outdated:main` (creates the `pip-outdated`\
+  \ CLI command)\n"

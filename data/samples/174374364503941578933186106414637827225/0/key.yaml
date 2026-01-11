@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code executes 'names = [r.name for r in parse_cfg(str(file))] and\n    then\
+  \ checks if 'names' matches the expected package names in the assertion.\n  fact:\
+  \ In document with ID 7f70c452-3de8-51f4-968c-80115530e69c, the test function\n\
+  \    'test_parse_cfg' parses the 'setup.cfg' file using the 'parse_cfg' function\
+  \ and\n    asserts the names of the packages extracted against an expected list.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,21 @@
+"**Notes for Maintainer (user\u2011facing documentation)**  \n\n- **Purpose**: `get_session()`\
+  \ creates a reusable **`aiohttp.ClientSession`** configured for the *pip\u2011outdated*\
+  \ tool.  \n- **Headers**: The session automatically sends the header `User-Agent:\
+  \ \"pip-outdated\"` with every request, which helps external services identify traffic\
+  \ coming from this tool.  \n- **Connection limits**: Uses an **`aiohttp.TCPConnector`**\
+  \ with `limit=5`, capping the number of simultaneous outbound HTTP connections to\
+  \ five. This reduces load on remote package indexes and avoids overwhelming the\
+  \ user's network.  \n- **Lifecycle management**:  \n  - The function **returns a\
+  \ new session each call**; callers are responsible for closing it (e.g., `await\
+  \ session.close()` or using an async context manager).  \n  - Failing to close sessions\
+  \ can lead to open sockets and resource leaks that affect the user\u2019s environment.\
+  \  \n- **Intended usage pattern**:  \n  ```python\n  async with get_session() as\
+  \ session:\n      async with session.get(url) as resp:\n          data = await resp.json()\n\
+  \  ```  \n  Using an async context manager ensures the session is properly closed\
+  \ after the block.  \n- **Impact on end\u2011users**:  \n  - The limited connection\
+  \ pool helps keep the tool\u2019s network footprint modest, which is especially\
+  \ important for users on slow or metered connections.  \n  - The custom User\u2011\
+  Agent string may be logged by package indexes; it does not affect authentication\
+  \ or request success.  \n\n*Maintainers should mention the need for explicit session\
+  \ cleanup in any documentation that describes how to integrate or extend the network\u2011\
+  access portion of the project.*"

@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The presence of 'async def check_outdated' in the file confirms the\n    declaration\
+  \ of this function as asynchronous.\n  fact: The file 'pip_outdated/check_outdated.py'\
+  \ defines an asynchronous function\n    named check_outdated.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

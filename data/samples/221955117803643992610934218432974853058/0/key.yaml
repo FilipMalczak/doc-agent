@@ -1,0 +1,4 @@
+The 'main' function in pip_outdated/__init__.py implements a workaround for asyncio
+  limitations by using 'get_event_loop().run_until_complete()' instead of 'asyncio.run()'
+  to execute the asynchronous '_main' function.
+...

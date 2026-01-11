@@ -1,0 +1,8 @@
+"### Async helper functions  \n\n| Function | Signature | What it does |\n|---|---|---|\n\
+  | `get_local_version(name: str) -> Optional[Version]` | Async | Runs `pip show <name>`\
+  \ and parses the `Version:` line. Returns `None` on error or if the package isn\u2019\
+  t installed. |\n| `get_pypi_versions(name: str, session) -> List[Version]` | Async\
+  \ | Queries `https://pypi.org/pypi/<name>/json`, extracts release keys, filters\
+  \ out invalid or prerelease versions, sorts them, and returns the list. |\n| `check_outdated(require,\
+  \ session) -> OutdateResult` | Async | Orchestrates the two helpers, optionally\
+  \ prints a verbose message, and returns a populated `OutdateResult`. |\n"

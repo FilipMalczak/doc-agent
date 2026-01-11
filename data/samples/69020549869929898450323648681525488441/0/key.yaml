@@ -1,0 +1,3 @@
+The primary dependencies required for the project include aiohttp, colorama, packaging,
+  termcolor, and terminaltables.
+...

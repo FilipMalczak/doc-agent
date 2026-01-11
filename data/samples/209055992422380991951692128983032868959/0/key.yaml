@@ -1,0 +1,28 @@
+"facts:\n- explanation: The document explicitly states that this tool is designed\
+  \ to find outdated\n    dependencies in these specific files.\n  fact: pip-outdated\
+  \ finds outdated dependencies in requirements.txt or setup.cfg\n    files.\n- explanation:\
+  \ The document provides installation instructions using 'pip install\n    pip-outdated',\
+  \ indicating that it is available on PyPI.\n  fact: The pip-outdated package can\
+  \ be installed via pip from PyPI.\n- explanation: The document notes the tool compares\
+  \ the version number with the version\n    specifier in requirements.txt or setup.cfg.\n\
+  \  fact: pip-outdated compares versions in requirements files with the latest versions\n\
+  \    from PyPI.\n- explanation: The document provides examples showing the use of\
+  \ glob patterns like\n    '*-requirements.txt' and 'requirements/*.txt'.\n  fact:\
+  \ The pip-outdated command line tool accepts glob patterns for multiple file\n \
+  \   inputs.\n- explanation: The document describes optional arguments such as -v/--verbose\
+  \ which\n    returns more information and -q/--quiet which modifies exit codes.\n\
+  \  fact: pip-outdated supports flags for verbose output and quiet mode with custom\n\
+  \    exit codes.\n- explanation: The document explains that the tool can be run\
+  \ on multiple files and\n    offers various optional settings and behaviors.\n \
+  \ fact: The package has options to be run on multiple files and supports various\
+  \ configuration\n    settings.\n- explanation: The changelog section details version\
+  \ 0.8.0 where setuptools was dropped\n    and configparse was adopted.\n  fact:\
+  \ The pip-outdated version 0.8.0 removed the setuptools dependency and switched\n\
+  \    to configparse.\n- explanation: The changelog section for version 0.7.0 indicates\
+  \ the change to ignore\n    such errors.\n  fact: The pip-outdated version 0.7.0\
+  \ started to ignore 'InvalidVersion' errors.\n- explanation: The changelog for version\
+  \ 0.3.0 mentions additions to check setup_requires\n    and extras_require fields.\n\
+  \  fact: In version 0.3.0, pip-outdated checks setup_requires and extras_require\
+  \ in\n    config files.\n- explanation: Version 0.4.0 specifies a breaking change\
+  \ to move to Python 3.7 and\n    newer, indicating compatibility requirements.\n\
+  \  fact: pip-outdated uses Python 3.7 or newer versions.\n"

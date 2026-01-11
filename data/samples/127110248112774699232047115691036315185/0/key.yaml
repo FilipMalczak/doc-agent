@@ -1,3 +1,0 @@
-'The document with ID d1ef4334-7006-5204-a81e-17bb357c0661 defines a function set_verbose(value:
-  bool) -> None in the source file pip_outdated/verbose.py that modifies the global
-  VERBOSE variable.'

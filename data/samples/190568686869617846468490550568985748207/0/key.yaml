@@ -1,0 +1,10 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ These options are defined through the 'add_argument' calls in the 'parse_args'\n\
+  \    function. Each option's purpose, default values, and help messages are explicitly\n\
+  \    specified in the code.\n  fact: 'The pip-outdated tool supports three command-line\
+  \ options: ''-v'' or ''--verbose''\n    to print verbose information, ''-q'' or\
+  \ ''--quiet'' to prevent returning an exit\n    code of 1 when dependencies are\
+  \ not up to date, and a positional ''<file>'' argument\n    to specify requirements\
+  \ files (defaulting to ''requirements.txt'' and ''setup.cfg'').'\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

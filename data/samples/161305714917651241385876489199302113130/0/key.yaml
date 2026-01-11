@@ -1,3 +1,0 @@
-The `test_pytz` function in document b9979f2e-2b82-5c3c-9151-9f89ee7302cf uses asynchronous
-  session management via `get_session()`.
-...

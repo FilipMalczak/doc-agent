@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Version 0.8.0 in the changelog states that the dependency on setuptools\n    was\
+  \ dropped and that the configparser is now used for reading setup.cfg files.\n \
+  \ fact: The pip-outdated tool previously used setuptools for reading setup.cfg files\n\
+  \    but has since switched to using the configparser module as of version 0.8.0.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

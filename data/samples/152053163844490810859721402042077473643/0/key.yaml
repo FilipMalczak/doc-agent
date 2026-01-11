@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code explicitly creates an async context manager with 'get_session()',\n \
+  \   suggesting that it's used to handle HTTP requests for checking package versions.\n\
+  \    The session is passed to 'check_outdated' tasks for network operations.\n \
+  \ fact: The '_main' function in pip_outdated/__init__.py uses a custom HTTP session\n\
+  \    via 'get_session()' to manage network requests while checking for outdated\
+  \ packages.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

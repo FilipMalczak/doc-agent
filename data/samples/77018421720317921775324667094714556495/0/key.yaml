@@ -1,3 +1,0 @@
-The package has install dependencies including 'aiohttp~=3.12', 'colorama~=0.4.6',
-  'packaging~=25.0', 'termcolor~=3.1', and 'terminaltables~=3.1' as per setup.cfg.
-...

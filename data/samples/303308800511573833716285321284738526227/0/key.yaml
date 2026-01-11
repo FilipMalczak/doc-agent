@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'print_outdated' function exits with status code 1 when outdated\n    packages\
+  \ are found and quiet mode is disabled. This is explicitly shown by 'sys.exit(1)'\n\
+  \    in the code. End-users would encounter this behavior when running the tool\
+  \ and\n    receiving non-zero exit codes on failure.\n  fact: The pip_outdated/print_outdated.py\
+  \ causes the process to exit with status\n    code 1 when outdated packages are\
+  \ found and quiet mode is not enabled.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

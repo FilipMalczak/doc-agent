@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Looking at the code, the written setup.cfg contains these three sections\n   \
+  \ with specific package requirements specified.\n  fact: 'The test writes a setup.cfg\
+  \ file with content that includes three sections:\n    [options], [options.extras_require],\
+  \ and [install_requires].'\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

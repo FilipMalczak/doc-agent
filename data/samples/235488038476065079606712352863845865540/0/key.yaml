@@ -1,0 +1,13 @@
+"facts:\n- explanation: The first line defines the variable as a boolean, which is\
+  \ a built-in\n    type in Python. The second line initializes the variable to None,\
+  \ which is acceptable\n    for a boolean since it is also a truthy/falsy value.\n\
+  \  fact: The file 'pip_outdated/verbose.py' defines a boolean variable named 'VERBOSE'\n\
+  \    to store verbose state.\n- explanation: The function is defined to take a boolean\
+  \ parameter and assigns it\n    to the global 'VERBOSE' variable, which is used\
+  \ to store the verbose state. This\n    function is therefore responsible for setting\
+  \ the value of the verbose state.\n  fact: The function 'set_verbose' in 'pip_outdated/verbose.py'\
+  \ is used to set the\n    verbose state to either True or False.\n- explanation:\
+  \ The function 'verbose' is defined to return the global 'VERBOSE' variable,\n \
+  \   which contains the current state of the verbose setting. This function is therefore\n\
+  \    used to retrieve the current verbose state.\n  fact: The function 'verbose'\
+  \ in 'pip_outdated/verbose.py' is used to retrieve the\n    current verbose state.\n"

@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function checks the 'quiet' flag. If not quiet and outdated packages\n   \
+  \ exist, it calls 'sys.exit(1)'. This behavior enables script-based tools to detect\n\
+  \    outdated dependencies programmatically, aligning with the maintainer's need\
+  \ to\n    integrate results into CI/CD pipelines or other automated flows.\n  fact:\
+  \ When non-quiet mode is active and outdated packages are present, 'print_outdated'\n\
+  \    exits with status code 1 to signal issues to the caller.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

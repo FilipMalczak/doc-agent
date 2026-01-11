@@ -1,0 +1,28 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"comment": "The file ''tests/__init__.py'' is empty, so there are no facts
+    to extract."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-1ce92177ee5f4ebca41c13dc6687f34b
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768169078-ZUKHhsJHbvz8GpwSe6DG
+run_id: 28f77ad0-e24a-4290-99fc-8af3e8f50568
+timestamp: '2026-01-11T22:04:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1352
+  output_audio_tokens: 0
+  output_tokens: 39

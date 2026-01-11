@@ -1,0 +1,3 @@
+file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' (tests/test_pytz.py) imports the 'get_pypi_versions'
+  function from 'pip_outdated.check_outdated'
+...

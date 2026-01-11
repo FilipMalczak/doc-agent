@@ -1,0 +1,22 @@
+"## Project Overview (end\u2011user perspective)\n\n- **Name:** `pip-outdated`  \n\
+  - **Version:** `0.8.0`  \n- **Purpose:** Detects outdated packages listed in a `requirements.txt`\
+  \ or `setup.cfg` file, helping you keep your Python dependencies current.  \n\n\
+  ### Key Metadata  \n\n- **Description:** \u201CFind outdated dependencies in your\
+  \ requirements.txt or setup.cfg\u201D  \n- **Author:** *eight* (`eight04@gmail.com`)\
+  \  \n- **License:** MIT  \n- **Homepage / Source:** <https://github.com/eight04/pip-outdated>\
+  \  \n- **Keywords:** `pip`, `check`, `outdate`, `npm`  \n\n### Classification (from\
+  \ PyPI classifiers)  \n\n- Development Status: **Beta** (`4 - Beta`)  \n- Environment:\
+  \ **Console**  \n- Intended Audience: **Developers**  \n- Programming Language:\
+  \ **Python 3.7**  \n- Topic: **Software Development :: Build Tools**  \n\n### Installation\
+  \ Requirements  \n\nThe package depends on the following libraries (automatically\
+  \ installed via `pip`):  \n\n- `aiohttp~=3.12`  \n- `colorama~=0.4.6`  \n- `packaging~=25.0`\
+  \  \n- `termcolor~=3.1`  \n- `terminaltables~=3.1`  \n\n### How to Use  \n\n- After\
+  \ installation, a console script is provided:  \n\n  ```bash\n  pip-outdated\n \
+  \ ```\n\n  This command maps to the function `main` in the module `pip_outdated`.\
+  \ Running it will scan your project\u2019s `requirements.txt` or `setup.cfg` and\
+  \ list any packages that have newer releases available.\n\n### Additional Configuration\
+  \  \n\n- The `[vpip]` section includes a `command_fallback` setting (`python cute.py`).\
+  \ This is an internal hook and generally does **not** affect typical end\u2011user\
+  \ operation.  \n\n---  \n\n*These notes capture the essential information an end\u2011\
+  user would need to understand what the `pip-outdated` package does, how to install\
+  \ it, and how to invoke its primary functionality.*"

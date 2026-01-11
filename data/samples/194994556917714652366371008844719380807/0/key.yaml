@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function make_row defines three helper functions colored_current,\n    colored_wanted,\
-  \ and colored_latest.\n  fact: make_row uses three helper functions colored_current,\
-  \ colored_wanted and colored_latest\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

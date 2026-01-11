@@ -1,3 +1,0 @@
-The get_session function uses an aiohttp.ClientSession with a TCPConnector having
-  a limit of 7 in pip_out Dokumentationen session.py
-...

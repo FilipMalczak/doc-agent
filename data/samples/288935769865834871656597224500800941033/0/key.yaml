@@ -1,0 +1,4 @@
+"## Installation Requirements (runtime dependencies)  \n\n- `aiohttp~=3.12`  \n- `colorama~=0.4.6`\
+  \  \n- `packaging~=25.0`  \n- `termcolor~=3.1`  \n- `terminaltables~=3.1`  \n\n\
+  These will be installed automatically when the package is installed via `pip`. \
+  \ \n"

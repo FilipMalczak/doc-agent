@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is specified in the [options.entry_points] section in the setup.cfg\n   \
+  \ file where 'console_scripts' links 'pip-outdated' to 'pip_outdated:main'.\n  fact:\
+  \ The console script pip-outdated is associated with the main function in the\n\
+  \    pip_outdated module.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

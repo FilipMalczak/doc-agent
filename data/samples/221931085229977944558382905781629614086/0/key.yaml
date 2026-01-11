@@ -1,0 +1,3 @@
+The setup.py file uses setuptools' setup function but contains no explicit configuration
+  parameters.
+...

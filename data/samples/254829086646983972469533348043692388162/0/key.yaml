@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The [options.extras_require.docs] section is explicitly defined in\n    the test's\
+  \ setup.cfg with two packages listed.\n  fact: Tests/test_parse_cfg.py shows that\
+  \ [options.extras_require.docs] in the simulated\n    setup.cfg requires 'alabaster'\
+  \ and 'Sphinx'.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

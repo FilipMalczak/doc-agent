@@ -1,0 +1,21 @@
+"facts:\n- explanation: The code snippet shows the definition of a dataclass 'OutdateResult'\n\
+  \    in the file. This is a directly observable fact from the source code.\n  fact:\
+  \ In file 79501155-b71e-5dd6-a529-82fd14d4a11b, there is a dataclass named OutdateResult.\n\
+  - explanation: The __post_init__ method is defined in the code for the OutdateResult\n\
+  \    class. The implementation details show the exact behavior described in this\
+  \ fact.\n  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b, OutdateResult has\
+  \ a post-initialization\n    method that attempts to assign wanted and latest version\
+  \ attributes based on the\n    all_versions list.\n- explanation: The get_local_version\
+  \ function clearly uses asyncio's create_subprocess_shell\n    to execute pip show\
+  \ commands, which is a direct fact from the implementation.\n  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ the package uses asyncio to\n    create a subprocess for executing pip show commands\
+  \ to get local package versions.\n- explanation: The code shows a clear implementation\
+  \ of get_pypi_versions using an\n    async HTTP GET request to the specified PyPI\
+  \ URL with the aiohttp session.\n  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ the get_pypi_versions function\n    fetches package information from https://pypi.org/pypi/{name}/json\
+  \ using an aiohttp\n    session.\n- explanation: The code includes an 'async def\
+  \ check_outdated' definition that performs\n    the described operations of version\
+  \ retrieval and returns the OutdateResult as\n    seen in the implementation.\n\
+  \  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b, there is an async function\
+  \ check_outdated\n    that retrieves the current version and PyPI versions of a\
+  \ package then returns\n    an OutdateResult.\n"

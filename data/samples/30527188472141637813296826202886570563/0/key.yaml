@@ -1,0 +1,6 @@
+"## Typical Usage (user\u2011facing documentation angle)\n1. **Initialize the flag**\
+  \ early in the application (e.g., based on command\u2011line options or configuration\
+  \ files):\n   ```python\n   from pip_outdated.verbose import set_verbose\n   set_verbose(True)\
+  \   # or False\n   ```\n2. **Check the flag** wherever verbose output is needed:\n\
+  \   ```python\n   from pip_outdated.verbose import verbose\n   if verbose():\n \
+  \      print(\"Detailed debugging information...\")\n   ```\n"

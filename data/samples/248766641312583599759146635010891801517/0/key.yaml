@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The find_require function determines whether to parse a file as a .cfg\n    (using\
+  \ parse_cfg) or a standard requirements file (using parse_requirements).\n  fact:\
+  \ The document contains a function named find_require that selects parsing method\n\
+  \    based on file extension (cfg vs non-cfg) in pip_outdated/find_require.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+The 'test_pytz' test function in 'test_pytz.py' calls 'await get_pypi_versions' to
+  check PyPi versions for 'pytz' using the session.
+...

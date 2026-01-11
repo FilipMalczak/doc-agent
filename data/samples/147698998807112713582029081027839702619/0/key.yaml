@@ -1,0 +1,4 @@
+The tool's changelog indicates that as of version 0.3.0, prereleases are no longer
+  checked and it also checks 'setup_requires' and 'extras_require' fields in setup.cfg
+  files.
+...

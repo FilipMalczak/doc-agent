@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'outdated' method is clearly defined in the code under the OutdateResult\n\
+  \    class, confirming this fact.\n  fact: The OutdateResult class has a method\
+  \ named outdated in file 'pip_outdated/check_outdated.py'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

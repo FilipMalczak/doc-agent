@@ -66,7 +66,11 @@ class RerankingInput(BaseModel):
     documents: list[ScoredDocument]
     additional_instructions: str
 
-class RerankingOutput(BaseModel):
+class RerankedItem(BaseModel):
     document_id: str = Field(validation_alias=AliasChoices("id", "doc_id"))
     new_score: int = Field(validation_alias=AliasChoices("updated_score", "score"))
     explanation: str = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
+
+class RerankingOutput(BaseModel):
+    ordered_document_ids: list[str]
+    rescoring: list[RerankedItem]

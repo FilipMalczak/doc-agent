@@ -1,3 +1,0 @@
-The file pip_outdated/find_require.py contains a function named parse_lines that processes
-  lines to handle comments and continuation.
-...

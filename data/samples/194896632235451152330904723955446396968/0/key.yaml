@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'ArgumentParser' instance's 'description' parameter explicitly\n    states\
+  \ that the tool's purpose is to find outdated dependencies in these specific\n \
+  \   file types, providing clear documentation within the code.\n  fact: The 'parse_args'\
+  \ function in pip_outdated/__init__.py defines a help message\n    indicating that\
+  \ pip-outdated is designed to find outdated dependencies in 'requirements.txt'\n\
+  \    or 'setup.cfg' files.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

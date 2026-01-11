@@ -1,0 +1,4 @@
+The file 'print_outdated.py' contains a function 'make_row' that generates a formatted
+  list entry for a package's version status, returning None if the package is not
+  outdated.
+...

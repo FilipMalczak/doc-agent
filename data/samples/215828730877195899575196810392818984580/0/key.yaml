@@ -1,0 +1,4 @@
+In file 79501155-b71e-5dd6-a529-82fd14d4a11b, OutdateResult has a post-initialization
+  method that attempts to assign wanted and latest version attributes based on the
+  all_versions list.
+...

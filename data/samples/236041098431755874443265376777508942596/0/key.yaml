@@ -1,0 +1,3 @@
+'The file d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py contains a
+  function named set_verbose(value: bool) -> None, which modifies the global VERBOSE
+  variable.'

@@ -1,3 +1,0 @@
-The _main function is an asynchronous function that handles finding dependencies,
-  checking for outdated packages, and printing the results.
-...

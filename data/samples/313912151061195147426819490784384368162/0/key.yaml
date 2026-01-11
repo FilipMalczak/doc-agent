@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The variable __version__ is defined with the value '0.8.0' in the provided\n \
+  \   source file, which is a common way to specify a package's version in Python\
+  \ projects.\n  fact: The package version in pip_outdated/__init__.py is 0.8.0.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

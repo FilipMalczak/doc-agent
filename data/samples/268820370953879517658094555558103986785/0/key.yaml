@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'as indicated by the code ''async with get_session() as session: await\n    get_pypi_versions(\"\
+  pytz\", session)'' where ''get_session'' is likely part of the\n    test harness\
+  \ for the function under test'\n  fact: file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ (tests/test_pytz.py) uses an asynchronous\n    session to test 'get_pypi_versions'\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

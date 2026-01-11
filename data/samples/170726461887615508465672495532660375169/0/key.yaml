@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code uses 'pip show' command to retrieve installed package version\n    information\
-  \ from the local environment.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
-  \ local package versions\n    are determined by running 'pip show {package}' command.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

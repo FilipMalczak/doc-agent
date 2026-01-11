@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file contains a function defined with @pytest.mark.asyncio and\n    named\
+  \ test_pytz, indicating it's a test function using pytest for testing asynchronous\n\
+  \    code.\n  fact: In tests/test_pytz.py, there is a test function called test_pytz\
+  \ that uses\n    pytest and asyncio.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

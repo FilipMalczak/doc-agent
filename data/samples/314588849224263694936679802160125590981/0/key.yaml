@@ -1,0 +1,2 @@
+'Version 0.2.0 of ''pip-outdated'' updated its dependencies to specific versions:
+  colorama@0.4.x, packaging@19.x, requests@2.x, termcolor@1.x, and terminaltables@3.x.'

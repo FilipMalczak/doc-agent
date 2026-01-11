@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code shows a clear implementation of get_pypi_versions using an\n    async\
+  \ HTTP GET request to the specified PyPI URL with the aiohttp session.\n  fact:\
+  \ In file 79501155-b71e-5dd6-a529-82fd14d4a11b, the get_pypi_versions function\n\
+  \    fetches package information from https://pypi.org/pypi/{name}/json using an\
+  \ aiohttp\n    session.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

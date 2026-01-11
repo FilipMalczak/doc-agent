@@ -1,0 +1,27 @@
+"facts:\n- explanation: Extracted from 'name = pip-outdated' in the [metadata] section\
+  \ of setup.cfg.\n  fact: The package name is pip-outdated in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n\
+  - explanation: Defined by 'version = 0.8.0' in the [metadata] section.\n  fact:\
+  \ The package version is 0.8.0 in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n\
+  - explanation: Declared in 'description = Find outdated dependencies in your requirements.txt\n\
+  \    or setup.cfg'.\n  fact: The package's purpose is to find outdated dependencies\
+  \ in requirements.txt\n    or setup.cfg files in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n\
+  - explanation: Provided in 'author = eight' and 'author_email = eight04@gmail.com'\n\
+  \    fields.\n  fact: The author of the package is 'eight' (eight04@gmail.com) in\
+  \ document with\n    ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n- explanation: Specified\
+  \ by 'license = MIT' in the [metadata] section.\n  fact: The package is licensed\
+  \ under MIT in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n- explanation:\
+  \ Configured in [options.entry_points].console_scripts as 'pip-outdated\n    = pip_outdated:main'.\n\
+  \  fact: The package's main console script is 'pip-outdated' which imports 'pip_outdated:main'\n\
+  \    in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n- explanation: Defined\
+  \ in [options.packages.find].exclude = tests.\n  fact: The project excludes 'tests'\
+  \ directory from packages in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n\
+  - explanation: Listed in [options].install_requires section.\n  fact: 'The package\
+  \ has these required dependencies in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73:\n\
+  \    aiohttp~=3.12, colorama~=0.4.6, packaging~=25.0, termcolor~=3.1, terminaltables~=3.1'\n\
+  - explanation: 'Declared in classifiers as ''Development Status :: 4 - Beta''.'\n\
+  \  fact: The package's development status is '4 - Beta' in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n\
+  - explanation: Provided by 'url = https://github.com/eight04/pip-outdated'.\n  fact:\
+  \ The project's source code repository is at https://github.com/eight04/pip-outdated\n\
+  \    in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n- explanation: 'Specified\
+  \ by ''long_description = file: README.rst''.'\n  fact: The package uses README.rst\
+  \ as its long description source in document with\n    ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73\n"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'This is evident from the code where ''def make_row(outdate: OutdateResult)\n\
-  \    -> Optional[List[str]]:'' is directly defined'\n  fact: The file pip_outdated/print_outdated.py\
-  \ defines a function named make_row\n    that takes an OutdateResult object and\
-  \ returns a list of strings or None\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

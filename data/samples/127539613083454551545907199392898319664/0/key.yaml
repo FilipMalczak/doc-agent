@@ -1,0 +1,24 @@
+"facts:\n- explanation: It's stated in the input under 'language' as Python, 'details/path'\n\
+  \    as tests/test_parse_cfg.py, and 'additional_details/repo_function' as test.\n\
+  \  fact: document with ID 7f70c452-3de8-51f4-968c-80115530e69c is a source file\
+  \ for\n    the project in Python language; this file resides inside the tests directory,\n\
+  \    specifically at tests/test_parse_cfg.py, and has the function type as Test.\n\
+  - explanation: This is evident from the line 'from pip_outdated.find_require import\n\
+  \    parse_cfg' in the provided code.\n  fact: In document with ID 7f70c452-3de8-51f4-968c-80115530e69c,\
+  \ the file imports\n    the function or class 'parse_cfg' from the 'pip_outdated.find_require'\
+  \ module.\n- explanation: The function definition 'def test_parse_cfg(tmp_path):'\
+  \ and the subsequent\n    code that uses tmp_path and creates 'setup.cfg' file demonstrate\
+  \ this behavior.\n  fact: Document with ID 7f70c452-3de8-51f4-968c-80115530e69c\
+  \ contains a test function\n    called 'test_parse_cfg' which uses the 'tmp_path'\
+  \ pytest fixture to create a temporary\n    directory and subsequently a temporary\
+  \ file named 'setup.cfg'.\n- explanation: The code block shows the setup.cfg content,\
+  \ including [options], setup_requires,\n    install_requires, and [options.extras_require]\
+  \ for docs, which lists packages\n    like alabaster and Sphinx.\n  fact: In document\
+  \ with ID 7f70c452-3de8-51f4-968c-80115530e69c, the test function\n    'test_parse_cfg'\
+  \ generates content into the 'setup.cfg' file with specific package\n    requirements\
+  \ and extra dependencies for Sphinx documentation.\n- explanation: The code executes\
+  \ 'names = [r.name for r in parse_cfg(str(file))] and\n    then checks if 'names'\
+  \ matches the expected package names in the assertion.\n  fact: In document with\
+  \ ID 7f70c452-3de8-51f4-968c-80115530e69c, the test function\n    'test_parse_cfg'\
+  \ parses the 'setup.cfg' file using the 'parse_cfg' function and\n    asserts the\
+  \ names of the packages extracted against an expected list.\n"

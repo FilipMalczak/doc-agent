@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code explicitly defines the 'install_not_found' method inside the\n    OutdateResult\
+  \ class, which is confirmed by its declaration in the source file.\n  fact: The\
+  \ OutdateResult class contains a method named install_not_found in file\n    'pip_outdated/check_outdated.py'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

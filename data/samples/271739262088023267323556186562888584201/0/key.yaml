@@ -1,0 +1,42 @@
+"### Maintainer\u2011focused notes\n\n- **Purpose**\n  - Provides asynchronous utilities\
+  \ to detect whether a Python package installed in the current environment is outdated\
+  \ compared to versions available on PyPI.\n  - Intended for use by the `pip_outdated`\
+  \ CLI tool (or similar) that informs end\u2011users about packages that can be upgraded.\n\
+  \n- **Key components**\n  - `OutdateResult` *(dataclass)*\n    - Stores the original\
+  \ `Requirement`, the locally installed version (`version`), and the full list of\
+  \ available PyPI versions (`all_versions`).\n    - Automatically determines:\n \
+  \     - `wanted`: the newest version that satisfies the requirement\u2019s version\
+  \ specifier (if any).\n      - `latest`: the absolute newest stable version on PyPI.\n\
+  \    - Helper methods:\n      - `install_not_found()` \u2013 true when the package\
+  \ is not installed locally.\n      - `install_not_wanted()` \u2013 true when the\
+  \ installed version does not match the declared specifier.\n      - `pypi_not_found()`\
+  \ \u2013 true when no versions could be retrieved from PyPI.\n      - `outdated()`\
+  \ \u2013 true when the installed version differs from either the wanted or latest\
+  \ version.\n  - Asynchronous functions:\n    - `get_local_version(name: str) ->\
+  \ Optional[Version]`\n      - Executes `pip show {name}` via a subprocess.\n   \
+  \   - Parses the \u201CVersion: \u201D line; returns a `Version` object or `None`\
+  \ if the package is absent or the command fails.\n    - `get_pypi_versions(name:\
+  \ str, session) -> List[Version]`\n      - Performs an HTTP GET request to `https://pypi.org/pypi/{name}/json`.\n\
+  \      - Extracts release keys, filters out invalid or pre\u2011release versions,\
+  \ sorts them, and returns a list of `Version` objects.\n    - `check_outdated(require,\
+  \ session) -> OutdateResult`\n      - Logs the check when `verbose()` is enabled.\n\
+  \      - Normalizes the package name using `canonicalize_name`.\n      - Retrieves\
+  \ the local version and the list of PyPI versions, then returns an `OutdateResult`\
+  \ instance.\n\n- **Behavior important for end\u2011users**\n  - Only *stable* releases\
+  \ are considered (pre\u2011releases are ignored).\n  - If a package is not installed,\
+  \ `OutdateResult.install_not_found()` will be true, and the `version` field will\
+  \ be `None`.\n  - If PyPI cannot be queried or returns no versions, `OutdateResult.pypi_not_found()`\
+  \ will be true, and `latest` will be `None`.\n  - The `outdated()` method flags\
+  \ a package as outdated when the installed version is not the newest allowed version\
+  \ **or** not the absolute latest version, helping maintainers decide which upgrade\
+  \ path to suggest.\n\n- **Integration points**\n  - Relies on an external `session`\
+  \ (likely an `aiohttp.ClientSession`) for network calls; the caller must manage\
+  \ its lifecycle.\n  - Uses the `verbose` helper to optionally print debugging information;\
+  \ ensure the global verbose flag is correctly configured in the surrounding CLI\
+  \ or library.\n\n- **Potential maintenance considerations**\n  - The subprocess\
+  \ call assumes `pip` is available in the environment path; verify this for bundled\
+  \ distributions or alternative Python environments.\n  - Network errors are propagated\
+  \ via `raise_for_status()`. The calling code should handle exceptions (e.g., connectivity\
+  \ issues) to avoid crashing the whole check.\n  - The version parsing uses `packaging.version.parse`;\
+  \ ensure the `packaging` library remains up\u2011to\u2011date to handle newer version\
+  \ schemes."

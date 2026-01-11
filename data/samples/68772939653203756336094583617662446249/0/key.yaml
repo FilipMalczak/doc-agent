@@ -1,0 +1,4 @@
+The module d1ef4334-7006-5204-a81e-17bb357c0661/pip_outdated/verbose.py includes a
+  function named verbose() -> bool, which returns the current value of the global
+  VERBOSE variable.
+...

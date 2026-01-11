@@ -1,3 +1,0 @@
-The setup.cfg configures package discovery to exclude 'tests' from being included
-  in distributions.
-...

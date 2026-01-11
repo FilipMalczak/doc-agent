@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'verbose' is defined to return the global 'VERBOSE' variable,\n \
+  \   which contains the current state of the verbose setting. This function is therefore\n\
+  \    used to retrieve the current verbose state.\n  fact: The function 'verbose'\
+  \ in 'pip_outdated/verbose.py' is used to retrieve the\n    current verbose state.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

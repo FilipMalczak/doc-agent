@@ -1,0 +1,4 @@
+In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, package name normalization
+  is done using 'packaging.utils.canonicalize_name()' to ensure consistent comparison
+  with PyPI data.
+...

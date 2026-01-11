@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function 'make_row' processes an 'OutdateResult' object to generate\n    a\
-  \ formatted table row if the package is outdated. This logic determines which\n\
-  \    packages are displayed in the output.\n  fact: In file 'pip_outdated/print_outdated.py',\
-  \ there is a function called 'make_row'\n    which returns a list of strings representing\
-  \ a table row when a package is outdated.\n    If the package is up-to-date, it\
-  \ returns 'None'.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

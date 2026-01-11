@@ -1,0 +1,3 @@
+The document contains a function named file_to_lines that handles '#' comments and
+  '\' line continuation in pip_outdated/find_require.py.
+...

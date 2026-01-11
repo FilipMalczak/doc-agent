@@ -1,5 +1,0 @@
-"- **Project name:** `pip-outdated`  \n- **Current version:** `0.8.0`  \n- **Purpose:**\
-  \ Tool to find outdated dependencies in `requirements.txt` or `setup.cfg`.  \n-\
-  \ **Author:** `eight` \u2013 contact via **eight04@gmail.com**.  \n- **License:**\
-  \ MIT (permissive open\u2011source license).  \n- **Homepage / source repo:** <https://github.com/eight04/pip-outdated>\
-  \  \n- **Keywords for discoverability:** `pip`, `check`, `outdate`, `npm`.  \n"

@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The parse_require function processes a text line by stripping any options\n  \
-  \  and attempting to convert it into a requirement object. If the text is not a\
-  \ valid\n    requirement, it returns None.\n  fact: The function `parse_require`\
-  \ is defined in file with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2\n    to parse\
-  \ a text line into a requirement, handling options and ignoring invalid\n    formats.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The get_local_version function clearly uses asyncio's create_subprocess_shell\n\
+  \    to execute pip show commands, which is a direct fact from the implementation.\n\
+  \  fact: In file 79501155-b71e-5dd6-a529-82fd14d4a11b, the package uses asyncio\
+  \ to\n    create a subprocess for executing pip show commands to get local package\
+  \ versions.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

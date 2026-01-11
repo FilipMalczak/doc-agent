@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The first line defines the variable as a boolean, which is a built-in\n    type\
+  \ in Python. The second line initializes the variable to None, which is acceptable\n\
+  \    for a boolean since it is also a truthy/falsy value.\n  fact: The file 'pip_outdated/verbose.py'\
+  \ defines a boolean variable named 'VERBOSE'\n    to store verbose state.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

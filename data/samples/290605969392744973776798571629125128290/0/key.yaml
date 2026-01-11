@@ -1,3 +1,0 @@
-print_outdated takes two arguments outdates which is a List of Awaitable[OutdateResult]
-  and quiet which is a bool
-...

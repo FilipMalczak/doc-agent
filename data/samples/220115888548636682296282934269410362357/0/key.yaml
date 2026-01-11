@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ A FIXME comment and reference to an GitHub issue indicate that the\n    developers\
+  \ are aware of the workaround. The code explicitly calls 'asyncio.get_event_loop().run_until_complete()'\n\
+  \    to execute the '_main' coroutine, avoiding the use of 'asyncio.run()' due to\
+  \ compatibility\n    issues with aiohttp.\n  fact: The 'main' function in pip_outdated/__init__.py\
+  \ implements a workaround for\n    asyncio limitations by using 'get_event_loop().run_until_complete()'\
+  \ instead of\n    'asyncio.run()' to execute the asynchronous '_main' function.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

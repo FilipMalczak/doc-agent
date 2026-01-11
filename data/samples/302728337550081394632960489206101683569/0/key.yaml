@@ -1,0 +1,3 @@
+The pip-outdated tool has several command-line options including `-h` for help, `-v`
+  for verbose output, and `-q` to suppress exit code 1 when some packages are outdated.
+...

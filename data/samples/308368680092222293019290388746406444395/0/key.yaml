@@ -1,5 +1,0 @@
-"### Dependencies users must have (installed automatically)\n- `aiohttp` (~=3.12)\
-  \ \u2013 asynchronous HTTP client.  \n- `colorama` (~=0.4.6) \u2013 cross\u2011\
-  platform colored terminal text.  \n- `packaging` (~=25.0) \u2013 utilities for version\
-  \ handling.  \n- `termcolor` (~=3.1) \u2013 colored terminal output.  \n- `terminaltables`\
-  \ (~=3.1) \u2013 simple table formatting for terminal output.  \n"

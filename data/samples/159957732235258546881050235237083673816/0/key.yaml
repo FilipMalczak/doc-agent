@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The assertion in the test code compares the list of names with the\n    specified\
+  \ order, confirming the expected result.\n  fact: 'The test function ''test_parse_cfg''\
+  \ asserts that the names collected from\n    the ''parse_cfg'' function should be\
+  \ in the order: ''setuptools_scm'', ''setuptools_scm_git_archive'',\n    ''ansible'',\
+  \ ''ansible-lint'', ''alabaster'', ''Sphinx''.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

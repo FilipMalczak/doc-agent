@@ -1,0 +1,6 @@
+"- **Executable entry point**: `pip_outdated/__main__.py` enables the package to be\
+  \ run directly with `python -m pip_outdated`.\n- **Behavior on execution**: When\
+  \ invoked, it imports the package\u2019s `main` function (`from . import main`)\
+  \ and immediately executes it (`main()`).\n- **User impact**: End users can start\
+  \ the tool without a separate script or command\u2011line wrapper; the module itself\
+  \ serves as the command\u2011line interface."

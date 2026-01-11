@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The description mentions that the tool compares the version number\n    with the\
+  \ version specifier in 'requirements.txt' or 'setup.cfg' to determine if\n    dependencies\
+  \ are updated.\n  fact: The pip-outdated tool compares the installed package versions\
+  \ in virtual environments\n    with the version specifiers defined in requirements.txt\
+  \ or setup.cfg.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

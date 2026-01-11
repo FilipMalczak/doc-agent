@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ There is clear installation instruction that the package is available\n    for\
+  \ installation via pip from the PyPI URL provided.\n  fact: The pip-outdated package\
+  \ can be installed via pip from PyPI as it is hosted\n    on [https://pypi.org/project/pip-outdated/](https://pypi.org/project/pip-outdated/).\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

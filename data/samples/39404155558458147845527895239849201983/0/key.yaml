@@ -1,0 +1,7 @@
+"## \U0001F6E0\uFE0F\u202FMaintenance Tips  \n\n- **Testing:** Mock `OutdateResult`\
+  \ objects to cover the three output paths (no requirements, all up\u2011to\u2011\
+  date, outdated).  \n- **Future UI changes:** Updating colour choices or table format\
+  \ only requires modifications inside `make_row` and the legend prints\u2014no impact\
+  \ on the underlying data flow.  \n- **CLI wrappers:** If a command\u2011line entry\u2011\
+  point uses `print_outdated`, remember to propagate the `quiet` flag to control exit\
+  \ status.  "

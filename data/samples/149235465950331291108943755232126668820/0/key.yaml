@@ -1,0 +1,3 @@
+In file 79501155-b71e-5dd6-a529-82fd14d4a11b, the package uses asyncio to create a
+  subprocess for executing pip show commands to get local package versions.
+...

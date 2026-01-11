@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The variable VERBOSE is declared with a type of bool and is initialized\n    to\
-  \ None.\n  fact: There is one boolean variable named VERBOSE within document with\
-  \ ID d1ef4334-7006-9204-a81e-17bb357c0661\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

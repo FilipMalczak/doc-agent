@@ -1,0 +1,5 @@
+The pip-outdated project includes a section labeled as 'Todos', which outlines potential
+  future enhancements or features, such as adding options to update the package automatically,
+  update the requirements.txt/setup.cfg file, or list all packages including global
+  ones.
+...

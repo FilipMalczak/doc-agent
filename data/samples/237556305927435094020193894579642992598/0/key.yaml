@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function's docstring explicitly states its purpose to yield lines\n    from\
-  \ a file while managing comment and continuation characters.\n  fact: The file with\
-  \ ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2 contains a docstring\n    for the `file_to_lines`\
-  \ function that describes handling of '#' comments and '\\'\n    continuation escapes.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

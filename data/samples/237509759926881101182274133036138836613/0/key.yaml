@@ -1,0 +1,10 @@
+"### Core usage\n- Basic command (checks default files `requirements.txt` and `setup.cfg`):\n\
+  \n  ```bash\n  pip-outdated\n  ```\n\n- General syntax:\n\n  ```\n  pip-outdated\
+  \ [-h] [-v] [-q] [<file> [<file> ...]]\n  ```\n\n  - **Positional `<file>` argument**\
+  \ \u2013 one or more requirement files (supports glob patterns).  \n    - Default:\
+  \ `['requirements.txt', 'setup.cfg']`.\n    - Examples:  \n\n      ```bash\n   \
+  \   # Check multiple requirement files\n      pip-outdated *-requirements.txt\n\
+  \      \n      # Check all txt files inside a folder\n      pip-outdated requirements/*.txt\n\
+  \      ```\n\n- **Options**\n  - `-h, --help`\u2003Show help message.\n  - `-v,\
+  \ --verbose`\u2003Enable verbose output (default: off).\n  - `-q, --quiet`\u2003\
+  Do **not** exit with status\u202F1 when some packages are outdated (default: off).\n"

@@ -1,3 +1,0 @@
-The print_outdated function in pip_outdated/print_outdated.py initializes colorama
-  and prints colored messages to indicate package update statuses
-...

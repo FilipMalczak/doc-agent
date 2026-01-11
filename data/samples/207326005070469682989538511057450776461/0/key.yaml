@@ -1,4 +1,0 @@
-"### Todo Items (User\u2011Facing Roadmap)\n- Add options to automatically update\
-  \ packages.  \n- Add options to rewrite `requirements.txt` / `setup.cfg` with the\
-  \ latest compatible versions.  \n- Add a global\u2011list mode (e.g., `-g`, `--global`)\
-  \ to list all updatable packages regardless of specifiers.\n"

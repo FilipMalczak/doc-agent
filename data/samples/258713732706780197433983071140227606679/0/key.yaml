@@ -1,0 +1,13 @@
+"facts:\n- explanation: fact is established by the presence of a test function 'test_pytz'\n\
+  \    using 'pytest' which calls the 'get_pypi_versions' function\n  fact: file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ (tests/test_pytz.py) contains\n    a test case for the 'get_pypi_versions' function\n\
+  - explanation: the import statement 'from pip_outdated.check_outdated import get_pypi_versions'\n\
+  \    confirms this fact\n  fact: file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf' (tests/test_pytz.py)\
+  \ imports the\n    'get_pypi_versions' function from 'pip_outdated.check_outdated'\n\
+  - explanation: indicated by 'import pytest' and 'pytest.mark.asyncio' marker, which\n\
+  \    are standard fixtures for writing and running Python tests\n  fact: file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ (tests/test_pytz.py) is written\n    in Python and serves as a test case\n- explanation:\
+  \ 'as indicated by the code ''async with get_session() as session: await\n    get_pypi_versions(\"\
+  pytz\", session)'' where ''get_session'' is likely part of the\n    test harness\
+  \ for the function under test'\n  fact: file 'b9979f2e-2b82-5c3c-9151-9f89ee7302cf'\
+  \ (tests/test_pytz.py) uses an asynchronous\n    session to test 'get_pypi_versions'\n"

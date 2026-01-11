@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The main entrypoint uses asyncio directly instead of asyncio.run()\n    with an\
-  \ explanatory FIXME comment.\n  fact: The main function in pip_outdated/__init__.py\
-  \ uses get_event_loop().run_until_complete()\n    instead of asyncio.run() due to\
-  \ known aiohttp compatibility issues\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

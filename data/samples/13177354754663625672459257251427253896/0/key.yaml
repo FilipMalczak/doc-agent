@@ -1,0 +1,5 @@
+"## \U0001F4E6\u202FExternal Dependencies  \n\n- **`colorama`** \u2013 enables cross\u2011\
+  platform colour handling.  \n- **`termcolor`** \u2013 applies colour and text attributes\
+  \ to strings.  \n- **`terminaltables`** \u2013 renders the ASCII table (`AsciiTable`).\
+  \  \n\nThese packages must be listed as runtime dependencies for the project.\n\n\
+  ---\n"

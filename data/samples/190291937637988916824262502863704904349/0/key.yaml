@@ -1,0 +1,39 @@
+"facts:\n- explanation: The 'get_local_version' function is defined as 'async' and\
+  \ spawns an\n    asynchronous subprocess to execute 'pip show' which displays package\
+  \ details.\n    The returned 'Version' is extracted from the 'stdout'. This is a\
+  \ fact because\n    it is directly implemented in the document and is important\
+  \ for the 'maintainer'\n    role to understand how local package version information\
+  \ is fetched.\n  fact: The file 'pip_outdated/check_outdated.py' contains an asynchronous\
+  \ function\n    'get_local_version' that retrieves the version of a package installed\
+  \ locally\n    using 'pip show'.\n- explanation: The 'OutdateResult' class is a\
+  \ dataclass decorated with '@dataclass'\n    and includes methods like 'outdated()',\
+  \ 'pypi_not_found()', etc. These methods\n    are part of the logic that determines\
+  \ the package's status, which is relevant\n    for a maintainer to understand the\
+  \ structure of the tool's core logic.\n  fact: The 'OutdateResult' dataclass in\
+  \ 'pip_outdated/check_outdated.py' includes\n    several methods to determine the\
+  \ status of a package (e.g., whether it is outdated,\n    not found, or not wanted).\n\
+  - explanation: Multiple 'async/await' constructs and the 'asyncio.subprocess' module\n\
+  \    are used to manage asynchronous subprocesses for version checks. This asynchronous\n\
+  \    approach is essential for understanding the performance and concurrency design\n\
+  \    decisions of the tool.\n  fact: The file 'pip_outdated/check_outdated.py' uses\
+  \ the 'asyncio' library to handle\n    asynchronous processes for retrieving and\
+  \ comparing versions of packages.\n- explanation: The 'check_outdated' function\
+  \ is 'async' and utilizes an 'aiohttp'\n    session to perform HTTP requests to\
+  \ 'https://pypi.org'. It then processes the\n    response to extract and sort valid,\
+  \ non-prerelease versions. This is a key aspect\n    for the 'maintainer' to see\
+  \ how package information is sourced externally.\n  fact: The 'check_outdated' function\
+  \ in 'pip_outdated/check_outdated.py' is defined\n    as asynchronous and interacts\
+  \ with PyPI via HTTP requests to check for the latest\n    non-prerelease versions\
+  \ of a package.\n- explanation: The function fetches a package's PyPI JSON data,\
+  \ iterates through the\n    release keys, and excludes any that are InvalidVersion\
+  \ or a Prerelease. Valid\n    versions are then sorted and returned. This reflects\
+  \ the design choice to only\n    consider stable, non-prerelease versions when determining\
+  \ outdated packages, which\n    is a critical detail for a maintainer to understand\
+  \ the behavior of the tool.\n  fact: The 'get_pypi_versions' function in 'pip_outdated/check_outdated.py'\
+  \ filters\n    and sorts PyPI package versions, excluding any prerelease versions.\n\
+  - explanation: The 'verbose()' function is imported from '.verbose' and used in\
+  \ a\n    conditional 'print' statement in 'check_outdated'. This is a direct implementation\n\
+  \    detail relevant for a maintainer working to enhance or modify the tool's debugging/output\n\
+  \    functionality.\n  fact: The file 'pip_outdated/check_outdated.py' includes\
+  \ a 'verbose' function import\n    to control print statements during the checking\
+  \ process.\n"

@@ -1,0 +1,3 @@
+The 'pip-outdated' tool processes 'requirements.txt' and 'setup.cfg' files by default
+  to check for outdated dependencies.
+...

@@ -1,0 +1,3 @@
+The file 'pip_outdated/check_outdated.py' uses the 'packaging' library to work with
+  versions and requirements.
+...

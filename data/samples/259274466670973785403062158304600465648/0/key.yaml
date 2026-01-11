@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Listed in [options].install_requires section.\n  fact: 'The package has these\
+  \ required dependencies in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73:\n\
+  \    aiohttp~=3.12, colorama~=0.4.6, packaging~=25.0, termcolor~=3.1, terminaltables~=3.1'\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

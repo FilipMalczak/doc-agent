@@ -1,4 +1,0 @@
-In file 'pip_outdated/find_require.py', there is a function named 'parse_requirements_text'
-  that takes a string of text, splits it into lines, and processes them to extract
-  requirements.
-...

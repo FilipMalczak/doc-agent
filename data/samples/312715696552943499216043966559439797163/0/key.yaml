@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The ''repo_function: test'' metadata explicitly designates this directory\n \
+  \   as housing tests. Maintainers must ensure such directories are included in test\n\
+  \    execution frameworks, CI pipelines, and distribution excludes (like setup.py''s\n\
+  \    packages/exclude lists).'\n  fact: The 'tests' directory has a 'test' repo_function\
+  \ classification.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,4 +1,0 @@
-"### High\u2011level purpose\n- Provides utilities to **locate and parse Python package\
-  \ requirements** from various source files (requirements files, `setup.cfg`, etc.).\n\
-  - Supports handling of comments, line continuations, and simple option stripping\
-  \ to produce `packaging.requirements.Requirement` objects.\n"

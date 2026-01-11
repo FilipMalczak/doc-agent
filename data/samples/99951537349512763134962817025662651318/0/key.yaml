@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function iter_files is defined in the file, which takes patterns\n    and\
-  \ yields Path objects.\n  fact: The file pip_outdated/find_require.py contains a\
-  \ function named iter_files\n    that yields file paths based on glob patterns.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

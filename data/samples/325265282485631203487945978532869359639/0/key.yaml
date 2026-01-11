@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The file contains documentation in the argument parser about the tool's\n    purpose.\n\
-  \  fact: The tool's description states it finds outdated dependencies in requirements\n\
-  \    files, as declared in pip_outdated/__init__.py\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

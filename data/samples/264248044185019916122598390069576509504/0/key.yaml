@@ -1,0 +1,4 @@
+"## \U0001F6A6\u202FExit Behaviour  \n\n- The function **exits with code `1`** when\
+  \ there are outdated packages **and** `quiet` is `False`.  \n- When `quiet` is `True`,\
+  \ the function finishes normally (exit code `0`).  \n\nThis is useful for CI pipelines\
+  \ that should fail when updates are required.\n\n---\n"

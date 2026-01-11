@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The relative imports from .verbose, .find_require, etc., show that\n    the __init__.py\
-  \ file uses internal modules of the pip-outdated package.\n  fact: The __init__.py\
-  \ file imports functions from modules such as verbose, find_require,\n    check_outdated,\
-  \ and print_outdated, which are part of the same package.\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

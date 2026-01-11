@@ -1,0 +1,5 @@
+"## \U0001F4C4 Overview  \n**File:** `pip_outdated/check_outdated.py`  \n**Purpose:**\
+  \  \n- Provides the core logic for detecting outdated Python packages in a project's\
+  \ environment.  \n- Retrieves the installed version of a package, fetches all released\
+  \ versions from PyPI, and determines whether the installed version is missing, not\
+  \ wanted by the version specifier, or simply outdated.\n"

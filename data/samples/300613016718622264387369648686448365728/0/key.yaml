@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ Version 0.4.0 specifies a breaking change to move to Python 3.7 and\n    newer,\
+  \ indicating compatibility requirements.\n  fact: pip-outdated uses Python 3.7 or\
+  \ newer versions.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,28 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"comment":"No relevant facts to extract for the ''enduser'' perspective
+    in the provided Python file."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-c42fc6e28ad0455ea81ef94198614037
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768169078-MAlNDxyg1VyahPMG5fQ5
+run_id: 64dabd8e-0d0b-4424-bdfd-f96171ebd325
+timestamp: '2026-01-11T22:04:39Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1415
+  output_audio_tokens: 0
+  output_tokens: 33

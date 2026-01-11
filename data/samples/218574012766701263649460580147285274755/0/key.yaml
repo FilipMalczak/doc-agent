@@ -1,0 +1,4 @@
+The pip-outdated tool supports multiple usage scenarios, such as checking multiple
+  files (e.g., test-requirements.txt and dev-requirements.txt) and using glob patterns
+  to check all files under a directory (e.g., requirements/*.txt).
+...

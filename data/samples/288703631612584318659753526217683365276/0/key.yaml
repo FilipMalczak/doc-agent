@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The setup.cfg defines 'termcolor' with a version requirement as part\n    of pip-outdated's\
+  \ dependencies.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ 'install_requires'\n    in pip-outdated's options include 'termcolor~=3.1'\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

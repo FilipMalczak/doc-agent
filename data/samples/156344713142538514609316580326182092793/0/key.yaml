@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file imports and invokes the setup() function from setuptools,\n    confirming\
+  \ it is used for configuring the project as a Python package.\n  fact: The document\
+  \ with ID '17ae6927-bfa3-579e-8306-4465b7a352d8' utilizes setuptools\n    for packaging\
+  \ configuration, as shown by the 'from setuptools import setup' statement.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

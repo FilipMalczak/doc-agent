@@ -1,0 +1,2 @@
+"### Additional Configuration\n- `[vpip]` section defines a fallback command:\n  -\
+  \ `command_fallback = python cute.py`\n"

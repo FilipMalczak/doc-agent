@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The content of the file shows 'import pytest', which indicates that\n    the file\
+  \ uses the pytest library to write and run tests.\n  fact: The file 'test_pytz.py'\
+  \ imports the 'pytest' library for writing tests.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

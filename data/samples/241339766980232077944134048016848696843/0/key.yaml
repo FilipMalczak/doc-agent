@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is evident from the line 'from pip_outdated.find_require import\n    parse_cfg'\
+  \ in the provided code.\n  fact: In document with ID 7f70c452-3de8-51f4-968c-80115530e69c,\
+  \ the file imports\n    the function or class 'parse_cfg' from the 'pip_outdated.find_require'\
+  \ module.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

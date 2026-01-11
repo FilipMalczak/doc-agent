@@ -1,4 +1,0 @@
-The file pip_outdated/print_outdated.py defines an asynchronous function print_outdated
-  that takes a list of awaitable.OutdateResult objects and a boolean quiet flag as
-  parameters
-...

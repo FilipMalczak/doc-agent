@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function final_result_NoneType is described as the final response\n    which\
-  \ ends the conversation.\n  fact: There is one function named final_result_NoneType\
-  \ in the document with ID\n    c70abb08-f4fa-The final response which ends this\
-  \ conversation.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'get_pypi_versions()' function fetches package metadata from PyPI's\n    JSON\
+  \ API, filters out prereleases, parses version strings, and returns sorted\n   \
+  \ Version objects.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
+  \ the 'get_pypi_versions()'\n    async function retrieves and processes version\
+  \ data from PyPI's JSON API endpoint\n    for a given package.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

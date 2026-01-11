@@ -1,0 +1,3 @@
+In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session' function
+  creates an 'aiohttp.TCPConnector' instance with a concurrency limit of 5 connections.
+...

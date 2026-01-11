@@ -1,0 +1,4 @@
+'The pip-outdated tool supports three command-line options: ''-v'' or ''--verbose''
+  to print verbose information, ''-q'' or ''--quiet'' to prevent returning an exit
+  code of 1 when dependencies are not up to date, and a positional ''<file>'' argument
+  to specify requirements files (defaulting to ''requirements.txt'' and ''setup.cfg'').'

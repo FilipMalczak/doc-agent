@@ -1,0 +1,15 @@
+"**Notes for Maintainers (User\u2011Facing Documentation Perspective)**  \n\n- This\
+  \ file (`pip_outdated/__main__.py`) is the *module entry point* that enables the\
+  \ package to be executed directly with Python, e.g.:  \n\n  ```bash\n  python -m\
+  \ pip_outdated\n  ```  \n\n- It simply imports the `main` function from the package\u2019\
+  s top\u2011level module (via `from . import main`) and then calls it.  \n- **Implication\
+  \ for users:** The package can be run as a command\u2011line tool without installing\
+  \ an additional console script; the same behaviour is provided when the package\
+  \ is installed with an entry\u2011point that points to `pip_outdated.__main__:main`.\
+  \  \n- **Maintainer responsibilities:**  \n  - Ensure that `pip_outdated/__init__.py`\
+  \ (or the module exposing `main`) defines a callable `main()` that performs the\
+  \ intended CLI work.  \n  - Verify that this file is included in the source distribution\
+  \ and correctly referenced in `setup.cfg` / `pyproject.toml` if an explicit console\
+  \ script entry point is also provided.  \n  - When packaging, test that `python\
+  \ -m pip_outdated` behaves identically to the installed console script, guaranteeing\
+  \ a consistent user experience.  "

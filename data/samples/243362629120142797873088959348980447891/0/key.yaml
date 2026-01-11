@@ -1,0 +1,21 @@
+"## Project Overview (maintainer perspective)\n\n- **Package name**: `pip-outdated`\n\
+  - **Current version**: `0.8.0`\n- **Short description**: *Find outdated dependencies\
+  \ in your `requirements.txt` or `setup.cfg`*\n- **Author**: `eight` (`eight04@gmail.com`)\n\
+  - **License**: MIT\n- **Project homepage**: <https://github.com/eight04/pip-outdated>\n\
+  - **Long description source**: `README.rst` (included via `long_description = file:\
+  \ README.rst`)\n\n### Classification & Audience\n- **Development status**: Beta\
+  \ (`Development Status :: 4 - Beta`)\n- **Intended environment**: Console\n- **Target\
+  \ audience**: Developers\n- **Programming language**: Python\u202F3.7\n- **Topic**:\
+  \ Software Development \u2192 Build Tools\n\n### Keywords\n- `pip`, `check`, `outdate`,\
+  \ `npm`\n\n### Packaging Details\n- **Distribution settings**\n  - `zip_safe = True`\n\
+  \  - Packages are discovered automatically with `find:`, excluding the `tests` directory.\n\
+  - **Dependencies**\n  - `aiohttp~=3.12`\n  - `colorama~=0.4.6`\n  - `packaging~=25.0`\n\
+  \  - `termcolor~=3.1`\n  - `terminaltables~=3.1`\n- **Console entry point**\n  -\
+  \ `pip-outdated = pip_outdated:main` (creates the `pip-outdated` CLI command)\n\n\
+  ### Additional Configuration\n- `[vpip]` section defines a fallback command:\n \
+  \ - `command_fallback = python cute.py`\n\n### Maintainer\u2011relevant take\u2011\
+  aways\n- Ensure the listed dependencies are compatible with the target Python version\
+  \ (\u2265\u202F3.7).\n- The console script entry point provides the primary user\u2011\
+  facing CLI; verify that `pip_outdated.main` is correctly exposed.\n- The `vpip`\
+  \ fallback may be used by auxiliary tooling; confirm its purpose and impact on deployment\
+  \ scripts."

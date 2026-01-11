@@ -1,4 +1,0 @@
-In file 'pip_outdated/check_outdated.py', the asynchronous function 'check_outdated'
-  uses 'get_local_version' and 'get_pypi_versions' to assess a package's current version
-  against PyPI's versions.
-...

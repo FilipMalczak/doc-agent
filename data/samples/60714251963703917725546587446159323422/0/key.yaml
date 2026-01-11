@@ -1,0 +1,3 @@
+The function 'set_verbose' in 'pip_outdated/verbose.py' is used to set the verbose
+  state to either True or False.
+...

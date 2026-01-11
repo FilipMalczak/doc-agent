@@ -1,0 +1,3 @@
+The pip_outdated/print_outdated.py causes the process to exit with status code 1 when
+  outdated packages are found and quiet mode is not enabled.
+...

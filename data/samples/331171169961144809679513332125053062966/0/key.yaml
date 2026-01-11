@@ -1,0 +1,16 @@
+'## Usage
+
+  - After installation, run the console script:
+
+
+  ```bash
+
+  pip-outdated
+
+  ```
+
+
+  - The tool scans the project''s `requirements.txt` or `setup.cfg` and reports any
+  packages that have newer versions available.
+
+  '

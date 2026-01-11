@@ -1,0 +1,3 @@
+"## Planned enhancements (Todo)  \n- Option to **update packages** automatically.\
+  \  \n- Ability to **modify** `requirements.txt` / `setup.cfg` with new versions.\
+  \  \n- Global listing mode (`-g`, `--global`).  \n"

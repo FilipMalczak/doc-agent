@@ -1,0 +1,3 @@
+In version 0.3.0 of 'pip-outdated', the tool was modified to exit with code 1 when
+  dependencies are not up to date and to ignore prereleases during checks.
+...

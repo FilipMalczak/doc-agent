@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The '_main' function imports and uses 'find_require' to find dependencies,\n \
+  \   'check_outdated' to verify if packages are outdated, and 'print_outdated' to\
+  \ display\n    the results. These functions are essential for the tool's main functionality.\n\
+  \  fact: The asynchronous '_main' function in pip_outdated/__init__.py handles the\n\
+  \    core logic of the pip-outdated tool by finding dependencies, checking for outdated\n\
+  \    packages, and printing the results.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,3 @@
+The document contains a function named find_require that selects parsing method based
+  on file extension (cfg vs non-cfg) in pip_outdated/find_require.py.
+...

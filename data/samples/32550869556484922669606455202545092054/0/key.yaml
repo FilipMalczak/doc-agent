@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test confirms that [options.extras_require.docs] packages are parsed\n   \
+  \ correctly.\n  fact: The docs extra requires alabaster and Sphinx in the setup.cfg\
+  \ file.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

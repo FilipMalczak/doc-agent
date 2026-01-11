@@ -1,4 +1,0 @@
-In file 'pip_outdated/check_outdated.py', the 'OutdateResult' class has a method '__post_init__'
-  that initializes 'wanted' and 'latest' attributes based on 'all_versions' and 'requirement'
-  attributes.
-...

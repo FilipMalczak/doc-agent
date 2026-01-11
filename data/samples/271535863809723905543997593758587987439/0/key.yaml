@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'The function definition ''async def print_outdated(outdates: List[Awaitable[OutdateResult]],\n\
-  \    quiet: bool):'' directly states this'\n  fact: The file pip_outdated/print_outdated.py\
-  \ defines an asynchronous function print_outdated\n    that takes a list of awaitable.OutdateResult\
-  \ objects and a boolean quiet flag\n    as parameters\n__pydantic_extra__: null\n\
-  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

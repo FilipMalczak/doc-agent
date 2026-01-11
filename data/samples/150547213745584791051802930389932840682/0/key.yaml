@@ -1,3 +1,0 @@
-In tests/test_parse_cfg.py, the setup.cfg file contains [options.extras_require.docs]
-  with 'alabaster' and 'Sphinx'.
-...

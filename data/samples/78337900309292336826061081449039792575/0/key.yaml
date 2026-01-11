@@ -1,0 +1,4 @@
+"## Maintainer\u2011focused notes for **`pip_outdated/print_outdated.py`**\n### Overview\n\
+  - This module formats and displays information about Python package versions that\
+  \ are outdated, missing, or otherwise unavailable.\n- It is used by the **pip\u2011\
+  outdated** tool to present a concise, colour\u2011coded table to the end\u2011user.\n"

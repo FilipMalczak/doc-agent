@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The test checks packages under [options.install_requires] in setup.cfg\n    with\
+  \ version constraints.\n  fact: install_requires includes ansible >= 2.5 and ansible-lint\
+  \ >= 4.0.2, < 5 in\n    the setup.cfg file.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

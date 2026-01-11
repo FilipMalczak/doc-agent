@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The code imports pathlib for file path manipulations, such as checking\n    if\
-  \ a pattern is a file and globbing for patterns.\n  fact: The module uses `pathlib.Path`\
-  \ to handle file paths and operations in file\n    with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

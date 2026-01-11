@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This information is described in the changelog entry for version 0.4.0\n    on\
+  \ Jan 30, 2020, detailing the new features and requirements.\n  fact: In the changelog,\
+  \ there was a significant change in version 0.4.0 where support\n    for Python\
+  \ was bumped to 3.7, introduced parallel processing, and added the `--quiet`\n \
+  \   option to suppress exit code 1 when dependencies are outdated.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

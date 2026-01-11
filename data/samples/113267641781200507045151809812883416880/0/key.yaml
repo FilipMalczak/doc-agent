@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The _main function is declared with async and uses async/await syntax\n    with\
-  \ functions like get_session and print_outdated, indicating it is asynchronous.\n\
-  \  fact: The _main function is an asynchronous function that handles finding dependencies,\n\
-  \    checking for outdated packages, and printing the results.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

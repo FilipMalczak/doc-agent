@@ -1,0 +1,35 @@
+"**Project:** `pip_outdated` \u2013 *maintainer\u2011focused notes for `pip_outdated/__init__.py`*\n\
+  \n- **Version**\n  - The package reports `__version__ = \"0.8.0\"`.\n\n- **CLI entry\
+  \ point**\n  - The module provides a `main()` function that serves as the command\u2011\
+  line entry point (invoked via `python -m pip_outdated` or a console script named\
+  \ `pip-outdated`).\n\n- **Argument parsing (`parse_args`)**\n  - Uses `argparse.ArgumentParser`\
+  \ with the program name **pip-outdated** and a description that explains the tool\
+  \ finds outdated dependencies in `requirements.txt` or `setup.cfg`.\n  - **Options**\n\
+  \    - `-v, --verbose` \u2013 Enables verbose output (boolean flag).\n    - `-q,\
+  \ --quiet` \u2013 Suppresses exit\u2011code\u202F1 when not all packages are up\u2011\
+  to\u2011date (boolean flag).\n  - **Positional argument**\n    - `file` \u2013 Accepts\
+  \ one or more file paths (or glob patterns).  \n      - Default: `[\"requirements.txt\"\
+  , \"setup.cfg\"]`.\n      - Help text clarifies that the argument reads dependencies\
+  \ from requirements files and supports glob patterns.\n\n- **Execution flow (`main`\
+  \ \u2192 `_main`)**\n  - `main()` starts the asynchronous workflow.  \n    - **Important\
+  \ note for maintainers:** It cannot use `asyncio.run()` because that would close\
+  \ the event loop, which conflicts with `aiohttp` (see the referenced GitHub issue).\
+  \ Instead it uses:\n      ```python\n      asyncio.get_event_loop().run_until_complete(_main())\n\
+  \      ```\n  - `_main()` (async) performs the actual work:\n    1. Parses CLI arguments\
+  \ via `parse_args()`.\n    2. Sets the global verbosity flag (`set_verbose(args.verbose)`\
+  \ from `.verbose`).\n    3. Imports core helpers only when needed (lazy imports):\n\
+  \       - `find_require` \u2013 discovers required packages from the supplied files.\n\
+  \       - `check_outdated` \u2013 queries the Python Package Index to determine\
+  \ if a package is outdated.\n       - `print_outdated` \u2013 formats and prints\
+  \ the results.\n       - `get_session` \u2013 provides an async HTTP session (used\
+  \ with `async with`).\n    4. Calls `find_require(args.file)` to collect dependency\
+  \ specifications.\n    5. Creates an async task for each dependency using `asyncio.create_task(check_outdated(r,\
+  \ session))`.\n    6. Passes the collection of tasks and the `quiet` flag to `print_outdated`\
+  \ for final reporting.\n\n- **Design considerations for end\u2011user documentation**\n\
+  \  - The tool is intentionally **lazy\u2011loading** its internal modules to keep\
+  \ startup time low.\n  - It runs entirely **asynchronously**, allowing concurrent\
+  \ checks of many packages.\n  - The `quiet` flag influences the **process exit code**\
+  \ (useful for CI pipelines).\n  - Verbose mode can be toggled to aid debugging or\
+  \ provide extra context to users.\n\n- **Open maintenance item**\n  - `FIXME` comment\
+  \ indicates a known limitation with `asyncio.run()` due to an external library issue.\
+  \ This may require revisiting once the upstream problem is resolved."

@@ -1,0 +1,3 @@
+When non-quiet mode is active and outdated packages are present, 'print_outdated'
+  exits with status code 1 to signal issues to the caller.
+...

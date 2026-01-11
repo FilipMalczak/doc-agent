@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function print_outdated is defined with outdates and quiet parameters.\n \
-  \ fact: print_outdated takes two arguments outdates which is a List of Awaitable[OutdateResult]\n\
-  \    and quiet which is a bool\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

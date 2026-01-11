@@ -1,0 +1,3 @@
+"## Implementation Details\n- Uses the `global` keyword inside `set_verbose` to modify\
+  \ the module\u2011level variable.  \n- No external dependencies; the module is lightweight\
+  \ and safe to import in any part of the codebase.  "

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code block shows the setup.cfg content, including [options], setup_requires,\n\
+  \    install_requires, and [options.extras_require] for docs, which lists packages\n\
+  \    like alabaster and Sphinx.\n  fact: In document with ID 7f70c452-3de8-51f4-968c-80115530e69c,\
+  \ the test function\n    'test_parse_cfg' generates content into the 'setup.cfg'\
+  \ file with specific package\n    requirements and extra dependencies for Sphinx\
+  \ documentation.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

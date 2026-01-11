@@ -1,3 +1,0 @@
-In tests/test_parse_cfg.py, the setup.cfg file contains [options.install_requires]
-  with 'ansible >= 2.5' and 'ansible-lint >= 4.0.2, < 5'.
-...

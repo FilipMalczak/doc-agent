@@ -1,0 +1,10 @@
+"facts:\n- explanation: The function 'set_verbose' is defined to take a boolean value\
+  \ and assign\n    it to the global variable 'VERBOSE'.\n  fact: The 'set_verbose'\
+  \ function in 'pip_outdated/verbose.py' sets the global variable\n    'VERBOSE'\
+  \ with a given boolean value.\n- explanation: The function 'verbose' is defined\
+  \ to return the value stored in the\n    global variable 'VERBOSE'.\n  fact: The\
+  \ 'verbose' function in 'pip_outdated/verbose.py' returns the boolean value\n  \
+  \  of the global variable 'VERBOSE'.\n- explanation: The global variable 'VERBOSE'\
+  \ is declared with the type annotation\n    'bool' but is initially set to 'None'.\n\
+  \  fact: The global variable 'VERBOSE' in 'pip_outdated/verbose.py' is initialized\n\
+  \    to None, but is expected to hold a boolean value.\n"

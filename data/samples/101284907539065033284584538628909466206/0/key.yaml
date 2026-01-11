@@ -1,0 +1,21 @@
+"facts:\n- explanation: The version is explicitly defined as a string in `pip_outdated/__init__.py`\n\
+  \    using `__version__ = \"0.8.0\"`. This is a direct code-level fact relevant\
+  \ to both\n    maintainers and users.\n  fact: In file `pip_outdated/__init__.py`,\
+  \ the project's version is defined as `0.8.0`.\n- explanation: The function `parse_args()`\
+  \ in `pip_outdated/__init__.py` defines command-line\n    arguments with specific\
+  \ behavior (verbose, quiet modes and file globbing), which\n    would be used by\
+  \ end-users.\n  fact: 'In file `pip_outdated/__init__.py`, the tool accepts command-line\
+  \ arguments:\n    `-v`/`--verbose` for verbose output, `-q`/`--quiet` to suppress\
+  \ exit code 1, and\n    `<file>` (defaulting to `requirements.txt` and `setup.cfg`)\
+  \ to specify dependency\n    files with glob patterns.'\n- explanation: The `main()`\
+  \ function in `pip_outdated/__init__.py` uses `asyncio`\n    directly instead of\
+  \ `asyncio.run()` due to a known issue with event loop closure.\n    This is a technical\
+  \ detail for maintainers to triage.\n  fact: 'In file `pip_outdated/__init__.py`,\
+  \ the `main()` function uses `asyncio.get_event_loop().run_until_complete()`\n \
+  \   instead of `asyncio.run()` to work around an event loop issue documented in\
+  \ GitHub\n    issue #1925.'\n- explanation: The `_main()` function in `pip_outdated/__init__.py`\
+  \ explicitly imports\n    and uses internal modules (`find_require`, `check_outdated`,\
+  \ `print_outdated`)\n    to implement the tool's workflow.\n  fact: In file `pip_outdated/__init__.py`,\
+  \ the `_main()` function uses `find_require()`\n    from `.find_require`, `check_outdated()`\
+  \ from `.check_outdated`, and `print_outdated()`\n    from `.print_outdated` to\
+  \ process dependency checks.\n"

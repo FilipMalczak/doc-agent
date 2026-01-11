@@ -1,0 +1,3 @@
+The '_main' function processes requirements files, checks for outdated packages asynchronously,
+  and prints the results, considering user-specified quiet mode.
+...

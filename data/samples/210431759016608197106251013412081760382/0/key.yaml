@@ -1,0 +1,59 @@
+"facts:\n- explanation: The file is identified as README.rst and contains ReStructuredText\n\
+  \    (RST) content describing the pip-outdated package, including installation,\
+  \ usage,\n    and other details.\n  fact: Documentation is in RST format, specifically\
+  \ for `pip-outdated` project's\n    README.rst file.\n- explanation: The first part\
+  \ of the file provides a detailed description of the pip-outdated\n    tool, explaining\
+  \ that its purpose is to identify outdated dependencies in those\n    files and\
+  \ report package status with a table and colors.\n  fact: The pip-outdated tool\
+  \ is designed to find outdated dependencies in requirements.txt\n    or setup.cfg\
+  \ files for a Python project.\n- explanation: The description mentions that the\
+  \ tool compares the version number\n    with the version specifier in 'requirements.txt'\
+  \ or 'setup.cfg' to determine if\n    dependencies are updated.\n  fact: The pip-outdated\
+  \ tool compares the installed package versions in virtual environments\n    with\
+  \ the version specifiers defined in requirements.txt or setup.cfg.\n- explanation:\
+  \ There is clear installation instruction that the package is available\n    for\
+  \ installation via pip from the PyPI URL provided.\n  fact: The pip-outdated package\
+  \ can be installed via pip from PyPI as it is hosted\n    on [https://pypi.org/project/pip-outdated/](https://pypi.org/project/pip-outdated/).\n\
+  - explanation: Several usage examples are provided, including instructions on using\n\
+  \    wildcards to read from multiple files and directory paths.\n  fact: The pip-outdated\
+  \ tool supports multiple usage scenarios, such as checking\n    multiple files (e.g.,\
+  \ test-requirements.txt and dev-requirements.txt) and using\n    glob patterns to\
+  \ check all files under a directory (e.g., requirements/*.txt).\n- explanation:\
+  \ The documentation lists these options under the 'Usage' section, providing\n \
+  \   details about the functionalities they enable.\n  fact: The pip-outdated tool\
+  \ has several command-line options including `-h` for\n    help, `-v` for verbose\
+  \ output, and `-q` to suppress exit code 1 when some packages\n    are outdated.\n\
+  - explanation: A detailed changelog is present in the file listing multiple versions\n\
+  \    with their respective features and changes along with specific release dates.\n\
+  \  fact: The pip-outdated project has a changelog that lists versions with release\n\
+  \    dates and descriptions of changes, including version 0.8.0 released on August\n\
+  \    9, 2025, 0.7.0 released on August 13, 2024, 0.6.0 on January 1, 2023, and other\n\
+  \    earlier versions with specific improvements and features added.\n- explanation:\
+  \ Version 0.8.0 in the changelog states that the dependency on setuptools\n    was\
+  \ dropped and that the configparser is now used for reading setup.cfg files.\n \
+  \ fact: The pip-outdated tool previously used setuptools for reading setup.cfg files\n\
+  \    but has since switched to using the configparser module as of version 0.8.0.\n\
+  - explanation: Version 0.3.0 changelog entry mentions these changes, stating that\n\
+  \    prereleases are now ignored and new fields in setup.cfg are checked.\n  fact:\
+  \ The tool's changelog indicates that as of version 0.3.0, prereleases are no\n\
+  \    longer checked and it also checks 'setup_requires' and 'extras_require' fields\n\
+  \    in setup.cfg files.\n- explanation: These options are listed in the Usage section\
+  \ as optional flags that\n    affect the behavior and detail level of the tool's\
+  \ output.\n  fact: The tool's command-line argument `-h` (help) and the `-v` (verbose)\
+  \ flag are\n    commonly used for users of the pip-outdated project to understand\
+  \ their options\n    and get more detailed output during runs.\n- explanation: This\
+  \ information is described in the changelog entry for version 0.4.0\n    on Jan\
+  \ 30, 2020, detailing the new features and requirements.\n  fact: In the changelog,\
+  \ there was a significant change in version 0.4.0 where support\n    for Python\
+  \ was bumped to 3.7, introduced parallel processing, and added the `--quiet`\n \
+  \   option to suppress exit code 1 when dependencies are outdated.\n- explanation:\
+  \ The earliest version listed in the changelog is 0.1.0, which is labeled\n    as\
+  \ the first release on that date.\n  fact: The tool was first released as version\
+  \ 0.1.0 on May 12, 2018 and since then\n    has continued to evolve with improvements\
+  \ in dependencies and features across\n    multiple versions.\n- explanation: An\
+  \ explicit 'Todos' section is present in the documentation, listing\n    several\
+  \ proposed features that may be implemented in the future.\n  fact: The pip-outdated\
+  \ project includes a section labeled as 'Todos', which outlines\n    potential future\
+  \ enhancements or features, such as adding options to update the\n    package automatically,\
+  \ update the requirements.txt/setup.cfg file, or list all\n    packages including\
+  \ global ones.\n"

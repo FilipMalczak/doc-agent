@@ -1,0 +1,42 @@
+"facts:\n- explanation: The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\
+  \ specifies\n    that the Python package 'pip-outdated' is available for installation\
+  \ via PyPI.\n    This is indicated by the 'Installation' section's reference to\
+  \ PyPI.\n  fact: The Python package 'pip-outdated' is published on the Python Package\
+  \ Index\n    (PyPI) under the name 'pip-outdated'.\n- explanation: The document\
+  \ with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' lists 'requirements.txt'\n    and\
+  \ 'setup.cfg' as the default files processed by 'pip-outdated' for dependency\n\
+  \    checks. This is shown in the 'Usage' section's default argument description.\n\
+  \  fact: The 'pip-outdated' tool processes 'requirements.txt' and 'setup.cfg' files\n\
+  \    by default to check for outdated dependencies.\n- explanation: The document\
+  \ with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' includes\n    a 'Todos' section\
+  \ that explicitly lists planned feature additions, such as options\n    to update\
+  \ packages or modify requirements files.\n  fact: The project maintains a 'Todos'\
+  \ section in its documentation, indicating planned\n    features like package update\
+  \ capabilities and requirements file modification options.\n- explanation: The 'Changelog'\
+  \ in the document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\n    shows version\
+  \ '0.8.0' (August 9, 2025) dropped the 'setuptools' dependency in\n    favor of\
+  \ 'configparser' for reading 'setup.cfg' files.\n  fact: In version 0.8.0 of 'pip-outdated',\
+  \ the project removed 'setuptools' as a\n    dependency and switched to 'configparser'\
+  \ for parsing 'setup.cfg'.\n- explanation: The 'Changelog' in the document with\
+  \ ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\n    for version 0.6.0 (January 1, 2023)\
+  \ notes that dependencies were bumped and 'cchardet'\n    was removed.\n  fact:\
+  \ Version 0.6.0 of 'pip-outdated' removed 'cchardet' as a dependency and updated\n\
+  \    other package versions.\n- explanation: The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\
+  \ in the\n    'Changelog' (version 0.4.0, January 30, 2020) states that the minimum\
+  \ required\n    Python version was updated to 3.7.\n  fact: Version 0.4.0 of 'pip-outdated'\
+  \ introduced support for Python 3.7 as the minimum\n    required version.\n- explanation:\
+  \ The 'Changelog' in the document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\n\
+  \    (version 0.3.0, October 13, 2019) explicitly mentions changing the exit code\
+  \ behavior\n    and handling of prereleases.\n  fact: In version 0.3.0 of 'pip-outdated',\
+  \ the tool was modified to exit with code\n    1 when dependencies are not up to\
+  \ date and to ignore prereleases during checks.\n- explanation: The document with\
+  \ ID 'c70abb08-f4fa-543d-ad2e-52421c056692' in the\n    'Changelog' (version 0.2.0,\
+  \ February 10, 2019) lists specific version bumps for\n    'colorama', 'packaging',\
+  \ 'requests', 'termcolor', and 'terminaltables'.\n  fact: 'Version 0.2.0 of ''pip-outdated''\
+  \ updated its dependencies to specific versions:\n    colorama@0.4.x, packaging@19.x,\
+  \ requests@2.x, termcolor@1.x, and terminaltables@3.x.'\n- explanation: The document\
+  \ with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' includes\n    a '--quiet' command-line\
+  \ option in version 0.4.0 (January 30, 2020) that prevents\n    the tool from returning\
+  \ exit code 1 when dependencies are outdated.\n  fact: The 'pip-outdated' tool includes\
+  \ a '--quiet' command-line option, introduced\n    in version 0.4.0, which suppresses\
+  \ the non-zero exit code when dependencies are\n    not up to date.\n"

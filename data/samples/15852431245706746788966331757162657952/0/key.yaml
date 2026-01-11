@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function parse_require is defined in the file, which attempts to\n    extract\
-  \ a requirement from a text line, stripping options and using the packaging.requirements.Requirement\n\
-  \    class.\n  fact: The file pip_outdated/find_require.py contains a function named\
-  \ parse_require\n    that parses a text line into a requirement object.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

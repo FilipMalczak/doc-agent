@@ -1,0 +1,7 @@
+"## \U0001F527 Core Function  \n### `get_session() -> aiohttp.ClientSession`  \n-\
+  \ **Purpose:** Returns a configured `aiohttp.ClientSession` that the rest of the\
+  \ project can use for HTTP requests.  \n- **Key Settings:**  \n  - **Headers:**\
+  \ `{ \"User-Agent\": \"pip-outdated\" }` \u2013 ensures all outbound requests identify\
+  \ the tool consistently.  \n  - **Connector:** `aiohttp.TCPConnector(limit=5)` \u2013\
+  \ caps the number of simultaneous connections to **5**, preventing excessive load\
+  \ on remote servers and reducing the risk of hitting rate limits.  \n"

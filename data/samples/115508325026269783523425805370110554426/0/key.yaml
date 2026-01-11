@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'parse_args' function utilizes argparse to define these options,\n    indicating\
+  \ that users can specify files, enable verbose logging, or run in quiet\n    mode\
+  \ when executing the tool.\n  fact: The pip-outdated tool parses command-line arguments\
+  \ for verbose output, quiet\n    mode, and file inputs with defaults to 'requirements.txt'\
+  \ and 'setup.cfg'.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n \
+  \ explanation: null\n  fact: null\n__pydantic_private__: null\n"

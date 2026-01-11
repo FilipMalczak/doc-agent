@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'verbose' is defined to return the value stored in the\n    global\
+  \ variable 'VERBOSE'.\n  fact: The 'verbose' function in 'pip_outdated/verbose.py'\
+  \ returns the boolean value\n    of the global variable 'VERBOSE'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

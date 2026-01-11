@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The output table explicitly documents the meaning of each color. This\n    helps\
-  \ users interpret the terminal output correctly.\n  fact: In file 'pip_outdated/print_outdated.py',\
-  \ the output explains that 'Red =\n    unavailable/outdated/out of version specifier'\
-  \ and 'Green = updatable' before\n    displaying the package table.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

@@ -1,0 +1,29 @@
+finish_reason: tool_call
+kind: response
+model_name: qwen/qwen3-32b
+parts:
+- args: '{"facts": [{"fact": "Function ''get_session'' is defined in the file ''pip_outdated/session.py''
+    with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419.", "explanation": "The function ''get_session''
+    is explicitly shown in the code provided."}]}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-81416c8286984f46b2b2f1023f679d1a
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768169078-SC1lb4Bf5qTV0s0yAKSm
+run_id: cff6ca75-c02b-46e7-8492-26604edd741a
+timestamp: '2026-01-11T22:04:38Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 1403
+  output_audio_tokens: 0
+  output_tokens: 92

@@ -1,8 +1,0 @@
-"# Maintainer\u2013Facing Notes for `pip_outdated/find_require.py`\n## Limitations\
-  \ / Open Issues\n- The regex in `parse_require` (`r\"(.*?)\\s--?[a-z]\"`) removes\
-  \ any trailing option that begins with a hyphen followed by a letter, which may\
-  \ unintentionally truncate legitimate requirement specifiers that contain hyphens\
-  \ (e.g., `my-package -extra`).  \n- No explicit handling for `-r other-requirements.txt`\
-  \ include directives; such lines will be stripped to the empty string and ignored.\
-  \  \n- Verbose output is printed directly with `print`; consider using the project's\
-  \ logging framework for better control.\n"

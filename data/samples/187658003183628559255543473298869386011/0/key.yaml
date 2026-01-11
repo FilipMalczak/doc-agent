@@ -1,0 +1,10 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'get_local_version' function is defined as 'async' and spawns an\n    asynchronous\
+  \ subprocess to execute 'pip show' which displays package details.\n    The returned\
+  \ 'Version' is extracted from the 'stdout'. This is a fact because\n    it is directly\
+  \ implemented in the document and is important for the 'maintainer'\n    role to\
+  \ understand how local package version information is fetched.\n  fact: The file\
+  \ 'pip_outdated/check_outdated.py' contains an asynchronous function\n    'get_local_version'\
+  \ that retrieves the version of a package installed locally\n    using 'pip show'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

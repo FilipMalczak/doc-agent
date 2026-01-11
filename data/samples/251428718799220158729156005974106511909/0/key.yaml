@@ -1,4 +1,0 @@
-"### Overview (End\u2011User Perspective)\n- Finds outdated, missing, or incompatible\
-  \ packages and presents results in a colored table.  \n- Works with both `requirements.txt`\
-  \ and `setup.cfg` formats.  \n- Can be used as a drop\u2011in replacement for `pip\
-  \ list --outdated` when you need to respect version specifiers.\n"

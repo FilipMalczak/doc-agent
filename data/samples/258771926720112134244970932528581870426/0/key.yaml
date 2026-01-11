@@ -1,3 +1,0 @@
-there is an asynchronous test for `get_pypi_versions` function for the argument 'pytz'
-  in the file tests/test_pytz.py
-...

@@ -1,0 +1,2 @@
+"## Basic usage  \n```bash\npip-outdated\n```  \n- By default reads `requirements.txt`\
+  \ and `setup.cfg`.  \n\n### Command\u2011line options  \n### Example commands  "

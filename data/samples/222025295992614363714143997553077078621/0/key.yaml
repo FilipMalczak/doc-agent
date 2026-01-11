@@ -1,5 +1,0 @@
-"### Planned enhancements (TODOs) \u2013 helpful to know what may appear in future\
-  \ releases\n- Option to automatically **update packages**.\n- Option to **modify\
-  \ `requirements.txt` / `setup.cfg`** with the newer versions.\n- Global listing\
-  \ flag (e.g., `-g` / `--global`) to show *all* available package updates, not just\
-  \ those constrained by your files.\n\n---\n"

@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document references pip's requirements file format documentation,\n    indicating\
+  \ it implements parsing compatible with pip's spec.\n  fact: The document includes\
+  \ a reference to pip's official requirements file format\n    documentation (https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)\n\
+  \    in pip_outdated/find_require.py.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

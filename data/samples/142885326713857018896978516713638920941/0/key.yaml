@@ -1,0 +1,10 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function fetches a package's PyPI JSON data, iterates through the\n    release\
+  \ keys, and excludes any that are InvalidVersion or a Prerelease. Valid\n    versions\
+  \ are then sorted and returned. This reflects the design choice to only\n    consider\
+  \ stable, non-prerelease versions when determining outdated packages, which\n  \
+  \  is a critical detail for a maintainer to understand the behavior of the tool.\n\
+  \  fact: The 'get_pypi_versions' function in 'pip_outdated/check_outdated.py' filters\n\
+  \    and sorts PyPI package versions, excluding any prerelease versions.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

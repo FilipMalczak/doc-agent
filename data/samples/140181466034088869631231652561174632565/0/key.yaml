@@ -1,0 +1,7 @@
+"## \U0001F469\u200D\U0001F4BB How the module fits into the **pip\u2011outdated**\
+  \ tool  \n\n1. **Input** \u2013 A `Requirement` object (typically parsed from a\
+  \ requirements file).  \n2. **Processing** \u2013  \n   - Normalizes the package\
+  \ name with `canonicalize_name`.  \n   - Retrieves the local (installed) version.\
+  \  \n   - Retrieves all stable versions from PyPI.  \n   - Constructs an `OutdateResult`\
+  \ that encapsulates the status.  \n3. **Output** \u2013 An `OutdateResult` instance\
+  \ that downstream code can inspect to decide how to report or act on outdated packages.\n"

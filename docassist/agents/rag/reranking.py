@@ -1,4 +1,4 @@
-from docassist.agents.rag.data import RerankingOutput, RerankingInput
+from docassist.agents.rag.data import RerankedItem, RerankingInput, RerankingOutput
 from docassist.parametrized import Parametrized
 from docassist.preindexing.perspectives import PERSPECTIVES, perspective
 from docassist.structured_agent import StructuredAgent, DoerAgent, SolverAgent
@@ -9,7 +9,7 @@ from docassist.system_prompts import PromptingTask
 reranker = Parametrized(
     parameters=PERSPECTIVES,
     factory=lambda name_suffix, params:
-        SolverAgent(
+        DoerAgent(
             name="document reranker",
             persona="RAG helper specialised in reranking of documents",
             perspective=perspective(**params),
@@ -25,8 +25,11 @@ You will be given full content of the input documents, as well as their metadata
 Input score will always be in [0.0, 1.0] range.
 You will use that knowledge to produce integer scores in 1-10 range.
 You will treat the content as the most important. All the metadata, including previous score, should have much lower priority, but otherwise uniform amongst available details.
-You will emit an appropriate output item for each input item. There will be exactly one output item for each input item. You will correlate the items by their document ID. The document ID is the ID of the last element of the documents identity.
-The set of input IDs MUST be exactly the same as set of output IDs. Keep the order of input and output entries aligned. 
+You will emit explicit ordering of the items, from the best to the worst. You will also provide updated score for each
+item. 
+You will include each and every input document ID in the ordering. Every ID will appear in the ordering exactly once. No ID will get duplicated or missed. This part of your response must be consistent with the order that could be derived from updated scores. 
+You will emit an appropriate rescoring item for each input item. There will be exactly one rescoring item for each input item. No input item will get duplicated or missed. If we were to sort the list of rescorings by the updated score descending, the order should match the ordering emitted in the other part of your response. 
+You will correlate the items and their ordering by their document ID. 
 You will explain your choices, one at the time, referring to the input data and your inherent knowledge.
 """,
                 detailed="""
@@ -48,7 +51,7 @@ If you choose the lower value at that point, include the original explanation of
 """
         ),
             input_type=RerankingInput,
-            output_type=list[RerankingOutput],
+            output_type=RerankingOutput,
         )
 )
 

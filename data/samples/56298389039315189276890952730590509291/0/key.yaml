@@ -1,0 +1,17 @@
+"## \U0001F4CB Notes for maintainers (ensuring a smooth end\u2011user experience)\
+  \  \n\n- **Verbosity control** \u2013 The global `verbose()` function toggles a\
+  \ single debug line. Ensure the flag is exposed or documented for users who want\
+  \ more insight.  \n- **Error handling** \u2013  \n  - Network failures in `get_pypi_versions`\
+  \ raise an exception via `raise_for_status()`. Consider catching these at a higher\
+  \ level to present a user\u2011friendly message (e.g., \u201CCould not reach PyPI,\
+  \ check your internet connection\u201D).  \n  - The subprocess call in `get_local_version`\
+  \ silently returns `None` on non\u2011zero exit codes, which already signals \u201C\
+  package not installed.\u201D  \n- **Performance** \u2013 The functions are fully\
+  \ asynchronous, allowing the caller to query many packages concurrently (e.g., via\
+  \ `asyncio.gather`). Documentation should stress the need for an `aiohttp.ClientSession`\
+  \ (or compatible) when using `check_outdated`.  \n- **Version filtering** \u2013\
+  \ Prerelease versions are excluded. If a user explicitly wants to consider prereleases,\
+  \ the logic would need to be adjusted; note this limitation in the user guide. \
+  \ \n- **Cross\u2011platform reliability** \u2013 `pip show` works wherever the `pip`\
+  \ executable is in `$PATH`. For environments with multiple Python installations,\
+  \ ensure the correct `pip` is invoked (e.g., by using `python -m pip`).  \n"

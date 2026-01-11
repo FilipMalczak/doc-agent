@@ -1,0 +1,3 @@
+The pip-outdated tool parses command-line arguments for verbose output, quiet mode,
+  and file inputs with defaults to 'requirements.txt' and 'setup.cfg'.
+...

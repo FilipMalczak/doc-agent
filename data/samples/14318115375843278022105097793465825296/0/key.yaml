@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The '@dataclass' decorator is used to define a class 'OutdateResult',\n    which\
-  \ encapsulates result information for outdated package checks.\n  fact: The file\
-  \ 'pip_outdated/check_outdated.py' defines a data class named 'OutdateResult'.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

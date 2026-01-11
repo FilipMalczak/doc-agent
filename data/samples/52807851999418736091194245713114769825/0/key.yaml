@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is explicitly stated in the <additional_details> section where\n    the language\
+  \ is specified as Python.\n  fact: The test file 'tests/test_parse_cfg.py' is written\
+  \ in Python.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

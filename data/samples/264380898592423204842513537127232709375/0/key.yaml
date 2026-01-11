@@ -1,8 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The tool retrieves locally installed package versions by executing\n    'pip show\
-  \ <package>' command through asynchronous subprocess calls, forming the\n    foundation\
-  \ for version comparison in document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b\n\
-  \  fact: The 'get_local_version()' function in document 79501155-b71e-5dd6-a529-82fd14d4a11b\n\
-  \    explicitly uses pip show command output to determine installed package versions\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

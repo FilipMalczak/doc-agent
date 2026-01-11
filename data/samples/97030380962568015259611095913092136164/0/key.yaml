@@ -1,3 +1,0 @@
-In file 'pip_outdated/find_require.py', there is a function named 'parse_requirements'
-  that parses a file and extracts requirement lines using 'parse_require'.
-...

@@ -1,0 +1,10 @@
+"## Notes for End\u2011User  \n\n- This file is a **test script** (`tests/test_pytz.py`)\
+  \ that verifies the project's ability to query the latest versions of a package\
+  \ from PyPI.  \n- It specifically checks the **`pytz`** package by calling `get_pypi_versions(\"\
+  pytz\", session)`.  \n- The test runs **asynchronously**:\n  - It uses `pytest.mark.asyncio`\
+  \ to enable async test execution.  \n  - It obtains an async HTTP client via `get_session()`\
+  \ (from `pip_outdated.session`).  \n- Successful execution of this test demonstrates\
+  \ that the library can:\n  - Open an async session.  \n  - Retrieve version information\
+  \ for any given package name from the PyPI API.  \n- For end\u2011users, this test\
+  \ confirms that the core functionality (checking for outdated packages) works for\
+  \ real\u2011world packages like `pytz`.  "

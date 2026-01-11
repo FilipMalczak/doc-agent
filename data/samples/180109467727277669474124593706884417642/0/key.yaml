@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 'import argparse' and 'import asyncio' statements are at the top,\n    while\
-  \ the other imports occur inside the '_main' function.\n  fact: The '__init__.py'\
-  \ file imports modules at the top of the file except for 'verbose',\n    'find_require',\
-  \ 'check_outdated', 'print_outdated', and 'session', which are imported\n    inside\
-  \ the '_main' function.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

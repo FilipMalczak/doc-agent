@@ -1,0 +1,3 @@
+In version 0.8.0 of 'pip-outdated', the project removed 'setuptools' as a dependency
+  and switched to 'configparser' for parsing 'setup.cfg'.
+...

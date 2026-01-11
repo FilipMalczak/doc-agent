@@ -1,0 +1,3 @@
+The 'test_pytz' test function in the file 'test_pytz.py' uses a context manager to
+  get a session asynchronously.
+...

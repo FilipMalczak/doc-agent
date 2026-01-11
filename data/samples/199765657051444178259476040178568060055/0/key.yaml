@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function utilizes 'tmp_path', which is a pytest fixture for temporary\n  \
+  \  directories.\n  fact: The test function 'test_parse_cfg' uses 'tmp_path' as a\
+  \ fixture to create\n    a temporary setup.cfg file.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

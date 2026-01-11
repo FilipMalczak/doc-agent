@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The `_main()` function in `pip_outdated/__init__.py` explicitly imports\n    and\
+  \ uses internal modules (`find_require`, `check_outdated`, `print_outdated`)\n \
+  \   to implement the tool's workflow.\n  fact: In file `pip_outdated/__init__.py`,\
+  \ the `_main()` function uses `find_require()`\n    from `.find_require`, `check_outdated()`\
+  \ from `.check_outdated`, and `print_outdated()`\n    from `.print_outdated` to\
+  \ process dependency checks.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

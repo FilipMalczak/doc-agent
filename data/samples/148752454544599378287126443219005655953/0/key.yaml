@@ -1,0 +1,3 @@
+In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session' function
+  assigns a 'User-Agent' header with the value 'pip-outdated' to HTTP requests.
+...

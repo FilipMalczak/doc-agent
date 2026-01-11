@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This is directly stated by the presence of the 'pypi_not_found' method\n    in\
+  \ the code of the OutdateResult class.\n  fact: The OutdateResult class has a method\
+  \ named pypi_not_found in file 'pip_outdated/check_outdated.py'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

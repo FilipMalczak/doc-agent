@@ -1,3 +1,0 @@
-colored_w wanted returns red bolded None if outdate.pypi_not Found() or outdate.wanted
-  is None
-...

@@ -1,0 +1,26 @@
+"facts:\n- explanation: The 'parse_cfg' function uses Python's ConfigParser to read\
+  \ a configuration\n    file. It then accesses specific sections and options ('options'\
+  \ section with 'setup_requires'\n    and 'install_requires' options, and 'options.extras_require'\
+  \ section). These options\n    are expected to contain requirement strings that\
+  \ are further parsed using the\n    'parse_requirements_text' function.\n  fact:\
+  \ In file 'pip_outdated/find_require.py', there is a function named 'parse_cfg'\n\
+  \    that reads a '.cfg' file and extracts 'setup_requires', 'install_requires',\
+  \ and\n    'extras_requires' options from its configuration.\n- explanation: This\
+  \ function splits the input text into lines, including line endings,\n    and then\
+  \ applies the 'parse_lines' function to handle continuation lines and comments.\n\
+  \    Each processed line is then passed to the 'parse_require' function for parsing\n\
+  \    as a requirement.\n  fact: In file 'pip_outdated/find_require.py', the function\
+  \ 'parse_requirements_text'\n    processes a given text string to split it into\
+  \ lines and parse each line as a\n    Python package requirement.\n- explanation:\
+  \ The 'file_to_lines' function opens the specified file and processes\n    its lines\
+  \ with 'parse_lines', which removes comments starting with '#' and handles\n   \
+  \ line continuation using a backslash character. This processed content is then\n\
+  \    yielded line by line.\n  fact: In file 'pip_outdated/find_require.py', the\
+  \ function 'file_to_lines' reads\n    the content of a file, handling comments and\
+  \ line continuations (using '#' for\n    comments and '\\' for continuing a line).\n\
+  - explanation: The 'find_require' function calls 'parse_cfg' if the file has a '.cfg'\n\
+  \    extension, which is used for parsing configuration files. Otherwise, it uses\
+  \ the\n    'parse_requirements' function for other file types, typically requirements\
+  \ files\n    formatted for pip.\n  fact: The 'find_require' function in the file\
+  \ 'pip_outdated/find_require.py' determines\n    which parsing function to use based\
+  \ on the file's extension (.cfg or not).\n"

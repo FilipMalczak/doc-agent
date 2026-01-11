@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document explicitly states that this tool is designed to find outdated\n \
+  \   dependencies in these specific files.\n  fact: pip-outdated finds outdated dependencies\
+  \ in requirements.txt or setup.cfg\n    files.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

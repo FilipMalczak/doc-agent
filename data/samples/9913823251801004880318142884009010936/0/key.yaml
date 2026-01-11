@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function iter_files is designed to find and yield file paths matching\n  \
+  \  given glob patterns, supporting both direct files and glob patterns.\n  fact:\
+  \ The document contains a function named iter_files that processes multiple\n  \
+  \  glob patterns and yields file paths as pathlib.Path objects in pip_outdated/find_require.py.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

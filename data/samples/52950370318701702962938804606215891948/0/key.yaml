@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ It imports 'asyncio' and uses 'async def' for functions, showing that\n    the\
-  \ code is written to handle asynchronous operations, such as running command-line\n\
-  \    tools.\n  fact: The module 'pip_outdated/check_outdated.py' uses 'asyncio'\
-  \ for asynchronous\n    execution of subprocesses.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

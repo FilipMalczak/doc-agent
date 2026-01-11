@@ -1,3 +1,0 @@
-The `aiohttp.ClientSession` instances created in pip_outdated/session.py are initialized
-  with a custom User-Agent header 'pip-outdated'.
-...

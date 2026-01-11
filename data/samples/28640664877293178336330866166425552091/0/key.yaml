@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ 'The file defines a function ''make_row'' that generates colored output\n    rows\
+  \ for outdated package information. Colors are used to indicate status: red\n  \
+  \  for uninstallable/outdated packages and green for updatable packages. This is\n\
+  \    directly relevant to end-users as it defines the visual feedback mechanism\
+  \ in\n    the CLI output.'\n  fact: The pip_outdated/print_outdated.py defines a\
+  \ color-coded output system where\n    red indicates unavailable/outdated packages\
+  \ and green indicates updatable packages.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

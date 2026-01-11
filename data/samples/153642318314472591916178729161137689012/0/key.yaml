@@ -1,0 +1,34 @@
+"**pip\u2011outdated \u2013 Quick Reference for Maintainers**\n\n- **Purpose**  \n\
+  \  - Detects outdated, missing, or incompatible dependencies in `requirements.txt`\
+  \ or `setup.cfg`.  \n  - Presents results in a coloured table, complementing `pip\
+  \ list --outdated` which only lists updatable packages.\n\n- **Installation**  \n\
+  \  ```bash\n  pip install pip-outdated\n  ```\n\n- **CLI Overview**  \n  ```bash\n\
+  \  pip-outdated [-h] [-v] [-q] [<file> ...]\n  ```\n  - **Positional `<file>`**\
+  \ \u2013 one or more glob patterns; defaults to `requirements.txt` and `setup.cfg`.\
+  \  \n  - **Options**  \n    - `-h, --help` \u2013 show help message.  \n    - `-v,\
+  \ --verbose` \u2013 enable verbose output (default: `False`).  \n    - `-q, --quiet`\
+  \ \u2013 suppress exit\u2011code\u202F1 when some dependencies are not up\u2011\
+  to\u2011date (default: `False`).  \n\n- **Typical Usage Examples**  \n  - Scan all\
+  \ `*-requirements.txt` files:  \n    ```bash\n    pip-outdated *-requirements.txt\n\
+  \    ```  \n  - Scan every `.txt` file under a `requirements/` directory:  \n  \
+  \  ```bash\n    pip-outdated requirements/*.txt\n    ```\n\n- **Current TODOs**\
+  \ *(areas that may need documentation updates in the future)*  \n  - Add command\u2011\
+  line options to automatically update packages.  \n  - Add options to rewrite `requirements.txt`\
+  \ / `setup.cfg` with corrected versions.  \n  - Add a \u201Cglobal\u201D listing\
+  \ mode (e.g., `-g, --global`).\n\n- **Changelog Highlights (important for release\
+  \ notes & user docs)**  \n  - **0.8.0 (2025\u201108\u201109)** \u2013 Dropped `setuptools`\
+  \ dependency; switched to `configparse` for reading `setup.cfg`.  \n  - **0.7.0\
+  \ (2024\u201108\u201113)** \u2013 Ignores `InvalidVersion` errors gracefully  \n\
+  \  - **0.6.0 (2023\u201101\u201101)** \u2013 Retrieves package versions via the\
+  \ `pip` CLI (works in virtual environments); removed `cchardet`.  \n  - **0.5.0\
+  \ (2022\u201101\u201112)** \u2013 Added type hints; bumped dependencies.  \n  -\
+  \ **0.4.0 (2020\u201101\u201130)** \u2013 Bumped minimum Python to **3.7**; introduced\
+  \ parallel request handling and the `--quiet` flag.  \n  - **0.3.0 (2019\u201110\u2011\
+  13)** \u2013 Exit code\u202F1 on any outdated issue; stopped checking prereleases;\
+  \ added support for `setup_requires` & `extras_require`.  \n  - **0.2.0 (2019\u2011\
+  02\u201110)** \u2013 Updated core dependencies (e.g., `colorama@0.4.x`, `packaging@19.x`).\
+  \  \n  - **0.1.0 (2018\u201105\u201112)** \u2013 Initial release.\n\n- **CI / Coverage\
+  \ Badges** *(useful for README updates)*  \n  - Travis CI build status.  \n  - Codecov\
+  \ coverage badge.\n\n---  \n\n*These notes capture the key information a maintainer\
+  \ would need to keep the project\u2019s user\u2011facing documentation accurate\
+  \ and up\u2011to\u2011date.*"

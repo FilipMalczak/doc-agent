@@ -1,0 +1,2 @@
+'Conditional color-coding in ''make_row'' highlights package issues: red for unavailable/outdated
+  versions, green for updatable versions.'

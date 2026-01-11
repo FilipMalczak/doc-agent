@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ 'The function sets the headers variable to {''User-Agent'': ''pip-outdated''}\n\
-  \    before creating the ClientSession.'\n  fact: The get_session function sets\
-  \ a User-Agent header to 'pip-outdated' in pip_out\n    Dokumentationen session.py\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

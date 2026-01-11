@@ -1,3 +1,0 @@
-"### Exit codes\n- **0** \u2013 All dependencies are up\u2011to\u2011date **or** the\
-  \ `--quiet` flag was used.  \n- **1** \u2013 At least one dependency is outdated\
-  \ and `--quiet` was **not** specified.\n"

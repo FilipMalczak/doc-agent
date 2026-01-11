@@ -1,3 +1,0 @@
-The pip_outdated/verbose.py contains a function named set_verbose that modifies the
-  global VERBOSE variable's value when called with a boolean argument.
-...

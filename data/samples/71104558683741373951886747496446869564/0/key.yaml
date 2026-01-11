@@ -1,3 +1,0 @@
-The parse_args function uses argparse to set up command-line arguments for the pip-outdated
-  tool.
-...

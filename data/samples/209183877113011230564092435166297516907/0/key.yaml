@@ -1,0 +1,3 @@
+In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there is a @dataclass called
+  'OutdateResult' that holds the result of checking package up-to-dateness.
+...

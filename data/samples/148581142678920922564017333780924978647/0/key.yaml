@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' includes\n    a '--quiet'\
+  \ command-line option in version 0.4.0 (January 30, 2020) that prevents\n    the\
+  \ tool from returning exit code 1 when dependencies are outdated.\n  fact: The 'pip-outdated'\
+  \ tool includes a '--quiet' command-line option, introduced\n    in version 0.4.0,\
+  \ which suppresses the non-zero exit code when dependencies are\n    not up to date.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This function splits the input text into lines, including line endings,\n    and\
+  \ then applies the 'parse_lines' function to handle continuation lines and comments.\n\
+  \    Each processed line is then passed to the 'parse_require' function for parsing\n\
+  \    as a requirement.\n  fact: In file 'pip_outdated/find_require.py', the function\
+  \ 'parse_requirements_text'\n    processes a given text string to split it into\
+  \ lines and parse each line as a\n    Python package requirement.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

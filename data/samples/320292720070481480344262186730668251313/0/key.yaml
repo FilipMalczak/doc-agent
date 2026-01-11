@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'from pip_outdated.check_outdated import get_pypi_versions'\n    indicates\
+  \ that the function 'get_pypi_versions' is imported from the module 'check_outdated'\n\
+  \    in the package 'pip_outdated' to be used in tests.\n  fact: The file 'test_pytz.py'\
+  \ imports 'get_pypi_versions' from 'pip_outdated.check_outdated'\n    for testing.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

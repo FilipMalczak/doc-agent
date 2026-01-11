@@ -1,0 +1,13 @@
+"**Notes for End Users (perspective: enduser)**  \n\n- The project provides a helper\
+  \ function **`get_session()`** that creates an `aiohttp.ClientSession` configured\
+  \ for all network interactions.  \n- The session uses a custom **User-Agent** header\
+  \ set to `\"pip-outdated\"`; this identifies requests made by the tool when contacting\
+  \ package indexes.  \n- A **TCP connector** with a **concurrency limit of `5`**\
+  \ is applied, meaning the session will not open more than five simultaneous connections.\
+  \ This helps to avoid overwhelming remote servers.  \n- The function returns an\
+  \ **`aiohttp.ClientSession`** object (type\u2011annotated).  \n- **Usage tip for\
+  \ end users**:  \n  - Call `session = get_session()` before performing any HTTP\
+  \ requests through the library.  \n  - Remember to **close** the session when finished\
+  \ (e.g., `await session.close()` or use it as an async context manager) to release\
+  \ network resources.  \n\nThese points summarize the observable behavior of `pip_outdated/session.py`\
+  \ that may be relevant for users interacting with the tool."

@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The CLI includes a '-q' or '--quiet' argument that prevents exiting\n    with\
-  \ code 1 when there are outdated dependencies.\n  fact: The 'pip-outdated' CLI allows\
-  \ users to suppress exit code 1 via the '-q' or\n    '--quiet' option.\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

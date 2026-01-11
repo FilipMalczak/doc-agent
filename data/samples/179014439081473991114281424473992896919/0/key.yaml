@@ -1,0 +1,3 @@
+"## Packaging Details  \n\n- **Zip\u2011safe:** `True` (the package can be distributed\
+  \ as a zip archive).  \n- **Package discovery:** Uses `find:` with `exclude = tests`\
+  \ to omit test modules from the distribution.  \n"

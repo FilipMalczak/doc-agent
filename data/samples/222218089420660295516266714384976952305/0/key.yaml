@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'Changelog' in the document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692'\n\
+  \    shows version '0.8.0' (August 9, 2025) dropped the 'setuptools' dependency\
+  \ in\n    favor of 'configparser' for reading 'setup.cfg' files.\n  fact: In version\
+  \ 0.8.0 of 'pip-outdated', the project removed 'setuptools' as a\n    dependency\
+  \ and switched to 'configparser' for parsing 'setup.cfg'.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

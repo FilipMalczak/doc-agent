@@ -1,4 +1,0 @@
-In file 'pip_outdated/check_outdated.py', the 'OutdateResult' class includes a method
-  'outdated' that returns a boolean based on the comparison of 'version' with 'wanted'
-  and 'latest' attributes.
-...

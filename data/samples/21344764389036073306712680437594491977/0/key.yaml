@@ -1,0 +1,4 @@
+The tool's command-line argument `-h` (help) and the `-v` (verbose) flag are commonly
+  used for users of the pip-outdated project to understand their options and get more
+  detailed output during runs.
+...

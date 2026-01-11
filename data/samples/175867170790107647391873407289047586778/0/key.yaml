@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The setup() function is called without any arguments in this file,\n    implying\
+  \ that the project is using default configuration values for packaging\n    (such\
+  \ as name, version, packages).\n  fact: 'The setup function from setuptools is called\
+  \ without parameters in the setup.py\n    file (ID: 17ae6927-bfa3-579e-8306-4465b7a352d8).'\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

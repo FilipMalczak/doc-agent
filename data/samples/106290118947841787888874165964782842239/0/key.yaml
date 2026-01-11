@@ -1,0 +1,3 @@
+The function check_outdated in 'pip_outdated/check_outdated.py' calls the get_local_version
+  and get_pypi_versions functions.
+...

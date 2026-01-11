@@ -1,0 +1,42 @@
+"facts:\n- explanation: This is specified in the 'name' field under the [metadata]\
+  \ section\n    in the setup.cfg file.\n  fact: The project name is pip-outdated.\n\
+  - explanation: This is specified in the 'version' field under the [metadata] section\n\
+  \    in the setup.cfg file.\n  fact: The current version of the project is 0.8.0.\n\
+  - explanation: This is given in the 'description' field under the [metadata] section\n\
+  \    in the setup.cfg file.\n  fact: The project is designed to find outdated dependencies\
+  \ in requirements.txt\n    or setup.cfg.\n- explanation: This information is provided\
+  \ in the 'author' field under the [metadata]\n    section in the setup.cfg file.\n\
+  \  fact: The author of the project is eight.\n- explanation: This is specified in\
+  \ the 'author_email' field under the [metadata]\n    section in the setup.cfg file.\n\
+  \  fact: The author's email is eight04@gmail.com.\n- explanation: 'This is reflected\
+  \ in the ''classifiers'' section where ''Development\n    Status :: 4 - Beta'' is\
+  \ listed in the setup.cfg file.'\n  fact: The project is in the beta stage of development.\n\
+  - explanation: 'This is indicated by the classifier ''Environment :: Console'' listed\n\
+  \    in the ''classifiers'' section of the setup.cfg file.'\n  fact: The project\
+  \ is intended for use in a console environment.\n- explanation: 'The ''classifiers''\
+  \ section includes ''Intended Audience :: Developers''\n    in the setup.cfg file.'\n\
+  \  fact: The target audience for the project is developers.\n- explanation: 'This\
+  \ is specified in the ''classifiers'' section where ''Programming\n    Language\
+  \ :: Python :: 3.7'' is listed in the setup.cfg file.'\n  fact: The project is compatible\
+  \ with Python 3.7.\n- explanation: This is stated explicitly in the 'license' field\
+  \ under the [metadata]\n    section in the setup.cfg file.\n  fact: The project\
+  \ is licensed under the MIT license.\n- explanation: The 'long_description' field\
+  \ under the [metadata] section in the setup.cfg\n    file references 'README.rst'.\n\
+  \  fact: The long description for the project is sourced from the README.rst file.\n\
+  - explanation: This is specified in the 'url' field under the [metadata] section\
+  \ in\n    the setup.cfg file.\n  fact: The project's URL is https://github.com/eight04/pip-outdated.\n\
+  - explanation: Under the [options.packages.find] section in the setup.cfg file,\
+  \ it\n    is specified that packages are found using 'find:' and the 'exclude =\
+  \ tests' line\n    indicates that test directories are excluded.\n  fact: The project\
+  \ packages can be found using the find command, and tests are excluded.\n- explanation:\
+  \ These are listed under the 'install_requires' section in the setup.cfg\n    file\
+  \ with specified version constraints.\n  fact: The primary dependencies required\
+  \ for the project include aiohttp, colorama,\n    packaging, termcolor, and terminaltables.\n\
+  - explanation: The 'zip_safe' option under the [options] section is set to True\
+  \ in\n    the setup.cfg file.\n  fact: The package is configured to be zip safe.\n\
+  - explanation: This is specified in the [options.entry_points] section in the setup.cfg\n\
+  \    file where 'console_scripts' links 'pip-outdated' to 'pip_outdated:main'.\n\
+  \  fact: The console script pip-outdated is associated with the main function in\
+  \ the\n    pip_outdated module.\n- explanation: This is indicated in the [vpip]\
+  \ section where 'command_fallback' is\n    set to 'python cute.py' in the setup.cfg\
+  \ file.\n  fact: The vpip command fallback is set to run the Python script cute.py.\n"

@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The main function 'check_outdated' serves as the entry point for comparing\n \
-  \   requirements against installed versions.\n  fact: In document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b,\
-  \ there exists a primary\n    function 'check_outdated' that performs version comparison\
-  \ checks.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
-  \ null\n  fact: null\n__pydantic_private__: null\n"

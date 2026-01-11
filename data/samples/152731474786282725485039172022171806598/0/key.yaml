@@ -1,0 +1,18 @@
+"- **File**: `tests/test_parse_cfg.py`  \n- **Purpose**: Unit test for the `parse_cfg`\
+  \ function from `pip_outdated.find_require`.  \n- **Key Behaviors Tested**:  \n\
+  \  - Parses a temporary `setup.cfg` file containing several sections:  \n    - `setup_requires`\
+  \ with two packages (`setuptools_scm`, `setuptools_scm_git_archive`).  \n    - `install_requires`\
+  \ with two packages (`ansible`, `ansible-lint`).  \n    - `options.extras_require`\
+  \ \u2192 `docs` extra with two packages (`alabaster`, `Sphinx`).  \n  - Confirms\
+  \ that `parse_cfg` returns an iterable of requirement objects whose `name` attribute\
+  \ matches the six expected package names, **ignoring version specifiers** and extra\
+  \ markers.  \n- **Relevance to End\u2011User**:  \n  - Demonstrates that the library\
+  \ can extract plain package names from a typical `setup.cfg` file, which is useful\
+  \ for users who need to list or audit dependencies without dealing with version\
+  \ constraints.  \n- **Test Details**:  \n  - Uses `tmp_path` fixture to create a\
+  \ temporary `setup.cfg`.  \n  - Writes a multi\u2011line string with the configuration.\
+  \  \n  - Calls `parse_cfg(str(file))` and extracts `name` from each returned requirement.\
+  \  \n  - Asserts the resulting list equals `[\"setuptools_scm\", \"setuptools_scm_git_archive\"\
+  , \"ansible\", \"ansible-lint\", \"alabaster\", \"Sphinx\"]`.  \n\nThese notes capture\
+  \ the core functionality verified by this test and can inform user\u2011facing documentation\
+  \ describing how `parse_cfg` handles `setup.cfg` parsing."

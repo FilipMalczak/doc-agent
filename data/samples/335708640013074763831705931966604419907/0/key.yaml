@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The headers dictionary in the function explicitly sets the `User-Agent`\n    to\
-  \ `pip-outdated`.\n  fact: In document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419,\
-  \ the `get_session`\n    function creates headers with a `User-Agent` value of `pip-outdated`\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,4 @@
+"## \U0001F4C4\u202FFile Overview  \n**Path:** `pip_outdated/print_outdated.py`  \n\
+  \nThe module is responsible for presenting a user\u2011friendly, colour\u2011coded\
+  \ summary of outdated Python packages detected by the `check_outdated` logic.\n\n\
+  ---\n"

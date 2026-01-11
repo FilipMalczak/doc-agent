@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The XML data contains the 'language' element set to 'python', which\n    indicates\
+  \ that the content of this file is written in Python programming language.\n  fact:\
+  \ The test file 'test_pytz.py' is written in Python.\n__pydantic_extra__: null\n\
+  __pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

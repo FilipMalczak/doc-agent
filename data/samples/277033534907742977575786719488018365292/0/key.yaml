@@ -1,4 +1,0 @@
-"### Overview for Maintainers  \n- **Package version** \u2013 defined as `__version__\
-  \ = \"0.8.0\"`. Ensure this is kept in sync with any release tags.  \n- **Entry\u2011\
-  point** \u2013 the module provides a `main()` function that is intended to be used\
-  \ as the console script `pip-outdated`.  \n"

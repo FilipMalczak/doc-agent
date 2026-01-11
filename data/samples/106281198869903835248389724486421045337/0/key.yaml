@@ -1,0 +1,40 @@
+"**Project:** `pip-outdated`  \n**File:** `README.rst` (documentation)\n\n### Quick\
+  \ description for end\u2011users\n- A command\u2011line utility that scans `requirements.txt`\
+  \ or `setup.cfg` files and **lists outdated, missing, or incompatible Python packages**\
+  \ in a colour\u2011coded table.  \n- Useful when you want a concise view of which\
+  \ dependencies need updating **without manually running `pip list --outdated`**.\n\
+  \n### Installation (user\u2011facing)\n- Install with a single pip command:  \n\n\
+  \  ```bash\n  pip install pip-outdated\n  ```\n\n### Core usage\n- Basic command\
+  \ (checks default files `requirements.txt` and `setup.cfg`):\n\n  ```bash\n  pip-outdated\n\
+  \  ```\n\n- General syntax:\n\n  ```\n  pip-outdated [-h] [-v] [-q] [<file> [<file>\
+  \ ...]]\n  ```\n\n  - **Positional `<file>` argument** \u2013 one or more requirement\
+  \ files (supports glob patterns).  \n    - Default: `['requirements.txt', 'setup.cfg']`.\n\
+  \    - Examples:  \n\n      ```bash\n      # Check multiple requirement files\n\
+  \      pip-outdated *-requirements.txt\n      \n      # Check all txt files inside\
+  \ a folder\n      pip-outdated requirements/*.txt\n      ```\n\n- **Options**\n\
+  \  - `-h, --help`\u2003Show help message.\n  - `-v, --verbose`\u2003Enable verbose\
+  \ output (default: off).\n  - `-q, --quiet`\u2003Do **not** exit with status\u202F\
+  1 when some packages are outdated (default: off).\n\n### What the output shows\n\
+  - A table with each dependency, its required version specifier, the currently installed\
+  \ version, and the latest available version.  \n- Colour coding highlights:\n  -\
+  \ **Green** \u2013 up\u2011to\u2011date.\n  - **Yellow/Red** \u2013 outdated or\
+  \ incompatible.\n\n### Planned (TODO) features\n- Ability to automatically **update\
+  \ packages**.  \n- Option to **rewrite `requirements.txt` / `setup.cfg`** with the\
+  \ new version numbers.  \n- Global listing of **all installed packages** (`-g/--global`).\n\
+  \n### Change history highlights (relevant for users)\n| Version | Date | Notable\
+  \ changes for end\u2011users |\n|---------|------|------------------------------|\n\
+  | **0.8.0** | Aug\u202F9\u202F2025 | Switched to `configparse` for reading `setup.cfg`\
+  \ (no external `setuptools` needed). |\n| **0.7.0** | Aug\u202F13\u202F2024 | Silently\
+  \ ignores malformed version strings (`InvalidVersion`). |\n| **0.6.0** | Jan\u202F\
+  1\u202F2023 | Retrieves package versions via the `pip` CLI, ensuring correct versions\
+  \ in virtual environments. |\n| **0.4.0** | Jan\u202F30\u202F2020 | Requires Python\u202F\
+  3.7+, performs parallel HTTP requests, adds `--quiet`. |\n| **0.3.0** | Oct\u202F\
+  13\u202F2019 | Exit code\u202F1 on failure (use `--quiet` to suppress). |\n| **0.2.0**\
+  \ | Feb\u202F10\u202F2019 | Updated core dependencies (colorama, packaging, requests,\
+  \ termcolor, terminaltables). |\n| **0.1.0** | May\u202F12\u202F2018 | Initial release.\
+  \ |\n\n### Quick reference cheat\u2011sheet (end\u2011user)\n\n- **Install:** `pip\
+  \ install pip-outdated`\n- **Run on defaults:** `pip-outdated`\n- **Run on custom\
+  \ files:** `pip-outdated path/to/file1.txt path/to/file2.cfg`\n- **Suppress error\
+  \ exit:** `pip-outdated -q`\n- **Verbose mode:** `pip-outdated -v`\n\nThese notes\
+  \ capture the most relevant information a user would need to understand, install,\
+  \ and run `pip-outdated` in their own projects."

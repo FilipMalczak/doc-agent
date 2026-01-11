@@ -46,7 +46,7 @@ def unwrap_none[T](t: type[T] | type[T | None]) -> tuple[bool, T]:
 async def call_agent[I, O: BaseModel, D](
         sampling: SamplingController, agent: Agent[D, O],
         input: I, output_type: type[O],
-        allow_dont_know: bool = False,
+        allow_empty: bool = False, allow_dont_know: bool = False,
         toolsets: Sequence[AbstractToolset[D]] | None = None,
         **kwargs) -> O:
     assert "user_prompt" not in kwargs, "User prompt is based on input, don't try to set it"
@@ -87,9 +87,8 @@ async def call_agent[I, O: BaseModel, D](
             """
 
             raise AgentDoesntKnow(comment)
-        can_be_empty, non_empty_type = unwrap_none(output_type)
         control_tools = []
-        if can_be_empty:
+        if allow_empty:
             control_tools.append(empty_result)
         if allow_dont_know:
             control_tools.append(i_dont_know)
@@ -129,11 +128,18 @@ class StructuredAgent[I, O]:
     def run[O](self, input: I, output_type: type[O] | None = None, **kwargs) -> Awaitable[O]:
         real_output_type = output_type or self.output_type
         assert real_output_type is not None
-        return call_agent(self.sampling, self.pydantic_agent, input, real_output_type, self.allow_dont_know, **kwargs)
+        can_be_empty, non_empty_type = unwrap_none(real_output_type)
+        return call_agent(
+            self.sampling, self.pydantic_agent,
+            input, non_empty_type,
+            can_be_empty, self.allow_dont_know,
+            **kwargs
+        )
 
 class WriterAgent[I](StructuredAgent[I, str | None]): #todo str | None depends on allow_no_result but is hardcoded here
     def __init__(self, *,
-                 name: str, persona: str | None = None, task: PromptingTask,
+                 name: str,
+                 persona: str | None = None, task: PromptingTask,
                  perspective: Perspective | None, examples: list[Example[I, str]] | None = None,
                  input_type: type[I] = Any,
                  allow_no_result: bool = False,
@@ -141,6 +147,7 @@ class WriterAgent[I](StructuredAgent[I, str | None]): #todo str | None depends o
         super().__init__(
             name=name,
             system_prompt=writer_system_prompt(
+                empty_allowed=allow_no_result, may_not_know=False,
                 persona=persona, 
                 task=task, 
                 perspective=perspective, 
@@ -155,13 +162,16 @@ class WriterAgent[I](StructuredAgent[I, str | None]): #todo str | None depends o
 
 class DoerAgent[I, O](StructuredAgent[I, O]):
     def __init__(self, *,
-                 name: str, persona: str | None = None, task: PromptingTask,
+                 name: str,
+                 persona: str | None = None, task: PromptingTask,
                  perspective: Perspective | None, examples: list[Example[I, O]] | None = None,
                  allow_dont_know: bool = False,
                  input_type: type[I], output_type: type[O] | None = None):
         super().__init__(
             name=name,
             system_prompt=doer_system_prompt(
+                #fixme False if output_type is None - if we don't set it, we expect it to be set per-run, where it might be nonable
+                empty_allowed=False if output_type is None else unwrap_none(output_type)[0], may_not_know=allow_dont_know,
                 persona=persona, 
                 task=task, 
                 perspective=perspective, 
@@ -176,13 +186,15 @@ class DoerAgent[I, O](StructuredAgent[I, O]):
 
 class SolverAgent[I, O](StructuredAgent[I, O]):
     def __init__(self, *,
-                 name: str, persona: str | None = None, task: PromptingTask,
+                 name: str,
+                 persona: str | None = None, task: PromptingTask,
                  perspective: Perspective | None, examples: list[Example[I, O]] | None = None,
                  input_type: type[I], output_type: type[O] | None = None,
                  ):
         super().__init__(
             name=name,
             system_prompt=solver_system_prompt(
+                empty_allowed=False if output_type is None else unwrap_none(output_type)[0], may_not_know=True,
                 persona=persona, 
                 task=task, 
                 perspective=perspective, 

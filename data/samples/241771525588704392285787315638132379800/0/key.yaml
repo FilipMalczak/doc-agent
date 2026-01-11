@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'verbose()' function is imported from '.verbose' and used in a\n    conditional\
+  \ 'print' statement in 'check_outdated'. This is a direct implementation\n    detail\
+  \ relevant for a maintainer working to enhance or modify the tool's debugging/output\n\
+  \    functionality.\n  fact: The file 'pip_outdated/check_outdated.py' includes\
+  \ a 'verbose' function import\n    to control print statements during the checking\
+  \ process.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation:\
+  \ null\n  fact: null\n__pydantic_private__: null\n"

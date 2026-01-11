@@ -1,0 +1,10 @@
+"facts:\n- explanation: The function 'get_session' is explicitly defined in the given\
+  \ file\n    and it returns an aiohttp.ClientSession object with headers and connector\
+  \ specified.\n  fact: Function get_session is defined in pip_outdated/session.py\
+  \ to create and return\n    an aiohttp.ClientSession with specific configuration.\n\
+  - explanation: The headers dictionary includes a 'User-Agent' key with the value\
+  \ 'pip-outdated',\n    which is used when initializing the ClientSession.\n  fact:\
+  \ The created aiohttp.ClientSession uses a custom User-Agent header set to 'pip-outdated'.\n\
+  - explanation: A TCPConnector instance is created with the parameter 'limit=5' and\n\
+  \    passed to the ClientSession constructor.\n  fact: The aiohttp.ClientSession\
+  \ is configured with a TCPConnector that has a connection\n    limit of 5.\n"

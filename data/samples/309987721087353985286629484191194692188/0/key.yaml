@@ -1,0 +1,3 @@
+The document contains a function named parse_lines that processes text lines by handling
+  continuation characters and comment stripping in pip_outdated/find_require.py.
+...

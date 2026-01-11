@@ -1,3 +1,0 @@
-The verbose() function in pip_outdated/verbose.py returns the current value of the
-  global VERBOSE variable, allowing inspection of the application's verbosity setting.
-...

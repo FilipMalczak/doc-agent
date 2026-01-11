@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function parse_lines is defined in the file, which processes lines,\n    handling\
-  \ '#' comments and backslash continuation.\n  fact: The file pip_outdated/find_require.py\
-  \ contains a function named parse_lines\n    that processes lines to handle comments\
-  \ and continuation.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
-  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"

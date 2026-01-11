@@ -1,5 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The line 'setup()' shows that the setup function imported from setuptools\n  \
-  \  is being called with no arguments.\n  fact: The setup.py file calls the 'setup'\
-  \ function without any arguments.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

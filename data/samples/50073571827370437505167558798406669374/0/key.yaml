@@ -1,0 +1,5 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'get_session' is explicitly shown in the code provided.\n  fact:\
+  \ Function 'get_session' is defined in the file 'pip_outdated/session.py' with\n\
+  \    ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

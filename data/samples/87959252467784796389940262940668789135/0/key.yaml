@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The code uses Python's relative import syntax ('from .module import\n    ...')\
+  \ to access functions from other modules within the same package. This indicates\n\
+  \    a structured package layout with multiple modules working together.\n  fact:\
+  \ The pip-outdated package uses relative imports for module components in the\n\
+  \    '_main' function of pip_outdated/__init__.py, including '.verbose.set_verbose',\n\
+  \    '.find_require', '.check_outdated', '.print_outdated', and '.session.get_session'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

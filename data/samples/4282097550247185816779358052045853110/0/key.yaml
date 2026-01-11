@@ -1,6 +1,0 @@
-"### What the tool does\n- Scans your Python project\u2019s dependency files (`requirements.txt`,\
-  \ `setup.cfg`) and reports packages that are **missing**, **outdated**, or **incompatible**.\n\
-  - Shows results in a colored table for quick visual inspection.\n- Works by comparing\
-  \ the installed version (via `pip`) with the version specifier in the file.\n- If\
-  \ you only want a simple list of updatable packages, you can still use the standard\
-  \ `pip list --outdated` command.\n\n---\n"

@@ -1,0 +1,4 @@
+"facts:\n- explanation: The file is in the pip_outdated package and has a main function\
+  \ called\n    when the module is run directly, indicating it is an entry point.\n\
+  \  fact: There is a Python source file in pip_outdated/__main__.py which serves\
+  \ as\n    an entry point for the code in this repository.\n"

@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The 'parse_require' utility function sanitizes input lines and attempts\n    to\
-  \ parse them into Requirement objects, handling invalid cases.\n  fact: In document\
-  \ with ID 653d1fa4-fc8a-53d4-997f-a13ae24438e2, there is a function\n    named parse_require\
-  \ that parses a line into a packaging.requirements.Requirement\n    object after\
-  \ stripping command-line options.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

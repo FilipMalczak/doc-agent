@@ -1,3 +1,0 @@
-"### Packaging Options\n- **Zip\u2011safe:** `True` \u2013 the package can be installed\
-  \ as a zip archive.  \n- **Package discovery:** `find:` with `exclude = tests` to\
-  \ omit test modules from the distribution.  \n"

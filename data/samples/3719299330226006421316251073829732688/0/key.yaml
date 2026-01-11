@@ -1,0 +1,2 @@
+'The function get_pypi_versions in ''pip_outdated/check_outdated.py'' uses the session.get
+  method to fetch data from the PyPI website. '

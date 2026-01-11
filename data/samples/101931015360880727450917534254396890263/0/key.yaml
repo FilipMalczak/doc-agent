@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ A function named 'get_local_version' is defined using 'async def',\n    indicating\
-  \ it is an asynchronous function designed to retrieve the local installed\n    version\
-  \ of a Python package.\n  fact: There is a function called 'get_local_version' in\
-  \ 'pip_outdated/check_outdated.py'.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

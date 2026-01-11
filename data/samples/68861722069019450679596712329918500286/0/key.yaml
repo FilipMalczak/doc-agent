@@ -1,0 +1,20 @@
+"## \U0001F4DA Suggested user\u2011facing documentation excerpts  \n\n- **Purpose\
+  \ statement**  \n  > \u201C`pip\u2011outdated` checks each dependency in your project,\
+  \ compares the installed version with what\u2019s available on PyPI, and tells you\
+  \ if you\u2019re using an older or unsupported version.\u201D  \n\n- **How it works\
+  \ (high\u2011level)**  \n  1. Reads your requirement specifications.  \n  2. Looks\
+  \ up the installed version via `pip show`.  \n  3. Fetches all stable releases from\
+  \ PyPI.  \n  4. Determines the newest version that satisfies your specifier (`wanted`)\
+  \ and the absolute newest release (`latest`).  \n\n- **Interpreting results**  \n\
+  \  - **Not installed** \u2013 `install_not_found()` \u2192 \u201CPackage not found\
+  \ in your environment; you may need to install it.\u201D  \n  - **Installed but\
+  \ not wanted** \u2013 `install_not_wanted()` \u2192 \u201CYour current version does\
+  \ not satisfy the declared version range.\u201D  \n  - **Out\u2011of\u2011date**\
+  \ \u2013 `outdated()` \u2192 \u201CA newer version exists; consider upgrading.\u201D\
+  \  \n\n- **Running the check** (example snippet)  \n\n  ```bash\n  # Install the\
+  \ helper library (if not already present)\n  pip install pip-outdated\n\n  # Run\
+  \ the CLI (internally uses check_outdated)\n  pip-outdated\n  ```\n\n  *Behind the\
+  \ scenes* the CLI creates an `aiohttp` session and calls `check_outdated` for each\
+  \ requirement.  \n\n---  \n\n*These notes capture the functional essence of `check_outdated.py`\
+  \ from the maintainer\u2019s perspective, providing the groundwork for clear end\u2011\
+  user documentation.*"

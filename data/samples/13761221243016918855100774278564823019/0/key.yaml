@@ -1,3 +1,0 @@
-The file pip_outdated/find_require.py uses a regular expression to handle comments
-  and continuation in requirements files.
-...

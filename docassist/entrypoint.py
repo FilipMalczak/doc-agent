@@ -30,13 +30,14 @@ async def handle_repo(repo: AnalysedRepo):
         log.info(f"Index for {repo.name} loaded")
     else:
         index = FAISSIndex(CONFIG.embedder)
-        docs = await repo_preindexing(repo)
         with span("make index"):
+            docs = await repo_preindexing(repo)
             with span("add"):
                 await index.add(docs)
             with span("store"):
                 await index.store(repo_index_path)
                 index_ready_marker.touch(exist_ok=False)
+
     materializer = Materializer(index=index, sampling=CONFIG.sampler.controller())
     pprint(await materializer.materialize_specification(root_specification))
 

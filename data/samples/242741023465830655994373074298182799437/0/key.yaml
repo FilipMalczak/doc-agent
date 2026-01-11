@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The file defines a function called set_verbose that accepts a boolean\n    argument\
-  \ and assigns it to the global VERBOSE variable.\n  fact: 'The document with ID\
-  \ d1ef4334-7006-5204-a81e-17bb357c0661 defines a function\n    set_verbose(value:\
-  \ bool) -> None in the source file pip_outdated/verbose.py that\n    modifies the\
-  \ global VERBOSE variable.'\n__pydantic_extra__: null\n__pydantic_fields_set__:\
-  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

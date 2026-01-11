@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The fallback command 'vpip' configuration is defined as 'python cute.py'\n   \
-  \ in the vpip section (document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73).\n\
-  \  fact: The setup.cfg defines a fallback command for 'vpip' as 'python cute.py'.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

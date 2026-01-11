@@ -1,0 +1,3 @@
+The file 'test_pytz.py' uses marker annotations with 'pytest.mark.asyncio' to indicate
+  an asyncio test.
+...

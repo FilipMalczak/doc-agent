@@ -1,3 +1,0 @@
-The module 'pip_outdated/check_outdated.py' uses 'asyncio' for asynchronous execution
-  of subprocesses.
-...

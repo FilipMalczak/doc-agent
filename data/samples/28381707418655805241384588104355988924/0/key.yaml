@@ -1,0 +1,4 @@
+The parse_cfg function in tests/test_parse_cfg.py is verified to return only package
+  names from all sections of setup.cfg, ignoring version constraints (e.g., 'setuptools_scm',
+  'ansible', etc.).
+...

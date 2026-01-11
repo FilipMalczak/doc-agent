@@ -1,0 +1,3 @@
+The pip-outdated tool previously used setuptools for reading setup.cfg files but has
+  since switched to using the configparser module as of version 0.8.0.
+...

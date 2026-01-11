@@ -1,3 +1,0 @@
-The main function in pip_outdated/__init__.py uses the asyncio event loop directly
-  instead of asyncio.run, due to a known issue with aiohttp.
-...

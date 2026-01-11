@@ -1,0 +1,4 @@
+In document with ID 7f70c452-3de8-51f4-968c-80115530e69c, the test function 'test_parse_cfg'
+  generates content into the 'setup.cfg' file with specific package requirements and
+  extra dependencies for Sphinx documentation.
+...

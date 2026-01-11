@@ -1,5 +1,0 @@
-"**Project File:** `pip_outdated/find_require.py`  \n\n**Perspective:** *Maintainer*\
-  \ \u2013 ensuring that end\u2011users can successfully discover and parse requirement\
-  \ specifications.\n\n---\n\n### High\u2011level purpose\n### Key functionalities\
-  \ (public API)\n### Important implementation details for users\n### Usage example\
-  \ (maintainer\u2011oriented)\n# Locate all requirement specifications in the repo"

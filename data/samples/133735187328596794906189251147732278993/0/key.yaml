@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The setup.cfg references an external file, README.rst, as the source\n    for\
+  \ long_description.\n  fact: In document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73,\
+  \ the 'long_description'\n    for pip-outdated is obtained from the README.rst file\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

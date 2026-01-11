@@ -1,4 +1,0 @@
-The pip-outdated tool described in document with ID c70abb08-f4fa-543d-ad2e-52421c056692
-  supports reading dependencies from multiple requirements files using glob patterns,
-  such as 'pip-outdated *-requirements.txt' or 'pip-outdated requirements/*.txt'.
-...

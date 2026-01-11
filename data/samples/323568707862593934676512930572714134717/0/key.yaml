@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This setup.py file exists in the project directory with the specified\n    ID,\
+  \ indicating it is the main configuration file for packaging and distribution\n\
+  \    using setuptools.\n  fact: There is one setup.py file in the project with ID\
+  \ 17ae6927-bfa3-579e-8306-4465b7a352d8.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

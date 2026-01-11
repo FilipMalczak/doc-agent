@@ -1,0 +1,14 @@
+"- **File:** `tests/test_pytz.py`  \n- **Purpose:** Simple integration test that verifies\
+  \ the `get_pypi_versions` function can successfully query the PyPI metadata for\
+  \ the widely\u2011used `pytz` package without raising exceptions.  \n- **Key Components:**\
+  \  \n  - Uses **pytest** with the `@pytest.mark.asyncio` decorator to run an asynchronous\
+  \ test.  \n  - Establishes an asynchronous HTTP session via `get_session()` (from\
+  \ `pip_outdated.session`).  \n  - Calls `get_pypi_versions(\"pytz\", session)`;\
+  \ the test passes if the call completes cleanly.  \n- **Implications for Maintainers\
+  \ / End\u2011User Documentation:**  \n  - Confirms that the core version\u2011retrieval\
+  \ logic works for at least one real\u2011world package, giving confidence that the\
+  \ tool can handle typical PyPI queries.  \n  - Highlights the requirement for network\
+  \ access during test execution; CI environments must allow outbound HTTPS requests\
+  \ to `pypi.org`.  \n  - Demonstrates the library\u2019s async API usage pattern,\
+  \ useful when documenting example workflows for end\u2011users.  \n\n*No further\
+  \ user\u2011facing details are needed from this file beyond the above context.*"

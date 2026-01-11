@@ -1,0 +1,4 @@
+"# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n## Basic usage \
+  \ \n### Example commands  \n\n- **Check several requirement files**  \n  ```bash\n\
+  \  pip-outdated *-requirements.txt\n  ```\n- **Check all files in a folder**  \n\
+  \  ```bash\n  pip-outdated requirements/*.txt\n  ```\n"

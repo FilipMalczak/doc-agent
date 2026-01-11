@@ -1,4 +1,0 @@
-There is a tool named pip-outdated described in document with ID c70abb08-f4fa-543d-ad2e-52421c056692
-  that is used to find outdated dependencies in requirements.txt or setup.cfg files
-  by comparing version numbers with their specifiers.
-...

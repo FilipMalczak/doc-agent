@@ -1,0 +1,33 @@
+"## Overview  \n- **Package**: `pip-outdated` \u2013 a command\u2011line tool that\
+  \ scans a `requirements.txt` or `setup.cfg` file (or any file matching a glob pattern)\
+  \ and reports dependencies that have newer releases available.  \n\n## Version \
+  \ \n- Current version defined in the module: `\"0.8.0\"`  \n\n## Command\u2011line\
+  \ interface  \n\n| Element | Description |\n|---------|-------------|\n| **Program\
+  \ name** | `pip-outdated` (as set by `argparse.ArgumentParser(prog=\"pip-outdated\"\
+  )`) |\n| **Purpose** | \u201CFind outdated dependencies in your requirements.txt\
+  \ or setup.cfg file.\u201D |\n| **Default input files** | `requirements.txt` and\
+  \ `setup.cfg` (used when no positional arguments are supplied). |\n| **Positional\
+  \ argument** | `file` \u2013 one or more file paths or glob patterns; default `[\"\
+  requirements.txt\", \"setup.cfg\"]`. |\n| **Options** | - `-v`, `--verbose` \u2013\
+  \ enable verbose output (passed to the internal `verbose` module). <br> - `-q`,\
+  \ `--quiet` \u2013 suppress exit code\u202F1 when all dependencies are up\u2011\
+  to\u2011date. |\n\n### Typical usage pattern  \n\n```bash\npip-outdated        \
+  \        # checks requirements.txt and setup.cfg\npip-outdated -v             #\
+  \ same, but with verbose information\npip-outdated -q my*.txt     # checks files\
+  \ matching the glob `my*.txt` and does not exit with code\u202F1 on success\n```\n\
+  \n*(No example is generated beyond what is directly implied by the argument definitions.)*\
+  \  \n\n## Behaviour  \n\n- The script parses arguments via `parse_args()`.  \n-\
+  \ Verbose mode is enabled by calling `set_verbose(args.verbose)` from the internal\
+  \ `verbose` module.  \n- Dependency requirements are collected with `find_require(args.file)`.\
+  \  \n- An asynchronous HTTP session (`get_session()`) is opened; each requirement\
+  \ is checked for newer versions using `check_outdated`.  \n- Results are printed\
+  \ by `print_outdated`; the `quiet` flag controls whether a non\u2011zero exit code\
+  \ is returned when outdated packages are found.  \n\n## Implementation notes (relevant\
+  \ for users)  \n\n- The entry point `main()` runs the asynchronous workflow with\
+  \ `asyncio.get_event_loop().run_until_complete(_main())` instead of `asyncio.run()`.\
+  \ This workaround avoids a known issue where `asyncio.run` closes the event loop\
+  \ (see comment linking to aiohttp issue #1925).  \n- All heavy lifting (`find_require`,\
+  \ `check_outdated`, `print_outdated`, and session handling) is performed in the\
+  \ `_main()` coroutine, keeping the top\u2011level script lightweight.  \n\n--- \
+  \ \n\n*These notes capture the user\u2011facing aspects of `pip_outdated/__init__.py`\
+  \ for future documentation.*"

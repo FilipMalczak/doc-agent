@@ -1,3 +1,0 @@
-The 'check_outdated' function utilizes 'get_pypi_versions' to retrieve available versions
-  of a package from the Python Package Index (PyPI).
-...

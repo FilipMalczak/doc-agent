@@ -1,0 +1,289 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message will be ignored</text_response>\n  </tool_calling>\n\
+      \  <result>you must emit a single `final_result` tool call; no other response\
+      \ (outside of thinking) is allowed</result>\n  <thinking>\n    <allowed>internal\
+      \ reasoning can be performed before producing any kind of input</allowed>\n\
+      \    <forbidden>you cannot emit a message that consists only of thinking section;\
+      \ each response must include at least one tool call</forbidden>\n  </thinking>\n\
+      </behaviour>\n<persona>RAG helper specialised in reranking of documents</persona>\n\
+      <task>\n  <context>\n\nWe are retrieving indexed documents for RAG.\nWe retrieved\
+      \ candidates with redundancy, searching for different queries and getting results\
+      \ that require normalization.\nWe need to rescore them with more semantic approach\
+      \ than simple index search.\n\n  </context>\n  <high_level>Given a list of scored\
+      \ documents and a purpose for current search, provide a list of their updated\
+      \ scores.</high_level>\n  <perspective>\n    <role>\n      <slug>enduser</slug>\n\
+      \      <details>someone who uses the project we're working on to solve the problems\
+      \ or finish some tasks</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>\n\nYou will be given full content of the input documents, as\
+      \ well as their metadata and current score.\nInput score will always be in [0.0,\
+      \ 1.0] range.\nYou will use that knowledge to produce integer scores in 1-10\
+      \ range.\nYou will treat the content as the most important. All the metadata,\
+      \ including previous score, should have much lower priority, but otherwise uniform\
+      \ amongst available details.\nYou will emit explicit ordering of the items,\
+      \ from the best to the worst. You will also provide updated score for each\n\
+      item. \nYou will include each and every input document ID in the ordering. Every\
+      \ ID will appear in the ordering exactly once. No ID will get duplicated or\
+      \ missed. This part of your response must be consistent with the order that\
+      \ could be derived from updated scores. \nYou will emit an appropriate rescoring\
+      \ item for each input item. There will be exactly one rescoring item for each\
+      \ input item. No input item will get duplicated or missed. If we were to sort\
+      \ the list of rescorings by the updated score descending, the order should match\
+      \ the ordering emitted in the other part of your response. \nYou will correlate\
+      \ the items and their ordering by their document ID. \nYou will explain your\
+      \ choices, one at the time, referring to the input data and your inherent knowledge.\n\
+      \n  </low_level>\n  <detailed>\n\nWhen choosing the scores for the documents\
+      \ you should use 1-10 scale (without 0, all integers). \nThis output scale is\
+      \ different from the input one on purpose. DO NOT PRODUCE [0.0, 1.0] FLOAT SCORES.\n\
+      ONLY produce integer scores in the 1-10 range.\nYou can use the following to\
+      \ get the gist of what does each value mean.\n\nFor example, if the purpose\
+      \ of the search is solving quantum physics problem, then the scores might be:\n\
+      - a daily newspaper -> 1\n- high-school physics book -> 3\n- university-level\
+      \ quantum physics book -> 7\n- scientific paper explicitly tackling the problem\
+      \ -> 10\n\nNotice that 0 is NOT a valid score, which is why the daily newspaper\
+      \ is given score 1.\n\nIf not sure whether to choose a number or one bigger,\
+      \ explain the bigger choice and reevaluate. \nIf you choose the lower value\
+      \ at that point, include the original explanation of the bigger choice, explanation\
+      \ of the switch and explanation of the chosen value as if it were chosen originally.\
+      \ \n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Find information about CLI (command-line interface) or entry\
+      \ points exposed by this project</purpose>\n<documents>\n  <list>\n    <item\
+      \ index=\"0\">\n      <score>0.8439720869064331</score>\n      <document>\n\
+      \        <id>39602d80-9488-51ec-a2a3-435dd2f18296</id>\n        <document_type>source_file</document_type>\n\
+      \        <details>\n          <path>pip_outdated/__main__.py</path>\n      \
+      \  </details>\n        <provenance>\n          <list>\n          </list>\n \
+      \       </provenance>\n        <content>\nif __name__ == \"__main__\":\n   \
+      \ from . import main\n    main()\n\n        </content>\n        <additional_details>\n\
+      \          <language>python</language>\n          <repo_function>code</repo_function>\n\
+      \        </additional_details>\n      </document>\n    </item>\n    <item index=\"\
+      1\">\n      <score>0.8</score>\n      <document>\n        <id>455e3718-28dc-54e1-be25-0c1c3b3aa148</id>\n\
+      \        <document_type>single_fact</document_type>\n        <details>\n   \
+      \       <fact_index>4</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>39602d80-9488-51ec-a2a3-435dd2f18296</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/__main__.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>c5dfb445-cc57-5e5c-a0af-d80e1427eb0d</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The source file\
+      \ with ID 39602d80-9488-51ec-a2a3-435dd2f18296 calls the 'main' function upon\
+      \ execution as the main module.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"2\">\n      <score>0.75</score>\n\
+      \      <document>\n        <id>faa98d31-54ec-5f61-af05-3b5f2f3918b1</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>4</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>e66496b8-e454-5538-92b9-b2023e11adea</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/__init__.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>30e527e7-4f7a-50aa-82b5-7f781341ef9a</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The 'main' function\
+      \ in pip_outdated/__init__.py implements a workaround for asyncio limitations\
+      \ by using 'get_event_loop().run_until_complete()' instead of 'asyncio.run()'\
+      \ to execute the asynchronous '_main' function.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"3\">\n      <score>0.7399999999999999</score>\n\
+      \      <document>\n        <id>1d50a3b5-15ae-586b-a823-ff0335333120</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>2</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>e66496b8-e454-5538-92b9-b2023e11adea</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/__init__.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>724a0c93-d699-5721-8509-de77624ec843</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The main function\
+      \ of pip-outdated uses asyncio to run an async '_main' function, bypassing asyncio.run\
+      \ due to compatibility issues with aiohttp.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"4\">\n      <score>0.7086007297039032</score>\n\
+      \      <document>\n        <id>1ddff530-cd5c-5f81-a9bb-886f05c583aa</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates>1</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>79501155-b71e-5dd6-a529-82fd14d4a11b</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/check_outdated.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>52a8dc6a-b91a-502f-ad9d-64004da9040b</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## \U0001F3D7\uFE0F\
+      \ Main components  \n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"5\">\n      <score>0.6907231211662292</score>\n\
+      \      <document>\n        <id>35a30c90-8238-5f49-b2ef-64919da2b5bd</id>\n \
+      \       <document_type>facts</document_type>\n        <details>\n          <perspective>\n\
+      \            <role>maintainer</role>\n            <relationship_to_project>developer</relationship_to_project>\n\
+      \          </perspective>\n        </details>\n        <provenance>\n      \
+      \    <list>\n            <item index=\"0\">\n              <subject>\n     \
+      \           <id>39602d80-9488-51ec-a2a3-435dd2f18296</id>\n                <document_type>source_file</document_type>\n\
+      \              </subject>\n              <details>\n                <path>pip_outdated/__main__.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\nfacts:\n- explanation: The file is in the pip_outdated package\
+      \ and has a main function called\n    when the module is run directly, indicating\
+      \ it is an entry point.\n  fact: There is a Python source file in pip_outdated/__main__.py\
+      \ which serves as\n    an entry point for the code in this repository.\n\n \
+      \       </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"6\">\n      <score>0.6873863935470581</score>\n\
+      \      <document>\n        <id>94801ae2-356e-5e5f-ade4-91cb69341410</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates>0</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>39602d80-9488-51ec-a2a3-435dd2f18296</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/__main__.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>3e051d07-88f2-5fd1-bcbf-0f2b9ca0790d</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Maintainer\
+      \ Notes \u2013 `pip_outdated/__main__.py`\n\n- **Purpose**  \n  - Provides the\
+      \ module\u2019s executable entry point. When the package is run directly (`python\
+      \ -m pip_outdated` or via the installed console script), this file invokes the\
+      \ package\u2019s core logic.\n\n- **Key Behaviour**  \n  - Checks `if __name__\
+      \ == \"__main__\"` to determine script execution.  \n  - Imports the `main`\
+      \ function from the same package (`from . import main`).  \n  - Calls `main()`\
+      \ immediately, handing control over to the primary application code.\n\n- **Implications\
+      \ for Release & Packaging**  \n  - The `__main__` module must stay lightweight;\
+      \ all heavy lifting should reside in `pip_outdated/main.py`.  \n  - Ensure that\
+      \ `main()` is robust when invoked as a script (proper error handling, user\u2011\
+      friendly messages).  \n  - Verify that the package\u2019s `setup.cfg` / `pyproject.toml`\
+      \ correctly defines the console entry point (e.g., `pip-outdated = pip_outdated.__main__:main`\
+      \ if needed).\n\n- **Recommendations**  \n  - Add a docstring or short comment\
+      \ describing the entry point purpose for future contributors.  \n  - Include\
+      \ unit tests that simulate script execution (e.g., using `subprocess` to run\
+      \ `python -m pip_outdated`) to catch regressions in the CLI launch path.  \n\
+      \  - Keep any future command\u2011line parsing logic within `pip_outdated/main.py`\
+      \ to maintain a clear separation between the interface (`__main__`) and the\
+      \ implementation.\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"7\">\n      <score>0.8</score>\n\
+      \      <document>\n        <id>d61e8c89-21fa-5c0e-a43a-1e9c047bf33e</id>\n \
+      \       <document_type>transient</document_type>\n        <details>\n      \
+      \  </details>\n        <provenance>\n          <list>\n          </list>\n \
+      \       </provenance>\n        <content>\n<fact>The value of variable `project_name`\
+      \ is 'pip-outdated</fact>\n<explanation>The knowledge base search returned a\
+      \ document stating that 'The project name is pip-outdated.' This comes from\
+      \ the source file setup.cfg and provides the definitive project name.</explanation>\n\
+      \        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n  </list>\n</documents>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        RerankedItem:
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          title: RerankedItem
+          type: object
+      properties:
+        ordered_document_ids:
+          items:
+            type: string
+          type: array
+        rescoring:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - ordered_document_ids
+      - rescoring
+      title: RerankingOutput
+      type: object
+    name: RerankingOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        RerankedItem:
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          title: RerankedItem
+          type: object
+      properties:
+        ordered_document_ids:
+          items:
+            type: string
+          type: array
+        rescoring:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - ordered_document_ids
+      - rescoring
+      title: RerankingOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

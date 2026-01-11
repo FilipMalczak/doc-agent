@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The __post_init__ method is visible as a member of the OutdateResult\n    class\
+  \ in the provided code snippet, which confirms this fact.\n  fact: The OutdateResult\
+  \ class has a method named __post_init__ in file 'pip_outdated/check_outdated.py'.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' in the\n    'Changelog'\
+  \ (version 0.4.0, January 30, 2020) states that the minimum required\n    Python\
+  \ version was updated to 3.7.\n  fact: Version 0.4.0 of 'pip-outdated' introduced\
+  \ support for Python 3.7 as the minimum\n    required version.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

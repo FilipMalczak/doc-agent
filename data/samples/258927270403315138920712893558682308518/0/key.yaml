@@ -1,7 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The test asserts parsed package names match those listed in setup_requires,\n\
-  \    install_requires, and extras_require subsections.\n  fact: In document ID '7f70c452-3de8-51f4-968c-80115530e69c',\
-  \ the parse_cfg function\n    is verified to collect all packages from setup_requires,\
-  \ install_requires, and\n    extras_require subsections in the setup.cfg file.\n\
-  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
-  \  fact: null\n__pydantic_private__: null\n"

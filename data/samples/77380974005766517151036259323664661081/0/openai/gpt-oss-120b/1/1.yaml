@@ -1,0 +1,49 @@
+finish_reason: tool_call
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: ' have a source file test __init__.py which is empty. Need to take notes
+    from user perspective (enduser) about this file. Since file empty, perhaps nothing
+    to note. The instruction: if there are no notes to be taken from given perspective,
+    use empty_result tool to indicate and explain that. So produce a tool call empty_result
+    with comment explaining no notes.
+
+
+    We must output markdown normally, but since we are using empty_result tool, it''s
+    a tool call, no text. According to behavior: if response contains tool call, any
+    assistant text will be ignored. So just call empty_result.
+
+
+    Provide comment: file is empty, no user-facing features.
+
+
+    Let''s produce.'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- args: "{\n  \"comment\": \"The file tests/__init__.py is empty and contains no code\
+    \ or documentation, so there are no user-relevant notes to extract for documentation\
+    \ purposes.\"\n}"
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-958fa2bff333418a826a1de7aa1f0260
+  tool_name: empty_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768168421-mVhG0I7GE2x35WqYnHxf
+run_id: 9a9fccc3-de56-42aa-bfca-db5dfed8b434
+timestamp: '2026-01-11T21:53:41Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 169
+  input_audio_tokens: 0
+  input_tokens: 1060
+  output_audio_tokens: 0
+  output_tokens: 190

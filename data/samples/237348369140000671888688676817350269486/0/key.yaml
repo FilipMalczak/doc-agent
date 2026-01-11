@@ -1,5 +1,0 @@
-'# Turn on detailed output
-
-  v.set_verbose(True)
-
-  '

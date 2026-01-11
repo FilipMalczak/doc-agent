@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The function 'find_require' is used to parse the requirements, then\n    'check_outdated'\
+  \ runs asynchronously for each requirement using a session, and\n    'print_outdated'\
+  \ outputs the results, respecting the quiet flag.\n  fact: The '_main' function\
+  \ processes requirements files, checks for outdated packages\n    asynchronously,\
+  \ and prints the results, considering user-specified quiet mode.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

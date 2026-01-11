@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The content shows the line '@pytest.mark.asyncio', which is a marker\n    indicating\
+  \ that the test is for asyncio, a Python library for writing asynchronous\n    code.\n\
+  \  fact: The file 'test_pytz.py' uses marker annotations with 'pytest.mark.asyncio'\n\
+  \    to indicate an asyncio test.\n__pydantic_extra__: null\n__pydantic_fields_set__:\
+  \ !!set\n  explanation: null\n  fact: null\n__pydantic_private__: null\n"

@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The 'ArgumentParser' instance is created with the 'formatter_class'\n    set to\
+  \ 'argparse.ArgumentDefaultsHelpFormatter', ensuring that default argument\n   \
+  \ values are displayed when users request help via the command line.\n  fact: The\
+  \ pip-outdated tool provides an 'ArgumentDefaultsHelpFormatter' for its\n    command-line\
+  \ interface, which automatically includes default values in help messages.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

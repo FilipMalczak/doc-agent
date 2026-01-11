@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The function signature shows that set_verbose accepts a single parameter\n   \
-  \ 'value' of type bool.\n  fact: \"The set_verbose function takes one parameter\
-  \ named value of type bool in\\\n    \\ file d\\u6587\\u6863ID\"\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

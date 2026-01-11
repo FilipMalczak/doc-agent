@@ -1,0 +1,28 @@
+"## Package Overview  \n\n- **Name:** `pip-outdated`  \n- **Current version:** `0.8.0`\
+  \  \n- **Short description:** Find outdated dependencies in your `requirements.txt`\
+  \ or `setup.cfg`.  \n- **Long description source:** `README.rst` (referenced via\
+  \ `long_description = file: README.rst`).  \n- **License:** MIT  \n- **Project URL:**\
+  \ <https://github.com/eight04/pip-outdated>  \n\n## Author Information  \n\n- **Author:**\
+  \ eight  \n- **Contact:** eight04@gmail.com  \n\n## Classification (useful for PyPI\
+  \ listings)  \n\n- Development Status :: 4 \u2013 Beta  \n- Environment :: Console\
+  \  \n- Intended Audience :: Developers  \n- Programming Language :: Python :: 3.7\
+  \  \n- Topic :: Software Development :: Build Tools  \n\n## Keywords (searchable\
+  \ tags)  \n\n- `pip`  \n- `check`  \n- `outdate`  \n- `npm`  \n\n## Installation\
+  \ Requirements (runtime dependencies)  \n\n- `aiohttp~=3.12`  \n- `colorama~=0.4.6`\
+  \  \n- `packaging~=25.0`  \n- `termcolor~=3.1`  \n- `terminaltables~=3.1`  \n\n\
+  These will be installed automatically when the package is installed via `pip`. \
+  \ \n\n## Packaging Details  \n\n- **Zip\u2011safe:** `True` (the package can be\
+  \ distributed as a zip archive).  \n- **Package discovery:** Uses `find:` with `exclude\
+  \ = tests` to omit test modules from the distribution.  \n\n## Console Entry Point\
+  \  \n\n- **Command:** `pip-outdated`  \n- **Implemented by:** `pip_outdated:main`\
+  \  \n\nThis creates a command\u2011line tool that users can invoke directly after\
+  \ installation:  \n\n```bash\npip-outdated [options]\n```  \n\n## Additional Configuration\
+  \  \n\n- Section `[vpip]` defines a custom fallback command:  \n\n  ```ini\n  command_fallback\
+  \ = python cute.py\n  ```  \n\n  (Potentially used by auxiliary tooling; maintainers\
+  \ should verify its purpose.)  \n\n---  \n\n**Takeaway for maintainers:**  \n- Ensure\
+  \ the metadata (especially classifiers, keywords, and license) stays up\u2011to\u2011\
+  date for discoverability.  \n- Verify that the listed dependencies are compatible\
+  \ with the target Python version (\u2265\u202F3.7).  \n- Keep the `README.rst` concise\
+  \ and user\u2011friendly, as it serves as the long description on PyPI.  \n- Test\
+  \ the console script (`pip-outdated`) after each release to confirm it launches\
+  \ correctly.  "

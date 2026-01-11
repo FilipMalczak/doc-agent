@@ -1,0 +1,4 @@
+In document with ID 7f70c452-3de8-51f4-968c-80115530e69c, the test function 'test_parse_cfg'
+  parses the 'setup.cfg' file using the 'parse_cfg' function and asserts the names
+  of the packages extracted against an expected list.
+...

@@ -1,0 +1,96 @@
+finish_reason: stop
+kind: response
+model_name: openai/gpt-oss-120b
+parts:
+- content: "We need to take notes from the perspective of enduser (someone who uses\
+    \ the project). We should extract useful info for user-facing documentation: what\
+    \ does the tool do, installation, usage, options, examples, todos maybe not needed,\
+    \ changelog maybe not needed. Provide notes. Must output markdown. Follow formatting\
+    \ rules: double quotes for strings. Provide bullet lists hyphen style. No empty\
+    \ list unless required. Provide notes.\n\nWe are to produce a single non-empty\
+    \ text message (markdown). Not a tool call. So generate notes.\n\nMake sure to\
+    \ use double quotes inside strings. \"pip-outdated\". Use markdown.\n\nLet's draft:\n\
+    \n# Project: pip-outdated\n\n## Purpose\n- Finds outdated, missing, or incompatible\
+    \ Python dependencies listed in `requirements.txt` or `setup.cfg`.\n- Presents\
+    \ results in a colored table.\n\n## Key Features\n- Compares installed package\
+    \ versions against version specifiers.\n- Supports reading multiple requirement\
+    \ files with glob patterns.\n- Provides colored output for easy visual scanning.\n\
+    - Can operate quietly (no exit code 1) or verbosely.\n\n## Installation\n```bash\n\
+    pip install pip-outdated\n```\n(available on PyPI)\n\n## Basic Usage\n```bash\n\
+    pip-outdated\n```\n- By default reads `requirements.txt` and `setup.cfg`.\n\n\
+    ### Command\u2011line Options\n- `-h`, `--help`: Show help message.\n- `-v`, `--verbose`:\
+    \ Print additional information (default: false).\n- `-q`, `--quiet`: Do not return\
+    \ exit code\u202F1 when some packages are outdated (default: false).\n- Positional\
+    \ `<file>` arguments: One or more requirement files (supports glob patterns).\
+    \ Example: `pip-outdated *-requirements.txt`.\n\n### Example Commands\n- Check\
+    \ multiple requirement files:\n  ```bash\n  pip-outdated *-requirements.txt\n\
+    \  ```\n- Check all files in a `requirements` directory:\n  ```bash\n  pip-outdated\
+    \ requirements/*.txt\n  ```\n\n## Compatibility\n- Requires Python\u202F3.7 or\
+    \ newer (since version\u202F0.4.0).\n\n## Future Plans (Todo)\n- Add options to\
+    \ automatically update packages.\n- Enable updating of `requirements.txt` or `setup.cfg`.\n\
+    - Provide a global listing mode (`-g` / `--global`).\n\n## Recent Changes (selected)\n\
+    - **0.8.0** (2025\u201108\u201109): Removed `setuptools` dependency; uses `configparse`\
+    \ for `setup.cfg`.\n- **0.7.0** (2024\u201108\u201113): Ignored `InvalidVersion`\
+    \ errors.\n- **0.6.0** (2023\u201101\u201101): Fetches package versions via `pip`\
+    \ CLI for virtual\u2011env awareness; dropped `cchardet`.\n- **0.5.0** (2022\u2011\
+    01\u201112): Added type hints.\n- **0.4.0** (2020\u201101\u201130): Raised Python\
+    \ minimum to\u202F3.7; added parallel requests and `--quiet`.\n- **0.3.0** (2019\u2011\
+    10\u201113): Exit code\u202F1 on any outdated package; disabled prerelease checks;\
+    \ added `setup_requires` and `extras_require` support.\n\nThese notes capture\
+    \ the end\u2011user\u2011relevant information from the README."
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+- content: "# pip\u2011outdated \u2013 Quick Reference for End\u2011Users  \n\n##\
+    \ What it does  \n- Scans `requirements.txt` or `setup.cfg` and reports **outdated,\
+    \ missing, or incompatible** packages.  \n- Shows results in a **colored table**\
+    \ for easy visual inspection.  \n\n## Key features  \n- Compares installed versions\
+    \ with version specifiers in requirement files.  \n- Accepts **multiple files**\
+    \ (glob patterns supported).  \n- Provides **verbose** mode for detailed output\
+    \ and **quiet** mode to suppress non\u2011zero exit status.  \n\n## Installation\
+    \  \n```bash\npip install pip-outdated\n```  \n*Published on PyPI.*  \n\n## Basic\
+    \ usage  \n```bash\npip-outdated\n```  \n- By default reads `requirements.txt`\
+    \ and `setup.cfg`.  \n\n### Command\u2011line options  \n\n| Option | Description\
+    \ |\n|--------|-------------|\n| `-h`, `--help` | Show help and exit. |\n| `-v`,\
+    \ `--verbose` | Print additional information (default: `False`). |\n| `-q`, `--quiet`\
+    \ | Do **not** return exit code\u202F1 when some packages are outdated (default:\
+    \ `False`). |\n| `<file>` (positional) | One or more requirement files; accepts\
+    \ glob patterns. Default: `['requirements.txt','setup.cfg']`. |\n\n### Example\
+    \ commands  \n\n- **Check several requirement files**  \n  ```bash\n  pip-outdated\
+    \ *-requirements.txt\n  ```\n- **Check all files in a folder**  \n  ```bash\n\
+    \  pip-outdated requirements/*.txt\n  ```\n\n## Compatibility  \n- Requires **Python\u202F\
+    3.7+** (since version\u202F0.4.0).  \n\n## Planned enhancements (Todo)  \n- Option\
+    \ to **update packages** automatically.  \n- Ability to **modify** `requirements.txt`\
+    \ / `setup.cfg` with new versions.  \n- Global listing mode (`-g`, `--global`).\
+    \  \n\n## Recent changelog highlights  \n\n- **0.8.0** (2025\u201108\u201109):\
+    \ Dropped `setuptools`; now uses `configparse` for `setup.cfg`.  \n- **0.7.0**\
+    \ (2024\u201108\u201113): Silently ignore `InvalidVersion` errors.  \n- **0.6.0**\
+    \ (2023\u201101\u201101): Retrieves package versions via the `pip` CLI (works\
+    \ inside virtual environments); removed `cchardet`.  \n- **0.5.0** (2022\u2011\
+    01\u201112): Added type hints.  \n- **0.4.0** (2020\u201101\u201130): Bumped minimum\
+    \ Python to 3.7; added parallel requests and `--quiet`.  \n- **0.3.0** (2019\u2011\
+    10\u201113): Exit code\u202F1 on any outdated package; disabled prerelease checks;\
+    \ added `setup_requires` and `extras_require` support.  \n\nThese notes capture\
+    \ the most relevant information for end\u2011users who want to install, run, and\
+    \ understand the capabilities of **pip\u2011outdated**."
+  id: null
+  part_kind: text
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1768168421-ZJRJ4borUKazIr1pgL8V
+run_id: c786de0b-928b-47f7-9371-22c09df9866f
+timestamp: '2026-01-11T21:53:41Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 64
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 739
+  input_audio_tokens: 0
+  input_tokens: 1792
+  output_audio_tokens: 0
+  output_tokens: 1325

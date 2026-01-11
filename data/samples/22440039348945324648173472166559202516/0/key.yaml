@@ -1,4 +1,0 @@
-"# Later, inside any module that wants to respect the setting\nif v.verbose():\n \
-  \   print(\"Running in verbose mode\u2026\")\n```  \n\n- **Implications**: Changing\
-  \ the flag via `set_verbose` affects all modules that import `pip_outdated.verbose`,\
-  \ providing a simple way to toggle detailed logging across the entire tool.  "

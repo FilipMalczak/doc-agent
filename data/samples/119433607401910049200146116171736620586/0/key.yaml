@@ -1,0 +1,18 @@
+'## Additional Configuration
+
+  - The `[vpip]` section defines a fallback command:
+
+
+  ```ini
+
+  [vpip]
+
+  command_fallback = python cute.py
+
+  ```
+
+
+  *This may be used by the tool (or related tooling) to invoke a custom script when
+  the primary command cannot be executed.*
+
+  '

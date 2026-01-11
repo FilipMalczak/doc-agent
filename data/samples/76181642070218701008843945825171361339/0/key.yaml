@@ -1,0 +1,3 @@
+"## Overview  \n- **Package**: `pip-outdated` \u2013 a command\u2011line tool that\
+  \ scans a `requirements.txt` or `setup.cfg` file (or any file matching a glob pattern)\
+  \ and reports dependencies that have newer releases available.  \n"

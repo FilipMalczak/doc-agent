@@ -1,0 +1,4 @@
+The document includes a reference to pip's official requirements file format documentation
+  (https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format)
+  in pip_outdated/find_require.py.
+...

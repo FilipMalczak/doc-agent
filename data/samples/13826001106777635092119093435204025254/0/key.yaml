@@ -1,0 +1,15 @@
+"facts:\n- explanation: The function 'get_session' is defined in the document with\
+  \ the specified\n    ID. It returns an instance of aiohttp.ClientSession, which\
+  \ is evident from the\n    return statement and the import statement.\n  fact: In\
+  \ the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there is a function\n\
+  \    named 'get_session' that returns an instance of 'aiohttp.ClientSession'.\n\
+  - explanation: The 'get_session' function sets the HTTP headers for the request,\
+  \ specifically\n    the 'User-Agent' header to 'pip-outdated'. This is directly\
+  \ visible in the 'headers'\n    dictionary assignment within the function body.\n\
+  \  fact: In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n\
+  \    function assigns a 'User-Agent' header with the value 'pip-outdated' to HTTP\
+  \ requests.\n- explanation: The 'get_session' function uses an aiohttp.TCPConnector\
+  \ with a 'limit'\n    parameter set to 5. This is explicitly defined in the 'connector'\
+  \ variable assignment\n    within the function body.\n  fact: In the document with\
+  \ ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n    function creates\
+  \ an 'aiohttp.TCPConnector' instance with a concurrency limit of\n    5 connections.\n"

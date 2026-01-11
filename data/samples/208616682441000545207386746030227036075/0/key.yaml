@@ -1,0 +1,9 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ This function initializes colorama for consistent color output across\n    operating\
+  \ systems. It constructs a table with columns 'Name', 'Installed', 'Wanted',\n \
+  \   'Latest', and displays status messages (e.g., 'Everything is up-to-date!' in\
+  \ cyan)\n    with color-coded guidance for users.\n  fact: The function 'print_outdated'\
+  \ uses 'colorama.init()' to enable cross-platform\n    terminal color support and\
+  \ formats results in a colored table using 'terminaltables.AsciiTable'.\n__pydantic_extra__:\
+  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
+  \ null\n"

@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The line 'from pip_outdated.session import get_session' shows that\n    the 'get_session'\
+  \ function is imported from the 'session' module in the 'pip_outdated'\n    package\
+  \ for the purpose of testing the session creation.\n  fact: The file 'test_pytz.py'\
+  \ imports 'get_session' from 'pip_outdated.session'\n    for testing session creation.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

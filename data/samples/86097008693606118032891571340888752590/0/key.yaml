@@ -1,0 +1,5 @@
+"### Quick description for end\u2011users\n- A command\u2011line utility that scans\
+  \ `requirements.txt` or `setup.cfg` files and **lists outdated, missing, or incompatible\
+  \ Python packages** in a colour\u2011coded table.  \n- Useful when you want a concise\
+  \ view of which dependencies need updating **without manually running `pip list\
+  \ --outdated`**.\n"

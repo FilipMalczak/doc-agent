@@ -1,0 +1,7 @@
+"## Behaviour  \n\n- The script parses arguments via `parse_args()`.  \n- Verbose\
+  \ mode is enabled by calling `set_verbose(args.verbose)` from the internal `verbose`\
+  \ module.  \n- Dependency requirements are collected with `find_require(args.file)`.\
+  \  \n- An asynchronous HTTP session (`get_session()`) is opened; each requirement\
+  \ is checked for newer versions using `check_outdated`.  \n- Results are printed\
+  \ by `print_outdated`; the `quiet` flag controls whether a non\u2011zero exit code\
+  \ is returned when outdated packages are found.  \n"

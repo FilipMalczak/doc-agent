@@ -1,6 +1,0 @@
-"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
-  \ The helper function colored_wanted returns red bolded None if outdate.pypi_not\n\
-  \    Found() or outdate.wanted is None.\n  fact: colored_w wanted returns red bolded\
-  \ None if outdate.pypi_not Found() or outdate.wanted\n    is None\n__pydantic_extra__:\
-  \ null\n__pydantic_fields_set__: !!set\n  explanation: null\n  fact: null\n__pydantic_private__:\
-  \ null\n"

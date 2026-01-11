@@ -1,4 +1,0 @@
-In tests/test_parse_cfg.py, the test asserts that parse_cfg returns package names
-  ['setuptools_scm', 'setuptools_scm_git_archive', 'ansible', 'ansible-lint', 'alabaster',
-  'Sphinx'] from the setup.cfg file.
-...

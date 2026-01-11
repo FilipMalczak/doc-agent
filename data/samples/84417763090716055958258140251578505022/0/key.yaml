@@ -1,0 +1,8 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The document with ID 'c70abb08-f4fa-543d-ad2e-52421c056692' in the\n    'Changelog'\
+  \ (version 0.2.0, February 10, 2019) lists specific version bumps for\n    'colorama',\
+  \ 'packaging', 'requests', 'termcolor', and 'terminaltables'.\n  fact: 'Version\
+  \ 0.2.0 of ''pip-outdated'' updated its dependencies to specific versions:\n   \
+  \ colorama@0.4.x, packaging@19.x, requests@2.x, termcolor@1.x, and terminaltables@3.x.'\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

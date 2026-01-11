@@ -1,0 +1,6 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The provided XML data includes a 'path' element with the value 'tests/test_pytz.py',\n\
+  \    which indicates that there is a file named 'test_pytz.py' in the tests directory\n\
+  \    of the project.\n  fact: There is a test file named 'test_pytz.py' in the project.\n\
+  __pydantic_extra__: null\n__pydantic_fields_set__: !!set\n  explanation: null\n\
+  \  fact: null\n__pydantic_private__: null\n"

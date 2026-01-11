@@ -1,0 +1,7 @@
+"!!python/object:docassist.preindexing.agents.facts_from_file.Fact\n__dict__:\n  explanation:\
+  \ The file implements 'get_local_version()' which uses async subprocess\n    to\
+  \ execute 'pip show' and extract the installed version of a package.\n  fact: In\
+  \ document with ID 79501155-b71e-5dd6-a529-82fd14d4a11b, there's an async\n    function\
+  \ 'get_local_version()' that executes 'pip show' and returns locally installed\n\
+  \    package version.\n__pydantic_extra__: null\n__pydantic_fields_set__: !!set\n\
+  \  explanation: null\n  fact: null\n__pydantic_private__: null\n"
