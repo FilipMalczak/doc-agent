@@ -15,7 +15,6 @@ from docassist.retries import step
 from docassist.structure.materialize.materializer import Materializer
 from docassist.structure.spec import root_specification
 from docassist.subjects import AnalysedRepo
-from docassist.usage import USAGE_COLLECTOR
 
 log = getLogger(__name__)
 
@@ -41,21 +40,6 @@ async def handle_repo(repo: AnalysedRepo):
     materializer = Materializer(index=index, sampling=CONFIG.sampler.controller())
     pprint(await materializer.materialize_specification(root_specification))
 
-class ModelCosts(TypedDict):
-    input_per_m: float
-    output_per_m: float
-
-def calculate(costs: ModelCosts, input: int, output: int) -> float:
-    return input*costs["input_per_m"]/1000000.0 + output*costs["output_per_m"]/1000000.0
-
-COSTS = {
-    'deepseek/deepseek-r1-0528': {"input_per_m": 0.4, "output_per_m": 1.75},
-    'deepseek/deepseek-v3.2': {"input_per_m": 0.27, "output_per_m": 0.4},
-    'openai/gpt-oss-120b': {"input_per_m": 0.039, "output_per_m": 0.19},
-    'openai/gpt-oss-20b': {"input_per_m": 0.02, "output_per_m": 0.1},
-    'qwen/qwen3-32b': {"input_per_m": 0.4, "output_per_m": 0.8}, #costs for the most expensive provider; for most of the calls its much lower
-    'text-embedding-3-small': {"input_per_m": 0.02, "output_per_m": 0.0},
-}
 
 async def main():
     session_name = get_random_name()
@@ -66,25 +50,26 @@ async def main():
             for repo in CONFIG.repos:
                 await handle_repo(repo)
         finally:
-            details = {k: dict(v) for k, v in USAGE_COLLECTOR.by_model.items()}
+            # details = {k: dict(v) for k, v in USAGE_COLLECTOR.by_model.items()}
             print("USAGE")
-            print(details)
-            def calc(usage_class):
-                out = {
-                    model_name: calculate(
-                        COSTS[model_name],
-                        USAGE_COLLECTOR.by_model[usage_class][model_name]["prompt_tokens"],
-                        USAGE_COLLECTOR.by_model[usage_class][model_name]["completion_tokens"]
-                    )
-                    for model_name in USAGE_COLLECTOR.by_model[usage_class]
-                }
-                out["total"] = sum(out.values())
-                return out
-
-            spending = {
-                "would_spend": calc("all"),
-                "spent_this_time": calc("unsampled"),
-                "saved_this_time": calc("sampled"),
-            }
-            print("SPENDING")
-            print(spending)
+            print(CONFIG.model_broker.report())
+            #fixme print costs based on genai-prices
+            # def calc(usage_class):
+            #     out = {
+            #         model_name: calculate(
+            #             COSTS[model_name],
+            #             USAGE_COLLECTOR.by_model[usage_class][model_name]["prompt_tokens"],
+            #             USAGE_COLLECTOR.by_model[usage_class][model_name]["completion_tokens"]
+            #         )
+            #         for model_name in USAGE_COLLECTOR.by_model[usage_class]
+            #     }
+            #     out["total"] = sum(out.values())
+            #     return out
+            #
+            # spending = {
+            #     "would_spend": calc("all"),
+            #     "spent_this_time": calc("unsampled"),
+            #     "saved_this_time": calc("sampled"),
+            # }
+            # print("SPENDING")
+            # print(spending)

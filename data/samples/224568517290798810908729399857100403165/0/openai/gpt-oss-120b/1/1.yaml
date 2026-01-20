@@ -41,7 +41,7 @@ parts:
     \n- **Key components**\n  - `OutdateResult` *(dataclass)*\n    - Stores the original\
     \ `Requirement`, the locally installed version (`version`), and the full list\
     \ of available PyPI versions (`all_versions`).\n    - Automatically determines:\n\
-    \      - `wanted`: the newest version that satisfies the requirement\u2019s version\
+    \      - `wanted`: the newest version that satisfy the requirement\u2019s version\
     \ specifier (if any).\n      - `latest`: the absolute newest stable version on\
     \ PyPI.\n    - Helper methods:\n      - `install_not_found()` \u2013 true when\
     \ the package is not installed locally.\n      - `install_not_wanted()` \u2013\

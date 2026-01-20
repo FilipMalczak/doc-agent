@@ -1,0 +1,243 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message is forbidden (even empty one); only thinking and tool\
+      \ calls are allowed; thinking-only responses are forbidden</text_response>\n\
+      \  </tool_calling>\n  <result>you must emit a single `final_result` tool call;\
+      \ no other response (outside of thinking, but never only thinking) is allowed</result>\n\
+      \  <thinking>\n    <allowed>internal reasoning can be performed before producing\
+      \ any kind of input</allowed>\n    <forbidden>you cannot emit a message that\
+      \ consists only of thinking section; each response must include at least one\
+      \ tool call</forbidden>\n  </thinking>\n</behaviour>\n<persona>RAG helper, specialised\
+      \ in rephrasing of queries</persona>\n<task>\n  <context>you are at the beginning\
+      \ of the RAG pipeline</context>\n  <high_level>expand on given RAG queries to\
+      \ extend search area</high_level>\n  <perspective>\n    <role>\n      <slug>enduser</slug>\n\
+      \      <details>someone who uses the project we're working on to solve the problems\
+      \ or finish some tasks</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>given a list of RAG queries generate rewrites/rephrasings of queries\
+      \ and auxiliary queries</low_level>\n  <detailed>\nYou will be given a list\
+      \ of input queries and numbers that control how much additional content\nyou\
+      \ should generate. For each query you will generate `rewrite_count` queries\
+      \ that have similar meaning, but sound \ndifferently. Additionally, you will\
+      \ generate `expansion_count` queries that do not relate to one specific input\
+      \ query,\nbut are similar in meaning to all the input queries. You can think\
+      \ of rewrites as interpolation of search area, while\nexpansions are meant to\
+      \ simulate extrapolation.\n\n# Rewriting rules\n\n- Each rewrite must differ\
+      \ substantially in **structure**, not just word choice.\n- You may vary:\n \
+      \ - active \u2194 passive voice\n  - clause splitting/merging\n  - clause or\
+      \ phrase reordering\n  - noun \u2194 verb conversions\n  - general word order\n\
+      - Expansions may rephrase or expand the question context, but the outcome MUST\
+      \ be **standalone statements**.\n- You will not include initial queries in the\
+      \ reponse. \n\n# Example\n\nInput:\n\n<purpose>research into forest animals</purpose>\n\
+      <rewrite_count>2</rewrite_count>\n<expansion_count>3</expansion_count>\n<initial_queries>\n\
+      \  <list>\n    <item index=\"0\">Fox is faster than a rabbit.</item>\n    <item\
+      \ index=\"1\">Rabbits are able to outrun foxes.</item>\n  </list>\n</initial_queries>\n\
+      <additional_instructions>ignore the fact that fox and rabbit are common cartoon\
+      \ and child stories characters</additional_instructions>\n\nOutput:\n\n{\n \
+      \ \"rewrites\": [\n    [\n      \"A rabbit is slower when compared to a fox.\"\
+      ,\n      \"A fox can run at greater speed than a rabbit can.\"\n    ],\n   \
+      \ [\n      \"Compared with foxes, rabbits achieve higher speed.\",\n      \"\
+      A rabbit can surpass a fox in terms of quickness.\"\n    ]\n  ],\n  \"expansions\"\
+      : [\n    \"Speed of fox and rabbit.\",\n    \"Fox and rabbit in terms of speed.\"\
+      ,\n    \"Comparison of forest animal speed\"\n  ]\n}\n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Resolve the value of variable 'project_name' defined as 'current\
+      \ project name'</purpose>\n<rewrite_count>2</rewrite_count>\n<expansion_count>3</expansion_count>\n\
+      <initial_queries>\n  <list>\n    <item index=\"0\">project name</item>\n   \
+      \ <item index=\"1\">current project documentation</item>\n    <item index=\"\
+      2\">project identification</item>\n    <item index=\"3\">software project title</item>\n\
+      \  </list>\n</initial_queries>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: tool_call
+  kind: response
+  model_name: minimax/minimax-m2.1
+  parts:
+  - content: "The user wants me to generate rewrites and expansions for RAG queries\
+      \ related to finding a project name. Let me analyze:\n\n- Purpose: Resolve the\
+      \ value of variable 'project_name' defined as 'current project name'\n- rewrite_count:\
+      \ 2 (so 2 rewrites per initial query)\n- expansion_count: 3 (so 3 general expansions)\n\
+      - 4 initial queries\n\nInitial queries:\n1. \"project name\"\n2. \"current project\
+      \ documentation\"\n3. \"project identification\"\n4. \"software project title\"\
+      \n\nI need to create 2 rewrites for each query (so 8 total rewrites, organized\
+      \ in 4 arrays of 2 each), and 3 expansion queries.\n\nRewriting rules:\n- Each\
+      \ rewrite must differ substantially in structure, not just word choice\n- Vary:\
+      \ active \u2194 passive voice, clause splitting/merging, clause or phrase reordering,\
+      \ noun \u2194 verb conversions, general word order\n- Expansions must be standalone\
+      \ statements\n- Don't include initial queries in response\n\nLet me create the\
+      \ rewrites:\n\nQuery 1: \"project name\"\n- \"What is the name of the project?\"\
+      \n- \"Name used to identify this project\"\n\nQuery 2: \"current project documentation\"\
+      \n- \"Documentation for the project we're working on\"\n- \"What documents exist\
+      \ for the present project?\"\n\nQuery 3: \"project identification\"\n- \"How\
+      \ is the project identified?\"\n- \"Project identifier details\"\n\nQuery 4:\
+      \ \"software project title\"\n- \"What title has been assigned to this software\
+      \ project?\"\n- \"The software project's designated title\"\n\nExpansions (3):\n\
+      - \"Finding the project name variable\"\n- \"How to determine the current project\
+      \ name\"\n- \"Where is the project name defined\"\n\nWait, let me check the\
+      \ format again. The output should be:\n{\n  \"rewrites\": [\n    [\"rewrite1\
+      \ for query0\", \"rewrite2 for query0\"],\n    [\"rewrite1 for query1\", \"\
+      rewrite2 for query1\"],\n    ...\n  ],\n  \"expansions\": [\"expansion1\", \"\
+      expansion2\", \"expansion3\"]\n}\n\nLet me refine:\n\nQuery 1: \"project name\"\
+      \n- \"What is the name of this project?\"\n- \"The designated name for our project\"\
+      \n\nQuery 2: \"current project documentation\"\n- \"Documentation associated\
+      \ with the present project\"\n\n\n- \"What documentation exists for this project?\"\
+      \n\nQuery 3: \"project identification\"\n- \"How is the project uniquely identified?\"\
+      \n- \"Details used to identify the project\"\n\nQuery 4: \"software project\
+      \ title\"\n- \"What is the official title of this software project?\"\n- \"\
+      The title given to our software initiative\"\n\nExpansions (standalone statements):\n\
+      - \"Methods for determining the project name\"\n- \"Locating the project name\
+      \ variable definition\"\n- \"Understanding how project names are assigned\"\n\
+      \nI'll verify the structure meets the requirements. The rewrites provide diverse\
+      \ representations of project identification, using different linguistic approaches\
+      \ while maintaining core semantic meaning. Each rewrite introduces subtle variations\
+      \ in phrasing and perspective, ensuring comprehensive coverage of the original\
+      \ queries.\n\nThe expansions transform the queries into more descriptive, declarative\
+      \ statements that capture the underlying intent of project identification and\
+      \ naming conventions. I'll craft tool calls that explore project naming conventions\
+      \ through diverse linguistic approaches, ensuring each query reveals nuanced\
+      \ insights about project identification. The rewrites will systematically deconstruct\
+      \ project naming concepts across different grammatical structures, highlighting\
+      \ multiple perspectives on project identity. By varying sentence construction\
+      \ and terminology, I'll generate comprehensive query sets that capture the essence\
+      \ of project naming while maintaining distinct linguistic patterns.\n\nThe expansions\
+      \ will expand the search space by introducing descriptive statements about project\
+      \ naming, moving beyond simple queries to more informative linguistic representations.\
+      \ This approach allows for a richer, more contextually grounded exploration\
+      \ of project identification mechanisms."
+    id: reasoning
+    part_kind: thinking
+    provider_name: openrouter
+    signature: null
+  - content: '
+
+      '
+    id: null
+    part_kind: text
+  - args: '{"expansions": ["How to determine the current project name", "Finding the
+      project name variable definition", "Methods for locating the project name in
+      code"], "rewites": "[[\"What is the name of this project?\", \"The designated
+      name for our project\"], [\"Documentation associated with the present project\",
+      \"What documentation exists for this project?\"], [\"How is the project uniquely
+      identified?\", \"Details used to identify the project\"], [\"What is the official
+      title of this software project?\", \"The title given to our software initiative\"]]"}'
+    id: null
+    part_kind: tool-call
+    tool_call_id: call_function_rr1mr2iwyvzk_1
+    tool_name: final_result
+  provider_details:
+    finish_reason: tool_calls
+  provider_name: openrouter
+  provider_response_id: gen-1768907661-2rBa3srIftPJuXkqVErz
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2026-01-20T11:14:21Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: 0
+      reasoning_tokens: 768
+    input_audio_tokens: 0
+    input_tokens: 1392
+    output_audio_tokens: 0
+    output_tokens: 901
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - input:
+        expansions:
+        - How to determine the current project name
+        - Finding the project name variable definition
+        - Methods for locating the project name in code
+        rewites: '[["What is the name of this project?", "The designated name for
+          our project"], ["Documentation associated with the present project", "What
+          documentation exists for this project?"], ["How is the project uniquely
+          identified?", "Details used to identify the project"], ["What is the official
+          title of this software project?", "The title given to our software initiative"]]'
+      loc:
+      - rewrites
+      msg: Field required
+      type: missing
+    part_kind: retry-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: call_function_rr1mr2iwyvzk_1
+    tool_name: final_result
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        expansions:
+          items:
+            type: string
+          type: array
+        rewrites:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+      required:
+      - rewrites
+      - expansions
+      title: RephrasingOutput
+      type: object
+    name: RephrasingOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      properties:
+        expansions:
+          items:
+            type: string
+          type: array
+        rewrites:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+      required:
+      - rewrites
+      - expansions
+      title: RephrasingOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

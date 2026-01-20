@@ -8,6 +8,7 @@ from pydantic_ai import Agent, AbstractToolset, FunctionToolset
 from pydantic_ai.models import Model
 
 from docassist.config import CONFIG
+from docassist.models import CapabilityRequirements, Level
 from docassist.sampling.protocols import SamplingController
 from docassist.simple_xml import to_simple_xml
 from docassist.system_prompts import PromptingTask, writer_system_prompt, doer_system_prompt, \
@@ -108,31 +109,41 @@ class StructuredAgent[I, O]:
 
     def __init__(self, *,
                  name: str, system_prompt: dict[str, Any],
-                 input_type: type[I] = Any, output_type: type[O] = None,
-                 allow_dont_know: bool = False,
-                 model: Model | None = None, sampling: SamplingController | None = None):
+                 input_type: type[I] = Any, output_type: type[O],
+                 allow_dont_know: bool = False):
 
+        self.sampling = CONFIG.sampler.controller()
+        self.input_type = input_type
+        self.allow_dont_know = allow_dont_know
+        allow_empty_result, non_none_output_type = unwrap_none(output_type)
+        self.output_type = non_none_output_type
+        self.allow_empty_result = allow_empty_result
+
+        required_capabilities = self._required_capabilities(allow_empty_result, allow_dont_know)
+        model_profile = CONFIG.model_broker.pick_model_profile(required_capabilities)
+        model = CONFIG.model(model_profile)
         self.pydantic_agent = Agent(
-            model=model or CONFIG.text_model,
+            model=model,
             name=name,
             output_type=output_type,
             retries=5,
             # output_retries=5,
             system_prompt=to_simple_xml(system_prompt)
         )
-        self.sampling = sampling or CONFIG.sampler.controller()
-        self.input_type = input_type
-        self.output_type = output_type
-        self.allow_dont_know = allow_dont_know
+
+    def _required_capabilities(self, allow_empty: bool, allow_dont_know: bool) -> CapabilityRequirements:
+        assert False #fixme better way to abstract
 
     def run[O](self, input: I, output_type: type[O] | None = None, **kwargs) -> Awaitable[O]:
-        real_output_type = output_type or self.output_type
-        assert real_output_type is not None
-        can_be_empty, non_empty_type = unwrap_none(real_output_type)
+        if output_type is not None:
+            allow_empty_result, output_type = unwrap_none(output_type)
+        else:
+            allow_empty_result = self.allow_empty_result
+
         return call_agent(
             self.sampling, self.pydantic_agent,
-            input, non_empty_type,
-            can_be_empty, self.allow_dont_know,
+            input, output_type,
+            allow_empty_result, self.allow_dont_know,
             **kwargs
         )
 
@@ -155,9 +166,26 @@ class WriterAgent[I](StructuredAgent[I, str | None]): #todo str | None depends o
                 output_format=output_format
             ),
             input_type=input_type,
-            output_type=(str | None) if allow_no_result else str,
-            model=CONFIG.text_model
+            output_type=(str | None) if allow_no_result else str
         )
+
+    def _required_capabilities(self, allow_empty_result: bool, allow_dont_know: bool) -> CapabilityRequirements:
+        tool_count = 0
+        for x in [allow_empty_result, allow_dont_know]:
+            x += tool_count
+        tool_level = Level.BASIC if tool_count else Level.NONE
+        epistemic_level = [Level.NONE, Level.BASIC, Level.RELIABLE][tool_count]
+        return CapabilityRequirements(
+            output_formatting=Level.STRONG,
+            structured_output=Level.NONE,
+            tool_use=tool_level,
+            tool_discipline=tool_level,
+            reasoning=Level.RELIABLE,
+            research=Level.NONE,
+            epistemic_modesty=epistemic_level,
+            hallucination_resistance=Level.RELIABLE
+        )
+
 
 
 class DoerAgent[I, O](StructuredAgent[I, O]):
@@ -179,8 +207,23 @@ class DoerAgent[I, O](StructuredAgent[I, O]):
             ),
             input_type=input_type,
             output_type=output_type,
-            allow_dont_know=allow_dont_know,
-            model=CONFIG.mixed_model
+            allow_dont_know=allow_dont_know
+        )
+
+    def _required_capabilities(self, allow_empty_result: bool, allow_dont_know: bool) -> CapabilityRequirements:
+        tool_count = 0
+        for x in [allow_empty_result, allow_dont_know]:
+            x += tool_count
+        epistemic_level = [Level.NONE, Level.BASIC, Level.RELIABLE][tool_count]
+        return CapabilityRequirements(
+            output_formatting=Level.BASIC,
+            structured_output=Level.STRONG,
+            tool_use=Level.BASIC,
+            tool_discipline=Level.RELIABLE,
+            reasoning=Level.RELIABLE,
+            research=Level.NONE,
+            epistemic_modesty=epistemic_level,
+            hallucination_resistance=Level.RELIABLE
         )
 
 
@@ -202,6 +245,21 @@ class SolverAgent[I, O](StructuredAgent[I, O]):
             ),
             input_type=input_type,
             output_type=output_type,
-            allow_dont_know=True,
-            model=CONFIG.tool_model
+            allow_dont_know=True
+        )
+
+    def _required_capabilities(self, allow_empty_result: bool, allow_dont_know: bool) -> CapabilityRequirements:
+        tool_count = 0
+        for x in [allow_empty_result, allow_dont_know]:
+            x += tool_count
+        epistemic_level = [Level.NONE, Level.BASIC, Level.RELIABLE][tool_count]
+        return CapabilityRequirements(
+            output_formatting=Level.BASIC,
+            structured_output=Level.STRONG,
+            tool_use=Level.STRONG,
+            tool_discipline=Level.STRONG,
+            reasoning=Level.RELIABLE,
+            research=Level.RELIABLE,
+            epistemic_modesty=epistemic_level,
+            hallucination_resistance=Level.RELIABLE
         )

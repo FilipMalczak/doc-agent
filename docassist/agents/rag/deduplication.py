@@ -23,7 +23,7 @@ We need to pick one representative of each document.
 Deduplicate the variants of the retrieved document. 
 Reduce the list of candidates to a single, best one. 
 Measure 'best' against the given purpose.
-Correct (usually raise; if not - include the reason in the explanation) the score to reflect the document being found multiple times. 
+Modify (usually raise; if not - include the reason in the explanation) the score to reflect the document being found multiple times. 
 Both the input and updated score should be in [0.0, 1.0] range, where 1.0 means the best similarity and 0.0 means no similarity.
 Pick the representative by responding with its document ID. 
 You MUST pick EXACTLY one representative and it MUST have the document ID that was used as an input document ID.

@@ -1,0 +1,33 @@
+finish_reason: stop
+kind: response
+model_name: minimax/minimax-m2.1
+parts:
+- content: 'Let me understand the task:
+
+
+    1. I need to rescore documents based on a purpose: "Resolve the value of variable
+    ''project_name'' defined as ''current project name''"
+
+    2. The input scores are in'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1768909135-vG29aPTeMtxKfPe5URxo
+run_id: a149aefa-d787-44a2-b901-25227de86d4d
+timestamp: '2026-01-20T11:38:55Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 49
+  input_audio_tokens: 0
+  input_tokens: 3908
+  output_audio_tokens: 0
+  output_tokens: 43

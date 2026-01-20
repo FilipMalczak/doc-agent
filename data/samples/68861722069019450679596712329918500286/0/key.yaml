@@ -4,7 +4,7 @@
   \ if you\u2019re using an older or unsupported version.\u201D  \n\n- **How it works\
   \ (high\u2011level)**  \n  1. Reads your requirement specifications.  \n  2. Looks\
   \ up the installed version via `pip show`.  \n  3. Fetches all stable releases from\
-  \ PyPI.  \n  4. Determines the newest version that satisfies your specifier (`wanted`)\
+  \ PyPI.  \n  4. Determines the newest version that satisfy your specifier (`wanted`)\
   \ and the absolute newest release (`latest`).  \n\n- **Interpreting results**  \n\
   \  - **Not installed** \u2013 `install_not_found()` \u2192 \u201CPackage not found\
   \ in your environment; you may need to install it.\u201D  \n  - **Installed but\

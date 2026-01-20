@@ -5,12 +5,18 @@ from docassist.structure.materialize.expansion.models import DomainInterpretatio
 from docassist.structured_agent import StructuredAgent, DoerAgent, SolverAgent
 from docassist.system_prompts import PromptingTask
 
+COMMON_CONTEXT = ("You act in context of a single software project, represented as a repository. The project and derived"
+                  "content over it (like notes) constitute knowledge base, made available to specific agents that need "
+                  "the access. Even if you don't have the access, you should be aware that you're working within the "
+                  "scope of the aforementioned software project.\n\n")
+
 domain_interpreter = DoerAgent(
     name="domain interpreter",
     persona="expert in translating natural language specifications into formal constraints",
     perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
+            COMMON_CONTEXT+
             "You are part of a documentation materialization pipeline. "
             "Your role is to interpret a natural-language domain description "
             "into explicit, structured constraints without assuming project contents."
@@ -41,6 +47,7 @@ candidate_hypothesizer = SolverAgent(
     perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
+            COMMON_CONTEXT+
             "You assist in discovering project entities by proposing candidate "
             "descriptions derived from a formalized domain request."
         ),
@@ -68,6 +75,7 @@ entity_anchor = SolverAgent(
     perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
+            COMMON_CONTEXT+
             "You are responsible for resolving candidate hypotheses into real, "
             "knowledge-base-backed entities."
         ),
@@ -97,6 +105,7 @@ schema_projector = DoerAgent(
     perspective=FINAL_DOCUMENTATION_PERSPECTIVE,
     task=PromptingTask(
         context=(
+            COMMON_CONTEXT+
             "You transform grounded project entities into structured documentation "
             "entries according to a provided variable schema."
         ),

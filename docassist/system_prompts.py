@@ -105,7 +105,8 @@ def _behaviour(b: AgentRole, empty_allowed: bool, may_not_know: bool):
             out.update({
                 "tool_calling": {
                     "required": "to indicate response",
-                    "text_response": "any assistant text message will be ignored"
+                    "text_response": "any assistant text message is forbidden (even empty one); only thinking and tool "
+                                     "calls are allowed; thinking-only responses are forbidden"
                 },
             })
             if empty_allowed or may_not_know:
@@ -120,8 +121,8 @@ def _behaviour(b: AgentRole, empty_allowed: bool, may_not_know: bool):
                 })
             else:
                 out.update({
-                    "result": "you must emit a single `final_result` tool call; no other response (outside of thinking) "
-                              "is allowed",
+                    "result": "you must emit a single `final_result` tool call; no other response (outside of thinking, "
+                              "but never only thinking) is allowed",
                 })
         elif b == "solver":
             out.update({
@@ -139,9 +140,9 @@ def _behaviour(b: AgentRole, empty_allowed: bool, may_not_know: bool):
                 "decisiveness": "emit the response as soon as you can anchor it in the supporting data; you might take "
                                 "an additional step or two to make sure, but don't overresearch; never emit a response"
                                 "without supporting it with retrieved knowledge",
-                "research": "required; any answer, response or result you give must be anchored in supprting data you "
+                "research": "required; any answer, response or result you give must be anchored in supporting data you "
                             "retrieve via tools; results with no supporting evidence are invalid; refer to the evidence"
-                            "in the explanation",
+                            "in the explanation whenever explanation is required in the task",
                 "inherent_knowledge": "you might use the knowledge you had without using tools to prepare hypothesis, "
                               "conduct reasoning, planning and so on; never use it to support your decision or result",
                 "result": "if you're able to produce a meaningful result, emit it using `final_result` tool; indicate "

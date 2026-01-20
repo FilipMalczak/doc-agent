@@ -1,0 +1,127 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message is forbidden (even empty one); only thinking and tool\
+      \ calls are allowed; thinking-only responses are forbidden</text_response>\n\
+      \  </tool_calling>\n  <result>you must emit a single `final_result` tool call;\
+      \ no other response (outside of thinking, but never only thinking) is allowed</result>\n\
+      \  <thinking>\n    <allowed>internal reasoning can be performed before producing\
+      \ any kind of input</allowed>\n    <forbidden>you cannot emit a message that\
+      \ consists only of thinking section; each response must include at least one\
+      \ tool call</forbidden>\n  </thinking>\n</behaviour>\n<persona>RAG helper, specialised\
+      \ in rephrasing of queries</persona>\n<task>\n  <context>you are at the beginning\
+      \ of the RAG pipeline</context>\n  <high_level>expand on given RAG queries to\
+      \ extend search area</high_level>\n  <perspective>\n    <role>\n      <slug>enduser</slug>\n\
+      \      <details>someone who uses the project we're working on to solve the problems\
+      \ or finish some tasks</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>given a list of RAG queries generate rewrites/rephrasings of queries\
+      \ and auxiliary queries</low_level>\n  <detailed>\nYou will be given a list\
+      \ of input queries and numbers that control how much additional content\nyou\
+      \ should generate. For each query you will generate `rewrite_count` queries\
+      \ that have similar meaning, but sound \ndifferently. Additionally, you will\
+      \ generate `expansion_count` queries that do not relate to one specific input\
+      \ query,\nbut are similar in meaning to all the input queries. You can think\
+      \ of rewrites as interpolation of search area, while\nexpansions are meant to\
+      \ simulate extrapolation.\n\n# Rewriting rules\n\n- Each rewrite must differ\
+      \ substantially in **structure**, not just word choice.\n- You may vary:\n \
+      \ - active \u2194 passive voice\n  - clause splitting/merging\n  - clause or\
+      \ phrase reordering\n  - noun \u2194 verb conversions\n  - general word order\n\
+      - Expansions may rephrase or expand the question context, but the outcome MUST\
+      \ be **standalone statements**.\n- You will not include initial queries in the\
+      \ reponse. \n\n# Example\n\nInput:\n\n<purpose>research into forest animals</purpose>\n\
+      <rewrite_count>2</rewrite_count>\n<expansion_count>3</expansion_count>\n<initial_queries>\n\
+      \  <list>\n    <item index=\"0\">Fox is faster than a rabbit.</item>\n    <item\
+      \ index=\"1\">Rabbits are able to outrun foxes.</item>\n  </list>\n</initial_queries>\n\
+      <additional_instructions>ignore the fact that fox and rabbit are common cartoon\
+      \ and child stories characters</additional_instructions>\n\nOutput:\n\n{\n \
+      \ \"rewrites\": [\n    [\n      \"A rabbit is slower when compared to a fox.\"\
+      ,\n      \"A fox can run at greater speed than a rabbit can.\"\n    ],\n   \
+      \ [\n      \"Compared with foxes, rabbits achieve higher speed.\",\n      \"\
+      A rabbit can surpass a fox in terms of quickness.\"\n    ]\n  ],\n  \"expansions\"\
+      : [\n    \"Speed of fox and rabbit.\",\n    \"Fox and rabbit in terms of speed.\"\
+      ,\n    \"Comparison of forest animal speed\"\n  ]\n}\n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Resolve the value of variable 'project_name' defined as 'current\
+      \ project name'</purpose>\n<rewrite_count>2</rewrite_count>\n<expansion_count>3</expansion_count>\n\
+      <initial_queries>\n  <list>\n    <item index=\"0\">project name</item>\n   \
+      \ <item index=\"1\">current project documentation</item>\n    <item index=\"\
+      2\">project identification</item>\n    <item index=\"3\">software project title</item>\n\
+      \  </list>\n</initial_queries>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        expansions:
+          items:
+            type: string
+          type: array
+        rewrites:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+      required:
+      - rewrites
+      - expansions
+      title: RephrasingOutput
+      type: object
+    name: RephrasingOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      properties:
+        expansions:
+          items:
+            type: string
+          type: array
+        rewrites:
+          items:
+            items:
+              type: string
+            type: array
+          type: array
+      required:
+      - rewrites
+      - expansions
+      title: RephrasingOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

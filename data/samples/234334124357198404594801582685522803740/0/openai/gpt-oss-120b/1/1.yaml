@@ -22,7 +22,7 @@ parts:
     \ an incomplete packaging configuration.\",\n   \"The file is identified as a\
     \ configuration script (`repo_function` = config) for the project.\",\n   \"The\
     \ file's language is Python, which is used for project packaging.\"\n ]\n}\n\n\
-    That satisfies."
+    That satisfy."
   id: reasoning
   part_kind: thinking
   provider_name: openrouter

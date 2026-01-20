@@ -69,6 +69,7 @@ def choose_an_answer(question: str, answers: list[str | IdentifiableAnswer]) -> 
     """
     :return: tuple(input you feed to the materialization aide, list of answers ids, so you can figure out what the output means)
     """
+    #fixme switch to index-based picking
     answers_with_ids = [
         a if isinstance(a, IdentifiableAnswer) else IdentifiableAnswer(id=str(uuid4()), answer=a)
         for a in answers

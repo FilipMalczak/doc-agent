@@ -41,7 +41,7 @@ parts:
     wanted (Optional[Version], default None), and latest (Optional[Version], default
     None).", "explanation": "The @dataclass declaration shows these fields and their
     types."}, {"statement": "OutdateResult.__post_init__ sets the wanted attribute
-    to the newest version in all_versions that satisfies the requirement''s specifier,
+    to the newest version in all_versions that satisfy the requirement''s specifier,
     if any, and sets latest to the last element of all_versions.", "explanation":
     "The __post_init__ method contains logic that iterates reversed all_versions to
     find a matching version and assigns latest = self.all_versions[-1]."}, {"statement":

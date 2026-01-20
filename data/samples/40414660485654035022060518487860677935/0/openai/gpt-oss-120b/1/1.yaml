@@ -44,7 +44,7 @@ parts:
     \ or similar. |\n| `version` | `Optional[Version]` | Currently installed version\
     \ (or `None` if the package is not installed). |\n| `all_versions` | `List[Version]`\
     \ | All non\u2011prerelease versions found on PyPI, sorted ascending. |\n| `wanted`\
-    \ *(computed)* | `Optional[Version]` | The newest version that satisfies the requirement's\
+    \ *(computed)* | `Optional[Version]` | The newest version that satisfy the requirement's\
     \ specifier, or `None` if none match. |\n| `latest` *(computed)* | `Optional[Version]`\
     \ | The newest available version on PyPI (or `None` if none were fetched). |\n\
     \n**Key methods**  \n- `install_not_found()`: *True* if the package is not installed.\
@@ -90,7 +90,7 @@ parts:
     \ and tells you if you\u2019re using an older or unsupported version.\u201D  \n\
     \n- **How it works (high\u2011level)**  \n  1. Reads your requirement specifications.\
     \  \n  2. Looks up the installed version via `pip show`.  \n  3. Fetches all stable\
-    \ releases from PyPI.  \n  4. Determines the newest version that satisfies your\
+    \ releases from PyPI.  \n  4. Determines the newest version that satisfy your\
     \ specifier (`wanted`) and the absolute newest release (`latest`).  \n\n- **Interpreting\
     \ results**  \n  - **Not installed** \u2013 `install_not_found()` \u2192 \u201C\
     Package not found in your environment; you may need to install it.\u201D  \n \

@@ -67,10 +67,10 @@ class RerankingInput(BaseModel):
     additional_instructions: str
 
 class RerankedItem(BaseModel):
-    document_id: str = Field(validation_alias=AliasChoices("id", "doc_id"))
-    new_score: int = Field(validation_alias=AliasChoices("updated_score", "score"))
+    item_index: int = Field(validation_alias=AliasChoices("document_index", "idx", "index", "item_idx", "document_idx", "doc_idx", "i"))
+    new_score: int = Field(validation_alias=AliasChoices("new_score", "updated_score", "score", "rescored_score", "rescore", "rescored"))
     explanation: str = Field(validation_alias=AliasChoices("explanation", "reason", "justification"))
 
 class RerankingOutput(BaseModel):
-    ordered_document_ids: list[str]
+    # ordered_document_ids: list[str] #fixme get rid of this
     rescoring: list[RerankedItem]

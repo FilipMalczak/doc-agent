@@ -1,0 +1,471 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <allowed>to obtain additional data or to indicate response</allowed>\n\
+      \    <text_response>any assistant text message will be ignored</text_response>\n\
+      \    <forbidden>using the same tool twice with the same arguments is forbidden</forbidden>\n\
+      \  </tool_calling>\n  <cannot_answer>if you're unable to produce the response\
+      \ or answer, even though one should be possible to come up wth, indicate it\
+      \ with a `i_dont_know` tool call; use it to indicate that you cannot achieve\
+      \ the result; do not use this to indicate lack of meaningful result</cannot_answer>\n\
+      \  <decisiveness>emit the response as soon as you can anchor it in the supporting\
+      \ data; you might take an additional step or two to make sure, but don't overresearch;\
+      \ never emit a responsewithout supporting it with retrieved knowledge</decisiveness>\n\
+      \  <research>required; any answer, response or result you give must be anchored\
+      \ in supprting data you retrieve via tools; results with no supporting evidence\
+      \ are invalid; refer to the evidencein the explanation</research>\n  <inherent_knowledge>you\
+      \ might use the knowledge you had without using tools to prepare hypothesis,\
+      \ conduct reasoning, planning and so on; never use it to support your decision\
+      \ or result</inherent_knowledge>\n  <result>if you're able to produce a meaningful\
+      \ result, emit it using `final_result` tool; indicate otherwise with the appropriate\
+      \ tools</result>\n  <thinking>\n    <allowed>internal reasoning can be performed\
+      \ before producing any kind of input</allowed>\n    <forbidden>you cannot emit\
+      \ a message that consists only of thinking section; each response must include\
+      \ at least one tool call</forbidden>\n  </thinking>\n</behaviour>\n<persona>subject\
+      \ matter specialist in aid of specification resolver</persona>\n<task>\n  <context>You\
+      \ assist a documentation-generation system by answering localized, well-scoped\
+      \ questions derived from a specification. These questions arise during the evaluation\
+      \ of templating constructs such as bindings, choices, and other decision points.\
+      \ You operate entirely within the context of the project\u2019s knowledge base.\
+      \ You access the knowledge base by performing searches via provided tool.</context>\n\
+      \  <high_level>Your role is to provide factual, schema-conformant answers that\
+      \ enable the surrounding Python code to resolve specification details into concrete\
+      \ definition values. Your focus is solely on the task at hand, you're not concerned\
+      \ with the whole ongoing resolution process.</high_level>\n  <perspective>\n\
+      \    <role>\n      <slug>enduser</slug>\n      <details>someone who uses the\
+      \ project we're working on to solve the problems or finish some tasks</details>\n\
+      \    </role>\n    <relationship_to_project>\n      <slug>user</slug>\n     \
+      \ <details>someone that can make use of features of this project, but is not\
+      \ working on this project directly</details>\n    </relationship_to_project>\n\
+      \    <summary>...</summary>\n  </perspective>\n  <low_level>You will be presented\
+      \ a task and the input for it. Understand the task description, perform knowledge-base\
+      \ reasoning or search as needed, and return an answer strictly following the\
+      \ specified output schema, constraints and criteria. Do not infer beyond available\
+      \ evidence.</low_level>\n  <detailed>\nYou may be asked to solve a family of\
+      \ problems, including but not limited to: determining values for variables introduced\
+      \ by bindings, answering open questions, evaluating yes/no conditions or more\
+      \ complex closed questions, extracting specific facts or entities from the project.\
+      \ Apply reasoning heavily. Make use of tools extensively if available. Your\
+      \ toolset will be small, but capable, as each tool will be robust, highly customizable,\
+      \ and sophisticated. Always rely on the project\u2019s knowledge base and the\
+      \ available tools to ground your answers. Whenever asked for an explanation,\
+      \ refer to available knowledge and tools, ideally by quoting.\n\nYou must use\
+      \ available tools extensively to produce the best answer possible, given available\
+      \ knowledge. Be thorough, use tools extensively and think a lot.\n  </detailed>\n\
+      </task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<current_task>\n  <high_level>Resolve value of a variable given its\
+      \ name and description</high_level>\n  <low_level>Given variable name and its\
+      \ description generate the value of the variable. Use available tools to retrieve\
+      \ all the required informations from the knowledge base.</low_level>\n  <detailed>You\
+      \ will infer the result only from the available data. You will not fabricate\
+      \ or come up with any facts. You will make sure that the result value can be\
+      \ traced to the knowledge base documents thatyou've used. You will phrase the\
+      \ result value as simple as possible. If the result is a number, you will do\
+      \ your best to write it with digits and not words. If the result is a boolean,\
+      \ you will phrase it as python `True`/`False` values. If the result is text,\
+      \ you will ensure it is concise and focused.</detailed>\n  <context>None</context>\n\
+      </current_task>\n<input>\n  <problem>Resolve value of variable `project_name`\
+      \ as defined as 'current project name'</problem>\n  <variable_name>project_name</variable_name>\n\
+      \  <variable_definition>current project name</variable_definition>\n</input>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+- finish_reason: tool_call
+  kind: response
+  model_name: deepseek/deepseek-v3.2
+  parts:
+  - args: "{\n            \"purpose\": \"Find the current project name in the knowledge\
+      \ base.\",\n            \"queries\": [\"project name\", \"current project\"\
+      , \"project\", \"name\"]\n        }\n   "
+    id: null
+    part_kind: tool-call
+    tool_call_id: 019baf35f6d114e64aebea5a2adb0653
+    tool_name: search_knowledge_base
+  provider_details:
+    finish_reason: tool_calls
+  provider_name: openrouter
+  provider_response_id: gen-1768171105-QdFb0n28pJyOsP7qHIOU
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+  timestamp: '2026-01-11T22:38:25Z'
+  usage:
+    cache_audio_read_tokens: 0
+    cache_read_tokens: 0
+    cache_write_tokens: 0
+    details:
+      image_tokens: 0
+      is_byok: 0
+      reasoning_tokens: 0
+    input_audio_tokens: 0
+    input_tokens: 2786
+    output_audio_tokens: 0
+    output_tokens: 59
+- instructions: null
+  kind: request
+  parts:
+  - content:
+    - document:
+        additional_details: null
+        content: The project name is pip-outdated.
+        details:
+          fact_index: 0
+          include_explanation: false
+        document_type: single_fact
+        id: 15797ae6-05b1-57c1-9629-8e67b8dbbaed
+        provenance:
+        - details:
+            path: setup.cfg
+          subject:
+            document_type: source_file
+            id: f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        - details:
+            perspective:
+              relationship_to_project: user
+              role: maintainer
+          subject:
+            document_type: facts
+            id: 09ae76dc-8b6d-5063-82b7-dbf6b79df5f9
+      score: 0.12516906111192966
+    - document:
+        additional_details: null
+        content: The project maintains a 'Todos' section in its documentation, indicating
+          planned features like package update capabilities and requirements file
+          modification options.
+        details:
+          fact_index: 2
+          include_explanation: false
+        document_type: single_fact
+        id: 7b99a42c-3b98-5dca-bf47-0c6117fd0681
+        provenance:
+        - details:
+            path: README.rst
+          subject:
+            document_type: source_file
+            id: c70abb08-f4fa-543d-ad2e-52421c056692
+        - details:
+            perspective:
+              relationship_to_project: developer
+              role: maintainer
+          subject:
+            document_type: facts
+            id: a3d49fd0-a5f9-59df-aaef-5048b780608f
+      score: 0.12507561808195147
+    - document:
+        additional_details: null
+        content: The project's source code repository is at https://github.com/eight04/pip-outdated
+          in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        details:
+          fact_index: 9
+          include_explanation: false
+        document_type: single_fact
+        id: 78aa35bf-35dc-5d0f-a029-42d6f52f3754
+        provenance:
+        - details:
+            path: setup.cfg
+          subject:
+            document_type: source_file
+            id: f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        - details:
+            perspective:
+              relationship_to_project: developer
+              role: maintainer
+          subject:
+            document_type: facts
+            id: 095f7b0e-ac7f-5bd8-855e-b28f90bc3c9b
+      score: 0.1250528633887153
+    - document:
+        additional_details: null
+        content: "## Project Overview (end\u2011user perspective)"
+        details:
+          chapter_coordinates: ''
+          variant: self.title+self.content+self.children[*].title
+        document_type: note_chapter
+        id: cd8e40c9-c167-5c00-928d-2b5998892f0d
+        provenance:
+        - details:
+            path: setup.cfg
+          subject:
+            document_type: source_file
+            id: f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        - details:
+            perspective:
+              relationship_to_project: developer
+              role: enduser
+          subject:
+            document_type: note
+            id: 79850281-ffd3-576f-8a78-afbe2a84d9d9
+      score: 0.12500535607645083
+    - document:
+        additional_details: null
+        content: The pip-outdated project includes a section labeled as 'Todos', which
+          outlines potential future enhancements or features, such as adding options
+          to update the package automatically, update the requirements.txt/setup.cfg
+          file, or list all packages including global ones.
+        details:
+          fact_index: 12
+          include_explanation: false
+        document_type: single_fact
+        id: 972f5624-6a60-548a-a4f0-8d5be4694ce9
+        provenance:
+        - details:
+            path: README.rst
+          subject:
+            document_type: source_file
+            id: c70abb08-f4fa-543d-ad2e-52421c056692
+        - details:
+            perspective:
+              relationship_to_project: developer
+              role: enduser
+          subject:
+            document_type: facts
+            id: 9498dcaa-cfdf-5ec5-964e-1edda38f032e
+      score: 0.12499045411790519
+    - document:
+        additional_details: null
+        content: "## Project Overview (maintainer perspective)\n### Classification\
+          \ & Audience\n- **Development status**: Beta (`Development Status :: 4 -\
+          \ Beta`)\n- **Intended environment**: Console\n- **Target audience**: Developers\n\
+          - **Programming language**: Python\u202F3.7\n- **Topic**: Software Development\
+          \ \u2192 Build Tools\n"
+        details:
+          chapter_coordinates: 0,0
+          variant: ancestors[*].title+self.title+self.content
+        document_type: note_chapter
+        id: dd3b61f1-da29-5f11-8ea4-5b7473b0486e
+        provenance:
+        - details:
+            path: setup.cfg
+          subject:
+            document_type: source_file
+            id: f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        - details:
+            perspective:
+              relationship_to_project: user
+              role: maintainer
+          subject:
+            document_type: note
+            id: 23d9532d-f084-50b1-b04c-c88bdac80b44
+      score: 0.1249673306632671
+    - document:
+        additional_details: null
+        content: '## Project Overview
+
+          ## Installation
+
+          ## Runtime Requirements
+
+          ## Usage
+
+          ## Additional Configuration
+
+          ## Keywords & Topics'
+        details:
+          chapter_coordinates: ''
+          variant: self.title+self.content+self.children[*].title
+        document_type: note_chapter
+        id: 8183ad5d-d2c2-5c25-938e-376b38c4f288
+        provenance:
+        - details:
+            path: setup.cfg
+          subject:
+            document_type: source_file
+            id: f9275b32-c38a-5f7e-b2c4-6196d2e25f73
+        - details:
+            perspective:
+              relationship_to_project: user
+              role: enduser
+          subject:
+            document_type: note
+            id: 65b0cec1-ed49-50c5-997c-4640655a1c31
+      score: 0.12489149312051752
+    metadata: null
+    part_kind: tool-return
+    timestamp: '1970-01-01T00:00:00Z'
+    tool_call_id: 019baf35f6d114e64aebea5a2adb0653
+    tool_name: search_knowledge_base
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools:
+  - description: '<summary>Indicate that you cannot provide a correct answer. Use
+      this tool only if you don''t know (and have no way to
+
+      get to know) the answer, not when there should be no answer (in which case use
+      the `empty_result` instead).
+
+      Consider this your way to admit defeat instead of hallucinating an answer; using
+      this tool will be considered
+
+      a failure to solve your task.</summary>
+
+      <returns>
+
+      <description>end of the agent session</description>
+
+      </returns>'
+    kind: function
+    metadata: null
+    name: i_dont_know
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      additionalProperties: false
+      properties:
+        comment:
+          description: explanation as to why you're unable to provide the result
+          type: string
+      required:
+      - comment
+      type: object
+    sequential: false
+    strict: null
+  - description: "<summary>Run a multi-stage retrieval pipeline and return scored\
+      \ documents relevant to a given purpose.\n\nThis pipeline is more than a simple\
+      \ vector search. It orchestrates several LLM-powered steps, each of which\n\
+      contributes to expanding, cleaning, and ranking the search space:\n\n**1. Search-area\
+      \ expansion**\n   - An agent generates query rewrites and auxiliary queries\
+      \ to broaden the retrieval space.\n\n**2. Vector index retrieval**\n   - Documents\
+      \ are retrieved in high volume from the vector store.\n   - Quality is intentionally\
+      \ unfiltered at this stage to maximize recall.\n\n**3. Deduplication / grouping**\n\
+      \   - Retrieved documents are clustered:\n       \u2022 Original source files\
+      \ form their own groups and are always promoted.\n       \u2022 Derived documents\
+      \ (e.g., chunks) are grouped by type and subject.\n   - Each group is sent to\
+      \ a specialized agent, which selects a representative and may adjust its score.\n\
+      \n**4. Reranking**\n   - Group representatives are evaluated by another agent\
+      \ that assigns new scores based on alignment\n     with the overall search purpose.\n\
+      \n**5. Softmax normalization**\n   - Documents are sorted by score and normalized\
+      \ so scores sum to 1.\n   - Relative score ratios from the reranker are preserved.\n\
+      \n**6. Cutoff-based selection**\n   - Documents are collected in descending\
+      \ score order until their cumulative normalized score\n     reaches the cutoff\
+      \ threshold.\n   - Only the collected documents are returned.</summary>\n<returns>\n\
+      <description>The final set of documents, sorted by decreasing score and annotated\
+      \ with their normalized relevance values.</description>\n</returns>"
+    kind: function
+    metadata: null
+    name: search_knowledge_base
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      additionalProperties: false
+      properties:
+        additional_deduplication_instructions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          description: "Extra guidance for the deduplication agent. Can express preferences\
+            \ such as \u201Cprefer smaller chunks\u201D or \u201Cprefer full documents\
+            \ over chunk extracts\u201D."
+        additional_rephrasing_instructions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          description: "Extra guidance for the expansion agent. Useful for applying\
+            \ constraints such as \u201Cuse only the vocabulary present in the original\
+            \ queries\u201D or other domain-specific rules."
+        additional_reranking_instructions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          description: Extra guidance for the reranking agent. Can express relevance
+            and priority rules, such as ranking complete documents above chunked ones
+            when their content overlaps.
+        cutoff:
+          anyOf:
+          - type: number
+          - type: integer
+          default: 0.8
+          description: The score accumulation threshold used during final selection.
+            Accepts either a float in the range [0.0, 1.0] or an integer in the range
+            [0, 100]. Defaults to 0.8 (Pareto 80%).
+        expansion_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: null
+          description: 'Number of auxiliary expansion queries. Defaults to the maximum
+            of: `max(3, log2(len(queries)), rewrite_count)`.'
+        purpose:
+          description: The high-level reason for performing the search. Provided to
+            all agents in the pipeline for contextual alignment.
+          type: string
+        queries:
+          description: The initial search terms or phrases.
+          items:
+            type: string
+          type: array
+        rewrite_count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: null
+          description: Number of rewrites per original query during expansion. Defaults
+            to `max(2, log2(len(queries)))`.
+      required:
+      - purpose
+      - queries
+      type: object
+    sequential: false
+    strict: null
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        explanation:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      - explanation
+      title: EvaluateVariableOutput
+      type: object
+    name: EvaluateVariableOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      properties:
+        explanation:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+      required:
+      - name
+      - value
+      - explanation
+      title: EvaluateVariableOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

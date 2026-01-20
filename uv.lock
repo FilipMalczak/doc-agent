@@ -404,6 +404,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "faiss-cpu" },
+    { name = "genai-prices" },
     { name = "logfire", extra = ["system-metrics"] },
     { name = "namesgenerator" },
     { name = "numpy" },
@@ -421,6 +422,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "faiss-cpu", specifier = ">=1.13.0" },
+    { name = "genai-prices", specifier = ">=0.0.39" },
     { name = "logfire", extras = ["system-metrics"], specifier = ">=4.14.2" },
     { name = "namesgenerator", specifier = ">=0.3" },
     { name = "numpy", specifier = ">=2.3.5" },

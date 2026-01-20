@@ -28,7 +28,7 @@ parts:
     \ \u2013 version currently installed locally (or `None` if not installed).\n \
     \     - `all_versions: List[Version]` \u2013 all released, non\u2011prerelease\
     \ versions found on PyPI for the package.\n      - `wanted: Optional[Version]`\
-    \ \u2013 the newest version that satisfies the requirement\u2019s specifier (computed\
+    \ \u2013 the newest version that satisfy the requirement\u2019s specifier (computed\
     \ automatically).\n      - `latest: Optional[Version]` \u2013 the absolute newest\
     \ version on PyPI (computed automatically).\n    - **Computed Properties**\n \
     \     - `name` \u2013 shortcut to `requirement.name`.\n      - `install_not_found()`\
@@ -55,7 +55,7 @@ parts:
     \     - Determines the installed version (if any).\n     - Fetches the available\
     \ versions from PyPI.\n     - Constructs an `OutdateResult` that tells you:\n\
     \       - Whether the package is missing locally.\n       - Whether the installed\
-    \ version satisfies the requirement.\n       - Whether a newer version exists\
+    \ version satisfy the requirement.\n       - Whether a newer version exists\
     \ (either the newest that matches the specifier \u2013 *wanted* \u2013 or the\
     \ absolute newest \u2013 *latest*).\n  3. Consumers of `check_outdated` can use\
     \ the boolean helpers (`install_not_found`, `install_not_wanted`, `pypi_not_found`,\
@@ -65,7 +65,7 @@ parts:
     \ `install_not_wanted()` \u2192 advise the user to upgrade/downgrade to meet the\
     \ declared specifier.\n  - **Detecting newer releases:** `outdated()` \u2192 suggest\
     \ updating to the newer version, optionally indicating whether the newer version\
-    \ still satisfies the original specifier (`wanted`) or is a completely newer release\
+    \ still satisfy the original specifier (`wanted`) or is a completely newer release\
     \ (`latest`).\n\n- **Design Choices Worth Noting**\n  - Only stable releases are\
     \ considered (pre\u2011releases are ignored).\n  - All version parsing relies\
     \ on the robust `packaging` library, ensuring PEP\u202F440 compliance.\n  - Asynchronous\

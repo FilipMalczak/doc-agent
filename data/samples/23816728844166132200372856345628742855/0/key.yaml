@@ -1,0 +1,337 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message will be ignored</text_response>\n  </tool_calling>\n\
+      \  <result>you must emit a single `final_result` tool call; no other response\
+      \ (outside of thinking) is allowed</result>\n  <thinking>\n    <allowed>internal\
+      \ reasoning can be performed before producing any kind of input</allowed>\n\
+      \    <forbidden>you cannot emit a message that consists only of thinking section;\
+      \ each response must include at least one tool call</forbidden>\n  </thinking>\n\
+      </behaviour>\n<persona>RAG helper specialised in reranking of documents</persona>\n\
+      <task>\n  <context>\n\nWe are retrieving indexed documents for RAG.\nWe retrieved\
+      \ candidates with redundancy, searching for different queries and getting results\
+      \ that require normalization.\nWe need to rescore them with more semantic approach\
+      \ than simple index search.\n\n  </context>\n  <high_level>Given a list of scored\
+      \ documents and a purpose for current search, provide a list of their updated\
+      \ scores.</high_level>\n  <perspective>\n    <role>\n      <slug>enduser</slug>\n\
+      \      <details>someone who uses the project we're working on to solve the problems\
+      \ or finish some tasks</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>\n\nYou will be given full content of the input documents, as\
+      \ well as their metadata and current score.\nInput score will always be in [0.0,\
+      \ 1.0] range.\nYou will use that knowledge to produce integer scores in 1-10\
+      \ range.\nYou will treat the content as the most important. All the metadata,\
+      \ including previous score, should have much lower priority, but otherwise uniform\
+      \ amongst available details.\nYou will provide updated score for each item.\
+      \ \nYou will include each and every input document ID in the ordering. Every\
+      \ ID will appear in the ordering exactly once. No ID will get duplicated or\
+      \ missed. This part of your response must be consistent with the order that\
+      \ could be derived from updated scores. \nYou will emit an appropriate rescoring\
+      \ item for each input item. There will be exactly one rescoring item for each\
+      \ input item. No input item will get duplicated or missed. If we were to sort\
+      \ the list of rescorings by the updated score descending, the order should match\
+      \ the ordering emitted in the other part of your response. \nYou will correlate\
+      \ the items and their ordering by their document ID. \nYou will explain your\
+      \ choices, one at the time, referring to the input data and your inherent knowledge.\n\
+      \n  </low_level>\n  <detailed>\n\nWhen choosing the scores for the documents\
+      \ you will use 1-10 scale (without 0, all integers). \nThis output scale is\
+      \ different from the input one on purpose. DO NOT PRODUCE [0.0, 1.0] FLOAT SCORES.\n\
+      ONLY produce integer scores in the 1-10 range.\nYou can use the following to\
+      \ get the gist of what does each value mean.\n\nFor example, if the purpose\
+      \ of the search is solving quantum physics problem, then the scores might be:\n\
+      - a daily newspaper -> 1\n- high-school physics book -> 3\n- university-level\
+      \ quantum physics book -> 7\n- scientific paper explicitly tackling the problem\
+      \ -> 10\n\n0 is NOT a valid score, which is why the daily newspaper is given\
+      \ score 1. DO NOT ever produce score of 0 or higher than 10. ONLY produce integer\
+      \ scores.\n\nIf not sure whether to choose a number or one bigger, explain the\
+      \ bigger choice and reevaluate. \nIf you choose the lower value at that point,\
+      \ include the original explanation of the bigger choice, explanation of the\
+      \ switch and explanation of the chosen value as if it were chosen originally.\
+      \ \n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Find information about interfaces exposed by the project, such\
+      \ as CLI, HTTP API, RPC API, or other exposed interfaces</purpose>\n<documents>\n\
+      \  <list>\n    <item index=\"0\">\n      <score>0.7239423394203186</score>\n\
+      \      <document>\n        <id>2d5554e4-0a92-5392-8d14-dd5de404a5d4</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates></chapter_coordinates>\n          <variant>self.title+self.content+self.children[*].title</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>d1ef4334-7006-5204-a81e-17bb357c0661</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/verbose.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>21f45340-c16c-56d8-b014-8878e716d0ee</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Overview\n\
+      ## Public API\n## Typical Usage (user\u2011facing documentation angle)\n## Maintainer\
+      \ Considerations\n## Implementation Details\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"1\">\n      <score>0.7</score>\n\
+      \      <document>\n        <id>d928d83b-6e17-5d53-b9b6-403e530158e0</id>\n \
+      \       <document_type>note</document_type>\n        <details>\n          <perspective>\n\
+      \            <role>enduser</role>\n            <relationship_to_project>developer</relationship_to_project>\n\
+      \          </perspective>\n        </details>\n        <provenance>\n      \
+      \    <list>\n            <item index=\"0\">\n              <subject>\n     \
+      \           <id>7cb0c458-ef11-5ccd-ad3d-3183a23e8419</id>\n                <document_type>source_file</document_type>\n\
+      \              </subject>\n              <details>\n                <path>pip_outdated/session.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\n**Notes for End Users (perspective: enduser)**  \n\n- The\
+      \ project provides a helper function **`get_session()`** that creates an `aiohttp.ClientSession`\
+      \ configured for all network interactions.  \n- The session uses a custom **User-Agent**\
+      \ header set to `\"pip-outdated\"`; this identifies requests made by the tool\
+      \ when contacting package indexes.  \n- A **TCP connector** with a **concurrency\
+      \ limit of `5`** is applied, meaning the session will not open more than five\
+      \ simultaneous connections. This helps to avoid overwhelming remote servers.\
+      \  \n- The function returns an **`aiohttp.ClientSession`** object (type\u2011\
+      annotated).  \n- **Usage tip for end users**:  \n  - Call `session = get_session()`\
+      \ before performing any HTTP requests through the library.  \n  - Remember to\
+      \ **close** the session when finished (e.g., `await session.close()` or use\
+      \ it as an async context manager) to release network resources.  \n\nThese points\
+      \ summarize the observable behavior of `pip_outdated/session.py` that may be\
+      \ relevant for users interacting with the tool.\n        </content>\n      \
+      \  <additional_details>None</additional_details>\n      </document>\n    </item>\n\
+      \    <item index=\"2\">\n      <score>0.7</score>\n      <document>\n      \
+      \  <id>66681b15-530a-5546-964b-e5edb2e0a0b8</id>\n        <document_type>note</document_type>\n\
+      \        <details>\n          <perspective>\n            <role>enduser</role>\n\
+      \            <relationship_to_project>user</relationship_to_project>\n     \
+      \     </perspective>\n        </details>\n        <provenance>\n          <list>\n\
+      \            <item index=\"0\">\n              <subject>\n                <id>b9979f2e-2b82-5c3c-9151-9f89ee7302cf</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>tests/test_pytz.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\n- **Purpose of the test**: Verifies that the `get_pypi_versions`\
+      \ function can successfully retrieve version information for the **pytz** package\
+      \ without raising errors.  \n- **Async testing**: Uses `pytest.mark.asyncio`\
+      \ to run the test asynchronously, demonstrating the library\u2019s support for\
+      \ async operations.  \n- **Session handling**: Shows how to obtain a session\
+      \ via `get_session()` and use it as an async context manager while calling `get_pypi_versions`.\
+      \  \n- **User-facing implication**: Confirms that end\u2011users can rely on\
+      \ the library to fetch version data for any package (e.g., `pytz`) in an asynchronous\
+      \ workflow.\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"3\">\n      <score>0.7</score>\n\
+      \      <document>\n        <id>12188b98-2c4c-57d6-9a8b-281e47775bfd</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>3</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>79501155-b71e-5dd6-a529-82fd14d4a11b</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/check_outdated.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>88980642-38c4-59ba-85a9-e7e4848ad7d4</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>In document with\
+      \ ID 79501155-b71e-5dd6-a529-82fd14d4a11b, the 'get_pypi_versions()' async function\
+      \ retrieves and processes version data from PyPI's JSON API endpoint for a given\
+      \ package.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"4\">\n      <score>0.68</score>\n\
+      \      <document>\n        <id>1317a6b9-d053-5ff5-bc22-10b2fc129d38</id>\n \
+      \       <document_type>note</document_type>\n        <details>\n          <perspective>\n\
+      \            <role>maintainer</role>\n            <relationship_to_project>developer</relationship_to_project>\n\
+      \          </perspective>\n        </details>\n        <provenance>\n      \
+      \    <list>\n            <item index=\"0\">\n              <subject>\n     \
+      \           <id>7cb0c458-ef11-5ccd-ad3d-3183a23e8419</id>\n                <document_type>source_file</document_type>\n\
+      \              </subject>\n              <details>\n                <path>pip_outdated/session.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\n## \U0001F4C4 File Overview  \n- **Path:** `pip_outdated/session.py`\
+      \  \n- **Language:** Python  \n- **Primary Role:** Provides a helper to create\
+      \ a reusable `aiohttp.ClientSession` for the **pip\u2011outdated** tool.\n\n\
+      ## \U0001F527 Core Function  \n### `get_session() -> aiohttp.ClientSession`\
+      \  \n- **Purpose:** Returns a configured `aiohttp.ClientSession` that the rest\
+      \ of the project can use for HTTP requests.  \n- **Key Settings:**  \n  - **Headers:**\
+      \ `{ \"User-Agent\": \"pip-outdated\" }` \u2013 ensures all outbound requests\
+      \ identify the tool consistently.  \n  - **Connector:** `aiohttp.TCPConnector(limit=5)`\
+      \ \u2013 caps the number of simultaneous connections to **5**, preventing excessive\
+      \ load on remote servers and reducing the risk of hitting rate limits.  \n\n\
+      ## \U0001F469\u200D\U0001F4BC Maintainer\u2011Focused Points  \n\n- **Consistency\
+      \ & Branding**  \n  - The fixed `User-Agent` string makes it easy for downstream\
+      \ services (e.g., PyPI) to recognize traffic from this tool. If the branding\
+      \ changes, update it here.  \n\n- **Connection Limits**  \n  - The `limit=5`\
+      \ setting is a deliberate throttling choice.  \n  - **When to adjust:**  \n\
+      \    - If users frequently run the tool behind fast networks and experience\
+      \ slow scans, consider raising the limit after benchmarking.  \n    - If remote\
+      \ package indexes start rejecting the tool for too many concurrent connections,\
+      \ lower the limit.  \n\n- **Resource Management**  \n  - The function **creates**\
+      \ a new `ClientSession` each call.  \n  - **Best practice for callers:**  \n\
+      \    - Reuse the returned session for the whole run of the tool.  \n    - Explicitly\
+      \ **close** the session (`await session.close()`) when finished to free sockets\
+      \ and avoid warnings.  \n\n- **Compatibility**  \n  - Relies on `aiohttp` (an\
+      \ asynchronous HTTP library).  \n  - Ensure the project's `requirements.txt`\
+      \ or `pyproject.toml` pins a version compatible with the project's Python version\
+      \ (\u22653.8 recommended).  \n\n- **Testing Implications**  \n  - In unit tests,\
+      \ mock `aiohttp.ClientSession` or patch `get_session` to avoid real network\
+      \ calls.  \n  - Verify that the `User-Agent` header is present in mock requests.\
+      \  \n\n## \U0001F4DA Documentation Tips for End\u2011Users  \n\n- **Explain\
+      \ the Session Reuse:**  \n  - Users don\u2019t need to interact with `get_session`\
+      \ directly, but documentation should mention that the tool internally manages\
+      \ a single HTTP session with a limited number of concurrent connections.  \n\
+      \n- **Highlight Network Settings:**  \n  - If users encounter \u201Cconnection\
+      \ timeout\u201D or \u201Crate\u2011limit\u201D errors, point them to the session's\
+      \ connection limit as a configurable knob (future versions could expose it via\
+      \ CLI).  \n\n- **Safety Note:**  \n  - Remind users that abrupt termination\
+      \ may leave open sockets; recommend using the tool in a well\u2011behaved shell\
+      \ or ensuring graceful shutdown (e.g., handling `KeyboardInterrupt`).  \n\n\
+      ---  \n\n*Prepared for the maintainer role to aid in end\u2011user documentation\
+      \ and future maintenance planning.*\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"5\">\n      <score>0.68</score>\n\
+      \      <document>\n        <id>9a0e9d2e-d9f9-5653-9990-fb5a9c741b28</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates>1,1</chapter_coordinates>\n          <variant>self.title+self.content+self.children[*].title</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>79501155-b71e-5dd6-a529-82fd14d4a11b</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/check_outdated.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>52a8dc6a-b91a-502f-ad9d-64004da9040b</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n### Async helper\
+      \ functions  \n\n| Function | Signature | What it does |\n|---|---|---|\n| `get_local_version(name:\
+      \ str) -> Optional[Version]` | Async | Runs `pip show <name>` and parses the\
+      \ `Version:` line. Returns `None` on error or if the package isn\u2019t installed.\
+      \ |\n| `get_pypi_versions(name: str, session) -> List[Version]` | Async | Queries\
+      \ `https://pypi.org/pypi/<name>/json`, extracts release keys, filters out invalid\
+      \ or prerelease versions, sorts them, and returns the list. |\n| `check_outdated(require,\
+      \ session) -> OutdateResult` | Async | Orchestrates the two helpers, optionally\
+      \ prints a verbose message, and returns a populated `OutdateResult`. |\n\n \
+      \       </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"6\">\n      <score>0.6584369838237762</score>\n\
+      \      <document>\n        <id>8183ad5d-d2c2-5c25-938e-376b38c4f288</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates></chapter_coordinates>\n          <variant>self.title+self.content+self.children[*].title</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>65b0cec1-ed49-50c5-997c-4640655a1c31</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Project Overview\n\
+      ## Installation\n## Runtime Requirements\n## Usage\n## Additional Configuration\n\
+      ## Keywords & Topics\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"7\">\n      <score>0.65</score>\n\
+      \      <document>\n        <id>4a559085-a6c6-5d86-baec-84a135d9661d</id>\n \
+      \       <document_type>facts</document_type>\n        <details>\n          <perspective>\n\
+      \            <role>maintainer</role>\n            <relationship_to_project>developer</relationship_to_project>\n\
+      \          </perspective>\n        </details>\n        <provenance>\n      \
+      \    <list>\n            <item index=\"0\">\n              <subject>\n     \
+      \           <id>7cb0c458-ef11-5ccd-ad3d-3183a23e8419</id>\n                <document_type>source_file</document_type>\n\
+      \              </subject>\n              <details>\n                <path>pip_outdated/session.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\nfacts:\n- explanation: The function 'get_session' is defined\
+      \ in the document with the specified\n    ID. It returns an instance of aiohttp.ClientSession,\
+      \ which is evident from the\n    return statement and the import statement.\n\
+      \  fact: In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there\
+      \ is a function\n    named 'get_session' that returns an instance of 'aiohttp.ClientSession'.\n\
+      - explanation: The 'get_session' function sets the HTTP headers for the request,\
+      \ specifically\n    the 'User-Agent' header to 'pip-outdated'. This is directly\
+      \ visible in the 'headers'\n    dictionary assignment within the function body.\n\
+      \  fact: In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n\
+      \    function assigns a 'User-Agent' header with the value 'pip-outdated' to\
+      \ HTTP requests.\n- explanation: The 'get_session' function uses an aiohttp.TCPConnector\
+      \ with a 'limit'\n    parameter set to 5. This is explicitly defined in the\
+      \ 'connector' variable assignment\n    within the function body.\n  fact: In\
+      \ the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n\
+      \    function creates an 'aiohttp.TCPConnector' instance with a concurrency\
+      \ limit of\n    5 connections.\n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n  </list>\n</documents>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        RerankedItem:
+          additionalProperties: false
+          properties:
+            document_id:
+              type: string
+            explanation:
+              type: string
+            new_score:
+              type: integer
+          required:
+          - document_id
+          - new_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - response
+      type: object
+    name: list
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: response
+    parameters_json_schema:
+      $defs:
+        RerankedItem:
+          additionalProperties: false
+          properties:
+            document_id:
+              type: string
+            explanation:
+              type: string
+            new_score:
+              type: integer
+          required:
+          - document_id
+          - new_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - response
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

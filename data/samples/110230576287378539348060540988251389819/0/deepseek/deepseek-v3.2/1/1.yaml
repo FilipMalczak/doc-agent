@@ -25,7 +25,7 @@ parts:
     "fact": "The `check_outdated()` function prints progress when `verbose()` returns
     True"}, {"explanation": "Prerelease versions are excluded from PyPI version checks",
     "fact": "PyPI version retrieval filters out prerelease versions using `version.is_prerelease`
-    check"}, {"explanation": "The wanted version is the latest version that satisfies
+    check"}, {"explanation": "The wanted version is the latest version that satisfy
     package specifiers", "fact": "The `OutdateResult.__post_init__()` calculates wanted
     version as the newest version from PyPI that matches requirement specifiers"}]}'
   id: null

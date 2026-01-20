@@ -1,0 +1,22 @@
+finish_reason: stop
+kind: response
+model_name: deepseek/deepseek-v3.2
+parts: []
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1768854939-M7jGeKCGExkmZB78QpGn
+run_id: 5b007aca-6efa-4537-80f8-6407eeec2486
+timestamp: '2026-01-19T20:35:39Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 3936
+  output_audio_tokens: 0
+  output_tokens: 902

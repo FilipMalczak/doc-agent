@@ -1,4 +1,3 @@
-from docassist.usage import USAGE_COLLECTOR
 
 if __name__ == "__main__":
     from dotenv import load_dotenv
@@ -19,6 +18,8 @@ if __name__ == "__main__":
     #
     #
     # logfire.configure(service_name="docassist", scrubbing=ScrubbingOptions(callback=scrubbing_callback))
+    from docassist.otel import USAGE_COLLECTOR
+
     logfire.configure(
         service_name="docassist",
         scrubbing=False, # do not scrub, or you'll lose anything session-related or anything that mentions auth - content of notes included

@@ -1,0 +1,255 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message will be ignored</text_response>\n  </tool_calling>\n\
+      \  <result>you must emit a single `final_result` tool call; no other response\
+      \ (outside of thinking) is allowed</result>\n  <thinking>\n    <allowed>internal\
+      \ reasoning can be performed before producing any kind of input</allowed>\n\
+      \    <forbidden>you cannot emit a message that consists only of thinking section;\
+      \ each response must include at least one tool call</forbidden>\n  </thinking>\n\
+      </behaviour>\n<persona>RAG helper specialised in reranking of documents</persona>\n\
+      <task>\n  <context>\n\nWe are retrieving indexed documents for RAG.\nWe retrieved\
+      \ candidates with redundancy, searching for different queries and getting results\
+      \ that require normalization.\nWe need to rescore them with more semantic approach\
+      \ than simple index search.\n\n  </context>\n  <high_level>Given a list of scored\
+      \ documents and a purpose for current search, provide a list of their updated\
+      \ scores.</high_level>\n  <perspective>\n    <role>\n      <slug>enduser</slug>\n\
+      \      <details>someone who uses the project we're working on to solve the problems\
+      \ or finish some tasks</details>\n    </role>\n    <relationship_to_project>\n\
+      \      <slug>user</slug>\n      <details>someone that can make use of features\
+      \ of this project, but is not working on this project directly</details>\n \
+      \   </relationship_to_project>\n    <summary>...</summary>\n  </perspective>\n\
+      \  <low_level>\n\nYou will be given full content of the input documents, as\
+      \ well as their metadata and current score.\nInput score will always be in [0.0,\
+      \ 1.0] range.\nYou will use that knowledge to produce integer scores in 1-10\
+      \ range.\nYou will treat the content as the most important. All the metadata,\
+      \ including previous score, should have much lower priority, but otherwise uniform\
+      \ amongst available details.\nYou will emit explicit ordering of the items,\
+      \ from the best to the worst. You will also provide updated score for each item.\
+      \ \nYou will include each and every input document ID in the ordering. Every\
+      \ ID will appear in the ordering exactly once. No ID will get duplicated or\
+      \ missed. This part of your response must be consistent with the order that\
+      \ could be derived from updated scores. \nYou will emit an appropriate rescoring\
+      \ item for each input item. There will be exactly one rescoring item for each\
+      \ input item. No input item will get duplicated or missed. If we were to sort\
+      \ the list of rescorings by the updated score descending, the order should match\
+      \ the ordering emitted in the other part of your response. \nYou will correlate\
+      \ the items and their ordering by their document ID. \nYou will explain your\
+      \ choices, one at the time, referring to the input data and your inherent knowledge.\n\
+      \n  </low_level>\n  <detailed>\n\nWhen producing the explicit ordering of items\
+      \ by their IDs, you will order them from the highest score to the lowest score.\
+      \ That should effectively be the same as ordering them from most viable document\
+      \ given search purpose to the least viable one. \n                \nWhen choosing\
+      \ the scores for the documents you will use 1-10 scale (without 0, all integers).\
+      \ \nThis output scale is different from the input one on purpose. DO NOT PRODUCE\
+      \ [0.0, 1.0] FLOAT SCORES.\nONLY produce integer scores in the 1-10 range.\n\
+      You can use the following to get the gist of what does each value mean.\n\n\
+      For example, if the purpose of the search is solving quantum physics problem,\
+      \ then the scores might be:\n- a daily newspaper -> 1\n- high-school physics\
+      \ book -> 3\n- university-level quantum physics book -> 7\n- scientific paper\
+      \ explicitly tackling the problem -> 10\n\n0 is NOT a valid score, which is\
+      \ why the daily newspaper is given score 1. DO NOT ever produce score of 0 or\
+      \ higher than 10. ONLY produce integer scores.\n\nIf not sure whether to choose\
+      \ a number or one bigger, explain the bigger choice and reevaluate. \nIf you\
+      \ choose the lower value at that point, include the original explanation of\
+      \ the bigger choice, explanation of the switch and explanation of the chosen\
+      \ value as if it were chosen originally. \n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Determine what interfaces are exposed by the project</purpose>\n\
+      <documents>\n  <list>\n    <item index=\"0\">\n      <score>0.75</score>\n \
+      \     <document>\n        <id>1ddff530-cd5c-5f81-a9bb-886f05c583aa</id>\n  \
+      \      <document_type>note_chapter</document_type>\n        <details>\n    \
+      \      <chapter_coordinates>1</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>79501155-b71e-5dd6-a529-82fd14d4a11b</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/check_outdated.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>52a8dc6a-b91a-502f-ad9d-64004da9040b</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## \U0001F3D7\uFE0F\
+      \ Main components  \n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"1\">\n      <score>0.7273928880691528</score>\n\
+      \      <document>\n        <id>4a559085-a6c6-5d86-baec-84a135d9661d</id>\n \
+      \       <document_type>facts</document_type>\n        <details>\n          <perspective>\n\
+      \            <role>maintainer</role>\n            <relationship_to_project>developer</relationship_to_project>\n\
+      \          </perspective>\n        </details>\n        <provenance>\n      \
+      \    <list>\n            <item index=\"0\">\n              <subject>\n     \
+      \           <id>7cb0c458-ef11-5ccd-ad3d-3183a23e8419</id>\n                <document_type>source_file</document_type>\n\
+      \              </subject>\n              <details>\n                <path>pip_outdated/session.py</path>\n\
+      \              </details>\n            </item>\n          </list>\n        </provenance>\n\
+      \        <content>\nfacts:\n- explanation: The function 'get_session' is defined\
+      \ in the document with the specified\n    ID. It returns an instance of aiohttp.ClientSession,\
+      \ which is evident from the\n    return statement and the import statement.\n\
+      \  fact: In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, there\
+      \ is a function\n    named 'get_session' that returns an instance of 'aiohttp.ClientSession'.\n\
+      - explanation: The 'get_session' function sets the HTTP headers for the request,\
+      \ specifically\n    the 'User-Agent' header to 'pip-outdated'. This is directly\
+      \ visible in the 'headers'\n    dictionary assignment within the function body.\n\
+      \  fact: In the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n\
+      \    function assigns a 'User-Agent' header with the value 'pip-outdated' to\
+      \ HTTP requests.\n- explanation: The 'get_session' function uses an aiohttp.TCPConnector\
+      \ with a 'limit'\n    parameter set to 5. This is explicitly defined in the\
+      \ 'connector' variable assignment\n    within the function body.\n  fact: In\
+      \ the document with ID 7cb0c458-ef11-5ccd-ad3d-3183a23e8419, the 'get_session'\n\
+      \    function creates an 'aiohttp.TCPConnector' instance with a concurrency\
+      \ limit of\n    5 connections.\n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"2\">\n      <score>0.7232</score>\n\
+      \      <document>\n        <id>e91f9c93-8e69-52ff-bbe1-9ab105b175a5</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>6</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>09ae76dc-8b6d-5063-82b7-dbf6b79df5f9</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The project is intended\
+      \ for use in a console environment.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"3\">\n      <score>0.7</score>\n\
+      \      <document>\n        <id>6090e11b-0f50-5357-81ea-8dccda09ebcc</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates>0,4</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>23d9532d-f084-50b1-b04c-c88bdac80b44</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Project Overview\
+      \ (maintainer perspective)\n### Maintainer\u2011relevant take\u2011aways\n-\
+      \ Ensure the listed dependencies are compatible with the target Python version\
+      \ (\u2265\u202F3.7).\n- The console script entry point provides the primary\
+      \ user\u2011facing CLI; verify that `pip_outdated.main` is correctly exposed.\n\
+      - The `vpip` fallback may be used by auxiliary tooling; confirm its purpose\
+      \ and impact on deployment scripts.\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"4\">\n      <score>0.7</score>\n\
+      \      <document>\n        <id>641fd26c-2562-57b3-9ce8-1dbab07789a0</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>7</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>497a1390-6825-5f6b-b3d0-b3457a706839</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>In document with\
+      \ ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73, the classifiers for pip-outdated\
+      \ include 'Intended Audience :: Developers'</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n  </list>\n</documents>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        RerankedItem:
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          title: RerankedItem
+          type: object
+      properties:
+        ordered_document_ids:
+          items:
+            type: string
+          type: array
+        rescoring:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - ordered_document_ids
+      - rescoring
+      title: RerankingOutput
+      type: object
+    name: RerankingOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      $defs:
+        RerankedItem:
+          properties:
+            explanation:
+              type: string
+            id:
+              type: string
+            updated_score:
+              type: integer
+          required:
+          - id
+          - updated_score
+          - explanation
+          title: RerankedItem
+          type: object
+      properties:
+        ordered_document_ids:
+          items:
+            type: string
+          type: array
+        rescoring:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - ordered_document_ids
+      - rescoring
+      title: RerankingOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

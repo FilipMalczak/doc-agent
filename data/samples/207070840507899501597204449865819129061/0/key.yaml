@@ -12,7 +12,7 @@
   \  - `requirement`: the original `Requirement` object.  \n      - `version`: the\
   \ locally\u2011installed version (`None` if the package is not installed).  \n \
   \     - `all_versions`: sorted list of all non\u2011prerelease versions found on\
-  \ PyPI.  \n      - `wanted`: the newest version that satisfies the requirement\u2019\
+  \ PyPI.  \n      - `wanted`: the newest version that satisfy the requirement\u2019\
   s specifier (or `None` if none match).  \n      - `latest`: the newest version on\
   \ PyPI (or `None` if no versions were fetched).  \n    - **Convenient properties\
   \ / methods**  \n      - `name`: shortcut to `requirement.name`.  \n      - `install_not_found()`:\

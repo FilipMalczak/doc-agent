@@ -1,0 +1,28 @@
+finish_reason: tool_call
+kind: response
+model_name: deepseek/deepseek-v3.2
+parts:
+- args: '{"name": "project_name", "value": "pip-outdated", "explanation": "The knowledge
+    base indicates that the project name is ''pip-outdated'', as found in setup.cfg."}'
+  id: null
+  part_kind: tool-call
+  tool_call_id: 019bd1c2a6d53f0c16780e7c8d949ce4
+  tool_name: final_result
+provider_details:
+  finish_reason: tool_calls
+provider_name: openrouter
+provider_response_id: gen-1768750751-zi4Y7PQYFn6m5kHRIAQM
+run_id: 7c9caf5a-a7d5-4574-a505-b8efc070ebad
+timestamp: '2026-01-18T15:39:11Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    image_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 3077
+  output_audio_tokens: 0
+  output_tokens: 54
