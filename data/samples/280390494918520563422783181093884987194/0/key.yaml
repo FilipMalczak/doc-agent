@@ -1,0 +1,141 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message is forbidden (even empty one); only thinking and tool\
+      \ calls are allowed; thinking-only responses are forbidden</text_response>\n\
+      \  </tool_calling>\n  <result>you must emit a single `final_result` tool call;\
+      \ no other response (outside of thinking, but never only thinking) is allowed</result>\n\
+      \  <thinking>\n    <allowed>internal reasoning can be performed before producing\
+      \ any kind of input</allowed>\n    <forbidden>you cannot emit a message that\
+      \ consists only of thinking section; each response must include at least one\
+      \ tool call</forbidden>\n  </thinking>\n</behaviour>\n<persona>RAG helper specialised\
+      \ in deduplication of documents</persona>\n<task>\n  <context>\n\nWe are retrieving\
+      \ indexed documents for RAG. \nAt indexing stage we introduced redundancy and\
+      \ indexed different variants and subsections of each documents.\nWhen retrieving,\
+      \ we found multiple documents stemming from the same original source.\nWe need\
+      \ to pick one representative of each document.\n\n  </context>\n  <high_level>Given\
+      \ a list of document variants and the task they will be used to solve, pick\
+      \ the most relevant and propose a new score.</high_level>\n  <perspective>\n\
+      \    <role>\n      <slug>enduser</slug>\n      <details>someone who uses the\
+      \ project we're working on to solve the problems or finish some tasks</details>\n\
+      \    </role>\n    <relationship_to_project>\n      <slug>user</slug>\n     \
+      \ <details>someone that can make use of features of this project, but is not\
+      \ working on this project directly</details>\n    </relationship_to_project>\n\
+      \    <summary>...</summary>\n  </perspective>\n  <low_level>\n\nDeduplicate\
+      \ the variants of the retrieved document. \nReduce the list of candidates to\
+      \ a single, best one. \nMeasure 'best' against the given purpose.\nModify (usually\
+      \ raise; if not - include the reason in the explanation) the score to reflect\
+      \ the document being found multiple times. \nBoth the input and updated score\
+      \ should be in [0.0, 1.0] range, where 1.0 means the best similarity and 0.0\
+      \ means no similarity.\nPick the representative by responding with its document\
+      \ ID. \nYou MUST pick EXACTLY one representative and it MUST have the document\
+      \ ID that was used as an input document ID.\nExplain your choices, referring\
+      \ to the input data and your inherent knowledge.\n\n  </low_level>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>determine if project exposes interfaces such as CLI, HTTP API,\
+      \ RPC API</purpose>\n<documents>\n  <list>\n    <item index=\"0\">\n      <index>0</index>\n\
+      \      <score>0.6203048825263977</score>\n      <document>\n        <id>8183ad5d-d2c2-5c25-938e-376b38c4f288</id>\n\
+      \        <document_type>note_chapter</document_type>\n        <details>\n  \
+      \        <chapter_coordinates></chapter_coordinates>\n          <variant>self.title+self.content+self.children[*].title</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>65b0cec1-ed49-50c5-997c-4640655a1c31</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Project Overview\n\
+      ## Installation\n## Runtime Requirements\n## Usage\n## Additional Configuration\n\
+      ## Keywords & Topics\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"1\">\n      <index>1</index>\n\
+      \      <score>0.6075356900691986</score>\n      <document>\n        <id>2cf39e36-54ab-5692-9559-b8d0d3141113</id>\n\
+      \        <document_type>note_chapter</document_type>\n        <details>\n  \
+      \        <chapter_coordinates>4</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>65b0cec1-ed49-50c5-997c-4640655a1c31</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Additional\
+      \ Configuration\n- The `[vpip]` section defines a fallback command:\n\n```ini\n\
+      [vpip]\ncommand_fallback = python cute.py\n```\n\n*This may be used by the tool\
+      \ (or related tooling) to invoke a custom script when the primary command cannot\
+      \ be executed.*\n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n  </list>\n</documents>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      properties:
+        document_id:
+          type: string
+        explanation:
+          type: string
+        new_score:
+          type: number
+      required:
+      - document_id
+      - new_score
+      - explanation
+      title: DeduplicationOutput
+      type: object
+    name: DeduplicationOutput
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: null
+    parameters_json_schema:
+      properties:
+        document_id:
+          type: string
+        explanation:
+          type: string
+        new_score:
+          type: number
+      required:
+      - document_id
+      - new_score
+      - explanation
+      title: DeduplicationOutput
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

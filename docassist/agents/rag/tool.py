@@ -13,11 +13,14 @@ from docassist.agents.rag.data import ScoredDocument, DeduplicationInput, Indexe
 from docassist.agents.rag.deduplication import deduplicator
 from docassist.agents.rag.query_rephrasing import query_rephraser, RephrasingInput
 from docassist.agents.rag.reranking import reranker
+from docassist.config import CONFIG
+from docassist.index.faiss import FAISSIndex
 from docassist.index.protocols import Document, DocumentIndex
 from docassist.preindexing.perspectives import FINAL_DOCUMENTATION_PERSPECTIVE, FINAL_DOCUMENTATION_PERSPECTIVE_POINTER
 from docassist.retries import phase, step
 from docassist.sampling.protocols import SamplingController
 from docassist.structured_agent import call_agent
+from docassist.tools import Tools, tool_method
 
 
 @dataclass
@@ -53,8 +56,7 @@ def sliding_overlapping_window[T](data: list[T], step: int, max_len: int) -> Ite
 def _ordered(sd: list[ScoredDocument]) -> list[ScoredDocument]:
     return sorted(sd, key=lambda x: x.score, reverse=True)
 
-#todo add spans over this
-class SearchKBTool:
+class KnowledgeBaseTools(Tools):
     def __init__(self, index: DocumentIndex, sampling: SamplingController, sideloaded_documents: list[Document] = []):
         self.index: DocumentIndex = index
         self.sideload = sideloaded_documents
@@ -70,15 +72,8 @@ class SearchKBTool:
         Map the model names to reranking capacities here. Read the docstring for _rerank_stage(...) method.
         """
 
-    def tool_name(self) -> str:
-        return "search_knowledge_base"
-
-
-    @property
-    def __name__(self) -> str:
-        return self.tool_name()
-
-    async def invoke(self, purpose: str, queries: list[str], *,
+    @tool_method
+    async def search_knowledge_base(self, purpose: str, queries: list[str], *,
                        rewrite_count: int | None = None, expansion_count: int | None = None,
                        additional_rephrasing_instructions: str | None = None,
                        additional_deduplication_instructions: str | None = None,
@@ -491,4 +486,3 @@ class SearchKBTool:
             if summed >= cutoff:
                 break
         return out
-

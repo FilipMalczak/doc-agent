@@ -98,21 +98,22 @@ class Config(NamedTuple):
 
     def model(self, profile: ModelProfile) -> Model:
         try:
-            return self.sampler.over_model(
-                OpenAIChatModel(
-                    profile.name,
-                    provider = self.model_provider,
-                    settings=OpenAIChatModelSettings(
-                        #fixme this is almost correct - we should base this on agent capability requirements, not advertised model capability
-                        # openai_reasoning_effort=_level_to_reasoning_effort(profile.capabilities.reasoning),
-                        extra_body={
-                            "usage": {
-                                "include": True
-                            }
+            raw_model = OpenAIChatModel(
+                profile.name,
+                provider = self.model_provider,
+                settings=OpenAIChatModelSettings(
+                    #fixme this is almost correct - we should base this on agent capability requirements, not advertised model capability
+                    # openai_reasoning_effort=_level_to_reasoning_effort(profile.capabilities.reasoning),
+                    extra_body={
+                        "usage": {
+                            "include": True
                         }
-                    )
+                    }
                 )
             )
+            raw_model.client.timeout = 60.0 # timeout of 60s
+            raw_model.client.max_retries = 3 # but retry generously to ammortize timeouts
+            return self.sampler.over_model(raw_model)
         except:
             raise
 

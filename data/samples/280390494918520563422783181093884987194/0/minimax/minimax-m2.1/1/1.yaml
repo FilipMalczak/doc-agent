@@ -1,0 +1,41 @@
+finish_reason: stop
+kind: response
+model_name: minimax/minimax-m2.1
+parts:
+- content: 'The user is asking me to deduplicate retrieved documents for RAG. I need
+    to analyze the input and pick the most relevant document that addresses the purpose:
+    "determine if project exposes interfaces such as CLI, HTTP API, RPC API".
+
+
+    Let me analyze the two documents:
+
+
+    **Document 0:**
+
+    - ID: 8183ad5d-d2c2-5c25-938e-376b38c4f288
+
+    - Type: note_chapter
+
+    - Variant: self.title+self.content+self.children'
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1769937455-yW2z1FafRIsgB23rQYcW
+run_id: 3a68f512-4242-4f3d-a49a-d20045caccd5
+timestamp: '2026-02-01T09:17:35Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    audio_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 105
+  input_audio_tokens: 0
+  input_tokens: 1811
+  output_audio_tokens: 0
+  output_tokens: 106

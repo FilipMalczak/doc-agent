@@ -1,0 +1,257 @@
+messages:
+- instructions: null
+  kind: request
+  parts:
+  - content: "<format>\n  <input>XML</input>\n  <output>structured tool call</output>\n\
+      </format>\n<formatting_rules>\n  <quotes>always use double quotes for strings,\
+      \ no matter the format</quotes>\n  <indentation>optional, recommended</indentation>\n\
+      \  <empty_values>omit, unless semantically important or required by schema</empty_values>\n\
+      \  <lists>\n    <markdown_bullet_points>hyphen-style</markdown_bullet_points>\n\
+      \    <yaml>hyphen-style</yaml>\n    <empty_lists>\n      <json>[]</json>\n \
+      \     <yaml>[]</yaml>\n      <markdown>- ... (single ellipsis-only hyphen-style\
+      \ item)</markdown>\n    </empty_lists>\n  </lists>\n  <multiline_text>\n   \
+      \ <yaml>Prefer `: |` style</yaml>\n  </multiline_text>\n</formatting_rules>\n\
+      <constraints>\n  <hallucinations>forbidden without exception</hallucinations>\n\
+      \  <invent_data>forbidden, unless explicitly asked to</invent_data>\n  <modify_content>only\
+      \ structure and wording, never meaning</modify_content>\n  <modify_formatting>allowed,\
+      \ as long as other constraints and rules satisfied</modify_formatting>\n  <match_output_schema>required\
+      \ if schema available</match_output_schema>\n  <match_output_format>required\
+      \ if `format.output` available</match_output_format>\n</constraints>\n<behaviour>\n\
+      \  <tool_calling>\n    <required>to indicate response</required>\n    <text_response>any\
+      \ assistant text message is forbidden (even empty one); only thinking and tool\
+      \ calls are allowed; thinking-only responses are forbidden</text_response>\n\
+      \  </tool_calling>\n  <result>you must emit a single `final_result` tool call;\
+      \ no other response (outside of thinking, but never only thinking) is allowed</result>\n\
+      \  <thinking>\n    <allowed>internal reasoning can be performed before producing\
+      \ any kind of input</allowed>\n    <forbidden>you cannot emit a message that\
+      \ consists only of thinking section; each response must include at least one\
+      \ tool call</forbidden>\n  </thinking>\n</behaviour>\n<persona>RAG helper specialised\
+      \ in reranking of documents</persona>\n<task>\n  <context>\n\nWe are retrieving\
+      \ indexed documents for RAG.\nWe retrieved candidates with redundancy, searching\
+      \ for different queries and getting results that require normalization.\nWe\
+      \ already performed deduplication.\nWe need to rescore them with more semantic\
+      \ approach than simple index search.\n\n  </context>\n  <high_level>Given a\
+      \ list of scored documents and a purpose for current search, provide updated\
+      \ scores of all the input documents.</high_level>\n  <perspective>\n    <role>\n\
+      \      <slug>enduser</slug>\n      <details>someone who uses the project we're\
+      \ working on to solve the problems or finish some tasks</details>\n    </role>\n\
+      \    <relationship_to_project>\n      <slug>user</slug>\n      <details>someone\
+      \ that can make use of features of this project, but is not working on this\
+      \ project directly</details>\n    </relationship_to_project>\n    <summary>...</summary>\n\
+      \  </perspective>\n  <low_level>\n\nYou will be given full content of the input\
+      \ documents, as well as their metadata and current score.\nInput score will\
+      \ always be in [0.0, 1.0] range.\nYou will use that knowledge to produce integer\
+      \ scores in 1-10 range.\nWhen coming up with updated scores, you will treat\
+      \ the content as the most important. All the metadata, including previous score,\
+      \ should have much lower priority, but otherwise uniform amongst available details.\n\
+      You will refer to the input documents by their item index.\nYou will provide\
+      \ updated score for each item. \nYou will emit an appropriate rescoring item\
+      \ for each input item. \nThere will be exactly one rescoring item for each input\
+      \ item. No input item will get duplicated or omitted.  \nYou will explain your\
+      \ choices, one at the time, referring to the input data and your inherent knowledge.\n\
+      \n  </low_level>\n  <detailed>\n\nWhen choosing the scores for the documents\
+      \ you will use 1-10 scale (without 0, all integers). \nThis output scale is\
+      \ different from the input one on purpose. \nDO NOT PRODUCE [0.0, 1.0] FLOAT\
+      \ SCORES.\nONLY produce integer scores in the 1-10 range.\n\nYou can use the\
+      \ following to get the gist of what does each value mean.\n\nFor example, if\
+      \ the purpose of the search is solving quantum physics problem, then the scores\
+      \ might be:\n- a daily newspaper -> 1\n- high-school physics book -> 3\n- university-level\
+      \ quantum physics book -> 7\n- scientific paper explicitly tackling the problem\
+      \ -> 10\n\n0 is NOT a valid score, which is why the daily newspaper is given\
+      \ score 1. \nDO NOT ever produce score of 0 or higher than 10. ONLY produce\
+      \ integer scores.\n\nIf not sure whether to choose a number or one bigger, pick\
+      \ the bigger value and explain your dillema.\n\n  </detailed>\n</task>"
+    dynamic_ref: null
+    part_kind: system-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  - content: "<purpose>Identify the value of 'interface_name' variable defined as\
+      \ 'the name of exposed interface, as suitable for headers and titles'</purpose>\n\
+      <documents>\n  <list>\n    <item index=\"0\">\n      <score>0.6849283576011658</score>\n\
+      \      <document>\n        <id>64fd344c-ac95-5031-8cee-6cc4acd8222d</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>4</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>095f7b0e-ac7f-5bd8-855e-b28f90bc3c9b</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The package is licensed\
+      \ under MIT in document with ID f9275b32-c38a-5f7e-b2c4-6196d2e25f73</content>\n\
+      \        <additional_details>None</additional_details>\n      </document>\n\
+      \    </item>\n    <item index=\"1\">\n      <score>0.6740169525146484</score>\n\
+      \      <document>\n        <id>a80d3383-2723-506d-ba14-a20b2a8af244</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>1</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>39602d80-9488-51ec-a2a3-435dd2f18296</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/__main__.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>c5dfb445-cc57-5e5c-a0af-d80e1427eb0d</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>The source file\
+      \ with ID 39602d80-9488-51ec-a2a3-435dd2f18296 serves a code purpose within\
+      \ the repository.</content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"2\">\n      <score>0.6694189310073853</score>\n\
+      \      <document>\n        <id>8183ad5d-d2c2-5c25-938e-376b38c4f288</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates></chapter_coordinates>\n          <variant>self.title+self.content+self.children[*].title</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>f9275b32-c38a-5f7e-b2c4-6196d2e25f73</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.cfg</path>\n         \
+      \     </details>\n            </item>\n            <item index=\"1\">\n    \
+      \          <subject>\n                <id>65b0cec1-ed49-50c5-997c-4640655a1c31</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## Project Overview\n\
+      ## Installation\n## Runtime Requirements\n## Usage\n## Additional Configuration\n\
+      ## Keywords & Topics\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"3\">\n      <score>0.6632878482341766</score>\n\
+      \      <document>\n        <id>b952386d-67dd-5ae6-ad78-83e24a74291d</id>\n \
+      \       <document_type>single_fact</document_type>\n        <details>\n    \
+      \      <fact_index>0</fact_index>\n          <include_explanation>False</include_explanation>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>17ae6927-bfa3-579e-8306-4465b7a352d8</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>setup.py</path>\n          \
+      \    </details>\n            </item>\n            <item index=\"1\">\n     \
+      \         <subject>\n                <id>ee205ace-fd3a-574e-9f08-918e3934c035</id>\n\
+      \                <document_type>facts</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>enduser</role>\n\
+      \                  <relationship_to_project>developer</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>There is one setup.py\
+      \ file in the project with ID 17ae6927-bfa3-579e-8306-4465b7a352d8.</content>\n\
+      \        <additional_details>None</additional_details>\n      </document>\n\
+      \    </item>\n    <item index=\"4\">\n      <score>0.6618920564651489</score>\n\
+      \      <document>\n        <id>53e370e8-8886-5783-9093-614a7b8415fc</id>\n \
+      \       <document_type>note_chapter</document_type>\n        <details>\n   \
+      \       <chapter_coordinates>4</chapter_coordinates>\n          <variant>ancestors[*].title+self.title+self.content</variant>\n\
+      \        </details>\n        <provenance>\n          <list>\n            <item\
+      \ index=\"0\">\n              <subject>\n                <id>cb702584-8007-568a-80b4-c4dbaa226784</id>\n\
+      \                <document_type>source_file</document_type>\n              </subject>\n\
+      \              <details>\n                <path>pip_outdated/print_outdated.py</path>\n\
+      \              </details>\n            </item>\n            <item index=\"1\"\
+      >\n              <subject>\n                <id>b7ee9abc-ca24-597e-af98-75c866d4e4f1</id>\n\
+      \                <document_type>note</document_type>\n              </subject>\n\
+      \              <details>\n                <perspective>\n                  <role>maintainer</role>\n\
+      \                  <relationship_to_project>user</relationship_to_project>\n\
+      \                </perspective>\n              </details>\n            </item>\n\
+      \          </list>\n        </provenance>\n        <content>\n## \U0001F4E6\u202F\
+      External Dependencies  \n\n- **`colorama`** \u2013 enables cross\u2011platform\
+      \ colour handling.  \n- **`termcolor`** \u2013 applies colour and text attributes\
+      \ to strings.  \n- **`terminaltables`** \u2013 renders the ASCII table (`AsciiTable`).\
+      \  \n\nThese packages must be listed as runtime dependencies for the project.\n\
+      \n---\n\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n    <item index=\"5\">\n      <score>0.8</score>\n\
+      \      <document>\n        <id>03dd3528-00c5-5b2a-b466-6786c3e16a30</id>\n \
+      \       <document_type>transient</document_type>\n        <details>\n      \
+      \  </details>\n        <provenance>\n          <list>\n          </list>\n \
+      \       </provenance>\n        <content>\n<fact>The value of variable `project_name`\
+      \ is 'pip-outdated</fact>\n<explanation>The project name 'pip-outdated' is explicitly\
+      \ stated in setup.cfg metadata (source file ID: f9275b32-c38a-5f7e-b2c4-6196d2e25f73)\
+      \ and confirmed by multiple facts documents. The highest scoring document (ID:15797ae6-05b1-57c1-9629-8e67b8dbbaed)\
+      \ directly states: 'The project name is pip-outdated'.</explanation>\n     \
+      \   </content>\n        <additional_details>None</additional_details>\n    \
+      \  </document>\n    </item>\n    <item index=\"6\">\n      <score>0.8</score>\n\
+      \      <document>\n        <id>3bd4bcbe-4641-52e4-ae62-3a9549c8da58</id>\n \
+      \       <document_type>transient</document_type>\n        <details>\n      \
+      \  </details>\n        <provenance>\n          <list>\n          </list>\n \
+      \       </provenance>\n        <content>\n<fact>The value of variable `project_name`\
+      \ as defined as 'current project name' is 'pip-outdated</fact>\n<explanation>The\
+      \ project name 'pip-outdated' is explicitly stated in setup.cfg metadata (source\
+      \ file ID: f9275b32-c38a-5f7e-b2c4-6196d2e25f73) and confirmed by multiple facts\
+      \ documents. The highest scoring document (ID:15797ae6-05b1-57c1-9629-8e67b8dbbaed)\
+      \ directly states: 'The project name is pip-outdated'.</explanation>\n     \
+      \   </content>\n        <additional_details>None</additional_details>\n    \
+      \  </document>\n    </item>\n    <item index=\"7\">\n      <score>0.8</score>\n\
+      \      <document>\n        <id>7e308a88-88ad-5d6b-8605-99c93bfab320</id>\n \
+      \       <document_type>transient</document_type>\n        <details>\n      \
+      \  </details>\n        <provenance>\n          <list>\n          </list>\n \
+      \       </provenance>\n        <content>\n<fact>The answer to 'Is there one\
+      \ or more interfaces exposed by this project? Non-exhaustive list of examples\
+      \ of interfaces is: CLI, HTTP API, RPC API.' is 'there is exactly one interface\
+      \ exposed by this project</fact>\n<explanation>there is exactly one interface\
+      \ exposed by this project</explanation>\n        </content>\n        <additional_details>None</additional_details>\n\
+      \      </document>\n    </item>\n  </list>\n</documents>\n<additional_instructions></additional_instructions>"
+    part_kind: user-prompt
+    timestamp: '1970-01-01T00:00:00Z'
+  run_id: 9063c696-c25f-11f0-8000-f020ff65b25b
+model_request_parameters:
+  allow_image_output: false
+  allow_text_output: true
+  builtin_tools: []
+  function_tools: []
+  output_mode: auto
+  output_object:
+    description: null
+    json_schema:
+      $defs:
+        RerankedItem:
+          additionalProperties: false
+          properties:
+            document_index:
+              type: integer
+            explanation:
+              type: string
+            new_score:
+              type: integer
+          required:
+          - document_index
+          - new_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - response
+      type: object
+    name: list
+    strict: null
+  output_tools:
+  - description: The final response which ends this conversation
+    kind: output
+    metadata: null
+    name: final_result
+    outer_typed_dict_key: response
+    parameters_json_schema:
+      $defs:
+        RerankedItem:
+          additionalProperties: false
+          properties:
+            document_index:
+              type: integer
+            explanation:
+              type: string
+            new_score:
+              type: integer
+          required:
+          - document_index
+          - new_score
+          - explanation
+          type: object
+      properties:
+        response:
+          items:
+            $ref: '#/$defs/RerankedItem'
+          type: array
+      required:
+      - response
+      type: object
+    sequential: false
+    strict: null
+  prompted_output_template: null

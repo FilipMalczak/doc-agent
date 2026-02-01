@@ -1,0 +1,30 @@
+finish_reason: stop
+kind: response
+model_name: deepseek/deepseek-r1-0528
+parts:
+- args: "{      \"purpose\": \"determine if project exposes interfaces such as CLI,\
+    \ HTTP API, RPC API\",\n      \"queries\": [\"exposed interfaces\", \"CLI\", \"\
+    HTTP API\", \"RPC API\", \"command line interface\", \"interfaces\"]\n    }\n\
+    \  "
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-e15a87ace6da4feea331c25d7d9886e6
+  tool_name: search_knowledge_base
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1769937438-xmRnK1StoKSeavQhOr8J
+run_id: 1a2db166-6bde-4e4c-9337-c12a2ff966bc
+timestamp: '2026-02-01T09:17:18Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    audio_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 2786
+  output_audio_tokens: 0
+  output_tokens: 80
