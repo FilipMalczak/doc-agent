@@ -1,0 +1,31 @@
+finish_reason: stop
+kind: response
+model_name: deepseek/deepseek-r1-0528
+parts:
+- args: "{      \"purpose\": \"To determine the interfaces exposed by the project\"\
+    ,\n      \"queries\": [\n        \"interfaces provided by the project\",\n   \
+    \     \"exposed interfaces\",\n        \"CLI in the project\",\n        \"HTTP\
+    \ API in the project\",\n        \"RPC API in the project\"\n      ]\n    }\n\
+    \  "
+  id: null
+  part_kind: tool-call
+  tool_call_id: chatcmpl-tool-5a99760c19bd4a199d27fb33b9b6a425
+  tool_name: search_knowledge_base
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1769947845-GjErUqOHYIIUWLoP8Wlv
+run_id: c95759b2-b28a-4058-ad7f-704854e1d873
+timestamp: '2026-02-01T12:10:45Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 0
+  cache_write_tokens: 0
+  details:
+    audio_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 0
+  input_audio_tokens: 0
+  input_tokens: 2786
+  output_audio_tokens: 0
+  output_tokens: 88

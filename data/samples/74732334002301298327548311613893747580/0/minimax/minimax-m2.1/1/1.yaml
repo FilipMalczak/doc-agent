@@ -1,0 +1,31 @@
+finish_reason: stop
+kind: response
+model_name: minimax/minimax-m2.1
+parts:
+- content: "The user is asking me to deduplicate a list of document variants. Let\
+    \ me analyze the input:\n\n1. **Purpose**: \"To determine the interfaces exposed\
+    \ by the project\"\n\n2. **Documents**: There are 4 documents, all with the same\
+    \ provenance (same source_file and note), but different chapter coordinates and\
+    \ variants:\n   - Document 0: \"self.title+self.content+self.children"
+  id: reasoning
+  part_kind: thinking
+  provider_name: openrouter
+  signature: null
+provider_details:
+  finish_reason: stop
+provider_name: openrouter
+provider_response_id: gen-1769947874-nLqpDJAsem0cuvZIIqnI
+run_id: bf5d6523-7a98-4cec-867b-265bcd96d078
+timestamp: '2026-02-01T12:11:14Z'
+usage:
+  cache_audio_read_tokens: 0
+  cache_read_tokens: 1055
+  cache_write_tokens: 0
+  details:
+    audio_tokens: 0
+    is_byok: 0
+    reasoning_tokens: 95
+  input_audio_tokens: 0
+  input_tokens: 2419
+  output_audio_tokens: 0
+  output_tokens: 871
