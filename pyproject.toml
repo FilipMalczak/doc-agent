@@ -10,6 +10,7 @@ dependencies = [
     "faiss-cpu>=1.13.0",
     #    "langwatch>=0.7.0",
     "genai-prices>=0.0.39",
+    "lmxml>=0.1.0",
     "logfire[system-metrics]>=4.14.2",
     "namesgenerator>=0.3",
     "numpy>=2.3.5",

@@ -10,7 +10,7 @@ from pydantic_ai.models import Model
 from docassist.config import CONFIG
 from docassist.models import CapabilityRequirements, Level
 from docassist.sampling.protocols import SamplingController
-from docassist.simple_xml import to_simple_xml
+import lmxml
 from docassist.system_prompts import PromptingTask, writer_system_prompt, doer_system_prompt, \
     solver_system_prompt, Perspective, Example
 from docassist.tool_exceptions import AgentDoesntKnow, EmptyResult
@@ -55,14 +55,14 @@ async def call_agent[I, O: BaseModel, D](
         if isinstance(input, str):
             user_prompt = input
         elif isinstance(input, BaseModel):
-            user_prompt = to_simple_xml(
+            user_prompt = lmxml.dumps(
                 input.model_dump(mode="json") #fixme this might not be BaseModel!;
                                               # see system_prompts.Example.to_prompt_dict._dump,
                                               # it could become an overlay over pydantic
             )
         else:
             adapter = TypeAdapter(type(input))
-            user_prompt = to_simple_xml(
+            user_prompt = lmxml.dumps(
                 adapter.dump_python(input, mode="json")
             )
 
@@ -128,7 +128,7 @@ class StructuredAgent[I, O]:
             output_type=output_type,
             retries=5,
             # output_retries=5,
-            system_prompt=to_simple_xml(system_prompt)
+            system_prompt=lmxml.dumps(system_prompt)
         )
 
     def _required_capabilities(self, allow_empty: bool, allow_dont_know: bool) -> CapabilityRequirements:

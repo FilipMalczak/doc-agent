@@ -3,11 +3,11 @@ from typing import Any
 
 from pydantic import TypeAdapter
 
-from docassist.simple_xml import to_simple_xml
+import lmxml
 
 
 def data_from_user(d: dict[str, Any]) -> str:
-    return to_simple_xml(d)
+    return lmxml.dumps(d)
 
 def object_from_user[T](o: T) -> str:
     adapter = TypeAdapter(type(o))

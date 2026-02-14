@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 from docassist.index.document import Document
 from docassist.preindexing.agents.facts_from_file import Fact
-from docassist.simple_xml import to_simple_xml
+import lmxml
 
 
 class VariableValuation(BaseModel):
@@ -61,7 +61,7 @@ class MaterializationState:
 
     def fact_docs(self) -> list[Document]:
         return [
-            Document.transient(to_simple_xml(f.model_dump(mode="json")))
+            Document.transient(lmxml.dumps(f.model_dump(mode="json")))
             for f in self.facts
         ]
 

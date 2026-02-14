@@ -3,7 +3,7 @@ from uuid import uuid4
 
 from pydantic import BaseModel, TypeAdapter, Field, AliasChoices
 
-from docassist.simple_xml import to_simple_xml
+import lmxml
 from docassist.system_prompts import PromptingTask
 
 #fixme get rid of named tuples, make everything BaseModels!!!
@@ -18,7 +18,7 @@ class MaterializationAideInput[I](BaseModel):
         }
 
     def message_content(self) -> str:
-        return to_simple_xml(self.to_prompt_dict())
+        return lmxml.dumps(self.to_prompt_dict())
 
 class EvaluateVariableInput(BaseModel):
     problem: str
