@@ -108,3 +108,9 @@ I didn't write the spec well enough, ditto prompts (to list only a few factors).
 - knowing what I know, I would go with different architecture, that allows agents to explore more liberally, instead
   of handcrafting the behaviour graphs
 - models I picked were probably too small and not capable enough to come up with high-level concepts (like project use cases)
+
+## Running
+
+1. copy `./.env.template` to `./.env` and fill in the OpenRouter API key
+2. clone repos you wanna work on and update [subjects.py](docassist/subjects.py) and [Config.repos](docassist/config.py) accordingly 
+3. Execute `uv run python -m docassist.__main__` (I know, I know, ugly, but I cared about other stuff more)
